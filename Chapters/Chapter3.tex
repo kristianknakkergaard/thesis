@@ -8,7 +8,7 @@
 
 %----------------------------------------------------------------------------------------
 In this chapter we derive the induced interaction between the fermions on the wire. First stop is to look at the effective interaction between the fermions on the wire and the bosons in the cloud.
-\section{The effective interaction}
+\section{The effective Bose-Fermi interaction}
 The effective interaction between the fermions (F) and the bosons (B) is modelled by a delta function potential with strength $g$: $V(\mathbf{r})=g\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the effective pair interaction reads:
 \begin{equation}
 H_{BF}^\text{int}  = \int d^3 r d^3 r' \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})V(\mathbf{r}-\mathbf{r}')\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}) = g\int d^3 r \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}),
@@ -17,12 +17,10 @@ where $\hat{\psi}_i(\mathbf{r})$ is the field operator for the $i$-particles, an
 \begin{equation}
 \psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \phi_0(\mathbf{r}_\perp) f_p, \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}. 
 \end{equation}   
-
 This means, that we expand the fields in plane wave states. $b_\mathbf{k}$ and $f_p$ denote respectively bosonic and fermionic annihilation operators with momentum $\mathbf{k}$ and $p$.  By inserting this into $H_\text{int}$ we get:
 \begin{equation}
 H_{BF}^\text{int} = \frac{g}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2} f_{p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}f_{p_2}.
 \end{equation}
-
 Here  $p_1,p_2,q$ is in the $x$ direction, along the wire, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to the wire. A relatively obvious thing one might do now, is to take the limit $\omega_t \to \infty$ or equivalently $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite. This interaction Hamiltonian shows, that the pair interaction between the fermions and bosons are associated with a factor $g\; \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2}$, the transverse momenta being free. 
 
 \section{The 1D-3D induced interaction}
@@ -144,7 +142,6 @@ Notice, that the bosons of the BEC, shown with dashed lines, carry a factor of $
 \begin{equation}
 G_{11}(\mathbf{k},i\omega_m) = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}^2}{i\omega_m+E_{B,k}}, \hspace{0.5cm} G_{12}(\mathbf{k},i\omega_m) = \frac{u_{B,k}v_{B,k}}{i\omega_m+E_{B,k}}-\frac{u_{B,k}v_{B,k}}{i\omega_m-E_{B,k}}.
 \end{equation}
-
 Here $u_{B,k}$ and $v_{B,k}$ are the BEC coherence factors found in subsection \ref{sec.BEC} with $m_B$ the mass of the bosons. Further $\xi_{B,k} = \frac{k^2}{2m_B}+n_0U_0$, $U_0 = \frac{4\pi a_B}{m_B}$, with $a_B$ the scattering length in the BEC. Finally $E_{B,k}^2 = \xi_{B,k}^2-(n_0U_0)^2$ is the BEC Bogoliubov spectrum.
 
 Since the perpendicular momentum $\mathbf{k}_\perp$ is completely free we have to integrate over this. Since the momentum of the incoming and outgoing boson in each diagram is 0 we simply get a factor of $g\; \text{e}^{-\frac{l_t^2}{4}k_\perp^2}$ \textit{twice}. Collecting all terms gives us the four contributions from the four diagrams (1)-(4) to the fermion-fermion induced interaction $V_{FF}^\text{ind}$: 
@@ -154,45 +151,37 @@ V_{FF,2}^\text{ind}(q,i\omega_q) &= n_0g^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{11}(
 V_{FF,3}^\text{ind}(q,i\omega_q) &= n_0g^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{12}(q,\mathbf{k}_\perp,\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, \nonumber \\
 V_{FF,4}^\text{ind}(q,i\omega_q) &= n_0g^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{12}(q,\mathbf{k}_\perp,\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}. 
 \end{align}
-
 The last two we see, give the same contribution in this weak interacting limit.\footnote{This would \textit{not} be the case, when including higher order terms.} Summing up the four contributions gives us the frequency dependent induced interaction $V_{FF}^\text{ind}$:
 \begin{equation}
 V_{FF}^\text{ind}(q,i\omega_q) = g^2\int\frac{d^2k_\perp}{(2\pi)^2}\chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
 \label{eq.VFFindXBEC}
 \end{equation}
-
 with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_0}{(i\omega_q)^2-E_{B,k}^2}$ being the exact density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$. For $l_t\to 0$ the above has an integrand of the form $k^2/(a+bk^4+ck^2)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. The physical meaning of this, I will return to later. Let us now look at the zero frequency component $V_{FF}^\text{ind}(q,0)$. In this situation we can write the result in the following two equivalent ways. The most operative is an integral representation:
 \begin{equation}
 V_{FF}^\text{ind}(q,0) = -\frac{m_Bg^2n_0}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right),
 \label{eq.VFF(q,0)}
 \end{equation}
-
 where $\frac{1}{\xi^2} = 2m_Bn_0U_0$ is the BEC healing length. An alternate form is $V_{FF}^\text{ind}(q,0) = -\frac{m_Bg^2n_0}{\pi} \text{e}^{F(q)} E_1(F(q))$, where $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $V_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} and after some algebra we obtain:
 \begin{equation}
 V_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
 \end{equation}
-
 Firstly we notice, that since $F(q)$ is even in $q$ the $\text{e}^{iqx}$ can be replaced by $\cos(qx)$. This shows, that the induced interaction is even in $x$ and we can restrict ourselves to positive $x$. Secondly when we think of $q$ as a complex variable we see, that  we can make a half-circle contour $\mathcal{C}$ in the upper complex half plane. Since $x>0$ the integrand goes exponentially fast to 0 at the circle boundary, and we therefore get:
 \begin{equation}
 \int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)} = \int_\mathcal{C} dq  \frac{\text{e}^{iqx}}{v+F(q)}. \nonumber
 \end{equation}
-
 This integral is solvable using Cauchy's residue theorem. Calculating the residue, plugging this into the $v$-integral, using that $V_{FF}^\text{ind}(x,0)$ is even in $x$ and doing some algebra leads us to the following form:
 \begin{equation}
 V_{FF}^\text{ind}(x,0) = -\frac{\sqrt{2}m_Bg^2n_0}{\pi l_t}\text{e}^{\frac{l_t^2}{\xi^2}+\frac{x^2}{2l_t^2}}\int_{\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}}^\infty du \; \text{e}^{-u^2}. \nonumber
 \end{equation}
-
 Finally recognizing the last part as proportional to the complementary error function, we arrive at the result:
 \begin{equation}
 V_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
 \end{equation}
-
 Notice, that there are \textit{two} relevant length scales: the healing length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
 \begin{equation}
 V_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg^2n_0}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_asymp}
 \end{equation}
-
 For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $V_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $V_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. Further in figure \ref{fig.Vx_disc} the range around $x=0$ where $V_{FF}^\text{ind}(x,0)$ differs with more than $5\%$ from the asymptotic Yukawa potential is plotted. As expected this distance $d$ increases monotonically with $l_t$. The behaviour for small values of $\frac{d}{\xi}$ can be understood by expanding the fraction $V_{FF}^\text{ind}(d,0)/V_{FF}^\text{ind,\text{asymp}}(d,0)$. This can be done, since we notice from the numerical solution, that $\frac{d}{l_t}$ is large compared to $\frac{l_t}{\xi}$, leading to an asymptotic form $d = \frac{l_t}{\sqrt{r}}$, where $r=0.05$ is the allowed discrepancy. This tells us that for small values of $l_t$ the range of significant difference $d$ is the same order of magnitude as $l_t$, as one might expect. The behaviour for large values of $\frac{d}{\xi}$ is parabolic and is shown in magenta in the plot.  
 
 Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space diverges. We see a high degree of agreement with the expected logarithmic divergence $\propto \ln\left(\frac{l_t}{\xi}\right)$. 
@@ -229,45 +218,106 @@ Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space dive
 \end{center}    
 \end{figure}
 
-
 \subsection{The Matsubara sum}
 The Feynman rules for pair interactions between fermions tell us, that we eventually need to perform the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}$ over the interaction. This means, that we might as well calculate the sum:
 \begin{equation}
 V^\text{ind}_{FF}(q) = \frac{1}{\beta\mathcal{L}}\sum_{i\omega_q} V^\text{ind}_{FF}(q,i\omega_q).
+\label{eq.VFFqdef}
 \end{equation}  
-
 This subsection is devoted to this task. First let us write up $V^\text{ind}_{FF}(q,i\omega_q)$. It is possible to rewrite the integral in \eqref{eq.VFFindXBEC} in the following manner:
 \begin{equation}
 V^\text{ind}_{FF}(q,i\omega_q) = \frac{g^2n_0}{2\pi l_t^2}\int_0^\infty du \left(\frac{u+F(q)-\left(l_t/\xi\right)^2}{u+F(q)}\right)^{\frac{1}{2}}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]\text{e}^{-u},
 \label{eq.VFFindomega}
 \end{equation}
-
 with: 
 \begin{equation}
 R(u,q) = \frac{1}{m_B l_t^2}\left[\left(u+F(q)-\left(l_t/\xi\right)^2\right)\left(u+F(q)\right)\right]^{\frac{1}{2}}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)
 \label{eq.Ruq}
 \end{equation}
-
 Where $F(q)$ is of course the same function as the one defined in equation \eqref{eq.VFF(q,0)}. This reduces the problem to performing the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]$. As described in section 10.4.1 in \cite{BruusFlensberg} there is a general technique to calculate such a sum, which I will now shortly review. Let $g_0(z)$ be a function with a number of known simple poles, none of these being the fermionic Matsubara frequencies. In our specific example $g_0$ is the function in square brackets with $i\omega_q$ substituted by $z$. Let us then consider the sum:
 \begin{equation}
 S^F_0(\tau) = \frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m)\text{e}^{i\omega_m\tau}. \nonumber
 \end{equation}
-
 With $0<\tau<\beta$. The idea now is to use, that the poles of the Fermi distribution function $f(z) = \frac{1}{\text{e}^{\beta z}+1}$ are exactly the fermionic Matsubara frequencies $\omega_m = (2m+1)\pi /\beta$. We then look at the contour integral $ \int_\mathcal{C} \frac{dz}{2\pi i} f(z)g_0(z)\text{e}^{z\tau}$, where $\mathcal{C}$ is a contour with radius $R$ which we let go to infinity. From the form of the integrand it is evident, that it goes exponentially fast to 0 at the boundary, and hence the entire integral vanishes. Further by Cauchy's residue theorem the integral is the sum of the residues of the integrand. Hence:
 \begin{equation}
 0 = \int_\mathcal{C} \frac{dz}{2\pi i} f(z)g_0(z)\text{e}^{z\tau} = \sum_j \underset{z=z_j}{\text{Res}}[f(z)g_0(z)\text{e}^{z\tau}], \nonumber
 \end{equation}
-
 where $z_j$ are the poles of the function in square brackets. The poles of the Fermi distribution is as mentioned the Matsubara frequencies, and all of these have residues $-1/\beta$. Since $g_0$ does not have these as poles, we get that:
 \begin{equation}
 0 = \sum_j \underset{z=z_j}{\text{Res}}[f(z)g_0(z)\text{e}^{z\tau}] = -\frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m)\text{e}^{i\omega_m\tau} + \sum_j \underset{z=z_j}{\text{Res}}[g_0(z)]f(z_j)\text{e}^{z_j\tau}. \nonumber
 \end{equation}
-
 Finally taking the limit $\tau \to 0$ we get that:
 \begin{equation}
 S^F_0(0)=\frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m) = \sum_j \underset{z=z_j}{\text{Res}}[g_0(z)]f(z_j).
 \label{eq.FermionMatsubaraSum}
 \end{equation}
+This enables us to calculate the sum for $g_0(z) = \frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}$. The residues are just $\pm 1$, and so we get:
+\begin{equation}
+\frac{1}{\beta}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right] = f(R(u,q))-f(-R(u,q)) = -\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}. \nonumber
+\end{equation}
+This, together with the factor of $1\mathcal{L}$, is inserted into the integral expression, and we arrive at the final result:
+\begin{equation}
+V^\text{ind}_{FF}(q) = -\frac{g^2n_0}{2\pi l_t^2\mathcal{L}}\int_0^\infty du \left(\frac{u+F(q)-\left(l_t/\xi\right)^2}{u+F(q)}\right)^{\frac{1}{2}}\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}
+\text{e}^{-u}
+\label{eq.VFFq}
+\end{equation}
+We notice, that since $\text{e}^{\beta R(u,q)} > 1$, $V^\text{ind}_{FF}(q)$ is explicitly negative. Now we are finally ready to look at the resulting Hamiltonian for the fermions. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Kitaev Hamiltonian}
+In this section we will finally arrive at the promised Kitaev Hamiltonian promised in chapter \ref{Chapter2}. We start by calculating the pair interaction Hamiltonian for the fermions in subsection \ref{subsec.HFFint}. This is then inserted into the full Hamiltonian in subsection \ref{subsec.HFFfull}.
+
+\subsection{The fermion-fermion interaction Hamiltonian} \label{subsec.HFFint}
+
+We start out in real space. The interaction Hamiltonian for pair interactions is given by:
+\begin{equation}
+H^\text{int}_{FF} = \int dxdx' \hat{\psi}^\dagger_F(x)\hat{\psi}^\dagger_F(x')V^\text{ind}_{FF}(x'-x) \hat{\psi}_F(x') \hat{\psi}_F(x).
+\label{eq.HFFintdef}
+\end{equation}
+Here the induced interaction in real space is achieved by a Fourier transform: $V^\text{ind}_{FF}(x'-x) = \int dq \text{e}^{-iq(x'-x)} V^\text{ind}_{FF}(q)$, with $V^\text{ind}_{FF}(q)$ written in equation \eqref{eq.VFFq} above. Further we make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write
+\begin{equation}
+\hat{\psi}_F(x') \hat{\psi}_F(x) = \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \left(\hat{\psi}_F(x') \hat{\psi}_F(x)-\langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \right) = \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + A_F(x',x)
+\end{equation}
+and treat the last part $A_F$ as a small quantity. The meaning of this will become clearer later on. The mean in the end has to be taken with respect to the specific state of the system, we will also see how this plays out later on. We now only keep terms of $A_F$ and $A^\dagger_F$ up to first order, so that we get the following three terms for the interaction Hamiltonian:\footnote{Formally we are decoupling the Hamiltonian, so that it so no longer really describing any interaction.}
+\begin{align}
+H^\text{int}_{FF} = &\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle V^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
+&\int dxdx' A^\dagger_F(x,x') V^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
+&\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle V^\text{ind}_{FF}(x'-x) A_F(x',x). \nonumber
+\end{align} 
+To get back to momentum space we expand the field operators in terms of plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} f_k$, where as usual $f_k$ is the fermion annihilation operator. Further we assume, that only states belonging to opposite momenta couples.\footnote{At least they are assumed to be absolutely dominant.} This means, that $f_kf_{k'} = f_kf_{k'}\delta_{k,-k'}$, which is the usual BCS assumption. With this, we get the following expression:
+\begin{align}
+\hat{\psi}_F(x') \hat{\psi}_F(x) &= \frac{1}{\mathcal{L}}\sum_{k} \text{e}^{ik(x-x')}f_kf_{-k} = \frac{1}{2\mathcal{L}}\sum_{k} \left(\text{e}^{ik(x-x')}f_{k}f_{-k}+\text{e}^{-ik(x-x')}f_{-k}f_{k}\right) \nonumber \\
+&= \frac{i}{\mathcal{L}}\sum_{k} \sin(k(x-x'))f_{k}f_{-k}, 
+\end{align}
+where we in the last equality used, that the operators anticommute. Let us plug this into the first term of the interaction Hamiltonian to see how it plays out: 
+\begin{align}
+H^\text{int}_{FF,1} &= \int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle V^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \nonumber \\
+&= - \frac{1}{\mathcal{L}^2}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int dx dx' \sin(k(x'-x))\sin(k'(x'-x))V^\text{ind}_{FF}(x'-x) \nonumber \\
+&= - \sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int \frac{du}{\mathcal{L}} \sin(ku)\sin(k'u)V^\text{ind}_{FF}(u) \nonumber \\
+&= - \sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k')
+\end{align}
+where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$ and where we have defined the coupling potential $\tilde{V}^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
+\begin{align}
+H^\text{int}_{FF,2} &= - \sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \langle f^\dagger_k f^\dagger_{-k}\rangle\right)\langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber \\
+H^\text{int}_{FF,3} &= - \sum_{k,k'}\left(f_k f_{-k} - \langle f_k f_{-k}\rangle\right)\langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber
+\end{align}
+Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can actually be expressed very simply in terms of the induced interactions calculated above:
+\begin{equation}
+\tilde{V}^\text{ind}_{FF}(k,k') = \frac{1}{2\mathcal{L}}\left[ V^\text{ind}_{FF}(k-k') - V^\text{ind}_{FF}(k+k')  \right].
+\end{equation}
+Since $V^\text{ind}_FF(q)$ only depends on $q^2$, we get the following important properties of our coupling potential: 
+\begin{align}
+\tilde{V}^\text{ind}_{FF}(k,k') &= \tilde{V}^\text{ind}_{FF}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
+\tilde{V}^\text{ind}_{FF}(-k,k') &= -\tilde{V}^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Uneven in single argument}, \nonumber \\
+\tilde{V}^\text{ind}_{FF}(-k,-k') &= \tilde{V}^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Even in double argument}.
+\end{align}
+These symmmetries will be important later on. Finally adding them all up yields: 
+\begin{equation}
+H^\text{ind}_{FF} = -\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f_{k'}f_{-k'} \rangle f^\dagger_k f^\dagger_{-k} + \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle f_k f_{-k} - \langle f_{k}f_{-k} \rangle  \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right] 
+\end{equation}
+
+
+\subsection{The full fermion-fermion Hamiltonian} \label{subsec.HFFfull}
 
 
