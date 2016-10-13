@@ -1,15 +1,15 @@
 % Chapter 3
 
-\chapter{The Induced Interaction} % Main chapter title
+\chapter{The induced interaction} % Main chapter title
 
-\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
-\lhead{Chapter 3. \emph{Induced Interaction}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 3. \emph{Induced interaction}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we derive the induced interaction between the fermions on the wire. First stop is to look at the bare interaction between the fermions on the wire and the bosons in the cloud.
-\section{The Bare Interaction}
-The bare interaction between the fermions (F) and the bosons (B) is modelled by a delta function potential with strength $g$: $V(\mathbf{r})=g\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the bare pair interaction reads:
+In this chapter we derive the induced interaction between the fermions on the wire. First stop is to look at the effective interaction between the fermions on the wire and the bosons in the cloud.
+\section{The effective interaction}
+The effective interaction between the fermions (F) and the bosons (B) is modelled by a delta function potential with strength $g$: $V(\mathbf{r})=g\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the effective pair interaction reads:
 \begin{equation}
 H_{BF}^\text{int}  = \int d^3 r d^3 r' \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})V(\mathbf{r}-\mathbf{r}')\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}) = g\int d^3 r \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}),
 \end{equation}
@@ -26,7 +26,8 @@ H_{BF}^\text{int} = \frac{g}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp
 Here  $p_1,p_2,q$ is in the $x$ direction, along the wire, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to the wire. A relatively obvious thing one might do now, is to take the limit $\omega_t \to \infty$ or equivalently $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite. This interaction Hamiltonian shows, that the pair interaction between the fermions and bosons are associated with a factor $g\; \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2}$, the transverse momenta being free. 
 
 \section{The 1D-3D induced interaction}
-The bosons in the cloud are assumed to be in a perfect Bose-Einstein Condensate (BEC). This means, that the bosons are essentially lying still.\footnote{There is a small fraction in nonzero momenta states, but these are not considered.}  We are further only interested in the weak coupling limit. This means, that we treat $g$ as a small parameter, the meaning of this to be specified later. In a more general setup, one would have to calculate contributions from increasing orders in the bare interaction leading to a socalled $T$-matrix. It follows, that the four essential diagrams of the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
+\subsection{The Matsubara frequency dependent induced interaction}
+The bosons in the cloud are assumed to be in a perfect Bose-Einstein Condensate (BEC). This means, that the bosons are essentially lying still.\footnote{There is a small fraction in nonzero momenta states, but these are not considered.}  We are further only interested in the weak coupling limit. This means, that we treat $g$ as a small parameter, the meaning of this to be specified later. In a more general setup, one would have to calculate contributions from increasing orders in the underlying bare interaction leading to a socalled $T$-matrix, but this will not be pursued here. It follows from the smallness of $g$, that the four essential diagrams for the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
 
 \begin{figure}
 \begin{tikzpicture}[scale=0.25]
@@ -154,9 +155,10 @@ V_{FF,3}^\text{ind}(q,i\omega_q) &= n_0g^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{12}(
 V_{FF,4}^\text{ind}(q,i\omega_q) &= n_0g^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{12}(q,\mathbf{k}_\perp,\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}. 
 \end{align}
 
-The last two we see, give the same contribution in this weak interacting limit.\footnote{This would \textit{not} be the case, when including higher order terms.} Summing up the four contributions gives us the induced interaction $V_{FF}^\text{ind}$:
+The last two we see, give the same contribution in this weak interacting limit.\footnote{This would \textit{not} be the case, when including higher order terms.} Summing up the four contributions gives us the frequency dependent induced interaction $V_{FF}^\text{ind}$:
 \begin{equation}
 V_{FF}^\text{ind}(q,i\omega_q) = g^2\int\frac{d^2k_\perp}{(2\pi)^2}\chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
+\label{eq.VFFindXBEC}
 \end{equation}
 
 with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_0}{(i\omega_q)^2-E_{B,k}^2}$ being the exact density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$. For $l_t\to 0$ the above has an integrand of the form $k^2/(a+bk^4+ck^2)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. The physical meaning of this, I will return to later. Let us now look at the zero frequency component $V_{FF}^\text{ind}(q,0)$. In this situation we can write the result in the following two equivalent ways. The most operative is an integral representation:
@@ -179,10 +181,12 @@ This integral is solvable using Cauchy's residue theorem. Calculating the residu
 \begin{equation}
 V_{FF}^\text{ind}(x,0) = -\frac{\sqrt{2}m_Bg^2n_0}{\pi l_t}\text{e}^{\frac{l_t^2}{\xi^2}+\frac{x^2}{2l_t^2}}\int_{\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}}^\infty du \; \text{e}^{-u^2}. \nonumber
 \end{equation}
+
 Finally recognizing the last part as proportional to the complementary error function, we arrive at the result:
 \begin{equation}
 V_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
 \end{equation}
+
 Notice, that there are \textit{two} relevant length scales: the healing length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
 \begin{equation}
 V_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg^2n_0}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
@@ -224,5 +228,46 @@ Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space dive
 \label{fig.Vx_disc}  
 \end{center}    
 \end{figure}
+
+
+\subsection{The Matsubara sum}
+The Feynman rules for pair interactions between fermions tell us, that we eventually need to perform the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}$ over the interaction. This means, that we might as well calculate the sum:
+\begin{equation}
+V^\text{ind}_{FF}(q) = \frac{1}{\beta\mathcal{L}}\sum_{i\omega_q} V^\text{ind}_{FF}(q,i\omega_q).
+\end{equation}  
+
+This subsection is devoted to this task. First let us write up $V^\text{ind}_{FF}(q,i\omega_q)$. It is possible to rewrite the integral in \eqref{eq.VFFindXBEC} in the following manner:
+\begin{equation}
+V^\text{ind}_{FF}(q,i\omega_q) = \frac{g^2n_0}{2\pi l_t^2}\int_0^\infty du \left(\frac{u+F(q)-\left(l_t/\xi\right)^2}{u+F(q)}\right)^{\frac{1}{2}}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]\text{e}^{-u},
+\label{eq.VFFindomega}
+\end{equation}
+
+with: 
+\begin{equation}
+R(u,q) = \frac{1}{m_B l_t^2}\left[\left(u+F(q)-\left(l_t/\xi\right)^2\right)\left(u+F(q)\right)\right]^{\frac{1}{2}}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)
+\label{eq.Ruq}
+\end{equation}
+
+Where $F(q)$ is of course the same function as the one defined in equation \eqref{eq.VFF(q,0)}. This reduces the problem to performing the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]$. As described in section 10.4.1 in \cite{BruusFlensberg} there is a general technique to calculate such a sum, which I will now shortly review. Let $g_0(z)$ be a function with a number of known simple poles, none of these being the fermionic Matsubara frequencies. In our specific example $g_0$ is the function in square brackets with $i\omega_q$ substituted by $z$. Let us then consider the sum:
+\begin{equation}
+S^F_0(\tau) = \frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m)\text{e}^{i\omega_m\tau}. \nonumber
+\end{equation}
+
+With $0<\tau<\beta$. The idea now is to use, that the poles of the Fermi distribution function $f(z) = \frac{1}{\text{e}^{\beta z}+1}$ are exactly the fermionic Matsubara frequencies $\omega_m = (2m+1)\pi /\beta$. We then look at the contour integral $ \int_\mathcal{C} \frac{dz}{2\pi i} f(z)g_0(z)\text{e}^{z\tau}$, where $\mathcal{C}$ is a contour with radius $R$ which we let go to infinity. From the form of the integrand it is evident, that it goes exponentially fast to 0 at the boundary, and hence the entire integral vanishes. Further by Cauchy's residue theorem the integral is the sum of the residues of the integrand. Hence:
+\begin{equation}
+0 = \int_\mathcal{C} \frac{dz}{2\pi i} f(z)g_0(z)\text{e}^{z\tau} = \sum_j \underset{z=z_j}{\text{Res}}[f(z)g_0(z)\text{e}^{z\tau}], \nonumber
+\end{equation}
+
+where $z_j$ are the poles of the function in square brackets. The poles of the Fermi distribution is as mentioned the Matsubara frequencies, and all of these have residues $-1/\beta$. Since $g_0$ does not have these as poles, we get that:
+\begin{equation}
+0 = \sum_j \underset{z=z_j}{\text{Res}}[f(z)g_0(z)\text{e}^{z\tau}] = -\frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m)\text{e}^{i\omega_m\tau} + \sum_j \underset{z=z_j}{\text{Res}}[g_0(z)]f(z_j)\text{e}^{z_j\tau}. \nonumber
+\end{equation}
+
+Finally taking the limit $\tau \to 0$ we get that:
+\begin{equation}
+S^F_0(0)=\frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m) = \sum_j \underset{z=z_j}{\text{Res}}[g_0(z)]f(z_j).
+\label{eq.FermionMatsubaraSum}
+\end{equation}
+
 
 
