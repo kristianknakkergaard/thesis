@@ -61,6 +61,7 @@ H^\text{ind}_{FF} = -\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f
 We simplify the expression by defining the pairing potential:
 \begin{equation}
 \Delta_k = -2\sum_{k'}\tilde{V}^\text{ind}_{FF}(k,k')\langle f_{k'}f_{-k'} \rangle.
+\label{eq.pairingpotentialdef}
 \end{equation}
 
 Then the interaction Hamiltonian can finally be written as:
@@ -89,4 +90,9 @@ H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\langle f^\dagger_k 
 The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{g.s.}_0 = 0$ for all $k$. This means, that all the averages met in this section is to be taken with respect to the ground state $\ket{g.s.}$ at nonzero temperatures. This in turn can be calculated using Fermi statistics, and so the program is (in principle) now clear. 
 
 \section{The pairing potential} \label{sec.pairingpotential}
+The first step is to calculate the pairing potential $\Delta_k$. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
+\begin{align}
+\langle f_k f_{-k} \rangle &= \left \langle (u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}) (v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}) \right \rangle = u^*_{F,k}v_{F,k}\left[ \left \langle \zeta_k \zeta^\dagger_{k} \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right]  \nonumber \\
+& =  u^*_{F,k}v_{F,k}\left[ 1 - \left \langle \zeta^\dagger_{k} \zeta_k \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right] = u^*_{F,k}v_{F,k}\left[1 - 2f(E_{F,k})\right]
+\end{align}
 
