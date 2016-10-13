@@ -219,7 +219,7 @@ Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space dive
 \end{figure}
 
 \subsection{The Matsubara sum}
-The Feynman rules for pair interactions between fermions tell us, that we eventually need to perform the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}$ over the interaction. This means, that we might as well calculate the sum:
+The Feynman rules for pair interactions between fermions tell us, that we eventually need to perform the sum $\frac{1}{\beta}\sum_{i\omega_q}$ over the interaction. This means, that we might as well calculate the sum:
 \begin{equation}
 V^\text{ind}_{FF}(q) = \frac{1}{\beta\mathcal{L}}\sum_{i\omega_q} V^\text{ind}_{FF}(q,i\omega_q).
 \label{eq.VFFqdef}
@@ -234,7 +234,7 @@ with:
 R(u,q) = \frac{1}{m_B l_t^2}\left[\left(u+F(q)-\left(l_t/\xi\right)^2\right)\left(u+F(q)\right)\right]^{\frac{1}{2}}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)
 \label{eq.Ruq}
 \end{equation}
-Where $F(q)$ is of course the same function as the one defined in equation \eqref{eq.VFF(q,0)}. This reduces the problem to performing the sum $\frac{1}{\beta \mathcal{L}}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]$. As described in section 10.4.1 in \cite{BruusFlensberg} there is a general technique to calculate such a sum, which I will now shortly review. Let $g_0(z)$ be a function with a number of known simple poles, none of these being the fermionic Matsubara frequencies. In our specific example $g_0$ is the function in square brackets with $i\omega_q$ substituted by $z$. Let us then consider the sum:
+Where $F(q)$ is of course the same function as the one defined in equation \eqref{eq.VFF(q,0)}. This reduces the problem to performing the sum $\frac{1}{\beta}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right]$. As described in section 10.4.1 in \cite{BruusFlensberg} there is a general technique to calculate such a sum, which I will now shortly review. Let $g_0(z)$ be a function with a number of known simple poles, none of these being the fermionic Matsubara frequencies. In our specific example $g_0$ is the function in square brackets with $i\omega_q$ substituted by $z$. Let us then consider the sum:
 \begin{equation}
 S^F_0(\tau) = \frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m)\text{e}^{i\omega_m\tau}. \nonumber
 \end{equation}
@@ -255,13 +255,13 @@ This enables us to calculate the sum for $g_0(z) = \frac{1}{i\omega_q-R(u,q)}-\f
 \begin{equation}
 \frac{1}{\beta}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right] = f(R(u,q))-f(-R(u,q)) = -\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}. \nonumber
 \end{equation}
-This, together with the factor of $1\mathcal{L}$, is inserted into the integral expression, and we arrive at the final result:
+This is inserted into the integral expression, and we arrive at the final result:
 \begin{equation}
-V^\text{ind}_{FF}(q) = -\frac{g^2n_0}{2\pi l_t^2\mathcal{L}}\int_0^\infty du \left(\frac{u+F(q)-\left(l_t/\xi\right)^2}{u+F(q)}\right)^{\frac{1}{2}}\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}
+V^\text{ind}_{FF}(q) = -\frac{g^2n_0}{2\pi l_t^2}\int_0^\infty du \left(\frac{u+F(q)-\left(l_t/\xi\right)^2}{u+F(q)}\right)^{\frac{1}{2}}\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}
 \text{e}^{-u}
 \label{eq.VFFq}
 \end{equation}
-We notice, that since $\text{e}^{\beta R(u,q)} > 1$, $V^\text{ind}_{FF}(q)$ is explicitly negative. Now we are finally ready to look at the resulting Hamiltonian for the fermions. 
+We notice, that since $\text{e}^{\beta R(u,q)} > 1$, $V^\text{ind}_{FF}(q)$ is explicitly negative. Now we are finally ready to look at the resulting Hamiltonian for the fermions. This is done in chapter \ref{Chapter4}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -314,10 +314,39 @@ Since $V^\text{ind}_FF(q)$ only depends on $q^2$, we get the following important
 \end{align}
 These symmmetries will be important later on. Finally adding them all up yields: 
 \begin{equation}
-H^\text{ind}_{FF} = -\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f_{k'}f_{-k'} \rangle f^\dagger_k f^\dagger_{-k} + \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle f_k f_{-k} - \langle f_{k}f_{-k} \rangle  \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right] 
+H^\text{ind}_{FF} = -\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f_{k'}f_{-k'} \rangle f^\dagger_k f^\dagger_{-k} + \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle f_k f_{-k} - \langle f_{k}f_{-k} \rangle  \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right] \nonumber
 \end{equation}
 
+We simplify the expression by defining the pairing potential:
+\begin{equation}
+\Delta_k = -2\sum_{k'}\tilde{V}^\text{ind}_{FF}(k,k')\langle f_{k'}f_{-k'} \rangle.
+\end{equation}
+
+Then the interaction Hamiltonian can finally be written as:
+\begin{equation}
+H^\text{ind}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right]
+\label{eq.HFFintfinal}
+\end{equation}
+The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the coupling potential is uneven in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is uneven as well. We are now ready to study the full Hamiltonian.
 
 \subsection{The full fermion-fermion Hamiltonian} \label{subsec.HFFfull}
+The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further we inforce, that the number of fermionic particles is conserved. This is achieved by subtracting $\mu N = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. This means that our full fermion-fermion Hamiltonian is:
+\begin{equation}
+H_{FF} = H_0-\mu N + H^\text{int}_{FF} = \sum_k \varepsilon_k f^\dagger_k f_k + \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right], 
+\label{eq.HFFdef}
+\end{equation} 
+where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a matrix form:
+\begin{equation}
+H_{FF} = -\sum_k \Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle + \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}, 
+\end{equation}
+
+and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
+\begin{equation}
+H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
+\label{eq.Kitaev.HFF_diagonal}
+\end{equation}
+The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{g.s.}_0 = 0$ for all $k$. This means, that all the averages met in this section is to be taken with respect to the ground state $\ket{g.s.}$ at nonzero temperatures. This in turn can be calculated using Fermi statistics, and so the program is (in principle) now clear. 
+
+
 
 

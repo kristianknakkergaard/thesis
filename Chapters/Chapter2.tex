@@ -12,18 +12,20 @@ In this chapter we come with a summary of the necessary prerequisites such as th
 \section{The Kitaev Model}
 The goal of this thesis is fundamentally to show, that the 1D-3D mixture of Fermi and Bose gases realises the socalled Kitaev model, so let us briefly review the fundamental properties of the Kitaev model. The system consists of identical fermions on a string of length $L$. The Hamiltonian in momentum space is: 
 \begin{equation}
-H_{FF} = \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{F,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}. 
+H_{FF} = \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}. 
+\label{eq.HKitaevpre}
 \end{equation}
 
 Here $f_k$ ($f_k^\dagger$) creates (annihilates) a fermion ($F$) on the string with momentum $k$.\footnote{The subscript $F$ is to distinguish the parameters here from the analogous ones for the boson gas, which will be introduced in the following section. The double subscript $F$ on $H$ and $\mathcal{H}$ is to specify, that this is a Hamiltonian describing a fermion-fermion interaction.} The $k$'s in the sum are quantized by the finite length of the string, so that $k = n\frac{2\pi}{L}$, for integers $n$, since they must be located on the string. In many computations the sum will be transformed into an integral, however it does in principle consist of discrete $k$-points. The Hamiltonian kernel $\mathcal{H}_{FF,k}$ contains two independent quantities: $\varepsilon_k$ and $\Delta_k$. $\varepsilon_k$ we will see is the kinetic energy of the fermions measured relative to the chemical potential: $k^2/2m-\mu$, and so it is real. $\Delta_k$ is the socalled $p$-wave pairing amplitude in $k$-space, and is generally complex. The Hamiltonian is diagonalized by diagonalizing the $2\times 2$ kernel $\mathcal{H}_{FF,k}$ for each $k$. This is done by a standard Bogoliubov transform: 
 \begin{equation}
  \begin{bmatrix} f_k \\ f_{-k}^\dagger \end{bmatrix} = U_{F,k} \begin{bmatrix} \zeta_k \\ \zeta^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} U_{F,k} = \begin{bmatrix} u^*_{F,k} & -v_{F,k} \\ v^*_{F,k} & u_{F,k} \end{bmatrix}. 
+ \label{eq.fermionquasiparticledef}
 \end{equation}
 
 The operators on the right are new fermionic annihilation and creation operators. This means, that they have to obey the standard anticommutation relations for fermionic operators: $\{\zeta_k,\zeta_{k'}^\dagger \} = \delta_{k,k'}$ with all other anticommutators 0. By checking these explicitly it is easy to see, that then $\det(U_{F,k}) = |u_{F,k}|^2+|v_{F,k}|^2 = 1$ must hold, leaving $U_{F,k}$ as a $SU(2)$ transformation of the original operators. The coefficients $u_{F,k}, v_{F,k}$ are determined from the demand that for each $k$, $U^\dagger_{F,k} \mathcal{H}_{FF,k}U_{F,k}$ must be diagonal. This eventually leads to two solutions for both $v_{F,k}$ and $u_{F,k}$. Finally using the minimal energy principle, we must choose the solution, that yields the minimal energy for the ground state: $\zeta_k\ket{g.s} = 0$. This leaves us with the following solution. The Hamiltonian is now diagonal in the $\zeta$-operators: 
 \begin{equation}
 H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}
-\label{eq.Kitaev.H_diagonal}
+\label{eq.Kitaev.H_diagonalpre}
 \end{equation}
 
 And the solutions for $u_{F,k}$ and $v_{F,k}$ are: 
