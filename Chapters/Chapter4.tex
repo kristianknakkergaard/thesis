@@ -81,13 +81,12 @@ where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to t
 H_{FF} = -\sum_k \Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle + \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}, 
 \end{equation}
 
-and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
+and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined in equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
 \begin{equation}
 H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
 \label{eq.Kitaev.HFF_diagonal}
 \end{equation}
 The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{g.s.}_0 = 0$ for all $k$. This means, that all the averages met in this section is to be taken with respect to the ground state $\ket{g.s.}$ at nonzero temperatures. This in turn can be calculated using Fermi statistics, and so the program is (in principle) now clear. 
 
-
-
+\section{The pairing potential} \label{sec.pairingpotential}
 
