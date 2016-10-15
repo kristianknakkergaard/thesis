@@ -107,6 +107,8 @@
 \usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
 \usepackage{mathtools}	
 \usepackage{braket}
+\usepackage[compat=1.0.0]{tikz-feynman}
+\DeclareMathOperator{\tr}{tr}
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
 \newtheorem{theorem}{Sætning}[chapter]

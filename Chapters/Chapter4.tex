@@ -35,32 +35,33 @@ where we in the last equality used, that the operators anticommute. Let us plug 
 \begin{align}
 H^\text{int}_{FF,1} &= \int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle V^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \nonumber \\
 &= - \frac{1}{\mathcal{L}^2}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int dx dx' \sin(k(x'-x))\sin(k'(x'-x))V^\text{ind}_{FF}(x'-x) \nonumber \\
-&= - \sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int \frac{du}{\mathcal{L}} \sin(ku)\sin(k'u)V^\text{ind}_{FF}(u) \nonumber \\
-&= - \sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k')
+&= - \frac{1}{\mathcal{L}}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int du \sin(ku)\sin(k'u)V^\text{ind}_{FF}(u) \nonumber \\
+&= - \frac{1}{\mathcal{L}}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k')
 \end{align}
 where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$ and where we have defined the coupling potential $\tilde{V}^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
 \begin{align}
-H^\text{int}_{FF,2} &= - \sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \langle f^\dagger_k f^\dagger_{-k}\rangle\right)\langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber \\
-H^\text{int}_{FF,3} &= - \sum_{k,k'}\left(f_k f_{-k} - \langle f_k f_{-k}\rangle\right)\langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber
+H^\text{int}_{FF,2} &= - \frac{1}{\mathcal{L}}\sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \langle f^\dagger_k f^\dagger_{-k}\rangle\right)\langle f_{k'}f_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber \\
+H^\text{int}_{FF,3} &= - \frac{1}{\mathcal{L}}\sum_{k,k'}\left(f_k f_{-k} - \langle f_k f_{-k}\rangle\right)\langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \tilde{V}^\text{ind}_{FF}(k,k'), \nonumber
 \end{align}
-Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can actually be expressed very simply in terms of the induced interactions calculated above:
+Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed very simply in terms of the induced interactions calculated above:
 \begin{equation}
-\tilde{V}^\text{ind}_{FF}(k,k') = \frac{1}{2\mathcal{L}}\left[ V^\text{ind}_{FF}(k-k') - V^\text{ind}_{FF}(k+k')  \right].
+\tilde{V}^\text{ind}_{FF}(k,k') = \frac{1}{2}\left[ V^\text{ind}_{FF}(k-k') - V^\text{ind}_{FF}(k+k')  \right].
 \end{equation}
-Since $V^\text{ind}_FF(q)$ only depends on $q^2$, we get the following important properties of our coupling potential: 
+Since $V^\text{ind}_{FF}(q)$ only depends on $q^2$, we get the following important properties of the coupling potential: 
 \begin{align}
 \tilde{V}^\text{ind}_{FF}(k,k') &= \tilde{V}^\text{ind}_{FF}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
 \tilde{V}^\text{ind}_{FF}(-k,k') &= -\tilde{V}^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Uneven in single argument}, \nonumber \\
 \tilde{V}^\text{ind}_{FF}(-k,-k') &= \tilde{V}^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Even in double argument}.
+\label{eq.CouplingPotentialSymmetries}
 \end{align}
-These symmmetries will be important later on. Finally adding them all up yields: 
+These symmmetries will be important later on. From here on and out the analysis is very similar to the historical Bardeen-Cooper-Schrieffer treatment. However, we will not be assuming any constancy of the coupling potential over a range of momentum, as is the case in traditional BCS-theory.\cite{Tinkham}. Adding the three terms yields:
 \begin{equation}
-H^\text{int}_{FF} = -\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f_{k'}f_{-k'} \rangle f^\dagger_k f^\dagger_{-k} + \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle f_k f_{-k} - \langle f_{k}f_{-k} \rangle  \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right] \nonumber
+H^\text{int}_{FF} = -\frac{1}{\mathcal{L}}\sum_{k,k'} \tilde{V}^\text{ind}_{FF}(k,k')\left[ \langle f_{k'}f_{-k'} \rangle f^\dagger_k f^\dagger_{-k} + \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle f_k f_{-k} - \langle f_{k}f_{-k} \rangle  \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right] \nonumber
 \end{equation}
 
 We simplify the expression by defining the pairing potential:
 \begin{equation}
-\Delta_k = -2\sum_{k'}\tilde{V}^\text{ind}_{FF}(k,k')\langle f_{k'}f_{-k'} \rangle.
+\Delta_k = -\frac{2}{\mathcal{L}}\sum_{k'}\tilde{V}^\text{ind}_{FF}(k,k')\langle f_{k'}f_{-k'} \rangle.
 \label{eq.pairingpotentialdef}
 \end{equation}
 
@@ -72,7 +73,7 @@ H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-
 The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the coupling potential is uneven in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is uneven as well. We are now ready to study the full Hamiltonian.
 
 \section{The full fermion Hamiltonian} \label{sec.HFFfull}
-The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further we inforce, that the number of fermionic particles is conserved. This is achieved by subtracting $\mu N = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. This means that our full fermion-fermion Hamiltonian is:
+The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further we inforce, that the number of fermionic particles is conserved. This is achieved by subtracting $\mu N = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. This means that the full fermion-fermion Hamiltonian is:
 \begin{equation}
 H_{FF} = H_0-\mu N + H^\text{int}_{FF} = \sum_k \varepsilon_k f^\dagger_k f_k + \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \langle f^\dagger_{k'}f^\dagger_{-k'} \rangle \right], 
 \label{eq.HFFdef}
@@ -87,12 +88,33 @@ and we see that up to a constant it is on the same form as the Kitaev Hamiltonia
 H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
 \label{eq.Kitaev.HFF_diagonal}
 \end{equation}
-The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{g.s.}_0 = 0$ for all $k$. This means, that all the averages met in this section is to be taken with respect to the ground state $\ket{g.s.}$ at nonzero temperatures. This in turn can be calculated using Fermi statistics, and so the program is (in principle) now clear. 
+The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{g.s.}_0 = 0$ for all $k$. Further we now know have to take the averages met in this section. They are to be taken with respect to the state thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
+
+\section{The distribution of the quasiparticles}
+In the previous section we inforced, that the number of physical ($f$) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\zeta$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\zeta_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\langle f^\dagger_k f^\dagger_{-k}\rangle)$, we get:
+\begin{equation}
+Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{F,k}\zeta^\dagger_k\zeta_k }\right] = 1 + \text{e}^{-\beta E_{F,k}}. 
+\end{equation}     
+For the calculation of the trace, one can for example use the the single particle complete basis $\{\ket{g.s.}_0, \zeta^\dagger_k\ket{g.s.}_0 \}$. This is all a rather involved way of saying, that the quasiparticle can either be absent $\ket{g.s.}_0$ and have zero energy or present $\zeta^\dagger_k\ket{g.s.}_0$ and have energy $E_{F,k}$. Finally we get the Fermi-Dirac distribution of the quasiparticles:
+\begin{equation}
+f(E_{F,k}) = \left\langle \zeta^\dagger_k\zeta_k \right\rangle = \sum_n n P_k(n) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
+\end{equation}
+where $n=0,1$ is the number of fermions in the state, and $P_k(n) = \text{e}^{-\beta n E_{F,k}}/Z_k$ is the probability of the state being occupied.\cite{SchroederThermal} This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear.  
 
 \section{The pairing potential} \label{sec.pairingpotential}
-The first step is to calculate the pairing potential $\Delta_k$. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
+In this section we find an integral equation for the pairing potential $\Delta_k$. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
 \begin{align}
 \langle f_k f_{-k} \rangle &= \left \langle (u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}) (v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}) \right \rangle = u^*_{F,k}v_{F,k}\left[ \left \langle \zeta_k \zeta^\dagger_{k} \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right]  \nonumber \\
-& =  u^*_{F,k}v_{F,k}\left[ 1 - \left \langle \zeta^\dagger_{k} \zeta_k \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right] = u^*_{F,k}v_{F,k}\left[1 - 2f(E_{F,k})\right]
+& =  u^*_{F,k}v_{F,k}\left[ 1 - \left \langle \zeta^\dagger_{k} \zeta_k \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right] = u^*_{F,k}v_{F,k}\left[1 - 2f(E_{F,k})\right], \nonumber
 \end{align}
-
+where we in the last equality use, that $\left \langle \zeta^\dagger_{k} \zeta_{k} \right \rangle = f(E_{F,k})=(\exp(\beta E_{F,k})+1)^{-1} $ from the previous section. Inserting this into the expression for $\Delta_k$ and using the relation $\frac{v_{F,k}\Delta^*_k}{u_{F,k}}=E_{F,k}-\varepsilon_k$ from equation \eqref{eq.Kitaev.uk_vk} we get:
+\begin{equation}
+\Delta_k = - \frac{1}{\mathcal{L}}\sum_{k'} \tilde{V}^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right).
+\label{eq.PairingpotentialSumEquation}
+\end{equation} 
+Now since the wire has a finite length, the momenta are quantized according to $k = n\frac{2\pi}{\mathcal{L}}$, and so $dk = \frac{2\pi}{\mathcal{L}}$. This means, that we can transform the above into the following integral:
+\begin{equation}
+\Delta_k = - \int \frac{dk'}{2\pi} \tilde{V}^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right),
+\label{eq.PairingpotentialIntegralEquation}
+\end{equation} 
+and hereby canceling the length $\mathcal{L}$. Because of the symmetries of the coupling potential summarized in equation \eqref{eq.CouplingPotentialSymmetries}, we see, that $\tilde{V}^\text{ind}_{FF}(0,k') = 0$. Hence, it is immediately clear from both equation \eqref{eq.PairingpotentialSumEquation} and \eqref{eq.PairingpotentialIntegralEquation}, that $\Delta_{k=0} = 0$ for any temperature. This means, that there is actually no energy gap at $k=0$. Landau has argued, that if the minimum $k_c = \min_k \frac{E_{F,k}}{|k|}$ does not occur at $k=0$, then quasiparticles propagating with $|k|< k_c$ will do so without friction. This is the socalled Landau condition for superfluidity.\cite{LandauStatPhys2} Since the energy $E_{F,k}$ goes to 0 for $k\to 0$, it is not clear whether the condition is satisfied or not, and a further analysis is needed. 
