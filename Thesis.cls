@@ -107,7 +107,7 @@
 \usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
 \usepackage{mathtools}	
 \usepackage{braket}
-\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{tikz-feynman}
 \DeclareMathOperator{\tr}{tr}
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
