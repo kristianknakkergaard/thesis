@@ -161,35 +161,35 @@ with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_0}{(i\omega
 V_{FF}^\text{ind}(q,0) = -\frac{m_Bg^2n_0}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right),
 \label{eq.VFF(q,0)}
 \end{equation}
-where $\frac{1}{\xi^2} = 2m_Bn_0U_0$ is the BEC healing length. An alternate form is $V_{FF}^\text{ind}(q,0) = -\frac{m_Bg^2n_0}{\pi} \text{e}^{F(q)} E_1(F(q))$, where $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $V_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} and after some algebra we obtain:
+where $\frac{1}{\xi^2} = 2m_Bn_0U_0$ is the BEC healing length. An alternate form is $V_{FF}^\text{ind}(q,0) = -\frac{m_Bg^2n_0}{\pi} \text{e}^{F(q)} E_1(F(q))$, where $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} and after some algebra we obtain:
 \begin{equation}
-V_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
+\tilde{V}_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
 \end{equation}
 Firstly we notice, that since $F(q)$ is even in $q$ the $\text{e}^{iqx}$ can be replaced by $\cos(qx)$. This shows, that the induced interaction is even in $x$ and we can restrict ourselves to positive $x$. Secondly when we think of $q$ as a complex variable we see, that  we can make a half-circle contour $\mathcal{C}$ in the upper complex half plane. Since $x>0$ the integrand goes exponentially fast to 0 at the circle boundary, and we therefore get:
 \begin{equation}
 \int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)} = \int_\mathcal{C} dq  \frac{\text{e}^{iqx}}{v+F(q)}. \nonumber
 \end{equation}
-This integral is solvable using Cauchy's residue theorem. Calculating the residue, plugging this into the $v$-integral, using that $V_{FF}^\text{ind}(x,0)$ is even in $x$ and doing some algebra leads us to the following form:
+This integral is solvable using Cauchy's residue theorem. Calculating the residue, plugging this into the $v$-integral, using that $\tilde{V}_{FF}^\text{ind}(x,0)$ is even in $x$ and doing some algebra leads us to the following form:
 \begin{equation}
-V_{FF}^\text{ind}(x,0) = -\frac{\sqrt{2}m_Bg^2n_0}{\pi l_t}\text{e}^{\frac{l_t^2}{\xi^2}+\frac{x^2}{2l_t^2}}\int_{\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}}^\infty du \; \text{e}^{-u^2}. \nonumber
+\tilde{V}_{FF}^\text{ind}(x,0) = -\frac{\sqrt{2}m_Bg^2n_0}{\pi l_t}\text{e}^{\frac{l_t^2}{\xi^2}+\frac{x^2}{2l_t^2}}\int_{\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}}^\infty du \; \text{e}^{-u^2}. \nonumber
 \end{equation}
 Finally recognizing the last part as proportional to the complementary error function, we arrive at the result:
 \begin{equation}
-V_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
+\tilde{V}_{FF}^\text{ind}(x,0) = -\frac{m_Bg^2n_0}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
 \end{equation}
 Notice, that there are \textit{two} relevant length scales: the healing length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
 \begin{equation}
-V_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg^2n_0}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
+\tilde{V}_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg^2n_0}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_asymp}
 \end{equation}
-For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $V_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $V_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. Further in figure \ref{fig.Vx_disc} the range around $x=0$ where $V_{FF}^\text{ind}(x,0)$ differs with more than $5\%$ from the asymptotic Yukawa potential is plotted. As expected this distance $d$ increases monotonically with $l_t$. The behaviour for small values of $\frac{d}{\xi}$ can be understood by expanding the fraction $V_{FF}^\text{ind}(d,0)/V_{FF}^\text{ind,\text{asymp}}(d,0)$. This can be done, since we notice from the numerical solution, that $\frac{d}{l_t}$ is large compared to $\frac{l_t}{\xi}$, leading to an asymptotic form $d = \frac{l_t}{\sqrt{r}}$, where $r=0.05$ is the allowed discrepancy. This tells us that for small values of $l_t$ the range of significant difference $d$ is the same order of magnitude as $l_t$, as one might expect. The behaviour for large values of $\frac{d}{\xi}$ is parabolic and is shown in magenta in the plot.  
+For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\tilde{V}_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. Further in figure \ref{fig.Vx_disc} the range around $x=0$ where $\tilde{V}_{FF}^\text{ind}(x,0)$ differs with more than $5\%$ from the asymptotic Yukawa potential is plotted. As expected this distance $d$ increases monotonically with $l_t$. The behaviour for small values of $\frac{d}{\xi}$ can be understood by expanding the fraction $\tilde{V}_{FF}^\text{ind}(d,0)/\tilde{V}_{FF}^\text{ind,\text{asymp}}(d,0)$. This can be done, since we notice from the numerical solution, that $\frac{d}{l_t}$ is large compared to $\frac{l_t}{\xi}$, leading to an asymptotic form $d = \frac{l_t}{\sqrt{r}}$, where $r=0.05$ is the allowed discrepancy. This tells us that for small values of $l_t$ the range of significant difference $d$ is the same order of magnitude as $l_t$, as one might expect. The behaviour for large values of $\frac{d}{\xi}$ is parabolic and is shown in magenta in the plot.  
 
 Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space diverges. We see a high degree of agreement with the expected logarithmic divergence $\propto \ln\left(\frac{l_t}{\xi}\right)$. 
 
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vq/plot.tex}  
-\caption{The zero frequency potential $V(q,0)$ plotted as a function of the dimensionless parameter $q\xi$. From bottom to top the alternating red and blue curves are for increasing $\frac{l_t}{\xi}$ starting from $0.1$ ending at $1.9$ with increments of $0.3$. $V_0 = \frac{m_Bg^2n_0}{\pi}$.}  
+\caption{The zero frequency potential $V_{FF}^\text{ind}(q,0)$ plotted as a function of the dimensionless parameter $q\xi$. From bottom to top the alternating red and blue curves are for increasing $\frac{l_t}{\xi}$ starting from $0.1$ ending at $1.9$ with increments of $0.3$. $V_0 = \frac{m_Bg^2n_0}{\pi}$.}  
 \label{fig.Vq}  
 \end{center}    
 \end{figure}
@@ -205,7 +205,7 @@ Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space dive
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vx/plot.tex}  
-\caption{The zero frequency potential $V_\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $\frac{x}{\xi}$. From top to bottom the alternating red and blue curves are for decreasing $\frac{l_t}{\xi}$ starting from $0.1$ ending at $1.9$ with increments of $0.3$. $V_0 = \frac{m_Bg^2n_0}{\pi}$. The black curve is the asymptotic Yukawa potential for small values of $l_t$.}  
+\caption{The zero frequency potential $\tilde{V}_{FF}^\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $\frac{x}{\xi}$. From top to bottom the alternating red and blue curves are for decreasing $\frac{l_t}{\xi}$ starting from $0.1$ ending at $1.9$ with increments of $0.3$. $V_0 = \frac{m_Bg^2n_0}{\pi}$. The black curve is the asymptotic Yukawa potential for small values of $l_t$.}  
 \label{fig.Vx}  
 \end{center}    
 \end{figure}
@@ -251,7 +251,7 @@ Finally taking the limit $\tau \to 0$ we get that:
 S^F_0(0)=\frac{1}{\beta}\sum_{i\omega_m}g_0(i\omega_m) = \sum_j \underset{z=z_j}{\text{Res}}[g_0(z)]f(z_j).
 \label{eq.FermionMatsubaraSum}
 \end{equation}
-This enables us to calculate the sum for $g_0(z) = \frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}$. The residues are just $\pm 1$, and so we get:
+This enables us to calculate the sum for $g_0(z) = \frac{1}{z-R(u,q)}-\frac{1}{z+R(u,q)}$. The residues are just $\pm 1$, and so we get:
 \begin{equation}
 \frac{1}{\beta}\sum_{i\omega_q}\left[\frac{1}{i\omega_q-R(u,q)}-\frac{1}{i\omega_q+R(u,q)}\right] = f(R(u,q))-f(-R(u,q)) = -\frac{\text{e}^{\beta R(u,q)}-1}{\text{e}^{\beta R(u,q)}+1}. \nonumber
 \end{equation}
