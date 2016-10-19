@@ -1,4 +1,4 @@
-% Chapter 3
+% Chapter 4
 
 \chapter{The one dimensional Fermi Hamiltonian} % Main chapter title
 
@@ -7,24 +7,24 @@
 \lhead{Chapter 4. \emph{1D Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will finally arrive at the promised Kitaev Hamiltonian promised in chapter \ref{Chapter2}. We start by calculating the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}.
+In this chapter we will finally arrive at the promised Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. I will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. 
 
 \section{The fermion interacting Hamiltonian} \label{sec.HFFint}
 
 We start out in real space. The interaction Hamiltonian for pair interactions is given by:
 \begin{equation}
-H^\text{int}_{FF} = \int dxdx' \hat{\psi}^\dagger_F(x)\hat{\psi}^\dagger_F(x')\tilde{V}^\text{ind}_{FF}(x'-x) \hat{\psi}_F(x') \hat{\psi}_F(x).
+H^\text{int}_{FF} = \int dxdx' \hat{\psi}^\dagger_F(x)\hat{\psi}^\dagger_F(x')\tilde{V}^\text{ind}_{FF}(x'-x,0) \hat{\psi}_F(x') \hat{\psi}_F(x).
 \label{eq.HFFintdef}
 \end{equation}
-Here the induced interaction in real space is achieved by a Fourier transform: $\tilde{V}^\text{ind}_{FF}(x'-x) = \int dq\; \text{e}^{-iq(x'-x)} V^\text{ind}_{FF}(q)$, with $V^\text{ind}_{FF}(q)$ written in equation \eqref{eq.VFFq} above. Further we make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write
+With $\tilde{V}^\text{ind}_{FF}(x'-x,0)$ being the induced interaction at zero frequency in real space (see equation \eqref{eq.VFFx_exact}). Further we make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write
 \begin{equation}
 \hat{\psi}_F(x') \hat{\psi}_F(x) = \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \left(\hat{\psi}_F(x') \hat{\psi}_F(x)-\langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \right) = \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + A_F(x',x)
 \end{equation}
 and treat the last part $A_F$ as a small quantity. The meaning of this will become clearer later on. The mean in the end has to be taken with respect to the specific state of the system, we will also see how this plays out later on. We now only keep terms of $A_F$ and $A^\dagger_F$ up to first order, so that we get the following three terms for the interaction Hamiltonian:\footnote{Formally we are decoupling the Hamiltonian, so that it so no longer really describing any interaction.}
 \begin{align}
-H^\text{int}_{FF} = &\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
-&\int dxdx' A^\dagger_F(x,x') \tilde{V}^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
-&\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x) A_F(x',x). \nonumber
+H^\text{int}_{FF} = &\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x,0) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
+&\int dxdx' A^\dagger_F(x,x') \tilde{V}^\text{ind}_{FF}(x'-x,0) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle + \nonumber \\
+&\int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x,0) A_F(x',x). \nonumber
 \end{align} 
 To get back to momentum space we expand the field operators in terms of plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} f_k$, where as usual $f_k$ is the fermion annihilation operator. Further we assume, that only states belonging to opposite momenta couples.\footnote{At least they are assumed to be absolutely dominant.} This means, that $f_kf_{k'} = f_kf_{k'}\delta_{k,-k'}$, which is the usual BCS assumption. With this, we get the following expression:
 \begin{align}
@@ -33,9 +33,9 @@ To get back to momentum space we expand the field operators in terms of plane wa
 \end{align}
 where we in the last equality used, that the operators anticommute. Let us plug this into the first term of the interaction Hamiltonian to see how it plays out: 
 \begin{align}
-H^\text{int}_{FF,1} &= \int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \nonumber \\
-&= - \frac{1}{\mathcal{L}^2}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int dx dx' \sin(k(x'-x))\sin(k'(x'-x))\tilde{V}^\text{ind}_{FF}(x'-x) \nonumber \\
-&= - \frac{1}{\mathcal{L}}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u) \nonumber \\
+H^\text{int}_{FF,1} &= \int dxdx' \langle \hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x') \rangle \tilde{V}^\text{ind}_{FF}(x'-x,0) \langle \hat{\psi}_F(x') \hat{\psi}_F(x) \rangle \nonumber \\
+&= - \frac{1}{\mathcal{L}^2}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int dx dx' \sin(k(x'-x))\sin(k'(x'-x))\tilde{V}^\text{ind}_{FF}(x'-x,0) \nonumber \\
+&= - \frac{1}{\mathcal{L}}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u,0) \nonumber \\
 &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\langle f^\dagger_{k}f^\dagger_{-k} \rangle \langle f_{k'}f_{-k'} \rangle W^\text{ind}_{FF}(k,k')
 \end{align}
 where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$. Further we have defined the coupling potential $W^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
@@ -43,11 +43,11 @@ where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$. F
 H^\text{int}_{FF,2} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \langle f^\dagger_k f^\dagger_{-k}\rangle\right)\langle f_{k'}f_{-k'} \rangle W^\text{ind}_{FF}(k,k'), \nonumber \\
 H^\text{int}_{FF,3} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f_k f_{-k} - \langle f_k f_{-k}\rangle\right)\langle f^\dagger_{k'}f^\dagger_{-k'} \rangle W^\text{ind}_{FF}(k,k'), \nonumber
 \end{align}
-Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction calculated in chapter \ref{Chapter3}:
+Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction in momentum space calculated in chapter \ref{Chapter3}:
 \begin{equation}
-W^\text{ind}_{FF}(k,k') = 2\int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u) = V^\text{ind}_{FF}(k-k') - V^\text{ind}_{FF}(k+k').
+W^\text{ind}_{FF}(k,k') = 2\int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u) = V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0).
 \end{equation}
-Since $V^\text{ind}_{FF}(q)$ only depends on $q^2$, we get the following important properties of the coupling potential: 
+Since $V^\text{ind}_{FF}(q,0)$ only depends on $q^2$, we get the following important properties of the coupling potential: 
 \begin{align}
 W^\text{ind}_{FF}(k,k') &= W^\text{ind}_{FF}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
 W^\text{ind}_{FF}(-k,k') &= -W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Uneven in single argument}, \nonumber \\
@@ -101,9 +101,16 @@ f(E_{F,k}) = \left\langle \zeta^\dagger_k\zeta_k \right\rangle = \sum_n n P_k(n)
 \end{equation}
 where $n=0,1$ is the possible number of fermions in the state, and $P_k(n) = \text{e}^{-\beta n E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear.  
 
+\section{Retardation effects} \label{sec.RetardationEffects}
+Let us first remind ourselves of the frequency dependent induced interaction in equation \eqref{eq.VFFindXBEC}:
+\begin{equation}
+V_{FF}^\text{ind}(q,i\omega_n) = g^2\int\frac{d^2k_\perp}{(2\pi)^2}\frac{k^2}{m_B}\frac{n_0}{(i\omega_n)^2-E_{B,k}^2}\text{e}^{-\frac{l_t^2}{2}k_\perp^2}. \nonumber
+\end{equation}
+We see, that it depends critically on the denominator $\omega_n^2+E_{B,k}^2$. As explicitly seen in section \ref{sec.HFFint}, we consider pairing of $k$ and $-k$ states. We will further assume, that the pairing is small with respect to the Fermi energy $\epsilon_F$, which will explicitly be seen to be the case in subsection \ref{subsec.pairing.numerical}. This means, that only fermions around the Fermi energy will be affected by the interaction. Therefore, the dominant frequency component is of the order of the Fermi energy: $\omega_n \approx \epsilon_F = \frac{k_F^2}{2m_F}$. This should then be compared to the Bogoliubov energy $E_{B,k_F}$. Assuming that $k_Fa_B\ll 1$, we have $E_{B,k_F} = ck_F$, with $c =\frac{\sqrt{4\pi a_B n_B}}{m_B}$ the speed of sound in the Bose-Einstein condensate. To be able to neglect the frequency dependency, we need $\epsilon_F \ll E_{B,k_F}$ or equivalently that the Fermi speed is much smaller than the speed of sound: $v_F = \frac{k_F}{m}\ll c$. This shows, that the frequency dependency is associated with retardation effects in the condensate. Physically, if the fermions are moving much slower than the quasiparticles in the condensate ($v_F \ll c$), then the retardation effects can be neglected, or equivalently the interaction is instanteneous. This is intuitively reasonable. Notice, that it depends on the assumption that $k_Fa_B\ll 1$, which will be assumed from now on.
+
 \section{The pairing potential} \label{sec.pairingpotential}
-\subsection{The integral equation} \label{subsec.pairingpotential.integralequation}
-In this section we find an integral equation for the pairing potential $\Delta_k$. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
+\subsection{The gap equation} \label{subsec.pairingpotential.integralequation}
+In this section we find an integral equation for the pairing potential $\Delta_k$, known as the gap equation. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
 \begin{align}
 \langle f_k f_{-k} \rangle &= \left \langle (u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}) (v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}) \right \rangle = u^*_{F,k}v_{F,k}\left[ \left \langle \zeta_k \zeta^\dagger_{k} \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right]  \nonumber \\
 & =  u^*_{F,k}v_{F,k}\left[ 1 - \left \langle \zeta^\dagger_{k} \zeta_k \right \rangle - \left \langle \zeta^\dagger_{-k} \zeta_{-k} \right \rangle \right] = u^*_{F,k}v_{F,k}\left[1 - 2f(E_{F,k})\right], \nonumber
@@ -111,15 +118,15 @@ In this section we find an integral equation for the pairing potential $\Delta_k
 where we in the last equality use, that $\left \langle \zeta^\dagger_{k} \zeta_{k} \right \rangle = f(E_{F,k})=(\exp(\beta E_{F,k})+1)^{-1} $ from the previous section. Inserting this into the expression for $\Delta_k$ and using the relation $\frac{v_{F,k}\Delta^*_k}{u_{F,k}}=E_{F,k}-\varepsilon_k$ from equation \eqref{eq.Kitaev.uk_vk} we get:
 \begin{equation}
 \Delta_k = - \frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right).
-\label{eq.PairingpotentialSumEquation}
+\label{eq.GapequationSum}
 \end{equation} 
-Now since the wire has a finite length, the momenta are quantized according to $k = n\frac{\pi}{\mathcal{L}}$, and so $dk = \frac{\pi}{\mathcal{L}}$. This means, that we can transform the above into the following integral:
+The spacing of the $k$-points are the standard $dk = \frac{\mathcal{L}}{2\pi}$. This means, that we can transform the above into the following integral:
 \begin{equation}
-\Delta_k = - \int \frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right),
-\label{eq.PairingpotentialIntegralEquation}
+\Delta_k = - \int \frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right),
+\label{eq.GapequationIntegral}
 \end{equation} 
 and hereby canceling the length $\mathcal{L}$. Because of the symmetries of the coupling potential summarized in equation \eqref{eq.CouplingPotentialSymmetries}, we see, that $W^\text{ind}_{FF}(0,k') = 0$. Hence, it is immediately clear from both equation \eqref{eq.PairingpotentialSumEquation} and \eqref{eq.PairingpotentialIntegralEquation}, that $\Delta_{k=0} = 0$ for any temperature. This means, that there is actually no energy gap at $k=0$. Landau has argued, that if the minimum $k_c = \min_k \frac{E_{F,k}}{|k|}$ does not occur at $k=0$, then quasiparticles propagating with $|k|< k_c$ will do so without friction. $k_c > 0$ is the socalled Landau condition for superfluidity\cite{LandauStatPhys2,PlischkeStatPhys}. Since the energy $E_{F,k}$ goes to 0 for $k\to 0$, it is not clear whether the condition is satisfied or not, and a further analysis is needed. 
 
-\subsection{Numerical calculation}
-In this subsection we will describe a numerical method of calculating the pairing potential. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$. Then we plug this into the integral equation \eqref{eq.PairingpotentialIntegralEquation} for $\beta = \infty$ and hereby obtain a (hopefully) better result for $\Delta_k(T=0)$. This procedure is repeated succesively until it converges. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ as an initial guess repeating the process for $T=0$. This is repeated for rising temperatures until it will probably reach some critial temperature, where $\Delta_k(T_c)=0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}.    
+\subsection{Numerical calculation} \label{subsec.pairing.numerical}
+In this subsection we will describe a numerical method of calculating the pairing potential. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$. Then we plug this into the integral equation \eqref{eq.GapequationIntegral} for $\beta = \infty$ and hereby obtain a (hopefully) better result for $\Delta_k(T=0)$. This procedure is repeated succesively until it converges. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ as an initial guess repeating the process for $T=0$. This is repeated for rising temperatures until it will probably reach some critial temperature, where $\Delta_k(T_c)=0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}.    
 
