@@ -17,12 +17,12 @@ double F(double q) /*q in units of kF*/
   double BBscatlength = 0.3; /*kF * aB*/
   double densityratio = 1;
   double xi           = M_PI/sqrt(8.0 * densityratio * BBscatlength ); /*xi * kF*/ 
-  double lt           = 0.5 * xi; /*lt * kF*/
+  double lt           = 0.01; /*lt * kF*/
   return lt * lt/2.0 * ( q * q + 2.0/(xi * xi) );  
 }
 
 /*SET mF/mB, nB/nF^3 and kF * aBF */
-double Vintegrand0(double u, void *params) 
+double Vintegrand0(double u, void *params)
 {
   double massratio    = 0.8; /*mF/mB*/
   double BFscatlength = 0.3; /*kF * aBF */
@@ -58,7 +58,7 @@ double WFF0(double k, double kprime)
 
 double Deltaguess(double k)
 {
-  return 0.04 * k / (pow(k,4) + 1);
+  return 0.4 * k / (pow(k,4) + 1);
 }
 
 
@@ -88,7 +88,7 @@ main (void)
     gsl_vector_set(D,i,Deltaguess(k));
   }
   double kprime;
-  for (int iter = 0; iter < 4; ++iter)
+  for (int iter = 0; iter < 6; ++iter)
   {
     for (int i = 0; i < N; ++i)
     {
@@ -121,7 +121,7 @@ main (void)
   printf("\n\n");
 
   /*Now: temperature T>0 */
-  double T_low = 0.001, T_high = 0.01, dT = 0.0001;
+  double T_low = 0.003, T_high = 0.2, dT = 0.003;
   int kmax_index;
   double kmax;
 
