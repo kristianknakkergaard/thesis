@@ -46,6 +46,7 @@ H^\text{int}_{FF,3} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f_k f_{-k} - \la
 Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction in momentum space calculated in chapter \ref{Chapter3}:
 \begin{equation}
 W^\text{ind}_{FF}(k,k') = 2\int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u) = V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0).
+\label{eq.CouplingPotential}
 \end{equation}
 Since $V^\text{ind}_{FF}(q,0)$ only depends on $q^2$, we get the following important properties of the coupling potential: 
 \begin{align}
@@ -108,6 +109,18 @@ V_{FF}^\text{ind}(q,i\omega_n) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\frac{k^
 \end{equation}
 We see, that it depends critically on the denominator $\omega_n^2+E_{B,k}^2$. As explicitly seen in section \ref{sec.HFFint}, we consider pairing of $k$ and $-k$ states. We will further assume, that the pairing is small with respect to the Fermi energy $\epsilon_F$, which will explicitly be seen to be the case in subsection \ref{subsec.pairing.numerical}. This means, that only fermions around the Fermi energy will be affected by the interaction. Therefore, the dominant frequency component is of the order of the Fermi energy: $\omega_n \approx \epsilon_F = \frac{k_F^2}{2m_F}$. This should then be compared to the Bogoliubov energy $E_{B,k_F}$. Assuming that $k_Fa_B\ll 1$, we have $E_{B,k_F} = ck_F$, with $c =\frac{\sqrt{4\pi a_B n_B}}{m_B}$ the speed of sound in the Bose-Einstein condensate. To be able to neglect the frequency dependency, we need $\epsilon_F \ll E_{B,k_F}$ or equivalently that the Fermi speed is much smaller than the speed of sound: $v_F = \frac{k_F}{m}\ll c$. This shows, that the frequency dependency is associated with retardation effects in the condensate. Physically, if the fermions are moving much slower than the quasiparticles in the condensate ($v_F \ll c$), then the retardation effects can be neglected, or equivalently the interaction is instanteneous. This is intuitively reasonable. Notice, that it depends on the assumption that $k_Fa_B\ll 1$, which will be assumed from now on.
 
+\section{The $l_t \to 0$ limit}
+In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.CouplingPotential} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
+\begin{align}
+W^\text{ind}_{FF}(k,k') &= V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0) \nonumber \\
+&= -\frac{m_Bg_{BF}^2n_B}{\pi}\left( \text{e}^{F(k-k')} E_1(F(k-k')) - \text{e}^{F(k+k')} E_1(F(k+k')) \right), \nonumber
+\end{align}
+where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the coupling potential $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant \footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found by using Maple 16.}. The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give a one in the $l_t \to 0$ limit, and so we are left with the expression:
+\begin{equation}
+\lim_{l_t \to 0} \; W^\text{ind}_{FF}(k,k') = -\frac{m_Bg_{BF}^2n_B}{\pi} \ln\left[\frac{(k-k')^2+2/\xi^2}{(k+k')^2+2/\xi^2}\right].
+\label{eq.CouplingPotentiallt=0} 
+\end{equation}
+
 \section{The pairing potential} \label{sec.pairingpotential}
 \subsection{The gap equation} \label{subsec.pairingpotential.integralequation}
 In this section we find an integral equation for the pairing potential $\Delta_k$, known as the gap equation. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}, f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$ and so:
@@ -135,16 +148,17 @@ Further we quantify what is meant by having a large transverse energy gap $\omeg
 
 \begin{table}[htb]
 \centering
-\caption{\textit{Summary of the assumptions made so far. I have introduced the reduced mass $m_r = \frac{m_Fm_B}{m_F+m_B}$. }}
+\caption{\textit{Summary of the assumptions made so far. I have introduced the reduced mass $m_r = \frac{m_Fm_B}{m_F+m_B}$. Further B and F refers to Bosons and Fermions respectively.}}
 \begin{tabular}{|l|l|l|l|}
 \hline \textbf{Quantity} & \textbf{Parameters} & \textbf{Assumption}			& \textbf{Reason}	\\
 \hline Transverse energy gap & $\omega_t = 1/\sqrt{m_Fl_t}$ & $(k_Fl_t)^2\ll 1$ & Trap in transverse ground state \\
-\hline Bose-Fermi scattering length& $g_{BF} = 4\pi a_{BF}/m_r$ 	& $k_Fa_{BF} \ll 1$	& Simple diagrammatics\\
-\hline Bose-Bose scattering length  & $g_B = 4\pi a_B/m_B$			& $k_Fa_B 	 \ll 1$	& Sound modes in BEC  \\
+\hline B-F scattering length& $g_{BF} = 4\pi a_{BF}/m_r$ 	& $k_Fa_{BF} \ll 1$	& Simple diagrammatics\\
+\hline B-B scattering length  & $g_B = 4\pi a_B/m_B$			& $k_Fa_B 	 \ll 1$	& Sound modes in BEC  \\
 \hline 
 \end{tabular}
 \label{tab.assumptions}
 \end{table}
+
 
 \subsection{Numerical calculation} \label{subsec.pairing.numerical}
 In this subsection we will describe a numerical method of calculating the pairing potential. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$. Then we plug this into the integral equation \eqref{eq.GapequationIntegral} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This procedure is repeated succesively until it converges. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ as an initial guess repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. 
@@ -162,7 +176,7 @@ Hence, we see that the chemical potential of the free gas is actually increasing
 \begin{figure} 
 \begin{center}  
 \input{Figures/DeltapwaveTnon0/kdepend.tex}  
-\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $k_F a_B = k_F a_{BF} = 0.3, k_F l_t = 0.01, \frac{m_F}{m_B} = 0.8, \frac{n_B}{n_F^3} = 0.9$. }  
+\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $k_F a_B = k_F a_{BF} = 0.3, k_F l_t = 0.005, \frac{m_F}{m_B} = 0.8, \frac{n_B}{n_F^3} = 0.9$. }  
 \label{fig.Deltakkdepend}  
 \end{center}    
 \end{figure}
@@ -170,9 +184,9 @@ Hence, we see that the chemical potential of the free gas is actually increasing
 \begin{figure} 
 \begin{center}  
 \input{Figures/DeltapwaveTnon0/Tdepend.tex}  
-\caption{The numerically calculated temperature dependency of the maximum $\max_k[\Delta_k]$. Notice, that the critical temperature at which the gap becomes vanishing is $T_C \approx 0.14 T_F$, and that the gap is not monotonically decreasing, but a little lower at $T=0$ than in the interval $0<T/T_F<0.05$. Parameters: $k_F a_B = k_F a_{BF} = 0.3, k_F l_t = 0.01, \frac{m_F}{m_B} = 0.8, \frac{n_B}{n_F^3} = 0.9$. }  
+\caption{The numerically calculated temperature dependency of the maximum $\max_k[\Delta_k]$. Notice, that the critical temperature at which the gap becomes vanishing is $T_C \approx 0.13 T_F$, and that the gap is not monotonically decreasing, but a little lower at $T = 0$ than in the interval $0<T/T_F<0.05$. Parameters: $k_F a_B = k_F a_{BF} = 0.3, k_F l_t = 0.005, \frac{m_F}{m_B} = 0.8, \frac{n_B}{n_F^3} = 0.9$. }  
 \label{fig.maxkDeltakTdepend}  
 \end{center}    
 \end{figure}
 
-It turns out, that this solution is essentially a $l_t \to 0$ limit. This is checked by taking $l_t$ a factor of 10 smaller and observing no difference. The divergence met in chapter \ref{Chapter3} is gone! It is further seen, that we can enhance the response (increase $\Delta_k$) by letting $a_B$ be significantly smaller than $a_{BF}$. However, we then come into trouble with the above assumptions about the chemical potential. We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not however seem to be exponential, but rather of a power type. Further, from around $T/T_F = 0.006$ the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0. The critical temperature is approximately $T_C/T_F = 0.136$ and the maximal gap size is $\max_{k,T}[\Delta_k(T)]/\epsilon_F = 0.222$, so $\frac{\max_{k,T}[\Delta_k(T)]}{k_B T_C} = \frac{0.222}{0.136} = 1.634$. This is not far from the BCS-value of the gap to critical temperature ratio: $1.765$ \cite{BruusFlensberg}. 
+It turns out, that this solution is essentially a $l_t \to 0$ limit. This is checked by taking $l_t$ a factor of 10 smaller and observing no difference. The divergence met in chapter \ref{Chapter3} is gone! It is further seen, that we can enhance the response (increase $\Delta_k$) by letting $a_B$ be significantly smaller than $a_{BF}$. However, we then come into trouble with the above assumptions about the chemical potential. We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not however seem to be exponential, but rather of a power type. Further, from around $T/T_F = 0.006$ the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0. The critical temperature is approximately $T_C/T_F = 0.130$ and the maximal gap size is $\max_{k,T}[\Delta_k(T)]/\epsilon_F = 0.222$, so $\frac{\max_{k,T}[\Delta_k(T)]}{k_B T_C} = \frac{0.222}{0.136} = 1.710$. This is remarkably close to the BCS-value of the gap to critical temperature ratio: $1.765$ \cite{BruusFlensberg}. 

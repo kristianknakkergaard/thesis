@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <gsl/gsl_errno.h>
+#include <gsl/gsl_matrix.h>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_min.h>
@@ -17,7 +18,7 @@ double F(double q) /*q in units of kF*/
   double BBscatlength = 0.3; /*kF * aB*/
   double densityratio = 1;
   double xi           = M_PI/sqrt(8.0 * densityratio * BBscatlength ); /*xi * kF*/ 
-  double lt           = 0.01; /*lt * kF*/
+  double lt           = 0.005; /*lt * kF*/
   return lt * lt/2.0 * ( q * q + 2.0/(xi * xi) );  
 }
 
@@ -66,7 +67,7 @@ int
 main (void)
 {
   /*k-values:*/
-  double k_low = 0.0, k_up = 25.0, dk = 0.05;
+  double k_low = 0.0, k_up = 50.0, dk = 0.01;
   int N = (int) (k_up - k_low)/dk;
   /*fermion mass*/
 
@@ -78,17 +79,26 @@ main (void)
   double integral;
 
   gsl_vector *D = gsl_vector_calloc(N);
-
+  gsl_matrix *WFF0matrix = gsl_matrix_calloc(N, N);
 
   double k;
+  double kprime;
   /*start guess:*/
   for (int i = 0; i < N; ++i)
   {
     k = ((double)i) * dk + k_low;
-    gsl_vector_set(D,i,Deltaguess(k));
+    gsl_vector_set(D, i, Deltaguess(k));
+
+    for (int iprime = 0; iprime < N; ++iprime)
+    {
+      kprime = ((double)iprime) * dk + k_low;
+      gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k,kprime) );
+    }
   }
-  double kprime;
-  for (int iter = 0; iter < 6; ++iter)
+
+
+  
+  for (int iter = 0; iter < 7; ++iter)
   {
     for (int i = 0; i < N; ++i)
     {
@@ -96,12 +106,12 @@ main (void)
       integral = 0.0;
       for (int iprime = 0; iprime < N; ++iprime)
       {
-        kprime = ((double)iprime) * dk + k_low;
+        kprime        = ((double)iprime) * dk + k_low;
         epsilonkprime = kprime * kprime - 1.0;
-        Deltakprime = gsl_vector_get(D,iprime);
-        EFkprime = pow(epsilonkprime * epsilonkprime + fabs(Deltakprime * Deltakprime), 1.0/2.0);
-        integrand =  -1.0/M_PI * WFF0(k,kprime) * Deltakprime/(2.0 *EFkprime);
-        integral+= integrand*dk; 
+        Deltakprime   = gsl_vector_get(D, iprime);
+        EFkprime      = pow(epsilonkprime * epsilonkprime + fabs(Deltakprime * Deltakprime), 1.0 / 2.0);
+        integrand     =  -1.0 / M_PI * gsl_matrix_get(WFF0matrix, i, iprime) * Deltakprime / (2.0 * EFkprime);
+        integral     += integrand*dk; 
       }
       gsl_vector_set(D,i,integral);
     }
@@ -121,7 +131,7 @@ main (void)
   printf("\n\n");
 
   /*Now: temperature T>0 */
-  double T_low = 0.003, T_high = 0.2, dT = 0.003;
+  double T_low = 0.002, T_high = 0.2, dT = 0.002;
   int kmax_index;
   double kmax;
 
@@ -135,12 +145,12 @@ main (void)
         integral = 0.0;
         for (int iprime = 0; iprime < N; ++iprime)
         {
-          kprime = ((double)iprime) * dk + k_low;
+          kprime        = ((double)iprime) * dk + k_low;
           epsilonkprime = kprime * kprime - 1.0;
-          Deltakprime = gsl_vector_get(D,iprime);
-          EFkprime = pow(epsilonkprime * epsilonkprime + fabs(Deltakprime * Deltakprime), 1.0/2.0);
-          integrand =  -1.0/M_PI * WFF0(k,kprime) * Deltakprime / (2.0*EFkprime) * tanh(EFkprime / (2.0*T));
-          integral+= integrand*dk;
+          Deltakprime   = gsl_vector_get(D,iprime);
+          EFkprime      = pow(epsilonkprime * epsilonkprime + fabs(Deltakprime * Deltakprime), 1.0/2.0);
+          integrand     =  -1.0/M_PI * gsl_matrix_get(WFF0matrix, i, iprime) * Deltakprime / (2.0*EFkprime) * tanh(EFkprime / (2.0*T));
+          integral  += integrand*dk;
         }
         gsl_vector_set(D, i, integral);
       }
@@ -164,5 +174,6 @@ main (void)
   }
   
   gsl_vector_free(D);
+  gsl_matrix_free(WFF0matrix);
   return 0;
 }
