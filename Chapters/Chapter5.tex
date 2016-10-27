@@ -28,23 +28,7 @@ As mentioned in the start of chapter \ref{Chapter2}, we use periodic boundary co
 and hereby canceling the length $\mathcal{L}$. Because of the symmetries of the coupling potential summarized in equation \eqref{eq.CouplingPotentialSymmetries}, we see, that $W^\text{ind}_{FF}(0,k') = 0$. Hence, it is immediately clear from both equation \eqref{eq.GapequationSum} and \eqref{eq.GapequationIntegral}, that $\Delta_{k=0} = 0$ for any temperature. This means, that $E_{F,k=0} = |\mu| > 0$. Further it must then be the case that $k_c = \min_k \frac{E_{F,k}}{|k|} > 0$, and so the Landau condition for superfluidity is fulfilled\cite{LandauStatPhys2,PlischkeStatPhys}.
 Specifically Landau has argued, that if this minimum $k_c$ does not occur at $k=0$, then quasiparticles propagating with $|k|< k_c$ will do so without friction. We can therefore already see, that the one dimensional string will be a superfluid for lowlying $k$-states. The exact value of $k_c$ requires a further analysis. 
 
-\section{The free gas} \label{sec.chemicalpotential.freegas}
-It is quite simple to get the chemical potential for low temperatures using the Sommerfeld expansion. Specifically, we let $\mu_0(T)$ be the chemical potential of the free gas, and $\mu_0(T=0) = \epsilon_{F,0} = \frac{k_F^2}{2m_F}$ be the Fermi energy for the free gas. This also defines the Fermi momentum $k_F$. Finally we let the Fermi temperature be defined by $\epsilon_{F,0} = k_B T_{F,0}$. The Sommerfeld expansion for the chemical potential leads to the differential equation for $T/T_{F,0} \ll 1$ \cite{GiuseppeGiuseppe}:
-\begin{equation}
-\frac{d\mu_0}{dT} = -\frac{\pi^2}{3}k_B^2 T \frac{D'(\mu_0)}{D(\mu_0)}. \nonumber
-\end{equation}
-Here $D(E)$ is the density of states. For a free fermion gas in one dimension $D(E)\propto E^{-1/2}$, and so the equation for $\mu_0$ can be solved by separation of variables. The result for $T/T_{F,0}\ll 1$ is:
-\begin{equation}
-\frac{\mu_0(T)}{\epsilon_{F,0}} = 1 + \frac{\pi^2}{12}\left(\frac{T}{T_{F,0}}\right)^2.
-\end{equation}
-Hence, we see that the chemical potential of the free gas is \textit{increasing} parabolically for $T/T_{F,0} \ll 1$. This is in contrast to the case in both two and three dimension, where the chemical potential decreases monotonically. For $T/T_{F,0} \gg 1$ the chemical potential must asymptotically go to the chemical potential for the classical gas. This means, that it must go to minus infinity for $T\to \infty$.
-
-\section{Units}
-In this section I will specify what units the energy, momentum, density etc. will be in. We expect, that the pairing has its maximum value around $k = k_F$, since it is the fermions at the Fermi level, that are affected mostly. Therefore, we express the momentum in units of the \textit{free gas} Fermi momentum $k_F$. Further, we express all energies in units of the free gas Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. Finally, the temperature is expressed in terms of the Fermi temperature $T_{F,0}$ defined by $\epsilon_{F,0} = k_B T_{F,0}$. As an example let us see, how this looks for the gap equation \eqref{eq.GapequationIntegral}. We let $\tilde{k}' = k'/k_F$ and divide throught with $\epsilon_{F,0}$.\footnote{The convention in general will be, that the tilded variables are unitless} This leads to a fraction
-\begin{equation}
-2m_F \frac{W_{FF}^\text{ind}}{k_F} \propto -\frac{2^5}{\pi^2}\frac{n_B}{n_F^3}(k_Fa_B)^2\left(\frac{m_B}{m_F} + \frac{m_F}{m_B} + 2\right), \nonumber
-\end{equation}
-where $n_F = k_F/\pi$ is the line density of the fermions. In principal, this should be the free gas line density $n_{F,0}$. However, we consider the number of fermions, $N$, and the length of the string, $\mathcal{L}$, to be external parameters. Hence, $n_{F,0} = N/\mathcal{L} = n_F$. Hereby we can express everything in terms of the free gas parameters $\epsilon_{F,0}, T_{F,0}, k_F$ and the fermion mass $m_F$ and line density $n_F$. Written out in the $l_t \to 0$ limit, the integral is:
+Written out in the $l_t \to 0$ limit and with unitless quantities denoted by tildes, the gap integral is:
 \begin{equation}
 \tilde{\Delta}_{\tilde{k}} = \frac{2^5}{\pi^2}\frac{n_B}{n_F^3}(k_Fa_B)^2\left(\frac{m_B}{m_F} + \frac{m_F}{m_B} + 2\right) \int_0^\infty \frac{d\tilde{k}'}{\pi} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right] \frac{\tilde{\Delta}_{\tilde{k}'}}{2\tilde{E}_{F,\tilde{k}'}}\tanh\left(\frac{\tilde{E}_{F,k}}{2\tilde{T}}\right),
 \label{eq.GapequationIntegralUnitless}
@@ -74,7 +58,7 @@ Further we quantify what is meant by having a large transverse energy gap $\omeg
 
 \begin{table}[htb]
 \centering
-\caption{\textit{Summary of the assumptions made so far. I have introduced the reduced mass $m_r = \frac{m_Fm_B}{m_F+m_B}$. Further B and F refers to Bosons and Fermions respectively.}}
+\caption{\textit{Summary of the assumptions made so far. $m_r = \frac{m_Fm_B}{m_F+m_B}$ is the reduced mass. Further B and F refers to Bosons and Fermions respectively.}}
 \begin{tabular}{|l|l|l|l|}
 \hline \textbf{Quantity} & \textbf{Parameters} & \textbf{Assumption}			& \textbf{Reason}	\\
 \hline Transverse energy gap & $\omega_t = 1/\sqrt{m_Fl_t}$ & $(k_Fl_t)^2\ll 1$ & Trap in transverse ground state \\
@@ -86,13 +70,18 @@ Further we quantify what is meant by having a large transverse energy gap $\omeg
 \end{table}
 
 \section{Numerical calculation} \label{sec.pairingandchemicalpotential.numericalcalculation}
-In this subsection we will describe and perform a numerical calculation of the pairing and chemical potentials. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$ and $\mu(T=0)$. Then we plug this into the gap equation \eqref{eq.GapequationIntegralUnitless} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This is then inserted into the number equation \eqref{eq.NumberEquationUnitless}, whereby we get an updated guess for the chemical potential. The process is repeated until the maximum of $\Delta_k(T=0)$ \textit{and} the Fermi energy $\mu(T=0)$ does not change by more than $1\%$. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ and $\mu(T=0$ as an initial guesses repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. Finally, we will use the $l_t \to 0$ limit for the coupling potential from equation \eqref{eq.CouplingPotentiallt=0} and so the gap equation of interest is equation \eqref{eq.GapequationIntegralUnitless}. It is possible to come with some rather well educated initial guesses for the pairing and the chemical potentials. We expect, that the chemical potential is not altered significantly from the one for the free gas, and so $\tilde{\mu}(T = 0) = 1$ is a good initial guess. The pairing needs to be odd in $k$ and by inspecting the integral equation, we see that we only get significant contributions around $\tilde{k}' = \tilde{k}$. Hence, we expect that the pairing goes to 0 for large values of $\tilde{k}$.  
+In this section we will describe and perform a numerical calculation of the pairing and chemical potentials. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$ and $\mu(T=0)$. Then we plug this into the gap equation \eqref{eq.GapequationIntegralUnitless} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This is then inserted into the number equation \eqref{eq.NumberEquationUnitless}, whereby we get an updated guess for the chemical potential. The process is repeated until the maximum of $\Delta_k(T=0)$ \textit{and} the Fermi energy $\mu(T=0)$ does not change by more than $1\%$. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ and $\mu(T=0$ as an initial guesses repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. Finally, we will use the $l_t \to 0$ limit for the coupling potential from equation \eqref{eq.CouplingPotentiallt=0} and so the gap equation of interest is equation \eqref{eq.GapequationIntegralUnitless}. It is possible to come with some rather well educated initial guesses for the pairing and the chemical potentials. We expect, that the chemical potential is not altered significantly from the one for the free gas, and so $\tilde{\mu}(T = 0) = 1$ is a good initial guess. The pairing needs to be odd in $k$ and by inspecting the integral equation, we see that we only get significant contributions around $\tilde{k}' = \tilde{k}$. Hence, we expect that the pairing goes to 0 for large values of $\tilde{k}$.  
 
-The result of the calculation is shown in figures \ref{fig.Deltakkdepend} and \ref{fig.maxkDeltakTdepend}. From here we get, that $\max_{k,T}[\Delta_k(T)]/\epsilon_F \approx 0.301$ and $T_C/T_{F,0} \approx 0.150$. Further from this it follows, that the maximal gap to critical temperature ratio is: $\max_{k,T}[\Delta_k(T)]/(k_B T_C) \approx 2.00$. This is quite close to the BCS-value of $1.77$ \cite{BruusFlensberg}.  
+The iteration over the pairing and chemical potentials are halted, when $\max_k[\Delta_k]$ and $\mu(T)$ do not change more than $1$\textperthousand  upon iteration. An increasing number of iterations are needed near the transition from the superconducting to normal phase. For the chosen parameters we get, that above the temperature $T_C = 0.150 T_{F,0}$ the analysis does not come to a halt within 300 iterations. Hence, we cannot trust the numerical calculation above this temperature. In stead we find an asymptotic form of the maximal gap near $T_C$:
+\begin{equation}
+\frac{\max_{k}[\Delta_k(T)]}{\epsilon_{F,0}} \approx \max_k[\Delta_{k}(T=0)]\frac{T}{T_F}\left[1 - \left(\frac{T}{T_C}\right)^3\right]^{1/2}. 
+\label{eq.maxpairingasymp}
+\end{equation}
+This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_C}$. We therefore interpret $T_C$ as the critical temperature at which the phase transistion occurs. Above this temperature we set $\Delta_k = 0$ for all $k$. This leads to the figures \ref{fig.Deltakkdepend}, \ref{fig.maxkDeltakTdepend} and \ref{fig.chempot}. From here we get, that $\max_{k,T}[\Delta_k(T)]/\epsilon_F \approx 0.301$. It follows, that the maximal gap to critical temperature ratio is: $\max_{k,T}[\Delta_k(T)]/(k_B T_C) \approx 2.00$. This is quite close to the BCS-value of $1.77$ \cite{BruusFlensberg}.  
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Deltafreegaschem3/kdepend.tex}  
+\input{Figures/Delta/kdepend.tex}  
 \caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
 \label{fig.Deltakkdepend}  
 \end{center}    
@@ -100,18 +89,50 @@ The result of the calculation is shown in figures \ref{fig.Deltakkdepend} and \r
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Deltafreegaschem3/Tdepend.tex}  
-\caption{The numerically calculated maximal gap $\max_k[\Delta_k]$ is shown in black. In red we have plottet $\Delta_0 \frac{T}{T_F}\left(1 - \frac{T}{T_C}\right)^{1/2}$. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the gap becomes vanishing is $T_C \approx 0.150 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.10< T/T_{F,0} < 0.15$. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
+\input{Figures/Delta/Tdepend.tex}  
+\caption{In black: The numerically calculated maximal pairing $\max_k[\Delta_k]$. In red: the asymptotic form from equation \eqref{eq.maxpairingasymp}. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the pairing vanishes is $T_C \approx 0.150 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.10< T/T_{F,0} < 0.15$. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
 \label{fig.maxkDeltakTdepend}  
 \end{center}    
 \end{figure}
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Deltafreegaschem3/chempot.tex}  
-\caption{The numerically calculated chemical potential is shown in black. Notice, that around the critical temperature, $T_C \approx 0.150 T_{F,0}$, the chemical potential changes behaviour. In red the free gas chemical potential is shown. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
+\input{Figures/Delta/chempot.tex}  
+\caption{In black: The numerically calculated chemical potential. Notice, that around the critical temperature, $T_C \approx 0.150 T_{F,0}$, the chemical potential jumps. In red: The free gas chemical potential. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
 \label{fig.chempot}  
 \end{center}    
 \end{figure}
 
- We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential is plotted in figure \ref{fig.chempot}. Overall the (actual) numerically calculated chemical potential is lower and quite constant for $T/T_C \ll 1$. Then it starts rapidly increasing, compared to the free gas potential, and after crossing the free gas potential it changes behaviour. Physically, it is reasonable, that it starts out lower, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, the crossing and change in behaviour is near the phase transition at $T_C$, where the gas goes from the superconducting to the normal phase. 
+ We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential is plotted in figure \ref{fig.chempot}. Overall the (actual) numerically calculated chemical potential is lower and quite constant for $T/T_C \ll 1$. Then it starts rapidly increasing, compared to the free gas potential, and finally at $T_C$ it jumps to the free gas chemical potential. Physically, it is reasonable, that it starts out lower, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, the jump is inforced by the maximal gap going to $0$ at $T_C$. This can explicitly seen to be the case from \eqref{eq.HFFdef}, since the fermion Hamiltonian $H_{FF}$ goes to the \textit{free} fermion Hamiltonian, when $\Delta_k \to 0$. 
+
+ We can enhance the pairing potential by decreasing the BEC scattering length $a_B$. This is connected to increasing the healing length $\tilde{\xi} = k_F\xi = \frac{\pi}{\sqrt{8 n_B/n_F^3 k_Fa_B}}$. In turn this is the range of the induced interaction in real space: $\tilde{V}_{FF}^\text{ind}(x,0) \propto \frac{\text{e}^{-|x|/2\xi}}{|x|}$. The enhancement is thus physically reasonable. This behaviour is seen to match with the depicted in figure \ref{fig.maxkDeltakaBdepend}, and it shows, that there is a dramatic increase for $k_Fa_B \to +0$, or equivalently when the range $\xi$ of the induced interaction goes to infinity. Further, the pairing actually crosses the free gas Fermi energy. In the same analysis we find, that the Fermi energy $\epsilon_F$ is shifted about $6\%$ from the free gas Fermi energy $\epsilon_{F,0}$ for all values of $k_F a_B$.  
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/DeltavaryaB/aBdepend.tex}  
+\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the BEC scattering length $a_B$. Notice that it increases dramatically for $k_Fa_B \to +0$ and actually exceeds the free gas Fermi energy in this limit. Other parameters: $k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
+\label{fig.maxkDeltakaBdepend}  
+\end{center}    
+\end{figure}
+
+
+ We now turn our attention to the potential width for the string: $l_t$. Finding a solution for $l_t > 0$ is a little more tedious than for $l_t = 0$, since we then need to solve the integral for $V_{FF}^\text{ind}(q,0)$ for each iteration. It does however carry through analogously to the $l_t = 0$ case. Figure \ref{fig.maxkDeltakltdepend} shows the found dependency on $l_t$ of the maximal pairing. We see, that there is a well defined $l_t \to 0$ limit as expected, and that the maximal pairing decreases monotonically with $l_t$. This can best be understood again from the real space induced interaction. We saw in figure \ref{fig.Vx}, that the induced interaction is effectively shielded around $x = 0$ for $l_t > 0$. This shielding is increased for higher values of $l_t$. Hence, the interaction is lowered when the particles are close to each other. In conclusion the pairing most decrease with increasing $l_t$. 
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/Deltavarylt/ltdepend.tex}  
+\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the potential width $l_t$. Other parameters: $k_Fa_B = k_F a_{BF} = 0.3, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
+\label{fig.maxkDeltakltdepend}  
+\end{center}    
+\end{figure}
+
+Let us now investigate the dependency on the fermion-boson scattering length: $a_{BF}$. The result of the numerical calculation is shown in \ref{fig.maxkDeltakaBFdepend}. The pairing is seen to drop to zero around $k_Fa_{BF,c} = 0.155$. This shows, that the fermion-boson scattering length must exceed a cricital value for the string to be superconducting.   
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/DeltavaryaBF/aBFdepend.tex}  
+\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the fermion-boson scattering length $a_{BF}$. Notice that it goes rapidly to zero around $k_Fa_{BF} = 0.155$. Other parameters: $k_F a_{B} = 0.001, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
+\label{fig.maxkDeltakaBFdepend}  
+\end{center}    
+\end{figure}
+

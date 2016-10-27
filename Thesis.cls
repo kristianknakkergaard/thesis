@@ -108,6 +108,7 @@
 \usepackage{mathtools}	
 \usepackage{braket}
 \usepackage{tikz-feynman}
+\usepackage{textcomp}
 \DeclareMathOperator{\tr}{tr}
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
