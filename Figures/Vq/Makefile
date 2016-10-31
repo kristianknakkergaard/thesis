@@ -17,7 +17,7 @@ plot.tex: data makefile
 'set tics out;       			   '\
 'set xlabel "$$q\xi$$"; 		   '\
 'set ylabel "$$V_\text{ind}(q,0)/V_0$$"; 	   '\
-'plot [-8:8][-4.3:0] 		   '\
+'plot [-15:15][-8:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 2:3 notitle with lines lw 2 lc rgb "red" '\
 ',"$<" index 1 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
@@ -31,4 +31,4 @@ plot.tex: data makefile
 
 
 clean:
-	$(RM) Vq data plot.tex plot-eps-converted-to.pdf *.ps log
+	$(RM) Vq data plot.tex plot-eps-converted-to.pdf *.eps log

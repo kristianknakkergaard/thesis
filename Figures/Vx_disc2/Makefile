@@ -15,14 +15,13 @@ plot.tex: data makefile
 'set output "$@"; 			   '\
 'set grid;       			   '\
 'set tics out;       			   '\
-'set xlabel "$$lt/\xi$$"; 		   '\
-'set ylabel "$$d/\xi$$"; 	   '\
+'set xlabel "$$k_Fl_t$$"; 		   '\
+'set ylabel "$$k_Fd$$"; 	   '\
 'plot [0:][0:] 		   '\
 ' "$<" using 1:2 notitle with lines lw 2 lc rgb "blue" '\
 ',"$<" using 1:4 notitle with lines lw 2 lc rgb "red" '\
-',"$<" using 1:5 notitle with lines lw 2 lc rgb "magenta" '\
 | tee log | gnuplot
 
 
 clean:
-	$(RM) Disc data plot.tex plot-eps-converted-to.pdf *.ps log
+	$(RM) Disc data plot.tex plot-eps-converted-to.pdf *.eps log *.gpi

@@ -7,7 +7,7 @@
 \lhead{Chapter 2. \emph{Prerequisites}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we come with a summary of the necessary prerequisites for the understanding of the 1D-3D system at hand. This includes the free fermion gas, the Kitaev model and the weakly interacting Bose-Einstein condensate. Further the notation of the thesis is in large introduced here, and I refer to the relevant section in this chapter, if any confusion should arise. If one is familiar with the concepts introduced here, they can be skipped. 
+In this chapter we come with a summary of the necessary prerequisites for the understanding of the 1D-3D system at hand. This includes the free fermion gas, second quantizatio, the Kitaev model and the weakly interacting Bose-Einstein condensate. Further the notation of the thesis is in large introduced here, and I refer to the relevant section in this chapter, if any confusion should arise. If one is familiar with the concepts introduced here, they can be skipped. 
 
 \section{The free fermion gas in one dimension} \label{sec.chemicalpotential.freegas}
 We consider a free gas of $N_F$ \textit{identical} fermions on a string of length $\mathcal{L}$ with an associated chemical potential $\mu_0$. The statistical mechanics are governed by the Fermi-Dirac distribution:
@@ -45,7 +45,25 @@ Hence, we see that the chemical potential of the free gas is \textit{increasing}
 \section{Units}
 In this section I will specify what units energies, momenta, distances, densities etc. will be in. This is especially important for the numerical analyses we will perform later on. 
 
-Any physical process of the fermions considered is expected only to affect the fermions near the Fermi energy $\epsilon_{F,0}$. This is essentially a consequence of the assumption, that the other relevant energies we consider are small with respect to the Fermi energy. For this reason we express energies in terms of the Fermi energy for the free gas $\epsilon_{F,0}$. Similarly we express temperatures in units of $T_{F,0}$, momenta in units of $k_F$ and distances in units of $1/k_F$. The density of the three dimensional Bose-Einstein condensate will be in units of $n_F^3$ and all masses in units of $m_F$. In some circumstances variables will be have a "$\tilde{}$" to express that it is unitless. For example: $\tilde{k} = k/k_F$.  
+Any physical process of the fermions considered is expected only to affect the fermions near the Fermi energy $\epsilon_{F,0}$. This is essentially a consequence of the assumption, that the other relevant energies we consider are small with respect to the Fermi energy. For this reason we express energies in terms of the Fermi energy for the free gas $\epsilon_{F,0}$. Similarly we express temperatures in units of $T_{F,0}$, momenta in units of $k_F$ and distances in units of $1/k_F$. The density of the three dimensional Bose-Einstein condensate will be in units of $n_F^3$ and all masses in units of $m_F$. In some circumstances variables will be have a \; $\tilde{}$" \; to express that it is unitless. For example: $\tilde{k} = k/k_F$.  
+
+\section{Second quantization}
+In this section I will introduce the second quantization formalism.\footnote{Any spin degrees of freedom are suppressed. This is consistent with the systems with the systems, we will study.} This is an essential tool for the analyses, we will perform. It is largely based on \cite{LandauQM}. As usual in second quantization we define field operators $\psi(\mathbf{r})$ and $\psi^\dagger(\mathbf{r})$ that respectively annihilate and create a particle at position $\mathbf{r}$. We need a recipe of how to formulate operators in second quantized form. Let us take the kinetic energy as an example. The kinetic energy operator in real space is $T = p^2/2m = -\nabla^2/2m$, where $m$ is the mass of the particle. This is a single particle operator in the sense, that it only operates on a single coordinate. This means, that the kinetic energy operator in second quantization is:
+\begin{equation}
+\hat{T} = \int d^3 r \; \psi^\dagger(\mathbf{r}) T(r)\psi(\mathbf{r}). \nonumber   
+\end{equation} 
+If the field operators had been wave functions we see, that the above corresponds to the mean value $\langle T\rangle$. In this sense one can make the following recipe for going from first to second quantization. Write up the mean value for the operator and then change the wave functions to fields operators. Then the mean value goes to the second quantized operator. For this to be an applicable approach the matrix elements of $\hat{T}$ must be same as the matrix elements of $T$. The matrix elements in position space are: $\bra{0}\psi(\mathbf{r}) \hat{T} \psi^\dagger(\mathbf{r}')\ket{0}$, where $\ket{0}$ is the socalled vacuum: the state with no particles present. For fermions we inforce the anticommutator: $\{\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')\} = \delta(\mathbf{r}-\mathbf{r}')$, for bosons the commutator: $[\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')] = \delta(\mathbf{r}-\mathbf{r}')$. In either case we get the matrix elements $T(r)\delta(\mathbf{r}-\mathbf{r}')$, which is the exact matrix elements of $T$ in the position basis. 
+
+This looks a tad involved. My claim is however, that we can recover a lot of intuition from classical mechanics in second quantization. This is especially clear, when we describe the operators in their eigenspace. Therefore let $\psi(\mathbf{r}) = \sum_{\mathbf{p}} \text{e}^{i\mathbf{p}\cdot \mathbf{r}} a_\mathbf{p}$, where $a_\mathbf{p}$ annihilates a paricle of momentum $\mathbf{p}$. A simple calculation shows, that:
+\begin{equation}
+\hat{T} = \sum_\mathbf{p} \frac{p^2}{2m} a^\dagger_\mathbf{p}a_\mathbf{p}.
+\end{equation}
+The operator $N_p = a^\dagger_\mathbf{p}a_\mathbf{p}$ counts the number of particles with momentum $\mathbf{p}$. Hence, the momentum operator in second quantization consists of summing up the momentum contribution $\frac{p^2}{2m}$ from each momentum state. Similarly, one can argue that a two particle operator in second quantization, such as the pair interactions we will study, should be written in the form:
+\begin{equation}
+\hat{U}^{(2)} = \frac{1}{2}\int d^3 r d^3 r' \; \psi^\dagger(\mathbf{r}) \psi^\dagger(\mathbf{r}') U^{(2)}(\mathbf{r},\mathbf{r}')\psi(\mathbf{r}')\psi(\mathbf{r}). \nonumber 
+\end{equation}
+The factor of $\frac{1}{2}$ is to account for the double integral. This ends our second quantization prerequisite. 
+
 
 \section{The Kitaev Model}
 The goal of this thesis is fundamentally to show, that the 1D-3D mixture of Fermi and Bose gases realises the socalled Kitaev model, so let us briefly review the fundamental properties of this model. The system consists of identical fermions on a string of length $\mathcal{L}$. The Hamiltonian in momentum space is: 
@@ -109,10 +127,19 @@ H_{BB} = \sum_\mathbf{k} E_{B,\mathbf{k}}\beta_\mathbf{k}^\dagger \beta_\mathbf{
 
 Here the ground state energy is neglected. The Bogoliubov spectrum is $E_{B,k}^2 = \xi_{B,k}^2-(n_Bg_B)^2$ with $\xi_{B,k} = \frac{k^2}{2m_B}+n_Bg_B$ the kinetic energy shifted by the mean field interaction $n_Bg_B$. Finally the condensate coherence factors $u_{B,k}$ and $v_{B,k}$ are found to be: 
 \begin{equation}
-u_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,\mathbf{k}}}{ E_{B,\mathbf{k}}}+1 \right), \hspace{0.5cm} v_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,\mathbf{k}}}{ E_{B,\mathbf{k}}}-1 \right)
+u_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,\mathbf{k}}}{ E_{B,\mathbf{k}}}+1 \right), \hspace{0.5cm} v_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,\mathbf{k}}}{ E_{B,\mathbf{k}}}-1 \right).
 \end{equation}
 
-This ends our microscopic theory prerequisite. 
+Finally, I wish to comment on how we ensure, that the fraction of excited bosons is limited. We write the number operator as: $N_B = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} b^\dagger_{\mathbf{k}}b_{\mathbf{k}}$. For $T=0$, we have the defining relation for the ground state: $\beta_{\mathbf{k}}\ket{\text{BEC}}_0 = 0$. This enables us to calculate the expectation value for $N_B$:
+\begin{equation}
+\braket{N_B} = \; _{0}\!\bra{\text{BEC}} N_B \ket{\text{BEC}}_0 = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}.\nonumber
+\end{equation} 
+Hence $N_{B,\text{exc}} = \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}$ is the number of excited bosons for $T=0$. Transforming the sum to an integral and calculating the fraction $N_{B,\text{exc}}/N_B$ yields:
+\begin{equation}
+\frac{N_{B,\text{exc}}}{N_B} = \frac{8}{3\sqrt{\pi}}(n_Ba_B^3)^{1/2}.
+\label{eq.excitedbosonsBEC}
+\end{equation}
+Thus, we see that to have a selfconsistent assumption about a small number of excited bosons, we need to assume, that $(n_Ba_B^3)^{1/3}\ll 1$. This ends our microscopic theory prerequisite. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Imaginary time Green's functions for the BEC}
@@ -151,8 +178,4 @@ Similarly $G_{12}(\mathbf{k},\tau)$ can be calculated. It is found to be real, a
 \begin{equation}
 G_{12}(\mathbf{k},i\omega_m)= \frac{u_kv_k}{i\omega_m+E_k}-\frac{u_kv_k}{i\omega_m-E_k}. 
 \end{equation}
-
 This ends our Green's function prerequisite.
-
-
-

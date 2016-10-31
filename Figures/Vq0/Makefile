@@ -15,8 +15,8 @@ plot.tex: data makefile
 'set output "$@"; 			   '\
 'set grid;       			   '\
 'set tics out;       			   '\
-'set xlabel "$$\xi/lt$$"; 		   '\
-'set ylabel "$$V(q=0,0)/V_0$$"; 	   '\
+'set xlabel "$$1/k_Fl_t$$"; 		   '\
+'set ylabel "$$V_{FF}^\text{ind}(q=0,0)/V_0$$"; 	   '\
 'plot [0:][:0] 		   '\
 '"$<" using 1:2 notitle with lines lw 4 lc rgb "blue" '\
 ',"$<" using 1:3 notitle with lines lw 2 lc rgb "red" '\
@@ -25,4 +25,4 @@ plot.tex: data makefile
 
 
 clean:
-	$(RM) Vq data plot.tex plot-eps-converted-to.pdf *.eps log
+	$(RM) Vq0 data plot.tex plot-eps-converted-to.pdf *.eps *.o *.log

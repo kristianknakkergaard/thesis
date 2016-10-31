@@ -15,9 +15,9 @@ plot.tex: data makefile
 'set output "$@"; 			   '\
 'set grid;       			   '\
 'set tics out;       			   '\
-'set xlabel "$$x/\xi$$"; 		   '\
-'set ylabel "$$V_\text(x,0)/V_0$$"; 	   '\
-'plot [-3:3][-7:0] 		   '\
+'set xlabel "$$k_Fx$$"; 		   '\
+'set ylabel "$$\tilde{V}_{FF}^\text(x,0)/V_0$$"; 	   '\
+'plot [-1:1][-30:0] 		   '\
 ' "$<" index 0 using 2:4 notitle with lines lw 2 lc rgb "black" '\
 ',"$<" index 0 using 2:3 notitle with lines lw 2 lc rgb "red" '\
 ',"$<" index 1 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
