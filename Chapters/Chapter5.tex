@@ -52,17 +52,17 @@ where $n_F = N_F/\mathcal{L}$. For the free fermion gas $k_F = n_{F,0}\pi$. Sinc
 This gives us the required second equation.
 
 \section{Assumptions}
-Before performing the numerical calculation, it is worthwhile to summarize what assumptions, we have made so far. To trap the fermions in one dimension we assumed, that the transverse energy, $\omega_t$, is much larger than the typical energy of the fermions, $\epsilon_{F,0}$. This leads to requirement in the first line of table \ref{tab.assumptions}. To have neglible ground state depletion of the condensate, we saw in equation \eqref{eq.excitedbosonsBEC}, that we needed to assume $(n_Ba_B^3)^{1/3}\ll 1$. This is line two of the table. Further, to be able to neglect retardation effects, we needed to assume, that the fermions moves slowly relative to the quasiparticles in the BEC. This lead to the requirement in line 3 in the table.
+Before performing the numerical calculation, it is worthwhile to summarize what assumptions, we have made so far. To trap the fermions in one dimension we assumed, that the transverse energy, $\omega_t$, is much larger than the typical energy of the fermions, $\epsilon_{F,0}$. This lead to requirement in the first line of table \ref{tab.assumptions}. To have neglible ground state depletion of the condensate, we saw in equation \eqref{eq.excitedbosonsBEC}, that we needed to assume $(n_Ba_B^3)^{1/3}\ll 1$. This is line two of the table. Further, to be able to neglect retardation effects, we needed to assume, that the fermions moves slowly relative to the quasiparticles in the BEC. This lead to the requirement in line 3 in the table.
 
 \begin{table}[htb]
 \centering
 \caption{\textit{Summary of the assumptions made so far. $m_r = \frac{m_Fm_B}{m_F+m_B}$ is the reduced mass. B and F refer to Bosons and Fermions respectively. $\omega_n$ is the bosonic Matsubara frequencies associated with the induced interaction.}}
 \begin{tabular}{|l|l|r|l|}
-\hline \textbf{Quantity} & \textbf{Parameters} 				& \textbf{Assumption}					& \textbf{Reason}	\\
-\hline Transverse energy gap & $\omega_t = 1/\sqrt{m_Fl_t}$ & $(k_Fl_t)^2/2 	\ll 1$ 				& Trap in transverse ground state \\
-\hline B-B scattering length & $g_B = 4\pi a_B/m_B$			& $(n_Ba_B^3)^{1/3}	\ll 1$				& Negligible BEC depletion  \\
-\hline $\omega_n = 0$ limit  & $n_B, a_B$					& $n_Bn_F^{-3}k_Fa_B	\gg 1$		& Negligible retardation effects  \\
-\hline B-F scattering length & $g_{BF} = 4\pi a_{BF}/m_r$ 	& $(n_Ba_{BF}^3)^{1/3}	\ll 1$			& Simple diagrammatics\\
+\hline \textbf{Quantity} & \textbf{Parameters} 				& \textbf{Assumption}						& \textbf{Reason}	\\
+\hline Transverse energy gap & $\omega_t = 1/\sqrt{m_Fl_t}$ & $(k_Fl_t)^2/2 	\ll 1$ 					& Trap in transverse ground state \\
+\hline B-B scattering length & $g_B = 4\pi a_B/m_B$			& $(n_Ba_B^3)^{1/3}	\ll 1$					& Negligible BEC depletion  \\
+\hline $\omega_n = 0$ limit  & $n_B, a_B, m_F, m_B$			& $(\frac{m_F}{m_B})^2 \frac{n_B}{n_F^3}k_Fa_B \gg 1$ & Negligible retardation effects  \\
+\hline B-F scattering length & $g_{BF} = 4\pi a_{BF}/m_r$ 	& $(n_Ba_{BF}^3)^{1/3}	\ll 1$				& Simple diagrammatics\\
 \hline 
 \end{tabular}
 \label{tab.assumptions}
@@ -71,45 +71,37 @@ Before performing the numerical calculation, it is worthwhile to summarize what 
 \section{Numerical calculation} \label{sec.pairingandchemicalpotential.numericalcalculation}
 In this section we will describe and perform a numerical calculation of the pairing and chemical potentials. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$ and $\mu(T=0)$. Then we plug this into the gap equation \eqref{eq.GapequationIntegralUnitless} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This is then inserted into the number equation \eqref{eq.NumberEquationUnitless}, whereby we get an updated guess for the chemical potential. The process is repeated until the maximum of $\Delta_k(T=0)$ \textit{and} the Fermi energy $\mu(T=0)$ does not change by more than $1\%$. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ and $\mu(T=0$ as an initial guesses repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. Finally, we will use the $l_t \to 0$ limit for the coupling potential from equation \eqref{eq.CouplingPotentiallt=0} and so the gap equation of interest is equation \eqref{eq.GapequationIntegralUnitless}. It is possible to come with some rather well educated initial guesses for the pairing and the chemical potentials. We expect, that the chemical potential is not altered significantly from the one for the free gas, and so $\tilde{\mu}(T = 0) = 1$ is a good initial guess. The pairing needs to be odd in $k$ and by inspecting the integral equation, we see that we only get significant contributions around $\tilde{k}' = \tilde{k}$. Hence, we expect that the pairing goes to 0 for large values of $\tilde{k}$.  
 
-The iteration over the pairing and chemical potentials are halted, when $\max_k[\Delta_k]$ and $\mu(T)$ do not change more than $1$\textperthousand  upon iteration. An increasing number of iterations are needed near the transition from the superconducting to normal phase. For the chosen parameters we get, that above the temperature $T_C = 0.150 T_{F,0}$ the analysis does not come to a halt within 300 iterations. Hence, we cannot trust the numerical calculation above this temperature. In stead we find an asymptotic form of the maximal gap near $T_C$:
+The iteration over the pairing and chemical potentials are halted, when $\max_k[\Delta_k]$ and $\mu(T)$ do not change more than $1$\textperthousand upon iteration. An increasing number of iterations are needed near the transition from the superconducting to normal phase. Near the transition temperature $T_C$ the maximal pairing has the asymptotic form:
 \begin{equation}
 \frac{\max_{k}[\Delta_k(T)]}{\epsilon_{F,0}} \approx \max_k[\Delta_{k}(T=0)]\frac{T}{T_F}\left[1 - \left(\frac{T}{T_C}\right)^3\right]^{1/2}. 
 \label{eq.maxpairingasymp}
 \end{equation}
-This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_C}$. We therefore interpret $T_C$ as the critical temperature at which the phase transistion occurs. Above this temperature we set $\Delta_k = 0$ for all $k$. This leads to the figures \ref{fig.Deltakkdepend}, \ref{fig.maxkDeltakTdepend} and \ref{fig.chempot}. From here we get, that $\max_{k,T}[\Delta_k(T)]/\epsilon_F \approx 0.301$. It follows, that the maximal gap to critical temperature ratio is: $\max_{k,T}[\Delta_k(T)]/(k_B T_C) \approx 2.00$. This is quite close to the BCS-value of $1.77$ \cite{BruusFlensberg}.  
+This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_C}$. Near $T_C = 0.252 T_{F,0}$ the numerical calculation needs an increasing number of iterations. We therefore halt the calculation above $T_C$ and set $\Delta_k = 0$ for all $k$. This leads to the figures \ref{fig.Deltakkdepend} and \ref{fig.maxkDeltakTdepend}. From here we get, that $\max_{k,T}[\Delta_k(T)]/\epsilon_F \approx 0.562$. It follows, that the maximal gap to critical temperature ratio is: $\max_{k,T}[\Delta_k(T)]/(k_B T_C) \approx 2.23$. This is similar to the BCS-value of $1.77$ \cite{BruusFlensberg}.  
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Delta/kdepend.tex}  
-\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
+\input{Figures/Delta4/kdepend.tex}  
+\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_B^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215, (m_F/m_B)^2n_B/n_F^3 kFaB = 22.10$. }  
 \label{fig.Deltakkdepend}  
 \end{center}    
 \end{figure}
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Delta/Tdepend.tex}  
-\caption{In black: The numerically calculated maximal pairing $\max_k[\Delta_k]$. In red: the asymptotic form from equation \eqref{eq.maxpairingasymp}. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the pairing vanishes is $T_C \approx 0.150 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.10< T/T_{F,0} < 0.15$. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
+\input{Figures/Delta4/Tdepend.tex}  
+\caption{In black: The numerically calculated maximal pairing $\max_k[\Delta_k]$. In red: the asymptotic form from equation \eqref{eq.maxpairingasymp}. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the pairing vanishes is $T_C \approx 0.150 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.10< T/T_{F,0} < 0.15$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_B^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215, (m_F/m_B)^2n_B/n_F^3 kFaB = 22.10$. }  
 \label{fig.maxkDeltakTdepend}  
 \end{center}    
 \end{figure}
 
-\begin{figure} 
-\begin{center}  
-\input{Figures/Delta/chempot.tex}  
-\caption{In black: The numerically calculated chemical potential. Notice, that around the critical temperature, $T_C \approx 0.150 T_{F,0}$, the chemical potential jumps. In red: The free gas chemical potential. Parameters: $k_F a_B = k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$. }  
-\label{fig.chempot}  
-\end{center}    
-\end{figure}
-
- We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential is plotted in figure \ref{fig.chempot}. Overall the (actual) numerically calculated chemical potential is lower and quite constant for $T/T_C \ll 1$. Then it starts rapidly increasing, compared to the free gas potential, and finally at $T_C$ it jumps to the free gas chemical potential. Physically, it is reasonable, that it starts out lower, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, the jump is inforced by the maximal gap going to $0$ at $T_C$. This can explicitly seen to be the case from \eqref{eq.HFFdef}, since the fermion Hamiltonian $H_{FF}$ goes to the \textit{free} fermion Hamiltonian, when $\Delta_k \to 0$. 
+ We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential has not been plotted. Since the chemical potential numerically changes very little from the free gas potential, a very high resolution in $k$ is needed to get an accurate numerical result. Therefore, we do not plot the chemical potential and instead use the number equation only to enhance the precision of the found pairing. We do however see, that the chemical potential is shifted downwards for $T=0$. This is physically reasonable, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, since the pairing goes continously to zero for $T\to T_C$ the chemical potential must go continuously to the free gas potential for $T\to T_C$. 
 
  We can enhance the pairing potential by decreasing the BEC scattering length $a_B$. This is connected to increasing the healing length $\tilde{\xi} = k_F\xi = \frac{\pi}{\sqrt{8 n_B/n_F^3 k_Fa_B}}$. In turn this is the range of the induced interaction in real space: $\tilde{V}_{FF}^\text{ind}(x,0) \propto \frac{\text{e}^{-\sqrt{2}|x|/\xi}}{|x|}$. The enhancement is thus physically reasonable. This behaviour is seen to match with the depicted in figure \ref{fig.maxkDeltakaBdepend}, and it shows, that there is a dramatic increase for $k_Fa_B \to +0$, or equivalently when the range $\xi$ of the induced interaction goes to infinity. Further, the pairing actually crosses the free gas Fermi energy. In the same analysis we find, that the Fermi energy $\epsilon_F$ is shifted about $6\%$ from the free gas Fermi energy $\epsilon_{F,0}$ for all values of $k_F a_B$.  
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/DeltavaryaB/aBdepend.tex}  
-\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the BEC scattering length $a_B$. Notice that it increases dramatically for $k_Fa_B \to +0$ and actually exceeds the free gas Fermi energy in this limit. Other parameters: $k_F a_{BF} = 0.3, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
+\input{Figures/DeltavaryrBB/rBBdepend.tex}  
+\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the BEC gas constant $(n_Ba_B^3)^{1/3}$. Notice the monotonic decrease. Other parameters: $(n_Ba_B^3)^{1/3} = 0.036, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.036$.}  
 \label{fig.maxkDeltakaBdepend}  
 \end{center}    
 \end{figure}
@@ -129,8 +121,8 @@ Let us now investigate the dependency on the fermion-boson scattering length: $a
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/DeltavaryaBF/aBFdepend.tex}  
-\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the fermion-boson scattering length $a_{BF}$. Notice that it goes rapidly to zero around $k_Fa_{BF} = 0.155$. Other parameters: $k_F a_{B} = 0.001, l_t = 0, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
+\input{Figures/DeltavaryrBF/rBFdepend.tex}  
+\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the fermion-boson gas constant $(n_Ba_{BF}^3)^{1/3}$. Notice that it goes rapidly to zero just below $(n_Ba_{BF}^3)^{1/3}= 0.032$. Other parameters: $l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.036$.}  
 \label{fig.maxkDeltakaBFdepend}  
 \end{center}    
 \end{figure}

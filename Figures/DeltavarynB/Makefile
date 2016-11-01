@@ -2,7 +2,7 @@ CFLAGS = -Wall -Werror -std=gnu99 -O
 CFLAGS += `gsl-config --cflags`
 LDLIBS += $$(gsl-config --libs)
 
-all: nBdepend.tex mudepend.tex nBdepend 
+all: nBdepend.tex nBdepend
 
 nBdepend.tex: nBdepend Makefile
 	echo \
@@ -10,31 +10,15 @@ nBdepend.tex: nBdepend Makefile
 'set output "$@"; 			   '\
 'set grid;       			   '\
 'set tics out;       			   '\
-'set xlabel "$$n^3_F/n_B$$"; 		   '\
+'set xlabel "$$n_F/n_B^{1/3}$$"; 		   '\
 'set ylabel "$$\max_{k}[Delta_k(T=0)]/epsilon_{F,0}$$";   	   '\
-'plot [0:1][0:1] 		   '\
+'plot [0:0.1][0:40] 		   '\
 '0 notitle with lines lc rgb "black" '\
-',"$<" index 0  using 1:2 notitle with lines lc rgb "black"'\
+',"$<" index 1  using 1:2 notitle with lines lc rgb "black"'\
 | gnuplot
-
-mudepend.tex: nBdepend Makefile
-	echo \
-'set terminal epslatex solid; '\
-'set output "$@"; 			   '\
-'set grid;       			   '\
-'set tics out;       			   '\
-'set xlabel "$$k_F a_B$$"; 		   '\
-'set ylabel "$$\epsilon_F/epsilon_{F,0}$$";   	   '\
-'plot [0:1][0.9:0.95] 		   '\
-'0 notitle with lines lc rgb "black" '\
-',"$<" index 0  using 1:3 notitle with lines lc rgb "black"'\
-| gnuplot
-
-
 
 nBdepend: Delta
 	./$< > $@
-
 
 Delta: Delta.o
 

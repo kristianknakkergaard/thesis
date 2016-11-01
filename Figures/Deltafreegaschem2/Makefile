@@ -41,4 +41,4 @@ kdepend Tdepend: Delta
 Delta: Delta.o
 
 clean:
-	$(RM) Delta Delta.o *.pdf *.eps *depend.tex Tdepend kdepend
+	$(RM) Delta Delta.o *.pdf *.eps *depend.tex Tdepend kdepend *.gpi
