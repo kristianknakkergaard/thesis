@@ -20,7 +20,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
   double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
   double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
 
-  double factor = 32.0/(M_PI*M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
+  double factor = 4.0 / (M_PI * M_PI) * (1.0/mB + 1.0) * nB * pow(aBF, 2.0);
   double f      = - factor * log( ( pow(k+kprime, 2.0) + 2.0/(xi * xi) )/( pow(k-kprime, 2.0) + 2.0/(xi * xi) ) );
   return f;
 }
@@ -40,8 +40,8 @@ int
 main (void)
 {
   /*variables */
-  double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
-  double rBF = 0.036;    /*(nB * aBF^3)^(1/3) */
+  double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (3 percent depletion) */
+  double rBF = 0.101;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
 
   /*nB:*/
@@ -152,6 +152,10 @@ main (void)
   fprintf(stderr, "(nBaB^3)^(1/3) = %lg, (nBaBF^3)^(1/3) = %lg, mB/mF = %lg, nB/nF^3 = %lg, kF*aB = %lg, kF*aBF = %lg, (mF/mB)^2*nB/nF^3*kF*aB = %lg \n", rBB, rBF, mB, nB, aB, aBF, retneg);
 
   fprintf(stderr, "\n \n");
+
+  fprintf(stderr, "%s \t %s \t %s \t %s \t %s \n", "T", "kmax", "Deltamax", "mu", "check");
+  fprintf(stderr, "\n \n");
+
   fprintf(stderr, "%lg \t %lg \t %lg \t %lg \t %i \n", 0.0, kmax, gsl_vector_max(D), mu, check);
 
   /*We list the function values:*/
@@ -168,7 +172,7 @@ main (void)
   printf("\n\n");
 
   /*Temperatures:*/
-  double T_low = 0.001, T_high = 0.5, dT = 0.001;
+  double T_low = 0.0001, T_high = 0.2, dT = 0.0001;
 
   double TC = 0.0;
   for (double T = T_low; T < T_high; T+=dT)

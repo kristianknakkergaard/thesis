@@ -45,7 +45,7 @@ main (void)
   double mB  = 7.0/40.0; /*mB/mF*/
   
   double inverseBdist = 0.036;
-  double nB  = pow(inverseBdist, -3.0);  
+  double nB           = pow(inverseBdist, -3.0);  
 
   /*dependent variables:*/
   double aB  = M_PI * rBB / pow(nB, 1.0/3.0);

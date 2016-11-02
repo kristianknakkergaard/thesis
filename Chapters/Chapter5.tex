@@ -30,10 +30,10 @@ Specifically Landau has argued, that if this minimum $k_c$ does not occur at $k=
 
 Written out in the $l_t \to 0$ limit and with unitless quantities denoted by tildes, the gap integral is:
 \begin{equation}
-\tilde{\Delta}_{\tilde{k}} = \frac{2^5}{\pi^2}\frac{n_B}{n_F^3}(k_Fa_{BF})^2\left(\frac{m_B}{m_F} + \frac{m_F}{m_B} + 2\right) \int_0^\infty \frac{d\tilde{k}'}{\pi} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right] \frac{\tilde{\Delta}_{\tilde{k}'}}{2\tilde{E}_{F,\tilde{k}'}}\tanh\left(\frac{\tilde{E}_{F,k}}{2\tilde{T}}\right),
+\tilde{\Delta}_{\tilde{k}} = \frac{2}{\pi^3}\frac{n_B}{n_F^3}(k_Fa_{BF})^2\left(\frac{m_F}{m_B} + 1\right) \int_0^\infty d\tilde{k}' \; \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right] \frac{\tilde{\Delta}_{\tilde{k}'}}{\tilde{E}_{F,\tilde{k}'}}\tanh\left(\frac{\tilde{E}_{F,k}}{2\tilde{T}}\right),
 \label{eq.GapequationIntegralUnitless}
 \end{equation} 
-where $\tilde{\xi} = k_F\xi = \frac{\pi}{\sqrt{8 n_B/n_F^3 k_Fa_B}}$, and $\tilde{E}_{F,\tilde{k}} = \sqrt{(\tilde{k}^2-\tilde{\mu})^2 + |\tilde{\Delta}_{\tilde{k}}|^2}$. We have also made use of the fact, that the integrand is even i $\tilde{k}'$.
+where $\tilde{\xi} = k_F\xi = \frac{\pi}{\sqrt{8 n_B/n_F^3 k_Fa_B}}$, and $\tilde{E}_{F,\tilde{k}} = \sqrt{(\tilde{k}^2-\tilde{\mu})^2 + |\tilde{\Delta}_{\tilde{k}}|^2}$. We have also made use of the fact, that the integrand is even i $\tilde{k}'$. Notice, that since we are neglecting retardation effects, we assume $\left(\frac{m_F}{m_B}\right)^2\frac{4}{\pi^2}\frac{n_B}{n_F^3}k_Fa_B \gg 1$ as discussed in section \ref{sec.RetardationEffects}. If the stronger condition, that $\frac{n_B}{n_F^3}k_Fa_B \gg 1$ is fullfilled, we see that we are only investigating short ranged interactions between the fermions, since $k_F\xi \ll 1$ in this limit. 
 
 \section{The number equation} \label{sec.chemicalpotential.numberequation}
 In this section we use the number equation to derive a second integral equation for the chemical and pairing potentials. The number equation is: $N_F = \sum_k \left \langle f_k^\dagger f_k \right \rangle$, where we average with respect to the thermalized state of the system. From earlier we know, that $f_k = u_{F,k}^* \zeta_k -v_{F,k} \zeta_{-k}^\dagger$. This leads to the sum formula:
