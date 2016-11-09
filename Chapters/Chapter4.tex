@@ -98,9 +98,9 @@ Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{
 \end{equation}     
 For the calculation of the trace, one can for example use the single particle complete basis $\{\ket{\text{S}}_0, \zeta^\dagger_k\ket{\text{S}}_0\}$. This is all a rather involved way of saying, that the quasiparticle can either be absent $\ket{\text{S}}_0$ and have zero energy or present $\zeta^\dagger_k\ket{\text{S}}_0$ and have energy $E_{F,k}$. Finally we get the Fermi-Dirac distribution of the quasiparticles:
 \begin{equation}
-f(E_{F,k}) = \braket {\zeta^\dagger_k\zeta_k} = \sum_n n P_k(n) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
+f(E_{F,k}) = \braket {\zeta^\dagger_k\zeta_k} = \sum_N N P_k(N) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
 \end{equation}
-where $n=0,1$ is the possible number of fermions in the state, and $P_k(n) = \text{e}^{-\beta n E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear.  
+where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear.  
 
 \section{Retardation effects} \label{sec.RetardationEffects}
 We are now in a position, where we can understand the $\omega_q = 0$ limit. Let us first remind ourselves of the frequency dependent induced interaction in equation \eqref{eq.VFFindXBEC}:
@@ -133,10 +133,10 @@ The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the orig
 \ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k\right)\ket{0},
 \end{equation} 
 where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that 
-$\braket{S|S} = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
+$\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
 \begin{equation}
 \zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
 \end{equation}
 The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. This also shows, that the ground state for an even number of fermions is lower, than that for an odd number. 
 
-As is the case for other mean field theories the ground state has a broken symmetry.\footnote{This e.g. includes ferromagnets and BECs.} By inspecting 
+As is the case for other mean field theories the ground state has a broken symmetry.\footnote{This e.g. includes ferromagnets and Bose Einstein condensates.} By inspecting 
