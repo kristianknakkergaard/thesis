@@ -32,7 +32,7 @@ energyplot.tex: data makefile
 'set xlabel "$$k/k_F$$"; 		   '\
 'set ylabel "$$ E_{F,k}$$"; 	   '\
 'set key top left;					'\
-'plot [0:3.0][0:10.0] 		   '\
+'plot [0:2.0][0:5.0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 1:5 title "Free gas" with lines lw 2 lc rgb "black" '\
 ',"$<" index 1 using 1:5 title "$$r_B = 0.005$$" with lines lw 2 lc rgb "#e00000" '\

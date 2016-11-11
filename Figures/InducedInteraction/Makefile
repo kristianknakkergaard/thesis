@@ -14,6 +14,7 @@ InducedInteraction.tex: data makefile
 'set ylabel "$$V_\text{ind}(q,0)/V_0$$"; 	   '\
 'plot [0:0.8][:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
+', "$<" index 1 using ($0.3203):2 notitle with lines lc rgb "red" '\
 ',"$<" index 1 using 1:2 notitle with lines lc rgb "black" '\
 | gnuplot
 
@@ -28,7 +29,7 @@ retneg.tex: data makefile
 'set ylabel "$$V_\text{ind}(q,0)/V_0$$"; 	   '\
 'plot [0:0.8][0:100.0] 		   '\
 '0 notitle with lines lc rgb "black" '\
-', 20.0 notitle with lines lc rgb "red" '\
+', 10.0 notitle with lines lc rgb "red" '\
 ',"$<" index 1 using 1:3 notitle with lines lc rgb "black" '\
 | gnuplot
 

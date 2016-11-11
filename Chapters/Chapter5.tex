@@ -1,13 +1,13 @@
 % Chapter 5
 
-\chapter{The pairing and the chemical potentials} % Main chapter title
+\chapter{The pairing and chemical potentials} % Main chapter title
 
-\label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter3} 
+\label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter5} 
 
 \lhead{Chapter 5. \emph{Pairing and chemical potentials}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will first derive an integral equation for the chemical and pairing potentials; the socalled gap equation. This is done in section \ref{sec.pairingpotential.integralequation}. Fundamentally the interaction of the fermions will alter the chemical potential from the one for the free gas. For this reason we summarize some properties of the chemical potential for a free fermion gas in one dimension. This is done in section \ref{sec.chemicalpotential.freegas}. Using the number equation we then derive a second integral equation containing the chemical potential and the pairing. See section \ref{sec.chemicalpotential.numberequation}. In this way we are finally able to solve for both simultaneously. This is done numerically in section \ref{sec.pairingandchemicalpotential.numericalcalculation}.
+In this chapter we will first derive an integral equation for the pairing potentials; the socalled gap equation. This is done in section \ref{sec.pairingpotential.integralequation}. Fundamentally the interaction of the fermions will alter the chemical potential from the one for the free gas. This is taken into acount by virtue of the number equation. See section \ref{sec.chemicalpotential.numberequation}. Hence, we have \textit{two} integral equations for the \textit{two} potentials, and we can solve for both simultaneously. The numerical calculations are then done in section \ref{sec.pairingandchemicalpotential.numericalcalculation}. 
 
 \section{The gap equation} \label{sec.pairingpotential.integralequation}
 In this section we find an integral equation for the pairing potential $\Delta_k$, known as the gap equation. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle f_k f_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle f^\dagger_k f^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $f_k = u^*_{F,k}\zeta_k - v_{F,k}\zeta^\dagger_{-k}$ and $f_{-k} = v_{F,k}\zeta^\dagger_k + u^*_{F,k}\zeta_{-k}$. Hereby:
@@ -51,7 +51,9 @@ where $n_F = N_F/\mathcal{L}$. For the free fermion gas $k_F = n_{F,0}\pi$. Sinc
 \end{equation}
 This gives us the required second equation.
 
-\section{Assumptions}
+
+\section{Calculating the pairing potential} \label{sec.pairingandchemicalpotential.numericalcalculation}
+\subsection{Assumptions}
 Before performing the numerical calculation, it is worthwhile to summarize what assumptions, we have made so far. To trap the fermions in one dimension we assumed, that the transverse energy, $\omega_t$, is much larger than the typical energy of the fermions, $\epsilon_{F,0}$. This lead to requirement in the first line of table \ref{tab.assumptions}. To have neglible ground state depletion of the condensate, we saw in equation \eqref{eq.excitedbosonsBEC}, that we needed to assume $(n_Ba_B^3)^{1/3}\ll 1$. This is line two of the table. Further, to be able to neglect retardation effects, we needed to assume, that the fermions moves slowly relative to the quasiparticles in the BEC. This lead to the requirement in line 3 in the table.
 
 \begin{table}[htb]
@@ -68,8 +70,10 @@ Before performing the numerical calculation, it is worthwhile to summarize what 
 \label{tab.assumptions}
 \end{table}
 
-\section{Calculating the pairing potential} \label{sec.pairingandchemicalpotential.numericalcalculation}
-In this section we will describe and perform a numerical calculation of the pairing and chemical potentials. The numerical calculation is based on the following idea. We start at $T=0$ and make an initial guess for $\Delta_k$ and $\mu(T=0)$. Then we plug this into the gap equation \eqref{eq.GapequationIntegralUnitless} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This is then inserted into the number equation \eqref{eq.NumberEquationUnitless}, whereby we get an updated guess for the chemical potential. The process is repeated until the maximum of $\Delta_k(T=0)$ \textit{and} the Fermi energy $\mu(T=0)$ does not change by more than $1\%$. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ and $\mu(T=0$ as an initial guesses repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. Finally, we will use the $l_t \to 0$ limit for the coupling potential from equation \eqref{eq.CouplingPotentiallt=0} and so the gap equation of interest is equation \eqref{eq.GapequationIntegralUnitless}. It is possible to come with some rather well educated initial guesses for the pairing and the chemical potentials. We expect, that the chemical potential is not altered significantly from the one for the free gas, and so $\tilde{\mu}(T = 0) = 1$ is a good initial guess. The pairing needs to be odd in $k$ and by inspecting the integral equation, we see that we only get significant contributions around $\tilde{k}' = \tilde{k}$. Hence, we expect that the pairing goes to 0 for large values of $\tilde{k}$.  
+\subsection{Momentum and temperature dependency of the pairing}
+In this subsection we will describe and perform a numerical calculation of the momentum and temperature dependency of the pairing. The chemical potential is used to enhance the accuracy of the solution for the pairing, but is else not our focus. 
+
+The numerical calculation is based on the following idea. We start at $T = 0$ and make an initial guess for $\Delta_k$ and $\mu(T=0)$. Then we plug this into the gap equation \eqref{eq.GapequationIntegralUnitless} for $\beta = 1/k_BT = \infty$ and hereby obtain a better result for $\Delta_k(T=0)$. This is then inserted into the number equation \eqref{eq.NumberEquationUnitless}, whereby we get an updated guess for the chemical potential. The process is repeated until the maximum of $\Delta_k(T=0)$ \textit{and} the Fermi energy $\mu(T=0)$ does not change by more than $1\%$. Afterwards we increase the temperature with a small increment $dT$ and use $\Delta_k(T=0)$ and $\mu(T=0$ as an initial guesses repeating the process for $T=0$. This is done for rising temperatures until we reach some critial temperature, where $\Delta_k(T_c)\approx 0$ for all $k$, somewhat equivalent to the original BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The procedure is quite slow, because we need the entire function $\Delta_k$ for each $k$-value in the iteration. Finally, we will use the $l_t \to 0$ limit for the coupling potential from equation \eqref{eq.CouplingPotentiallt=0} and so the gap equation of interest is equation \eqref{eq.GapequationIntegralUnitless}. It is possible to come with some rather well educated initial guesses for the pairing and the chemical potentials. We expect, that the chemical potential is not altered significantly from the one for the free gas, and so $\tilde{\mu}(T = 0) = 1$ is a good initial guess. The pairing needs to be odd in $k$ and by inspecting the integral equation, we see that we only get significant contributions around $\tilde{k}' = \tilde{k}$. Hence, we expect that the pairing goes to 0 for large values of $\tilde{k}$.  
 
 The iteration over the pairing and chemical potentials are halted, when $\max_k[\Delta_k]$ and $\mu(T)$ do not change more than $1$\textperthousand upon iteration. An increasing number of iterations are needed near the transition from the superconducting to normal phase. Near the transition temperature $T_C$ the maximal pairing has the asymptotic form:
 \begin{equation}
@@ -81,7 +85,7 @@ This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_
 \begin{figure} 
 \begin{center}  
 \input{Figures/Delta4/kdepend.tex}  
-\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_B^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215, (m_F/m_B)^2n_B/n_F^3 kFaB = 22.10$. }  
+\caption{The numerically calculated gap $\Delta_k$ is plotted as a function of $k$ for different temperatures. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$. }  
 \label{fig.Deltakkdepend}  
 \end{center}    
 \end{figure}
@@ -89,74 +93,78 @@ This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_
 \begin{figure} 
 \begin{center}  
 \input{Figures/Delta4/Tdepend.tex}  
-\caption{In black: The numerically calculated maximal pairing $\max_k[\Delta_k]$. In red: the asymptotic form from equation \eqref{eq.maxpairingasymp}. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the pairing vanishes is $T_C \approx 0.150 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.10< T/T_{F,0} < 0.15$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_B^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215, (m_F/m_B)^2n_B/n_F^3 kFaB = 22.10$. }  
+\caption{In black: The numerically calculated maximal pairing $\max_k[\Delta_k]$. In red: the asymptotic form from equation \eqref{eq.maxpairingasymp}. This is seen to fit very well for both $T/T_C \ll 1$ and $T/T_C \approx 1$. Notice, that the critical temperature at which the pairing vanishes is $T_C \approx 0.252 T_{F,0}$, and that the gap is rapidly decreasing in the region $0.15< T/T_{F,0} < 0.25$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$. }  
 \label{fig.maxkDeltakTdepend}  
 \end{center}    
 \end{figure}
 
+We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential has not been plotted. Since the chemical potential numerically changes very little from the free gas potential, a very high resolution in $k$ is needed to get an accurate numerical result. Therefore, we do not plot the chemical potential and instead use the number equation only to enhance the precision of the found pairing. We do however see, that the chemical potential is shifted downwards for $T = 0$. This is physically reasonable, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, since the pairing goes continously to zero for $T\to T_C$ the chemical potential must go continuously to the free gas potential for $T\to T_C$. 
+
+
+\subsection{The relevant momenta and the coupling potential}
+In this subsection we will see how the energy dispersion behaves in an extreme case for the relative densities of the Bose and Fermi gases. This will explain, why it is momenta around the Fermi momentum ($k \approx k_F$), that are relevant to understand the influence of the pairing. 
+
+In figures \ref{fig.EnergyDispersion} and \ref{fig.Occupancy} we have plotted the energy dispersion $E_{F,k}$ and occupancy $\braket{f_k^\dagger f_k}$ for $T = 0$ for different values of the Bose gas parameter $r_B = (n_Ba_B^3)^{1/3}$. Firstly, the energy dispersion plot show, in particular for the red line, that the main difference relative to the free gas dispersion, in black, is to be found around the Fermi momentum $k_F$. If one had plotted out to the value of $k$, where the pairing has its maximum, $k_{\max} \approx 13 k_F$ in the present case, we would see, that the energy dispersion is hardly altered at all by the pairing. This is also clear from the functional form: $E_{F,k}/\epsilon_{F,0} = [(k^2/k_F^2 - \mu(0)/\epsilon_{F,0})^2 + |\Delta_k/\epsilon_{F,0}|^2 ]^{1/2}$; the first term $(k^2/k_F^2 - \mu(0)/\epsilon_{F,0})^2$ quickly becomes dominant for high values of $k/k_F$. Secondly, the number of fermions with momentum $k$ (the occupancy of the $k$'th state), $\braket{f_k^\dagger f_k}$, is seen to be significant only for $k < 2k_F$. Hence, even if the effect at high momenta $k \gg k_F$ of the pairing on the energy dispersion had been significant, it would have been suppressed by the fact, that there are simply no fermions moving with such high momenta.
+
+The occupancy plot in particular shows, that the Fermi sphere is increasingly blurred out for decreasing values of $(n_Ba_B^3)^{1/3}$.\footnote{Since the string is one-dimensional, the Fermi sphere only consists only of two points: $k = \pm k_F$.} 
+
+This is done for a high value of the boson density $n_B$: $\frac{n_F}{n_B^{1/3}} = 0.216$, since it is for these high boson densities the maximum of the pairing is moved to high values of $k/k_F$. The reason for this can be understood physically in the following way. When the density of the bosons becomes very large, the rigidity of the gas increases; it simply becomes harder to suppress the gas. Therefore, to get a significant pairing of two fermions, they need to move at a relatively high speed resulting in a pairing with a maximum at high values of $k/k_F$. This effect can be studied further by plotting the induced coupling potential $W_{FF}^{\text{ind}}(k,k')$ as a function of the relative particle distance $\frac{n_F}{n_B^{1/3}}$. With the arguments of the above, we will do this for $k = k' = k_F$. We see, that $W_{FF}^{\text{ind}}(k_F,k_F)$ as an extremal point. The behaviour for low values of $\frac{n_F}{n_B^{1/3}}$ can be understood in the same way as the above. When the density of the boson gas increases, the fermions have a harder time creating ripples in the gas, and the coupling goes down. For high values of $\frac{n_F}{n_B^{1/3}}$ on the other hand, the boson gas is depleted $n_B$ decreases, and there are simply fewer bosons around for the fermions to interact with. This is in complete accordance with what is seen in an equivalent 2D-3D system studied in the article \cite{BruunZhigangTopSuperfluid}. 
+
+In connection with the neglection of retardation effects we actually already used, that the typical speed of the fermions is the Fermi speed $v_F = k_F/m_F$. The present subsection therefore shows, that this assumption is selfconsistent. 
+
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/OccupancyT0/energyplot.tex}  
+\caption{The energy dispersion is plotted for $T = 0$. Coloured lines: differing values of the Bose gas parameter $r_B = (n_Ba_B^3)^{1/3}$, superconductiong phase. Black line: free gas (normal phase) energy dispersion. The energy is even in $k$, so the graphs are just mirrored for $k < 0$. Other parameters: $(n_Ba_{BF}^3)^{1/3} = 0.1, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.216.$ }  
+\label{fig.EnergyDispersion}  
+\end{center}    
+\end{figure}
+
+
 \begin{figure} 
 \begin{center}  
 \input{Figures/OccupancyT0/Occupancyplot.tex}  
-\caption{The number of fermions with momentum $k$, $\braket{f_k^\dagger f_k}$, is plotted as a function of $k$ for $T = 0$. $\braket{f_k^\dagger f_k} = |v_{F,k}|^2 = \frac{1}{2}\left(1 - \frac{\epsilon_k}{E_{F,k}}\right)$. Since $E_{F,k} = \sqrt{\epsilon_k^2 + |\Delta_k|^2}$ we recover the Fermi-Dirac distribution for the free gas, when $\Delta_k = 0$. This is shown in black. The colored lines are for the superconducting string for different values of the Bose gas parameter $r_B = (n_Ba_B^3)^{1/3}$.  }  
+\caption{The number of fermions with momentum $k$, $\braket{f_k^\dagger f_k}$, is plotted for $T = 0$. $\braket{f_k^\dagger f_k} = |v_{F,k}|^2 = \frac{1}{2}\left(1 - \frac{\epsilon_k}{E_{F,k}}\right)$. Coloured lines: differing values of the Bose gas parameter $r_B = (n_Ba_B^3)^{1/3}$, superconducting phase. Black line: Fermi-Dirac distribution for the free gas (normal phase).  Other parameters: $(n_Ba_{BF}^3)^{1/3} = 0.1, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.216.$  }  
 \label{fig.Occupancy}  
 \end{center}    
 \end{figure}
 
- We observe for the solution at hand, that the pairing potential is uneven in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham,BruusFlensberg,PlischkeStatPhys} for details. Finally, the chemical potential has not been plotted. Since the chemical potential numerically changes very little from the free gas potential, a very high resolution in $k$ is needed to get an accurate numerical result. Therefore, we do not plot the chemical potential and instead use the number equation only to enhance the precision of the found pairing. We do however see, that the chemical potential is shifted downwards for $T=0$. This is physically reasonable, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, since the pairing goes continously to zero for $T\to T_C$ the chemical potential must go continuously to the free gas potential for $T\to T_C$. 
-
- We can enhance the pairing potential by decreasing the BEC scattering length $a_B$. This is connected to increasing the healing length $\tilde{\xi} = k_F\xi = \frac{\pi}{\sqrt{8 n_B/n_F^3 k_Fa_B}}$. In turn this is the range of the induced interaction in real space: $\tilde{V}_{FF}^\text{ind}(x,0) \propto \frac{\text{e}^{-\sqrt{2}|x|/\xi}}{|x|}$. The enhancement is thus physically reasonable. This behaviour is seen to match with the depicted in figure \ref{fig.maxkDeltakaBdepend}, and it shows, that there is a dramatic increase for $k_Fa_B \to +0$, or equivalently when the range $\xi$ of the induced interaction goes to infinity. Further, the pairing actually crosses the free gas Fermi energy. In the same analysis we find, that the Fermi energy $\epsilon_F$ is shifted about $6\%$ from the free gas Fermi energy $\epsilon_{F,0}$ for all values of $k_F a_B$.  
-
 \begin{figure} 
 \begin{center}  
-\input{Figures/DeltavaryrBB/rBBdepend.tex}  
-\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the BEC gas constant $(n_Ba_B^3)^{1/3}$. Notice the monotonic decrease. Other parameters: $(n_Ba_B^3)^{1/3} = 0.036, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.036$.}  
+\input{Figures/InducedInteraction/InducedInteraction.tex}  
+\caption{In black: The coupling potential at the Fermi surface, $W_{FF}^\text{ind}(k_F,k_F)$, as a function of relative particle distance $n_F/n_B^{1/3}$. In red: indicates where the retardation effects are expected to kick in; the line is made by requiring $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B > 10$.  To the right of the red line the plotted potential can only be viewed as the zero frequency contribution. We notice, that the coupling potential has an extremal value. Other parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.1, \frac{m_B}{m_F} = 7/40.$}  
 \label{fig.maxkDeltakaBdepend}  
 \end{center}    
 \end{figure}
 
+The fact that maximum of the pairing can be at very high momenta means, that to figure out the functional dependency on the parameters of the system, it is much more relevant to study the behaviour of the critical temperature $T_C$ rather than the maximal pairing.\footnote{Alternatively one could study the pairing around the Fermi surface.} This will be done in chapter \ref{Chapter6}.
 
- We now turn our attention to the potential width for the string: $l_t$. Finding a solution for $l_t > 0$ is a little more tedious than for $l_t = 0$, since we then need to solve the integral for $V_{FF}^\text{ind}(q,0)$ for each iteration. It does however carry through analogously to the $l_t = 0$ case. Figure \ref{fig.maxkDeltakltdepend} shows the found dependency on $l_t$ of the maximal pairing. We see, that there is a well defined $l_t \to 0$ limit as expected, and that the maximal pairing decreases monotonically with $l_t$. This can best be understood again from the real space induced interaction. We saw in figure \ref{fig.Vx}, that the induced interaction is effectively shielded around $x = 0$ for $l_t > 0$. This shielding is increased for higher values of $l_t$. Hence, the interaction is lowered when the particles are close to each other. In conclusion the pairing most decrease with increasing $l_t$. 
+\subsection{The pair wave function in real space}
+In this subsection we calculate the pair wave function $\braket{\psi_F(x')\psi_F(x)}$. This is a correlation function, that describes how two fermions are correlated as a function of there respective positions. Specifically a high numerical (positive or negative) value of $\braket{\psi_F(x')\psi_F(x)}$ for specific $x$ and $x'$ means, that the fermions have a tendency to be at those positions $x$ and $x'$. This is the reason why, we refer to it as the pair wave function. However, caution should be taken, since the correlation function is not a direct measure of probability. 
 
-\begin{figure} 
-\begin{center}  
-\input{Figures/Deltavarylt/ltdepend.tex}  
-\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the potential width $l_t$. Other parameters: $k_Fa_B = k_F a_{BF} = 0.3, \frac{m_B}{m_F} = 0.8, \frac{n_B}{n_F^3} = 1$.}  
-\label{fig.maxkDeltakltdepend}  
-\end{center}    
-\end{figure}
-
-Let us now investigate the dependency on the fermion-boson scattering length: $a_{BF}$. The result of the numerical calculation is shown in \ref{fig.maxkDeltakaBFdepend}. The pairing is seen to drop to zero around $k_Fa_{BF,c} = 0.155$. This shows, that the fermion-boson scattering length must exceed a cricital value for the string to be superconducting.   
-
-\begin{figure} 
-\begin{center}  
-\input{Figures/DeltavaryrBF/rBFdepend.tex}  
-\caption{The maximal pairing $\max_k[\Delta_k(T=0)]$ is plotted as a function of the fermion-boson gas constant $(n_Ba_{BF}^3)^{1/3}$. Notice that it goes rapidly to zero just below $(n_Ba_{BF}^3)^{1/3}= 0.032$. Other parameters: $l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.036$.}  
-\label{fig.maxkDeltakaBFdepend}  
-\end{center}    
-\end{figure}
-
-\section{The linearized gap equation} \label{sec.linearizedgapequation}
-In the above analysis the estimation of the critical temperature $T_C$ is quite tedious. We have to wait for an increasing number of iterations near $T_C$ to get a good estimate and calculating the critical temperature as a function of the parameters of the problem is out of the question. In this section we will describe a much more efficient way of estimating the critical temperature through \textit{the linearized gap equation}. This in turn will be performed in section \ref{sec.pairingandchemicalpotential.numericalcalculation}, where the goal is to see the dependency of $T_C$ on the parameters of the system.
-
-The gap equation in its full integral form is (see equation \eqref{eq.GapequationIntegral}):
+We have actually already calculated an unaveraged expression for the pair wave function utilizing the Fourier decomposition $\psi_F(x) = \frac{1}{\sqrt{\mathcal{L}}} \sum_k \text{e}^{ikx} f_k$ in equation \eqref{eq.correlation}. From this expression it is also clear, that it only depends on the difference $x-x'$. Therefore, we let $x \to 0, x' \to x$ in \eqref{eq.correlation}, and we obtain:
 \begin{equation}
-\Delta_k = - \int \frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\tanh\left(\frac{\beta E_{F,k}}{2}\right)}{2E_{F,k'}}\Delta_{k'}. \nonumber
-\end{equation} 
-As we saw explicitly in the previous section the gap goes to zero at the critical temperature $T_C$: $\Delta_k(T_C) = 0$. The energy $E_{F,k} = \sqrt{\epsilon_k^2 + |\Delta_k|^2}$ is quadratic in the gap. It follows that by only retaining the gap to first order, we obtain a linear equation near $T_C$:
-\begin{equation}
-\Delta_k = - \int \frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\tanh\left(\frac{\beta \varepsilon_k}{2}\right)}{2\varepsilon_k} \Delta_{k'}.
-\label{eq.GapequationIntegralLinear}
-\end{equation} 
-Here we have also used, that $\frac{\tanh\left(\frac{\beta \varepsilon_k}{2}\right)}{2\varepsilon_k}$ is even in $\varepsilon_k$, so that the absolute value stemming from the square root can be omitted. This defines a linear equation with eigenvalue $1$: $\Delta_k = L(\Delta_k)$. $L$ is then a linear transformation defined by the integral above. Hence, the program for the evaluation of $T_C$ is now clear. The eigenvalues of $L$ spans a continuum of values. Thus, to find $T_C$ we must find the temperature at which the largest eigenvalue becomes unity. 
-
-\section{Calculating the critical temperature} \label{sec.pairingandchemicalpotential.numericalcalculation}
-In this section we will describe how in practice to perform the calculation outlined in the above. 
-
-To do the calculation in practice we need to but the linear equation on matrix form. From equation \eqref{eq.GapequationIntegralLinear} it is clear, that we have the matrix equation:
-\begin{equation}
-\Delta_k = L \Delta_k, \hspace{0.5cm} L(k,k') = -\frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\tanh(\beta \varepsilon_{k'}/2)}{2\varepsilon_{k'}}. 
-\label{eq.Gapmatrixequation}
+\braket{\hat{\psi}_F(x) \hat{\psi}_F(0)} = \frac{i}{\mathcal{L}}\sum_{k} \sin(kx)\braket{f_{k}f_{-k}}. \nonumber
 \end{equation}
-From the form of $L(k,k')$ it is also clear, that $L$ is not a symmetric matrix; each row of $L$ has all the possible values of $\varepsilon_{k'}$, but each column only has a single value belonging to the entire column. This makes the evaluation of $T_C$ more tedious, since we have to use a more involved algorithm in GSL.  
+The average $\braket{f_{k}f_{-k}}$ was further calculated, when we derived the gap equation. This yielded: $\braket{f_{k}f_{-k}} = \frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{\beta E_{F,k} }{2}\right]$. Inserting this into the above and changing the sum to an integral yields:
+\begin{equation}
+\braket{\hat{\psi}_F(x) \hat{\psi}_F(0)} = i\int \frac{dk}{2\pi} \sin(kx)\frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right].
+\label{eq.pairwavefunction}
+\end{equation}
+With the pairing potential $\Delta_k$ at hand we can therefore readily calculate this function numerically. We will restrict ourselves to the $T = 0$ case, since the behaviour for $T > 0$ is quite obvious. For $T > 0$ the integrand is damped by the factor $\tanh\left[\frac{ \beta E_{F,k} }{2}\right]$, since it will be less than its maximal value of 1 for $T = 0$. Hence the correlation function will be more and more significantly damped until we reach the critical temperature $T_C$, where the pairing will vanish: $\Delta_k = 0$ as already seen. And so the correlation will also vanish for $T\to T_C$ and we regain the vanishing correlation for the free gas. Further we can also see, what the overall functional behaviour must be. Firstly, we notice that the correlation function is odd in $x$, and so vanishes for $x = 0$. This is in perfect harmony with the Pauli exclusion principle: the identical fermions cannot be at the same point in space. Further, we notice that for high values of $x$ the sine function will start to oscillate rapidly leading to rapid cancelation of the integral. Hence, we expect the correlation function to go rapidly to zero for high values of $k_F x$. 
+
+A numerical solution is shown in figure \ref{fig.pairwavefunction}. We notice, that it is sharply peaked for $|x| \approx 1/k_F$ and so once again we have confirmed, that the length scale of the fermion-fermion distances is set by $1/k_F$. The figure here corresponds to the red graph in figure \ref{fig.Deltakkdepend}. The overall behaviour predicted above is observed. %Further, the pair wave function is seen to be a damped oscillation. The peaks do not come with a fixed period, but have an approximate distance of $k_Fx = 3.3$%
+
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/CorrelationFunction/corfunc.tex}  
+\caption{The real space correlation function $\braket{\psi_F(x)\psi_F(0)}$ is plotted as a function of $k_Fx$ for $T = 0$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.04, l_t = 0, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$. The red graph here corresponds to the red graph in figure \ref{fig.Deltakkdepend}.}  
+\label{fig.pairwavefunction}  
+\end{center}    
+\end{figure}
+
+
 
 

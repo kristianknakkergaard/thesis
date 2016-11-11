@@ -20,7 +20,7 @@
   \providecommand\rotatebox[2]{#2}%
   \@ifundefined{ifGPcolor}{%
     \newif\ifGPcolor
-    \GPcolortrue
+    \GPcolorfalse
   }{}%
   \@ifundefined{ifGPblacktext}{%
     \newif\ifGPblacktext
@@ -82,45 +82,41 @@
 \begin{picture}(7200.00,5040.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%
-      \put(814,767){\makebox(0,0)[r]{\strut{}$0$}}%
+      \put(1078,1188){\makebox(0,0)[r]{\strut{}$-0.1$}}%
       \csname LTb\endcsname%
-      \put(814,1532){\makebox(0,0)[r]{\strut{}$0.2$}}%
+      \put(1078,2030){\makebox(0,0)[r]{\strut{}$-0.05$}}%
       \csname LTb\endcsname%
-      \put(814,2298){\makebox(0,0)[r]{\strut{}$0.4$}}%
+      \put(1078,2871){\makebox(0,0)[r]{\strut{}$0$}}%
       \csname LTb\endcsname%
-      \put(814,3063){\makebox(0,0)[r]{\strut{}$0.6$}}%
+      \put(1078,3713){\makebox(0,0)[r]{\strut{}$0.05$}}%
       \csname LTb\endcsname%
-      \put(814,3828){\makebox(0,0)[r]{\strut{}$0.8$}}%
+      \put(1078,4555){\makebox(0,0)[r]{\strut{}$0.1$}}%
       \csname LTb\endcsname%
-      \put(814,4593){\makebox(0,0)[r]{\strut{}$1$}}%
+      \put(1273,484){\makebox(0,0){\strut{}$-20$}}%
       \csname LTb\endcsname%
-      \put(1009,484){\makebox(0,0){\strut{}$0$}}%
+      \put(1956,484){\makebox(0,0){\strut{}$-15$}}%
       \csname LTb\endcsname%
-      \put(2442,484){\makebox(0,0){\strut{}$0.5$}}%
+      \put(2640,484){\makebox(0,0){\strut{}$-10$}}%
       \csname LTb\endcsname%
-      \put(3875,484){\makebox(0,0){\strut{}$1$}}%
+      \put(3323,484){\makebox(0,0){\strut{}$-5$}}%
       \csname LTb\endcsname%
-      \put(5307,484){\makebox(0,0){\strut{}$1.5$}}%
+      \put(4007,484){\makebox(0,0){\strut{}$0$}}%
       \csname LTb\endcsname%
-      \put(6740,484){\makebox(0,0){\strut{}$2$}}%
+      \put(4690,484){\makebox(0,0){\strut{}$5$}}%
+      \csname LTb\endcsname%
+      \put(5373,484){\makebox(0,0){\strut{}$10$}}%
+      \csname LTb\endcsname%
+      \put(6057,484){\makebox(0,0){\strut{}$15$}}%
+      \csname LTb\endcsname%
+      \put(6740,484){\makebox(0,0){\strut{}$20$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%
-      \put(176,2871){\rotatebox{-270}{\makebox(0,0){\strut{}$\braket{f_k^\dagger f_k}$}}}%
-      \put(3874,154){\makebox(0,0){\strut{}$k/k_F$}}%
-      \csname LTb\endcsname%
-      \put(5753,4803){\makebox(0,0)[r]{\strut{}Free gas}}%
-      \csname LTb\endcsname%
-      \put(5753,4583){\makebox(0,0)[r]{\strut{}$r_B = 0.005$}}%
-      \csname LTb\endcsname%
-      \put(5753,4363){\makebox(0,0)[r]{\strut{}$r_B = 0.006$}}%
-      \csname LTb\endcsname%
-      \put(5753,4143){\makebox(0,0)[r]{\strut{}$r_B = 0.007$}}%
-      \csname LTb\endcsname%
-      \put(5753,3923){\makebox(0,0)[r]{\strut{}$r_B = 0.010$}}%
+      \put(176,2871){\rotatebox{-270}{\makebox(0,0){\strut{}$ \braket{psi_F(x)psi_F(0)}/k_F $}}}%
+      \put(4006,154){\makebox(0,0){\strut{}$k_Fx$}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics{Figures/OccupancyT0/Occupancyplot}}%
+    \put(0,0){\includegraphics{Figures/CorrelationFunction/corfunc}}%
     \gplfronttext
   \end{picture}%
 \endgroup

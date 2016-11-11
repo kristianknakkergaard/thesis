@@ -184,13 +184,12 @@ main (void)
         mufree_guess      = gsl_min_fminimizer_x_minimum (s);
         mufree_low_2      = gsl_min_fminimizer_x_lower   (s);
         mufree_up_2       = gsl_min_fminimizer_x_upper   (s);
-      
-      status 
-        = gsl_min_test_interval (mufree_low_2, mufree_up_2, 0.001, 0.0);
-
-      if (status == GSL_SUCCESS)
-        mu = mufree_guess;
-    }
+        
+        status            = gsl_min_test_interval (mufree_low_2, mufree_up_2, 0.001, 0.0);
+        
+        if (status == GSL_SUCCESS)
+          mu = mufree_guess;
+      }
 
     while (status == GSL_CONTINUE && iter < max_iter);
 
