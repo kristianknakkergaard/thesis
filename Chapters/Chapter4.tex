@@ -7,7 +7,7 @@
 \lhead{Chapter 4. \emph{1D Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will finally arrive at the promised Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. I will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. 
+In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_n = 0$. I will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. 
 
 \section{The fermion interacting Hamiltonian} \label{sec.HFFint}
 
@@ -90,7 +90,11 @@ and we see that up to a constant it is on the same form as the Kitaev Hamiltonia
 H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\braket {f^\dagger_k f^\dagger_{-k}}) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
 \label{eq.Kitaev.HFF_diagonal}
 \end{equation}
-The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperconducting ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
+The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
+
+The expected temperature dependence of the system is inferred from the original BCS-theory \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The pairing potential $\Delta_k(T)$ is expected to have its maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. This, we will see, defines a phase transition from a superfluid phase below $T_c$ to the normal phase above $T_c$. 
+
+%The phase transition is expected to be a first order transition. This is again inferred from the original BCS-theory, where the heat capacity is \textit{discontinuous} at the critical temperature \cite{Tinkham}. It further means, that we expect the 
 
 \section{The distribution of the quasiparticles}
 In the previous section we inforced, that the number of physical ($f$) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\zeta$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\zeta_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\braket {f^\dagger_k f^\dagger_{-k}})$, we get:
@@ -101,10 +105,26 @@ For the calculation of the trace, one can for example use the single particle co
 \begin{equation}
 f(E_{F,k}) = \braket {\zeta^\dagger_k\zeta_k} = \sum_N N P_k(N) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
 \end{equation}
-where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear.  
+where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear. 
+
+\section{The ground state and Cooper pairs}
+The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $f$-operators as:
+\begin{equation}
+\ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k\right)\ket{0},
+\end{equation} 
+where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that 
+$\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
+\begin{equation}
+\zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
+\end{equation}
+The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
+
+\section{Broken symmetry of the ground state}
+ 
+
 
 \section{Retardation effects} \label{sec.RetardationEffects}
-We are now in a position, where we can understand the $\omega_q = 0$ limit. Let us first remind ourselves of the frequency dependent induced interaction in equation \eqref{eq.VFFindXBEC}:
+We are now in a position, where we can understand the $\omega_n = 0$ limit. Let us first remind ourselves of the frequency dependent induced interaction in equation \eqref{eq.VFFindXBEC}:
 \begin{equation}
 V_{FF}^\text{ind}(q,i\omega_n) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\frac{k^2}{m_B}\frac{n_B}{(i\omega_n)^2-E_{B,k}^2}\text{e}^{-\frac{l_t^2}{2}k_\perp^2}. \nonumber
 \end{equation}
@@ -121,23 +141,12 @@ In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. F
 W^\text{ind}_{FF}(k,k') &= \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right] \nonumber \\
 &= -\frac{m_Bg_{BF}^2n_B}{2\pi}\left[ \text{e}^{F(k-k')} E_1(F(k-k')) - \text{e}^{F(k+k')} E_1(F(k+k')) \right], \nonumber
 \end{align}
-where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the coupling potential $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant \footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found by using Maple 16.}. The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
+where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the coupling potential $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant.\footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found in Maple 16.} The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
 \begin{equation}
 \lim_{l_t \to 0} \; W^\text{ind}_{FF}(k,k') = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k+k')^2+2/\xi^2}{(k-k')^2+2/\xi^2}\right].
 \label{eq.CouplingPotentiallt=0} 
 \end{equation}
-We finally have a closed form expression for the coupling potential. This will be used extensively in the following. We notice that along the lines $k = k'$ and $k = -k'$ the coupling potential diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero.
+We finally have a closed form expression for the coupling potential. This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the coupling potential diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero.
 
-\section{The ground state and Cooper pairs}
-The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $f$-operators as:
-\begin{equation}
-\ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k\right)\ket{0},
-\end{equation} 
-where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that 
-$\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
-\begin{equation}
-\zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
-\end{equation}
-The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. This also shows, that the ground state for an even number of fermions is lower, than that for an odd number. 
 
-As is the case for other mean field theories the ground state has a broken symmetry.\footnote{This e.g. includes ferromagnets and Bose Einstein condensates.} By inspecting 
+

@@ -12,7 +12,7 @@ corfunc.tex: corfunc Makefile
 'set tics out;       			   '\
 'set xlabel "$$k_Fx$$"; 		   '\
 'set ylabel "$$ \braket{\psi_F(x)\psi_F(0)}/k_F $$"; 	   '\
-'plot [-20:20][-0.1:0.1] 		   '\
+'plot [-20:20][0:5e-8] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 2 using 1:2 notitle with lines lc rgb "#e00000" '\
 | gnuplot

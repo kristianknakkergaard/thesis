@@ -20,7 +20,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
   double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
   double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
 
-  double factor = 32.0/(M_PI*M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
+  double factor = 4.0/(M_PI*M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
   double f      = - factor * log( ( pow(k+kprime, 2.0) + 2.0/(xi * xi) )/( pow(k-kprime, 2.0) + 2.0/(xi * xi) ) );
   return f;
 }
@@ -41,15 +41,14 @@ main (void)
 {
   /*variables */
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
-  double rBF = 0.036;    /*(nB * aBF^3)^(1/3) */
+  double rBF = 0.1;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
 
   /*nB:*/
-  double inverseBdist = 0.036;  
-  double nB  = pow(inverseBdist, -3.0); 
+  double nB  = 100.0; 
 
   /*k-values:*/
-  double k_low = 0.0, k_up = 100.0, dk = 0.1;
+  double k_low = 0.0, k_up = 50.0, dk = 0.009;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -81,11 +80,11 @@ main (void)
   }
 
   /*For calculating mu:*/
-  double mu_low = 0.8, dmu = 0.001;
+  double mu_low = 0.7, dmu = 0.0003;
   double muintegral, muintegrand;
   double mu_min_value;
   double mu = 1.0;
-  int Nmu = 600;
+  int Nmu = 2000;
   double mu_guess;
   gsl_vector *mu_vector = gsl_vector_calloc(Nmu);
   gsl_vector *find_min_mu = gsl_vector_calloc(Nmu);
@@ -168,7 +167,7 @@ main (void)
   printf("\n\n");
 
   /*Temperatures:*/
-  double T_low = 0.001, T_high = 0.5, dT = 0.001;
+  double T_low = 0.001, T_high = 0.5, dT = 0.0001;
 
   double TC = 0.0;
   for (double T = T_low; T < T_high; T+=dT)

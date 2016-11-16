@@ -81,11 +81,11 @@ main (void)
   }
 
   /*For calculating mu:*/
-  double mu_low = 0.8, dmu = 0.001;
+  double mu_low = 0.1, dmu = 0.001;
   double muintegral, muintegrand;
   double mu_min_value;
   double mu = 1.0;
-  int Nmu = 600;
+  int Nmu = 1000;
   double mu_guess;
   gsl_vector *mu_vector = gsl_vector_calloc(Nmu);
   gsl_vector *find_min_mu = gsl_vector_calloc(Nmu);
@@ -153,30 +153,36 @@ main (void)
   /*Real space correlation function*/
 
   /*x-values*/
-  double x_up = 30.0, dx = 0.01; 
+  double x_up = 20.0, dx = 0.0005; 
+  double number = 1e20;
 
   /*integral variables */
-  double corfuncintegrand;
-  double corfunc = 0.0;
-  double corfuncnorm = 0.0;
+  double varianceintegrand;
+  double variance;
+  double meanvalueintegrand;
+  double meanvalue;
 
   for (double x = - x_up; x < x_up; x+=dx)
   {
-    corfunc = 0.0;
+    variance  = 0.0;
+    meanvalue = 0.0; 
     for (int iprime = 0; iprime < N; ++iprime)
     {
-      kprime           = ((double)iprime) * dk + k_low;
-      epsilonkprime    = kprime * kprime - mu;
-      Deltakprime      = gsl_vector_get(D, iprime);
-      EFkprime         = sqrt(epsilonkprime * epsilonkprime + Deltakprime * Deltakprime);
-      corfuncintegrand = 1.0 / M_PI * sin(kprime * x) * Deltakprime / (2 * EFkprime);
-      corfunc         += corfuncintegrand * dk;
+      kprime             = ((double)iprime) * dk ;
+      epsilonkprime      = kprime * kprime - mu;
+      Deltakprime        = gsl_vector_get(D, iprime);
+      EFkprime           = sqrt(epsilonkprime * epsilonkprime + Deltakprime * Deltakprime);
+      meanvalueintegrand = sin(kprime * x) * Deltakprime / (2 * EFkprime);
+      meanvalue         += meanvalueintegrand * dk;
+
+      varianceintegrand  = M_PI/number * 1.0/4.0 * pow(sin(kprime * x) * (1.0 - epsilonkprime/EFkprime), 2.0);
+      variance          += varianceintegrand * dk; 
+
+
     }
-    fprintf(stderr, "%lg \t %lg \t %i \n", x, corfunc, check);
-    corfuncnorm += corfunc * corfunc * dx;
+    fprintf(stderr, "%lg \t %lg \t %i \n", x, variance/pow(meanvalue,2.0), check);
   }
   fprintf(stderr, "\n \n");
-  fprintf(stderr, "corfuncnorm = %lg\n", corfuncnorm );
   
   gsl_vector_free(D);
   gsl_matrix_free(WFF0matrix);
