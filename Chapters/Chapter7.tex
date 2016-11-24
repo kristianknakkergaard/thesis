@@ -1,12 +1,92 @@
 % Chapter 7
 
-\chapter{Topological characterization} % Main chapter title
+\chapter{Topology, symmetries and Majorana fermions} % Main chapter title
 
 \label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter7} 
 
-\lhead{Chapter 7. \emph{Topological characterization}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 7. \emph{Topology, symmetries, Majorana fermions}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will come with a topological characterization of the now developed Kitaev model system. This entails defining a topological index $\nu$, that describes whether we are in a topological or trivial phase. In turn this will be calculated for the 1D-3D system at hand. 
+In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether we are in a topological or trivial phase. Finally, we will see what physical consequences the phases have by investigating socalled Majorana fermions. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
 
-\section{Symmetries and}
+\section{The time reversal and particle-hole transformations and symmetries}
+In this section we define the time reversal and particle-hole transformations. Let us remind ourselves of the form of the noninteracting Hamiltonian obtained after the mean field approximation of chapter \ref{Chapter4}: 
+\begin{equation}
+H_{FF} = -\sum_k \Delta_k \braket {f^\dagger_k f^\dagger_{-k}} + \frac{1}{2}\sum_{k} \begin{bmatrix} f^\dagger_k & f_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}. \nonumber 
+\end{equation}
+
+It is clear, that the Hamiltonian is translationally invariant. Explicitly, the (unitary) translation operator is defined through: $\tau(x_0)\psi_F(x)\tau^\dagger (x_0) = \psi_F(x+x_0)$. In momentum space, we hereby get $\tau(x_0) f_k \tau^\dagger(x_0) = \text{e}^{ikx_0}f_k$, as one might expect. Hence, terms like $f^\dagger_k f_k, f_k f^\dagger_k, f^\dagger_kf^\dagger_{-k}$ and $f_{-k}f_k$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well.\footnote{The analysis can also be performed on the original interacting Hamiltonian in real space. Here similarly the Hamiltonian can be shown to be translationally invariant.} Because of the translational invariance, we \textit{inforce} that the time reversal and particle-hole transformations do not mix states with different positions. Specifically:
+\begin{align}
+T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix}, \hspace{0.5cm} TiT^{-1} = -i, \nonumber \\
+C \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} \psi^\dagger_F(x) \\ \psi_F(x) \end{bmatrix}, \hspace{0.5cm} CiC^{-1} = i.  
+\label{eq.TRandPH.realspace}
+\end{align}
+Here $T$ and $C$ is the time reversal and particle-hole transformation respectively. $U_T$ and $U_C$ are $2\times 2$ matrices. Inforcing that transformed operators are fermionic as well, means that the matrices have to be unitary. The operation on $i$ specifies, that $T$ is antiunitary and $C$ is unitary. In momentum space this definition leads to:
+\begin{align}
+T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} f_{-k} \\ f^\dagger_{k} \end{bmatrix}, \nonumber \\
+C \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} f^\dagger_{-k} \\ f_{k} \end{bmatrix}. 
+\label{eq.TRandPH.momentumspace}
+\end{align}
+By inspecting the transformations $TH_{FF}T^{-1}$ and $CH_{FF}C^{-1}$, we get the following symmetry requirements:
+\begin{align}
+TH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_T\mathcal{H}^*_{FF,-k} U^\dagger_T = + \mathcal{H}_{FF,+k}, \nonumber \\
+CH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_C\mathcal{H}^*_{FF,-k} U^\dagger_C = - \mathcal{H}_{FF,+k}. 
+\label{eq.Symmetryrequirements}
+\end{align}
+This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK, \mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general has a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $2\times 2$ matrix, even though there is only one energy solution. Another way of putting this, is that the two Nambu spinors on each side of the kernel $\mathcal{H}_{FF,k}$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy is here especially evident, since we can simply choose $C$ to have no effect on the Nambu spinor:
+\begin{equation}
+C \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} C^{-1} =  \sigma_1 \begin{bmatrix} f^\dagger_{-k} \\ f_{k} \end{bmatrix} = \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}, 
+\end{equation}
+with $\sigma_1$ the first Pauli matrix. This of course means, that $H_{FF}$ is invariant under $C$. Since, it stems from a redundancy in the \textit{structure} of the Hamiltonian, it is often referred to as a particle-hole \textit{constraint} of BdG systems, rather than a symmetry. This also means, that for the system to be consistent, we need $\sigma_1\mathcal{H}^*_{FF,+k} \sigma_1 = - \mathcal{H}_{FF,-k}$, which can also explicitly be checked. 
+
+The time reversal case is a somewhat trickier. Firstly, in general the pairing $\Delta_k$ is complex. However, as seen in the previous chapters we can explicitly find a real solution. This is also evident mathematically. For this purpose we let $\Delta_k \to \text{e}^{i\phi_k}\Delta_k$, with $\phi_k$ the phase of the pairing. Since the overall pairing is odd in $k$, the phase $\phi_k$ has to be even in $k$. With this, we can simply make a gauge transformation of the $f_k^\dagger$ operators. Explicitly the relevant term in $H_{FF}$ is:
+\begin{equation}
+\text{e}^{i\phi_k}\Delta_k f^\dagger_k f^\dagger_{-k} = \Delta_k (\text{e}^{i\phi_k/2}f^\dagger_k )(\text{e}^{i\phi_{-k}/2}f^\dagger_{-k} ) \to \Delta_k f^\dagger_k f^\dagger_{-k}, \nonumber
+\end{equation}
+under the gauge transformation $f^\dagger_k \to \text{e}^{i\phi_k/2} f^\dagger_k$. With this the kernel $\mathcal{H}_{FF,k}$ is real and an explicit calculation shows, that with $U_T = \sigma_3$ we get a time reversal symmetry in accordance with equation \ref{eq.Symmetryrequirements}. Explicitly:
+\begin{equation}
+\sigma_3\mathcal{H}^*_{FF,-k}\sigma_3 = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \varepsilon_k & -\Delta_k \\ -\Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} = \mathcal{H}_{FF,k}, \nonumber
+\end{equation}
+since $\Delta_k$ is odd in k and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
+\begin{equation}
+T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} f_{-k} \\ -f^\dagger_{k} \end{bmatrix}. \nonumber
+\end{equation}
+It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. However, this is still a Cooper pair of momentum $k$ and $-k$.  
+
+\section{Sublattice transformation and topological classification}
+By composing the time reversal and particle-hole transformations we can form a third transformation: the socalled sublattice (or chiral) symmetry $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the previous section leads to the symmetry condition:
+\begin{equation}
+TH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_S\mathcal{H}_{FF,-k} U^\dagger_S = - \mathcal{H}_{FF,+k}.
+\end{equation}
+Hence, the transformation in first quantization is unitary, but has to anticommute with the Hamiltonian. It is also evident, that since the system at hand both has a time reversal and particle-hole symmetry, we can simply form the product to get the symmetry with $U_S = \sigma_3\sigma_1 = i\sigma_2$, $\sigma_j$ being the Pauli matrices. The reason for including this third transformation is the following. 
+
+In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one can classify all noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. The result is, that one needs three and only three transformations: time reversal, particle-hole and sublattice. Further there are three distinct possibilities for the two first. Either there is no symmetry or there is a symmetry and then the transformations can square to $\pm \mathbb{I}$. The sublattice transform can only be realised in one way, yielding in total two possibilites. Further, as the system at hand explicitly shows, if there is both a time reversal and particle-hole symmetry, there is also a sublattice symmetry. Further, if there is not a time reversal or a particle hole symmetry, then there cannot be a sublattice either. Else, we would be able to make the remaining symmetry by composition. However, in the case of no time reversal and particle-hole symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason why this last symmetry is included. Finally, it yields $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the 10-fold way. The first remarkable thing, which I have not argued for, is that this classification is complete. There is nothing else to learn from the topology of the system. 
+
+The second remarkable thing, which I will not argue for either, is that the classification puts the Hamiltonian in a specific Cartan class. The information from the classification is then, that the socalled topological index has to be found in a specific set of numbers. This set can for example be the integers $\mathbb{Z}$. If this is the case, then the result of the articles is, that for each integer, there is a ground state of the system, that cannot be deformed continously into the other, without closing the energy gap. The socalled periodic table for topological insulators and superconductors in shown in table \ref{tab.PeriodicTableTISC}.
+
+\begin{table}[htb]
+\centering
+\caption{\textit{Periodic table of topological superconductors and insulators. $d$ is the spatial dimension. A 0-value for T,C and S indicates no symmetry. For T and C the sign indicates the sign of the square $T^2$ and $C^2$ for a symmetry present. $S=1$ indicates presence of a sublattice symmetry}}
+\begin{tabular}{|l|l l l|l l l l|}
+\hline Cartan/$d$   &  T &  C & S					& 0 & 1 & 2 & 3 \\
+\hline A    		&  0 &  0 & 0					& $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0   			 \\
+\hline AIII 		&  0 &  0 & 1					& 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$   			 \\
+\hline AI   		& +1 &  0 & 0					& $\mathbb{Z}$ & 0 & 0 & 0 			    			 \\
+\hline BDI	       	& +1 & +1 & 1 					& $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 			 \\
+\hline D	       	&  0 & +1 & 0 					& $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 \\
+\hline DIII	       	& -1 & +1 & 1 					& 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ \\
+\hline AII	       	& -1 &  0 & 0 				 	& $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}$  \\
+\hline CII	       	& -1 & -1 & 1 					& 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$  			 \\
+\hline C	       	&  0 & -1 & 0 					& 0 & 0 & $2\mathbb{Z}$ & 0  						 \\
+\hline CI	       	& +1 & -1 & 1 					& 0 & 0 & 0 & $2\mathbb{Z}$  						 \\
+\hline 
+\end{tabular}
+\label{tab.PeriodicTableTISC}
+\end{table}
+
+For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. However, most often one considers the time reversal symmetry as weakly broken by some perturbation. It is weak in the sense, that the perturbation is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. This also means, that we want only to discuss effects, that are insensitive to these perturbations. Hence, the aim of the next section is not to find a topological index in the integers, but in $\mathbb{Z}_2$. 
+
+
+
+
+

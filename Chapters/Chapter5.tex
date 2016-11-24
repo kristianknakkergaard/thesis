@@ -25,8 +25,7 @@ As mentioned in the start of chapter \ref{Chapter2}, we use periodic boundary co
 \Delta_k = - \int \frac{dk'}{2\pi} W^\text{ind}_{FF}(k,k')\frac{\Delta_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k}}{2}\right), 
 \label{eq.GapequationIntegral}
 \end{equation} 
-and hereby canceling the length $\mathcal{L}$. Because of the symmetries of the coupling potential summarized in equation \eqref{eq.CouplingPotentialSymmetries}, we see, that $W^\text{ind}_{FF}(0,k') = 0$. Hence, it is immediately clear from both equation \eqref{eq.GapequationSum} and \eqref{eq.GapequationIntegral}, that $\Delta_{k=0} = 0$ for any temperature. This means, that $E_{F,k=0} = |\mu| > 0$. Further it must then be the case that $k_c = \min_k \frac{E_{F,k}}{|k|} > 0$, and so the Landau condition for superfluidity is fulfilled\cite{LandauStatPhys2,PlischkeStatPhys}.
-Specifically Landau has argued, that if this minimum $k_c$ does not occur at $k=0$, then quasiparticles propagating with $|k|< k_c$ will do so without friction. We can therefore already see, that the one dimensional string will be a superfluid for lowlying $k$-states. The exact value of $k_c$ requires a further analysis. 
+and hereby canceling the length $\mathcal{L}$. Because of the symmetries of the coupling potential summarized in equation \eqref{eq.CouplingPotentialSymmetries}, we see, that $W^\text{ind}_{FF}(0,k') = 0$. Hence, it is immediately clear from both equation \eqref{eq.GapequationSum} and \eqref{eq.GapequationIntegral}, that $\Delta_{k=0} = 0$ for any temperature. This means, that $E_{F,k=0} = |\mu| > 0$. This means, that $\frac{E_{F,k}}{|k|}$ blows up for $k\to 0$. Hence, it must further be the case, that $v_c = \min_k \frac{E_{F,k}}{|k|} > 0$. The Landau criterion for superfluidity, as discussed in section \ref{sec.Superfluidity}, is therefore fulfilled. The exact value of $v_c$ requires a further analysis. 
 
 Written out in the $l_t \to 0$ limit and with unitless quantities denoted by tildes, the gap integral is:
 \begin{equation}
@@ -90,6 +89,12 @@ This resembles the original BCS-theory apart from the power of 3 of $\frac{T}{T_
 \end{center}    
 \end{figure}
 
+A note on the chosen phase of $\Delta_k$. Let me therefore write $\Delta_k = \Delta_{k,0}\text{e}^{i\phi}$. In the numerical calculation we have chosen a \textit{real} function as a starting guess for $\Delta_k$. The numerical calculation then shows, that such a \textit{real} solution can be found. This amounts to \textit{choosing} a specific phase $\phi$ of $\Delta_k$, namely $\phi = 0$. Now, the mean field $\braket{\psi(x')\psi(x)}$ can be found from equation \ref{eq.correlation} to be:
+\begin{equation}
+\braket{\psi(x')\psi(x)} = i\int \frac{dk}{2\pi} \sin(kx)\frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right]. \nonumber
+\end{equation}
+This I will show in more detail later in this chapter. By choosing the phase of $\Delta_k$, we are therefore choosing the phase of the mean field. From the gap equation it is clear, that we could have picked this phase to be whatever we like. This is what is meant, when the term "spontaneous symmetry breaking" is used. We can for any choice of the phase $\phi$ find a solution, but we \textit{have} to choose a specific one.\footnote{This is equivalent to the symmetry breaking of a spin chain. Here it is the polarization of the spins, that is chosen spontaneously, when the system is cooled.} This symmetry breaking has other important physical consequences. Those I will return to later on. 
+
 \begin{figure} 
 \begin{center}  
 \input{Figures/Delta4/Tdepend.tex}  
@@ -102,7 +107,7 @@ We observe for the solution at hand, that the pairing potential is uneven in $k$
 
 
 \subsection{The relevant momenta and the coupling potential}
-In this subsection we will see how the energy dispersion behaves in an extreme case for the relative densities of the Bose and Fermi gases. This will explain, why it is momenta around the Fermi momentum ($k \approx k_F$), that are relevant to understand the influence of the pairing. 
+In this subsection we will see how the energy dispersion and the mean occupancy of the $k$'th state behave in an extreme case for the relative densities of the Bose and Fermi gases. This will explain, why it is momenta around the Fermi momentum ($k \approx k_F$), that are relevant to understand the influence of the pairing. 
 
 In figures \ref{fig.EnergyDispersion} and \ref{fig.Occupancy} we have plotted the energy dispersion $E_{F,k}$ and occupancy $\braket{f_k^\dagger f_k}$ for $T = 0$ for different values of the Bose gas parameter $r_B = (n_Ba_B^3)^{1/3}$. Firstly, the energy dispersion plot show, in particular for the red line, that the main difference relative to the free gas dispersion, in black, is to be found around the Fermi momentum $k_F$. If one had plotted out to the value of $k$, where the pairing has its maximum, $k_{\max} \approx 13 k_F$ in the present case, we would see, that the energy dispersion is hardly altered at all by the pairing. This is also clear from the functional form: $E_{F,k}/\epsilon_{F,0} = [(k^2/k_F^2 - \mu(0)/\epsilon_{F,0})^2 + |\Delta_k/\epsilon_{F,0}|^2 ]^{1/2}$; the first term $(k^2/k_F^2 - \mu(0)/\epsilon_{F,0})^2$ quickly becomes dominant for high values of $k/k_F$. Secondly, the number of fermions with momentum $k$ (the occupancy of the $k$'th state), $\braket{f_k^\dagger f_k}$, is seen to be significant only for $k < 2k_F$. Hence, even if the effect at high momenta $k \gg k_F$ of the pairing on the energy dispersion had been significant, it would have been suppressed by the fact, that there are simply no fermions moving with such high momenta.
 
@@ -111,6 +116,8 @@ The occupancy plot in particular shows, that the Fermi sphere is increasingly bl
 This is done for a high value of the boson density $n_B$: $\frac{n_F}{n_B^{1/3}} = 0.0215$, since it is for these high boson densities the maximum of the pairing is moved to high values of $k/k_F$. The reason for this can be understood physically in the following way. When the density of the bosons becomes very large, the rigidity of the gas increases; it simply becomes harder to suppress the gas. Therefore, to get a significant pairing of two fermions, they need to move at a relatively high speed resulting in a pairing with a maximum at high values of $k/k_F$. This effect can be studied further by plotting the induced coupling potential $W_{FF}^{\text{ind}}(k,k')$ as a function of the relative particle distance $\frac{n_F}{n_B^{1/3}}$. With the arguments of the above, we will do this for $k = k' = k_F$. We see, that $W_{FF}^{\text{ind}}(k_F,k_F)$ has an extremal point. The behaviour for low values of $\frac{n_F}{n_B^{1/3}}$ can be understood in the same way as the above. When the density of the boson gas increases, the fermions have a harder time creating ripples in the gas, and the coupling goes down. For high values of $\frac{n_F}{n_B^{1/3}}$ on the other hand, the boson gas is depleted, $n_B$ decreases, and there are simply fewer bosons around for the fermions to interact with. This is in complete accordance with what is seen in an equivalent 2D-3D system studied in the article \cite{BruunZhigangTopSuperfluid}. 
 
 In connection with the neglection of retardation effects we actually already used, that the typical speed of the fermions is the Fermi speed $v_F = k_F/m_F$. The present subsection therefore shows, that this assumption is selfconsistent. 
+
+I will emphasize, that in particular the red graphs of figures \ref{fig.EnergyDispersion} and \ref{fig.Occupancy} suggest, that we are entering a strong coupling regime. The reason for this is, that we are strongly changing the statistics of the fermions. Hence, the weak coupling theory we are using is expected to break down. The point still remains: the plots show, that we have to go to extreme values of $n_B/n_F^3$, before we get into trouble with the weak coupling theory, and still here we expect, that the relevant momenta are around the Fermi momentum. 
 
 
 \begin{figure} 

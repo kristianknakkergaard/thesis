@@ -7,7 +7,7 @@
 \lhead{Chapter 4. \emph{1D Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_n = 0$. I will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. 
+In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_n = 0$. We will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
 
 \section{The fermion interacting Hamiltonian} \label{sec.HFFint}
 
@@ -56,7 +56,7 @@ W^\text{ind}_{FF}(-k,k') &= -W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Odd i
 W^\text{ind}_{FF}(-k,-k') &= W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Even in double argument}.
 \label{eq.CouplingPotentialSymmetries}
 \end{align}
-These symmmetries will be important later on. From here on and out the analysis is very similar to the historical Bardeen-Cooper-Schrieffer treatment. However, we will not be assuming any constancy of the coupling potential over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Adding the three terms yields:
+These symmmetries will be important later on. The analysis is a BCS treatment as mentioned. However, we will not be assuming any constancy of the coupling potential over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Adding the three terms yields:
 \begin{equation}
 H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W^\text{ind}_{FF}(k,k')\left[ \braket{ f_{k'}f_{-k'}} f^\dagger_k f^\dagger_{-k} + \braket {f^\dagger_{k'}f^\dagger_{-k'}} f_k f_{-k} - \braket {f_{k}f_{-k}} \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right] \nonumber
 \end{equation}
@@ -75,12 +75,12 @@ H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-
 The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the coupling potential is odd in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is odd as well. We are now ready to study the full Hamiltonian.
 
 \section{The full fermion Hamiltonian} \label{sec.HFFfull}
-The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further we inforce, that the number of fermionic particles is conserved. This is achieved by subtracting $\mu N_F = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. We hereby obtain the full fermion (grand) Hamiltonian:
+The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further, we will have terms like $f^\dagger f^\dagger$. This means, that the Hamiltonian is not particle number conserving. However, we inforce that the system is diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. We hereby obtain the grand fermion Hamiltonian:
 \begin{equation}
 H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k f^\dagger_k f_k + \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right], 
 \label{eq.HFFdef}
 \end{equation} 
-where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a matrix form:
+where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a standard Bogoliubov-de Gennes (BdG) form:
 \begin{equation}
 H_{FF} = -\sum_k \Delta_k \braket {f^\dagger_k f^\dagger_{-k}} + \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}, 
 \end{equation}
@@ -92,9 +92,28 @@ H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\braket {f^\dagger_k
 \end{equation}
 The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
 
-The expected temperature dependence of the system is inferred from the original BCS-theory \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The pairing potential $\Delta_k(T)$ is expected to have its maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. This, we will see, defines a phase transition from a superfluid phase below $T_c$ to the normal phase above $T_c$. 
+The expected temperature dependence of the system is inferred from the original BCS-theory \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The pairing potential $\Delta_k(T)$ is expected to have its maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. This, we will see, defines a phase transition from a superfluid phase below $T_c$ to the normal phase above $T_c$. Let us therefore shortly review the Landau criterion for superfluidity. 
 
 %The phase transition is expected to be a first order transition. This is again inferred from the original BCS-theory, where the heat capacity is \textit{discontinuous} at the critical temperature \cite{Tinkham}. It further means, that we expect the 
+
+\section{Superfluidity} \label{sec.Superfluidity}
+In this section we show the Landau criterion for superfluidity. It is heavily based on the argument in \cite{LandauStatPhys2}. It is a classical argument based solely on the transformation laws of energy and momentum in classical mechanics. 
+
+Let us imagine a fluid of total mass $M$ moving in a capillary with constant velocity $\mathbf{v}$. This reference frame we denote $S_0$. Because of friction with the walls of the capillary we expect, that the fluid will gradually slow down. Let us then switch to the reference $S$, where the fluid initially lies still and the capillary moves with velocity $-\mathbf{v}$. The capillary will then, because of the viscosity, make a drag on the liquid. Let us assume, that this drag makes an elementary excitation of the liquid with momentum $\mathbf{k}$. The corresponding energy is then $E_{\mathbf{k}}$. The whole liquid now has a momentum $\mathbf{K}_0 = \mathbf{k}$ and an energy $\frac{K_0^2}{2M} = E_0 = E_{\mathbf{k}}$. Let us now switch back to the original frame $S_0$. Then the liquid has the momentum $K = K_0 + M\mathbf{v}$, and the energy is:
+\begin{equation}
+E = \frac{K^2}{2M} = \frac{(\mathbf{K}_0 + M\mathbf{v})^2}{2M} = E_0 + \mathbf{K}_0\cdot \mathbf{v} + \frac{1}{2}Mv^2 = E_{\mathbf{k}} + \mathbf{k} \cdot \mathbf{v} + \frac{1}{2}Mv^2 . \nonumber
+\end{equation}
+$\frac{1}{2}Mv^2$ is the initial energy of the moving liquid. Since the energy of the liquid most be lowered by the drag, we have $E_{\mathbf{k}} + \mathbf{k} \cdot \mathbf{v} < 0 $. For a given value of $\mathbf{k}$ it is clear, that the left hand side is a minimum, when $\mathbf{k}$ and $\mathbf{v}$ are antiparallel, such that: $ \mathbf{k}\cdot \mathbf{v} = -kv$. In total we get the condition:
+\begin{equation}
+v > \frac{E_{\mathbf{k}}}{k}. \nonumber
+\end{equation}
+
+This inequality states, that for a specific speed $v$ of the fluid, it is only momentum states obeying the inequality that can be excited. Now let us assume, that the minimum of the right hand side is nonzero: $v_c = \inf_{\mathbf{k}}\left[\frac{E_{\mathbf{k}}}{k} \right] > 0$. The inequality above then means, that for $v < v_c$, the liquid cannot be excited and no drag can occur. This is the defining quality of a superfluid, and we arrive at the Landau criterion for superfluidity:
+\begin{equation}
+\inf_{\mathbf{k}}\left[\frac{E_{\mathbf{k}}}{k} \right] > 0.
+\end{equation}
+
+Caution should be taken however. The argument only goes one way. It may be possible for a liquid not obeying this inequality to be a superfluid, but the reverse, a liquid obeying the inequality and being a normal fluid, is not possible as now shown. 
 
 \section{The distribution of the quasiparticles}
 In the previous section we inforced, that the number of physical ($f$) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\zeta$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\zeta_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\braket {f^\dagger_k f^\dagger_{-k}})$, we get:
@@ -118,9 +137,6 @@ $\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the te
 \zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
 \end{equation}
 The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
-
-\section{Broken symmetry of the ground state}
- 
 
 
 \section{Retardation effects} \label{sec.RetardationEffects}

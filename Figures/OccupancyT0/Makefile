@@ -30,7 +30,7 @@ energyplot.tex: data makefile
 'set grid;       			   '\
 'set tics out;       			   '\
 'set xlabel "$$k/k_F$$"; 		   '\
-'set ylabel "$$ E_{F,k}$$"; 	   '\
+'set ylabel "$$ E_{F,k}/\epsilon_{F,0}$$"; 	   '\
 'set key top left;					'\
 'plot [0:2.0][0:5.0] 		   '\
 '0 notitle with lines lc rgb "black" '\
