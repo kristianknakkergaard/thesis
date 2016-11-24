@@ -86,6 +86,40 @@ The second remarkable thing, which I will not argue for either, is that the clas
 
 For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. However, most often one considers the time reversal symmetry as weakly broken by some perturbation. It is weak in the sense, that the perturbation is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. This also means, that we want only to discuss effects, that are insensitive to these perturbations. Hence, the aim of the next section is not to find a topological index in the integers, but in $\mathbb{Z}_2$. 
 
+\section{Constructing the topological index}
+In this section we will explicitly construct the $\mathbb{Z}_2$ topological index. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\sigma$, with $\boldsymbol\sigma = (\sigma_1,\sigma_2,\sigma_3)$ containg the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
+\begin{equation}
+\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}. 
+\label{eq.hhatdefinition}
+\end{equation}
+It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Further, since $E_{F,k=0} = |\mu|$, we see, that the energy is gapped exactly, when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$ we notice, that: 
+\begin{equation}
+\hat{h}(k=0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k=\infty) = \hat{z} = p_{\infty}\hat{z},
+\label{eq.hhatk0kinfty}
+\end{equation}
+where $\text{sgn}$ denotes the sign function. 
+
+\begin{figure} 
+\begin{center}  
+\includegraphics[width=0.5\textwidth]{Figures/Topologicalindex/topindex}  
+\caption{In red (blue) $(h_x(k),h_z(k))$ is plotted as function of $k\in \{0, \infty\}$ for $\mu > 0$ ($\mu < 0$). Notice that for $\mu < 0$ the curve starts and ends at the north pole.}  
+\label{fig.hhatplot}  
+\end{center}    
+\end{figure}
+
+
+The idea is then, that we can specify a number $\nu \in {-1,1}$ by:
+\begin{equation}
+\nu = p_0p_{\infty} = -\text{sgn}(\mu).
+\label{eq.topinvnudefition}
+\end{equation}
+The claim is, that we have hereby defined a topological index, that specifies two states, that cannot be deformed into each other without closing the energy gap. Graphically this is clear from figure \ref{fig.hhatplot}. In red (blue) I have plotted the behaviour of $\hat{h}$ for $\mu > 0$ ($\mu < 0$), omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand we see, that the $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu = 1$. 
+
+Finally, in chapter \ref{Chapter5} we explicitly saw, that the chemical potential is altered very little from the free gas Fermi energy: $\mu \approx \epsilon_{F,0} > 0$. This means, that we have found a ground state with $\nu = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there is a junction at the ends between a $\nu = -1$ (the superfluid wire) and a $\nu = 1$ state (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. With no energy cost edge states at the ends of the wire can hereby emerge. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu = -1$, to an edge effect (the edge states). In the next section we will analyse this further by virtue of socalled Majorana fermions. 
+
+We can now clarify, what is meant by the term \textit{topological} superfluid. The above mentioned effects are called topological, because the classification with respect to the symmetries $T,C$ and $S$ is deeply connected to topology, specifically the study of manifolds. This is of abstract parameter spaces, and so the naming as such does not originate from the fact, that the edge states are located at specific places geometrically, as one might be led to believe. 
+
+\section{Majorana fermions and edge states}
 
 
 
