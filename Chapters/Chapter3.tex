@@ -19,11 +19,20 @@ The fermions (F) are confined to a one dimensional wire. Let this be along the $
 \begin{equation}
 \psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \phi_0(\mathbf{r}_\perp) f_p, \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}. 
 \end{equation}   
-Hence, we expand the fields in plane wave states. $b_\mathbf{k}$ and $f_p$ denote respectively bosonic and fermionic annihilation operators with momentum $\mathbf{k}$ and $p$.  By inserting this into $H_{BF}^\text{int}$ we get:
+Hence, we expand the fields in plane wave states. $b_\mathbf{k}$ and $f_p$ denote respectively bosonic and fermionic annihilation operators with momentum $\mathbf{k}$ and $p$. By inserting this into $H_{BF}^\text{int}$ and expressing $\mathbf{k} = (q,\mathbf{k}_\perp)$ we get:
 \begin{equation}
-H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2} f_{p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}f_{p_2}.
+H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{LV}}\int d^3 r \sum_{p,p',q,q'}\sum_{\mathbf{k}_{\perp},\mathbf{k}_{\perp}'}\text{e}^{i((p-p')+(q-q'))x} \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} f^\dagger_{p'} b^\dagger_{q',\mathbf{k}_\perp'}b_{q,\mathbf{k}_\perp}f_p. \nonumber
 \end{equation}
-Here  $p_1,p_2,q$ is in the $x$ direction, along the wire, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to the wire. A relatively obvious thing one might do now, is to take the limit $\omega_t \to \infty$ or equivalently $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite, at least at the present stage. This interaction Hamiltonian shows, that the pair interaction between the fermions and bosons are associated with a factor $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2}$, the transverse momenta being free. 
+The integral over $x$ yields the factor $\mathcal{L}\delta_{p-p',q'-q}$, hereby yielding total momentum conservation along the wire. The integral over $\mathbf{r}_\perp$ gives the Fourier transform of $\phi_0^2(\mathbf{r}_\perp)$. Since $\phi_0$ is a gaussian the Fourier transform is as well. Explicitly:
+\begin{equation}
+\int d^2 r_\perp \; \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} = \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')^2}. \nonumber
+\end{equation}
+Taking the sum over $q'$ forces $q' = p-p' + q$. In total:
+\begin{align}
+H_{BF}^\text{int} &= \frac{g_{BF}}{\mathcal{V}}\sum_{p,p',q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp-\mathbf{k}_\perp')^2} f^\dagger_{p'} b^\dagger_{p-p'+q, \mathbf{k}_\perp'} b_{q,\mathbf{k}_\perp}f_{p} \nonumber \\
+                  &= \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp-\mathbf{k}_\perp')^2} f_{p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}f_{p_2}.
+\end{align}
+The last line is obtained by appropriate renaming. To be very specific: $p_1,p_2$ and $q$ are in the $x$ direction, along the wire, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to the wire. A relatively obvious thing one might do now, is to take the limit $\omega_t \to \infty$ or equivalently $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite, at least at the present stage. This interaction Hamiltonian shows, that the pair interaction between the fermions and bosons are associated with a factor $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2}$, the transverse momenta being free. 
 
 \section{The 1D-3D induced interaction}
 The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This means, that the bosons are essentially lying still.\footnote{There is a small fraction in nonzero momenta states, but these are not considered.}  We are further only interested in the weak coupling limit. In a more general setup, one would have to calculate contributions from increasing orders in the underlying bare interaction leading to a socalled $T$-matrix, but this will not be pursued here. We will write the coupling strength as $g_{BF} = \frac{2\pi a_{BF}}{m_r}$, with $m_r = \frac{m_Fm_B}{m_B + m_F}$ the reduced mass, and $a_{BF}$ the effective scattering length. In a formally precise manner one can expand the $T$-matrix in orders of $a_{BF}$. From this analysis, it is clear that the smallness of the coupling strength is equivalent to demanding $(n_Ba_{BF}^3)^{1/3}\ll 1$. We can also argue for this by a dimensional analysis. From the form of $g_{BF}$ it is clear, that we should argue from $a_{BF}$. This has dimension of length, and so we need a parameter of dimension per length to get a unitless expression. The only reasonable parameter is the one that describes how many bosons, the fermions can actually interact with, leading to a length scale $n_B^{-1/3}$. Since a higher density of bosons leads to more fermion-boson interactions, we should therefore assume $(n_Ba_{BF}^3)^{1/3} \ll 1$. It follows, that the four essential diagrams for the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
@@ -45,11 +54,11 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
  
     \diagram* {
       (number1) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g\)] (b),
+      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
       (b) -- [dashed] (boson1),
       (b) -- [blue, fermion, edge label' = {\(-\tilde{q}, \mathbf{k}_\perp \)}] (c),
       (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g\)] (d),
+      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
       (d) -- [anti fermion] (f3),
       (d) -- [fermion] (f4)
     };
@@ -71,11 +80,11 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
  
     \diagram* {
       (number2) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g\)] (b),
+      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
       (b) -- [dashed] (boson1),
       (b) -- [blue, anti fermion, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
       (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g\)] (d),
+      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
       (d) -- [anti fermion] (f3),
       (d) -- [fermion] (f4)
     };
@@ -97,11 +106,11 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
  
     \diagram* {
       (number3) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g\)] (b),
+      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
       (b) -- [dashed] (boson1),
       (b) -- [blue, majorana, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
       (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g\)] (d),
+      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
       (d) -- [anti fermion] (f3),
       (d) -- [fermion] (f4)
     };
@@ -123,17 +132,17 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
  
     \diagram* {
       (number3) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g\)] (b),
+      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
       (b) -- [dashed] (boson1),
       (b) -- [blue, anti majorana, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
       (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g\)] (d),
+      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
       (d) -- [anti fermion] (f3),
       (d) -- [fermion] (f4)
     };
   \end{feynman}
 \end{tikzpicture}
-\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). } \label{fig.feynmandiagrams}
+\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's function $G_12$.} \label{fig.feynmandiagrams}
 \end{figure}
 
 Notice that the bosons of the BEC, shown with dashed lines, carry a factor of $\sqrt{n_B}$. This is simply because it is the pour condensate wave function. Further $\tilde{p}_j = (p_j, i\omega_{m_j})$, with $\omega_{m} = (2m+1)\pi kT$ a fermionic Matsubara frequency, and $\tilde{q} = (q, i\omega_q )$, with $\omega_q = \omega_{m_1}-\omega_{m_2}$ a bosonic Matsubara frequency. The blue lines in the diagrams are the normal and anormalous Bogoliubov phonon Green's functions derived in subsection \ref{sec.BECGreens}. Functionally they are:
@@ -156,12 +165,25 @@ The last two we see, give the same contribution in this weak interacting limit.\
 V_{FF}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
 \label{eq.VFFindXBEC}
 \end{equation}
-with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2-E_{B,k}^2}$ the socalled density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$ at this stage. For $l_t\to 0$ the above has an integrand of the form $k^2/(a+bk^4+ck^2)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. Let us now look at the zero frequency component $V_{FF}^\text{ind}(q,0)$. In this situation we can write the result in the following two equivalent ways. The most operative is an integral representation:
+with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2-E_{B,k}^2}$ the socalled density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$ at this stage. For $l_t\to 0$ the above has an integrand of the form $k^2/(a+bk^4+ck^2)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. 
+
+\section{Retardation effects} \label{sec.RetardationEffects}
+In this section we will discuss the $\omega_q = 0$ limit. 
+
+From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects.\footnote{This is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
 \begin{equation}
-V_{FF}^\text{ind}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)}, \hspace{0.5cm} F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right),
+\frac{4}{\pi^2}\left(\frac{m_F}{m_B}\right)^2\frac{n_B}{n_F^3}k_Fa_B \gg 1.
+\label{eq.RetardationEffectsneglectionassumption}
+\end{equation}
+With this assumption at hand we can focus on the zero frequency induced interation $V_{FF}^\text{ind}(q,0)$. 
+
+\section{The zero frequency induced interaction}
+Let us now look at the zero frequency induced interaction $V_{FF}^\text{ind}(q,0)$. We can write this interaction in two equivalent ways:
+\begin{equation}
+V_{FF}^\text{ind}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)} = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q)),
 \label{eq.VFF(q,0)}
 \end{equation}
-where $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC healing length. An alternate form is $V_{FF}^\text{ind}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q))$, where $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
+where $F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)$, $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC healing length and $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
 \begin{equation}
 \tilde{V}_{FF}^\text{ind}(x,0) = -\frac{m_Bg_{BF}^2n_B}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
 \end{equation}
@@ -183,47 +205,22 @@ Notice, that there are \textit{two} relevant length scales: the healing length $
 \tilde{V}_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_asymp}
 \end{equation}
-For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\tilde{V}_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. Further in figure \ref{fig.Vx_disc} the range around $x=0$ where $\tilde{V}_{FF}^\text{ind}(x,0)$ differs with more than $5\%$ from the asymptotic Yukawa potential is plotted. As expected this distance $d$ increases monotonically with $l_t$. The behaviour for small values of $k_F d$ can be understood by expanding the fraction $\tilde{V}_{FF}^\text{ind}(d,0)/\tilde{V}_{FF}^\text{ind,\text{asymp}}(d,0)$. This can be done, since we notice from the numerical solution, that $\frac{d}{l_t}$ is large compared to $\frac{l_t}{\xi}$, leading to an asymptotic form $d = \frac{l_t}{\sqrt{r}}$, where $r=0.05$ is the allowed discrepancy. This tells us that for small values of $l_t$ the range of significant difference $d$ is the same order of magnitude as $l_t$, as one might expect. 
-
-Finally in figure \ref{fig.Vq0} we see, how the potential in momentum space diverges. We see a high degree of agreement with the expected logarithmic divergence $\propto \ln\left(\frac{l_t}{\xi}\right)$. 
+For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\tilde{V}_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. As expected we see, that the momentum space interaction diverges as $l_t \to 0$, and that the real space interaction asymptotically goes to the Yukawa interaction.
 
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vq/plot.tex}  
-\caption{The zero frequency potential $V_{FF}^\text{ind}(q,0)$ plotted as a function of $q$. From bottom to top the alternating red and blue curves are for increasing $k_F l_t$ starting from $0.03$ ending at $0.18$ with increments of $0.03$. $V_0 = \frac{m_Bg_{BF}^2n_B}{\pi}$. Parameters: $k_F a_B = 0.3, n_B/n_F^3 = 1$. This leads to $k_F\xi = 2.02$.}  
+\caption{The zero frequency potential $V_{FF}^\text{ind}(q,0)$ plotted as a function of $q/k_F$ for several values of $l_t$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$.}  
 \label{fig.Vq}  
 \end{center}    
 \end{figure}
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Vq0/plot.tex}  
-\caption{Divergence of the potential in momentum space at $q=0$ as a function of $1/k_Fl_t$ in blue. This is compared to a logarithmic divergence $1.94\ln(l_t/\xi)$, which is the expected behaviour. We observe an almost perfect match. Parameters: $k_F a_B = 0.3, n_B/n_F^3 = 1$. This leads to $k_F\xi = 2.02$.}
-\label{fig.Vq0}  
-\end{center}    
-\end{figure}
-
-\begin{figure} 
-\begin{center}  
 \input{Figures/Vx/plot.tex}  
-\caption{The zero frequency potential $\tilde{V}_{FF}^\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $\frac{x}{\xi}$. From top to bottom the alternating red and blue curves are for decreasing $\frac{l_t}{\xi}$ starting from $1.9$ ending at $0.1$ with decrements of $0.3$. $V_0 = \frac{m_Bg_{BF}^2n_B}{\pi}$. The black curve is the asymptotic Yukawa potential for small values of $l_t$.}  
+\caption{The zero frequency potential $\tilde{V}_{FF}^\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$.}  
 \label{fig.Vx}  
 \end{center}    
 \end{figure}
-
-\begin{figure} 
-\begin{center}  
-\input{Figures/Vx_disc2/plot.tex}  
-\caption{The distance $d$ over which the potential for $l_t > 0$ significantly differs from the Yukawa potential in equation \eqref{eq.Vx_asymp} in blue. The allowed discrepancy between the potentials is set to $r=0.05$. As expected $d$ increases monotonically with $l_t$. The red curve is the asymptotic form for small $k_Fl_t$: $k_Fd=\frac{k_F l_t}{\sqrt{r}}$.}  
-\label{fig.Vx_disc}  
-\end{center}    
-\end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 
 

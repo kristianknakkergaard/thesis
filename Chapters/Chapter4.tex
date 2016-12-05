@@ -7,7 +7,7 @@
 \lhead{Chapter 4. \emph{1D Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_n = 0$. We will make an argument for the validity of this approach in section \ref{sec.RetardationEffects}. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
+In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. See section \ref{sec.RetardationEffects} for details. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
 
 \section{The fermion interacting Hamiltonian} \label{sec.HFFint}
 
@@ -81,13 +81,14 @@ H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k f^\dagger_k f_k 
 \label{eq.HFFdef}
 \end{equation} 
 where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a standard Bogoliubov-de Gennes (BdG) form:
+
 \begin{equation}
-H_{FF} = -\sum_k \Delta_k \braket {f^\dagger_k f^\dagger_{-k}} + \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}, 
+H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {f^\dagger_k f^\dagger_{-k}}\right] + \frac{1}{2}\sum_{k} \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix} \mathcal{H}_{FF,k} \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, 
 \end{equation}
 
 and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined in equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\braket {f^\dagger_k f^\dagger_{-k}} $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
 \begin{equation}
-H_{FF} = \frac{1}{2}\sum_k (\varepsilon_k-2E_{F,k}-2\Delta_k\braket {f^\dagger_k f^\dagger_{-k}}) + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
+H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k-E_{F,k}-\Delta_k\braket {f^\dagger_k f^\dagger_{-k}}\right] + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
 \label{eq.Kitaev.HFF_diagonal}
 \end{equation}
 The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
@@ -138,20 +139,7 @@ $\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the te
 \end{equation}
 The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
 
-
-\section{Retardation effects} \label{sec.RetardationEffects}
-We are now in a position, where we can understand the $\omega_n = 0$ limit. Let us first remind ourselves of the frequency dependent induced interaction in equation \eqref{eq.VFFindXBEC}:
-\begin{equation}
-V_{FF}^\text{ind}(q,i\omega_n) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\frac{k^2}{m_B}\frac{n_B}{(i\omega_n)^2-E_{B,k}^2}\text{e}^{-\frac{l_t^2}{2}k_\perp^2}. \nonumber
-\end{equation}
-The frequency dependency of the induced interaction reflects, that the fermions do not interact instanteneously leading to socalled retardation effects.\footnote{This is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
-\begin{equation}
-\left(\frac{m_F}{m_B}\right)^2\frac{4}{\pi^2}\frac{n_B}{n_F^3}k_Fa_B \gg 1.
-\label{eq.RetardationEffectsneglectionassumption}
-\end{equation}
-This justifies the neglection of the retardation effects in the preceding sections. 
-
-\section{The $l_t \to 0$ limit}
+\section{Vanishing trapping width limit}
 In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.CouplingPotential} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
 \begin{align}
 W^\text{ind}_{FF}(k,k') &= \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right] \nonumber \\

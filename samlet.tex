@@ -29,9 +29,9 @@
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
 \usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+%[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]
+\usepackage{microtype}
 \microtypecontext{spacing=nonfrench}
-\usepackage{tikz-feynman}
 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 
@@ -92,7 +92,7 @@
 \end{flushright}
 \end{minipage}\\[0cm]
 \vspace{3cm}
-\includegraphics[width=0.4\columnwidth]{aarhus_logo.png} 
+\includegraphics[width=0.4\columnwidth]{AU.jpg} 
  
 \large \textit{Qualifying master's thesis}\\[0.1cm] % University requirement text
 \textit{at}\\[0.2cm]
@@ -162,7 +162,7 @@
 \addtotoc{Summary} % Add the "Abstract" page entry to the Contents
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-%The outline in this project is clear. Given a system of oscillatory behaviour, how can we estimate certain background parameters and to what degree of precision can it be done. 
+
 WRITE SUMMARY
 
 \clearpage % Start a new page
@@ -277,6 +277,8 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 \input{Chapters/Chapter5} 
 \input{Chapters/Chapter6} 
 \input{Chapters/Chapter7} 
+\input{Chapters/Chapter8} 
+\input{Chapters/Chapter9} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES

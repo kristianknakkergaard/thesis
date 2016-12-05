@@ -107,7 +107,7 @@
 \usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,xspace}
 \usepackage{mathtools}	
 \usepackage{braket}
-\usepackage{tikz-feynman}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{textcomp}
 \DeclareMathOperator{\tr}{tr}
 \theoremstyle{definition}
@@ -146,7 +146,6 @@
 \usepackage{booktabs}
 \usepackage{rotating}
 \usepackage{listings}
-\usepackage{lstpatch}
 \lstset{captionpos=b,
         frame=tb,
         basicstyle=\scriptsize\ttfamily,
@@ -189,9 +188,9 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{On Topological Superconductors in 1D-3D Bose-Fermi Mixtures} % Your thesis title - this is used in the title and abstract
+\thesistitle{On topological superfluids in 1D-3D Bose-Fermi mixtures} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------
-\supervisor{Ass. Professor Georg M. Bruun} % You supervisor's name - this is used in the title page
+\supervisor{Ass. professor Georg M. Bruun} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
@@ -312,7 +311,7 @@
     \bigskip
     {\normalsize \degreename\par} % Degree name
     \bigskip
-    {\normalsize\bf On topological superconductors in 1D-3D Bose-Fermi mixtures \par} % Thesis title
+    {\normalsize\bf On topological superfluids in 1D-3D Bose-Fermi mixtures \par} % Thesis title
     \medskip
     {\normalsize by \authornames \par} % Author name
     \bigskip

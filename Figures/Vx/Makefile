@@ -16,16 +16,14 @@ plot.tex: data makefile
 'set grid;       			   '\
 'set tics out;       			   '\
 'set xlabel "$$k_Fx$$"; 		   '\
-'set ylabel "$$\tilde{V}_{FF}^\text(x,0)/V_0$$"; 	   '\
-'plot [-1:1][-30:0] 		   '\
+'set ylabel "$$\tilde{V}_{FF}^\text(x,0)/\epsilon_{F,0}$$"; 	   '\
+'set key bottom left;					'\
+'plot [-1:1][-60:0] 		   '\
 ' "$<" index 0 using 2:4 notitle with lines lw 2 lc rgb "black" '\
-',"$<" index 0 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 1 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 2 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 3 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 4 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 5 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 6 using 2:3 notitle with lines lw 2 lc rgb "red" '\
+',"$<" index 3 using 2:3 title "$$k_Fl_t = 0.20$$" with lines lc rgb "#002daa" '\
+',"$<" index 2 using 2:3 title "$$k_Fl_t = 0.15$$" with lines lc rgb "#167000" '\
+',"$<" index 1 using 2:3 title "$$k_Fl_t = 0.10$$" with lines lc rgb "#e05900" '\
+',"$<" index 0 using 2:3 title "$$k_Fl_t = 0.05$$" with lines lc rgb "#e00000" '\
 | tee log | gnuplot
 
 

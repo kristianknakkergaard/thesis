@@ -15,17 +15,15 @@ plot.tex: data makefile
 'set output "$@"; 			   '\
 'set grid;       			   '\
 'set tics out;       			   '\
-'set xlabel "$$q\xi$$"; 		   '\
-'set ylabel "$$V_\text{ind}(q,0)/V_0$$"; 	   '\
-'plot [-15:15][-8:0] 		   '\
+'set xlabel "$$q/k_F$$"; 		   '\
+'set ylabel "$$2m_F/k_F V^\text{ind}_{FF}(q,0)$$"; 	   '\
+'set key bottom left;					'\
+'plot [-20:20][-20:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
-',"$<" index 0 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 1 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 2 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 3 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 4 using 2:3 notitle with lines lw 2 lc rgb "red" '\
-',"$<" index 5 using 2:3 notitle with lines lw 2 lc rgb "blue"  '\
-',"$<" index 6 using 2:3 notitle with lines lw 2 lc rgb "red" '\
+',"$<" index 3 using 2:3 title "$$k_Fl_t = 0.20$$" with lines lc rgb "#002daa" '\
+',"$<" index 2 using 2:3 title "$$k_Fl_t = 0.15$$" with lines lc rgb "#167000" '\
+',"$<" index 1 using 2:3 title "$$k_Fl_t = 0.10$$" with lines lc rgb "#e05900" '\
+',"$<" index 0 using 2:3 title "$$k_Fl_t = 0.05$$" with lines lc rgb "#e00000" '\
 | tee log | gnuplot
 
 

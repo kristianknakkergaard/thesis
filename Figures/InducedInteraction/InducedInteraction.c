@@ -48,7 +48,7 @@ main (void)
   {
     nB     = pow(Bdist, - 3.0);
     aB     = M_PI * rBB / pow(nB, 1.0/3.0);
-    retneg = pow(1.0/mB, 2.0) * nB * aB;
+    retneg = 4/(M_PI * M_PI) * pow(1.0/mB, 2.0) * nB * aB;
 
     /*if (retneg < 5.0)
     {
