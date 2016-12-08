@@ -41,7 +41,7 @@ We therefore define the interwire pairing potential as:
 
 This brings the interaction part of the interwire Hamiltonian on the following form:\footnote{As for the single wire, this is technically no longer an interaction Hamiltonian, since it is only quadratic in the operators.}
 \begin{equation}
-H^\text{int}_{FF,12} = \sum_{k} \left[\Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} + \Delta^{21 *}_k f_{1,-k}f_{2,k} - \Delta^{21}_k\braket{f^\dagger_{2,k}f^\dagger_{1,-k}} \right].
+H^\text{int}_{FF,12} = \sum_{k} \left[\Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} + \Delta^{12 *}_k f_{1,-k}f_{2,k} - \Delta^{12}_k\braket{f^\dagger_{2,k}f^\dagger_{1,-k}} \right].
 \label{eq.Hintinterwire}
 \end{equation}
 Equations \ref{eq.Hintintrawire} and \ref{eq.Hintinterwire} are the essential equations for the following. 
@@ -61,76 +61,104 @@ with:
                                      -\Delta^{12*}_{-k}& 0                  & \Delta^{22*}_k    & -\varepsilon_{2,k} \end{bmatrix}, \hspace{0.5cm}
 F_k =  \begin{bmatrix} f_{1,k} \\ f^\dagger_{1,-k} \\ f_{2,k} \\ f^\dagger_{2,-k} \end{bmatrix}.                                     
 \end{equation}
-Here $\varepsilon_{j,k} = \frac{k^2}{2m_F}-\mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential $\mu$. Hence we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we wish to investigate, whether we can find real solutions for the intrawire pairings $\Delta^{jj}_k$. First of all, since the two wires are equivalent, the pairing potentials have to equal up to a phase: $\Delta^{11}_k = \text{e}^{i\phi_k} \Delta^{22}_k$. Second, we can gauge transform the phase of $\Delta^{jj}_k$ away in the same way as in chapter \ref{Chapter7}. Since this gauge transformation can be done independently for each wire, we obtain $\Delta^{11}_k = \Delta^{22}_k$. The interwire pairing $\Delta^{12}_k$ describes a pairing between distinguishable particles. If we think of the wires as indexed with a pseudospin, the pairing is expected to be a $s$-wave type pairing. We will therefore search for an even solution for $\Delta^{12}_k$. This means, that the kernel $\mathcal{H}_{FF,k}$:
+Here $\varepsilon_{j,k} = \frac{k^2}{2m_F}-\mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential $\mu$. Hence we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we wish to investigate, whether we can find real solutions for the intrawire pairings $\Delta^{jj}_k$. First of all, since the two wires are equivalent, the pairing potentials have to equal up to a phase: $\Delta^{11}_k = \text{e}^{i\phi_k} \Delta^{22}_k$. Second, we can gauge transform the phase of $\Delta^{jj}_k$ away in the same way as in chapter \ref{Chapter7}. Since this gauge transformation can be done independently for each wire, we obtain $\Delta^{11}_k = \Delta^{22}_k$. The interwire pairing $\Delta^{12}_k$ describes a pairing between distinguishable particles. If we think of the wires as indexed with a pseudospin, the pairing is expected to be a $s$-wave type pairing. We will therefore search for an even solution for $\Delta^{12}_k$. This means, that:
 \begin{equation}
-\mathcal{H}_{+FF,k} = \begin{bmatrix} \varepsilon_{k} & \Delta^{11}_k    & 0               & \Delta^{12}_k\\ 
-                                    \Delta^{11}_k     & -\varepsilon_{k} & -\Delta^{12*}_k & 0 \\ 
-                                    0                 & -\Delta^{12}_k   & \varepsilon_{k} & \Delta^{11}_k \\ 
-                                    \Delta^{12*}_k    & 0                & \Delta^{11}_k   & -\varepsilon_{k} \end{bmatrix}, \hspace{0.5cm}
-\mathcal{H}_{-FF,k} = \begin{bmatrix} \varepsilon_{k} & \Delta^{11}_k    & 0               & \Delta^{12}_k\\ 
-                                    \Delta^{11}_k     & -\varepsilon_{k} & -\Delta^{12*}_k & 0 \\ 
-                                    0                 & -\Delta^{12}_k   & \varepsilon_{k} & -\Delta^{11}_k \\ 
-                                    \Delta^{12*}_k    & 0                & -\Delta^{11}_k  & -\varepsilon_{k} \end{bmatrix}.                        
+\mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_{k}   & \Delta^{11}_k      & 0                 & -\Delta^{12}_{k} \\ 
+                                     \Delta^{11}_k     & -\varepsilon_{k}   & \Delta^{12*}_k    & 0 \\ 
+                                    0                  & \Delta^{12}_k      & \varepsilon_{k}   & \Delta^{11}_k \\ 
+                                     -\Delta^{12*}_{k} & 0                  & \Delta^{11}_k     & -\varepsilon_{k} \end{bmatrix},                  
 \end{equation}
-Hence, $\mathcal{H}_{^\pm FF,k}$ corresponds to $\Delta^{22}_k = \pm \Delta^{11}_k$. As for the single wire the eigenvalues of the matrices above come in plus/minus pairs. The norm of the eigenvalues give the energy dispersion. The result is:
-\begin{align}
-E^{\pm}_{+F,k} &= \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2 \pm \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|}, \nonumber \\
-E^{\pm}_{-F,k} &= \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2 \pm \left|2\Delta^{11}_k\text{Re}\left[\Delta^{12}_k\right]\right|}. \nonumber 
-\end{align} 
-Here $E^{\pm}_{+F,k}$ belongs to $\mathcal{H}_{+FF,k}$ and similarly for $E^{\pm}_{-F,k}$. Hence, the lower sign indicates what kernel $\mathcal{H}$ it belongs to. The upper sign indicates the sign in the square root. Analogous to the single wire this will lead to an energy decrease of the ground state, which increases with $E^{+}_{\pm F,k} + E^{-}_{\pm F,k}$. See equation \eqref{eq.Kitaev.HFF_diagonal} for the single wire case. From the form of the energy dispersion we see, that for $\mathcal{H}_{+FF,k}$ this energy decrease is largest, when the pairing is real. To see this explicitly we first define: $E_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2}$. We then see, that we have to maximize the function:
+As for the single wire the eigenvalues of the kernel above come in plus/minus pairs. The norm of the eigenvalues give the energy dispersion. The result is:
 \begin{equation}
-E^{+}_{+F,k} + E^{-}_{+F,k} = \sqrt{E^2_{F,k} + \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|} + \sqrt{E^2_{F,k} - \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|}. \nonumber
+E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2 \pm \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|}, 
+\end{equation} 
+Analogous to the single wire this will lead to an energy decrease of the ground state, which increases with $E^{+}_{F,k} + E^{-}_{F,k}$. See equation \eqref{eq.Kitaev.HFF_diagonal} for the single wire case. From the form of the energy dispersion we see, that this energy decrease is largest, when the pairing is real. To see this explicitly we first define: $E_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2}$. We then see, that we have to maximize the function:
+\begin{equation}
+E^{+}_{F,k} + E^{-}_{F,k} = \sqrt{E^2_{F,k} + \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|} + \sqrt{E^2_{F,k} - \left|2\Delta^{11}_k\text{Im}\left[\Delta^{12}_k\right]\right|}. \nonumber
 \end{equation}
-This is equivalent to finding the maximum of the function $f(x) = \sqrt{1 + x} + \sqrt{1 - x}$, which is obtained for $x=0$. Hence the imaginary part must vanish. Similarly for $\mathcal{H}_{-FF,k}$ the real part of the pairing, $\text{Re}\left[\Delta^{12}_k\right]$, must vanish. This explicitly shows, that the phase of the interwire pairing is not arbitrary, when the phase of the intrawire pairings have been chosen. The restriction of least ground state energy ensures, that there is only a single energy dispersion for both possibilites $\Delta^{22}_k = \pm \Delta^{11}_k$, namely:
+This is equivalent to finding the maximum of the function $f(x) = \sqrt{1 + x} + \sqrt{1 - x}$, which is obtained for $x = 0$. This explicitly shows, that the phase of the interwire pairing is not arbitrary, when the phases of the intrawire pairings have been chosen. The restriction of least ground state energy ensures, that there is only a single energy dispersion:
 \begin{equation}
 E_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left(\Delta^{12}_k\right)^2}.
 \label{eq.energydispersiontwowires}
 \end{equation}
-Finally, the new quasiparticle operators are found by finding the eigenvectors to $\mathcal{H}_{FF\pm,k}$. We define the quasiparticle fermionic operators $\zeta_{\pm j,k}$ by:
+Finally, the new quasiparticle operators are found by finding the eigenvectors to $\mathcal{H}_{FF,k}$. We define the quasiparticle fermionic operators $\zeta_{j,k}$ by:
 \begin{equation}
-\begin{bmatrix} f_{1,k} \\ f^\dagger_{1,-k} \\ f_{2,k} \\ f^\dagger_{2,-k} \end{bmatrix} = U_{\pm F,k}\begin{bmatrix} \zeta_{\pm 1,k} \\ \zeta^{\dagger}_{\pm 1,-k} \\ \zeta_{\pm 2,k} \\ \zeta^{\dagger}_{\pm 2,-k} \end{bmatrix}.
+\begin{bmatrix} f_{1,k} \\ f^\dagger_{1,-k} \\ f_{2,k} \\ f^\dagger_{2,-k} \end{bmatrix} = U_{F,k}\begin{bmatrix} \zeta_{1,k} \\ \zeta^{\dagger}_{1,-k} \\ \zeta_{2,k} \\ \zeta^{\dagger}_{2,-k} \end{bmatrix}.
 \label{eq.zetaoperatorstwowiresdefinition}
 \end{equation} 
-The $\zeta$ operators have to obey the same anticommutation relations as the $f$ operators. Specifically anticommutators like $\{\zeta_1, \zeta_2 \} $ vanishes. $\mathcal{H}_{\pm FF,k}$ should then be diagonalised to yield:
+The $\zeta$ operators have to obey the same anticommutation relations as the $f$ operators. Specifically anticommutators like $\{\zeta_1, \zeta_2 \} $ vanishes. $\mathcal{H}_{FF,k}$ should then be diagonalised to yield:
 \begin{equation}
-U^\dagger_{\pm FF,k}\mathcal{H}_{\pm FF,k}U_{\pm FF,k} = \begin{bmatrix} 
+U^\dagger_{FF,k}\mathcal{H}_{FF,k}U_{FF,k} = \begin{bmatrix} 
 E_{F,k} & 0        & 0       & 0        \\ 
 0       & -E_{F,k} & 0       & 0        \\ 
 0       & 0        & E_{F,k} & 0        \\ 
 0       & 0        & 0       & -E_{F,k} \\ 
 \end{bmatrix} \nonumber
 \end{equation}
-Further the diagonalisation must respect the symmetry in the 1 and 2 fermions of the Hamiltonian. Specifically the assumption of $\Delta^{22}_k = \pm \Delta^{11}_k$ must be selfconsistent. From \ref{eq.pairingpotentialsintrawire} this means, that $\braket{f_{1,k}f_{1,-k}} = \pm\braket{f_{2,k}f_{2,-k}}$. This results in the following matrices:
+Further the diagonalisation must respect the symmetry in the 1 and 2 fermions of the Hamiltonian. Specifically the assumption of $\Delta^{22}_k = \Delta^{11}_k$ must be selfconsistent. From \ref{eq.pairingpotentialsintrawire} this means, that $\braket{f_{1,k}f_{1,-k}} = \braket{f_{2,k}f_{2,-k}}$. This results in the following matrix:
 \begin{equation}
-U_{+F,k} = \frac{|\Delta^{12}_k|}{\Delta^{12}_k(2E_{F,k}(E_{F,k}+\varepsilon_k))^{1/2}}\begin{bmatrix} 
-E_{F,k}+\varepsilon_k & -\Delta^{11}_k         & 0                      & -\Delta^{12}_k           \\  
-\Delta^{11}_k         & E_{F,k}+\varepsilon_k  & -\Delta^{12}_k         & 0                        \\ 
-0                     & \Delta^{12}_k          & E_{F,k}+\varepsilon_k  & -\Delta^{11}_k           \\ 
-\Delta^{12}_k         & 0                      & \Delta^{11}_k          & E_{F,k}+\varepsilon_k
-\end{bmatrix}, \nonumber
-\end{equation}
-and:
-\begin{equation}
-U_{-F,k} = \frac{|\Delta^{12}_k|}{\Delta^{12}_k(2E_{F,k}(E_{F,k}+\varepsilon_k))^{1/2}}\begin{bmatrix} 
-E_{F,k}+\varepsilon_k & -\Delta^{11}_k         & 0                      & -i\Delta^{12}_k           \\  
-\Delta^{11}_k         & E_{F,k}+\varepsilon_k  & i\Delta^{12}_k         & 0                        \\ 
-0                     & i\Delta^{12}_k         & E_{F,k}+\varepsilon_k  & \Delta^{11}_k           \\ 
--i\Delta^{12}_k       & 0                      & -\Delta^{11}_k         & E_{F,k}+\varepsilon_k
+U_{F,k} = \frac{1}{(2E_{F,k}(E_{F,k}+\varepsilon_k))^{1/2}}\begin{bmatrix} 
+E_{F,k}+\varepsilon_k & \Delta^{11}_k             & 0                      & -\Delta^{12}_k           \\  
+\Delta^{11}_k         & -(E_{F,k}+\varepsilon_k)  & \Delta^{12}_k          & 0                        \\ 
+0                     & \Delta^{12}_k             & E_{F,k}+\varepsilon_k  & \Delta^{11}_k           \\ 
+-\Delta^{12}_k        & 0                         & \Delta^{11}_k          & -(E_{F,k}+\varepsilon_k)
 \end{bmatrix}. \nonumber
 \end{equation}
-We keep $\Delta^{12}_k$ real in all cases. Hence, for $\mathcal{H}_{-FF,k}$ we let $\Delta^{12}_k \to i\Delta^{12}_k$, since it is purely imaginary. This is the reason for the appearance of $i$'s in $U_{-F,k}$. The diagonalisation of the Hamiltonian is now straight forward. $U^\dagger_{\pm F,k}\mathcal{H}_{\pm FF,k}U_{\pm F,k}$ is diagonal with the eigenvalues $+E_{F,k}$ and $-E_{F,k}$ alternating in the diagonal as shown above. The result of the diagonalisation for $\Delta^{22}_k = \pm \Delta^{11}_k$ is therefore:
-
+Notice, that the structure of $U_{F,k}$ and $\mathcal{H}_{FF,k}$ is very similar. The diagonalisation of the Hamiltonian is now straight forward. $U^\dagger_{F,k}\mathcal{H}_{FF,k}U_{F,k}$ is diagonal with the eigenvalues $+E_{F,k}$ and $-E_{F,k}$ alternating in the diagonal as shown above. The result of the diagonalisation is therefore:
 \begin{align}
-H_{\pm FF} &= E_0 + \sum_{j,k} E_{F,k}\zeta^\dagger_{\pm j, k}\zeta_{\pm j, k}, \nonumber \\ 
-E_0 &= \sum_k \left[\varepsilon_k - E_{F,k} - \frac{1}{2}\left(\Delta^{11}_k\braket{f^\dagger_{1,k}f^\dagger_{1,-k}} + \Delta^{22}_k\braket{f^\dagger_{2,k}f^\dagger_{2,-k}} + \Delta^{21}_k\braket{f^\dagger_{2,k}f^\dagger_{1,-k}} \right) \right] 
+H_{FF} &= E_0 + \sum_{j,k} E_{F,k}\zeta^\dagger_{j, k}\zeta_{j, k}, \nonumber \\ 
+E_0 &= \sum_k \left[\varepsilon_k - E_{F,k} - \frac{1}{2}\left(\Delta^{11}_k\braket{f^\dagger_{1,k}f^\dagger_{1,-k}} + \Delta^{22}_k\braket{f^\dagger_{2,k}f^\dagger_{2,-k}} + 2\Delta^{12}_k\braket{f^\dagger_{2,k}f^\dagger_{1,-k}} \right) \right] 
 \end{align}  
-We notice, that indeed the ground state energy $E_0$ is lowered by the $E_{F,k}$ as previously argued. This confirms, that we have chosen the correct phases of the interwire pairing $\Delta^{12}_k$. As for the single wire case the ground state is hereby defined by $\zeta_{\pm j,k}\ket{\text{S}}_0 = 0$. 
+We notice, that indeed the ground state energy $E_0$ is lowered by $E_{F,k}$ as previously argued. This confirms, that we have chosen the correct phase of the interwire pairing $\Delta^{12}_k$. As for the single wire case the ground state is hereby defined by $\zeta_{j,k}\ket{\text{S}}_0 = 0$. 
 
-\section{The gap equations}
-In this section we write up and discuss the gap equations. They are derived in complete analogy to the single wire case. The key points to remember are, firstly that the definition in equation \ref{eq.zetaoperatorstwowiresdefinition} of the $\zeta$-operators together with the found $U_{\pm F,k}$ tell us how to transform to the quasiparticle operators $\zeta$. Secondly the quasiparticles obey Fermi statistics: $\braket{\zeta^\dagger_{\pm j,k}\zeta_{\pm j, k}} = f(E_{F,k})$, where $f$ is the Fermi-Dirac distribution. For $\Delta^{22}_k = \pm \Delta^{11}_k$ this results in the gap equations:
+\section{The gap and number equations}
+In this section we write up and discuss the gap equations. They are derived in complete analogy to the single wire case. By combining $U_{F,k}$ and equation \ref{eq.zetaoperatorstwowiresdefinition} we can transform to the quasiparticle operators $\zeta$. Further, the quasiparticles obey Fermi statistics: $\braket{\zeta^\dagger_{j,k}\zeta_{j, k}} = f(E_{F,k})$, where $f$ is the Fermi-Dirac distribution. The gap equations hereby become:
 \begin{align}
-\Delta^{11}_k &= \pm \Delta^{22}_k = -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,11}(k,k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
-\Delta^{12}_k &= \frac{2}{\mathcal{L}}\sum_{k'} V^\text{ind}_{FF,12}(k - k',0)\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
+\Delta^{11}_k = \Delta^{22}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,11}(k,k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
+\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} V^\text{ind}_{FF,12}(k - k',0)\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
 \end{align}
-This explicitly shows, that the assumption of the intrawire pairings, $\Delta^{22}_k = \pm \Delta^{11}_k$, is self-consistent. The assumption of $\Delta^{12}_k$ being even in $k$ is also seen to be self-consistent. Further, we notice that the gap equations are unaffected by the sign in $\Delta^{22}_k = \pm \Delta^{11}_k$. Finally, these gap equations goes the to gap equations for the separated single wires found in chapter \ref{Chapter4}, when $\Delta^{12}_k$ goes to $0$.  
+This explicitly shows, that the assumption of the intrawire pairings, $\Delta^{22}_k = \Delta^{11}_k$, is self-consistent. The assumption of $\Delta^{12}_k$ being even in $k$ is also seen to be self-consistent. Further, we notice that the gap equations have the exact same structure as the ones for the single wire. Finally, these gap equations goes to the gap equations for the separated single wires found in chapter \ref{Chapter4} when $\Delta^{12}_k$ goes to $0$.  
+
+It turns out that the number equation calculated from $N_F = \sum_k \braket{f^\dagger_{j,k}f_{j,k}}$ has the exact same structure as the single wire number equation as well. Explicitly: 
+\begin{equation}
+n_F = \int \frac{dk}{2\pi} \frac{\varepsilon_k}{E_{F,k}}f(E_{F,k}) + \frac{1}{2}\left(1 - \frac{\varepsilon_k}{E_{F,k}}\right). 
+\label{eq.numberequationtwowires}
+\end{equation}
+This gives us three integral equations for the three quantities: $\Delta^{11}_k, \Delta^{12}_k$ and $\mu(T)$.
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas2.1.1/ddepend.tex}  
+\caption{The pairings $\Delta^{11}_k$ and $\Delta^{12}_k$ in red and blue plotted as a function of the distance $d$ between the wires. For the used set of parameters $k_F\frac{\xi}{\sqrt{2}} = 0.95$. We hereby see, that the cross over from $p$-wave dominated to $s$-wave dominated happens for $\frac{\sqrt{2}d}{\xi} \approx 0.6$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$. }  
+\label{fig.maximalpairingddepend}  
+\end{center}    
+\end{figure}
+
+\section{Symmetries}
+In this section we will show, that the system has a time reversal symmetry that squares to unity: $T^2 = \mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries. 
+
+Explicitly we define:
+\begin{equation}
+T\begin{bmatrix} f_{1,k} \\ f_{2,k} \end{bmatrix} T^{-1} = i\sigma_1 \begin{bmatrix} f_{1,-k} \\ f_{2,-k} \end{bmatrix} = i\begin{bmatrix} f_{2,-k} \\ f_{1,-k} \end{bmatrix},\nonumber
+\end{equation} 
+with $\sigma_1$ the first Pauli matrix. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires an overall phase $i$. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k f^\dagger_{1,k}f^\dagger_{1,-k}, \Delta^{22}_k f^\dagger_{2,k}f^\dagger_{2,-k}$ and $\Delta^{12}_kf^\dagger_{2,k}f^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
+\begin{equation}
+\Delta^{11}_k f^\dagger_{1,k}f^\dagger_{1,-k} \overset{T}{\to} \Delta^{11*}_k \left(-i f^\dagger_{2,-k}\right)\left(-i f^\dagger_{2,k}\right) = \Delta^{11}_k f^\dagger_{2,k}f^\dagger_{2,-k}. \nonumber
+\end{equation}
+Here we use, that similarly to the above $Tf^\dagger_{1,k}T^{-1} = -i f^\dagger_{2,-k}$. Further, we use that $\Delta^{11}_k$ is chosen to be real. This term should be identical to the original term connected to the product $f^\dagger_{2,k}f^\dagger_{2,-k}$: $\Delta^{22}_k f^\dagger_{2,k}f^\dagger_{2,-k}$. This is exactly the case, since the intrawire pairings are chosen identical: $\Delta^{11}_k = \Delta^{22}_k$. The transformation of $\Delta^{22}_k f^\dagger_{2,k}f^\dagger_{2,-k}$ leads to the same result. Finally:
+\begin{equation}
+\Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T}{\to} \Delta^{12*}_k \left(-i f^\dagger_{1,-k}\right)\left(-i f^\dagger_{2,k}\right) = \Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
+\end{equation}
+This explicitly shows time reversal invariance of the above term. Further, it emphasizes that to be time reversal invariant, the interwire pairing $\Delta^{12}_k$ has to be real, when the intrawire pairings are chosen real and equal. Hence, the choice of phase that makes the system invariant under this time reversal transformation is the same choice of phase, which minimizes the ground state energy.\footnote{Had we chosen the phases of the intrawire pairings differently we could ensure a time reversal symmetry by changing the overall phase acquired under $T$.} Finally, since $i\sigma_1(-i\sigma_1) = \sigma_1^2 = \mathbb{I}$, $T$ squares to the identity.  
+
+Similarly to the single wire case we can define a particle-hole transformation, that effectively does not change the spinor $F_k$, since the Hamiltonian of this two wire system is still of the Bogoliubov-de Gennes type. Explicitly we let:
+\begin{equation}
+C\begin{bmatrix} f_{j,k} \\ f^\dagger_{j,-k} \end{bmatrix}C^{-1} = \sigma_1 \begin{bmatrix} f^\dagger_{j,-k} \\ f_{j,k} \end{bmatrix} = \begin{bmatrix} f_{j,k} \\ f^\dagger_{j,-k} \end{bmatrix}, 
+\end{equation} 
+both for $j=1$ and $j=2$. It is then clear, that the total spinor $F_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\sigma_1^2 = \mathbb{I}$ so the transformation squares to unity. 
+
+This analysis also gives us a sublattice symmetry: $S = TC$. In total this puts the system in Cartan class BDI with a topological index in the integers, $\mathbb{Z}$. See table \ref{tab.PeriodicTableTISC} for the details. 
+
+
+
 
