@@ -1,10 +1,10 @@
 % Chapter 7
 
-\chapter{The second wire, induced interaction} % Main chapter title
+\chapter{Two wires, induced interaction} % Main chapter title
 
 \label{Chapter8} % For referencing the chapter elsewhere, use \ref{Chapter8} 
 
-\lhead{Chapter 8. \emph{The 2nd wire, induced interaction}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 8. \emph{2 wires, induced interaction}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In the chapter we will introduce a second wire parallel to the first one already studied. The aim here is to calculate the additional (interwire) induced interaction between the wires. The approach mirrors chapter \ref{Chapter3}. For this reason we will not go in as much detail in the present chapter.
@@ -153,22 +153,22 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
 \end{figure}
 
 
-We will in only investigate the $l_t \to 0$ and $\omega_q = 0$ limit. The reasoning behind the $\omega_q = 0$ limit is the same as for the single wire. See \ref{sec.RetardationEffects} for details. Further, it is already here possible to take the $l_t \to 0$ limit in contrast to the intrawire interaction case. By rewriting the above integral, we get:
+We will only investigate the $l_t \to 0$ and $\omega_q = 0$ limit. The reasoning behind the $\omega_q = 0$ limit is the same as for the single wire. See \ref{sec.RetardationEffects} for details. Further, it is already here possible to take the $l_t \to 0$ limit in contrast to the intrawire interaction case. By rewriting the above integral, we get:
 \begin{align}
 V_{FF,12}^\text{ind}(q,0) &= -\frac{n_Bg_{BF}^2m_B}{\pi^2}\int_0^\infty d k_\perp \; \frac{k_\perp}{k_\perp^2 + q^2 + 2/\xi^2} \int_0^{2\pi} d\theta \; \text{e}^{ik_\perp d\cos(\theta)} \nonumber \\
 						  &= -\frac{2n_Bg_{BF}^2m_B}{\pi}\int_0^\infty d k_\perp \; \frac{k_\perp J_0(k_\perp d)}{k_\perp^2 + q^2 + 2/\xi^2},
 \label{eq.secondwireinducedinteractionmomentumspaceintegralexpression}
 \end{align}
-with $J_0$ is the zero order Bessel function of the first kind. This form of the potential is not terrible illuminating. In stead let us take the Fourier transform to get the induced interaction in real space, $\tilde{V}^\text{ind}_{FF}(x,0)$. Write $\mathbf{r} = (x,\mathbf{d})$ and $\mathbf{k} = (q,\mathbf{k}_\perp)$. We then get the expression:
+with $J_0$ the zero order Bessel function of the first kind. This form of the potential is not terrible illuminating. In stead let us take the Fourier transform to get the induced interaction in real space, $\tilde{V}^\text{ind}_{FF}(x,0)$. Write $\mathbf{r} = (x,\mathbf{d})$ and $\mathbf{k} = (q,\mathbf{k}_\perp)$. We then get the expression:
 \begin{align}
 \tilde{V}_{FF,12}^\text{ind}(x,0) &= \int \frac{dq}{2\pi} \; \text{e}^{iqx} V_{FF,12}^\text{ind}(q,0) = -4n_Bg^2_{BF}m_B\int \frac{d^3k}{(2\pi)^3} \frac{\text{e}^{i\mathbf{k}\cdot \mathbf{r}}}{k^2 + 2/\xi^2} \nonumber \\
 								  &= -\frac{n_Bg^2_{BF}m_B}{\pi} \frac{\text{e}^{-\sqrt{2(x^2+d^2)}/\xi}}{\sqrt{x^2+d^2}},
 \end{align}
-since we recognise the second expression as the Yukawa potential in momentum space with range $\sqrt{2}/\xi$. The interwire induced interaction is hereby shown to be the natural generalisation of the intrawire interaction found in chapter \ref{Chapter3}. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
+since we recognise the second expression as the Yukawa potential in momentum space with range $\xi/\sqrt{2}$. The interwire induced interaction is hereby shown to be the natural generalisation of the intrawire interaction found in chapter \ref{Chapter3}. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
 \begin{equation}
 V^\text{ind}_{FF,12}(q,0) = \int dx \; \text{e}^{-iqx}\tilde{V}^\text{ind}_{FF,12}(x,0) = 2\int_0^\infty \cos(qx)\tilde{V}^\text{ind}_{FF,12}(x,0), \nonumber 
 \end{equation}
-since the induced interaction is even in real space. Writing the variables in units of the range $\sqrt{2}/\xi$, we get:
+since the induced interaction is even in real space. Writing the variables in units of the range $\xi/\sqrt{2}$, we get:
 \begin{equation}
 V^\text{ind}_{FF,12}(\tilde{q},0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}\int_0^\infty d\tilde{x} \cos(\tilde{q}\tilde{x})\frac{ \text{e}^{ -\sqrt{\tilde{x}^2+\tilde{d}^2} } }{\sqrt{\tilde{x}^2+\tilde{d}^2}} = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left(\tilde{d}\sqrt{\tilde{q}^2+1}\right), \nonumber
 \end{equation}
@@ -194,7 +194,7 @@ The fact, that we can express the induced interaction in terms of a known functi
 \end{center}    
 \end{figure}
 
-It is instructive to see, what the functional form of the induced interaction is; both in real and momentum space.  This is shown in figures \ref{fig.VFF12indq} and \ref{fig.VFF12indx}. The plot is done for the same set of parameters as in chapter \ref{Chapter5} for the analysis of the pairing. For this set of parameters one can calculate, that the range of the induced interaction in real space is approximately $1/k_F$: $k_F\xi \approx 1$. From figure \ref{fig.VFF12indx} it is then evident, that when the distance between the planes is on approximately the range of the interaction, $d\approx \xi$, the ratio of the induced interaction to the Fermi energy is approximately unity: $\tilde{V}_{FF,12}^\text{ind}(x=0,0)/\epsilon_{F,0} \approx 1$. This indicates, that when $d \approx \xi$, the interaction between the wires will start to be significant, which is physically reasonable.  
+It is instructive to see, what the functional form of the induced interaction is; both in real and momentum space.  This is shown in figures \ref{fig.VFF12indq} and \ref{fig.VFF12indx}. The plot is done for the same set of parameters as in chapter \ref{Chapter5} for the analysis of the pairing. For this set of parameters one can calculate, that the range of the induced interaction in real space is approximately $1/k_F$: $k_F\frac{\xi}{\sqrt{2}} \approx 1$. From figure \ref{fig.VFF12indx} it is then evident, that when the distance between the wires is approximately the range of the interaction, $d\approx \xi$, the ratio of the induced interaction to the Fermi energy is approximately unity: $\tilde{V}_{FF,12}^\text{ind}(x=0,0)/\epsilon_{F,0} \approx 1$. This indicates, that when $d \approx \xi$, the interaction between the wires will start to be significant. This is also what one physically would expect. 
 
 
 

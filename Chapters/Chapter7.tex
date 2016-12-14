@@ -43,13 +43,13 @@ The time reversal case is somewhat trickier. Firstly, in general the pairing $\D
 \begin{equation}
 \text{e}^{i\phi_k}\Delta_k f^\dagger_k f^\dagger_{-k} = \Delta_k (\text{e}^{i\phi_k/2}f^\dagger_k )(\text{e}^{i\phi_{-k}/2}f^\dagger_{-k} ) \to \Delta_k f^\dagger_k f^\dagger_{-k}, \nonumber
 \end{equation}
-under the gauge transformation $f^\dagger_k \to \text{e}^{i\phi_k/2} f^\dagger_k$. With this the kernel $\mathcal{H}_{FF,k}$ is real and an explicit calculation shows, that with $U_T = \sigma_3$ we get a time reversal symmetry in accordance with equation \ref{eq.Symmetryrequirements}. Explicitly:
+under the gauge transformation $f^\dagger_k \to \text{e}^{i\phi_k/2} f^\dagger_k$. With this the kernel $\mathcal{H}_{FF,k}$ is real, and with $U_T = i\sigma_3$ we get a time reversal symmetry in accordance with equation \ref{eq.Symmetryrequirements}. Explicitly:
 \begin{equation}
-\sigma_3\mathcal{H}^*_{FF,-k}\sigma_3 = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \varepsilon_k & -\Delta_k \\ -\Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} = \mathcal{H}_{FF,k}, \nonumber
+U_T\mathcal{H}^*_{FF,-k}U^\dagger_T = \sigma_3\mathcal{H}^*_{FF,-k}\sigma_3 = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \varepsilon_k & -\Delta_k \\ -\Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} = \mathcal{H}_{FF,k}, \nonumber
 \end{equation}
 since $\Delta_k$ is odd in k and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
 \begin{equation}
-T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} f_{-k} \\ -f^\dagger_{k} \end{bmatrix}. \nonumber
+T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i f_{-k} \\ - i f^\dagger_{k} \end{bmatrix}. \nonumber
 \end{equation}
 It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. However, this is still a Cooper pair of momentum $k$ and $-k$.  
 

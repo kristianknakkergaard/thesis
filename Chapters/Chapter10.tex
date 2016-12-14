@@ -1,0 +1,47 @@
+% Chapter 10
+
+\chapter{Two wires, numerical analysis} % Main chapter title
+
+\label{Chapter10} % For referencing the chapter elsewhere, use \ref{Chapter9} 
+
+\lhead{Chapter 10. \emph{2 wires, numerical analysis}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+In this chapter we present the numerical analysis and results of the two wire system. The most noticeable of the results is, that we are able to find a narrow interval of interwire distances, where both $s$- and $p$-wave type pairings exist. 
+
+\section{Cross over region of the pairings}
+In this section we will show numerically, that the two wire system supports $\Delta^{11}_k$ and $\Delta^{12}_k$ being nonzero at the same time. Further, we will see, that these are respectively a $p$-wave and $s$-wave type pairing. 
+
+The expected $d$-dependency goes as follows. For $d/\xi \gg 1$ the wires are separate, and no interwire pairing is present: $\Delta^{12}_k = 0$. For $d\to 0$ the interwire pairing becomes dominant with respect to the intrawire one, and so for small enough interwire distances we expect $\Delta^{11}_k = 0$. The open question is, whether there is a continuous cross over region where both pairings are nonzero or a sudden flip from $\Delta^{11}_k$ to $\Delta^{12}_k$.
+
+The numerical analysis performed in this section is only for $T = 0$. We first define a region of interest for the interwire distance $d$. A good guess for the cross over region is probably around the range of the interaction, $d \approx \xi/\sqrt{2}$, since the interwire interaction then becomes significant. For each value of $d$ we then do the following. First, we come with an initial guess for the pairings and the chemical potential. Second, the pairings and chemical potentials are inserting in the gap equations \ref{eq.2wiresgapequations} and an updated version of the pairings is obtained. Third, this is inserted into the number equation \ref{eq.numberequationtwowires}, which gives an updated version of the chemical potential. Finally, this is iterated until the pairings are not altered by more than $0.5$\textperthousand. 
+
+The iteration over $d$ is then performed in the following way. We find a value of $d$, where both pairings are present. For the specific set of parameters here, this is around $k_Fd = 0.59$. Then we iterate over $d$. First with small decrements until only the interwire pairing is present, then with small increments, again starting at $k_Fd = 0.59$, until only the intrawire pairing is present. We use the updated version from the previous $d$-value as the initial guess for the present one. The reason for starting somewhere in the middle is the following. If we start from low values of $d$ and then iterate over increasing $d$, only the interwire pairing will be present to begin with. This means, that the intrawire pairing of the previous step will then always be $0$, which is always a (trivial) solution for the pairing, but necessarily the \textit{stable} solution we are after! A different approach would be to start at low values of $d$, where only $\Delta^{12}_k$ is nonzero, and then for each iteration over $d$ return to the same initial guess for the pairings until the intrawire pairing, $\Delta^{11}_k$, becomes nonzero. This approach works, but it is much slower than the one adopted here.  
+
+The result of the analysis is shown in figure \ref{fig.maximalpairingddepend}. We see, that for small and large distances the expected behaviour is observed. It seems to be the case, that the interwire pairing increases linearly for small distances. This we will return to later. In between we see a continuous cross over region, where both pairings are present. Further, we notice that the intrawire pairing is constant from just under $k_Fd = 0.62$ and upwards. The fact that we start at $k_Fd =0.59$, and then iterate downwards and upwards from there is the reason for the small indent in the data precisely at this value.
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas2.1.1/ddepend.tex}  
+\caption{The maximal pairings $\max_k\left[\Delta^{11}_k\right]$ and $\max_k\left[\Delta^{12}_k\right]$ in red and blue plotted as a function of the distance $d$ between the wires. For the used set of parameters $k_F\frac{\xi}{\sqrt{2}} = 0.95$. We hereby see, that the cross over from intrawire to interwire dominated pairing happens for $\frac{\sqrt{2}d}{\xi} \approx 0.6$. The small indent at $k_Fd = 0.59$ is a numerical effect. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.maximalpairingddepend}  
+\end{center}    
+\end{figure}
+
+The figure only shows the maximal pairing $\max_k[\Delta_k]$. The same analysis also gives us, how the functional form of the pairings are altered as the distance $d$ is varied. This is summarized in figure \ref{fig.pairingkdependT0dvaried}. This explicitly shows, that the interwire pairing is even in $k$ and hence is a $s$-wave type pairing. We see, that it has its maximum value at $k=0$ as one might expect from the interwire induced interaction. Further, it shows no oscillatory behaviour, it simply decays exponentially for large values of $k$. The intrawire pairing is seen to have the same functional form as for the single wire, hence a $p$-wave type pairing. This behaviour is seen to be independent of $d$. The interwire pairing is simply enhanced as $d$ decreases, vice versa for the intrawire pairing.  
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas1/kdepend.tex}  
+\caption{The pairings $\Delta^{11}_k$ (odd) and $\Delta^{12}_k$ (even) plotted as a function of $k$. We see, that the functional behaviour is independent of $d$, and that there is a cross over between interwire and intrawire dominated pairing. The intrawire pairing is increased as $d$ increases. Vice versa for the interwire pairing. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.pairingkdependT0dvaried}  
+\end{center}    
+\end{figure}
+
+The combined result of the two figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present.
+
+\section{Gas parameter dependencies}
+In this section we will investigate how the cross over from intrawire to interwire pairing depends on the gas parameters: $n_F/n_B^{1/3}$ and $(n_Ba_B^3)^{1/3}$. The first is the ratio of the interparticle distances in the Fermi and Bose gas. The second  
+
+
+
