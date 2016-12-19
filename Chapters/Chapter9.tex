@@ -132,7 +132,9 @@ This gives us three integral equations for the three quantities: $\Delta^{11}_k,
 
 \section{Symmetries}
 \label{sec.2wiressymmetries}
-In this section we will show, that the system has a time reversal symmetry that squares to unity: $T^2 = \mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries. 
+
+\subsection{$d$-independent symmetries}
+In this subsection we will show, that the system has a time reversal symmetry that squares to unity: $T^2 = \mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries. 
 
 Explicitly we define:
 \begin{equation}
@@ -155,3 +157,18 @@ C\begin{bmatrix} f_{j,k} \\ f^\dagger_{j,-k} \end{bmatrix}C^{-1} = \sigma_1 \beg
 both for $j=1$ and $j=2$. It is then clear, that the total spinor $F_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\sigma_1^2 = \mathbb{I}$ so the transformation squares to unity. 
 
 This analysis also gives us a sublattice symmetry: $S = TC$. In total this puts the system in Cartan class BDI with a topological index in the integers, $\mathbb{Z}$. See table \ref{tab.PeriodicTableTISC} for the details. 
+
+
+\subsection{Symmetries for $d =\infty$}
+In this subsection we will show, that the system has two other time reversal symmetries, when the wires are separated: $d = \infty$. When this is so, we have two copies of the same single wire, i.e. $\Delta^{12}_k = 0$. This means, that the time reversal symmetry for the single wire also works here. Explicitly, we can define a time reversal transformation $T_1^{\infty}$ according to:
+\begin{equation}
+T_1^{\infty} \begin{bmatrix} f_{j,k} \\ f^\dagger_{j,-k} \end{bmatrix} (T_1^{\infty})^{-1} = i\sigma_3\begin{bmatrix} f_{j,-k} \\ f^\dagger_{j,k} \end{bmatrix} = \begin{bmatrix} i f_{j,-k} \\ - i f^\dagger_{j,k} \end{bmatrix}.
+\end{equation} 
+Hence, we keep the two species of fermions, 1 and 2, separated under the transformation. It follows from the calculations in chapter \ref{Chapter7} on the time reversal transformation for the single wire, that this is a symmetry in the present setup. This we could have expected, and this time reversal symmetry also squares to unity, as we also saw in chapter \ref{Chapter7}. However, the puzzling thing is, that we can define a third time reversal transformation, that squares to $-\mathbb{I}$, and that this is a symmetry of the system for $d = \infty$. Explicitly, we define:
+\begin{equation}
+T_2^{\infty} \begin{bmatrix} f_{1,k} \\ f_{2,k} \end{bmatrix} (T_2^{\infty})^{-1} = \sigma_2\begin{bmatrix} f_{1,-k} \\ f_{2,-k} \end{bmatrix} = \begin{bmatrix} -i f_{2,-k} \\ i f_{1,-k} \end{bmatrix}.
+\end{equation} 
+A straight forward calculation then shows, that this is a symmetry for $d = \infty$, i.e. $T_2^{\infty}H_{FF} (T_2^{\infty})^{-1} = H_{FF}$. Further since $\sigma_2\sigma_2^* = -\mathbb{I}$, the transformation squares to minus the identity! This is truly puzzling. We have now shown, that the system for $d=\infty$ has both a time reversal symmetry that squares to plus and minus the identity, and therefore it is unclear, how the Hamiltonian should be classified, when we think of it in terms of the periodic table \ref{tab.PeriodicTableTISC}. 
+
+
+

@@ -39,24 +39,24 @@ H^\text{int}_{FF,1} &= \frac{1}{2}\int dxdx' \braket {\hat{\psi}^\dagger_F(x) \h
 &= - \frac{1}{2\mathcal{L}}\sum_{k,k'} \braket {f^\dagger_{k}f^\dagger_{-k}} \braket{f_{k'}f_{-k'}} \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u,0) \nonumber \\
 &= - \frac{1}{2\mathcal{L}}\sum_{k,k'} \braket {f^\dagger_{k}f^\dagger_{-k}} \braket {f_{k'}f_{-k'}} W^\text{ind}_{FF}(k,k')
 \end{align}
-where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$. Further we have defined the coupling potential $W^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
+where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$. Further we have defined the effective induced interaction $W^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
 \begin{align}
 H^\text{int}_{FF,2} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \braket {f^\dagger_k f^\dagger_{-k}}\right) \braket {f_{k'}f_{-k'}} W^\text{ind}_{FF}(k,k'), \nonumber \\
 H^\text{int}_{FF,3} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f_k f_{-k} - \braket{f_k f_{-k}} \right)\braket {f^\dagger_{k'}f^\dagger_{-k'} } W^\text{ind}_{FF}(k,k'), \nonumber
 \end{align}
-Now seeing, that the coupling potential enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction in momentum space calculated in chapter \ref{Chapter3}:
+Now seeing, that the effective interaction enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction in momentum space calculated in chapter \ref{Chapter3}:
 \begin{equation}
 W^\text{ind}_{FF}(k,k') = \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u,0) = \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right].
-\label{eq.CouplingPotential}
+\label{eq.EffectiveInteraction}
 \end{equation}
-Since $V^\text{ind}_{FF}(q,0)$ only depends on $q^2$, we get the following important properties of the coupling potential: 
+Since $V^\text{ind}_{FF}(q,0)$ only depends on $q^2$, we get the following important properties of the effective induced interaction: 
 \begin{align}
 W^\text{ind}_{FF}(k,k') &= W^\text{ind}_{FF}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
 W^\text{ind}_{FF}(-k,k') &= -W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Odd in single argument}, \nonumber \\
 W^\text{ind}_{FF}(-k,-k') &= W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Even in double argument}.
-\label{eq.CouplingPotentialSymmetries}
+\label{eq.EffectiveInteractionSymmetries}
 \end{align}
-These symmmetries will be important later on. The analysis is a BCS treatment as mentioned. However, we will not be assuming any constancy of the coupling potential over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Adding the three terms yields:
+These symmmetries will be important later on. The analysis is a BCS treatment as mentioned. However, we will not be assuming any constancy of the effective interaction over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Adding the three terms yields:
 \begin{equation}
 H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W^\text{ind}_{FF}(k,k')\left[ \braket{ f_{k'}f_{-k'}} f^\dagger_k f^\dagger_{-k} + \braket {f^\dagger_{k'}f^\dagger_{-k'}} f_k f_{-k} - \braket {f_{k}f_{-k}} \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right] \nonumber
 \end{equation}
@@ -72,7 +72,7 @@ Then the interaction Hamiltonian can finally be written as:
 H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right]
 \label{eq.HFFintfinal}
 \end{equation}
-The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the coupling potential is odd in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is odd as well. We are now ready to study the full Hamiltonian.
+The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the effective interaction is odd in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is odd as well. We are now ready to study the full Hamiltonian.
 
 \section{The full fermion Hamiltonian} \label{sec.HFFfull}
 The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further, we will have terms like $f^\dagger f^\dagger$. This means, that the Hamiltonian is not particle number conserving. However, we inforce that the system is diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. We hereby obtain the grand fermion Hamiltonian:
@@ -140,17 +140,17 @@ $\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the te
 The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
 
 \section{Vanishing trapping width limit}
-In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.CouplingPotential} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
+In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.EffectiveInteraction} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
 \begin{align}
 W^\text{ind}_{FF}(k,k') &= \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right] \nonumber \\
 &= -\frac{m_Bg_{BF}^2n_B}{2\pi}\left[ \text{e}^{F(k-k')} E_1(F(k-k')) - \text{e}^{F(k+k')} E_1(F(k+k')) \right], \nonumber
 \end{align}
-where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the coupling potential $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant.\footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found in Maple 16.} The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
+where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the effective interaction $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant.\footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found in Maple 16.} The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
 \begin{equation}
 \lim_{l_t \to 0} \; W^\text{ind}_{FF}(k,k') = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k+k')^2+2/\xi^2}{(k-k')^2+2/\xi^2}\right].
-\label{eq.CouplingPotentiallt=0} 
+\label{eq.EffectiveInteractionlt=0} 
 \end{equation}
-We finally have a closed form expression for the coupling potential. This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the coupling potential diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero.
+We finally have a closed form expression for the effective interaction. This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the effective interaction diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero.
 
 
 

@@ -172,7 +172,7 @@ In this section we will discuss the $\omega_q = 0$ limit.
 
 From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects.\footnote{This is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
 \begin{equation}
-1 \gg \frac{v_F}{c_0} = \frac{m_B}{m_F}\frac{\pi}{2\sqrt{\frac{n_B}{n_F^3}k_Fa_B}}, 
+1 \gg \frac{v_F}{c_0} = \frac{m_B}{m_F}\frac{\pi}{2\sqrt{\pi\frac{n_B}{n_F^3}n_Fa_B}}, 
 \label{eq.RetardationEffectsneglectionassumption}
 \end{equation}
 whereby we have expressed the ratio of velocities in terms of unitless quantities. With this assumption at hand we can focus on the zero frequency induced interation $V_{FF}^\text{ind}(q,0)$. 
@@ -183,7 +183,7 @@ Let us now look at the zero frequency induced interaction $V_{FF}^\text{ind}(q,0
 V_{FF}^\text{ind}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)} = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q)),
 \label{eq.VFF(q,0)}
 \end{equation}
-where $F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)$, $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC healing length and $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
+where $F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)$, $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC coherence length and $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{FF}^\text{ind}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
 \begin{equation}
 \tilde{V}_{FF}^\text{ind}(x,0) = -\frac{m_Bg_{BF}^2n_B}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
 \end{equation}
@@ -200,7 +200,7 @@ Finally recognizing the last part as proportional to the complementary error fun
 \tilde{V}_{FF}^\text{ind}(x,0) = -\frac{m_Bg_{BF}^2n_B}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
 \label{eq.VFFx_exact}
 \end{equation}
-Notice, that there are \textit{two} relevant length scales: the healing length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
+Notice, that there are \textit{two} relevant length scales: the coherence length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
 \begin{equation}
 \tilde{V}_{FF}^\text{ind,asymp}(x,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_asymp}
@@ -210,7 +210,7 @@ For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\ti
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vq/plot.tex}  
-\caption{The zero frequency potential $V_{FF}^\text{ind}(q,0)$ plotted as a function of $q/k_F$ for several values of $l_t$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$.}  
+\caption{The zero frequency potential $V_{FF}^\text{ind}(q,0)$ plotted as a function of $q/k_F$ for several values of $l_t$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.1$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
 \label{fig.Vq}  
 \end{center}    
 \end{figure}
@@ -218,7 +218,7 @@ For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\ti
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vx/plot.tex}  
-\caption{The zero frequency potential $\tilde{V}_{FF}^\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $\frac{m_F^2}{m_B^2}\frac{n_B}{n_F^3} k_Fa_B = 22.10$.}  
+\caption{The zero frequency potential $\tilde{V}_{FF}^\text{ind}(x,0)$ plotted as a function of the dimensionless parameter $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
 \label{fig.Vx}  
 \end{center}    
 \end{figure}

@@ -60,13 +60,15 @@ main (void)
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
   double rBF = 0.11;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
-  double d_low = 0.56, d_up = 0.62, dd = 0.005;
+  double d_low = 0.56, d_up = 0.62, dd = 0.005; 
+
+  double convergence = 5e-4;
 
   /*nB:*/
-  double nB  = 100.0; 
+  double nB  = 100.0;
 
   /*k-values:*/
-  double k_low = -30.0, k_up = 30.0, dk = 0.08;
+  double k_low = -25.0, k_up = 25.0, dk = 0.1;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -178,22 +180,22 @@ main (void)
       }
       mu_min_value = gsl_vector_get(mu_vector,gsl_vector_min_index(find_min_mu));
 
-      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && fabs(gsl_vector_max(D11) - D11_maxk)/D11_maxk < 1e-3 && fabs(gsl_vector_max(D12) - D12_maxk)/D12_maxk < 1e-3)
+      if ( fabs(mu - mu_min_value)/mu_min_value < convergence && fabs(gsl_vector_max(D11) - D11_maxk)/D11_maxk < convergence && fabs(gsl_vector_max(D12) - D12_maxk)/D12_maxk < convergence)
       {
         break;
       }
 
-      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && fabs(gsl_vector_max(D11) - D11_maxk)/D11_maxk < 1e-3 && gsl_vector_max(D12) < 1e-3)
+      if ( fabs(mu - mu_min_value)/mu_min_value < convergence && fabs(gsl_vector_max(D11) - D11_maxk)/D11_maxk < convergence && gsl_vector_max(D12) < convergence)
       {
         break;
       }
 
-      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && gsl_vector_max(D11) < 1e-3 && fabs(gsl_vector_max(D12) - D12_maxk)/D12_maxk < 1e-3)
+      if ( fabs(mu - mu_min_value)/mu_min_value < convergence && gsl_vector_max(D11) < convergence && fabs(gsl_vector_max(D12) - D12_maxk)/D12_maxk < convergence)
       {
         break;
       }
 
-      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && gsl_vector_max(D11) < 1e-3 && gsl_vector_max(D12) < 1e-3)
+      if ( fabs(mu - mu_min_value)/mu_min_value < convergence && gsl_vector_max(D11) < convergence && gsl_vector_max(D12) < convergence)
       {
         break;
       }
@@ -204,6 +206,8 @@ main (void)
     {
       kprime          = ((double)iprime) * dk + k_low;
       epsilonkprime   = kprime * kprime - mu;
+      Delta11kprime   = gsl_vector_get(D11, iprime);
+      Delta12kprime   = gsl_vector_get(D12, iprime);
       EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
       gsl_vector_set(E, iprime, EFkprime);
     }
