@@ -365,8 +365,8 @@
 }\end{spacing}
 }
 \renewcommand\listoftables{
-\btypeout{Tabelliste}
-\addtotoc{Tabelliste}
+\btypeout{List of tables}
+\addtotoc{List of tables}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn

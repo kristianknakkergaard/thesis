@@ -153,7 +153,7 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
 \end{figure}
 
 
-We will only investigate the $l_t \to 0$ and $\omega_q = 0$ limit. The reasoning behind the $\omega_q = 0$ limit is the same as for the single wire. See \ref{sec.RetardationEffects} for details. Further, it is already here possible to take the $l_t \to 0$ limit in contrast to the intrawire interaction case. By rewriting the above integral, we get:
+We will only investigate the $l_t \to 0$ and $\omega_q = 0$ limit. The reasoning behind the $\omega_q = 0$ limit is the same as for the single wire. See section \ref{sec.RetardationEffects} for details. Further, it is already here possible to take the $l_t \to 0$ limit in contrast to the intrawire interaction case. By rewriting the above integral, we get:
 \begin{align}
 V_{FF,12}^\text{ind}(q,0) &= -\frac{n_Bg_{BF}^2m_B}{\pi^2}\int_0^\infty d k_\perp \; \frac{k_\perp}{k_\perp^2 + q^2 + 2/\xi^2} \int_0^{2\pi} d\theta \; \text{e}^{ik_\perp d\cos(\theta)} \nonumber \\
 						  &= -\frac{2n_Bg_{BF}^2m_B}{\pi}\int_0^\infty d k_\perp \; \frac{k_\perp J_0(k_\perp d)}{k_\perp^2 + q^2 + 2/\xi^2},
@@ -175,6 +175,7 @@ V^\text{ind}_{FF,12}(\tilde{q},0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}\int_0^\infty d\
 where $K_0(x)$ is the modified Bessel function of the second kind of order zero. This calculation is done with the use of the Fourier cosine transform routine in Maple 16. The result is verified by comparing it graphically to the integral expression of equation \eqref{eq.secondwireinducedinteractionmomentumspaceintegralexpression}. Since $\tilde{q} = \frac{q\xi}{\sqrt{2}}, \tilde{d} = \frac{\sqrt{2}d}{\xi}$, we finally get:
  \begin{equation}
 V^\text{ind}_{FF,12}(q,0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left(\sqrt{(qd)^2+\frac{2d^2}{\xi^2}}\right). 
+\label{eq.VFF12indq}
 \end{equation}
 The fact, that we can express the induced interaction in terms of a known function is crucial for the feasibility of the later numerical analysis. 
 
