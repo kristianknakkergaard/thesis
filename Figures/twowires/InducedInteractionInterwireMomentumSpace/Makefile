@@ -13,7 +13,7 @@ InducedInteraction.tex: data makefile
 'set xlabel "$$q/k_F$$"; 		   '\
 'set ylabel "$$2m_F/k_F V_{FF,12}^\text{ind}(q,0)$$"; 	   '\
 'set key bottom left;					'\
-'plot [-5.0:5.0][-3:0] 		   '\
+'plot [-5.0:5.0][-5:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 4 using 1:2 title "$$k_Fd = 1.8$$" with lines lc rgb "#002daa" '\
 ',"$<" index 3 using 1:2 title "$$k_Fd = 1.4$$" with lines lc rgb "#167000" '\

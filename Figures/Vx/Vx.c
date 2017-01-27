@@ -4,21 +4,17 @@
 
 double Vx (double x, double lt, double rBB, double rBF, double nB, double mB)
 {
-  double aB     = M_PI * rBB / pow(nB, 1.0/3.0);    /*kF * aB*/
-  double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
-  double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
-  double factor = 8.0/(M_PI * M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
+  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/ 
+  double factor = 8.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
+  double Fx     = lt / xi + fabs(x)/(sqrt(2.0) * lt);
 
-  double Fx = lt/xi + fabs(x)/(sqrt(2.0) * lt);
-  return - factor * sqrt(M_PI/2.0) * 1.0/lt * exp(-sqrt(2)*fabs(x)/xi) * exp(Fx * Fx) * erfc(Fx); 
+  return - factor * sqrt(M_PI / 2.0) * 1.0 / lt * exp( -sqrt(2) * fabs(x) / xi ) * exp( Fx * Fx ) * erfc( Fx ); 
 }
 
 double Vx_asymp (double x, double rBB, double rBF, double nB, double mB)
 {
-  double aB     = M_PI * rBB / pow(nB, 1.0/3.0);    /*kF * aB*/
-  double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
-  double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
-  double factor = 8.0/(M_PI * M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
+  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/
+  double factor = 8.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
 
   return - factor * exp(-sqrt(2)*fabs(x)/xi) / fabs(x); 
 }

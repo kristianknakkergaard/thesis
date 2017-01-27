@@ -142,12 +142,12 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
     };
   \end{feynman}
 \end{tikzpicture}
-\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's function $G_12$.} \label{fig.feynmandiagrams}
+\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}, G_{21}$.} \label{fig.feynmandiagrams}
 \end{figure}
 
 Notice that the bosons of the BEC, shown with dashed lines, carry a factor of $\sqrt{n_B}$. This is simply because it is the pour condensate wave function. Further $\tilde{p}_j = (p_j, i\omega_{m_j})$, with $\omega_{m} = (2m+1)\pi kT$ a fermionic Matsubara frequency, and $\tilde{q} = (q, i\omega_q )$, with $\omega_q = \omega_{m_1}-\omega_{m_2}$ a bosonic Matsubara frequency. The blue lines in the diagrams are the normal and anormalous Bogoliubov phonon Green's functions derived in subsection \ref{sec.BECGreens}. Functionally they are:
 \begin{equation}
-G_{11}(\mathbf{k},i\omega_m) = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}^2}{i\omega_m+E_{B,k}}, \hspace{0.5cm} G_{12}(\mathbf{k},i\omega_m) = \frac{u_{B,k}v_{B,k}}{i\omega_m+E_{B,k}}-\frac{u_{B,k}v_{B,k}}{i\omega_m-E_{B,k}}.\nonumber
+G_{11}(\mathbf{k},i\omega_m) = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}^2}{i\omega_m+E_{B,k}}, \hspace{0.5cm} G_{12}(\mathbf{k},i\omega_m) = G_{21}(\mathbf{k},i\omega_m) = \frac{u_{B,k}v_{B,k}}{i\omega_m+E_{B,k}}-\frac{u_{B,k}v_{B,k}}{i\omega_m-E_{B,k}}.\nonumber
 \end{equation}
 Here $u_{B,k}$ and $v_{B,k}$ are the BEC coherence factors found in subsection \ref{sec.BEC} with $m_B$ the mass of the bosons. Further $\xi_{B,k} = \frac{k^2}{2m_B}+n_Bg_B$ and $g_B = \frac{4\pi a_B}{m_B}$, with $a_B$ the scattering length in the BEC. Finally $E_{B,k}^2 = \xi_{B,k}^2-(n_Bg_B)^2$ is the BEC Bogoliubov spectrum.
 
@@ -170,9 +170,9 @@ with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega
 \section{Retardation effects} \label{sec.RetardationEffects}
 In this section we will discuss the $\omega_q = 0$ limit. 
 
-From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects.\footnote{This is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
+From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects.\footnote{It is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
 \begin{equation}
-1 \gg \frac{v_F}{c_0} = \frac{m_B}{m_F}\frac{\pi}{2\sqrt{\pi\frac{n_B}{n_F^3}n_Fa_B}}, 
+1 \gg \frac{v_F}{c_0} = \frac{\sqrt{\pi}}{2} \frac{m_B}{m_F}\frac{1}{ \sqrt{ (n_Ba_B^3)^{1/3} } }\frac{n_F}{ n_B^{1/3} }, 
 \label{eq.RetardationEffectsneglectionassumption}
 \end{equation}
 whereby we have expressed the ratio of velocities in terms of unitless quantities. With this assumption at hand we can focus on the zero frequency induced interation $V_{FF}^\text{ind}(q,0)$. 
@@ -207,15 +207,15 @@ Notice, that there are \textit{two} relevant length scales: the coherence length
 \end{equation}
 For any nonzero value of $l_t$ this will fundamentally fail at $x=0$, since $\tilde{V}_{FF}^\text{ind}(x,0)$ really is finite here. The result for $V_{FF}^\text{ind}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{FF}^\text{ind}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. As expected we see, that the momentum space interaction diverges as $l_t \to 0$, and that the real space interaction asymptotically goes to the Yukawa interaction. The plots are performed by going to a dimensionless form of the interactions; utilizing that the relevant energy scale is the Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. In detail the asymptotic Yukawa potential in dimensionless form is:
 \begin{equation}
-\frac{\tilde{V}_{FF}^\text{ind}(x,0)}{\epsilon_{F,0}} = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_B^3)^{2/3} \cdot \frac{\text{e}^{ -\frac{ \sqrt{2}\xi }{ |x| } } }{k_F|x|}.
+\frac{\tilde{V}_{FF}^\text{ind}(x,0)}{\epsilon_{F,0}} = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ -\frac{ \sqrt{2}\xi }{ |x| } } }{k_F|x|}.
 \label{eq.Vxdimensionless}
 \end{equation}
 Since the momentum space induced interaction is given by the Fourier transform of induced interaction in real space one unit of $k_F$ is lost to the integration. The dimensionless form is hereby for any $l_t > 0$: 
 \begin{equation}
-\frac{2m_F}{k_F}V_{FF}^\text{ind}(q,0) = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_B^3)^{2/3} \cdot \text{e}^{F(q)} E_1(F(q)).
+\frac{2m_F}{k_F}V_{FF}^\text{ind}(q,0) = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \text{e}^{F(q)} E_1(F(q)).
 \label{eq.Vqdimensionless}
 \end{equation}
-The mass ratio $m_B/m_F$, the ratio of interparticle distances $n_B^{1/3}/n_F$ and the Bose gas parameter $(n_Ba_B^3)^{1/3}$ hereby comes naturally about by going to dimensionless quantities. 
+The mass ratio $m_B/m_F$, the ratio of interparticle distances $n_B^{1/3}/n_F$ and the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$ hereby comes naturally about by going to dimensionless quantities. 
 
 \begin{figure} 
 \begin{center}  

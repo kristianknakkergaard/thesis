@@ -10,10 +10,8 @@ distance: 1/k_F*/
 
 double Vq (double q, double lt, double rBB, double rBF, double nB, double mB)
 {
-  double aB     = M_PI * rBB / pow(nB, 1.0/3.0);    /*kF * aB*/
-  double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
-  double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
-  double factor = 8.0/(M_PI * M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
+  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/ 
+  double factor = 8.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
 
   double F = lt*lt/2.0 * (q * q + 2/(xi * xi));
   return - factor * gsl_sf_exp(F) * gsl_sf_expint_E1(F); 

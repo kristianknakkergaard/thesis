@@ -43,9 +43,7 @@ From above the density of states is proportional to $E^{-1/2}$, and so the equat
 Hence, we see that the chemical potential of the free gas is \textit{increasing} quadratically for $T/T_F \ll 1$. This is in contrast to the case in both two and three dimension, where the chemical potential \textit{decreases} monotonically. For $T/T_F \gg 1$ the chemical potential must asymptotically go to the chemical potential for the classical gas. This means, that it must go to minus infinity for $T\to \infty$ \cite{SchroederThermal}. This also means, that the chemical potential has a maximal value for some temperature. A numerical calculation for equation \eqref{eq.numberequationfreegas} shows, that this maximum is around the Fermi temperature $T_F$. 
 
 \section{Units}
-In this section I will specify what units energies, momenta, distances, densities etc. will be in. This is especially important for the numerical analyses we will perform later on. 
-
-Any physical process of the fermions considered is expected only to affect the fermions near the Fermi energy $\epsilon_{F,0}$. This is essentially a consequence of the assumption, that the other relevant energies we consider are small with respect to the Fermi energy. For this reason we express energies in terms of the Fermi energy for the free gas: $\epsilon_{F,0}$. We further let $\hbar = 1$. This means, that momenta $p$ and wave numbers $k$ have the same unit. We express temperatures in units of $T_F$, momenta in units of $k_F$ and distances in units of $1/k_F$ or $1/n_F$, the interparticle distance of the free fermion gas. The density of the three dimensional Bose-Einstein condensate will hereby be in units of $n_F^3$ and all masses in units of $m_F$. In some circumstances variables will be have a tilde to express that it is unitless. For example: $\tilde{k} = k/k_F$.
+In this section I will specify what units energies, momenta, distances, densities etc. will be in. This is especially important for the numerical analyses we will perform later on. Any physical process of the fermions considered is expected only to affect the fermions near the Fermi energy $\epsilon_{F,0}$. This is essentially a consequence of the assumption, that the other relevant energies we consider are small with respect to the Fermi energy. For this reason we express energies in terms of the Fermi energy for the free gas: $\epsilon_{F,0}$. We further let $\hbar = 1$. This means, that momenta $p$ and wave numbers $k$ have the same unit. We express temperatures in units of $T_F$, momenta in units of $k_F$ and distances in units of $1/k_F$ or $1/n_F$, the interparticle distance of the free fermion gas. The density of the three dimensional Bose-Einstein condensate will hereby be in units of $n_F^3$ and all masses in units of $m_F$. In some circumstances variables will be have a tilde to express that it is unitless. For example: $\tilde{k} = k/k_F$.
 
 \section{Second quantization} \label{sec.secondquantization}
 In this section I will introduce the second quantization formalism.\footnote{Any spin degrees of freedom are suppressed. This is consistent with the systems with the systems, we will study.} This is an essential tool for the analyses, we will perform. It is largely based on \cite{LandauQM}. As usual in second quantization we define field operators $\psi(\mathbf{r})$ and $\psi^\dagger(\mathbf{r})$ that respectively annihilate and create a particle at position $\mathbf{r}$. We need a recipe of how to formulate operators in second quantized form. Let us take the kinetic energy as an example. The kinetic energy operator in real space is $T = p^2/2m = -\nabla^2/2m$, where $m$ is the mass of the particle. This is a single particle operator in the sense, that it only operates on a single coordinate. This means, that the kinetic energy operator in second quantization is:
@@ -71,19 +69,16 @@ The goal of this thesis is fundamentally to show, that the 1D-3D mixture of Ferm
 H_{FF} = \frac{1}{2}\sum_{k} F_k^\dagger \mathcal{H}_{FF,k} F_k, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, \hspace{0.5cm} F^\dagger_k = \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix}. 
 \label{eq.HKitaevpre}
 \end{equation}
-
 Here $f_k$ and $f_k^\dagger$ respectively annihilates and creates a fermion ($F$) on the string with momentum $k$.\footnote{The subscript $F$ is to distinguish the parameters here from the analogous ones for the boson gas, which will be introduced in the following section. The double subscript $F$ on $H$ and $\mathcal{H}$ is to specify, that it contains fermion-fermion terms only.} $F_k$ is a socalled Nambu spinor, since it contains both a creation and annihilation operator. To investigate the bulk properties of the string, we will use periodic boundary conditions, and so the momenta are quantized in the same way as for the free gas: $k = n\frac{2\pi}{\mathcal{L}}$. The Hamiltonian kernel $\mathcal{H}_{FF,k}$ contains two independent quantities: $\varepsilon_k$ and $\Delta_k$. $\varepsilon_k$ we will see is the kinetic energy of the fermions measured relative to the chemical potential: $k^2/2m_F-\mu$, and so it is real. $\Delta_k$ is the socalled $p$-wave pairing amplitude in $k$-space, and is generally complex. The Hamiltonian is diagonalized by diagonalizing the $2\times 2$ kernel $\mathcal{H}_{FF,k}$ for each $k$. This is done by a standard Bogoliubov transform: 
 \begin{equation}
  \begin{bmatrix} f_k \\ f_{-k}^\dagger \end{bmatrix} = U_{F,k} \begin{bmatrix} \zeta_k \\ \zeta^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} U_{F,k} = \begin{bmatrix} u^*_{F,k} & -v_{F,k} \\ v^*_{F,k} & u_{F,k} \end{bmatrix}. 
  \label{eq.fermionquasiparticledef}
 \end{equation}
-
-The operators on the right are new fermionic annihilation and creation operators. This means, that they have to obey the standard anticommutation relations for fermionic operators: $\{\zeta_k,\zeta_{k'}^\dagger \} = \delta_{k,k'}$ with all other anticommutators 0. By checking these explicitly it is easy to see, that then $\det(U_{F,k}) = |u_{F,k}|^2+|v_{F,k}|^2 = 1$ must hold, leaving $U_{F,k}$ as a $SU(2)$ transformation of the original operators. The coefficients $u_{F,k}, v_{F,k}$ are determined from the demand that for each $k$, $U^\dagger_{F,k} \mathcal{H}_{FF,k}U_{F,k}$ must be diagonal. This eventually leads to two solutions for both $v_{F,k}$ and $u_{F,k}$. Finally using the minimal energy principle, we must choose the solution, that yields the minimal energy for the ground state: $\zeta_k\ket{g.s} = 0$. This leaves us with the following solution. The Hamiltonian is now diagonal in the $\zeta$-operators: 
+The operators on the right are new fermionic annihilation and creation operators. This means, that they have to obey the standard anticommutation relations for fermionic operators: $\{\zeta_k,\zeta_{k'}^\dagger \} = \delta_{k,k'}$ with all other anticommutators 0. By checking these explicitly it is easy to see, that then $\det(U_{F,k}) = |u_{F,k}|^2+|v_{F,k}|^2 = 1$ must hold, leaving $U_{F,k}$ as a $SU(2)$ transformation of the original operators. Since the elements of $F_k$ are not independent, we get that $u_{F,k}$ is even in $k$ and $v_{F,k}$ odd. Further, they are determined from the demand that for each $k$, $U^\dagger_{F,k} \mathcal{H}_{FF,k}U_{F,k}$ must be diagonal. This eventually leads to two solutions for both $v_{F,k}$ and $u_{F,k}$. Finally using the minimal energy principle, we must choose the solution, that yields the minimal energy for the ground state: $\zeta_k\ket{g.s} = 0$. This leaves us with the following solution. The Hamiltonian is now diagonal in the $\zeta$-operators: 
 \begin{equation}
 H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k-E_{F,k}\right] + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}
 \label{eq.Kitaev.H_diagonalpre}
 \end{equation}
-
 And the solutions for $u_{F,k}$ and $v_{F,k}$ are: 
 \begin{equation}
 |u_{F,k}|^2 = \frac{1}{2}\left(1 + \frac{\varepsilon_k}{E_{F,k}}\right), \hspace{0.5cm} |v_{F,k}|^2 = \frac{1}{2}\left(1-\frac{\varepsilon_k}{E_{F,k}}\right), \hspace{0.5cm} \frac{v_{F,k}\Delta^*_k}{u_{F,k}}=E_{F,k}-\varepsilon_k.
@@ -102,44 +97,37 @@ The second quantized Hamiltonian describing the uniform BEC is given by the foll
 \begin{equation}
 H_{BB} = \int d^3 r \left(\hat{\psi}_B^\dagger(\mathbf{r})\left[-\frac{\nabla^2}{2m_B}\right]\hat{\psi}_B(\mathbf{r}) + \frac{g_B}{2}\hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_B(\mathbf{r})  \right), 
 \end{equation}
-
 The second part stems from a pair interaction between the bosons (B) given by $g_B\delta(\mathbf{r})$.\footnote{$BB$ as subscript on $H$: boson-boson interaction.} $m_B$ is the mass of the bosons. The wave function satisfies the normalization $\int d^3 r |\psi(\mathbf{r})|^2 = N$, $N$ being the number of bosons in the gas. We expand this in free particle states: $\hat{\psi}(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_\mathbf{k} \text{e}^{i\mathbf{k}\cdot\mathbf{r}}b_\mathbf{k}$, where $b_\mathbf{k}, b^\dagger_\mathbf{k}$ are the annihilation and creation operators for bosons in the gas with momentum $\mathbf{k}$. $\mathcal{V}$ is the volume of the gas. Inserting into the Hamiltonian $H_{BB}$ we obtain: 
 \begin{equation}
 H_{BB} = \sum_\mathbf{k} \frac{k^2}{2m_B}b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{g_B}{2\mathcal{V}}\sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} b^\dagger_{\mathbf{k}_1+\mathbf{q}}b^\dagger_{\mathbf{k}_2-\mathbf{q}}b_{\mathbf{k}_1}b_{\mathbf{k}_2}.  
 \end{equation}
-
 Now writing $\hat{\psi} = \sqrt{n_B} + \delta \psi(\mathbf{r})$ we have perturbatively separated the field operator in a perfect condensate term $\sqrt{n_B}$, $n_B$ being the uniform density of the condensed bosons, and a fluctuating excited term $\delta \hat{\psi}(\mathbf{r}) =  \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}\neq \mathbf{0}} \text{e}^{i\mathbf{k}\cdot\mathbf{r}}b_\mathbf{k}$. Assuming a small number of excited bosons, we neglect terms with more than two $b$-operators with $\mathbf{k}$ nonzero. This along with other simple algebraic manipulations lead us to the form:\footnote{More details can be found in chapter 8 in \cite{Pethick}.} 
-
 \begin{equation}
 H_{BB} = \frac{N^2g_B}{2\mathcal{V}} + \sum_{\mathbf{k}\neq \mathbf{0}}\left[\left(\frac{k^2}{2m_B}+n_Bg_B\right)b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{n_Bg_B}{2}\left( b_\mathbf{k}^\dagger b_{-\mathbf{k}}^\dagger + b_{\mathbf{k}} b_{-\mathbf{k}} \right) \right].
 \label{eq.bosonHamiltonian}
 \end{equation}
 This Hamiltonian can be diagonalized by a canonical Bogoliubov transformation:
-
 \begin{equation}
 \begin{bmatrix} b_\mathbf{k} \\ b^\dagger_{-\mathbf{k}} \end{bmatrix} = U_{B,k} \begin{bmatrix} \beta_\mathbf{k} \\ \beta^\dagger_{-\mathbf{k}}\end{bmatrix}, \hspace{0.5cm} U_{B,k} = \begin{bmatrix} u_{B,k} & -v_{B,k} \\ -v_{B,k} & u_{B,k} \end{bmatrix}. 
 \end{equation}
-
 Demanding that the $\beta_\mathbf{k}$-operators are bosonic as well leads to $\det(U_{B,k}) = u_{B,k}^2-v_{B,k}^2=1$. The analogy with the fermion case in the preceding section should now be clear. Mind the sign differences in $U_{B,k}$ and $U_{F,k}$ stemming fundamentally from requiring specific \textit{commutator} relations here, not \textit{anti}commutator relations as before. A diagonalization procedure analogous to the fermion case leads to: 
 \begin{equation}
 H_{BB} = \sum_\mathbf{k} E_{B,k} \beta_\mathbf{k}^\dagger \beta_\mathbf{k}. 
 \end{equation}
-
 Here the ground state energy is neglected. The Bogoliubov spectrum is $E_{B,k}^2 = \xi_{B,k}^2-(n_Bg_B)^2$ with $\xi_{B,k} = \frac{k^2}{2m_B}+n_Bg_B$ the kinetic energy shifted by the mean field interaction $n_Bg_B$. Finally the condensate coherence factors $u_{B,k}$ and $v_{B,k}$ are found to be: 
 \begin{equation}
 u_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,k}}{ E_{B,k}}+1 \right), \hspace{0.5cm} v_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,k}}{ E_{B,k}}-1 \right).
 \end{equation}
-
 Finally, I wish to comment on how we ensure, that the fraction of excited bosons is limited. We write the number operator as: $N_B = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} b^\dagger_{\mathbf{k}}b_{\mathbf{k}}$. For $T=0$, we have the defining relation for the ground state: $\beta_{\mathbf{k}}\ket{\text{BEC}}_0 = 0$. This enables us to calculate the expectation value for $N_B$:
 \begin{equation}
 \braket{N_B} =\;_{0}\!\bra{\text{BEC}} N_B \ket{\text{BEC}}_0 = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}.\nonumber
 \end{equation} 
 Hence $N_{B,\text{exc}} = \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}$ is the number of excited bosons for $T=0$. Transforming the sum to an integral and calculating the fraction $N_{B,\text{exc}}/N_B$ yields:
 \begin{equation}
-\frac{N_{B,\text{exc}}}{N_B} = \frac{8}{3\sqrt{\pi}}(n_Ba_B^3)^{1/2}.
+\frac{N_{B,\text{exc}}}{N_B} = \frac{8}{3\sqrt{\pi}}(n_Ba_B^3)^{1/2},
 \label{eq.excitedbosonsBEC}
 \end{equation}
-Thus, we see that to have a selfconsistent assumption about a small number of excited bosons, we need to assume, that $(n_Ba_B^3)^{1/3}\ll 1$. This ends our microscopic theory prerequisite. 
+with $a_B$ the scattering length in the condensate defined through: $g_B = \frac{4\pi a_B}{m_B}$. Thus, we see that to have a selfconsistent assumption about a small number of excited bosons, we need to assume, that $(n_Ba_B^3)^{1/3}\ll 1$. We call $(n_Ba_B^3)^{1/3}$ the Bose gas parameter. This ends our microscopic theory prerequisite. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Imaginary time Green's functions for the BEC}
@@ -160,22 +148,21 @@ a --  [blue, majorana, edge label' = {\(\mathbf{k} \)}] b,
 }; &=G_{21}(\mathbf{k},\tau) = -\bra{\text{BEC}} b^\dagger_\mathbf{k}(\tau)b_{-\mathbf{k}}^\dagger(0)\ket{\text{BEC}},  
 \label{eq.defBECGreens}
 \end{align}
+all for $\tau > 0$. Normally one includes a imaginary time time ordering operator $T_\tau$, however here we only need the Green's functions for $\tau > 0$. Please notice, that the ground state at $T=0$ is defined by the equation $\beta_\mathbf{k}\ket{\text{BEC}}_0 = 0$. The thermalized state $\ket{\text{BEC}}$ is a superposition of all $T=0$ eigenstates, since there are thermal excitations in the ground state. The probabilities of being in one of these excited states is given by the Bose-Einstein distribution $b(E_\mathbf{k})$. $G_{11}$ is called the normal Green's function, whilst $G_{12}$ and $G_{21}$ are the anomalous Green's functions. This is probably because the $G_{11}$ Green's function is analogous to the one encountered for a simple non-interacting system \cite{BruusFlensberg}. $G_{12}$ and $G_{21}$ on the other hand are new "anormal" functions. It can easily be shown, that: $G_{12}^*(-\mathbf{k},-\tau) = G_{21}(\mathbf{k},\tau)$. The form of the Green's functions means, that we use the diagrammatic rules shown to the left in the above.
 
-all for $\tau > 0$. Normally one includes a imaginary time time ordering operator $T_\tau$, however here we only need the Green's functions for $\tau > 0$. Please notice, that the ground state at $T=0$ is defined by the equation $\beta_\mathbf{k}\ket{\text{BEC}}_0 = 0$. The thermalized state $\ket{\text{BEC}}$ is a superposition of all $T=0$ eigenstates, since there are thermal excitations in the ground state. The probabilities of being in one of these excited states is given by the Bose-Einstein distribution $b(E_\mathbf{k})$. $G_{11}$ is called the normal Green's function, whilst $G_{12}$ and $G_{21}$ are the anomalous Green's functions. This is probably because the $G_{11}$ Green's function is analogous to the one encountered for a simple non-interacting system \cite{BruusFlensberg}. $G_{12}$ and $G_{21}$ on the other hand are new "anormal" functions. Notice the simple relation: $G_{12}^* = G_{21}$. The form of the Green's functions means, that we use the diagrammatic rules shown to the left in the above.
-
-Let us do the calculation for $G_{11}$ explicitly to see how the imaginary time formalism works. In this formalism the imaginary time Heisenberg operators are $A(\tau) = \text{e}^{\tau H_{BB}}A(0)\text{e}^{-\tau H_{BB}}$ and $A^\dagger(\tau) = \text{e}^{-\tau H_{BB}}A(0)\text{e}^{\tau H_{BB}}$ \cite{BruusFlensberg}. It is then easy to show, that $\beta_\mathbf{k}(\tau) = \beta_\mathbf{k}\text{e}^{-\tau E_{B,k}}$ and $\beta^\dagger_\mathbf{k}(\tau) = \beta^\dagger_\mathbf{k}\text{e}^{\tau E_{B,k}}$. Rewriting the $b$-operators in terms of Bogoliubov $\beta_\mathbf{k}$-operators we then get\footnote{Here I am afraid the notation is a little hazardous. $\beta$ is the inverse temperature $1/k_BT$. $\beta_\mathbf{k}$ is the annihilation operator for the Bogoliubov excitations of the condensate}:
+Let us do the calculation for $G_{11}$ explicitly to see how the imaginary time formalism works. In this formalism the imaginary time Heisenberg operators are $A(\tau) = \text{e}^{\tau H_{BB}}A(0)\text{e}^{-\tau H_{BB}}$ and $A^\dagger(\tau) = \text{e}^{-\tau H_{BB}}A(0)\text{e}^{\tau H_{BB}}$ \cite{BruusFlensberg}. It is then easy to show, that $\beta_\mathbf{k}(\tau) = \beta_\mathbf{k}\text{e}^{-\tau E_{B,k}}$ and $\beta^\dagger_\mathbf{k}(\tau) = \beta^\dagger_\mathbf{k}\text{e}^{\tau E_{B,k}}$. Rewriting the $b$-operators in terms of Bogoliubov $\beta_\mathbf{k}$-operators we then get:\footnote{Here I am afraid the notation is a little hazardous. $\beta$ is the inverse temperature $1/k_BT$. $\beta_\mathbf{k}$ is the annihilation operator for the Bogoliubov excitations of the condensate.}
 \begin{align}
 G_{11}(\mathbf{k},\tau) &= -\bra{\text{BEC}} b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)\ket{\text{BEC}} \nonumber \\
-&= -\bra{\text{BEC}} \left(u_k\beta_\mathbf{k}\text{e}^{-\tau E_{B,k}} - v_k \beta^\dagger_{-\mathbf{k}}\text{e}^{\tau E_{B,k}} \right)\left( -v_k\beta_{-\mathbf{k}} + u_k \beta^\dagger_{\mathbf{k}} \right)\ket{\text{BEC}} \nonumber \\
-&\overset{(1)}{=} -\bra{\text{BEC}} u_k^2\beta_\mathbf{k}\beta^\dagger_\mathbf{k}\text{e}^{-\tau E_{B,k}} - v_k^2 \beta^\dagger_{-\mathbf{k}}\beta_{-\mathbf{k}}\text{e}^{\tau E_{B,k}} \ket{\text{BEC}} \nonumber \\
-&\overset{(2)}{=} -\left(u_k^2 \text{e}^{-\tau E_{B,k}}(b(E_{B,k})+1)+ v_k^2\text{e}^{\tau E_{B,k}}b(E_{B,k})\right). \nonumber
+&= -\bra{\text{BEC}} \left(u_{B,k}\beta_\mathbf{k}\text{e}^{-\tau E_{B,k}} - v_{B,k} \beta^\dagger_{-\mathbf{k}}\text{e}^{\tau E_{B,k}} \right)\left( -v_{B,k}\beta_{-\mathbf{k}} + u_{B,k} \beta^\dagger_{\mathbf{k}} \right)\ket{\text{BEC}} \nonumber \\
+&\overset{(1)}{=} -\bra{\text{BEC}} u_{B,k}^2\beta_\mathbf{k}\beta^\dagger_\mathbf{k}\text{e}^{-\tau E_{B,k}} - v_{B,k}^2 \beta^\dagger_{-\mathbf{k}}\beta_{-\mathbf{k}}\text{e}^{\tau E_{B,k}} \ket{\text{BEC}} \nonumber \\
+&\overset{(2)}{=} -\left(u_{B,k}^2 \text{e}^{-\tau E_{B,k}}(b(E_{B,k})+1)+ v_{B,k}^2\text{e}^{\tau E_{B,k}}b(E_{B,k})\right). \nonumber
 \end{align}
 In (1) we use, that $\bra{\text{BEC}}\beta_\mathbf{k}\beta_{-\mathbf{k}}\ket{\text{BEC}} = 0$, since we are removing two particles from the state to the right.\footnote{Remember that $\beta_\mathbf{k}\ket{\text{BEC}} \neq 0$ for nonzero temperatures.} The condensate is in thermal (nondiffusive) equilibrium at some nonzero temperature $T$, and the $\beta_\mathbf{k}$-quasiparticles are bosonic excitation of the condensate. This means, that $\bra{\text{BEC}}\beta_\mathbf{k}^\dagger\beta_{\mathbf{k}}\ket{\text{BEC}} = b(E_{B,k}) = \frac{1}{\text{e}^{\beta E_{B,k}}-1}$, the Bose-Einstein distribution, with $\beta = \frac{1}{k_BT}$. This is used in (2) along with the commutator for the $\beta_\mathbf{k}$-operators. This allows us to calculate the desired Matsubara Green's function $G_{11}(\mathbf{k},i\omega_m)$, where $\omega_m = 2\pi m/\beta$ is a bosonic Matsubara frequency. The function is calculated by Fourier transforming $G_{11}(\mathbf{k},\tau)$ \cite{BruusFlensberg}: 
 \begin{equation}
-G_{11}(\mathbf{k},i\omega_m) = \int_0^\beta d\tau \; G_{11}(\mathbf{k},\tau) \text{e}^{i\omega_m\tau} = \frac{u_k^2}{i\omega_m-E_k}-\frac{v_k^2}{i\omega_m+E_k}. 
+G_{11}(\mathbf{k},i\omega_m) = \int_0^\beta d\tau \; G_{11}(\mathbf{k},\tau) \text{e}^{i\omega_m\tau} = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}^2}{i\omega_m+E_{B,k}}. 
 \end{equation}
-Similarly $G_{12}(\mathbf{k},\tau)$ can be calculated. It is found to be real, and hence we also get the other anormalous Green's function: $G_{21}(\mathbf{k},\tau)=G_{12}^*(\mathbf{k},\tau)=G_{12}(\mathbf{k},\tau)$. For this reason they are also equal in frequency space. The result for them is:
+$G_{12}(\mathbf{k},i\omega_m)$ is calculated in the same way. The result is: 
 \begin{equation}
-G_{12}(\mathbf{k},i\omega_m)= \frac{u_kv_k}{i\omega_m+E_k}-\frac{u_kv_k}{i\omega_m-E_k}. 
+G_{12}(\mathbf{k},i\omega_m)= \frac{u_{B,k}v_{B,k}}{i\omega_m+E_{B,k}}-\frac{u_{B,k}v_{B,k}}{i\omega_m-E_{B,k}}. 
 \end{equation}
-This ends our Green's function prerequisite.
+Now using that this is even in $\mathbf{k}$ and $i\omega_m$ and the relation $G_{21}(\mathbf{k},\tau)=G_{12}^*(-\mathbf{k},-\tau)$, one can easily show, that $G_{21}(\mathbf{k},i\omega_m) = G_{12}(\mathbf{k},i\omega_m)$. Hence, the above expression is valid for both anomalous Green's functions. This ends our Green's function prerequisite.

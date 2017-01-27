@@ -12,12 +12,10 @@
 /*SET mB/mF, nB/nF^3 and kF * aBF */
 double VFF12(double q, double d, double rBB, double rBF, double nB, double mB)
 {
-  double aB     = M_PI * rBB / pow(nB, 1.0/3.0);    /*kF * aB*/
-  double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
-  double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
+  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/
 
-  double factor = 16.0/(M_PI * M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
-  double f      = - factor * gsl_sf_bessel_K0(sqrt(pow(q * d, 2.0) + pow(2.0 * d/xi, 2.0)  ));
+  double factor = 16.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
+  double f      = - factor * gsl_sf_bessel_K0(sqrt(pow(q * d, 2.0) + 2.0 * pow( d/xi, 2.0)  ));
   return f;
 }
 

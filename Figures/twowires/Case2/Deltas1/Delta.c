@@ -45,7 +45,7 @@ double Deltaguess11(double k)
 
 double Deltaguess12(double k)
 {
-  return 0.4 / (pow(k, 4.0) + 1);
+  return 0.3 * exp( - 0.2 * k * k);
 }
 
 
@@ -56,7 +56,7 @@ main (void)
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
   double rBF = 0.11;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
-  double d_low = 0.71, d_up = 0.78, dd = 0.005; 
+  double d_low = 0.899, d_up = 0.91, dd = 0.001; 
 
   double convergence = 5e-4;
 
@@ -64,12 +64,13 @@ main (void)
   double nB  = 100.0;
 
   /*k-values:*/
-  double k_low = -25.0, k_up = 25.0, dk = 0.1;
+  double k_low = -25.0, k_up = 25.0, dk = 0.01;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
   double epsilonkprime;
   double EFkprime;
+  double EFminuskprime;
   double Delta11kprime;
   double Delta12kprime;
   double gapintegrand11;
@@ -149,9 +150,11 @@ main (void)
           epsilonkprime   = kprime * kprime - mu;
           Delta11kprime   = gsl_vector_get(D11, iprime);
           Delta12kprime   = gsl_vector_get(D12, iprime);
-          EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
-          gapintegrand11  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(WFF11matrix, i, iprime) * Delta11kprime / (2.0 * EFkprime);
-          gapintegrand12  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(VFF12matrix, i, iprime) * Delta12kprime / (2.0 * EFkprime);
+          EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime - 2.0 * Delta11kprime * Delta12kprime, 1.0 / 2.0);
+          EFminuskprime   = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime + 2.0 * Delta11kprime * Delta12kprime, 1.0 / 2.0);
+          
+          gapintegrand11  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(WFF11matrix, i, iprime) * (Delta11kprime - Delta12kprime) / (2.0 * EFkprime);
+          gapintegrand12  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(VFF12matrix, i, iprime) * ( - (Delta11kprime - Delta12kprime) / (4.0 * EFkprime) + (Delta11kprime + Delta12kprime) / (4.0 * EFminuskprime) );
           gapintegral11  += gapintegrand11*dk; 
           gapintegral12  += gapintegrand12*dk; 
         }
@@ -168,7 +171,7 @@ main (void)
           epsilonkprime   = kprime * kprime - mu_guess;
           Delta11kprime   = gsl_vector_get(D11, iprime);
           Delta12kprime   = gsl_vector_get(D12, iprime);
-          EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
+          EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime - 2.0 * Delta11kprime * Delta12kprime, 1.0 / 2.0);
           muintegrand     = 1.0/2.0 * 1.0 / 2.0 * (1.0 -  epsilonkprime / EFkprime);
           muintegral     += muintegrand*dk;
         }
@@ -204,7 +207,7 @@ main (void)
       epsilonkprime   = kprime * kprime - mu;
       Delta11kprime   = gsl_vector_get(D11, iprime);
       Delta12kprime   = gsl_vector_get(D12, iprime);
-      EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
+      EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime - 2.0 * Delta11kprime * Delta12kprime, 1.0 / 2.0);
       gsl_vector_set(E, iprime, EFkprime);
     }
 
