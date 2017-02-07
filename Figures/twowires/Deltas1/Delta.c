@@ -33,6 +33,11 @@ double VFF12(double q, double d, double rBB, double rBF, double nB, double mB)
   return f;
 }
 
+double WFF12(double k, double kprime, double d, double rBB, double rBF, double nB, double mB)
+{
+  return 1.0 / 2.0 * ( VFF12(k + kprime, d, rBB, rBF, nB, mB) + VFF12(k - kprime, d, rBB, rBF, nB, mB) ); 
+}
+
 double Deltaasymp(double D11_maxkT, double T, double TC)
 {
   return D11_maxkT * pow(1.0 - pow(T/TC, 3.0) , 1.0/2.0);
@@ -58,13 +63,13 @@ main (void)
   double mB  = 7.0/40.0; /*mB/mF*/
   double d_low = 0.71, d_up = 0.78, dd = 0.005; 
 
-  double convergence = 5e-4;
+  double convergence = 1e-4;
 
   /*nB:*/
   double nB  = 100.0;
 
   /*k-values:*/
-  double k_low = -25.0, k_up = 25.0, dk = 0.1;
+  double k_low = -25.0, k_up = 25.0, dk = 0.05;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -80,11 +85,12 @@ main (void)
   /*vectors and matrices:*/
   gsl_vector *D11 = gsl_vector_calloc(N);
   gsl_vector *D12 = gsl_vector_calloc(N);
-  gsl_vector *E   = gsl_vector_calloc(N);
+
   double D11_maxk;
   double D12_maxk;
+
   gsl_matrix *WFF11matrix = gsl_matrix_calloc(N, N);
-  gsl_matrix *VFF12matrix = gsl_matrix_calloc(N, N);
+  gsl_matrix *WFF12matrix = gsl_matrix_calloc(N, N);
 
   double k;
   double kprime;
@@ -101,11 +107,11 @@ main (void)
   }
 
   /*For calculating mu:*/
-  double mu_low = -0.1, dmu = 0.001;
+  double mu_low = 0.95, dmu = 0.00006;
   double muintegral, muintegrand;
   double mu_min_value;
   double mu = 1.0;
-  int Nmu = 1500;
+  int Nmu = 3000;
   double mu_guess;
   gsl_vector *mu_vector = gsl_vector_calloc(Nmu);
   gsl_vector *find_min_mu = gsl_vector_calloc(Nmu);
@@ -117,7 +123,7 @@ main (void)
   }
 
   /*T = 0: */
-  printf("%s \t %s \t %s \t %s \t %s \t %s \n", "k", "Delta11", "Delta12", "Emin", "mu", "iterations");
+  printf("%s \t %s \t %s \t %s \t %s \n", "k", "Delta11", "Delta12", "mu", "iterations");
   printf("\n\n");
   for (double d = d_low; d < d_up; d+=dd)
   {
@@ -131,7 +137,7 @@ main (void)
       for (int iprime = 0; iprime < N; ++iprime)
       {
         kprime = ((double)iprime) * dk + k_low;
-        gsl_matrix_set( VFF12matrix, i, iprime, VFF12(k - kprime, d, rBB, rBF, nB, mB) );
+        gsl_matrix_set( WFF12matrix, i, iprime, WFF12(k, kprime, d, rBB, rBF, nB, mB) );
       }
     }
     for (int j = 0; j < 10000; ++j)
@@ -150,13 +156,15 @@ main (void)
           Delta11kprime   = gsl_vector_get(D11, iprime);
           Delta12kprime   = gsl_vector_get(D12, iprime);
           EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
+          
           gapintegrand11  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(WFF11matrix, i, iprime) * Delta11kprime / (2.0 * EFkprime);
-          gapintegrand12  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(VFF12matrix, i, iprime) * Delta12kprime / (2.0 * EFkprime);
+          gapintegrand12  =  -1.0 / (2.0 * M_PI) * gsl_matrix_get(WFF12matrix, i, iprime) * Delta12kprime / (2.0 * EFkprime);
+          
           gapintegral11  += gapintegrand11*dk; 
           gapintegral12  += gapintegrand12*dk; 
         }
-        gsl_vector_set(D11,i,gapintegral11);
-        gsl_vector_set(D12,i,gapintegral12);
+        gsl_vector_set(D11, i, gapintegral11);
+        gsl_vector_set(D12, i, gapintegral12);
       }
       for (int imu = 0; imu < Nmu; ++imu)
       {
@@ -169,7 +177,7 @@ main (void)
           Delta11kprime   = gsl_vector_get(D11, iprime);
           Delta12kprime   = gsl_vector_get(D12, iprime);
           EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
-          muintegrand     = 1.0/2.0 * 1.0 / 2.0 * (1.0 -  epsilonkprime / EFkprime);
+          muintegrand     = 1.0 / 4.0 * (1.0 -  epsilonkprime / EFkprime);
           muintegral     += muintegrand*dk;
         }
         gsl_vector_set(find_min_mu, imu, pow(1.0 - muintegral, 2.0) );
@@ -198,32 +206,21 @@ main (void)
       mu = mu_min_value;
       ++check; 
     }
-    for (int iprime = 0; iprime < N; ++iprime)
-    {
-      kprime          = ((double)iprime) * dk + k_low;
-      epsilonkprime   = kprime * kprime - mu;
-      Delta11kprime   = gsl_vector_get(D11, iprime);
-      Delta12kprime   = gsl_vector_get(D12, iprime);
-      EFkprime        = pow(epsilonkprime * epsilonkprime + Delta11kprime * Delta11kprime + Delta12kprime * Delta12kprime, 1.0 / 2.0);
-      gsl_vector_set(E, iprime, EFkprime);
-    }
 
     for (int i = 0; i < N; ++i)
     {
       k = ((double)i) * dk + k_low;
-      printf("%lg \t %lg \t %lg \t %lg \t %lg \t %i \n", k, gsl_vector_get(D11,i), gsl_vector_get(D12,i), gsl_vector_min(E), mu, check);
+      printf("%lg \t %lg \t %lg \t %lg \t %i \n", k, gsl_vector_get(D11,i), gsl_vector_get(D12,i), mu, check);
     }
     printf("\n \n");
   }
   
-
-
-  
   gsl_vector_free(D11);
   gsl_vector_free(D12);
-  gsl_vector_free(E);
+
   gsl_matrix_free(WFF11matrix);
-  gsl_matrix_free(VFF12matrix);
+  gsl_matrix_free(WFF12matrix);
+  
   gsl_vector_free(mu_vector);
   gsl_vector_free(find_min_mu);
   return 0;
