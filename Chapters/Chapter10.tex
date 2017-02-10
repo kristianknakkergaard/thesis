@@ -16,21 +16,22 @@ We first come with an energy analysis as described after equation \eqref{eq.2wir
 \begin{equation}
 F = 2\sum_{k, |k| < k_F} \frac{k^2}{2m_F} = \frac{\mathcal{L}}{\pi} \int^{k_F}_{-k_F} dk \frac{k^2}{2m_F} = \epsilon_{F,0} N_F \int^{1}_{-1} d\tilde{k}\; \tilde{k}^2 = \frac{2}{3}\epsilon_{F,0} N_F. 
 \end{equation}
-This gives rise to the solid black curve in figure \ref{fig.2wiresE0ddepend}. 
 
 Now the numerical analysis. Common for all the analyses we do the following. We start at low values of $d$. First, we come with an initial guess for the pairings and the chemical potential. Second, the pairings and chemical potentials are inserting in the gap equations \ref{eq.2wiresgapequations} and an updated version of the pairings is obtained. Third, this is inserted into the number equation \ref{eq.2wiresnumberequation}, which gives an updated version of the chemical potential. Finally, this is iterated until the pairings are not altered by more than $0.1$\textperthousand. For each step of $d$ we then return to the same initial guess for the pairings to avoid any hysteresis in the analysis. We then use equation \eqref{eq.2wiresGrandGroundStateEnergy} to calculate the grand energy, $E_0$, and in turn the Helmholtz free energy $E_0 + 2\mu N_F$.  
 
-If we let $\Delta^{12}_k = 0$ and search for nonzero $\Delta^{11}_k$ we get the dashed curve in figure \ref{fig.2wiresE0ddepend} for the specified set of parameters. Hence, this describes the situation where we only have intrawire pairing. It is independent of $d$ as it should be. Conversely, we can let $\Delta^{11}_k = 0 = \Delta^{22}_k$ and search for nonzero $\Delta^{12}_k$. This results in the dash-dotted curve. As we expect, these two curves intersect at some critical distance $d_c$. In the present case $k_Fd_c \approx 0.748$. The naively expected behaviour is then the following. For large distances, $d$, the intrawire pairing is energetically favourable and is therefore the only one present. As we decrease $d$ we get to the critical point $d_c$, where the interwire pairing becomes favourable in stead. For $d < d_c$ we would then naively expect, the interwire pairing to be the only one present. This turns out to be the exact behaviour, if we force the interwire pairing to be real. The two types of pairings do not coexist, a sudden flip from one to the other occures. This is the blue curve in figure \ref{fig.2wiresE0ddepend}. 
+If we let $\Delta^{12}_k = 0$ and search for nonzero $\Delta^{11}_k$ we get the dashed curve in figure \ref{fig.2wiresE0ddepend} for the specified set of parameters. Hence, this describes the situation where we only have intrawire pairing. It is independent of $d$ as it should be. Conversely, we can let $\Delta^{11}_k = 0 = \Delta^{22}_k$ and search for nonzero $\Delta^{12}_k$. This results in the dash-dotted curve. As we expect, these two curves intersect at some critical distance $d_c$. In the present case $k_Fd_c \approx 0.748$. The naively expected behaviour is then the following. For large distances, $d$, the intrawire pairing is energetically favourable and is therefore the only one present. As we decrease $d$ we get to the critical point $d_c$, where the interwire pairing becomes favourable in stead. For $d < d_c$ we would then expect the interwire pairing to be the only one present. This turns out to be the exact behaviour, if we force the interwire pairing to be real. The two types of pairings do not coexist, a sudden flip from one to the other occures. This is the blue curve in figure \ref{fig.2wiresE0ddepend}. 
 
 The question now is: can we find a solution, where both pairings are present simultaneously and is this energetically favourable? The answer is the following. If we let $\Delta^{12}_k$ be purely imaginary and search for both nonzero $\Delta^{12}_k$ and $\Delta^{11}_k$, we get the red curve. This curve clearly represents the energetically favourable solution. Since the sudden flip between the two types of pairings is associated with the blue curve, the red curve must describe a coexistence of the two types of pairings. This we verify explicitly in the following analysis. 
 
-We concentrate on the energetically favourable solution: $\Delta^{12}_k$ imaginary. In this case the energy dispersions are identical and even in $k$: $E^{\pm}_{F,k} = E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. This means, that the gap equations in \eqref{eq.2wiresgapequations} partially decouples: 
+For $\Delta^{12}_k$ real the analysis is performed in the same way as in the above. Only we record the maximal values $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$ as a function of $d$. This results in the blue curves in figure \ref{fig.2wiresMaximalPairingddepend}. The behaviour is largely as described above. When we increase $d$ the interwire pairing decreases, until we reach the critical distance $d_c$ where it suddenly flips to a intrawire pairing in stead. 
+
+Now let us concentrate on the energetically favourable solution: $\Delta^{12}_k$ imaginary. In this case the energy dispersions are identical and even in $k$: $E^{\pm}_{F,k} = E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. This means, that the gap equations in \eqref{eq.2wiresgapequations} partially decouples: 
 \begin{align}
 \Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,11}(k, k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
 \Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,12}(k, k')\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
 \label{eq.2wiresgapequationsDelta12imaginary}
 \end{align} 
-This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the maximal values $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$. The result is shown in figure \ref{fig.2wiresMaximalPairingddepend}.
+This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the maximal values $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$. The result is shown as the red curves in figure \ref{fig.2wiresMaximalPairingddepend}.
 
 \begin{figure} 
 \begin{center}  
@@ -61,6 +62,118 @@ The figure only shows the maximal pairing $\max_k[|\Delta_k|]$. The same analysi
 \end{figure}
 
 The combined result of the three figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. 
+
+\section{Edge states and the curious cross over}
+In this section we analyse the results of the previous section from a symmetry point of view. The analysis is based on the exact same ideas as in section \ref{sec.topindexandphases}. 
+
+As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry ensures, that for every positive energy solution, there is also a negative one. For the separated wires sketched in the top of \ref{fig.2wiresedgestates} this has the same conclusion as in that section: there has to be a\textit{single} zero energy edge state which is robust against symmetry-conserving perturbations. The difference now is, that there is \textit{two} edge states: one for each wire. This has profound consequences. As we bring the wires closer together the system is perturbed by the interwire pairing $\Delta^{12}_k$. As shown in section \ref{sec.2wiressymmetries} this perturbation respects the particle-hole symmetry. This is simply because we are still dealing with a Bogoliubov de-Gennes system. 
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+\draw[|->, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[-, thick]   (0, 0) -- (0, -2);
+\node at (-0.4, 0) {$0$};
+
+\draw[-, dashed] (0, 1)--(2, 1);
+\draw[-, thick] (-0.1, 1)--(0.1, 1);
+\node at (-1.17,1) {$\min_k[E_{F,k}]$};
+
+\draw[-, dashed] (0,    -1) -- (2,   -1);
+\draw[-, thick]  (-0.1, -1) -- (0.1, -1);
+\node at (-1.35,-1) {$-\min_k[E_{F,k}]$};
+
+\draw[-, ultra thick] (1, 1)--(1, 2);
+\draw[-, ultra thick] (1, -1)--(1, -2);
+\node[red] at (1, 0) {\textbullet};
+
+\draw[-, ultra thick] (2, 1)--(2, 2);
+\draw[-, ultra thick] (2, -1)--(2, -2);
+\node[blue] at (2, 0) {\textbullet};
+
+\draw[-, dashed] (0,0.01) --(2,0.01);
+
+\node at (3, -1.9) {$0$};
+\node at (8, -1.9) {$\mathcal{L}$};
+\draw[|->, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
+
+\draw[-, ultra thick ] (3,-1.5) -- (8,-1.5);
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x} - 3});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x} -3});
+
+\node at (3, 1.1) {$0$};
+\node at (8, 1.1) {$\mathcal{L}$};
+\draw[|->, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
+
+\draw[-, ultra thick] (3,1.5) -- (8,1.5);
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x} + 3});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x} + 3});
+
+\draw[-, dashed] (5.5, -1.5) -- (5.5, 1.5);
+\node at (4.8, 0) {$d=\infty$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[|->, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[-, thick]   (0, 0) -- (0, -2);
+\node at (-0.4, 0) {$0$};
+
+\draw[-, dashed] (0, 1)--(2, 1);
+\draw[-, thick] (-0.1, 1)--(0.1, 1);
+\node at (-1.17,1) {$\min_k[E_{F,k}]$};
+
+\draw[-, dashed] (0,    -1) -- (2,   -1);
+\draw[-, thick]  (-0.1, -1) -- (0.1, -1);
+\node at (-1.35,-1) {$-\min_k[E_{F,k}]$};
+
+\draw[-, ultra thick] (1, 1)--(1, 2);
+\draw[-, ultra thick] (1, -1)--(1, -2);
+\node[red] at (1, 0) {\textbullet};
+\draw[->] (1, 0) --  (1,  1);
+
+\draw[-, ultra thick] (2, 1)--(2, 2);
+\draw[-, ultra thick] (2, -1)--(2, -2);
+\node[blue] at (2, 0) {\textbullet};
+\draw[->] (2, 0) --  (2,  -1);
+
+\draw[-, dashed] (0,0.01) --(2,0.01);
+
+\node at (3, -1.9) {$0$};
+\node at (8, -1.9) {$\mathcal{L}$};
+\draw[|->, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
+
+\draw[-, ultra thick ] (3,-1.5) -- (8,-1.5);
+
+\node at (3, 1.1) {$0$};
+\node at (8, 1.1) {$\mathcal{L}$};
+\draw[|->, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
+
+\draw[-, ultra thick] (3,1.5) -- (8,1.5);
+
+\draw[-, dashed] (5.5, -1.5) -- (5.5, 1.5);
+\node at (4.8, 0) {$d<\infty$};
+\end{tikzpicture}
+\caption{Top: for $d=\infty$ we have two copies of the single wire system. There are two symmetry-protected edge states, one at each wire. This is indicated with red and blue. Bottom: the interwire pairing respects the particle hole symmetry, but the edge states are no longer protected, since there are two of them. Consequently, there are no edge states.}
+\label{fig.2wiresedgestates}
+\end{figure}
+
+Let us now first focus on the energetically favourable solution found in the previous section: $\Delta^{22}_k = - \Delta^{11}_k$ real and $\Delta^{12}_k$ imaginary. As shown in section \ref{sec.2wiressymmetries} this system has an additional time reversal symmetry that exhanges the wires, and that squares to $+\mathbb{I}$. However, there is nothing to protect the two edge states in the two wires from coupling, and since it is only the total spectrum that has to exhibit the plus/minus symmetry in the energies, the edge state energies can \textit{gap} away. This is sketched in the bottom of figure \ref{fig.2wiresedgestates}. This is exactly, what the numerical analysis says must be happening. The reason is the following. The separated wires exhibit only $p$-wave pairing, which has a topological ground state as shown in chapter \ref{Chapter7}. The closely spaced wires on the other hand have only $s$-wave pairing; a system that is known to be topologically trivial INDSÆT REFERENCE. Hence, according to the arguments of section \ref{sec.topindexandphases} either the bulk energy gap has to close, or the edge states are simply coupled and gapped away. In the case of an imaginary interwire pairing the energy dispersion is: $E_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2 }$. This means, that the bulk energy gap \textit{cannot} close, since it only contains positive terms. The only possibility is that $\varepsilon_k, \Delta^{11}_k$ and $\Delta^{12}_k$ is zero at the same time. This is ruled out by the numerical analysis in figure \ref{fig.pairingkdependT0dvaried}. Since the bulk gap cannot close, the edge states are gapped.
+
+The situation changes dramatically for the real interwire pairing case. As shown in section \ref{sec.2wiressymmetries} this means, that the system has a time reversal symmetry, that squares to $-\mathbb{I}$. The edge states are hereby protected by Kramers degeneracy. The argument closely follows the argument in \cite{Sakurai}. The time reversal symmetry is described by $\mathcal{T} = i\sigma_2 K$ in first quantization: $\mathcal{T}\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}$. Let us now assume, that we have one state, $\ket{\psi_k}$, with energy $E_k$. Then $\mathcal{T}\ket{\psi_k}$ also has the energy $E_k$:
+\begin{equation}
+\mathcal{H}_{FF,-k}\mathcal{T}\ket{\psi_k} = \mathcal{T}\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\mathcal{T}\ket{\psi_k}. \nonumber
+\end{equation}
+Let us suppose, that the two kets represent the same state. Then they are equal up to some phase: $\mathcal{T}\ket{\psi_k} = \text{e}^{i\delta}\ket{\psi_k}$. Further:
+\begin{equation}
+\mathcal{T}^2\ket{\psi_k} = \mathcal{T}\left(\text{e}^{i\delta}\ket{\psi_k}\right) = \text{e}^{-i\delta}\text{e}^{i\delta}\ket{\psi_k} = \ket{\psi_k}. \nonumber
+\end{equation}
+However, this contradicts that $\mathcal{T}^2 = -1$. Hence, the two kets must really represent two different states. This means, that any energy is at least doubly degenerate. This is Kramers degeneracy. Notice, that it is crucial that $\mathcal{T}^2 = -1$. For $\mathcal{T}^2 = +1$ there is no Kramers degeneracy. 
+
+The question now is, how this changes the behaviour from the imaginary interwire pairing case, if we only look at perturbations, that respect all the symmetries of the system. Before the edge states could gap away: one to positive and one to negative energies. However, that is not possible here, because it would lead to only a single state at those two energies. Hence, the edge states are once again protected at $E = 0$. Since we now know, that we have to come from a topological to a trivial state something dramatic must happen in the cross over. In the same way as in section \ref{sec.topindexandphases} the switch in topological to trivial phase is associated with a closing in the bulk energy gap. The numerical analysis shows, that this happens at a single point $d = d_c$. The curious issue is, that if we look at the dispersion relations nothing stops this transition from being continuous as well:
+\begin{equation}
+E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2 \pm 2\Delta^{11}_k\Delta^{12}_k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}. \nonumber
+\end{equation}
+From this it is clear, that if we had both pairings nonzero over an interval of $d$, then for some distance $d$, we would have $\Delta^{11}_{\pm k} = \mp \Delta^{12}_k$ at the Fermi surface, where $\varepsilon_k = \frac{k^2}{2m_F} - \mu =  0$, hence leading to $E^{\pm}_{F,\pm k} = 0$. However, this does not happen. The transition is abrupt at a single point, $d = d_c$. This numerical result is therefore not understood at the present stage. 
 
 \section{Range of interaction dependency of cross over}
 In this section we will investigate how the cross over from intrawire to interwire pairing depends on the range of the induced interaction. The range is roughly the condensate coherence length $\xi$:

@@ -112,7 +112,7 @@ u^{42*}_{-k} & u^{41*}_{-k} & u^{44*}_{-k} & u^{43*}_{-k}           \\
 u^{41}_k 	 & u^{42}_k 	& u^{43}_k 	   & u^{44}_k
 \end{bmatrix}. \nonumber
 \end{equation}
-Now define the norms $A^{\pm}_k = 2 \sqrt{ E^{\pm}_{F,k}(\varepsilon_k + E^{\pm}_{F,k}) }$. With a bit of trial and error, the above requirements combined then result in:
+Now define the norms $A^{\pm}_k = 2 \sqrt{ E^{\pm}_{F,k}(\varepsilon_k + E^{\pm}_{F,k}) }$. With a bit of trial and error the above requirements combined result in:
 \begin{equation}
 U_{F,k} = \begin{bmatrix} 
 \frac{\varepsilon_k + E^{-}_{F,k}}{A^{-}_k}    & -\frac{\Delta^{11}_k + \Delta^{12}_k}{A^{+}_k} & \frac{\varepsilon_k + E^{+}_{F,k}}{A^{+}_k}     & -\frac{\Delta^{11}_k - \Delta^{12}_k}{A^{-}_k}  \\  
@@ -129,7 +129,7 @@ E_0 &= \frac{1}{2}\sum_k \left[2\varepsilon_k - \left( E^{-}_{F,k} + E^{+}_{F,k}
 \end{align}  
 Analogously to the single wire case the ground state is hereby defined by $\zeta_{j,k}\ket{\text{S}}_0 = 0$ for $j = 1, 2$. The ground state \textit{grand} energy $E_0$ is derived similarly to the gap equations of the next section. Using the found diagonalisation matrix $U_{F,k}$, we express the $f$-operators in terms of $\zeta$-operators and use, that the $\zeta$-operators obey Fermi statistics: $\braket{\zeta^\dagger_{1,k}\zeta_{1,k}} = f(E^{-}_{F,k})$, and $\braket{\zeta^\dagger_{2,k}\zeta_{2,k}} = f(E^{+}_{F,k})$, with $f(E) = (\text{e}^{\beta E} + 1)^{-1}$ the Fermi-Dirac distribution. For $T=0$ the expression is particularly simple. We get:
 \begin{equation}
-\frac{E_0}{N_F \epsilon_{F,0}} = -\frac{1}{8} \int d\tilde{k} \left[\frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{+}_{F, \tilde{k}})^2}{\tilde{E}^{+}_{F, \tilde{k}}} + \frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{-}_{F, \tilde{k}})^2}{\tilde{E}^{-}_{F, \tilde{k}}}\right], \hspace{0.5cm} T = 0. 
+\frac{E_0}{\epsilon_{F,0} N_F} = -\frac{1}{8} \int d\tilde{k} \left[\frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{+}_{F, \tilde{k}})^2}{\tilde{E}^{+}_{F, \tilde{k}}} + \frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{-}_{F, \tilde{k}})^2}{\tilde{E}^{-}_{F, \tilde{k}}}\right], \hspace{0.5cm} T = 0. 
 \label{eq.2wiresGrandGroundStateEnergy}
 \end{equation}
 We have expressed the momentum as $\tilde{k} = k/k_F$, and the energies as $\tilde{E} = E/\epsilon_{F,0}$. We notice, that the ground state grand energy is negative. This is because, we are measuring energies with respect to the chemical potential. The motivation for calculating the grand energy is the following. For any temperature the grand energy, $\Phi$, is given by $\Phi = U - TS - 2\mu N_F = F - 2\mu N_F$, where $F$ is the Helmholtz free energy \cite{SchroederThermal}. The presence of the factor of 2 is simply because there are $N_F$ fermions in \textit{each} wire. Physically, we hold the number of particles fixed. This means, that it is the Helmholtz free energy $F = \Phi + 2\mu N_F$ we have to minimize to find the preferred state, not $\Phi$. For $T = 0$, this means, that the energetically favourable state is the one, that exhibits a minimum of $F(T = 0) = E_0 + 2\mu N_F$. The aim is therefore to calculate the Helmholtz free energy for differing phases of $\Delta^{12}_k$ and see which one is the lowest. 
@@ -142,7 +142,7 @@ In this section we write up and discuss the gap equations. They are derived in c
 \Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,12}(k, k')\left[\frac{\Delta^{12}_{k'} + \Delta^{11}_{k'}}{4E^{+}_{F,k'}}\tanh\left(\frac{\beta E^{+}_{F,k'}}{2}\right) + \frac{\Delta^{12}_{k'} - \Delta^{11}_{k'}}{4E^{-}_{F,k'}}\tanh\left(\frac{\beta E^{-}_{F,k'}}{2}\right)\right].
 \label{eq.2wiresgapequations}
 \end{align}
-We further get, that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumptions is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective interwire interaction: 
+We further get, that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumption is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective interwire interaction: 
 \begin{equation}
 W^\text{ind}_{FF,12}(k, k') = \frac{1}{2}\left[V^\text{ind}_{FF,12}(k - k', 0) + V^\text{ind}_{FF,12}(k + k', 0) \right].
 \end{equation}
@@ -221,9 +221,9 @@ It is evident, that both symmetries square to $+\mathbb{I}$. For both of them we
 \end{equation}
 since $\Delta^{11}_k$ is chosen real. This shows, that we must have $\eta^2 = -1$. The relevant terms containing $\Delta^{12}_k$ transform according to:
 \begin{equation}
-\sum_k \Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T_j}{\to} \sum_k \Delta^{12*}_k \left(\pm \eta f^\dagger_{2,-k}\right)\left( \eta f^\dagger_{1,k}\right) = \pm \eta^2 \sum_k \Delta^{12*}_{k} f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
+\sum_k \Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T_j}{\to} \sum_k \Delta^{12*}_k \left(\pm \eta f^\dagger_{2,-k}\right)\left( \eta f^\dagger_{1,k}\right) = \mp \sum_k \Delta^{12*}_{k} f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
 \end{equation}
-The last equality step is achieved by going from $k$ to $-k$ in the sum and using, that $\Delta^{12}_k$ is even in $k$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires, and that these both square to $+\mathbb{I}$. 
+The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$, and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$. 
 
 %\subsection{Symmetries for $d =\infty$}
 %In this subsection we will show, that the system has two other time reversal symmetries, when the wires are separated: $d = \infty$. When this is so, we have two copies of the same single wire, i.e. $\Delta^{12}_k = 0$. This means, that the time reversal symmetry for the single wire also works here. Explicitly, we can define a time reversal transformation $T_1^{\infty}$ according to:
