@@ -74,7 +74,7 @@ We have hereby specified two global phases. Since this is the total gauge freedo
 \begin{equation}
 E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)}. 
 \end{equation} 
-This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k$ in $E^{\pm}_{F,k}$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations are much more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
+This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k$ in $E^{\pm}_{F,k})$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations are much more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
 
 The new quasiparticle operators are found by finding the eigenvectors to $\mathcal{H}_{FF,k}$. We define the quasiparticle fermionic operators $\zeta_{j,k}$ by:
 \begin{equation}
@@ -187,16 +187,16 @@ This shows, that independent of $\eta$, we need $\Delta^{12*}_k = - \Delta^{12}_
 
 We now define a time reversal operator, that squares to $-\mathbb{I}$ and interchanges the wires:
 \begin{equation}
-T_-\begin{bmatrix} f^\dagger_{1,k} \\ f^\dagger_{2,k} \end{bmatrix} T_-^{-1} = \eta\sigma_2 \begin{bmatrix} f^\dagger_{1,-k} \\ f^\dagger_{2,-k} \end{bmatrix} = i\eta\begin{bmatrix} f^\dagger_{2,-k} \\ - f^\dagger_{1,-k} \end{bmatrix}.\nonumber
+T_-\begin{bmatrix} f^\dagger_{1,k} \\ f^\dagger_{2,k} \end{bmatrix} T_-^{-1} = \eta\sigma_2 \begin{bmatrix} f^\dagger_{1,-k} \\ f^\dagger_{2,-k} \end{bmatrix} = -i\eta\begin{bmatrix} f^\dagger_{2,-k} \\ - f^\dagger_{1,-k} \end{bmatrix}.\nonumber
 \end{equation} 
 This transformation is different from $T_+$ in the sense, that there is an overall sign difference in the transformation of the two types of fermions.  
 We hereby get:
 \begin{equation}
-\Delta^{11}_k f^\dagger_{1,k}f^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{11*}_k \left(i\eta f^\dagger_{2,-k}\right)\left(i\eta f^\dagger_{2,k}\right) = \eta^2\Delta^{11}_k f^\dagger_{2,k}f^\dagger_{2,-k}. \nonumber
+\Delta^{11}_k f^\dagger_{1,k}f^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{11*}_k \left(-i\eta f^\dagger_{2,-k}\right)\left(-i\eta f^\dagger_{2,k}\right) = \eta^2\Delta^{11}_k f^\dagger_{2,k}f^\dagger_{2,-k}. \nonumber
 \end{equation}
 This term should be identical to the original term connected to the product $f^\dagger_{2,k}f^\dagger_{2,-k}$: $\Delta^{22}_k f^\dagger_{2,k}f^\dagger_{2,-k}$. We hereby see, that we need $\eta = \pm i$. Further:
 \begin{equation}
-\Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{12*}_k \left(-i\eta f^\dagger_{1,-k}\right)\left( i\eta f^\dagger_{2,k}\right) = -\eta^2 \Delta^{12*}_k f^\dagger_{2,k}f^\dagger_{1,-k} = \Delta^{12*}_k f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
+\Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{12*}_k \left(i\eta f^\dagger_{1,-k}\right)\left(-i\eta f^\dagger_{2,k}\right) = -\eta^2 \Delta^{12*}_k f^\dagger_{2,k}f^\dagger_{1,-k} = \Delta^{12*}_k f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
 \end{equation}
 This shows, that independent of $\eta$, we need $\Delta^{12*}_k = \Delta^{12}_k$. Hence, the interwire pairing must be real to obey this time reversal symmetry. Finally, since $(\eta \sigma_2)(\eta^* \sigma_2^*) = \sigma_2\sigma_2^* = -\mathbb{I}$, $T_-$ squares to minus the identity. 
 
@@ -223,7 +223,9 @@ since $\Delta^{11}_k$ is chosen real. This shows, that we must have $\eta^2 = -1
 \begin{equation}
 \sum_k \Delta^{12}_k f^\dagger_{2,k}f^\dagger_{1,-k} \overset{T_j}{\to} \sum_k \Delta^{12*}_k \left(\pm \eta f^\dagger_{2,-k}\right)\left( \eta f^\dagger_{1,k}\right) = \mp \sum_k \Delta^{12*}_{k} f^\dagger_{2,k}f^\dagger_{1,-k}. \nonumber
 \end{equation}
-The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$, and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$. 
+The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$, and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$.
+
+The symmetries found in this subsection are the same as the one found for the single wire. See section \ref{sec.SymmetriesTRandPH} for the details. This shows, that the real and imaginary interwire pairing does not break the time reversal symmetry internally in each wire.
 
 %\subsection{Symmetries for $d =\infty$}
 %In this subsection we will show, that the system has two other time reversal symmetries, when the wires are separated: $d = \infty$. When this is so, we have two copies of the same single wire, i.e. $\Delta^{12}_k = 0$. This means, that the time reversal symmetry for the single wire also works here. Explicitly, we can define a time reversal transformation $T_1^{\infty}$ according to:

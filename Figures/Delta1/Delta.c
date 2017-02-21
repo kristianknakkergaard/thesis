@@ -16,13 +16,11 @@
 /*SET mB/mF, nB/nF^3 and kF * aBF */
 double WFF0(double k, double kprime, double rBB, double rBF, double nB, double mB)
 {
-  double aB     = M_PI * rBB / pow(nB, 1.0/3.0);    /*kF * aB*/
-  double aBF    = M_PI * rBF / pow(nB, 1.0/3.0); /*kF * aBF */
-  double xi     = M_PI/sqrt(8.0 * nB * aB ); /*xi * kF*/ 
+  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/ 
 
-  double factor = 4.0/(M_PI*M_PI) * pow(aBF, 2.0) * nB * (mB + 1.0/mB + 2.0);
-  double f      = - factor * log( ( pow(k + kprime, 2.0) + 2.0/(xi * xi) )/( pow(k - kprime, 2.0) + 2.0 / (xi * xi) ) );
-  return f;
+  double factor = 4.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
+  double f      = - factor * log( ( pow( k + kprime, 2.0 ) + 2.0 / (xi * xi) ) / ( pow( k - kprime, 2.0 ) + 2.0 / (xi * xi) ) );
+  return f; 
 }
 
 double Deltaasymp(double D_maxkT, double T, double TC)
@@ -30,9 +28,9 @@ double Deltaasymp(double D_maxkT, double T, double TC)
   return D_maxkT * pow(1.0 - pow(T/TC, 3.0) , 1.0/2.0);
 }
 
-double Deltaguess(double k)
+double Deltaguess(double k, double rBB, double rBF, double nB, double mB)
 {
-  return 0.4 * k / (pow(k, 4) + 1);
+  return k / (k * k + 3.3147);
 }
 
 
@@ -48,7 +46,7 @@ main (void)
   double nB  = 100.0; 
 
   /*k-values:*/
-  double k_low = 0.0, k_up = 25.0, dk = 0.005;
+  double k_low = 0.0, k_up = 25.0, dk = 0.01;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -70,7 +68,7 @@ main (void)
   for (int i = 0; i < N; ++i)
   {
     k = ((double)i) * dk + k_low;
-    gsl_vector_set(D, i, Deltaguess(k));
+    gsl_vector_set(D, i, Deltaguess(k, rBB, rBF, nB, mB));
 
     for (int iprime = 0; iprime < N; ++iprime)
     {
@@ -147,15 +145,16 @@ main (void)
   fprintf(stderr, "\n \n");
 
   /*We list the function values:*/
+  printf("%s \t %s \t %s \n", "k", "Deltak", "mu" );
   for (int i = 0; i < N-1; ++i)
   {
     k = ((double)i) * dk + k_low;
-    printf("%lg \t %lg \t %lg \n", k-k_up+dk, -gsl_vector_get(D,N-1-i), 0.0);
+    printf("%lg \t %lg \t %lg \n", k-k_up+dk, -gsl_vector_get(D,N-1-i), mu);
   }
   for (int i = 0; i < N; ++i)
   {
     k = ((double)i) * dk + k_low;
-    printf("%lg \t %lg \t %lg \n", k, gsl_vector_get(D,i), 0.0);
+    printf("%lg \t %lg \t %lg \n", k, gsl_vector_get(D,i), mu);
   }
   /*Ground state energy: */
 
@@ -172,7 +171,7 @@ main (void)
     E0integral   += E0integrand*dk; 
   }
 
-  fprintf(stderr, "E0 = %lg, mu = %lg\n", E0integral + mu, mu);
+  fprintf(stderr, "E0 = %lg, mu = %lg, check = %i\n", E0integral + mu, mu, check);
 
 
 

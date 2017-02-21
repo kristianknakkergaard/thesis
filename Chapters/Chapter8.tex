@@ -11,7 +11,7 @@ In the chapter we will introduce a second wire parallel to the first one already
 \section{The effective Bose-Fermi interaction} 
 As for the single wire the effective Bose-Fermi interaction is modelled by $V(\mathbf{r}) = g_{BF}\delta(\mathbf{r})$. To begin with, this gives the same expression for the interaction Hamiltonian between the bosons (B) and the fermions (F):
 \begin{equation}
-H_{BF}^\text{int} = g_{BF}\int d^3 r \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}).
+H_{BF}^\text{int} = g_{BF}\int d^3 r \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}).
 \end{equation}
 
 The difference now is, that we trap the fermions along \textit{two parallel} wires. Let the first one be along the $x$-axis, the second at $z=d, y=0$. The fermions are trapped in a harmonic trap with trapping frequency $\omega_t$. In this connection we have two central assumptions. The first is the same as for the single wire: we require, that the fermions are trapped in the ground state with respect to the perpendicular directions. The second assumption is, that the distance between the wires is much larger than the trapping width of the wires $l_t = \frac{1}{\sqrt{m_F\omega_t}}$. Hence, $l_t/d \ll 1$. This is done, so that we can actually talk about distinguishable wires of fermions. This leads to the following expansion in momentum eigenstates:
@@ -45,7 +45,8 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
 \end{equation}
 
 \begin{figure}
-\begin{tikzpicture}[scale=0.25]
+\begin{tabular}{cc}
+  \begin{tikzpicture}[scale=0.25]
   \begin{feynman}[small]
     \vertex (number1) {\( (1) \)};
     \vertex [above left=of number1] (fermion1) {\( 1, \tilde{p}_1 \)};
@@ -70,7 +71,9 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
       (d) -- [fermion] (f4)
     };
   \end{feynman}
-\end{tikzpicture}
+\end{tikzpicture} 
+\hspace{1cm}
+&
 \begin{tikzpicture}
   \begin{feynman}[small]
     \vertex (number2) {\( (2) \)};
@@ -96,7 +99,8 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
       (d) -- [fermion] (f4)
     };
   \end{feynman}
-\end{tikzpicture}
+\end{tikzpicture} \\
+\vspace{0.5cm}
 \begin{tikzpicture}
   \begin{feynman}[small]
     \vertex (number3) {\( (3) \)};
@@ -122,7 +126,9 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
       (d) -- [fermion] (f4)
     };
   \end{feynman}
-\end{tikzpicture}
+\end{tikzpicture} 
+\hspace{1cm}
+&  
 \begin{tikzpicture}
   \begin{feynman}[small]
     \vertex (number4) {\( (4) \)};
@@ -148,8 +154,10 @@ V_{FF,12}^\text{ind}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \c
       (d) -- [fermion] (f4)
     };
   \end{feynman}
-\end{tikzpicture}
-\caption{Feynman diagrams for the induced interaction between the wires. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}, G_{21}$.} \label{fig.interwirefeynmandiagrams}
+\end{tikzpicture} 
+\end{tabular}
+\caption{Feynman diagrams for the induced interaction between the wires. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}, G_{21}$.} 
+\label{fig.interwirefeynmandiagrams}
 \end{figure}
 
 

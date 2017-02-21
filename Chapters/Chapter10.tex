@@ -64,9 +64,10 @@ The figure only shows the maximal pairing $\max_k[|\Delta_k|]$. The same analysi
 The combined result of the three figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. 
 
 \section{Edge states and the curious cross over}
+\label{sec.2wiresedgestates_crossover_topology}
 In this section we analyse the results of the previous section from a symmetry point of view. The analysis is based on the exact same ideas as in section \ref{sec.topindexandphases}. 
 
-As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry ensures, that for every positive energy solution, there is also a negative one. For the separated wires sketched in the top of \ref{fig.2wiresedgestates} this has the same conclusion as in that section: there has to be a\textit{single} zero energy edge state which is robust against symmetry-conserving perturbations. The difference now is, that there is \textit{two} edge states: one for each wire. This has profound consequences. As we bring the wires closer together the system is perturbed by the interwire pairing $\Delta^{12}_k$. As shown in section \ref{sec.2wiressymmetries} this perturbation respects the particle-hole symmetry. This is simply because we are still dealing with a Bogoliubov de-Gennes system. 
+As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry ensures, that for every positive energy solution, there is also a negative one. For the separated wires sketched in the top of \ref{fig.2wiresedgestates} this has the same conclusion as in that section: there has to be a \textit{single} zero energy edge state which is robust against symmetry-conserving perturbations. The difference now is, that there are \textit{two} edge states: one for each wire. This has profound consequences. As we bring the wires closer together the system is perturbed by the interwire pairing $\Delta^{12}_k$. As shown in section \ref{sec.2wiressymmetries} this perturbation respects the particle-hole symmetry. This is simply because we are still dealing with a Bogoliubov de-Gennes system. 
 
 \begin{figure}
 \center
@@ -153,11 +154,11 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 \draw[-, dashed] (5.5, -1.5) -- (5.5, 1.5);
 \node at (4.8, 0) {$d<\infty$};
 \end{tikzpicture}
-\caption{Top: for $d=\infty$ we have two copies of the single wire system. There are two symmetry-protected edge states, one at each wire. This is indicated with red and blue. Bottom: the interwire pairing respects the particle hole symmetry, but the edge states are no longer protected, since there are two of them. Consequently, there are no edge states.}
+\caption{Top: for $d=\infty$ we have two copies of the single wire system. There are two symmetry-protected edge states, one at each wire. This is indicated with red and blue. Bottom: this is only for $\Delta^{12}_k$ imaginary. The interwire pairing respects the particle hole symmetry, but the edge states are no longer protected, since there are two of them. Consequently, there are no edge states.}
 \label{fig.2wiresedgestates}
 \end{figure}
 
-Let us now first focus on the energetically favourable solution found in the previous section: $\Delta^{22}_k = - \Delta^{11}_k$ real and $\Delta^{12}_k$ imaginary. As shown in section \ref{sec.2wiressymmetries} this system has an additional time reversal symmetry that exhanges the wires, and that squares to $+\mathbb{I}$. However, there is nothing to protect the two edge states in the two wires from coupling, and since it is only the total spectrum that has to exhibit the plus/minus symmetry in the energies, the edge state energies can \textit{gap} away. This is sketched in the bottom of figure \ref{fig.2wiresedgestates}. This is exactly, what the numerical analysis says must be happening. The reason is the following. The separated wires exhibit only $p$-wave pairing, which has a topological ground state as shown in chapter \ref{Chapter7}. The closely spaced wires on the other hand have only $s$-wave pairing; a system that is known to be topologically trivial INDSÆT REFERENCE. Hence, according to the arguments of section \ref{sec.topindexandphases} either the bulk energy gap has to close, or the edge states are simply coupled and gapped away. In the case of an imaginary interwire pairing the energy dispersion is: $E_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2 }$. This means, that the bulk energy gap \textit{cannot} close, since it only contains positive terms. The only possibility is that $\varepsilon_k, \Delta^{11}_k$ and $\Delta^{12}_k$ is zero at the same time. This is ruled out by the numerical analysis in figure \ref{fig.pairingkdependT0dvaried}. Since the bulk gap cannot close, the edge states are gapped.
+Let us now first focus on the energetically favourable solution found in the previous section: $\Delta^{22}_k = - \Delta^{11}_k$ real and $\Delta^{12}_k$ imaginary. As shown in section \ref{sec.2wiressymmetries} this system has an additional time reversal symmetry that exhanges the wires, and that squares to $+\mathbb{I}$. However, there is nothing to protect the two edge states in the two wires from coupling, and since it is only the total spectrum that has to exhibit the plus/minus symmetry in the energies, the edge state energies can \textit{gap} away. This is sketched in the bottom of figure \ref{fig.2wiresedgestates}. This is exactly, what the numerical analysis says must be happening. The reason is the following. The separated wires exhibit only $p$-wave pairing, which has a topological ground state as shown in chapter \ref{Chapter7}. The closely spaced wires on the other hand have only $s$-wave pairing; a system that is known to be topologically trivial.\footnote{This we show explicitly in section \ref{subsec.2wires_CSinvDelta12neq0}.} Hence, according to the arguments of section \ref{sec.topindexandphases} either the bulk energy gap has to close, or the edge states are simply coupled and gapped away. In the case of an imaginary interwire pairing the energy dispersion is: $E_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2 }$. This means, that the bulk energy gap \textit{cannot} close, since it only contains positive terms. The only possibility is, that $\varepsilon_k, \Delta^{11}_k$ and $\Delta^{12}_k$ are simultaneously zero. This is ruled out by the numerical analysis in figure \ref{fig.pairingkdependT0dvaried}. Since the bulk gap does not close, the edge states are gapped.
 
 The situation changes dramatically for the real interwire pairing case. As shown in section \ref{sec.2wiressymmetries} this means, that the system has a time reversal symmetry, that squares to $-\mathbb{I}$. The edge states are hereby protected by Kramers degeneracy. The argument closely follows the argument in \cite{Sakurai}. The time reversal symmetry is described by $\mathcal{T} = i\sigma_2 K$ in first quantization: $\mathcal{T}\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}$. Let us now assume, that we have one state, $\ket{\psi_k}$, with energy $E_k$. Then $\mathcal{T}\ket{\psi_k}$ also has the energy $E_k$:
 \begin{equation}
@@ -169,13 +170,119 @@ Let us suppose, that the two kets represent the same state. Then they are equal 
 \end{equation}
 However, this contradicts that $\mathcal{T}^2 = -1$. Hence, the two kets must really represent two different states. This means, that any energy is at least doubly degenerate. This is Kramers degeneracy. Notice, that it is crucial that $\mathcal{T}^2 = -1$. For $\mathcal{T}^2 = +1$ there is no Kramers degeneracy. 
 
-The question now is, how this changes the behaviour from the imaginary interwire pairing case, if we only look at perturbations, that respect all the symmetries of the system. Before the edge states could gap away: one to positive and one to negative energies. However, that is not possible here, because it would lead to only a single state at those two energies. Hence, the edge states are once again protected at $E = 0$. Since we now know, that we have to come from a topological to a trivial state something dramatic must happen in the cross over. In the same way as in section \ref{sec.topindexandphases} the switch in topological to trivial phase is associated with a closing in the bulk energy gap. The numerical analysis shows, that this happens at a single point $d = d_c$. The curious issue is, that if we look at the dispersion relations nothing stops this transition from being continuous as well:
+The question now is, how this changes the behaviour from the imaginary interwire pairing case, if we only look at perturbations, that respect all the symmetries of the system. Before the edge states could gap away: one to positive and one to negative energies. However, that is not possible here, because it would lead to only a single state at those two energies. Hence, the edge states are once again protected at $E = 0$. Since we now know, that we have to come from a topological to a trivial state something dramatic must happen in the cross over. In the same way as in section \ref{sec.topindexandphases} the switch in topological to trivial phase is associated with a closing in the bulk energy gap. The numerical analysis shows, that this happens at a single point $d = d_c$. The curious issue is, that if we look at the dispersion relations nothing stops this transition from being continuous:
 \begin{equation}
 E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2 \pm 2\Delta^{11}_k\Delta^{12}_k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}. \nonumber
 \end{equation}
-From this it is clear, that if we had both pairings nonzero over an interval of $d$, then for some distance $d$, we would have $\Delta^{11}_{\pm k} = \mp \Delta^{12}_k$ at the Fermi surface, where $\varepsilon_k = \frac{k^2}{2m_F} - \mu =  0$, hence leading to $E^{\pm}_{F,\pm k} = 0$. However, this does not happen. The transition is abrupt at a single point, $d = d_c$. This numerical result is therefore not understood at the present stage. 
+From this it is clear, that if we had both pairings nonzero over an interval of $d$, then for some distance $d$, we would have $\Delta^{11}_{\pm k} = \mp \Delta^{12}_k$ at the Fermi surface, where $\varepsilon_k = \frac{k^2}{2m_F} - \mu =  0$, hence leading to $E^{\pm}_{F,\pm k} = 0$. However, this does not happen. The transition is abrupt at a single point, $d = d_c$. Up till now this is therefore a curious numerical result. It is therefore part of the more thorough topological investigation of the next section.
+
+\section{The Chern-Simons invariants}
+\label{sec.2wires_CSinv}
+In this section we will calculate the Chern-Simons topological invariant for the two wire system. In turn we will calculate the Wilson loop and use this to analyse the system topologically. 
+
+The Berry connection for a system with several negative energy states becomes a matrix:
+\begin{equation}
+\mathcal{A}^{ij}_k = \bra{e^{-}_{i,k}}\partial_k\ket{e^{-}_{j,k}}.
+\end{equation}
+In the present case the Berry connection is a $2\times 2$ matrix. In the case of a $T^2 = + \mathbb{I}$ symmetry the topological invariant, $P_{\text{tot}}$, is calculated in analogy to the one in section \ref{sec.CS1} and is given by the Chern-Simons invariant:
+\begin{align}
+\text{CS}_1 &= \frac{i}{2\pi} \int dk\; \text{tr}[\mathcal{A}] = \frac{i}{2\pi} \int dk\; \left[\bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} + \bra{e^{-}_{2,k}}\partial_k\ket{e^{-}_{2,k}}  \right] \nonumber \\
+ &= \text{CS}_{1,1} + \text{CS}_{1,2}, \hspace{0.5cm} T^2 = +\mathbb{I}.
+\label{eq.2wires.CS1}
+\end{align}
+By $\text{CS}_{1,i}$ we denote the contribution to the Chern-Simons invariant coming from the eigenvector $i$. We will refer to this as the subsystem invariants. $2\text{CS}_1$ is the winding number, which is the topological index. 
+
+In the case of a $T^2 = - \mathbb{I}$ symmetry the Chern-Simons invariant can be shown to vanish by an appropriate choice of gauge. This we will see explicitly in a moment in several cases. However, there is still a possibility of nontrivial topological phases. Here it is a bit trickier to define an index, that does not depend on the chosen gauge. A procedure for this is shown in \cite{FuKane2006}, where the invariants are referred to as polarisations as was mentioned in section \ref{sec.CS1}. First we must find the explicitly first quantized form of the time reversal operator, $\mathcal{T}$. Second, we calculate the \textit{sewing matrix}:
+\begin{equation}
+w^{ij}_k = \bra{e^{-}_{i,k}}\mathcal{T}\ket{e^{-}_{j,k}}.
+\label{eq.2wires_sewingmatrix}
+\end{equation}
+Third, we identify the points, that are \textit{time reversal invariant}. By this we mean, that $k$ and $-k$ are physically the same point. Since, we impose periodic boundary conditions on the system, these points are $k = 0, \infty$ for the system at hand. Finally, the invariant is then given by: 
+\begin{equation}
+\nu = \frac{\sqrt{\det[w(k=0)]}}{\text{Pf}[w(k=0)]} \frac{\sqrt{\det[w(k=\infty)]}}{\text{Pf}[w(k=\infty)]} \in \{-1,1\}, \hspace{0.5cm} T^2 = -\mathbb{I}.
+\label{eq.2wirestopindexT2eq-1}
+\end{equation}
+The symbol $\text{Pf}[w]$ denotes the \textit{pfaffian} of $w$. The only property of the pfaffian we will be needing, is that:
+\begin{equation}
+\text{Pf}\begin{bmatrix} 0 & a \\ -a & 0 \end{bmatrix} = a, \nonumber
+\end{equation}
+for any complex $a$. This invariant is rather abstract in its form. It is however intimately connected to the Chern-Simons invariant from which it is derived \cite{FuKane2006}. From section \ref{sec.2wiressymmetries}, we know that under $T_-$ the nambu spinor $F_k$ transforms according to:
+\begin{equation}
+T_- F_k T^{-1}_- = \begin{bmatrix} 0 & \mathbb{I} \\ -\mathbb{I} & 0 \end{bmatrix}F_{-k} = i\sigma_2\otimes \tau_0 F_{-k}. \nonumber
+\end{equation}
+Where $\sigma_i$ are the Pauli matrices in wire space and $\tau_i$ are the Pauli matrices in particle-hole space. In the above $\mathbb{I}$ is the $2 \times 2$ identity. The first quantized time reversal operator corresponding hereto is therefore:
+\begin{equation}
+\mathcal{T}_- = \begin{bmatrix} 0 & \mathbb{I} \\ -\mathbb{I} & 0 \end{bmatrix}\cdot K = i\sigma_2\otimes \tau_0 \cdot K,
+\label{eq.2wires.T-.1quant} 
+\end{equation}
+where $K$ is the complex conjugation operator: $KiK = -i$. In the \textit{normal} phase $\Delta^{11}_k = \Delta^{12}_k = 0$. Hence, $\mathcal{H}_{FF,k}$ is diagonal. This means, that the negative energy eigenvectors are simply the standard $[0, 1, 0, 0]$ and $[0, 0, 0, 1]$. Then we very simply get:
+\begin{equation}
+w = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}, \nonumber
+\end{equation}
+independent of $k$. Hence $\det[w] = 1, \text{Pf}[w] = -1$ and $\nu = 1$. Hence, $\nu = -1$ is the topologically nontrivial state. 
+
+
+\subsection{Absent interwire pairing}
+\label{subsec.2wires_CSinvDelta12eq0}
+In this subsection we will calculate the Chern-Simons invariant, when the interwire pairing is absent, hence $\Delta^{12}_k = 0$ for all $k$. We will stick to the previous phase choice of the intrawire pairings: $\Delta^{22}_k = -\Delta^{11}_k$. Apart from the sign difference on the pairings, the Hamiltonian is two copies of the single wire Hamiltonian:
+\begin{equation}
+\mathcal{H}_{FF,k} = \begin{bmatrix} 
+\varepsilon_k & \Delta^{11}_k & 0 & 0  \\
+\Delta^{11}_k & -\varepsilon_k & 0 & 0 \\ 
+0 & 0 & \varepsilon_k & \Delta^{22}_k  \\ 
+0 & 0 & \Delta^{22}_k & -\varepsilon_k
+\end{bmatrix}. \nonumber
+\end{equation}
+This Hamiltonian both has the $T^2 = + \mathbb{I}$ and $T^2 = -\mathbb{I}$ symmetries, since $\Delta^{12}_k$ is absent. So the two (differing) invariants should be thought of in the following way. A nonzero $\text{CS}_{1,\text{tot}}$ tells us, that if we come with a perturbation that respects $T^2 = +\mathbb{I}$, the edge states are topologically protected. Similarly a nonzero $\text{CS}_{1,\text{rel}}$ tells us, that under a $T^2 = -\mathbb{I}$ perturbation, the edge states are also protected. We will elaborate on this below. 
+
+The relevant computation has already been performed in section \ref{sec.CS1}, since the Hamiltonian is separated in two blocks. Since $\Delta^{22}_k = - \Delta^{11}_k$ we get that: $\text{CS}_{1,2} = -\text{CS}_{1,1}$. Hereby: 
+\begin{equation}
+\text{CS}_{1,\text{tot}} = 0, \hspace{0.5cm} \text{CS}_{1,\text{rel}} = 2\text{CS}_{1,1} = \left\{ \begin{matrix} -\text{sgn}(\Delta^{11}_{k>0}), & \mu > 0, \\ 0, & \mu < 0. \end{matrix} \right.
+\end{equation}
+A note of warning: Superficially one should think, that we could simply gauge transform 
+
+It is straight forward to show, that with the above decoupled Hamiltonian, the Chern-Simons invariant is simply the sum of the ones coming from each (single wire) block. Hence:
+\begin{equation}
+\text{CS}_1 = \text{CS}_{1,1} + \text{CS}_{1,2}, \nonumber
+\end{equation}
+where $\text{CS}_{1,j}$ is the Chern-Simons invariant for wire $j$. Since $\mu > 0$ we get from equation \eqref{eq.CSinv2}, that $\text{CS}_{1,j} = -\frac{\text{sgn}(\Delta^{jj}_{k>0})}{2}$. Since the pairings are chosen with opposite sign, we get $\text{CS}_1 = 0$. The Wilson loop is hereby $W_1 = \text{e}^{2\pi i \text{CS}_1} = 1$.\footnote{Had we chosen the pairings equal, we would get $\text{CS}_1 = -1$, but still $W_1 = 1$. This again demonstrates the gauge dependence of the Chern-Simons invariant.}
+
+This means, that the two wire system is topologically equivalent to the normal phase. This does not mean, that the edge states are not present for the separated wires. It simply means, that any perturbation that couples the wires, symmetry-protecting or not, can gap the edge states away without closing the energy gap.
+
+
+\subsection{Present interwire pairing}
+\label{subsec.2wires_CSinvDelta12neq0}
+In this subsection we will calculate the Chern-Simons invariant, when the interwire pairing is present. When $\Delta^{12}_k \neq 0$, the eigenvectors found in chapter \ref{Chapter9} is well-behaved for all $k$. This is necessary in the current calculation, since we need to take the $k$-derivative. The two negative energy eigenvectors are found from the second and fourth column of $U_{F,k}$:
+\begin{equation}
+\ket{e^{-}_{1,k}} = - \frac{1}{ B^{+}_k }\begin{bmatrix} \Delta^{11}_k + \Delta^{12}_k \\ - \left(\varepsilon_k + E^{+}_{F,k}\right) \\ \Delta^{11}_k + \Delta^{12}_k \\ \varepsilon_k + E^{+}_{F,k} \end{bmatrix}, \hspace{0.5cm} \ket{e^{-}_{2,k}} = \frac{1}{ B^{-}_k }\begin{bmatrix} -\left(\Delta^{11}_k - \Delta^{12}_k\right) \\ \varepsilon_k + E^{-}_{F,k} \\ \Delta^{11}_k - \Delta^{12}_k \\ \varepsilon_k + E^{+}_{F,k} \end{bmatrix}, \nonumber 
+\end{equation}
+where $B^{\pm}_k = 2\sqrt{E^{\pm}_{F,k}\left(\varepsilon_k + E^{\pm}_{F,k}\right) }$.\footnote{We write the normalisation with a $B$ to distinguish it from the Berry connection.} With a bit of calculating we hereby get the diagonal elements of the Berry connection to be:
+\begin{align}
+A^{11}_k &= \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \frac{2}{(B^{+}_k)^2}\left(\left(\Delta^{11}_k + \Delta^{12*}_k \right) \left(\partial_k\Delta^{11}_k + \partial_k\Delta^{12}_k \right) + \varepsilon_k\partial_k\varepsilon_k - E^{+}_{F,k}\partial_k E^{+}_{F,k}\right), \nonumber \\
+A^{22}_k &= \bra{e^{-}_{2,k}}\partial_k\ket{e^{-}_{2,k}} = \frac{2}{(B^{-}_k)^2}\left(\left(\Delta^{11}_k - \Delta^{12*}_k \right) \left(\partial_k\Delta^{11}_k - \partial_k\Delta^{12}_k \right) + \varepsilon_k\partial_k\varepsilon_k - E^{-}_{F,k}\partial_k E^{-}_{F,k}\right). \nonumber
+\end{align}
+This looks a little involved. However, in the end we would like to calculate $\int dk\; (A^{11}_k + A^{22}_k )$. This means, that we are free to switch $k$ to $-k$ in $A^{22}_k$. We hereby get: 
+\begin{equation}
+A^{22}_{-k} = \frac{2}{(B^{+}_k)^2}\left(-\left(\Delta^{11}_k + \Delta^{12*}_k \right) \left(\partial_k\Delta^{11}_k + \partial_k\Delta^{12}_k \right) - \varepsilon_k\partial_k\varepsilon_k + E^{+}_{F,k}\partial_k E^{+}_{F,k}\right) = - A^{11}_k, \nonumber
+\end{equation}
+using that $E^{-}_{F,-k} = E^{+}_{F,k}$. The Chern-Simons invariant hereby becomes:
+\begin{equation}
+\text{CS}_1 = \frac{i}{2\pi}\int dk\; \left(A^{11}_k + A^{22}_k\right) = \frac{i}{2\pi}\int dk\; \left(A^{11}_k + A^{22}_{-k}\right) = \frac{i}{2\pi}\int dk\; \left(A^{11}_k - A^{11}_k\right) = 0. 
+\end{equation}
+So, the Chern-Simons invariant is 0, whenever the interwire pairing is present. There is one caveat. In the case of a real interwire pairing, there is a potential gap closing at a specific distance between the wires as we also noted in section \ref{sec.2wiresedgestates_crossover_topology}. This is simply because: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. Hence, if the inter- and intrawire pairing is present simultaneously, then at some interwire distance the gap will close at the Fermi level, where $\varepsilon_k = 0$. This makes the above calculation and actually the Chern-Simons invariant ill-defined. However, away from this single distance we can conclude, that the presence of interwire pairing makes the system topologically trivial, which means equivalent to the normal (non-superfluid) phase. 
+
+The above analysis also shows, that for pure interwire pairing, which means $\Delta^{11}_k = 0$, the system is topologically trivial as claimed earlier. However, the above argument is very specific for the present system. In a more generalized way we can reduce the Hamiltonian to simply:
+\begin{equation}
+\mathcal{H}_{FF,k} = \begin{bmatrix}\epsilon_k & \Delta^{12}_k\\ \Delta^{12}_k & -\epsilon_k \end{bmatrix}. \nonumber
+\end{equation} 
+This is done by reducing $F_k$ to $\begin{bmatrix} f_{1,k} & f^\dagger_{2,-k} \end{bmatrix}$. Then we follow the exact same calculation as in section \ref{sec.CS1} ending up with an equation equivalent to equation \eqref{eq.CSinv1}: 
+\begin{equation}
+\text{CS}_1 = \frac{1}{4\pi}\int dk \;  \frac{\varepsilon_k\partial_k\Delta^{12}_k - \Delta^{12}_k \partial_k \varepsilon_k}{\varepsilon^2_k + (\Delta^{12}_k)^2} = 0,
+\end{equation}
+since $\Delta^{12}_k$ is even, making the integrand odd. The only underlying assumptions are, that the pairing, $\Delta^{12}_k$, and the kinetic energy, $\varepsilon_k$, are even in $k$. This shows in a very general way, that an $s$-wave type pairing is topologically trivial. 
 
 \section{Range of interaction dependency of cross over}
+\label{sec.2wiresrange_of_interaction_crossover}
 In this section we will investigate how the cross over from intrawire to interwire pairing depends on the range of the induced interaction. The range is roughly the condensate coherence length $\xi$:
 \begin{equation}
 k_F\frac{\xi}{\sqrt{2}} = \frac{\sqrt{\pi}}{4}\frac{1}{\sqrt{(n_Ba_B^3)^{1/3}}}\frac{n_F}{n_B^{1/3}}.

@@ -85,21 +85,15 @@ The second remarkable thing, which I will not argue for either, is that the clas
 \label{tab.PeriodicTableTISC}
 \end{table}
 
-For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. However, most often one considers the time reversal symmetry as weakly broken by some perturbation. It is weak in the sense, that the perturbation is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. This also means, that we want only to discuss effects, that are insensitive to these perturbations. Hence, the aim of the next section is not to find a topological index in the integers, but in $\mathbb{Z}_2=\{-1,1\}$. 
+For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. 
 
 \section{The topological index and phases}
 \label{sec.topindexandphases}
-In this section we will explicitly construct the $\mathbb{Z}_2$ topological index. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\sigma$, with $\boldsymbol\sigma = (\sigma_1,\sigma_2,\sigma_3)$ containg the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
+In this section we will anticipate a potential breaking of time reversal symmetry. The corresponding perturbation is assumed weak in the sense, that it is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. We therefore search for a topological index in $\mathbb{Z}_2=\{-1,1\}$. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\sigma$, with $\boldsymbol\sigma = (\sigma_1,\sigma_2,\sigma_3)$ containg the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
 \begin{equation}
 \hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}. 
 \label{eq.hhatdefinition}
 \end{equation}
-It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Further, since $E_{F,k=0} = |\mu|$, we see, that the energy is gapped exactly, when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$ we notice, that: 
-\begin{equation}
-\hat{h}(k=0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k=\infty) = \hat{z} = p_{\infty}\hat{z},
-\label{eq.hhatk0kinfty}
-\end{equation}
-where $\text{sgn}$ denotes the sign function. 
 
 \begin{figure} 
 \begin{center}  
@@ -109,14 +103,19 @@ where $\text{sgn}$ denotes the sign function.
 \end{center}    
 \end{figure}
 
-The idea is then, that we can specify a number $\nu \in \{-1,1\}$ by:
+It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$, we notice that: 
+\begin{equation}
+\hat{h}(k=0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k=\infty) = \hat{z} = p_{\infty}\hat{z},
+\label{eq.hhatk0kinfty}
+\end{equation}
+where $\text{sgn}$ denotes the sign function. The idea is then, that we can specify a number $\nu \in \{-1,1\}$ by:
 \begin{equation}
 \nu = p_0p_{\infty} = -\text{sgn}(\mu).
 \label{eq.topinvnudefition}
 \end{equation}
-The claim is, that we have hereby defined a topological index, that specifies two states, that cannot be deformed into each other without closing the energy gap. Graphically this is clear from figure \ref{fig.hhatplot}. In red (blue) I have plotted the behaviour of $\hat{h}$ for $\mu > 0$ ($\mu < 0$), omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand we see, that the $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This is of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu = 1$. For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. 
+The claim is, that we have hereby defined a topological index, which specifies two states, that cannot be deformed into each other without closing the energy gap. Graphically this is clear from figure \ref{fig.hhatplot}. In red (blue) I have plotted the behaviour of $\hat{h}$ for $\mu > 0$ ($\mu < 0$), omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand, we see that $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This is of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu = 1$. 
 
-We can hereby distinguish between two regimes. The first is the weak coupling regime. The pairing does not significantly alter the chemical potential: $\mu(T=0) > 0$. Hereby $\nu = -1$ and the ground state is topologically \textit{non}-trivial. The second is the strong coupling regime, where $\mu(T = 0) < 0$, $\nu = 1$ and the ground state is topologically trivial. This is in complete harmony with the findings in \cite{Alicea} for the Kitaev chain (the fermions here sit in a lattice). 
+For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. We can hereby distinguish between two regimes. The first is the weak coupling regime. The pairing does not significantly alter the chemical potential: $\mu(T=0) > 0$. Hereby $\nu = -1$ and the ground state is topologically \textit{non}-trivial. The second is the strong coupling regime, where $\mu(T = 0) < 0$, $\nu = 1$ and the ground state is topologically trivial. This is in complete harmony with the findings in \cite{Alicea} for the Kitaev chain.\footnote{In the article by Alicea the fermions sit in a lattice, but the physical properties are essentially the same.}
 
 We are only investigating the weak coupling regime, even with $\mu \approx \epsilon_{F,0}$. From the above arguments, this means, that we have found a ground state with $\nu = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there are junctions at the ends between a $\nu = -1$ (the superfluid wire) and a $\nu = 1$ state (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. 
 
@@ -124,7 +123,7 @@ The interesting question is now: are there states that are topologically protect
 \begin{equation}
 E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{FF,k}\ket{\psi_k} = -\mathcal{H}_{FF,-k}\mathcal{C}\ket{\psi_k} \Rightarrow \mathcal{H}_{FF,-k}\left(\mathcal{C}\ket{\psi_k}\right) = -E_k\left(\mathcal{C}\ket{\psi_k}\right).
 \end{equation}
-We hereby see, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The bulk spectrum is here indicated by a solid line above the bulk gap $\min_k[E_{F,k}]$ and mirrored in $E = 0$. Now suppose that we introduce a perturbation, that respects the particle-hole symmetry. The energies therefore still come in plus/minus pairs, but apart from that the energies can change. Hence, we can perturb any low energy state with $E \neq 0 $ away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the plus/minus symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
+This shows, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The bulk spectrum is here indicated by a solid line above the bulk gap $\min_k[E_{F,k}]$ and mirrored in $E = 0$. Now suppose that we introduce a perturbation, that respects the particle-hole symmetry. The energies therefore still come in plus/minus pairs, but apart from that the energies can change. Hence, we can perturb any low energy state with $E \neq 0 $ away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the plus/minus symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
 
 With no energy cost edge states at the ends of the wire can hereby emerge and are robust to symmetry-conserving perturbations. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu = -1$, to an edge effect (the edge states). As is indicated to the right in figure \ref{fig.edgestates}, the state has to be localised on the boundaries. The reason is, that all bulk states are already occupied, and so a zero energy bulk state is not available. 
 
@@ -166,9 +165,53 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \label{fig.edgestates}
 \end{figure}
 
-We can now also clarify, what is meant by the term \textit{topological} superfluid. The above mentioned effects are called topological, because the classification with respect to the symmetries $T,C$ and $S$ is deeply connected to topology; specifically the study of manifolds. This is of abstract parameter spaces, and so the naming as such does not originate from the fact, that the edge states are located at specific places geometrically, as one might be led to believe. 
+We can now also clarify, what is meant by the term \textit{topological} superfluid. The above mentioned effects are called topological, because the classification with respect to the symmetries $T,C$ and $S$ is deeply connected to topology; specifically the study of manifolds. This is of abstract parameter spaces, and so the naming as such does not originate from the fact, that the edge states are located at specific places geometrically, as one might be led to believe.  
 
-The question now becomes the following. Is it possible to make a simple physical change of the system, that increases the number of possible ground states? The proposal is to put in a \textit{second} wire parallel to the already studied. By doing this we get an extra parameter: the distance $d$ between the wires, hence increasing the number of possible ground states.
+\section{The Chern-Simons invariant and the Wilson loop}
+\label{sec.CS1}
+In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. We will work with $\Delta_k$ real. The calculation in this section is more rigorous but also less intuitive than the one in the previous section.
 
+The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$. The topological index, generally called the winding number, is twice the Chern-Simons invariant, hence an integer. This gives us the desired topological index in $\mathbb{Z}$. In one spatial dimension the Chern-Simons invariant is generally defined as:
+\begin{equation}
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \text{tr}\left[\mathcal{A}_k\right], \nonumber
+\end{equation}
+where BZ is short for the first Brillouin zone, and $\mathcal{A}$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. The Berry connection is then in this case defined as:
+\begin{equation}
+\mathcal{A}_k = \bra{e^{-}_k}\partial_k\ket{e^{-}_k}. \nonumber
+\end{equation}
+The result of Chern-Simons theory is then, that the Chern-Simons invariant is a topological invariant. By this, it is meant, that it characterizes different topological phases, that can only change when the energy gap closes. It turns out that the calculation in this scenario is easier in a different basis, than the one we have been working in so far. Let us therefore shortly investigate the influence of basis on the Berry connection. In a different basis we have: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger$, where $U$ is some unitary matrix not depending on $k$. If $\mathcal{H}_{FF,k}\ket{e^{-}_k} = -E_{F,k}\ket{e^{-}_k}$, the eigenvector in the new basis with negative eigenvalue is $\ket{\tilde{e}^{-}_k} = U\ket{e^{-}_k}$. The corresponding Berry connection is:
+\begin{equation}
+\tilde{\mathcal{A}}_k = \bra{\tilde{e}^{-}_k}\partial_k\ket{\tilde{e}^{-}_k} = \bra{e^{-}_k}U^\dagger\partial_k U\ket{e^{-}_k} = \bra{e^{-}_k}\partial_k\ket{e^{-}_k} = \mathcal{A}_k, \nonumber 
+\end{equation}
+whereby the Berry connection and hereby the Chern-Simons invariant is unaltered. This is of course very reasonable; a topological invariant should not depend on the chosen basis. We now make a specific choice for $U$:
+\begin{equation}
+U = \text{e}^{i\sigma_1 \frac{3\pi}{4}} = \frac{1}{\sqrt{2}}\left(-\mathbb{I} + i\sigma_1\right). \nonumber 
+\end{equation}
+This transformation amounts to letting $(\sigma_1, \sigma_2, \sigma_3) \overset{U}{\to} (\sigma_1, \sigma_3, -\sigma_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\sigma_1 + \varepsilon_k\sigma_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\sigma_1 - \varepsilon_k\sigma_2$. The reason for changing basis is, that the eigenvectors are simpler. Explicitly:
+\begin{equation}
+\ket{\tilde{e}^{-}_k} = \frac{1}{\sqrt{2}}\begin{bmatrix} -\frac{\Delta_k + i \varepsilon_k}{E_{F,k}} \\ 1 \end{bmatrix}. \nonumber 
+\end{equation}
+With this and a bit of calculating the Berry connection becomes:
+\begin{equation}
+\mathcal{A}_k = \bra{\tilde{e}^{-}_k}\partial_k\ket{\tilde{e}^{-}_k} = -\frac{i}{2E^2_{F,k}}(\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k). \nonumber 
+\end{equation}
+Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we get:
+\begin{equation}
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
+\label{eq.CSinv1}
+\end{equation}
+where the last equality stems from the fact, that the integrand is even. The integrand has a primitive given by $-\arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)$. Hence, the above is directly calculable:
+\begin{align}
+\text{CS}_1 &= - \frac{1}{2\pi} \left. \arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)\right|^\infty_0 \overset{(*)}{=} -\frac{\text{sgn}(\Delta_{k>0})}{2\pi}\left(\frac{\pi}{2} - \lim_{a\to 0^{+}}\arctan\left(\frac{-\mu}{a}\right) \right) \nonumber \\
+& = \left\{ \begin{matrix} -\frac{\text{sgn}(\Delta_{k>0})}{2}, & \mu > 0, \\ 0, & \mu < 0. \end{matrix} \right. 
+\label{eq.CSinv2}
+\end{align}
+By $\text{sgn}(\Delta_{k>0})$ we mean the sign of $\Delta_k$ for $k > 0$. Two effects lead to the equality $(*)$. Firstly, $\arctan(x) \to \pi/2$ for $x \to \infty$. $\text{sgn}(\Delta_{k>0})$ appears, since if $\Delta_k$ is negative for $k > 0$, the argument $\frac{\varepsilon_k}{\Delta_k}$ goes to $-\infty$ for $k \to \infty$. Secondly, since $\Delta_{k=0} = 0$ the evaluation in $k = 0$ can be performed by the written limit of $a \to 0^+$. This shows, that the Chern-Simons invariant is \textit{not} invariant under gauge transformations, e.g. $\Delta_k \to - \Delta_k$. Since the two nonzero Chern-Simons invariants are related by a gauge transformation, there are equivalent. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
+\begin{equation}
+W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu). 
+\end{equation}
+We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
 
+\newpage
+The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of the following chapters. 
 
