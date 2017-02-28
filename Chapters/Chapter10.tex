@@ -1,15 +1,17 @@
 % Chapter 10
 
-\chapter{Two wires, cross over and numerical results} % Main chapter title
+\chapter{Cross over and numerical analysis} % Main chapter title
 
 \label{Chapter10} % For referencing the chapter elsewhere, use \ref{Chapter9} 
 
-\lhead{Chapter 10. \emph{2 wires, cross over \& numerical analysis}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part III. \emph{Two wires}}
+\chead{Chapter 10. \emph{Cross over \& numerical analysis}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we present the numerical analysis and results of the two wire system. The most noticeable of the results is, that we are able to find an interval of interwire distances, where both $s$- and $p$-wave type pairings exist, and that this is the energetically favourable state of the system.
 
 \section{Cross over region and energy considerations}
+\label{sec.2wiresCrossover_energy}
 In this section we will show numerically, that during the transition from interwire to intrawire pairing the energetically favourable state of the system is the one where the interwire pairing is purely imaginary. We will further show, that this transition is characterized by having both the interwire and intrawire pairing simultaneously nonzero over an interval of interwire distances, $d$. 
 
 We first come with an energy analysis as described after equation \eqref{eq.2wiresGrandGroundStateEnergy}. Let us first calculate the free energy, when the two wires are just free fermion gases. For $T = 0$ the free energy is simply the sum of the kinetic energy $\frac{k^2}{2m_F}$ for $|k| < k_F$: 
@@ -23,7 +25,7 @@ If we let $\Delta^{12}_k = 0$ and search for nonzero $\Delta^{11}_k$ we get the 
 
 The question now is: can we find a solution, where both pairings are present simultaneously and is this energetically favourable? The answer is the following. If we let $\Delta^{12}_k$ be purely imaginary and search for both nonzero $\Delta^{12}_k$ and $\Delta^{11}_k$, we get the red curve. This curve clearly represents the energetically favourable solution. Since the sudden flip between the two types of pairings is associated with the blue curve, the red curve must describe a coexistence of the two types of pairings. This we verify explicitly in the following analysis. 
 
-For $\Delta^{12}_k$ real the analysis is performed in the same way as in the above. Only we record the maximal values $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$ as a function of $d$. This results in the blue curves in figure \ref{fig.2wiresMaximalPairingddepend}. The behaviour is largely as described above. When we increase $d$ the interwire pairing decreases, until we reach the critical distance $d_c$ where it suddenly flips to a intrawire pairing in stead. 
+For $\Delta^{12}_k$ real the analysis is performed in the same way as in the above. Only we record the pairings at the Fermi momentum: $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$ as a function of $k_Fd$. This results in the blue curves in figure \ref{fig.2wiresMaximalPairingddepend}. The behaviour is largely as described above. When we increase $d$ the interwire pairing decreases, until we reach the critical distance $d_c$ where it suddenly flips to a intrawire pairing in stead. 
 
 Now let us concentrate on the energetically favourable solution: $\Delta^{12}_k$ imaginary. In this case the energy dispersions are identical and even in $k$: $E^{\pm}_{F,k} = E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. This means, that the gap equations in \eqref{eq.2wiresgapequations} partially decouples: 
 \begin{align}
@@ -31,7 +33,7 @@ Now let us concentrate on the energetically favourable solution: $\Delta^{12}_k$
 \Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,12}(k, k')\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
 \label{eq.2wiresgapequationsDelta12imaginary}
 \end{align} 
-This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the maximal values $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$. The result is shown as the red curves in figure \ref{fig.2wiresMaximalPairingddepend}.
+This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the pairings at the Fermi momentum as above. The result is shown as the red curves in figure \ref{fig.2wiresMaximalPairingddepend}.
 
 \begin{figure} 
 \begin{center}  
@@ -44,7 +46,7 @@ This explicitly shows, that the two pairings are only coupled through the energy
 \begin{figure} 
 \begin{center}  
 \input{Figures/twowires/Deltas2.1.6/ddepend.tex}  
-\caption{The maximal pairings $\max_k\left[\left|\Delta^{11}_k\right|\right]$ and $\max_k\left[\left|\Delta^{12}_k\right|\right]$ as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\caption{The pairings at the Fermi momentum, $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$, as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
 \label{fig.2wiresMaximalPairingddepend}  
 \end{center}    
 \end{figure}
@@ -56,7 +58,7 @@ The figure only shows the maximal pairing $\max_k[|\Delta_k|]$. The same analysi
 \begin{figure} 
 \begin{center}  
 \input{Figures/twowires/Deltas1/kdepend.tex}  
-\caption{The pairings $\Delta^{11}_k$ (odd) and $\Delta^{12}_k$ (even) plotted as a function of $k$. We see, that the functional behaviour is independent of $d$, and that there is a cross over between interwire and intrawire dominated pairing. The intrawire pairing is increased as $d$ increases. Vice versa for the interwire pairing. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\caption{The pairings $\Delta^{11}_k$ (odd) and $\Delta^{12}_k$ (even) plotted as a function of $k$ for $\Delta^{12}_k$ imaginary. We see, that the functional behaviour is independent of $d$, and that there is a cross over between interwire and intrawire dominated pairing. The intrawire pairing is increased as $d$ increases. Vice versa for the interwire pairing. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
 \label{fig.pairingkdependT0dvaried}  
 \end{center}    
 \end{figure}
@@ -234,7 +236,7 @@ We only need a single negative energy eigenvector. We choose the one with eigenv
 \end{equation}
 This is seen to be manifestly well-defined for all $k$. The first element of the Berry connection is then:
 \begin{equation}
-\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \frac{i}{2(E^{+}_{F,k})^2}\left(\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \epsilon_k\right). 
+\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \frac{i}{2(E^{+}_{F,k})^2}\left(\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \epsilon_k\right). \nonumber
 \end{equation}
 The subsystem Chern-Simons invariant hereby becomes: 
 \begin{equation}
@@ -254,14 +256,12 @@ as both $\Delta^{11}_k$ and $\Delta^{12}_k$ goes to $0$ and $\varepsilon_k \to \
 Now the more subtle $\mu > 0$ case. $\varepsilon_k$ has two zero points at the Fermi surface $k = k_\pm$. This introduces discontinuities in $G_k(c=0)$ at $k_\pm$. However, for the evaluation of the integral to be correct, we must use a continuous primitive. Therefore we have to patch a continuous solution together by looking in the intervals $k < k_-, k_- < k < k_+$ and $k>k_+$. Since $E_{F,k} \neq 0$ for all $k$ and $\varepsilon_{k_\pm} = 0$, we get that $\Delta^{11}_{k_\pm} + \Delta^{11}_{k_\pm} \neq 0$. If this was not the case, the energy gap would close at either $k_+$ or $k_-$ and the topological index would be ill-defined. This means, that $\text{sgn}(\Delta^{11}_k + \Delta^{12}_k)$ is well-defined in $k = k_\pm$. Hence, we get:
 \begin{align}
 \lim_{k \uparrow k_+} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}), \nonumber \\
-\lim_{k \downarrow k_+} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}),
-\label{eq.2wires.CS11.kpluslimit}
+\lim_{k \downarrow k_+} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}), \nonumber
 \end{align}
 since $\arctan(x) \to \pm \pi/2$ for $x \to \pm \infty$. To mend the discontinuity of $\pi\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$, we let $c = \pi\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$ for $k > k_+$. This was the $k > 0$ part. For $k \to k_-$ we get analogously get:
 \begin{align}
 \lim_{k \downarrow k_-} G_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}), \nonumber \\
-\lim_{k \uparrow k_-} G_k(c = 0)   &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}).
-\label{eq.2wires.CS11.kminuslimit}
+\lim_{k \uparrow k_-} G_k(c = 0)   &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}). \nonumber
 \end{align}
 We therefore let $c = \pi \text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-})$ for $k < k_-$. We have hereby constructed a continuous primitive to the integrand in equation \eqref{eq.CS11integralform}:
 \begin{equation}
@@ -296,38 +296,55 @@ This does not explain the numerical result. Rather it emphasizes, that it is pos
 As a by-product of these two subsections, we get that in the $d \to 0$ limit, the system is topologically trivial, since $\Delta^{12}_k$ is dominant here. This shows explicitly, that an $s$-wave pairing system is topologically trivial as mentioned in the previous section. 
 
 
-\section{Range of interaction dependency of cross over}
-\label{sec.2wiresrange_of_interaction_crossover}
-In this section we will investigate how the cross over from intrawire to interwire pairing depends on the range of the induced interaction. The range is roughly the condensate coherence length $\xi$:
+\section{Control of cross over through the coherence length}
+\label{sec.2wires_crossover_control_coherence_length}
+In this section we will investigate how we can control the cross over from intrawire to interwire pairing through the coherence length, $\xi$, of the Bose-Einstein condensate.
+
+The range of the induced interaction is roughly the condensate coherence length:
 \begin{equation}
 k_F\frac{\xi}{\sqrt{2}} = \frac{\sqrt{\pi}}{4}\frac{1}{\sqrt{(n_Ba_B^3)^{1/3}}}\frac{n_F}{n_B^{1/3}}.
 \label{eq.RangefunctionofrBBnB}
 \end{equation}
-It is intuitively reasonable, that for a longer interaction range, the interwire interaction will become comparable to the intrawire interaction at a larger critical distance $d_c$ between the wires. This is simply because the distance between the wires should become less significant for a longer interaction range. Hence, we expect a monotonic increase of $d_c$ with $\xi$.   
+We would like to explore the possibility of controlling the cross over through the coherence length. This is of experimental relevance. Adjusting the spatial distance, $d$, between the wires may be rather difficult in an experimental setup. If we can control an effective distance between the wires by adjusting the coherence length, this then might be a more realisable approach. We may have the following intuitive idea of the feasibility of this approach. For a very short coherence length the induced interaction cannot reach across the distance $d$ between the wires. However, there is always a neighbour close by internally in the wire. Hence, we expect that for $\xi \to 0$ the system is in the intrawire pairing only regime. Opposite, for very long coherence lengths the distance between the wires becomes insignicant. Further, since the interwire induced interaction is enhanced by a factor of 2 relative to the intrawire one, we expect that for $\xi \to \infty$ the system enters the interwire pairing only regime. 
 
-For the analysis, we will keep the Bose gas parameter $(n_Ba_B^3)^{1/3}$ constant and use the ratio of interparticle distances $n_F/n_B^{1/3}$ to vary the range of the interaction. The analysis is then performed in the following way. We start at a high value of $n_F/n_B^{1/3}$. A direct and precise measure for the transition is the previously mentioned critical distance $d_c$. In practice this is found in the following way. First we calculate the free energy $F_1(\Delta^{11}_k) = E_0(\Delta^{11}_k) + 2 \mu (\Delta^{11}_k) N_F$ in the case, that there is only intrawire pairing, $\Delta^{11}_k$ present. This is independent of $d$ as described by the dashed curve in figure \ref{fig.2wiresE0ddepend}. Then we calculate the same in the case, there is only interwire pairing, $\Delta^{12}_k$, present. We then iteratively find the value of $d = d_c$, where the free energies match: $F(\Delta^{12}_k, d_c) = F(\Delta^{11}_k)$. We then decrease $n_F/n_B^{1/3}$ by a small amount and repeat the process. The outcome of the analysis is shown in figure \ref{fig.twowirescrossovernBdepend}. We notice, that the $d_c$ exhibits a maximal value, and that it approaches a constant for large ratios of $n_F/n_B^{1/3}$. The red line indicates where $v_F = c_0$. Therefore, the behaviour to the right of the red line can only be considered as the zero frequency contribution. Hence, strictly we can only describe the effect of the zero frequency component. 
+As mentioned in the end of chapter \ref{Chapter8}, we can quanitify this analysis in the following manner. We simply consider the transition as a competion of whether $\tilde{V}_{FF,11}^\text{ind}(x,0)$ or $2\tilde{V}_{FF,12}^\text{ind}(x,0)$ is the larger interaction. Explicitly, for some reference length $x_0$ we get the equation:
+\begin{equation}
+2 = \frac{ \tilde{V}_{FF, 11}^\text{ ind }(x_0, 0) }{ \tilde{V}_{FF, 12}^\text{ ind }(x_0, 0) } = \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 }\text{ e }^{ -\frac{ \sqrt{2}x_0 }{ \xi } \left( 1 - \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 } \right) }.
+\label{eq.2wires.Vequal}
+\end{equation}
+For a specific value of $x_0$ we can solve this equation numerically. We will return to this shortly.  
 
-We can understand the appearance of the asymptotic behaviour from a functional point of view. The intrawire pairing, $\Delta^{11}_k$, depends on the parameters $\beta, m_B/m_F, (n_Ba_B^3)^{1/3}$ and $n_B^{1/3}/n_F$ and is a functional of the pairings themselves: $\Delta^{11}_k, \Delta^{12}_k$. This is similarly the case for the interwire pairing, $\Delta^{12}_k$, with the additional parameter $d$. Hence, we can write:
-\begin{equation}
-\Delta^{11}_k = F\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} \right), \hspace{0.5cm} \Delta^{12}_k = G\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F}, d \right), \nonumber 
-\end{equation}
-where $F$ and $G$ are the described functionals. On unitless form the functionals have a common prefactor, that depends on the mass ratio, the Bose gas parameter and the ratio of interparticle distances: $m_B/m_F, (n_Ba_B^3)^{1/3}$, and $n_B^{1/3}/n_F$. This means, that the limit of $n_F/n_B^{1/3} \to \infty $ is well-defined for the ratio of the pairings:
-\begin{equation}
-\lim_{\frac{n_F}{n_B^{1/3}} \to \infty} \left[\frac{\max_k[|\Delta^{11}_k|]}{\max_k[|\Delta^{12}_k|]}\right] = \frac{\max_k\left[\left|F\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} = 0 \right)\right|\right] }{\max_k\left[\left|G\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} = 0, d \right)\right|\right]}. \nonumber
-\end{equation}
-Since the pairings must be comparable at a distance similar to $d_c$, the above ratio will be equal to 1 at a distance similar to $d_c$. It is therefore evident that $d_c$ is independent of the ratio of interparticle distances for $n_F/n_B^{1/3} \gg 1$. Hence, $d_c$ must approach a constant for increasing values of $n_F/n_B^{1/3}$. From equation \eqref{eq.RangefunctionofrBBnB} it is clear, that an increase in $n_F/n_B^{1/3}$ for a fixed Bose gas parameter $(n_Ba_B^3)^{1/3}$ gives an increase in the coherence length $k_F\xi$ and hence in the range of the interactions. Therefore, the behaviour described in this section is \textit{not} in agreement with the intuitive idea given in the end of chapter \ref{Chapter8}, that the interwire interaction will become significant at a distance around the range of the interaction!
+For the numerical analysis based on the pairings, we will keep the Bose gas parameter $(n_Ba_B^3)^{1/3}$ constant and use the ratio of interparticle distances $n_F/n_B^{1/3}$ to vary the range of the interaction. This challenges the intuitive idea described above, because the induced interactions are both proportional to $n_B^{1/3}/n_F$. Hence, both decrease with an increase in the coherence length. 
+
+The analysis is performed in the following way. We start at a high value of $n_F/n_B^{1/3}$. A direct and precise measure for the transition is the previously mentioned critical distance $d_c$. In practice this is found in the following way. First we calculate the free energy $F_1(\Delta^{11}_k) = E_0(\Delta^{11}_k) + 2 \mu (\Delta^{11}_k) N_F$ in the case, that there is only intrawire pairing, $\Delta^{11}_k$ present. This is independent of $d$ as described by the dashed curve in figure \ref{fig.2wiresE0ddepend}. Then we calculate the same, when only interwire pairing is present. We then iteratively find the value of $d = d_c$, where the free energies match: $F(\Delta^{12}_k, d_c) = F(\Delta^{11}_k)$. We then decrease $n_F/n_B^{1/3}$ by a small amount and repeat the process. The outcome of the analysis is shown as the black solid curve in figure \ref{fig.twowirescrossovernBdepend}. We notice, that $d_c$ exhibits a maximal value, and that it approaches a constant for large ratios of $n_F/n_B^{1/3}$. The dashed vertical line indicates where $v_F = c_0$. Therefore, the behaviour to the right of this line can only be considered as the zero frequency contribution. 
+
+The area with white background indicates the \textit{intra}wire pairing only regime. The grey area is correspondingly \textit{inter}wire pairing only. We can understand this result in the following way. First, consider a constant value of ratio of interparticles distances, e.g. $n_F/n_B^{1/3} = 0.2$. When we decrease the interwire distance from say $k_Fd = 1$ we move along the dashed vertical grid line at $n_F/n_B^{1/3} = 0.2$. The system experiences the cross over, when we cross the solid black line. This is as described in section \ref{sec.2wiresCrossover_energy}. Second, consider a constant value of the interwire distance, e.g. $k_Fd = 0.6$. When we increase $n_F/n_B^{1/3}$ we follow the horisontal grid line and the system again experiences the cross over, when it crosses the solid black line. 
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/twowires/Deltas3.1.2/nBdepend.tex}  
-\caption{The critical distance $d_c$ plotted as a function of the ratio of interparticle distances $n_F/n_B^{1/3}$. Notice, that there is a maximum, at that $d_c$ approaches a constant for large $n_F/n_B^{1/3}$. The red line indicates, where $v_F = c_0$. The curve to the right hereof is only the zero frequency contribution. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$. }  
+\input{Figures/twowires/Deltas3.1.3/nBdepend.tex}  
+\caption{Solid line: the critical distance $d_c$ plotted as a function of the ratio of interparticle distances $n_F/n_B^{1/3}$. White background: intrawire pairing only regime. Grey background: interwire pairing only regime. Dash-dotted line: the critical distance according to the competition of intra- and interwire interactions for $k_Fx_0 = 1/\sqrt{3}$. See equation \eqref{eq.2wires.Vequal}. When we cross the solid line the system experiences the phase transition studied in section \ref{sec.2wiresCrossover_energy}. Dashed vertical line: $v_F = c_0$. The curve to the right hereof is only the zero frequency contribution. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$. }  
 \label{fig.twowirescrossovernBdepend}  
 \end{center}    
 \end{figure}
 
-The appearance of a maximum in $d_c$ can qualitatively be understood in the following way. For low values of $n_F/n_B^{1/3}$ the Bose gas becomes more rigid, since the spacing between the bosons becomes smaller. Hence, the wires must be brought closer together for the interwire pairing to dominate. For high values of $n_F/n_B^{1/3}$ the Bose gas is depleted. This means, that there are simply fewer bosons for the fermions to interact with. It is therefore reasonable, that $d_c$ should not exhibit a maximal value for $n_F/n_B^{1/3} \to \infty$. As a consequence a maximal value of $d_c$ appeares. This analysis is reminiscent of the analysis explaning the appearance of a minimum in $W^\text{ind}_{FF,12}(k_F,k_F)$ as a function of $n_F/n_B^{1/3}$. See subsection \ref{subsec.relevantmomenta.effectiveinteraction} for the details.  
+In this way we explicitly see, that instead of actually moving the wires we can control the cross over by adjusting $n_F/n_B^{1/3}$ and in turn the coherence length; see equation \eqref{eq.RangefunctionofrBBnB}. This all supports the intuitive idea outlined above. Caution should however be taken. Most importantly, there is an extremal value of $d_c$ at a finite value of $n_F/n_B^{1/3}$. Notice, that this also means, that just below this extremal value, there is an interval of distances, where the system experiences two cross overs. This is not explained by the competition of interactions. This we can see quite explicitly by solving equation \eqref{eq.2wires.Vequal} numerically. However, we have to choose a specific value of $x_0$. In the $\xi \to \infty$ limit we get a solvable form of the equation:
+\begin{equation}
+2 = \sqrt{1 + \left(\frac{d_c}{x_0}\right)^2} \Rightarrow d_c = \sqrt{3} x_0. \nonumber
+\end{equation}
+From this it is clear, that $d_c$ reaches a constant for $\xi \to \infty$ based on \eqref{eq.2wires.Vequal}. Hence, the fact that the actual critical distance $d_c$ has this asymptotic behaviour is well-described within a competition of interactions line of thinking. Further, in this line of thinking it is physically reasonable, that the asymptotic value of $d_c$ is the typical distance between the particles: $k_Fd_c = 1$.\footnote{This choice is reasonable, but not crucial. For any value of $x_0 > 0$ the result is the same.} Hence, we set $k_Fx_0 = 1/\sqrt{3}$. This results in the dash-dotted line in figure \ref{fig.twowirescrossovernBdepend}. From this it is clear, that the competition of interactions is not able to capture the fact, that the dependence of the critical distance, $d_c$, on the ratio of interparticle distances, $n_F/n_B^{1/3}$, is \textit{not} monotonic, but rather has a maximal value at a finite value of $n_F/n_B^{1/3}$ as mentioned above. This emphasizes the fact, that although a lot of physical intuition can be build on the form and behaviour of the interactions, we have to be careful when using it to argue for the response of the system.
 
-The result of this section is experimentally relevant. In a real experiment one might speculate in controlling the felt distance between the wires by tuning the coherence length. This may be an easier task, than physically moving the wires, since one here as to adjust the traps. However, the analysis in this section shows, that this cannot be done, at least not through putting more bosons into the gas. Why? - because one would then need the critical distance $d_c \to \infty$ for $n_F/n_B^{1/3} \to \infty$. In contradiction with the results of this section. The only possibility left is to adjust the Bose gas parameter $(n_Ba_B^3)^{1/3}$. 
+Let us try to understand this from a functional point of view instead. The intrawire pairing, $\Delta^{11}_k$, depends on the parameters $\beta, m_B/m_F, (n_Ba_B^3)^{1/3}$ and $n_B^{1/3}/n_F$ and is a functional of the pairings themselves: $\Delta^{11}_k, \Delta^{12}_k$. This is similarly the case for the interwire pairing, $\Delta^{12}_k$, with the additional parameter $d$. Hence, we can write:
+\begin{equation}
+\Delta^{11}_k = G\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} \right), \hspace{0.5cm} \Delta^{12}_k = H\left(\Delta^{11}_k, \Delta^{12}_k, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F}, d \right), \nonumber 
+\end{equation}
+where $G$ and $H$ are the described functionals. On unitless form the functionals have a common prefactor, that depends on the mass ratio, the Bose gas parameter and the ratio of interparticle distances: $m_B/m_F, (n_Ba_B^3)^{1/3}$, and $n_B^{1/3}/n_F$. This means, that the limit of $n_F/n_B^{1/3} \to \infty $ is well-defined for the ratio of the pairings:
+\begin{equation}
+\lim_{\frac{n_F}{n_B^{1/3}} \to \infty} \left[\frac{|\Delta^{11}_{k_F}|]}{|\Delta^{12}_{k_F}|}\right] = \frac{\left|G\left(\Delta^{11}_{k_F}, \Delta^{12}_{k_F}, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} = 0 \right)\right|}{\left|H\left(\Delta^{11}_{k_F}, \Delta^{12}_{k_F}, \beta, \frac{m_B}{m_F}, (n_Ba_B^3)^{1/3}, \frac{n_B^{1/3}}{n_F} = 0, d \right)\right|}. \nonumber
+\end{equation}
+Since the pairings at $k_F$ must be comparable at a distance similar to $d_c$, the above ratio will be equal to 1 at a distance similar to $d_c$. It is therefore evident that $d_c$ is independent of the ratio of interparticle distances for $n_F/n_B^{1/3} \gg 1$. Hence, $d_c$ must approach a constant for increasing values of $n_F/n_B^{1/3}$. 
+
+The appearance of a maximum in $d_c$ can qualitatively be understood in the following way. For low values of $n_F/n_B^{1/3}$ the Bose gas becomes more rigid, since the spacing between the bosons becomes smaller. Hence, the wires must be brought closer together for the interwire pairing to dominate. For high values of $n_F/n_B^{1/3}$ the Bose gas is depleted. This means, that there are simply fewer bosons for the fermions to interact with. It is therefore reasonable, that $d_c$ should not exhibit a maximal value for $n_F/n_B^{1/3} \to \infty$. As a consequence a maximal value of $d_c$ appeares. This analysis is reminiscent of the analysis explaning the appearance of a minimum in intrawire effective interaction, $W^\text{ind}_{FF,11}(k_F,k_F)$, as a function of $n_F/n_B^{1/3}$. See subsection \ref{subsec.relevantmomenta.effectiveinteraction} for the details.  
 
 \section{Temperature dependency of pairings}
 In this section we will investigate, how the pairings depend on temperature. The analysis is performed in complete analogy to the one in subsection \ref{subsec.momentum_and_temperature_pairing_singlewire}. 

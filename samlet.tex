@@ -35,6 +35,22 @@
 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 
+\newcommand{\partimage}[2][]{\gdef\@partimage{\includegraphics[#1]{#2}}}
+% redefine the amsbook part code to include the \@partimage insertion command
+\def\@part[#1]#2{%
+  \ifnum \c@secnumdepth >-2\relax \refstepcounter{part}%
+    \addcontentsline{toc}{part}{\partname\ \thepart.
+        \protect\enspace\protect\noindent#1}%
+  \else
+    \addcontentsline{toc}{part}{#1}\fi
+  \begingroup\centering
+  \ifnum \c@secnumdepth >-2\relax
+       {\fontsize{\@xviipt}{22}\bfseries
+         \partname\ \thepart} \vskip 20\p@ \fi
+  \fontsize{\@xxpt}{25}\bfseries
+      #1\vfil\@partimage\vfil\endgroup \newpage\thispagestyle{empty}}
+\makeatother
+
 \usepackage{caption}
 \captionsetup{
   font=footnotesize,
@@ -270,13 +286,18 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
+\part{Introductions}
 \input{Chapters/Chapter1}
 \input{Chapters/Chapter2} 
+
+\part{One wire}
 \input{Chapters/Chapter3}
 \input{Chapters/Chapter4} 
 \input{Chapters/Chapter5} 
 \input{Chapters/Chapter6} 
 \input{Chapters/Chapter7} 
+
+\part{Two wires}
 \input{Chapters/Chapter8} 
 \input{Chapters/Chapter9}
 \input{Chapters/Chapter10}
@@ -310,10 +331,12 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 
 \label{Bibliography}
 
-%\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
- 
 \bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-
 \bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\chead{}
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+ 
+
+
 
 \end{document}  

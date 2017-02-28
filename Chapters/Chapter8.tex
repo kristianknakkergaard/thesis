@@ -1,10 +1,11 @@
 % Chapter 7
 
-\chapter{Two wires, induced interaction} % Main chapter title
+\chapter{The induced interaction} % Main chapter title
 
 \label{Chapter8} % For referencing the chapter elsewhere, use \ref{Chapter8} 
 
-\lhead{Chapter 8. \emph{2 wires, induced interaction}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part III. \emph{Two wires}}
+\chead{Chapter 8. \emph{Induced interaction}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In the chapter we will introduce a second wire parallel to the first one already studied. The aim here is to calculate the additional (interwire) induced interaction between the wires. The approach mirrors chapter \ref{Chapter3}. For this reason we will not go in as much detail in the present chapter.
@@ -172,7 +173,7 @@ with $J_0$ the zero order Bessel function of the first kind. This form of the po
 \tilde{V}_{FF,12}^\text{ind}(x,0) &= \int \frac{dq}{2\pi} \; \text{e}^{iqx} V_{FF,12}^\text{ind}(q,0) = -4n_Bg^2_{BF}m_B\int \frac{d^3k}{(2\pi)^3} \frac{\text{e}^{i\mathbf{k}\cdot \mathbf{r}}}{k^2 + 2/\xi^2} \nonumber \\
 								  &= -\frac{n_Bg^2_{BF}m_B}{\pi} \frac{\text{e}^{-\sqrt{2(x^2+d^2)}/\xi}}{\sqrt{x^2+d^2}},
 \end{align}
-since we recognise the second expression as the Yukawa potential in momentum space with range $\xi/\sqrt{2}$. The interwire induced interaction is hereby shown to be the natural generalisation of the intrawire interaction found in chapter \ref{Chapter3}. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
+since we recognise the second expression as the Yukawa potential in momentum space with range $\xi/\sqrt{2}$. It is hereby evident, that in the $d = 0$ limit the interwire induced interaction goes to the intrawire one found in chapter \ref{Chapter3}, as it should be. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
 \begin{equation}
 V^\text{ind}_{FF,12}(q,0) = \int dx \; \text{e}^{-iqx}\tilde{V}^\text{ind}_{FF,12}(x,0) = 2\int_0^\infty \cos(qx)\tilde{V}^\text{ind}_{FF,12}(x,0), \nonumber 
 \end{equation}
@@ -203,7 +204,19 @@ The fact, that we can express the induced interaction in terms of a known functi
 \end{center}    
 \end{figure}
 
-It is instructive to see, what the functional form of the induced interaction is; both in real and momentum space.  This is shown in figures \ref{fig.VFF12indq} and \ref{fig.VFF12indx}. The plot is done for the same set of parameters as in chapter \ref{Chapter5} for the analysis of the pairing. For this set of parameters one can calculate, that the range of the induced interaction in real space is approximately $1/k_F$: $k_F\frac{\xi}{\sqrt{2}} \approx 1$. From figure \ref{fig.VFF12indx} it is then evident, that when the distance between the wires is approximately the range of the interaction, $d\approx \xi$, the ratio of the induced interaction to the Fermi energy is approximately unity: $\tilde{V}_{FF,12}^\text{ind}(x=0,0)/\epsilon_{F,0} \approx 1$. This indicates, that when $d \approx \xi$, the interaction between the wires will start to be significant. This is also what one physically would expect. 
+It is instructive to see, what the functional form of the induced interaction is; both in real and momentum space.  This is shown in figures \ref{fig.VFF12indq} and \ref{fig.VFF12indx}. The plot is done for the same set of parameters as in chapter \ref{Chapter5} for the analysis of the pairing. 
+
+For comparison and later use, let us list the intra- and interwire induced interactions on unitless form. This we do for $l_t = 0$. In real space we have:
+\begin{align}
+\frac{\tilde{V}_{FF,11}^\text{ind}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ -\sqrt{2}|x| / \xi } }{k_F|x|}, \nonumber \\
+\frac{\tilde{V}_{FF,12}^\text{ind}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ - \sqrt{2(x^2 + d^2)} /\xi } }{k_F\sqrt{2(x^2 + d^2)}}. 
+\end{align}
+As mentioned above, the interaction in real space is essentially the same. The only difference is, that the interaction distance between the wires is at least $d$. In momentum space we should compare the interwire induced interaction with the effective intrawire interaction, formerly denoted $W^\text{ind}_{FF}(k,k')$. To avoid any confusion we will now denote these $W^\text{ind}_{FF,jj}(k,k')$ for the effective interaction in wire $j = 1, 2$. Then from equations \eqref{eq.EffectiveInteractionlt=0dimensionless} and \eqref{eq.VFF12indq} we get:
+\begin{align}
+\frac{2m_F}{k_F} W^\text{ind}_{FF,jj}(k,k') &= - 4\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right], \nonumber \\
+V^\text{ind}_{FF,12}(q,0) &= - 16\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3}K_0\left(\sqrt{(qd)^2+\frac{2d^2}{\xi^2}}\right).
+\end{align}
+We notice, that apart from a factor of $4$ the prefactors are identical. The theme of the next two chapters will be to investigate the competition between the intra- and interwire pairings, stemming from the above interactions. Since the interwire interaction is between distinguishable particles the interwire interaction Hamiltonian is a factor of 2 larger than the intrawire one; see equation \eqref{eq.InteractionHamiltonain2ndQuantization}. Therefore, one might suspect that the competition of the pairings simply comes down to a competition between $\tilde{V}_{FF,11}^\text{ind}(x,0)$ and $2\tilde{V}_{FF,12}^\text{ind}(x,0)$. This will be discussed in detail in section \ref{sec.2wires_crossover_control_coherence_length}. 
 
 
 

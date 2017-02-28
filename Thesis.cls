@@ -91,11 +91,16 @@
 \widowpenalty=9999                % Almost no widows at bottom of page.
 \clubpenalty=9999                 % Almost no orphans at top of page.
 \interfootnotelinepenalty=9999    % Almost never break footnotes.
+
 \usepackage{fancyhdr}
+
+
 \lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
 \rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
+
 \chead{}\lfoot{}\rfoot{}\cfoot{}
 \pagestyle{fancy}
+
 \renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter\ #1}{\@chapapp\ \thechapter\ #1}}
 \renewcommand{\sectionmark}[1]{}
 \renewcommand{\subsectionmark}[1]{}
@@ -112,7 +117,7 @@
 \DeclareMathOperator{\tr}{tr}
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
-\newtheorem{theorem}{Sætning}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{corollary}[theorem]{Korollar}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -120,7 +125,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Bemærkning}
+\newtheorem{remark}[theorem]{Remark}
 \usepackage[centerlast,small,sc]{caption}
 \setlength{\captionmargin}{20pt}
 \newcommand{\fref}[1]{Figure~\ref{#1}}
@@ -393,7 +398,7 @@
 \begin{longtable}[c]{#1}#2\end{longtable}\par
     \cleardoublepage
 }
-\newcommand\listconstants{Fysiske konstanter}
+\newcommand\listconstants{Physical constants}
 \usepackage{longtable}
 \newcommand\listofconstants[2]{
 \btypeout{\listconstants}

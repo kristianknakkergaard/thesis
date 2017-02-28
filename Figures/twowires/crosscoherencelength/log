@@ -1,0 +1,1 @@
+set terminal epslatex color ; set output "plot.tex"; 			   set grid;       			   set tics out;       			   set xlabel "$k_F\xi$"; 		   set ylabel "$k_Fd_c$"; 	   plot  [0:][0:2] 		    "data"  using 1:2 notitle with lines lc rgb "black" 

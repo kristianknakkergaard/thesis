@@ -1,10 +1,11 @@
 % Chapter 4
 
-\chapter{The one dimensional Fermi Hamiltonian} % Main chapter title
+\chapter{The Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
-\lhead{Chapter 4. \emph{1D Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part II. \emph{One wire}}
+\chead{Chapter 4. \emph{Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. See section \ref{sec.RetardationEffects} for details. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
@@ -132,8 +133,7 @@ The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the orig
 \begin{equation}
 \ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k\right)\ket{0},
 \end{equation} 
-where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that 
-$\braket{\text{S}|\text{S}} = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
+where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that $_{0}\!\braket{\text{S}|\text{S}}_0 = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
 \begin{equation}
 \zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
 \end{equation}

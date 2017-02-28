@@ -1,10 +1,11 @@
 % Chapter 9
 
-\chapter{Two wires, the Fermi Hamiltonian} % Main chapter title
+\chapter{The Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter9} % For referencing the chapter elsewhere, use \ref{Chapter9} 
 
-\lhead{Chapter 9. \emph{2 wires, Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part III. \emph{Two wires}}
+\chead{Chapter 9. \emph{Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In the chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we will classify the grand Hamiltonian topologically and discuss the symmetries. 
@@ -28,7 +29,7 @@ H^\text{int}_{FF,22} &= \frac{1}{2}\sum_k \left[\Delta^{22}_k f^\dagger_{2,k}f^\
 
 The interaction Hamiltonian for the interwire interactions is:
 \begin{equation}
-H^\text{int}_{FF,12} = \int dx dx' \psi^\dagger_{1,F}(x)\psi^\dagger_{2,F}(x') \tilde{V}^\text{ind}_{FF}(x-x',0) \psi_{2,F}(x')\psi_{1,F}(x).
+H^\text{int}_{FF,12} = \int dx dx' \psi^\dagger_{1,F}(x)\psi^\dagger_{2,F}(x') \tilde{V}^\text{ind}_{FF,12}(x-x',0) \psi_{2,F}(x')\psi_{1,F}(x).
 \end{equation}
 The factor in front of $1/2$ is absent, since the fermions in wire 1 and 2 are distinguishable. The mean field in this situation is $\braket{\psi_{2,F}(x')\psi_{1,F}(x)}$. Performing the mean field approximation analogously to the calculation in chapter \ref{Chapter4} then shows, that:
 \begin{align}

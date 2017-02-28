@@ -4,7 +4,8 @@
 
 \label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter7} 
 
-\lhead{Chapter 7. \emph{Topology \& symmetries}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part II. \emph{One wire}}
+\chead{Chapter 7. \emph{Topology \& symmetries}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether we are in a topological or trivial phase. Finally, we will see what physical consequences the phases have by investigating socalled Majorana fermions. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
@@ -175,7 +176,7 @@ The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 
 \begin{equation}
 \text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \text{tr}\left[\mathcal{A}_k\right], \nonumber
 \end{equation}
-where BZ is short for the first Brillouin zone, and $\mathcal{A}$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. The Berry connection is then in this case defined as:
+where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. The Berry connection is then in this case defined as:
 \begin{equation}
 \mathcal{A}_k = \bra{e^{-}_k}\partial_k\ket{e^{-}_k}. \nonumber
 \end{equation}
@@ -197,7 +198,7 @@ With this and a bit of calculating the Berry connection becomes:
 \end{equation}
 Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we get:
 \begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
 \label{eq.CSinv1}
 \end{equation}
 where the last equality stems from the fact, that the integrand is even. The integrand has a primitive given by $-\arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)$. Hence, the above is directly calculable:
@@ -206,12 +207,12 @@ where the last equality stems from the fact, that the integrand is even. The int
 & = \left\{ \begin{matrix} -\frac{\text{sgn}(\Delta_{k>0})}{2}, & \mu > 0, \\ 0, & \mu < 0. \end{matrix} \right. 
 \label{eq.CSinv2}
 \end{align}
-By $\text{sgn}(\Delta_{k>0})$ we mean the sign of $\Delta_k$ for $k > 0$. Two effects lead to the equality $(*)$. Firstly, $\arctan(x) \to \pi/2$ for $x \to \infty$. $\text{sgn}(\Delta_{k>0})$ appears, since if $\Delta_k$ is negative for $k > 0$, the argument $\frac{\varepsilon_k}{\Delta_k}$ goes to $-\infty$ for $k \to \infty$. Secondly, since $\Delta_{k=0} = 0$ the evaluation in $k = 0$ can be performed by the written limit of $a \to 0^+$. This shows, that the Chern-Simons invariant is \textit{not} invariant under gauge transformations, e.g. $\Delta_k \to - \Delta_k$. Since the two nonzero Chern-Simons invariants are related by a gauge transformation, there are equivalent. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
+By $\text{sgn}(\Delta_{k>0})$ we mean the sign of $\Delta_k$ for $k > 0$. Two effects lead to the equality $(*)$. Firstly, $\arctan(x) \to \pi/2$ for $x \to \infty$. $\text{sgn}(\Delta_{k>0})$ appears, since if $\Delta_k$ is negative for $k > 0$, the argument $\frac{\varepsilon_k}{\Delta_k}$ goes to $-\infty$ for $k \to \infty$. Secondly, since $\Delta_{k=0} = 0$ the evaluation in $k = 0$ can be performed by the written limit of $a \to 0^+$. This shows, that the Chern-Simons invariant is \textit{not} invariant under gauge transformations, e.g. $\Delta_k \to - \Delta_k$. Since the two nonzero Chern-Simons invariants are related by a gauge transformation, they are equivalent. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
 \begin{equation}
 W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu). 
 \end{equation}
 We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
 
-\newpage
-The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of the following chapters. 
+\vspace{1cm}
+The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
 

@@ -4,7 +4,8 @@
 
 \label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-\lhead{Chapter 2. \emph{Prerequisites}} % This is for the header on each page - perhaps a shortened title
+\lhead{Part I. \emph{Introductions}}
+\chead{Chapter 2. \emph{Prerequisites}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we come with a summary of the necessary prerequisites for the understanding of the 1D-3D system at hand. This includes the free fermion gas, second quantization, the Kitaev model and the weakly interacting Bose-Einstein condensate. Further the notation of the thesis is in large introduced here, and I refer to the relevant section in this chapter, if any confusion should arise. If one is familiar with the concepts introduced here, they can be skipped. 
@@ -19,7 +20,7 @@ with $\beta = 1/k_BT$ the inverse temperature, $E_{F0,k} = \frac{k^2}{2m_F}$ the
 N_F = \sum_{|k|< k_F} = \frac{\mathcal{L}}{2\pi} \int_{-k_F}^{k_F} dk = \frac{\mathcal{L}}{\pi} k_F \Rightarrow k_F = \pi n_F, 
 \label{eq.relationkfnf}
 \end{equation}
-where $n_F = \frac{N_F}{\mathcal{L}}$ is the density of the fermions. I do not put a 0 subscript on $n_F$, since I consider the length and the number of fermions as fixed. Hence, $n_F$ is an externally fixed variable. The chemical potential for temperatures $T>0$ is determined from the number equation: $N_F = \sum_k f(k)$, since $f(k)$ is the mean occupancy of the $k$'th state. Transforming this into an energy integral yields:
+where $n_F = \frac{N_F}{\mathcal{L}}$ is the density of the fermions. We do not put a 0 subscript on $n_F$, since we consider the length and the number of fermions as fixed. Hence, $n_F$ is an externally fixed variable. The chemical potential for temperatures $T>0$ is determined from the number equation: $N_F = \sum_k f(k)$, since $f(k)$ is the mean occupancy of the $k$'th state. Transforming this into an energy integral yields:
 \begin{equation}
 N_F = \int_0^\infty dE \; \frac{\mathcal{L}}{\pi}\sqrt{\frac{m}{2E}} f(E). 
 \label{eq.numberequationfreegas}
@@ -50,7 +51,7 @@ In this section I will introduce the second quantization formalism.\footnote{Any
 \begin{equation}
 \hat{T} = \int d^3 r \; \psi^\dagger(\mathbf{r}) T(\mathbf{r})\psi(\mathbf{r}). \nonumber   
 \end{equation} 
-If the field operators had been wave functions we see, that the above corresponds to the mean value $\braket{T}$. In this sense one can make the following recipe for going from first to second quantization. Write up the mean value for the operator and then change the wave functions to fields operators. Then the mean value goes to the second quantized operator. For this to be an applicable approach the matrix elements of $\hat{T}$ must be same as the matrix elements of $T$. The matrix elements in position space are: $\bra{0}\psi(\mathbf{r}) \hat{T} \psi^\dagger(\mathbf{r}')\ket{0}$, where $\ket{0}$ is the socalled vacuum: the state with no particles present. For fermions we inforce the anticommutator: $\{\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')\} = \delta(\mathbf{r}-\mathbf{r}')$, for bosons the commutator: $[\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')] = \delta(\mathbf{r}-\mathbf{r}')$. In either case we get the matrix elements $T(\mathbf{r})\delta(\mathbf{r}-\mathbf{r}')$, which is the exact matrix elements of $T$ in the position basis. 
+If the field operators had been wave functions we see, that the above corresponds to the mean value $\braket{T}$. In this sense one can make the following recipe for going from first to second quantization. Write up the mean value for the operator and then change the wave functions to fields operators. Then the mean value goes to the second quantized operator. For this to be an applicable approach the matrix elements of $\hat{T}$ must be the same as the matrix elements of $T$. The matrix elements in position space are: $\bra{0}\psi(\mathbf{r}) \hat{T} \psi^\dagger(\mathbf{r}')\ket{0}$, where $\ket{0}$ is the socalled vacuum: the state with no particles present. For fermions we inforce the anticommutator: $\{\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')\} = \delta(\mathbf{r}-\mathbf{r}')$, for bosons the commutator: $[\psi(\mathbf{r}), \psi^\dagger(\mathbf{r}')] = \delta(\mathbf{r}-\mathbf{r}')$. In either case we get the matrix elements $T(\mathbf{r})\delta(\mathbf{r}-\mathbf{r}')$, which is the exact matrix elements of $T$ in the position basis. 
 
 This looks a tad involved. My claim is however, that we can recover a lot of intuition from classical mechanics in second quantization. This is especially clear, when we describe the operators in their eigenspace. Therefore let $\psi(\mathbf{r}) = \sum_{\mathbf{p}} \text{e}^{i\mathbf{p}\cdot \mathbf{r}} a_\mathbf{p}$, where $a_\mathbf{p}$ annihilates a particle of momentum $\mathbf{p}$. A simple calculation shows, that:
 \begin{equation}
@@ -58,7 +59,8 @@ This looks a tad involved. My claim is however, that we can recover a lot of int
 \end{equation}
 The operator $N_\mathbf{p} = a^\dagger_\mathbf{p}a_\mathbf{p}$ counts the number of particles with momentum $\mathbf{p}$. Hence, the momentum operator in second quantization consists of summing up the momentum contribution $\frac{p^2}{2m}$ from each momentum state. This is intuitively simple. Similarly, one can argue that a two particle operator in second quantization, such as the pair interactions we will study, should be written in the form:
 \begin{equation}
-\hat{U}^{(2)} = \frac{1}{2}\int d^3 r d^3 r' \; \psi^\dagger(\mathbf{r}) \psi^\dagger(\mathbf{r}') U^{(2)}(\mathbf{r},\mathbf{r}')\psi(\mathbf{r}')\psi(\mathbf{r}). \nonumber 
+\hat{U}^{(2)} = \frac{1}{2}\int d^3 r d^3 r' \; \psi^\dagger(\mathbf{r}) \psi^\dagger(\mathbf{r}') U^{(2)}(\mathbf{r},\mathbf{r}')\psi(\mathbf{r}')\psi(\mathbf{r}). 
+\label{eq.InteractionHamiltonain2ndQuantization} 
 \end{equation}
 The factor of $\frac{1}{2}$ is to account for double counting. It is thus only precent for identical particles. This ends our second quantization prerequisite. 
 
