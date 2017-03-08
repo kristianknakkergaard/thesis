@@ -29,8 +29,8 @@ For $\Delta^{12}_k$ real the analysis is performed in the same way as in the abo
 
 Now let us concentrate on the energetically favourable solution: $\Delta^{12}_k$ imaginary. In this case the energy dispersions are identical and even in $k$: $E^{\pm}_{F,k} = E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. This means, that the gap equations in \eqref{eq.2wiresgapequations} partially decouples: 
 \begin{align}
-\Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,11}(k, k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
-\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W^\text{ind}_{FF,12}(k, k')\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
+\Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
+\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{12}(k, k')\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right).
 \label{eq.2wiresgapequationsDelta12imaginary}
 \end{align} 
 This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the pairings at the Fermi momentum as above. The result is shown as the red curves in figure \ref{fig.2wiresMaximalPairingddepend}.
@@ -46,7 +46,7 @@ This explicitly shows, that the two pairings are only coupled through the energy
 \begin{figure} 
 \begin{center}  
 \input{Figures/twowires/Deltas2.1.6/ddepend.tex}  
-\caption{The pairings at the Fermi momentum, $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$, as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\caption{The pairings at the Fermi momentum, $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$, as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. The \textit{inter}wire pairing is shown with dash-dotted lines. The \textit{intra}wire pairings are shown in solid. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
 \label{fig.2wiresMaximalPairingddepend}  
 \end{center}    
 \end{figure}
@@ -166,11 +166,11 @@ The situation changes dramatically for the real interwire pairing case. As shown
 \begin{equation}
 \mathcal{H}_{FF,-k}\mathcal{T}\ket{\psi_k} = \mathcal{T}\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\mathcal{T}\ket{\psi_k}. \nonumber
 \end{equation}
-Let us suppose, that the two kets represent the same state. Then they are equal up to some phase: $\mathcal{T}\ket{\psi_k} = \text{e}^{i\delta}\ket{\psi_k}$. Further:
+The above further shows, that the time reversed state is a state in $-k$. Let us therefore suppose, that $\ket{\psi_{-k}}$ and $\mathcal{T}\ket{\psi_k}$ represent the same state: $\mathcal{T}\ket{\psi_k} = \text{e}^{i\delta}\ket{\psi_{-k}}$. Further:
 \begin{equation}
-\mathcal{T}^2\ket{\psi_k} = \mathcal{T}\left(\text{e}^{i\delta}\ket{\psi_k}\right) = \text{e}^{-i\delta}\text{e}^{i\delta}\ket{\psi_k} = \ket{\psi_k}. \nonumber
+-\ket{\psi_k} = \mathcal{T}^2\ket{\psi_k} = \mathcal{T}\left(\text{e}^{i\delta}\ket{\psi_{-k}}\right) = \text{e}^{-i\delta}\text{e}^{i\delta}\ket{\psi_k} = \ket{\psi_k}, \nonumber
 \end{equation}
-However, this contradicts that $\mathcal{T}^2 = -1$. Hence, the two kets must really represent two different states. This means, that any energy is at least doubly degenerate. This is Kramers degeneracy. Notice, that it is crucial that $\mathcal{T}^2 = -1$. For $\mathcal{T}^2 = +1$ there is no Kramers degeneracy. 
+where we in the first equality use $\mathcal{T}^2 = -\mathbb{I}$. Hence, we get an obvious contradiction. This means, that the two kets must really represent two different states. In conclusion: any energy is at least doubly degenerate. This is Kramers degeneracy. Notice, that it is crucial that $\mathcal{T}^2 = -\mathbb{I}$. For $\mathcal{T}^2 = +\mathbb{I}$ there is no Kramers degeneracy. 
 
 The question now is, how this changes the behaviour from the imaginary interwire pairing case, if we only look at perturbations, that respect all the symmetries of the system. Before the edge states could gap away: one to positive and one to negative energies. However, that is not possible here, because it would lead to only a single state at those two energies. Hence, the edge states are once again protected at $E = 0$. Since we now know, that we have to come from a topological to a trivial state something dramatic must happen in the cross over. In the same way as in section \ref{sec.topindexandphases} the switch in topological to trivial phase is associated with a closing in the bulk energy gap. The numerical analysis shows, that this happens at a single point $d = d_c$. The curious issue is, that if we look at the dispersion relations nothing stops this transition from being continuous:
 \begin{equation}
@@ -203,7 +203,7 @@ We are now ready for the computation. This will be done in the two cases $\Delta
 \label{subsec.2wires_CSinv_Delta12imag}
 The aim of this subsection is to calculate $\nu$ as given in equation \eqref{eq.2wires.topinv.T2eqplus1}. We follow the same procedure as the one in section \ref{sec.CS1}. 
 
-Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.2wiresgrandHFF}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it, which was also used in section \ref{sec.CS1}. This procedure is described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $F_k \to \tilde{F}_k = \begin{bmatrix} f_{1,k} & f_{2,k} & f^\dagger_{1,-k} & f^\dagger_{2,-k}  \end{bmatrix}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
+Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.2wiresgrandHFF}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it, which was also used in section \ref{sec.CS1}. This procedure is described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $C_k \to \tilde{C}_k = \begin{bmatrix} c_{1,k} & c_{2,k} & c^\dagger_{1,-k} & c^\dagger_{2,-k}  \end{bmatrix}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
 \begin{align}
 \mathcal{H}_{FF,k} &= \varepsilon_k \sigma_0 \otimes \tau_3 + \Delta^{11}_k \sigma_3 \otimes \tau_1 + \Delta^{12}_k \sigma_2 \otimes \tau_1 \to \nonumber \\
 \mathcal{H}'_{FF,k} &= \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_1 \otimes \tau_2, \nonumber 
@@ -253,48 +253,67 @@ where $c$ is a constant. The evaluation of the integral itself however turns out
 \end{equation}
 as both $\Delta^{11}_k$ and $\Delta^{12}_k$ goes to $0$ and $\varepsilon_k \to \infty$ for $k\to \pm \infty$, and $\arctan(0) = 0$. Hence, for $\mu < 0$ we get $\nu = \text{e}^{2\pi i\text{CS}_{1,1}} = 1$ and the system is topologically trivial as for the single wire case. 
 
-Now the more subtle $\mu > 0$ case. $\varepsilon_k$ has two zero points at the Fermi surface $k = k_\pm$. This introduces discontinuities in $G_k(c=0)$ at $k_\pm$. However, for the evaluation of the integral to be correct, we must use a continuous primitive. Therefore we have to patch a continuous solution together by looking in the intervals $k < k_-, k_- < k < k_+$ and $k>k_+$. Since $E_{F,k} \neq 0$ for all $k$ and $\varepsilon_{k_\pm} = 0$, we get that $\Delta^{11}_{k_\pm} + \Delta^{11}_{k_\pm} \neq 0$. If this was not the case, the energy gap would close at either $k_+$ or $k_-$ and the topological index would be ill-defined. This means, that $\text{sgn}(\Delta^{11}_k + \Delta^{12}_k)$ is well-defined in $k = k_\pm$. Hence, we get:
+Now the more subtle $\mu > 0$ case. $\varepsilon_k$ has two zero points at the Fermi surface $k = \pm k_0$. This introduces discontinuities in $G_k(c=0)$ at $\pm k_0$. However, for the evaluation of the integral to be correct, we must use a continuous primitive. Therefore we have to patch a continuous solution together by looking in the intervals $k < k_-, k_- < k < k_+$ and $k>k_+$. Since $E_{F,k} \neq 0$ for all $k$ and $\varepsilon_{\pm k_0} = 0$, we get that $\Delta^{11}_{\pm k_0} + \Delta^{11}_{\pm k_0} \neq 0$. If this was not the case, the energy gap would close at either $+k_0$ or $-k_0$ and the topological index would be ill-defined. This means, that $\text{sgn}(\Delta^{11}_k + \Delta^{12}_k)$ is well-defined in $k = \pm k_0$. Hence, we get:
 \begin{align}
-\lim_{k \uparrow k_+} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}), \nonumber \\
-\lim_{k \downarrow k_+} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}), \nonumber
+\lim_{k \uparrow +k_0} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber \\
+\lim_{k \downarrow +k_0} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber
 \end{align}
-since $\arctan(x) \to \pm \pi/2$ for $x \to \pm \infty$. To mend the discontinuity of $\pi\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$, we let $c = \pi\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$ for $k > k_+$. This was the $k > 0$ part. For $k \to k_-$ we get analogously get:
+since $\arctan(x) \to \pm \pi/2$ for $x \to \pm \infty$. To mend the discontinuity of $\pi\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$, we let $c = \pi\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$ for $k > k_0$. This was the $k > 0$ part. For $k \to -k_0$ we get analogously get:
 \begin{align}
-\lim_{k \downarrow k_-} G_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}), \nonumber \\
-\lim_{k \uparrow k_-} G_k(c = 0)   &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}). \nonumber
+\lim_{k \downarrow -k_0} G_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} +\frac{\pi}{2}\text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber \\
+\lim_{k \uparrow -k_0} G_k(c = 0)   &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}). \nonumber
 \end{align}
-We therefore let $c = \pi \text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-})$ for $k < k_-$. We have hereby constructed a continuous primitive to the integrand in equation \eqref{eq.CS11integralform}:
+Here we use, that $\Delta^{11}_k$ and $\Delta^{12}_k$ are respectively odd and even in $k$. We therefore let $c = \pi \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0})$ for $k < - k_0$. We have hereby constructed a continuous primitive to the integrand in equation \eqref{eq.CS11integralform}:
 \begin{equation}
 G_k = \left\{ \begin{matrix} 
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}), & k > k_+, \\
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right), & k_- \leq k \leq k_+, \\
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi \text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-}), & k < k_-.
+-\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k > k_0, \\
+-\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right), & -k_0 \leq k \leq k_0, \\
+-\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k < -k_0.
   \end{matrix} \right.
 \label{eq.Gkmugreater0}
 \end{equation}
 
-Since the $\arctan$ part of $G_k$ goes to $0$ for $k\to \pm \infty$ we see, that the signs $\text{sgn}(\Delta^{11}_{k_\pm} + \Delta^{12}_{k_\pm})$ must be different for the integral to give a nonzero result. Since $\Delta^{12}_{k}$ is even and $\Delta^{11}_{k}$ is odd, this can only be achieved if $\Delta^{11}_{k}$ is dominant at the Fermi surface: $|\Delta^{11}_{k_\pm}| > |\Delta^{12}_{k_\pm}|$. Hence, we get:
+Since the $\arctan$ part of $G_k$ goes to $0$ for $k\to \pm \infty$ we see, that the signs $\text{sgn}(\Delta^{11}_{\pm k_0} + \Delta^{12}_{\pm k_0})$ must be different for the integral to give a nonzero result. Since $\Delta^{12}_{k}$ is even and $\Delta^{11}_{k}$ is odd, this can only be achieved if $\Delta^{11}_{k}$ is dominant at the Fermi surface: $|\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}|$. Hence, we get:
 \begin{equation}
-\text{CS}_{1,1} = \frac{1}{4\pi} \left. G_k \right|^\infty_{-\infty} = \frac{1}{4}(\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_+}) - \text{sgn}(\Delta^{11}_{k_-} + \Delta^{12}_{k_-})) = \left\{ \begin{matrix} 
-\frac{1}{2}, & |\Delta^{11}_{k_\pm}| > |\Delta^{12}_{k_\pm}|, \\
-0, & |\Delta^{11}_{k_\pm}| < |\Delta^{12}_{k_\pm}|.
+\text{CS}_{1,1} = \frac{1}{4\pi} \left. G_k \right|^\infty_{-\infty} = \frac{1}{4}(\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) - \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0})) = \left\{ \begin{matrix} 
+\frac{1}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) , & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}|, \\
+0, & |\Delta^{11}_{k_0}| < |\Delta^{12}_{k_0}|.
   \end{matrix} \right. \nonumber 
 \end{equation}
 
 Finally, we can summarize the above calculations to the invariant:
 \begin{equation}
 \nu = \text{e}^{2\pi i \text{CS}_{1,1}} = \left\{ \begin{matrix} 
--1, & |\Delta^{11}_{k_\pm}| > |\Delta^{12}_{k_\pm}| & \text{and} & \mu > 0, \\
-+1, & |\Delta^{11}_{k_\pm}| < |\Delta^{12}_{k_\pm}| & \text{or} & \mu < 0.
+-1, & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}| & \text{and} & \mu > 0, \\
++1, & |\Delta^{11}_{k_0}| < |\Delta^{12}_{k_0}| & \text{or}  & \mu < 0.
   \end{matrix} \right.
 \label{eq.CS11T2eqminus1}
 \end{equation}
-Hence, to have be in a topological nontrivial phase we need $\mu > 0$ as for the single wire. Further the intrawire pairing, $\Delta^{11}_k$, \textit{must} be dominant at the Fermi surface points $k = k_\pm$, where $\varepsilon_{k_\pm} = 0$. 
+Hence, to be in a topological nontrivial phase we need $\mu > 0$ as for the single wire. Further the intrawire pairing, $\Delta^{11}_k$, \textit{must} be dominant at the Fermi surface points $k = \pm k_0$, where $\varepsilon_{\pm k_0} = 0$. 
 
 This does not explain the numerical result. Rather it emphasizes, that it is possible from a topological point of view to have a continuous cross over, even in the case when the system has a $T^2 = -\mathbb{I}$ symmetry. 
 
 As a by-product of these two subsections, we get that in the $d \to 0$ limit, the system is topologically trivial, since $\Delta^{12}_k$ is dominant here. This shows explicitly, that an $s$-wave pairing system is topologically trivial as mentioned in the previous section. 
 
+\section{Physical consequences of topology}
+In this section we will explain, what physical consequences the topological calculations and numerical analyses of the above have. 
+
+Suppose that the wires are far, but not infinitely far, apart. This means, that the interwire interaction is a perturbation to the original Hamiltonian. Now let us keep the interwire interaction general, not performing any mean field approximation. From equation \eqref{eq.Hint12momentumspace}:
+\begin{equation}
+H_\text{int}^{12} = \frac{1}{\mathcal{L}}\sum_{k,q,p} V_{\text{ind}}^{12}(p,0) c^\dagger_{1,k + p} c^\dagger_{2, q - p} c_{2, q} c_{1, k}. \nonumber
+\end{equation}
+For both wire exchanging time reversal symmetries we have, that $Tc_{1, k}T^{-1} = \eta_1c_{2, -k}$ and $Tc_{2, k}T^{-1} = \eta_2c_{1, -k}$ for some phases $\eta_1, \eta_2$. See section \ref{sec.2wiressymmetries} for the details. Hence:
+\begin{equation}
+Tc^\dagger_{1,k + p} c^\dagger_{2, q - p} c_{2, q} c_{1, k}T^{-1} = (\eta_1^*)c^\dagger_{2,-(k + p)})(\eta_2^* c^\dagger_{1, -(q - p)})(\eta_2c_{1, -q})(\eta_1 c_{2, -k}) = c^\dagger_{1, -(q - p)}c^\dagger_{2,-(k + p)}c_{2, -k}c_{1, -q}, \nonumber 
+\end{equation}
+where we in the last equality anticommute the two operators on the left and the two on the right. Hence:
+\begin{align}
+TH_\text{int}^{12}T^{-1} &= \frac{1}{\mathcal{L}}\sum_{k,q,p} V_{\text{ind}}^{12}(p,0) c^\dagger_{1, -(q - p)}c^\dagger_{2,-(k + p)}c_{2, -k}c_{1, -q} \nonumber \\
+&= \frac{1}{\mathcal{L}}\sum_{k,q,p} V_{\text{ind}}^{12}(-p,0) c^\dagger_{1, q - p}c^\dagger_{2, k + p }c_{2, k}c_{1, q} = H_\text{int}^{12}. \nonumber 
+\end{align}
+Here we first use the above transformation of the creation and annihilation operators and that $V_{\text{ind}}^{12}$ is real. Then we shift all three sums from plus to minus. Finally, we use that $V_{\text{ind}}^{12}(p,0)$ is even in $p$. This shows, that the interwire interaction has both time reversal symmetries. In particular it has the time reversal symmetry, that squares to minus the identity: $T^2 = -\mathbb{I}$. Now we can use the result of subsection \ref{subsec.2wires_CSinv_Delta12real} in the special case where $\Delta^{12}_k = 0$, since we only consider the interwire interaction has a small perturbation. The result is then, that the interwire interaction protects the edge states as long as it can be treated as a perturbation. As we bring the wires closer together at some point a mean field $\braket{c_{2,k}c_{1,-k}} \neq 0$ will start to form. This mean field has the ability to break the $T^2 = -\mathbb{I}$ symmetry. This is what happens, when the system chooses $\braket{c_{2,k}c_{1,-k}}$ purely imaginary (for $\Delta^{11}_k = -\Delta^{22}_k$). Then the result of subsection \ref{subsec.2wires_CSinv_Delta12imag} is, that the edge states are no longer protected and so they can gap away. On the other hand if $\braket{c_{2,k}c_{1,-k}}$ is picked to be real (again for $\Delta^{11}_k = -\Delta^{22}_k$), then the $T^2 = -\mathbb{I}$ symmetry is preserved and the edge states are protected until the phase transition at $d = d_c$ occures. 
+
+Summarizing this tells us the following. If the phase of the interwire pairing is not restricted in some way, the phase with the least free energy will be chosen: $\Delta^{12}_k$ purely imaginary. Hence, in such a transition the actual behaviour will be that of the continuous cross over. If however, one is able to fix the phase of the interwire pairing to be real, the transition from $p$- to $s$-wave dominated will happen abrubtly. Hence, the actual behaviour of the system depends on how the system is prepared and controlled.  
 
 \section{Control of cross over through the coherence length}
 \label{sec.2wires_crossover_control_coherence_length}
@@ -307,9 +326,9 @@ k_F\frac{\xi}{\sqrt{2}} = \frac{\sqrt{\pi}}{4}\frac{1}{\sqrt{(n_Ba_B^3)^{1/3}}}\
 \end{equation}
 We would like to explore the possibility of controlling the cross over through the coherence length. This is of experimental relevance. Adjusting the spatial distance, $d$, between the wires may be rather difficult in an experimental setup. If we can control an effective distance between the wires by adjusting the coherence length, this then might be a more realisable approach. We may have the following intuitive idea of the feasibility of this approach. For a very short coherence length the induced interaction cannot reach across the distance $d$ between the wires. However, there is always a neighbour close by internally in the wire. Hence, we expect that for $\xi \to 0$ the system is in the intrawire pairing only regime. Opposite, for very long coherence lengths the distance between the wires becomes insignicant. Further, since the interwire induced interaction is enhanced by a factor of 2 relative to the intrawire one, we expect that for $\xi \to \infty$ the system enters the interwire pairing only regime. 
 
-As mentioned in the end of chapter \ref{Chapter8}, we can quanitify this analysis in the following manner. We simply consider the transition as a competion of whether $\tilde{V}_{FF,11}^\text{ind}(x,0)$ or $2\tilde{V}_{FF,12}^\text{ind}(x,0)$ is the larger interaction. Explicitly, for some reference length $x_0$ we get the equation:
+As mentioned in the end of chapter \ref{Chapter8}, we can quanitify this analysis in the following manner. We simply consider the transition as a competion of whether $\tilde{V}^{11}_{\text{ind}}(x,0)$ or $2\tilde{V}^{12}_{\text{ind}}(x,0)$ is the larger interaction. Explicitly, for some reference length $x_0$ we get the equation:
 \begin{equation}
-2 = \frac{ \tilde{V}_{FF, 11}^\text{ ind }(x_0, 0) }{ \tilde{V}_{FF, 12}^\text{ ind }(x_0, 0) } = \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 }\text{ e }^{ -\frac{ \sqrt{2}x_0 }{ \xi } \left( 1 - \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 } \right) }.
+2 = \frac{ \tilde{V}^{11}_{\text{ ind }}(x_0, 0) }{ \tilde{V}^{12}_{\text{ ind }}(x_0, 0) } = \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 }\text{ e }^{ -\frac{ \sqrt{2}x_0 }{ \xi } \left( 1 - \sqrt{ 1 + \left( \frac{ d_c }{ x_0 } \right)^2 } \right) }.
 \label{eq.2wires.Vequal}
 \end{equation}
 For a specific value of $x_0$ we can solve this equation numerically. We will return to this shortly.  
@@ -344,7 +363,7 @@ where $G$ and $H$ are the described functionals. On unitless form the functional
 \end{equation}
 Since the pairings at $k_F$ must be comparable at a distance similar to $d_c$, the above ratio will be equal to 1 at a distance similar to $d_c$. It is therefore evident that $d_c$ is independent of the ratio of interparticle distances for $n_F/n_B^{1/3} \gg 1$. Hence, $d_c$ must approach a constant for increasing values of $n_F/n_B^{1/3}$. 
 
-The appearance of a maximum in $d_c$ can qualitatively be understood in the following way. For low values of $n_F/n_B^{1/3}$ the Bose gas becomes more rigid, since the spacing between the bosons becomes smaller. Hence, the wires must be brought closer together for the interwire pairing to dominate. For high values of $n_F/n_B^{1/3}$ the Bose gas is depleted. This means, that there are simply fewer bosons for the fermions to interact with. It is therefore reasonable, that $d_c$ should not exhibit a maximal value for $n_F/n_B^{1/3} \to \infty$. As a consequence a maximal value of $d_c$ appeares. This analysis is reminiscent of the analysis explaning the appearance of a minimum in intrawire effective interaction, $W^\text{ind}_{FF,11}(k_F,k_F)$, as a function of $n_F/n_B^{1/3}$. See subsection \ref{subsec.relevantmomenta.effectiveinteraction} for the details.  
+The appearance of a maximum in $d_c$ can qualitatively be understood in the following way. For low values of $n_F/n_B^{1/3}$ the Bose gas becomes more rigid, since the spacing between the bosons becomes smaller. Hence, the wires must be brought closer together for the interwire pairing to dominate. For high values of $n_F/n_B^{1/3}$ the Bose gas is depleted. This means, that there are simply fewer bosons for the fermions to interact with. It is therefore reasonable, that $d_c$ should not exhibit a maximal value for $n_F/n_B^{1/3} \to \infty$. As a consequence a maximal value of $d_c$ appeares. This analysis is reminiscent of the analysis explaning the appearance of a minimum in intrawire effective interaction, $W_\text{ind}^{11}(k_F,k_F)$, as a function of $n_F/n_B^{1/3}$. See subsection \ref{subsec.relevantmomenta.effectiveinteraction} for the details.  
 
 \section{Temperature dependency of pairings}
 In this section we will investigate, how the pairings depend on temperature. The analysis is performed in complete analogy to the one in subsection \ref{subsec.momentum_and_temperature_pairing_singlewire}. 
@@ -353,16 +372,17 @@ For small and large distances, where one of the pairings is dominant, it is not 
 
 To answer these questions we investigate three cases, two where one pairing is strongly dominant, and one where the pairings are essentially equal for $T = 0$. The more interesting case is definitely the latter one, since this directly tests what pairing is the more robust. However, we might also gain some insight from the former. 
 
-The result of the analysis for a dominant interwire pairing is shown in figure \ref{fig.maximalpairingsTdepend_2wires}. We see, that the overall expected behaviour is observed. We observe that the interwire pairing has a small kink, where the intrawire pairing vanishes. This emphasizes, that one pairing influences the functional behaviour of the other. Further, above this first critical temperature the maximal interwire pairing is astonishingly well described by the following relation:
+The result of the analysis for a dominant interwire pairing is shown in figure \ref{fig.maximalpairingsTdepend_2wires}. We see, that the overall expected behaviour is observed. We observe that the intrawire pairing has a small downward kink, where the interwire pairing vanishes. The same behaviour is seen when the interwire pairing is dominant. This has to implications. The first is, that the dominant pairing would be higher at low temperatures if the other pairing was not present: there is a trade off between the size of the individual pairings and the presence of a second pairing. The second is, that the presence of a second smaller pairing seem to stabilize the dominant one, since the kink is downwards for increasing temperatures. Further, above the critical temperature of the smaller pairing, the maximal intrawire pairing of the dominating pairing is well described by the following relation:
 \begin{equation}
-\max_k[\Delta^{12}_k(T)] = \alpha \max_k[\Delta^{12}_k(T = 0)] \sqrt{1 - \left(\frac{T}{T_c}\right)^3}. 
+\max_k[\Delta^{\text{dom}}_k(T)] = \alpha \max_k[\Delta^{\text{dom}}_k(T = 0)] \sqrt{1 - \left(\frac{T}{T_c}\right)^3},
+\label{eq.DeltaapproxaboveTC1}
 \end{equation}
-The coefficient $\alpha$ is close to $1$, but seems to depend slightly on the other parameters of the problem. For the present set of parameters we have $\alpha = 1.075$. This functional behaviour is the same as the single wire asymptotic form of the intrawire pairing apart from the $\alpha$ coefficient. Also, the agreement between the actual behaviour of the pairing and the asymptotic form kicks in earlier and to a higher degree in the present case. 
+where $\text{dom}$ is short for dominating. This has the same form as the approximate form in equation \eqref{eq.maxpairingapprox} apart from the $\alpha$. The coefficient $\alpha$ is slightly bigger than $1$, but seems to depend slightly on the other parameters of the problem. For the present set of parameters we have $\alpha = 1.3$. 
 
 \begin{figure} 
 \begin{center}  
 \input{Figures/twowires/Deltas4.5/Tdepend.tex}  
-\caption{The maximal intrawire and interwire pairing $\max_k[|\Delta^{11}_k|]$ and $\max_k[|\Delta^{12}_k|]$ are plotted in black and magenta as a function of temperature. In blue and red the corresponding asymptotic forms from the single wire analysis, equation \eqref{eq.maxpairingasymp}. Notice, that there are two critical temperatures, and that the interwire pairing shows a kink, where the intrawire pairing goes to zero. Parameters: $k_Fd = 0.61$, $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
+\caption{Blue solid line: $\max_k[|\Delta^{12}_k|]$ as a function of temperature. Blue dashed line: approximate form from the single wire analysis, equation \eqref{eq.maxpairingapprox}. Red solid line: $\max_k[|\Delta^{11}_k|]$ as a function of temperature. Red dashed line: Approximate form according to equation \eqref{eq.DeltaapproxaboveTC1} above the critical temperature of the interwire pairing. Notice, that there are two critical temperatures, and that the intrawire pairing shows a downward kink, where the interwire pairing goes to zero. Parameters: $k_Fd = 0.61$, $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
 \label{fig.maximalpairingsTdepend_2wires}  
 \end{center}    
 \end{figure} 

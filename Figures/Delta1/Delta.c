@@ -39,14 +39,14 @@ main (void)
 {
   /*variables */
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
-  double rBF = 0.1;    /*(nB * aBF^3)^(1/3) */
+  double rBF = 0.18;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
 
   /*nB:*/
   double nB  = 100.0; 
 
   /*k-values:*/
-  double k_low = 0.0, k_up = 25.0, dk = 0.01;
+  double k_low = 0.0, k_up = 200.0, dk = 0.01;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -78,11 +78,11 @@ main (void)
   }
 
   /*For calculating mu:*/
-  double mu_low = 0.95, dmu = 0.00005;
+  double mu_low = 0.1, dmu = 0.0005;
   double muintegral, muintegrand;
   double mu_min_value;
   double mu = 1.0;
-  int Nmu = 2000;
+  int Nmu = 3000;
   double mu_guess;
   gsl_vector *mu_vector = gsl_vector_calloc(Nmu);
   gsl_vector *find_min_mu = gsl_vector_calloc(Nmu);
@@ -94,7 +94,7 @@ main (void)
   }
 
   /*T = 0: */
-  for (int j = 0; j < 50; ++j)
+  for (int j = 0; j < 1000; ++j)
   {
     D_maxk = gsl_vector_max(D);
     for (int i = 0; i < N; ++i)

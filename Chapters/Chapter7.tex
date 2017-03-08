@@ -8,16 +8,16 @@
 \chead{Chapter 7. \emph{Topology \& symmetries}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether we are in a topological or trivial phase. Finally, we will see what physical consequences the phases have by investigating socalled Majorana fermions. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
+In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
 
 \section{The time reversal and particle-hole transformations and symmetries}
 \label{sec.SymmetriesTRandPH}
 In this section we define the time reversal and particle-hole transformations. Let us remind ourselves of the form of the noninteracting Hamiltonian obtained after the mean field approximation of chapter \ref{Chapter4}: 
 \begin{equation}
-H_{FF} = -\sum_k \Delta_k \braket {f^\dagger_k f^\dagger_{-k}} + \frac{1}{2}\sum_{k} \begin{bmatrix} f^\dagger_k & f_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}. \nonumber 
+H_{FF} = -\sum_k \Delta_k \braket {c^\dagger_k c^\dagger_{-k}} + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}. \nonumber 
 \end{equation}
 
-It is clear, that the Hamiltonian is translationally invariant. Explicitly, the (unitary) translation operator is defined through: $\tau(x_0)\psi_F(x)\tau^\dagger (x_0) = \psi_F(x+x_0)$. In momentum space, we hereby get $\tau(x_0) f_k \tau^\dagger(x_0) = \text{e}^{ikx_0}f_k$, as one might expect. Hence, terms like $f^\dagger_k f_k, f_k f^\dagger_k, f^\dagger_kf^\dagger_{-k}$ and $f_{-k}f_k$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well. Because of the translational invariance, we \textit{inforce} that the time reversal and particle-hole transformations do not mix states with different positions. Specifically:
+It is clear, that the Hamiltonian is translationally invariant. Explicitly, the (unitary) translation operator is defined through: $\tau(x_0)\psi_F(x)\tau^\dagger (x_0) = \psi_F(x+x_0)$. In momentum space, we hereby get $\tau(x_0) c_k \tau^\dagger(x_0) = \text{e}^{ikx_0}c_k$, as one might expect. Hence, terms like $c^\dagger_k c_k, c_k c^\dagger_k, c^\dagger_kc^\dagger_{-k}$ and $c_{-k}c_k$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well. Because of the translational invariance, we \textit{inforce} that the time reversal and particle-hole transformations do not mix states with different positions. Specifically:
 \begin{align}
 T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix}, \hspace{0.5cm} TiT^{-1} = -i, \nonumber \\
 C \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} \psi^\dagger_F(x) \\ \psi_F(x) \end{bmatrix}, \hspace{0.5cm} CiC^{-1} = i.  
@@ -25,8 +25,8 @@ C \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} C^{-1} &= (U^*_C)
 \end{align}
 Here $T$ and $C$ is the time reversal and particle-hole transformation respectively. $U_T$ and $U_C$ are $2\times 2$ matrices. Inforcing that transformed operators are fermionic as well, means that the matrices have to be unitary. The operation on $i$ specifies, that $T$ is antiunitary and $C$ is unitary. In momentum space this definition leads to:
 \begin{align}
-T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} f_{-k} \\ f^\dagger_{k} \end{bmatrix}, \nonumber \\
-C \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} f^\dagger_{-k} \\ f_{k} \end{bmatrix}. 
+T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} c_{-k} \\ c^\dagger_{k} \end{bmatrix}, \nonumber \\
+C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix}. 
 \label{eq.TRandPH.momentumspace}
 \end{align}
 By inspecting the transformations $TH_{FF}T^{-1}$ and $CH_{FF}C^{-1}$, we get the following symmetry requirements:
@@ -37,11 +37,11 @@ CH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_C\mathcal{H}^*_{FF,-k} U^\dagger_C = - 
 \end{align}
 This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK, \mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general has a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $2\times 2$ matrix, even though there is only one energy solution. Another way of putting this, is that the two Nambu spinors on each side of the kernel $\mathcal{H}_{FF,k}$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy is here especially evident, since we can simply choose $C$ to have no effect on the Nambu spinor:
 \begin{equation}
-C \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} C^{-1} =  \sigma_1 \begin{bmatrix} f^\dagger_{-k} \\ f_{k} \end{bmatrix} = \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}, 
+C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} =  \sigma_1 \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix} = \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, 
 \end{equation}
 with $\sigma_1$ the first Pauli matrix. This of course means, that $H_{FF}$ is invariant under $C$. Since, it stems from a redundancy in the \textit{structure} of the Hamiltonian, it is often referred to as a particle-hole \textit{constraint} of BdG systems rather than a symmetry. This also means, that for the system to be consistent, we need $\sigma_1\mathcal{H}^*_{FF,+k} \sigma_1 = - \mathcal{H}_{FF,-k}$, which can also explicitly be checked. 
 
-The time reversal case is somewhat trickier. Firstly, in general the pairing $\Delta_k$ is complex. However, as seen in the previous chapters we can explicitly find a real solution. This is also evident mathematically. For this purpose we let $\Delta_k \to \text{e}^{i\phi}\Delta_k$, with $\phi$ the phase of the pairing, and now $\Delta_k$ real. We then perform a gauge transformation in the $f_k$ operators according to: $f_k \to \text{e}^{-i\phi/2} f_k$. Since $\Delta_k$ depends linearly on $\braket{f_kf_{-k}}$ the resulting transformation of the pairing is:
+The time reversal case is somewhat trickier. Firstly, in general the pairing $\Delta_k$ is complex. However, as seen in the previous chapters we can explicitly find a real solution. This is also evident mathematically. For this purpose we let $\Delta_k \to \text{e}^{i\phi}\Delta_k$, with $\phi$ the phase of the pairing, and now $\Delta_k$ real. We then perform a gauge transformation in the $c_k$ operators according to: $c_k \to \text{e}^{-i\phi/2} c_k$. Since $\Delta_k$ depends linearly on $\braket{c_kc_{-k}}$ the resulting transformation of the pairing is:
 \begin{equation}
 \text{e}^{i\phi}\Delta_k \to \text{e}^{i\phi}\Delta_k\text{e}^{-i\phi} = \Delta_k. \nonumber
 \end{equation}
@@ -51,7 +51,7 @@ U_T\mathcal{H}^*_{FF,-k}U^\dagger_T = \sigma_3\mathcal{H}^*_{FF,-k}\sigma_3 = \b
 \end{equation}
 since $\Delta_k$ is odd in k and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
 \begin{equation}
-T \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i f_{-k} \\ - i f^\dagger_{k} \end{bmatrix}. \nonumber
+T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i c_{-k} \\ - i c^\dagger_{k} \end{bmatrix}. \nonumber
 \end{equation}
 It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. However, this is still a Cooper pair of momentum $k$ and $-k$. This also emphasizes the fact, that this time reversal symmetry is present due to a unitary parity symmetry. 
 

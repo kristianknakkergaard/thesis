@@ -13,7 +13,7 @@ kdepend.tex: kdepend Makefile
 'set xlabel "$$k/k_F$$"; 		    '\
 'set ylabel "$$Delta_k/epsilon_{F,0}$$";'\
 'set key top left;					'\
-'plot [-10:10][-0.3:0.3]			'\
+'plot [-10:10][-5:5]			'\
 ' "$<" index 0     using 1:2 title "$$T/T_F = 0.000$$" with lines lc rgb "#e00000"'\
 | gnuplot
 

@@ -1,102 +1,122 @@
 % Chapter 4
 
-\chapter{The Fermi Hamiltonian} % Main chapter title
+\chapter{The grand Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
 \lhead{Part II. \emph{One wire}}
-\chead{Chapter 4. \emph{Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 4. \emph{Grand Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. See section \ref{sec.RetardationEffects} for details. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
 
-\section{The fermion interacting Hamiltonian} \label{sec.HFFint}
+\section{The interaction Hamiltonian in real and momentum space} \label{sec.HFFint}
 
 We start out in real space. The interaction Hamiltonian for pair interactions is given by:
 \begin{equation}
-H^\text{int}_{FF} = \frac{1}{2}\int dxdx' \hat{\psi}^\dagger_F(x)\hat{\psi}^\dagger_F(x')\tilde{V}^\text{ind}_{FF}(x'-x,0) \hat{\psi}_F(x') \hat{\psi}_F(x).
+H^\text{int}_{FF} = \frac{1}{2}\int dx_1dx_2 \hat{\psi}^\dagger_F(x_1)\hat{\psi}^\dagger_F(x_2)\tilde{V}_{\text{ind}}(x_1-x_2,0) \hat{\psi}_F(x_2) \hat{\psi}_F(x_1).
 \label{eq.HFFintdef}
 \end{equation}
-With $\tilde{V}^\text{ind}_{FF}(x'-x,0)$ being the induced interaction at zero frequency in real space (see equation \eqref{eq.VFFx_exact}). The factor of $1/2$ is present, since the particles are identical. We make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write:
+With $\tilde{V}_\text{ind}(x,0)$ the induced interaction at zero frequency in real space (see equation \eqref{eq.VFFx_exact}). The factor of $1/2$ is present, since the particles are identical. First, we would like to transform the above expression to momentum space. This will make it clearer of how to perform the BCS assumption and in turn the mean field approximation. The transformation to momentum space is carried out by expanding the field operators in plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} c_k$. Here $c_k$ and $c^\dagger_k$ respectively annihilates and creates a fermion with momentum $k$. Hence, they satisfy the canonical anticommutation relations for fermionic operators. The transformation is a little tricky, because the momentum space induced interaction $V_{\text{ind}}(k, 0)$ is not well-defined in the zero trapping width limit: $l_t = 0$.\footnote{The Yukawa potential simply has no Fourier transform in one dimension.} However, it is possible to get an expression in momentum space that is well-defined for any value of $l_t$. We do this in the following manner. Firstly:
+\begin{align}
+\hat{\psi}_F(x_2) \hat{\psi}_F(x_1) &= \frac{1}{\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} c_{k_2}c_{k_1} = \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} \left[c_{k_2}c_{k_1} - c_{k_1}c_{k_2}\right] \nonumber \\
+&= \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \left[\text{e}^{i(k_1x_1 + k_2x_2)} - \text{e}^{i(k_2x_1 + k_1x_2)}\right]c_{k_2}c_{k_1}, \nonumber
+\end{align}
+where we in the last equality switch the $k$'s: $k_1 \leftrightarrow k_2$. In this way we take care of the antisymmetry of the fermionic operators. A similar expression for $\hat{\psi}^\dagger_F(x_1)\hat{\psi}^\dagger_F(x_2)$ is obtained by letting $k_1 \to q_1$ and $k_2 \to q_2$ and taking the hermitian conjugate. All of this is then inserted into the interaction Hamiltonian of equation \eqref{eq.HFFintdef}. After a little computation, we get:
+\begin{align}
+H^\text{int}_{FF} = \frac{1}{8\mathcal{L}^2} \sum_{k_1,k_2,q_1,q_2} c^\dagger_{q_1}c^\dagger_{q_2}c_{k_2}c_{k_1} & \int dx_2 \; \text{e}^{i((k_1+k_2)-(q_1+q_2))x_2}\cdot \nonumber \\ 
+&\int du\left(\text{e}^{-iq_1u} - \text{e}^{-iq_2u}\right)\left(\text{e}^{ik_1u} - \text{e}^{ik_2u}\right)\tilde{V}_\text{ind}(u,0), \nonumber
+\end{align}
+where we have made the substitution of variables $u = x_1 - x_2$. The integral over $x_2$ is now independent of $\tilde{V}_{\text{ind}}$. Since, we are working with periodic boundary conditions, we get $\int dx_2 \text{e}^{i((k_1+k_2)-(q_1+q_2))u} = \mathcal{L}\delta_{k_1+k_2,q_1+q_2}$, which ensures total conservation of momentum. This means, that we can get the above expression on the following form: 
 \begin{equation}
-\hat{\psi}_F(x') \hat{\psi}_F(x) = \braket{\hat{\psi}_F(x') \hat{\psi}_F(x)} + \left(\hat{\psi}_F(x') \hat{\psi}_F(x) - \braket{\hat{\psi}_F(x') \hat{\psi}_F(x)} \right) = \braket{\hat{\psi}_F(x') \hat{\psi}_F(x)} + A_F(x',x)
+H^\text{int}_{FF} = \frac{1}{4\mathcal{L}} \sum_{k,q,p} c^\dagger_{k+p}c^\dagger_{q-p}c_{q}c_{k} \int du\left[\cos\left(pu\right) - \cos\left(\left(q-\left(k+p\right)\right)u\right)\right]\tilde{V}_{\text{ind}}(u,0), \nonumber
 \end{equation}
-and treat the last part $A_F$ as a small quantity. The meaning of this will become clearer later on. The mean in the end has to be taken with respect to the specific state of the system, we will also see how this plays out later on as well. We now only keep terms of $A_F$ and $A^\dagger_F$ up to first order, so that we get the following three terms for the interaction Hamiltonian:\footnote{Formally we are decoupling the Hamiltonian, so that it so no longer really describing any interaction.}
-\begin{align}
-H^\text{int}_{FF} = & \frac{1}{2}\int dxdx' \braket {\hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x')}  \tilde{V}^\text{ind}_{FF}(x'-x,0) \braket{\hat{\psi}_F(x') \hat{\psi}_F(x)} + \nonumber \\
-& \frac{1}{2}\int dxdx' A^\dagger_F(x,x') \tilde{V}^\text{ind}_{FF}(x'-x,0) \braket{\hat{\psi}_F(x') \hat{\psi}_F(x)} + \nonumber \\
-& \frac{1}{2}\int dxdx' \braket{\hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x')} \tilde{V}^\text{ind}_{FF}(x'-x,0) A_F(x',x). \nonumber
-\end{align} 
-To get back to momentum space we expand the field operators in terms of plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} f_k$, where as usual $f_k$ is the fermion annihilation operator. Further we assume, that only states belonging to opposite momenta couples.\footnote{At least they are assumed to be absolutely dominant.} This means, that $f_kf_{k'} = f_kf_{k'}\delta_{k,-k'}$, which is the usual BCS assumption. With this, we get the following expression:
-\begin{align}
-\hat{\psi}_F(x') \hat{\psi}_F(x) &= \frac{1}{\mathcal{L}}\sum_{k} \text{e}^{ik(x-x')}f_kf_{-k} = \frac{1}{2\mathcal{L}}\sum_{k} \left(\text{e}^{ik(x-x')}f_{k}f_{-k}+\text{e}^{-ik(x-x')}f_{-k}f_{k}\right) \nonumber \\
-&= \frac{i}{\mathcal{L}}\sum_{k} \sin(k(x-x'))f_{k}f_{-k}, 
-\label{eq.correlation}
-\end{align}
-where we in the last equality used, that the operators anticommute. Let us plug this into the first term of the interaction Hamiltonian to see how it plays out: 
-\begin{align}
-H^\text{int}_{FF,1} &= \frac{1}{2}\int dxdx' \braket {\hat{\psi}^\dagger_F(x) \hat{\psi}^\dagger_F(x')} \tilde{V}^\text{ind}_{FF}(x'-x,0) \braket {\hat{\psi}_F(x') \hat{\psi}_F(x)} \nonumber \\
-&= - \frac{1}{2\mathcal{L}^2}\sum_{k,k'} \braket {f^\dagger_{k}f^\dagger_{-k} } \braket {f_{k'}f_{-k'}} \int dx dx' \sin(k(x'-x))\sin(k'(x'-x))\tilde{V}^\text{ind}_{FF}(x'-x,0) \nonumber \\
-&= - \frac{1}{2\mathcal{L}}\sum_{k,k'} \braket {f^\dagger_{k}f^\dagger_{-k}} \braket{f_{k'}f_{-k'}} \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u,0) \nonumber \\
-&= - \frac{1}{2\mathcal{L}}\sum_{k,k'} \braket {f^\dagger_{k}f^\dagger_{-k}} \braket {f_{k'}f_{-k'}} W^\text{ind}_{FF}(k,k')
-\end{align}
-where we use the substitution $u = x'-x$ and use that $\int dx = \mathcal{L}$. Further we have defined the effective induced interaction $W^\text{ind}_{FF}(k,k')$. The two last terms are analogous and yield:
-\begin{align}
-H^\text{int}_{FF,2} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f^\dagger_k f^\dagger_{-k} - \braket {f^\dagger_k f^\dagger_{-k}}\right) \braket {f_{k'}f_{-k'}} W^\text{ind}_{FF}(k,k'), \nonumber \\
-H^\text{int}_{FF,3} &= - \frac{1}{2\mathcal{L}}\sum_{k,k'}\left(f_k f_{-k} - \braket{f_k f_{-k}} \right)\braket {f^\dagger_{k'}f^\dagger_{-k'} } W^\text{ind}_{FF}(k,k'), \nonumber
-\end{align}
-Now seeing, that the effective interaction enters in all of the terms, we better calculate, what it actually is. We get, that it can be expressed simply in terms of the induced interaction in momentum space calculated in chapter \ref{Chapter3}:
+where we have made the substitutions: $k_1 = k, k_2 = q, q_1 = k + p$ and $q_2 = k - p$. Finally, since the induced interaction is even in $u$, we have that $V_{\text{ind}}(p, 0) = \int du \cos(pu) \tilde{V}_{\text{ind}}(u, 0)$. Hence, we can define a scattering amplitude $W_{\text{ind}}(k, q, p)$ by:
 \begin{equation}
-W^\text{ind}_{FF}(k,k') = \int du \sin(ku)\sin(k'u)\tilde{V}^\text{ind}_{FF}(u,0) = \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right].
+W_{\text{ind}}(k, q, p) = \frac{1}{2}\left(V_\text{ind}\left( p, 0 \right) - V_\text{ind}\left( k + p - q, 0 \right) \right). 
+\label{eq.Wkqp.scattering.amplitude}
+\end{equation}
+We hereby obtain the final Hamiltonian expanded in momentum space operators:
+\begin{equation}
+H^\text{int}_{FF} = \frac{1}{2\mathcal{L}} \sum_{k,q,p} W_{\text{ind}}(k, q, p) c^\dagger_{k+p} c^\dagger_{q-p} c_{q} c_{k}. 
+\label{eq.HintMomentumSpace}
+\end{equation}
+The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W_{\text{ind}}(k, q, p)$. In section \ref{sec.Vanishingtrappingwidtlimit} we will show, that this amplitude has a well-defined $l_t \to 0$ limit. 
+
+The total interaction Hamiltonian has hereby been transformed to momentum space. The result is physically intuitive. 
+
+\section{The mean field approximation} \label{sec.meanfieldapproximation}
+In this section we will make the BCS mean field approximation. 
+
+First, we assume that only states belonging to opposite momenta couples.\footnote{At least they are assumed to be absolutely dominant.} This is the usual BCS assumption. This means, that we can truncate the sum in equation \eqref{eq.HintMomentumSpace} to only have $q = -k$. Second, we make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write:
+\begin{equation}
+c_{-k}c_{k} = \braket{ c_{-k}c_{k} } + \left(c_{-k} c_{k} - \braket{ c_{-k}c_{k} } \right) = \braket{ c_{-k}c_{k} } + A_k, \nonumber 
+\end{equation}
+and treat the last part $A_k$ as a small quantity. In this sense, $\braket{ c_{-k}c_{k} }$ is the order parameter of the phase transition. The validity of this approach is discussed in section \ref{sec.meanfieldvalidity}. The mean in the end has to be taken with respect to the specific state of the system, we will see how this plays out later on. We now only keep terms of $A_k$ and $A^\dagger_k$ up to first order. Hence:
+\begin{equation}
+H^\text{int}_{FF} = \frac{1}{2\mathcal{L}} \sum_{k, p} W_{\text{ind}}(k, -k, p)\left[A^\dagger_{k + p}\braket{c_{-k}c_k} + A_{k}\braket{c^\dagger_{k + p}c^\dagger_{-(k+p)}} + \braket{c_{-k}c_k}\braket{c^\dagger_{k + p}c^\dagger_{-(k + p)}}\right]. \nonumber
+\end{equation}
+We now write $p = k' - k$, and define the effective induced interaction as:
+\begin{equation}
+W_{\text{ind}}(k, k') = W_{\text{ind}}(k, -k, p = k' - k) = \frac{1}{2}\left(V_{\text{ind}}\left( k - k', 0 \right) - V_{\text{ind}}\left( k + k', 0 \right) \right), 
 \label{eq.EffectiveInteraction}
 \end{equation}
-Since $V^\text{ind}_{FF}(q,0)$ only depends on $q^2$, we get the following important properties of the effective induced interaction: 
+with the use of equation \eqref{eq.Wkqp.scattering.amplitude}. The analysis is a BCS treatment as mentioned. However, we will not be assuming any constancy of the effective interaction over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Since $V_{\text{ind}}(q,0)$ only depends on $q^2$, we get the following important properties of the effective induced interaction: 
 \begin{align}
-W^\text{ind}_{FF}(k,k') &= W^\text{ind}_{FF}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
-W^\text{ind}_{FF}(-k,k') &= -W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Odd in single argument}, \nonumber \\
-W^\text{ind}_{FF}(-k,-k') &= W^\text{ind}_{FF}(k,k'), \hspace{0.5cm} \text{Even in double argument}.
+W_{\text{ind}}(k,k') &= W_{\text{ind}}(k',k),   \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
+W_{\text{ind}}(-k,k') &= -W_{\text{ind}}(k,k'), \hspace{0.5cm} \text{Odd in single argument}.
 \label{eq.EffectiveInteractionSymmetries}
 \end{align}
-These symmmetries will be important later on. The analysis is a BCS treatment as mentioned. However, we will not be assuming any constancy of the effective interaction over a range of momentum, as is the case in traditional BCS-theory\cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. Adding the three terms yields:
+These symmmetries will be important later on. The above sum can hereby be brought on the form:
 \begin{equation}
-H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W^\text{ind}_{FF}(k,k')\left[ \braket{ f_{k'}f_{-k'}} f^\dagger_k f^\dagger_{-k} + \braket {f^\dagger_{k'}f^\dagger_{-k'}} f_k f_{-k} - \braket {f_{k}f_{-k}} \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right] \nonumber
+H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W_{\text{ind}}(k,k')\left[ \braket{ c_{k'}c_{-k'}} c^\dagger_k c^\dagger_{-k} + \braket {c^\dagger_{k'}c^\dagger_{-k'}} c_k c_{-k} - \braket {c_{k}c_{-k}} \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right]. \nonumber
 \end{equation}
-
 We simplify the expression by defining the pairing potential:
 \begin{equation}
-\Delta_k = -\frac{1}{\mathcal{L}}\sum_{k'}W^\text{ind}_{FF}(k,k')\braket {f_{k'}f_{-k'}}.
+\Delta_k = -\frac{1}{\mathcal{L}}\sum_{k'}W_{\text{ind}}(k,k')\braket {c_{k'}c_{-k'}}.
 \label{eq.pairingpotentialdef}
 \end{equation}
-
 Then the interaction Hamiltonian can finally be written as:
 \begin{equation}
-H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right]
+H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} - \Delta^*_k c_k c_{-k} - \Delta_k \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right]
 \label{eq.HFFintfinal}
 \end{equation}
-The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the effective interaction is odd in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is odd as well. We are now ready to study the full Hamiltonian.
+The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the effective interaction is odd in a single argument $\Delta_{-k} = -\Delta_k$: the pairing potential is odd as well. Here it is in order to discuss the naming of $s$- and $p$-wave pairing. In the present thesis we will only use the naming to distinguish between pairings respectively even and odd in $k$. In a more general setup the naming stems from the fact, that the pairings come from a partial wave expansion, so that there are also a $d$-wave pairing, $f$-wave pairing etc. We will not go into any detail with this.
 
-\section{The full fermion Hamiltonian} \label{sec.HFFfull}
-The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} f^\dagger_k f_k$. Further, we will have terms like $f^\dagger f^\dagger$. This means, that the Hamiltonian is not particle number conserving. However, we inforce that the system is in diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k f^\dagger_k f_k$, where $\mu$ is the chemical potential. We hereby obtain the grand fermion Hamiltonian:
+\section{Validity of the mean field approximation} \label{sec.meanfieldvalidity}
+In this section we comment on the validity of the performed mean field approximation with offset in the socalled Ginzburg criterion. We do this for a general order parameter $m(x)$ in real space of general dimension $d$. This is based on the work of Huang in \cite{HuangStatMech}. 
+
+In Ginzburg-Landau theory the free energy density, or Landau free energy, $\psi$, is expanded in terms of the order parameter $m(x)$. To quartic order in $m$ and beneath the critical temperature $T_c$ one can then show, that:
 \begin{equation}
-H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k f^\dagger_k f_k + \frac{1}{2}\sum_{k} \left[ \Delta_k f^\dagger_k f^\dagger_{-k} - \Delta^*_k f_k f_{-k} - \Delta_k \braket {f^\dagger_{k'}f^\dagger_{-k'}} \right], 
+\psi(m(x)) = \frac{1}{2}|\nabla m(x)|^2 - \frac{1}{2} \frac{|m(x)|^2}{\xi(T)^2} + u_0 |m(x)|^4.
+\label{eq.LandauFreeEnergy}
+\end{equation}
+Here $\xi(T)$ is the coherence length of the system. This describes the typical distance over which the system changes. As the naming indicates it has a dimension of length, $L$. An example of such a coherence length is the already encountered BEC coherence length. In the same way a fermionic superfluid system will have a coherence length. $u_0$ is a parameter independent of temperature of dimension $L^{d-4}$. Close to the critical temperature the coherence length goes as $\xi(T) = \xi_0\left(1 - \frac{T}{T_c}\right)^{-1/2}$, where $\xi_0$ is the coherence length at $T = 0$. We can estimate the fluctuations of $m$, by comparing the fluctuations over a length scale $\xi$ with the mean value $\braket{m}$. This leads to the Ginzburg criterion:
+\begin{equation}
+\frac{u_0}{\xi^{d-4}_0}\left(1 - \frac{T}{T_c}\right)^{(d - 4)/2} \ll 1. 
+\label{eq.GinzburgCriterion}
+\end{equation}
+Since $\left(1 - \frac{T}{T_c}\right)^{(d - 4)/2} \to \infty$ for $T \to T_c$ and $d < 4$, it follows, that for $d < 4$ there will always be a region of temperatures $\Delta T$ around $T_c$, where the mean field approximation fails, and that the problem gets bigger still at lower dimensions. The mean field approximation is therefore only reliable, if by some struck of luck $\Delta T / T_c \ll 1$. In three dimensional space this is shown to be exactly the case for the BCS theory of superfluidity \cite{PlischkeStatPhys}. However, it is unclear how reliable the approach will be in our one dimensional case. The fluctuations of the mean field is given by the variance of the order parameter: $\mathbb{V}[c_kc_{-k}] = \braket{(c_kc_{-k})
+\dagger c_kc_{-k}} - \left|\braket{c_kc_{-k}}\right|^2$. Within mean field theory this is simply 0. This is of course selfconsistent, but not terribly illuminating in respect to estimating the validity of the approximation. Hence, we cannot use mean field theory to come with an estimate of how well it works. Instead we consider it a possible topic of future work. We will however continue on with this approach encouraged by the large amount of work done in one dimensional superfluid systems, see e.g. \cite{Alicea, KitaevTopPhases, KitaevQuantumWires, LiYangChen, FuKane2006, GreiterIsingKitaevChain, DeGottardiMajoranaFermions, BudichTopInvMajoranaWires, ZhangWu}. 
+
+\section{The grand Hamiltonian} \label{sec.HFFfull}
+The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} c^\dagger_k c_k$. Further, we will have terms like $c^\dagger c^\dagger$. This means, that the Hamiltonian is not particle number conserving. However, we inforce that the system is in diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k c^\dagger_k c_k$. We hereby obtain the grand fermion Hamiltonian:
+\begin{equation}
+H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k c^\dagger_k c_k + \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} - \Delta^*_k c_k c_{-k} - \Delta_k \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right], 
 \label{eq.HFFdef}
 \end{equation} 
 where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a standard Bogoliubov-de Gennes (BdG) form:
-
 \begin{equation}
-H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {f^\dagger_k f^\dagger_{-k}}\right] + \frac{1}{2}\sum_{k} \begin{bmatrix} f_k^\dagger & f_{-k} \end{bmatrix} \mathcal{H}_{FF,k} \begin{bmatrix} f_k \\ f^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, 
+H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {c^\dagger_k c^\dagger_{-k}}\right] + \frac{1}{2}\sum_{k} \begin{bmatrix} c_k^\dagger & c_{-k} \end{bmatrix} \mathcal{H}_{FF,k} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, 
 \end{equation}
-
-and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined in equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\braket {f^\dagger_k f^\dagger_{-k}} $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
+and we see that up to a constant it is on the same form as the Kitaev Hamiltonian defined in equation \eqref{eq.HKitaevpre}. Hence, we can use the diagonalization made there modified by the constant $-\sum_k \Delta_k\braket {c^\dagger_k c^\dagger_{-k}} $ and get a result completely analogous to equation \eqref{eq.Kitaev.H_diagonalpre}: 
 \begin{equation}
-H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k-E_{F,k}-\Delta_k\braket {f^\dagger_k f^\dagger_{-k}}\right] + \sum_k E_{F,k} \zeta^\dagger_k \zeta_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
+H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k-E_{F,k}-\Delta_k\braket {c^\dagger_k c^\dagger_{-k}}\right] + \sum_k E_{F,k} \gamma^\dagger_k \gamma_k, \hspace{0.5cm} E_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta_k|^2}.
 \label{eq.Kitaev.HFF_diagonal}
 \end{equation}
-The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\zeta$ present: $\zeta_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
+The new quasiparticle fermionic operators are defined in equation \eqref{eq.fermionquasiparticledef} with $u_{F,k},v_{F,k}$ defined in equation \eqref{eq.Kitaev.uk_vk}. From this we see, that the ground state of the system at $T=0$ is defined by having no quasiparticles $\gamma$ present: $\gamma_k \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} Further we now know have to take the averages met in this section. They are to be taken with respect to the thermalized state of the system, which in turn can be calculated using Fermi statistics, as we shall see in the following section. 
 
 The expected temperature dependence of the system is inferred from the original BCS-theory \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. The pairing potential $\Delta_k(T)$ is expected to have its maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. This, we will see, defines a phase transition from a superfluid phase below $T_c$ to the normal phase above $T_c$. Let us therefore shortly review the Landau criterion for superfluidity. 
-
-%The phase transition is expected to be a first order transition. This is again inferred from the original BCS-theory, where the heat capacity is \textit{discontinuous} at the critical temperature \cite{Tinkham}. It further means, that we expect the 
 
 \section{Superfluidity} \label{sec.Superfluidity}
 In this section we show the Landau criterion for superfluidity. It is heavily based on the argument in \cite{LandauStatPhys2}. It is a classical argument based solely on the transformation laws of energy and momentum in classical mechanics. 
@@ -118,44 +138,61 @@ This inequality states, that for a specific speed $v$ of the fluid, it is only m
 Caution should be taken however. The argument only goes one way. It may be possible for a liquid not obeying this inequality to be a superfluid, but the reverse, a liquid obeying the inequality and being a normal fluid, is not possible as now shown. 
 
 \section{The distribution of the quasiparticles}
-In the previous section we inforced, that the number of physical ($f$) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\zeta$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\zeta_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k - E_{F,k} - \Delta_k\braket {f^\dagger_k f^\dagger_{-k}})$, we get:
+In the previous section we inforced, that the number of physical (c) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\gamma$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\gamma_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k - E_{F,k} - \Delta_k\braket {c^\dagger_k c^\dagger_{-k}})$, we get:
 \begin{equation}
-Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{F,k}\zeta^\dagger_k\zeta_k }\right] = 1 + \text{e}^{-\beta E_{F,k}}. 
+Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{F,k}\gamma^\dagger_k\gamma_k }\right] = 1 + \text{e}^{-\beta E_{F,k}}. 
 \end{equation}     
-For the calculation of the trace, one can for example use the single particle complete basis $\{\ket{\text{S}}_0, \zeta^\dagger_k\ket{\text{S}}_0\}$. This is all a rather involved way of saying, that the quasiparticle can either be absent $\ket{\text{S}}_0$ and have zero energy or present $\zeta^\dagger_k\ket{\text{S}}_0$ and have energy $E_{F,k}$. Finally we get the Fermi-Dirac distribution of the quasiparticles:
+For the calculation of the trace, one can for example use the single particle complete basis $\{\ket{\text{S}}_0, \gamma^\dagger_k\ket{\text{S}}_0\}$. This is all a rather involved way of saying, that the quasiparticle can either be absent $\ket{\text{S}}_0$ and have zero energy or present $\gamma^\dagger_k\ket{\text{S}}_0$ and have energy $E_{F,k}$. Finally we get the Fermi-Dirac distribution of the quasiparticles:
 \begin{equation}
-f(E_{F,k}) = \braket {\zeta^\dagger_k\zeta_k} = \sum_N N P_k(N) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
+f(E_{F,k}) = \braket {\gamma^\dagger_k\gamma_k} = \sum_N N P_k(N) = \frac{0\cdot 1 + 1 \cdot \text{e}^{-\beta E_{F,k}} }{Z_k} = \frac{1}{\text{e}^{\beta E_{F,k}} + 1}, 
 \end{equation}
-where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\zeta_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear. 
+where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\gamma_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear. 
 
 \section{The ground state and Cooper pairs}
 The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $f$-operators as:
 \begin{equation}
-\ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k\right)\ket{0},
+\ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}c^\dagger_{-k}c^\dagger_k\right)\ket{0},
 \end{equation} 
-where $\ket{0}$ is the vacuum: $f_k\ket{0} = 0$. This can be verified explicitly by checking, that $\zeta_k\ket{\text{S}}_0 = 0$ for all $k$, and that $_{0}\!\braket{\text{S}|\text{S}}_0 = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}f^\dagger_{-k}f^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $f^\dagger_{-k}f^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
+where $\ket{0}$ is the vacuum: $c_k\ket{0} = 0$. This can be verified explicitly by checking, that $\gamma_k\ket{\text{S}}_0 = 0$ for all $k$, and that $_{0}\!\braket{\text{S}|\text{S}}_0 = 1$. In this it is important to notice, that the terms $(u_{F,k} + v_{F,k}c^\dagger_{-k}c^\dagger_k)$ commute with each other, since all daggered operators anticommute. The appearance of $c^\dagger_{-k}c^\dagger_k$ for each $k$ is a manifestation of the fact, that the fermions pair up in socalled Cooper pairs with opposite momenta. In this line of thinking it is also interesting to see, how the singly excited states look. A simple calculation shows:
 \begin{equation}
-\zeta^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}f^\dagger_{-k'}f^\dagger_{k'}\right)f^\dagger_k\ket{0}.
+\gamma^\dagger_k\ket{\text{S}}_0 = \prod_{k' > 0, k' \neq k }\left(u_{F,k'} + v_{F,k'}c^\dagger_{-k'}c^\dagger_{k'}\right)c^\dagger_k\ket{0}.
 \end{equation}
-The action of $\zeta^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
+The action of $\gamma^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
 
-\section{Vanishing trapping width limit}
-In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.EffectiveInteraction} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
-\begin{align}
-W^\text{ind}_{FF}(k,k') &= \frac{1}{2}\left[V^\text{ind}_{FF}(k-k',0) - V^\text{ind}_{FF}(k+k',0)\right] \nonumber \\
-&= -\frac{m_Bg_{BF}^2n_B}{2\pi}\left[ \text{e}^{F(k-k')} E_1(F(k-k')) - \text{e}^{F(k+k')} E_1(F(k+k')) \right], \nonumber
-\end{align}
-where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V^\text{ind}_{FF}(k-k',0)$ and $V^\text{ind}_{FF}(k+k',0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the effective interaction $W^\text{ind}_{FF}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant.\footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found in Maple 16.} The exponentials $\text{e}^{F(k-k')}$ and $\text{e}^{F(k+k')}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
+\section{The fluctuations in the number of fermions}
+In this section we discuss the fluctuations in the fermion particle number.
+
+As noted in the derivation of the mean field Hamiltonian, the resulting Hamiltonian does not conserve the number of fermions: $[N_F, H_{FF}] \neq 0 $, where $N_F = \sum_k c^\dagger_k c_k$. As a consequence there will be a variance $\braket{(N_F-\braket{N_F})^2} \neq 0$ of the number of fermions. Calculating this variance turns out to be a little technical. Since we here simply wish to discuss the result, the reader is referred to appendix \ref{AppendixA} for the derivation within mean field theory. The result is most illuminating at zero temperature. Then equation \eqref{eq.varianceNFT0} gives:
 \begin{equation}
-\lim_{l_t \to 0} \; W^\text{ind}_{FF}(k,k') = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k+k')^2+2/\xi^2}{(k-k')^2+2/\xi^2}\right].
+\braket{(N_F-\braket{N_F})^2} = 2\sum_k \left|u_{F,k}\right|^2\left|v_{F,k}\right|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}. \nonumber
+\end{equation}
+This equation clearly demonstrates the fact, that it is the presence of the pairing, $\Delta_k$, that makes the variance of $N_F$ nonzero. Further, we expect the summand to be significantly different from zero only around the Fermi points, i.e. where $\varepsilon_k = \frac{k^2}{2m_F} - \mu = 0$. This we will see explicitly to be the case in the numerical analysis. Finally, converting the sum to an integral in the thermodynamic limit gives us the relative variance:
+\begin{equation}
+\frac{\braket{(N_F-\braket{N_F})^2}}{\braket{N_F}^2} = \frac{1}{2\braket{N_F}}\int d\tilde{k} \; \frac{|\Delta_{\tilde{k}}|^2}{2E^2_{F,\tilde{k}}}. \nonumber
+\end{equation}
+Here we write $k = k_F \tilde{k}$. We use, that the spacing in momentum space is $\Delta k = \frac{2\pi}{\mathcal{L}}$, with $\mathcal{L}$ the length of the wire. Hence, $\Delta \tilde{k} = \frac{2\pi}{k_F\mathcal{L}} = \frac{2}{n_F\mathcal{L}} = \frac{2}{\braket{N_F}}$. Physically, this is because we keep the mean number of fermions fixed: $n_F = \braket{N_F}/\mathcal{L}$. This illustrates two aspects. One is that in the thermodynamic limit, when we increase $\braket{N_F}$ the variance increases proportionally. However, the relative variance $\braket{(N_F-\braket{N_F})^2}/\braket{N_F}^2$ decreases as $1/\braket{N_F}$. Hence, the number of fermions becomes increasingly ill-defined, but it does so in a slow way, namely so that the relative variance approaches zero in the thermodynamic limit. This is all completely analogous with the standard BCS theory for $s$-wave pairing \cite{Tinkham}. In this sense we consider the number of fermions not conserved but well-defined in the thermodynamic limit. We will from now on therefore use $N_F$ both for the number operator and the mean value $\braket{N_F}$. It should be clear from the context which one is meant.   
+
+\section{Vanishing trapping width limit} \label{sec.Vanishingtrappingwidtlimit}
+In this section we will finally see, how we now can obtain a $l_t\to 0$ limit. From equation \eqref{eq.Wkqp.scattering.amplitude} and the alternative form of the induced interaction in momentum space written after equation \eqref{eq.VFF(q,0)}, we get that:
+\begin{align}
+W_{\text{ind}}(k, q, p) &= \frac{1}{2}\left[V_\text{ind}(p, 0) - V_\text{ind}(k + p - q,0)\right] \nonumber \\
+&= -\frac{m_Bg_{BF}^2n_B}{2\pi}\left[ \text{e}^{F(p)} E_1(F(p)) - \text{e}^{F(k + p - q)} E_1(F(k + p - q)) \right], \nonumber
+\end{align}
+where $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$ is the exponential integral. Separately $V_\text{ind}(p,0)$ and $V_\text{ind}(k + p - q,0)$ do not have a well-defined $l_t \to 0$ limit. However, it turns out that the scattering amplitude $W_{\text{ind}}(k, q, p)$ and in turn the effective interaction $W_{\text{ind}}(k,k')$ does. To see this, we use the asymptotic behaviour of $E_1(x)$ for $0 < x \ll 1$: $E_1(x) \approx C -\ln(x)$, where $C$ is a constant.\footnote{The constant is minus the Euler-Mascheroni constant $\gamma$. To ten digits precision $\gamma = 0.5772156649$. This expansion is found in Maple 16.} The exponentials $\text{e}^{F(p)}$ and $\text{e}^{F(k + p - q)}$ just give $1$ in the $l_t \to 0$ limit, and so we are left with the expression:
+\begin{equation}
+\lim_{l_t \to 0} \; W_{\text{ind}}(k, q, p) = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k + p - q)^2+2/\xi^2}{p^2+2/\xi^2}\right].
+\label{eq.Wkqp.scattering.amplitude.lt=0} 
+\end{equation}
+Since $W_{\text{ind}}(k, q = -k, p = k' - k) = W_{\text{ind}}(k, k')$, we get a closed form expression for the effective interaction:
+\begin{equation}
+\lim_{l_t \to 0} \; W_{\text{ind}}(k, k') = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k + k')^2+2/\xi^2}{(k - k')^2+2/\xi^2}\right].
 \label{eq.EffectiveInteractionlt=0} 
 \end{equation}
-We finally have a closed form expression for the effective interaction. This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the effective interaction diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero. The dimensionless effective induced interaction for $l_t = 0$ is hereby:
+This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the effective interaction diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero. The dimensionless effective induced interaction for $l_t = 0$ is hereby:
 \begin{equation}
-\frac{2m_F}{k_F} W^\text{ind}_{FF}(k,k') = - 4\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right],
+\frac{2m_F}{k_F} W_{\text{ind}}(k,k') = - 4\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right],
 \label{eq.EffectiveInteractionlt=0dimensionless} 
 \end{equation}
-
 with $\tilde{k} = k/k_F$ and $\tilde{\xi} = k_F\xi = \sqrt{ \frac{ \pi }{ 8(n_Ba_B^3)^{1/3} } } \frac{n_F}{n_B^{1/3}}$. Hence, we notice that the effective induced interaction is proportional to the ratio of interparticle distances $n_B^{1/3}/n_F$ and the square of the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$. 
 
 

@@ -28,28 +28,30 @@
 \documentclass[11pt, twoside]{Thesis} % The default font size and one-sided printing (no margin offsets)
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\Cov}{\text{Cov}}
+
+\usepackage[backend=biber, sorting=none, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+  
+\bibliography{Bibliography}
+\usepackage{csquotes}
+
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd{\@endpart}{\vfil\newpage}{}{}{}
+\xpatchcmd{\@endpart}{\newpage}{}{}{}
+\makeatother
+
+\usepackage{float}
+
+%\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 %[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]
 \usepackage{microtype}
 \microtypecontext{spacing=nonfrench}
 
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
-
-\newcommand{\partimage}[2][]{\gdef\@partimage{\includegraphics[#1]{#2}}}
-% redefine the amsbook part code to include the \@partimage insertion command
-\def\@part[#1]#2{%
-  \ifnum \c@secnumdepth >-2\relax \refstepcounter{part}%
-    \addcontentsline{toc}{part}{\partname\ \thepart.
-        \protect\enspace\protect\noindent#1}%
-  \else
-    \addcontentsline{toc}{part}{#1}\fi
-  \begingroup\centering
-  \ifnum \c@secnumdepth >-2\relax
-       {\fontsize{\@xviipt}{22}\bfseries
-         \partname\ \thepart} \vskip 20\p@ \fi
-  \fontsize{\@xxpt}{25}\bfseries
-      #1\vfil\@partimage\vfil\endgroup \newpage\thispagestyle{empty}}
-\makeatother
 
 \usepackage{caption}
 \captionsetup{
@@ -59,6 +61,8 @@
 }
 
 \title{\ttitle} % Defines the thesis title - don't touch this
+
+
 
 \begin{document}
 
@@ -222,6 +226,7 @@ Acknowledgements!
 {
 \textbf{B} & \textbf{B}osons \\
 \textbf{BCS} & \textbf{B}ardeen-\textbf{C}ooper-\textbf{S}chrieffer \\
+\textbf{BdG} & \textbf{B}ogoliubov-\textbf{d}e \textbf{G}ennes \\
 \textbf{BEC} & \textbf{B}ose-\textbf{E}instein \textbf{C}ondensate \\
 \textbf{F} & \textbf{F}ermions \\
 
@@ -251,9 +256,70 @@ Acknowledgements!
 
 \listofnomenclature{ll} % Include a list of Symbols (a three column table)
 {
-$a$ & annihilation operator of real particle \\
-$\alpha$ & annihilation operator of corresponding quasiparticle  
+$\beta$ & inverse temperature: $\beta = 1/k_BT$ \\
+$\mathcal{L}$ & length of fermionic wires \\ \\
+
+$H$ & Hamiltonian, second quantization \\
+$\mathcal{H}$ & Hamiltonian, first quantization \\
+$b_k$ & annihilation operator for real boson \\
+$\beta_k$ & annihilation operator for the corresponding boson quasiparticle \\
+$c_k$ & annihilation operator for real fermion \\
+$\gamma_k$ & annihilation operator for the corresponding fermion quasiparticle \\ \\
+
+$m_B$ & mass of the bosons \\
+$m_F$ & mass of the fermions \\
+$m_r$ & reduced mass: $m_r = \frac{m_Fm_B}{m_F + m_B}$ \\ \\
+
+$\epsilon_{F,0}$ & Fermi energy, the free gas \\
+$k_F$ & Fermi momentum, the free gas: $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$ \\
+$T_F$ & Fermi temperature, the free gas: $\epsilon_{F,0} = k_BT_F$ \\
+$\mu(T)$ & chemical potential of the fermions \\ \\
+
+$n_F$ & density of the fermions: $k_F = \pi n_F$ \\
+$n_B$ & density of the bosons \\ \\
+
+$E_{F,k}$ & energy dispersion of the fermions \\
+$E_{B,k}$ & energy dispersion of the bosons \\ \\
+
+$g_B$ & point interaction strength between the bosons \\
+$g_{BF}$ & point interaction strength between the bosons and fermions \\
+$a_B$ & BEC scattering length: $g_B = \frac{4\pi a_B}{m_B}$ \\
+$a_{BF}$ & Bose-Fermi scattering length: $g_B = \frac{2\pi a_B}{m_r}$ \\ \\
+
+$v_F$ & speed of the fermions, the free gas: $k_F = m_Fv_F$ \\
+$c_0$ & speed of the bosons: $c_0 = \frac{\sqrt{4\pi n_Ba_B}}{m_B}$ \\
+$\xi$ & BEC coherence length: $\xi = \frac{1}{\sqrt{2m_Bn_Bg_B}}$ \\ \\
+
+$\omega_t$ & trapping frequency, fermion wires \\
+$l_t$ & trapping width, fermion wires: $l_t = 1/m_F\omega^2_t$ \\ \\
+
+$f(E)$ & Fermi-Dirac distribution function \\
+$b(E)$ & Bose-Einstein distribution function \\
+$\omega_n$ & bosonic Matsubara frequency: $\omega_n = 2\pi n/\beta$ \\ \\
+
+$\chi_{\text{BEC}}$ & BEC density-density correlation function \\
+$d$ & interwire distance \\
+$V^{ij}_{\text{ind}}$ & induced interaction in momentum space between wires $i$ and $j$ \\
+$\tilde{V}^{ij}_{\text{ind}}$ & induced interaction in real space between wires $i$ and $j$ \\
+$\Delta^{ij}_k$ & momentum space pairing potential between wires $i$ and $j$ \\ \\
+
+$\ket{\text{BEC}}_0$ & BEC bosonic ground state at zero temperature	\\
+$\ket{\text{S}}_0$ & BCS fermionic superfluid ground state at zero temperature \\
+$T_c$ & (critical) phase transition temperature \\ \\
+
+$\hat{T}$ & time reversal transformation, second quantization \\
+$\mathcal{T}$ & time reversal transformation, first quantization \\
+$\hat{C}$ & particle-hole transformation, second quantization \\
+$\mathcal{C}$ & particle-hole transformation, first quantization \\
+$\hat{S}$ & chiral transformation, second quantization \\
+$\mathcal{S}$ & chiral transformation, first quantization \\ \\
+
+$\sigma_i$ & $i = 0$: the identity. $i = 1, 2, 3$: the Pauli matrices. \\
+$\mathcal{A}$ & Berry connection \\
+$\text{CS}_1$ & Chern-Simons invariant in one dimension \\
+$W_1$ & Wilson loop in one dimension 
 }
+
 %$P$ & power & W (Js$^{-1}$) \\
 % Symbol & Name & Unit \\
 
@@ -286,11 +352,26 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
+
 \part{Introductions}
+\newpage
+
 \input{Chapters/Chapter1}
 \input{Chapters/Chapter2} 
 
 \part{One wire}
+In this second part we analyse the single wire system. The physical setup is the following. A uniform three dimensional Bose-Einstein condensate is formed using a gas of cooled bosonic atoms. The main example of the thesis will be $^{7}\text{Li}$, which is bosonic since there are $7$ nucleons plus $3$ electrons, so in total an even number of fermions. Embedded in this three dimensional BEC, fermionic atoms on a one dimensional wire is trapped. The main example will be $^{40}\text{K}$, which is fermionic since potassium has $19$ electrons, so in total $59$ fermions. We will \textit{not} be going into details with the atomic structures or the mechanism of the trapping methods, since we wish to keep the discussion quite general. The system is pictorially depicted in the below figure.
+
+\vspace{2.5cm}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.8\columnwidth]{gasand1wire.eps}
+\\ The single wire system. In blue: bosons. In red: fermions.   
+\end{figure}
+
+\newpage
+
 \input{Chapters/Chapter3}
 \input{Chapters/Chapter4} 
 \input{Chapters/Chapter5} 
@@ -298,11 +379,24 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 \input{Chapters/Chapter7} 
 
 \part{Two wires}
+In this third part we analyse the double wire system. The physical setup is the same as for the single wire system, only that a second wire is put in parallel to the first one. See the figure below. The overall reason for the interest in this system is the following. When the wires are separated, the system behaves as two copies of the single wire: the interwire interaction is completely suppressed. Hence, the ground state is topological non-trivial in the weak coupling limit. In turn edge states at the end of the wires form. Oppositely, when the wires are very closely spaced, the interwire interaction dominates. We shall later show, that in this situation there is only an interwire $s$-wave pairing, and that this is topologically trivial: there are no edge states. Hence, the question becomes: what sort of transition occures, when we bring the wires closer together? Or phrased in terms of edge states: how does the edge states disappear? There are two possibilities. The first is that the interwire interaction couples the edge states and in turn gap them away. The second is, that the interwire interaction protects the edge states and therefore a topological phase transition occures, where the energy band gap closes. To answer this question we must first repeat the same steps taken for the single wire case. 
+\begin{figure}[H]
+\center
+\includegraphics[width=0.8\columnwidth]{gasandwires3.eps}
+\\ The double wire system. In blue: bosons. In red: fermions.   
+\end{figure}
+\newpage
+
 \input{Chapters/Chapter8} 
 \input{Chapters/Chapter9}
 \input{Chapters/Chapter10}
-%\input{Chapters/Chapter11}
-%\input{Chapters/Chapter12} 
+
+\part{Discussions and conclusions}
+In this final part we first discuss the results and methods used in the present thesis. We further comment on how we can expand on the analysis in future work. We then move on to the conclusion. There we summarize the main results of the thesis. 
+\newpage 
+
+\input{Chapters/Chapter11}
+\input{Chapters/Chapter12} 
 %\input{Chapters/Chapter13}
 %\input{Chapters/Chapter14}
 
@@ -310,14 +404,14 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
-%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
-%\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-%\input{Appendices/AppendixA}
+\input{Appendices/AppendixA}
 %\input{Appendices/AppendixB}
 %\input{Appendices/AppendixC}
 
@@ -331,8 +425,9 @@ $\alpha$ & annihilation operator of corresponding quasiparticle
 
 \label{Bibliography}
 
-\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+%\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\printbibliography
 \chead{}
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
  
