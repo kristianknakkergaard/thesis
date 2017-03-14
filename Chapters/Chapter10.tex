@@ -74,7 +74,7 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 \begin{figure}
 \center
 \begin{tikzpicture}
-\draw[|->, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
 \draw[-, thick]   (0, 0) -- (0, -2);
 \node at (-0.4, 0) {$0$};
 
@@ -98,7 +98,7 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 
 \node at (3, -1.9) {$0$};
 \node at (8, -1.9) {$\mathcal{L}$};
-\draw[|->, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
+\draw[|-latex, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
 
 \draw[-, ultra thick ] (3,-1.5) -- (8,-1.5);
 \draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x} - 3});
@@ -106,7 +106,7 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 
 \node at (3, 1.1) {$0$};
 \node at (8, 1.1) {$\mathcal{L}$};
-\draw[|->, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
+\draw[|-latex, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
 
 \draw[-, ultra thick] (3,1.5) -- (8,1.5);
 \draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x} + 3});
@@ -117,7 +117,7 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\draw[|->, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
 \draw[-, thick]   (0, 0) -- (0, -2);
 \node at (-0.4, 0) {$0$};
 
@@ -132,24 +132,24 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 \draw[-, ultra thick] (1, 1)--(1, 2);
 \draw[-, ultra thick] (1, -1)--(1, -2);
 \node[red] at (1, 0) {\textbullet};
-\draw[->] (1, 0) --  (1,  1);
+\draw[-latex] (1, 0) --  (1,  1);
 
 \draw[-, ultra thick] (2, 1)--(2, 2);
 \draw[-, ultra thick] (2, -1)--(2, -2);
 \node[blue] at (2, 0) {\textbullet};
-\draw[->] (2, 0) --  (2,  -1);
+\draw[-latex] (2, 0) --  (2,  -1);
 
 \draw[-, dashed] (0,0.01) --(2,0.01);
 
 \node at (3, -1.9) {$0$};
 \node at (8, -1.9) {$\mathcal{L}$};
-\draw[|->, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
+\draw[|-latex, thick ] (3,-1.5) -- (9,-1.5) node[right]{$x$};
 
 \draw[-, ultra thick ] (3,-1.5) -- (8,-1.5);
 
 \node at (3, 1.1) {$0$};
 \node at (8, 1.1) {$\mathcal{L}$};
-\draw[|->, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
+\draw[|-latex, thick ] (3,1.5) -- (9,1.5) node[right]{$x$};
 
 \draw[-, ultra thick] (3,1.5) -- (8,1.5);
 
@@ -162,7 +162,7 @@ As pointed out in section \ref{sec.topindexandphases} the particle-hole symmetry
 
 Let us now first focus on the energetically favourable solution found in the previous section: $\Delta^{22}_k = - \Delta^{11}_k$ real and $\Delta^{12}_k$ imaginary. As shown in section \ref{sec.2wiressymmetries} this system has an additional time reversal symmetry that exhanges the wires, and that squares to $+\mathbb{I}$. However, there is nothing to protect the two edge states in the two wires from coupling, and since it is only the total spectrum that has to exhibit the plus/minus symmetry in the energies, the edge state energies can \textit{gap} away. This is sketched in the bottom of figure \ref{fig.2wiresedgestates}. This is exactly, what the numerical analysis says must be happening. The reason is the following. The separated wires exhibit only $p$-wave pairing, which has a topological ground state as shown in chapter \ref{Chapter7}. The closely spaced wires on the other hand have only $s$-wave pairing; a system that is known to be topologically trivial.\footnote{This we show explicitly in section \ref{sec.2wires_CSinv}.} Hence, according to the arguments of section \ref{sec.topindexandphases} either the bulk energy gap has to close, or the edge states are simply coupled and gapped away. In the case of an imaginary interwire pairing the energy dispersion is: $E_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2 }$. This means, that the bulk energy gap \textit{cannot} close, since it only contains positive terms. The only possibility is, that $\varepsilon_k, \Delta^{11}_k$ and $\Delta^{12}_k$ are simultaneously zero. This is ruled out by the numerical analysis in figure \ref{fig.pairingkdependT0dvaried}. Since the bulk gap does not close, the edge states are gapped.
 
-The situation changes dramatically for the real interwire pairing case. As shown in section \ref{sec.2wiressymmetries} this means, that the system has a time reversal symmetry, that squares to $-\mathbb{I}$. The edge states are hereby protected by Kramers degeneracy. The argument closely follows the argument in \cite{BernevigTITSC}. The time reversal symmetry in first quantization is in general described by an antiunitary operator $UK$, where $U$ is unitary, and $K$ is the complex conjugation operator. For the system at hand, we have: $\mathcal{T} = i\sigma_2 K$. Explicitly the symmetry looks like: $\mathcal{T}\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}$. Let us now assume, that we have one state, $\ket{\psi_k}$, with energy $E_k$. Then $\mathcal{T}\ket{\psi_k}$ also has the energy $E_k$:
+The situation changes dramatically for the real interwire pairing case. As shown in section \ref{sec.2wiressymmetries} this means, that the system has a time reversal symmetry, that squares to $-\mathbb{I}$. The edge states are hereby protected by Kramers degeneracy. The argument closely follows the argument in \cite{BernevigTITSC}. The time reversal symmetry in first quantization is in general described by an antiunitary operator $UK$, where $U$ is unitary, and $K$ is the complex conjugation operator. For the system at hand, we have: $\mathcal{T} = i\sigma_2\otimes \tau_0\cdot K$, see equation \eqref{eq.2wiresTminuswireexchangefirstquantization}. Explicitly the symmetry looks like: $\mathcal{T}\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}$. Let us now assume, that we have one state, $\ket{\psi_k}$, with energy $E_k$. Then $\mathcal{T}\ket{\psi_k}$ also has the energy $E_k$:
 \begin{equation}
 \mathcal{H}_{FF,-k}\mathcal{T}\ket{\psi_k} = \mathcal{T}\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\mathcal{T}\ket{\psi_k}. \nonumber
 \end{equation}
@@ -203,7 +203,7 @@ Here we have indicated the contribution to the Chern-Simons invariant from the e
 \end{equation}
 We are now ready for the computation. This will be done in the two cases $\Delta^{12}_k$ imaginary and real corresponding to the presence of a time reversal symmetry of the form $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ respectively. 
 
-\subsection{$T^2 = +\mathbb{I}$, imaginary interwire pairing}
+\subsection{Imaginary interwire pairing}
 \label{subsec.2wires_CSinv_Delta12imag}
 The aim of this subsection is to calculate $\nu$ as given in equation \eqref{eq.2wires.topinv.T2eqplus1}. We follow the same procedure as the one in section \ref{sec.CS1}. 
 
@@ -212,7 +212,7 @@ Since we differentiate the eigenvectors with respect to $k$, it is essential tha
 \mathcal{H}_{FF,k} &= \varepsilon_k \sigma_0 \otimes \tau_3 + \Delta^{11}_k \sigma_3 \otimes \tau_1 + \Delta^{12}_k \sigma_2 \otimes \tau_1 \to \nonumber \\
 \mathcal{H}'_{FF,k} &= \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_1 \otimes \tau_2, \nonumber 
 \end{align}
-where $\otimes$ is the direct product, $\tau_i$ is the Pauli matrices in particle-hole space and $\sigma_i$ are the Pauli matrices in wire-space. We have also written the imaginary interwire pairing as $i\Delta^{12}_k$. Since the Hamiltonian belongs to symmetry class DIII it has a chiral symmetry: $\{S, \mathcal{H}_{FF,k}\} = 0$. In the new basis after the above transformation we see, that $S = \sigma_1\otimes \tau_1$. $S$ have eigenvectors $\ket{v_{ab}} = \ket{\chi^{1}_a}\otimes \ket{\chi^{1}_b}$, where $\ket{\chi^{1}_a}$ for $a = 1,2$ are the eigenvectors to the first Pauli matrix $\tau_1, \sigma_1$. We then transform to the basis, where $S$ is diagonal by forming $V = (\ket{v_{ab}})$ and calculating:
+where $\otimes$ is the direct product, $\tau_i$ is the Pauli matrices in particle-hole space and $\sigma_i$ are the Pauli matrices in wire-space. We have also written the imaginary interwire pairing as $i\Delta^{12}_k$. Since the Hamiltonian belongs to symmetry class DIII it has a chiral symmetry: $\{S, \mathcal{H}_{FF,k}\} = 0$. In the new basis after the above transformation we see, that $S = \sigma_1\otimes \tau_1$. $S$ has eigenvectors $\ket{v_{ab}} = \ket{\chi^{1}_a}\otimes \ket{\chi^{1}_b}$, where $\ket{\chi^{1}_a}$ for $a = 1,2$ are the eigenvectors to the first Pauli matrix $\tau_1, \sigma_1$. We then transform to the basis, where $S$ is diagonal by forming $V = (\ket{v_{ab}})$ and calculating:
 \begin{equation}
 \tilde{\mathcal{H}}_{FF,k} = V^\dagger\mathcal{H}'_{FF,k}V = \varepsilon_k \sigma_1\otimes \tau_1 + \Delta^{11}_k \sigma_1\otimes\tau_3 - \Delta^{12}_k\sigma_2\otimes\tau_0. \nonumber 
 \end{equation}
@@ -226,11 +226,11 @@ with $E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2}$.
 \end{equation}
 Hereby: $\text{tr}[\mathcal{A}_k] = \mathcal{A}^{11}_k  + \mathcal{A}^{22}_k = 0$, and the topological invariant is simply $\nu = 0$. As for the single wire this is the topologically trivial value. This means, that the edge states formed in the single wire are not protected in the two wire system, when $T^2 = +\mathbb{I}$. This is consistent with the more pictorial analysis of the last section. 
 
-\subsection{$T^2 = -\mathbb{I}$, real interwire pairing}
+\subsection{Real interwire pairing}
 \label{subsec.2wires_CSinv_Delta12real}
 In this subsection we calculate the topological invariant as defined in equation \eqref{eq.2wires.topinv.T2eqminus1}. 
 
-To get to well-behaved eigenvectors we follow the same procedure as outlined in the previous subsection. The $\Delta^{12}_k$ of $\mathcal{H}_{FF,k}$ now has the form $\Delta^{12}_k \sigma_2 \otimes \tau_1$. After going to the Nambu spinor form, we therefore have $\mathcal{H}'_{FF,k} = \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_2 \otimes \tau_2$. The anticommuting symmetry is now given by: $S = \sigma_1\otimes \tau_2$. The corresponding eigenvectors are therefore $\ket{v_{ab}} = \ket{\chi^{1}_a}\otimes\ket{\chi^{2}_b}$. Letting $V = (\ket{v_{ab}})$ and calculating the conjugation of $\mathcal{H}'_{FF,k}$ then yields:
+To get to well-behaved eigenvectors we follow the same procedure as outlined in the previous subsection. The $\Delta^{12}_k$ term of $\mathcal{H}_{FF,k}$ now has the form $\Delta^{12}_k \sigma_2 \otimes \tau_2$. After going to the Nambu spinor form, we therefore have $\mathcal{H}'_{FF,k} = \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_2 \otimes \tau_2$. The anticommuting symmetry is now given by: $S = \sigma_1\otimes \tau_2$. The corresponding eigenvectors are therefore $\ket{v_{ab}} = \ket{\chi^{1}_a}\otimes\ket{\chi^{2}_b}$. Letting $V = (\ket{v_{ab}})$ and calculating the conjugation of $\mathcal{H}'_{FF,k}$ then yields:
 \begin{equation}
 \tilde{\mathcal{H}}_{FF,k} = V^\dagger\mathcal{H}'_{FF,k}V = \varepsilon_k \sigma_1\otimes \tau_1 + \Delta^{11}_k \sigma_1\otimes\tau_3 - \Delta^{12}_k\sigma_2\otimes\tau_1. \nonumber 
 \end{equation}
@@ -315,7 +315,7 @@ where we in the last equality anticommute the two operators on the left and the 
 TH_\text{int}^{12}T^{-1} &= \frac{1}{\mathcal{L}}\sum_{k,q,p} V_{\text{ind}}^{12}(p,0) c^\dagger_{1, -(q - p)}c^\dagger_{2,-(k + p)}c_{2, -k}c_{1, -q} \nonumber \\
 &= \frac{1}{\mathcal{L}}\sum_{k,q,p} V_{\text{ind}}^{12}(-p,0) c^\dagger_{1, q - p}c^\dagger_{2, k + p }c_{2, k}c_{1, q} = H_\text{int}^{12}. \nonumber 
 \end{align}
-Here we first use the above transformation of the creation and annihilation operators and that $V_{\text{ind}}^{12}$ is real. Then we shift all three sums from plus to minus. Finally, we use that $V_{\text{ind}}^{12}(p,0)$ is even in $p$. This shows, that the interwire interaction has both time reversal symmetries. In particular it has the time reversal symmetry, that squares to minus the identity: $T^2 = -\mathbb{I}$. Now we can use the result of subsection \ref{subsec.2wires_CSinv_Delta12real} in the special case where $\Delta^{12}_k = 0$, since we only consider the interwire interaction has a small perturbation. The result is then, that the interwire interaction protects the edge states as long as it can be treated as a perturbation. As we bring the wires closer together at some point a mean field $\braket{c_{2,k}c_{1,-k}} \neq 0$ will start to form. This mean field has the ability to break the $T^2 = -\mathbb{I}$ symmetry. This is what happens, when the system chooses $\braket{c_{2,k}c_{1,-k}}$ purely imaginary (for $\Delta^{11}_k = -\Delta^{22}_k$). Then the result of subsection \ref{subsec.2wires_CSinv_Delta12imag} is, that the edge states are no longer protected and so they can gap away. On the other hand if $\braket{c_{2,k}c_{1,-k}}$ is picked to be real (again for $\Delta^{11}_k = -\Delta^{22}_k$), then the $T^2 = -\mathbb{I}$ symmetry is preserved and the edge states are protected until the phase transition at $d = d_c$ occures. 
+Here we first use the above transformation of the creation and annihilation operators and that $V_{\text{ind}}^{12}$ is real. Then we shift all three sums from plus to minus. Finally, we use that $V_{\text{ind}}^{12}(p,0)$ is even in $p$. This shows, that the interwire interaction has both time reversal symmetries. In particular it has the time reversal symmetry, that squares to minus the identity: $T^2 = -\mathbb{I}$. Now we can use the result of subsection \ref{subsec.2wires_CSinv_Delta12real} in the special case where $\Delta^{12}_k = 0$, since we only consider the interwire interaction as a small perturbation. The result is then, that the interwire interaction protects the edge states as long as it can be treated as a perturbation. As we bring the wires closer together at some point a mean field $\braket{c_{2,k}c_{1,-k}} \neq 0$ will start to form. This mean field has the ability to break the $T^2 = -\mathbb{I}$ symmetry. This is what happens, when the system chooses $\braket{c_{2,k}c_{1,-k}}$ purely imaginary (for $\Delta^{11}_k = -\Delta^{22}_k$). Then the result of subsection \ref{subsec.2wires_CSinv_Delta12imag} is, that the edge states are no longer protected and so they can gap away. On the other hand if $\braket{c_{2,k}c_{1,-k}}$ is picked to be real (again for $\Delta^{11}_k = -\Delta^{22}_k$), then the $T^2 = -\mathbb{I}$ symmetry is preserved and the edge states are protected until the phase transition at $d = d_c$ occures. 
 
 Summarizing this tells us the following. If the phase of the interwire pairing is not restricted in some way, the phase with the least free energy will be chosen: $\Delta^{12}_k$ purely imaginary. Hence, in such a transition the actual behaviour will be that of the continuous cross over. If however, one is able to fix the phase of the interwire pairing to be real, the transition from $p$- to $s$-wave dominated will happen abrubtly. Hence, the actual behaviour of the system depends on how the system is prepared and controlled.  
 

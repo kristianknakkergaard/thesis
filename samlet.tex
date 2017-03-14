@@ -45,13 +45,14 @@
 \makeatother
 
 \usepackage{float}
+\usetikzlibrary{arrows}
 
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 %[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]
 \usepackage{microtype}
 \microtypecontext{spacing=nonfrench}
 
-\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\hypersetup{urlcolor=blue, linkcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 
 \usepackage{caption}
 \captionsetup{
@@ -183,7 +184,9 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-WRITE SUMMARY
+In this thesis we theoretically investigate the properties of 1D-3D Fermi-Bose mixtures. Specifically, we embed one dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. The single wire system is then studied in a weak coupling limit in a mean field approach. This produces a self-consistency equation for the resulting $p$-wave pairing, which we solve for numerically. The system realizes the Kitaev model of $p$-wave pairing, which we show to have a topological ground state by computing the topological index. As a result edge states form at the end of the wires. 
+
+The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave pairing is then numerically studied by decreasing the interwire distance. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We realize both a continuous and abrubt cross over and show that these correspond to a regular and topological phase transition by computing the topological index in both cases. 
 
 \clearpage % Start a new page
 
@@ -194,63 +197,27 @@ WRITE SUMMARY
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-Acknowledgements!
+I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but supportive, enthusiastic and patient. Further, I would like to thank ph.d. student Jonatan Melk{\ae}r Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study.  
 }
-\clearpage % Start a new page
-
-%----------------------------------------------------------------------------------------
-%	LIST OF CONTENTS/FIGURES/TABLES PAGES
-%----------------------------------------------------------------------------------------
-
-\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
-
-\lhead{\emph{Contents}} % Set the left side page header to "Contents"
-\tableofcontents % Write out the Table of Contents
-
-\lhead{\emph{List of figures}} % Set the left side page header to "List of Figures"
-\listoffigures % Write out the List of Figures
-
-\lhead{\emph{List of tables}} % Set the left side page header to "List of Tables"
-\listoftables % Write out the List of Tables
-
+\clearpage
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-%\clearpage % Start a new page
-
-%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
-
-\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
-\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
-{
-\textbf{B} & \textbf{B}osons \\
-\textbf{BCS} & \textbf{B}ardeen-\textbf{C}ooper-\textbf{S}chrieffer \\
-\textbf{BdG} & \textbf{B}ogoliubov-\textbf{d}e \textbf{G}ennes \\
-\textbf{BEC} & \textbf{B}ose-\textbf{E}instein \textbf{C}ondensate \\
-\textbf{F} & \textbf{F}ermions \\
-
-}
-
-%----------------------------------------------------------------------------------------
-%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
-%----------------------------------------------------------------------------------------
-
-%\clearpage % Start a new page
-
-%\lhead{\emph{Fysiske konstanter}} % Set the left side page header to "Physical Constants"
-
-%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
+%\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 %{
-%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-% Constant Name & Symbol & = & Constant Value (with units) \\
+%\textbf{B} & \textbf{B}osons \\
+%\textbf{BCS} & \textbf{B}ardeen-\textbf{C}ooper-\textbf{S}chrieffer \\
+%\textbf{BdG} & \textbf{B}ogoliubov-\textbf{d}e \textbf{G}ennes \\
+%\textbf{BEC} & \textbf{B}ose-\textbf{E}instein \textbf{C}ondensate \\
+%\textbf{F} & \textbf{F}ermions \\
 %}
-
+%\clearpage
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
-
-\clearpage % Start a new page
+\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
 
 \lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
 
@@ -315,32 +282,28 @@ $\mathcal{T}$ & time reversal transformation, first quantization \\
 $\mathcal{C}$ & particle-hole transformation, first quantization \\
 $\mathcal{S}$ & chiral transformation, first quantization \\ \\
 
-$\sigma_i$ & $i = 0$: the identity. $i = 1, 2, 3$: the Pauli matrices. \\
 $\mathcal{A}$ & Berry connection \\
 $\text{CS}_1$ & Chern-Simons invariant in one dimension \\
 $W_1$ & Wilson loop in one dimension 
 }
-
-%$P$ & power & W (Js$^{-1}$) \\
-% Symbol & Name & Unit \\
-
-%& & \\ % Gap to separate the Roman symbols from the Greek
-
-%$\omega$ & angular frequency & rads$^{-1}$ \\
-% Symbol & Name & Unit \\
-%}
+\newpage
 
 %----------------------------------------------------------------------------------------
-%	DEDICATION
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
 
-%\setstretch{1.3} % Return the line spacing back to 1.3
+\setstretch{1.3}
 
-%\pagestyle{empty} % Page style needs to be empty for this page
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
-%\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
 
-%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\lhead{\emph{List of figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures and Tables
+
+\lhead{\emph{List of tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS

@@ -49,7 +49,7 @@ With this the kernel $\mathcal{H}_{FF,k}$ is real, and with $U_T = i\sigma_3$ we
 \begin{equation}
 U_T\mathcal{H}^*_{FF,-k}U^\dagger_T = \sigma_3\mathcal{H}^*_{FF,-k}\sigma_3 = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \varepsilon_k & -\Delta_k \\ -\Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} = \mathcal{H}_{FF,k}, \nonumber
 \end{equation}
-since $\Delta_k$ is odd in k and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
+since $\Delta_k$ is odd in $k$ and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
 \begin{equation}
 T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i c_{-k} \\ - i c^\dagger_{k} \end{bmatrix}. \nonumber
 \end{equation}
@@ -96,12 +96,24 @@ In this section we will anticipate a potential breaking of time reversal symmetr
 \label{eq.hhatdefinition}
 \end{equation}
 
-\begin{figure} 
-\begin{center}  
-\includegraphics[width=0.5\textwidth]{Figures/Topologicalindex/topindex}  
-\caption{In red (blue) $(h_x(k),h_z(k))$ is plotted as function of $k\in \{0, \infty\}$ for $\mu > 0$ ($\mu < 0$). Notice that for $\mu < 0$ the curve starts and ends at the north pole.}  
-\label{fig.hhatplot}  
-\end{center}    
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+\draw[-latex, thick] ( 0.0, -4) -- (0, 4) node[above]{$z$};
+\draw[-latex, thick] (-0.1,  0) -- (4, 0) node[right]{$x$};
+\node at (-0.4, 0) {$0$};
+
+\draw[red, ultra thick] (0, -3.5) arc (-90:90:3.5);
+\draw[-latex, red, thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
+
+\draw[domain=33.540844097:90,smooth,variable=\x,blue, thick] plot ({3.5 * cos(\x)},{3.5 * sin(\x)});
+\draw[-latex, blue, thick] (0.6853426578, 3.4322601227) -- (0.6953426578, 3.4302330223);
+\draw[-latex, blue, thick] (2.4748737348,  2.4748737348) -- (2.4648737348, 2.4848737348);
+
+\end{tikzpicture}
+\caption{In red (blue) $(h_x(k),h_z(k))$ is plotted as function of $k\in \{0, \infty\}$ for $\mu > 0$ ($\mu < 0$). Notice that for $\mu < 0$ the curve starts and ends at the north pole.}
+\label{fig.hhatplot}
 \end{figure}
 
 It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$, we notice that: 
@@ -131,7 +143,7 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \begin{figure}
 \center
 \begin{tikzpicture}
-\draw[|->, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
 \draw[-, thick]   (0, 0) -- (0, -2);
 \node at (-0.4, 0) {$0$};
 
@@ -148,15 +160,15 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \node[red] at (1, 0) {\textbullet};
 
 \node at (1, 0.5) {\textbullet};
-\draw[->] (1, 0.5) --  (1,  1);
+\draw[-latex] (1, 0.5) --  (1,  1);
 \node at (1, -0.5) {\textbullet};
-\draw[->] (1, -0.5) -- (1, -1);
+\draw[-latex] (1, -0.5) -- (1, -1);
 
 \draw[-, dashed] (0,0.01) --(1,0.01);
 
 \node at (3, -0.4) {$0$};
 \node at (8, -0.4) {$\mathcal{L}$};
-\draw[|->, thick ] (3,0) -- (9,0) node[right]{$x$};
+\draw[|-latex, thick ] (3,0) -- (9,0) node[right]{$x$};
 
 \draw[-, ultra thick ] (3,0) -- (8,0);
 \draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
@@ -214,5 +226,5 @@ W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu).
 We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
 
 \vspace{1cm}
-The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
+The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the one already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
 

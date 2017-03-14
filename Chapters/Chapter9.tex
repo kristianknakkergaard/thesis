@@ -8,7 +8,7 @@
 \chead{Chapter 9. \emph{Grand Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In the chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we will classify the grand Hamiltonian topologically and discuss the symmetries. 
+In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we will classify the grand Hamiltonian topologically and discuss the symmetries. 
 
 \section{The interaction Hamiltonian and the mean field approximation}
 \label{sec.2wiresmeanfieldapproximation}
@@ -102,7 +102,7 @@ E^{-}_{F,k} & 0        & 0       & 0        \\
 0       & 0        & 0       & -E^{-}_{F,k} \\ 
 \end{bmatrix} \nonumber
 \end{equation}
-Further the diagonalisation must respect the symmetry in the 1 and 2 fermions of the Hamiltonian. Specifically the assumption of $\Delta^{22}_k = -\Delta^{11}_k$ must be selfconsistent. From equation \ref{eq.pairingpotentialsintrawire} this means, that $\braket{c_{2,k}c_{2,-k}} = -\braket{c_{1,k}c_{1,-k}}$. Finally, since the elements of $F_k$ are not independent, we get some internal structure of $U_{F,k}$. Let us write the elements of $U_{F,k}$ as $u^{ij}_k$. Then from the first row of equation \eqref{eq.zetaoperatorstwowiresdefinition} we obtain: 
+Further the diagonalisation must respect the symmetry in the 1 and 2 fermions of the Hamiltonian. Specifically the assumption of $\Delta^{22}_k = -\Delta^{11}_k$ must be selfconsistent. From equation \ref{eq.pairingpotentialsintrawire} this means, that $\braket{c_{2,k}c_{2,-k}} = -\braket{c_{1,k}c_{1,-k}}$. Finally, since the elements of $C_k$ are not independent, we get some internal structure of $U_{F,k}$. Let us write the elements of $U_{F,k}$ as $u^{ij}_k$. Then from the first row of equation \eqref{eq.zetaoperatorstwowiresdefinition} we obtain: 
 \begin{equation}
 c_{1,k} = u^{11}_k \gamma_{1,k} + u^{12}_k \gamma^\dagger_{1,-k} + u^{13}_k \gamma_{2,k} + u^{14}_k \gamma^\dagger_{2,-k}. \nonumber
 \end{equation}
@@ -181,7 +181,7 @@ We first define a time reversal operator, that squares to $\mathbb{I}$ and inter
 \begin{equation}
 T_+\begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_+^{-1} = \eta\sigma_1 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{2,-k} \\ c^\dagger_{1,-k} \end{bmatrix},\nonumber
 \end{equation} 
-with $\sigma_1$ the first Pauli matrix and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
+with $\sigma_1$ the first Pauli matrix operating in wire space and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $(\eta\sigma_1)(\eta\sigma_1)^* = \sigma_1^2 = \mathbb{I}$ we get, that $T_+$ squares to plus the identity. The question is now, under what circumstances $T_+$ is a symmetry of the Hamiltonian. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
 \begin{equation}
 \Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_+}{\to} \Delta^{11*}_k \left(\eta c^\dagger_{2,-k}\right)\left(\eta c^\dagger_{2,k}\right) = -\eta^2\Delta^{11}_k c^\dagger_{2,k}c^\dagger_{2,-k}. \nonumber
 \end{equation}
@@ -189,14 +189,18 @@ Here we use, that $\Delta^{11}_k$ is chosen to be real. This term should be iden
 \begin{equation}
 \Delta^{12}_k c^\dagger_{2,k}c^\dagger_{1,-k} \overset{T_+}{\to} \Delta^{12*}_k \left(\eta c^\dagger_{1,-k}\right)\left( \eta c^\dagger_{2,k}\right) = -\eta^2 \Delta^{12*}_k c^\dagger_{2,k}c^\dagger_{1,-k} = - \Delta^{12*}_k c^\dagger_{2,k}c^\dagger_{1,-k}. \nonumber
 \end{equation}
-This shows, that independent of $\eta$, we need $\Delta^{12*}_k = - \Delta^{12}_k$. Hence, the interwire pairing must be imaginary to obey this time time reversal symmetry.\footnote{Had we chosen the phases of the intrawire pairings differently we could ensure a time reversal symmetry by changing the overall phase acquired under $T_+$.} Finally, since $(\eta \sigma_1)^2 = \sigma_1^2 = \mathbb{I}$, $T_+$ squares to the identity.  
+This shows, that independent of $\eta$, we need $\Delta^{12*}_k = - \Delta^{12}_k$. Hence, the interwire pairing must be imaginary to obey this time reversal symmetry.\footnote{Had we chosen the phases of the intrawire pairings differently we could ensure a time reversal symmetry by changing the overall phase acquired under $T_+$.} As in section \ref{sec.SymmetriesTRandPH} we can convert the second quantized operator to one in first quantization:
+\begin{equation}
+\mathcal{T}_+ = \sigma_1\otimes \tau_0 \cdot K, 
+\label{eq.2wiresTpluswireexchangefirstquantization}
+\end{equation}
+where $K$ is the complex conjugation operator and $\tau_i$ are the Pauli matrices operating in particle-hole space. Here we have chosen $\eta = 1$. The symmetry is then described by the fact that: $\mathcal{T}_+\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}_+$.
 
 We now define a time reversal operator, that squares to $-\mathbb{I}$ and interchanges the wires:
 \begin{equation}
 T_-\begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_-^{-1} = \eta\sigma_2 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = -i\eta\begin{bmatrix} c^\dagger_{2,-k} \\ - c^\dagger_{1,-k} \end{bmatrix}.\nonumber
 \end{equation} 
-This transformation is different from $T_+$ in the sense, that there is an overall sign difference in the transformation of the two types of fermions.  
-We hereby get:
+This transformation is different from $T_+$ in the sense, that there is an overall sign difference in the transformation of the two types of fermions. Since $(\eta \sigma_2)(\eta \sigma_2)^* = \sigma_2\sigma_2^* = - \sigma_2^2 = - \mathbb{I}$, this time reversal operator squares to plus the identity. Again we ask under what conditions this is a symmetry of the Hamiltonian. Looking at the same terms as before, we firstly get:
 \begin{equation}
 \Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{11*}_k \left(-i\eta c^\dagger_{2,-k}\right)\left(-i\eta c^\dagger_{2,k}\right) = \eta^2\Delta^{11}_k c^\dagger_{2,k}c^\dagger_{2,-k}. \nonumber
 \end{equation}
@@ -204,13 +208,18 @@ This term should be identical to the original term connected to the product $c^\
 \begin{equation}
 \Delta^{12}_k c^\dagger_{2,k}c^\dagger_{1,-k} \overset{T_-}{\to} \Delta^{12*}_k \left(i\eta c^\dagger_{1,-k}\right)\left(-i\eta c^\dagger_{2,k}\right) = -\eta^2 \Delta^{12*}_k c^\dagger_{2,k}c^\dagger_{1,-k} = \Delta^{12*}_k c^\dagger_{2,k}c^\dagger_{1,-k}. \nonumber
 \end{equation}
-This shows, that independent of $\eta$, we need $\Delta^{12*}_k = \Delta^{12}_k$. Hence, the interwire pairing must be real to obey this time reversal symmetry. Finally, since $(\eta \sigma_2)(\eta^* \sigma_2^*) = \sigma_2\sigma_2^* = -\mathbb{I}$, $T_-$ squares to minus the identity. 
+This shows, that independent of $\eta$, we need $\Delta^{12*}_k = \Delta^{12}_k$. Hence, the interwire pairing must be real to obey this time reversal symmetry. In first quantization we can express this time reversal operator as:
+\begin{equation}
+\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K, 
+\label{eq.2wiresTminuswireexchangefirstquantization}
+\end{equation}
+where again $\sigma_i, \tau_i$ are Pauli matrices operating in wire and particle-hole space respectively. 
 
-Similarly to the single wire case we can define a particle-hole transformation, that effectively does not change the spinor $F_k$, since the Hamiltonian of this two wire system is still of the Bogoliubov-de Gennes type. Explicitly we let:
+Similarly to the single wire case we can define a particle-hole transformation, that effectively does not change the spinor $C_k$, since the Hamiltonian of this two wire system is still of the Bogoliubov-de Gennes type. Explicitly we let:
 \begin{equation}
 C\begin{bmatrix} c_{j,k} \\ c^\dagger_{j,-k} \end{bmatrix}C^{-1} = \sigma_1 \begin{bmatrix} c^\dagger_{j,-k} \\ c_{j,k} \end{bmatrix} = \begin{bmatrix} c_{j,k} \\ c^\dagger_{j,-k} \end{bmatrix}, 
 \end{equation} 
-both for $j=1$ and $j=2$. It is then clear, that the total spinor $F_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\sigma_1^2 = \mathbb{I}$ so the transformation squares to unity. 
+both for $j=1$ and $j=2$. It is then clear, that the total spinor $C_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\sigma_1^2 = \mathbb{I}$ so the transformation squares to unity. 
 
 This analysis also gives us a sublattice symmetry in the case of an imaginary or real interwire pairing: $S_\pm = T_\pm C$. In total this puts the system in Cartan class BDI, if $\Delta^{12}_k$ is imaginary, and in Cartan class DIII, if $\Delta^{12}_k$ is real. The topological index is respectively to be found in the integers $\mathbb{Z}$ and in $\mathbb{Z}_2 = \{-1,1\}$. See table \ref{tab.PeriodicTableTISC} for the details. 
 

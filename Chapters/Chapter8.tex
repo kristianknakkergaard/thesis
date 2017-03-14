@@ -169,7 +169,7 @@ V_{\text{ind}}^{12}(q,0) &= -\frac{n_Bg_{BF}^2m_B}{\pi^2}\int_0^\infty d k_\perp
 with $J_0$ the zero order Bessel function of the first kind. This form of the potential is not terrible illuminating. In stead let us take the Fourier transform to get the induced interaction in real space, $\tilde{V}_{\text{ind}}^{12}(x,0)$. Write $\mathbf{r} = (x,\mathbf{d})$ and $\mathbf{k} = (q,\mathbf{k}_\perp)$. We then get the expression:
 \begin{align}
 \tilde{V}_{\text{ind}}^{12}(x,0) &= \int \frac{dq}{2\pi} \; \text{e}^{iqx} V_{\text{ind}}^{12}(q,0) = -4n_Bg^2_{BF}m_B\int \frac{d^3k}{(2\pi)^3} \frac{\text{e}^{i\mathbf{k}\cdot \mathbf{r}}}{k^2 + 2/\xi^2} \nonumber \\
-								  &= -\frac{n_Bg^2_{BF}m_B}{\pi} \frac{\text{e}^{-\sqrt{2(x^2+d^2)}/\xi}}{\sqrt{x^2+d^2}},
+								  &= -\frac{n_Bg^2_{BF}m_B}{\pi} \frac{\text{e}^{-\sqrt{2}\sqrt{x^2+d^2}/\xi}}{\sqrt{x^2+d^2}},
 \end{align}
 since we recognise the second expression as the Yukawa potential in momentum space with range $\xi/\sqrt{2}$. It is hereby evident, that in the $d = 0$ limit the interwire induced interaction goes to the intrawire one found in chapter \ref{Chapter3}, as it should be. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
 \begin{equation}
@@ -205,7 +205,7 @@ The fact, that we can express the induced interaction in terms of a known functi
 For comparison and later reference, let us list the intra- and interwire induced interactions on unitless form. This we do for $l_t = 0$. In real space we have:
 \begin{align}
 \frac{\tilde{V}_{\text{ind}}^{11}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ -\sqrt{2}|x| / \xi } }{k_F|x|}, \nonumber \\
-\frac{\tilde{V}_{\text{ind}}^{12}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ - \sqrt{2(x^2 + d^2)} /\xi } }{k_F\sqrt{2(x^2 + d^2)}}. 
+\frac{\tilde{V}_{\text{ind}}^{12}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ - \sqrt{2}\sqrt{x^2 + d^2} /\xi } }{k_F\sqrt{x^2 + d^2}}. 
 \end{align}
 As mentioned above, the interaction in real space is essentially the same. The only difference is, that the interaction distance between the wires is at least $d$. In momentum space we should compare the interwire induced interaction with the effective intrawire interaction, formerly denoted $W_{\text{ind}}(k,k')$. To avoid any confusion we will now denote these $W_{\text{ind}}^{jj}(k,k')$ for the effective interaction in wire $j = 1, 2$. Then from equations \eqref{eq.EffectiveInteractionlt=0dimensionless} and \eqref{eq.VFF12indq} we get:
 \begin{align}
