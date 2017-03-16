@@ -1,14 +1,14 @@
 % Chapter 10
 
-\chapter{Cross over and numerical analysis} % Main chapter title
+\chapter{Cross over and topology} % Main chapter title
 
 \label{Chapter10} % For referencing the chapter elsewhere, use \ref{Chapter9} 
 
 \lhead{Part III. \emph{Two wires}}
-\chead{Chapter 10. \emph{Cross over \& numerical analysis}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 10. \emph{Cross over \& topology}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we present the numerical analysis and results of the two wire system. The most noticeable of the results is, that we are able to find an interval of interwire distances, where both $s$- and $p$-wave type pairings exist, and that this is the energetically favourable state of the system.
+In this chapter we investigate the cross over between $p$- and $s$ wave pairing. In section \ref{sec.2wiresCrossover_energy} we study it numerically. In sections \ref{sec.2wiresedgestates_crossover_topology} and \ref{sec.2wires_CSinv} we investigate the influence of topology. Finally, in section \ref{sec.2wires_crossover_control_coherence_length} we investigate how one can control the cross over through the coherence length. 
 
 \section{Cross over region and energy considerations}
 \label{sec.2wiresCrossover_energy}
@@ -51,19 +51,9 @@ This explicitly shows, that the two pairings are only coupled through the energy
 \end{center}    
 \end{figure}
  
-We see, that for small and large distances the expected behaviour is observed. Naively it seems to be the case, that the interwire pairing increases linearly for small $k_Fd$. However, an analysis to lower values of $d$ shows, that it diverges for $d \to 0$ as expected. In between we see a continuous cross over region, where both pairings are present. Further, we notice that the intrawire pairing is constant from just under $k_Fd = 0.78$ and upwards as we expected. The fact that we start at $k_Fd = k_Fd_c = 0.748$, and then iterate downwards and upwards from there is the reason for the very small indent in the data precisely at this value.
+We see, that for small and large distances the expected behaviour is observed. Naively it seems to be the case, that the interwire pairing increases linearly for small $k_Fd$. However, an analysis to lower values of $d$ shows, that it diverges for $d \to 0$ as expected. In between we see a continuous cross over region, where both pairings are present. Further, we notice that the intrawire pairing is constant from just under $k_Fd = 0.78$ and upwards as we expected. The fact that we start at $k_Fd = k_Fd_c = 0.748$, and then iterate downwards and upwards from there is the reason for the very small indent in the data precisely at this value. The figure only shows the maximal pairing $\max_k[|\Delta_k|]$. We will return to the functional form of the pairings in chapter \ref{Chapter11}.
 
-The figure only shows the maximal pairing $\max_k[|\Delta_k|]$. The same analysis also gives us, how the pairings functionally change as the distance $d$ is varied. This is summarized in figure \ref{fig.pairingkdependT0dvaried}. This explicitly shows, that the interwire pairing is even in $k$ and hence is a $s$-wave type pairing. We see, that it has its maximum value at $k=0$ as one might expect from the interwire induced interaction. Further, it shows no oscillatory behaviour, it simply decays exponentially for large values of $k$. The intrawire pairing is seen to have the same functional form as for the single wire, hence a $p$-wave type pairing. The overall behaviour of the pairings are seen to be independent of $d$. The interwire pairing is simply enhanced as $d$ decreases, vice versa for the intrawire pairing.  
-
-\begin{figure} 
-\begin{center}  
-\input{Figures/twowires/Deltas1/kdepend.tex}  
-\caption{The pairings $\Delta^{11}_k$ (odd) and $\Delta^{12}_k$ (even) plotted as a function of $k$ for $\Delta^{12}_k$ imaginary. We see, that the functional behaviour is independent of $d$, and that there is a cross over between interwire and intrawire dominated pairing. The intrawire pairing is increased as $d$ increases. Vice versa for the interwire pairing. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
-\label{fig.pairingkdependT0dvaried}  
-\end{center}    
-\end{figure}
-
-The combined result of the three figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. 
+The combined result of the two figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. 
 
 \section{Edge states and the curious cross over}
 \label{sec.2wiresedgestates_crossover_topology}
@@ -319,6 +309,7 @@ Here we first use the above transformation of the creation and annihilation oper
 
 Summarizing this tells us the following. If the phase of the interwire pairing is not restricted in some way, the phase with the least free energy will be chosen: $\Delta^{12}_k$ purely imaginary. Hence, in such a transition the actual behaviour will be that of the continuous cross over. If however, one is able to fix the phase of the interwire pairing to be real, the transition from $p$- to $s$-wave dominated will happen abrubtly. Hence, the actual behaviour of the system depends on how the system is prepared and controlled.  
 
+
 \section{Control of cross over through the coherence length}
 \label{sec.2wires_crossover_control_coherence_length}
 In this section we will investigate how we can control the cross over from intrawire to interwire pairing through the coherence length, $\xi$, of the Bose-Einstein condensate.
@@ -369,30 +360,5 @@ Since the pairings at $k_F$ must be comparable at a distance similar to $d_c$, t
 
 The appearance of a maximum in $d_c$ can qualitatively be understood in the following way. For low values of $n_F/n_B^{1/3}$ the Bose gas becomes more rigid, since the spacing between the bosons becomes smaller. Hence, the wires must be brought closer together for the interwire pairing to dominate. For high values of $n_F/n_B^{1/3}$ the Bose gas is depleted. This means, that there are simply fewer bosons for the fermions to interact with. It is therefore reasonable, that $d_c$ should not exhibit a maximal value for $n_F/n_B^{1/3} \to \infty$. As a consequence a maximal value of $d_c$ appeares. This analysis is reminiscent of the analysis explaning the appearance of a minimum in intrawire effective interaction, $W_\text{ind}^{11}(k_F,k_F)$, as a function of $n_F/n_B^{1/3}$. See subsection \ref{subsec.relevantmomenta.effectiveinteraction} for the details.  
 
-\section{Temperature dependency of pairings}
-In this section we will investigate, how the pairings depend on temperature. The analysis is performed in complete analogy to the one in subsection \ref{subsec.momentum_and_temperature_pairing_singlewire}. 
-
-For small and large distances, where one of the pairings is dominant, it is not difficult to imagine, what will happen. Here we expect, that the two pairings go to zero in a similar manner to single wire at two different critical temperatures. The dominant pairing for $T = 0$ will have the highest critical temperature. However, a couple questions arise. How does it affect the dominant pairing, that the suppressed pairing goes to zero? And is the interwire or intrawire pairing the more robust to a rise in temperature?
-
-To answer these questions we investigate three cases, two where one pairing is strongly dominant, and one where the pairings are essentially equal for $T = 0$. The more interesting case is definitely the latter one, since this directly tests what pairing is the more robust. However, we might also gain some insight from the former. 
-
-The result of the analysis for a dominant interwire pairing is shown in figure \ref{fig.maximalpairingsTdepend_2wires}. We see, that the overall expected behaviour is observed. We observe that the intrawire pairing has a small downward kink, where the interwire pairing vanishes. The same behaviour is seen when the interwire pairing is dominant. This has to implications. The first is, that the dominant pairing would be higher at low temperatures if the other pairing was not present: there is a trade off between the size of the individual pairings and the presence of a second pairing. The second is, that the presence of a second smaller pairing seem to stabilize the dominant one, since the kink is downwards for increasing temperatures. Further, above the critical temperature of the smaller pairing, the maximal intrawire pairing of the dominating pairing is well described by the following relation:
-\begin{equation}
-\max_k[\Delta^{\text{dom}}_k(T)] = \alpha \max_k[\Delta^{\text{dom}}_k(T = 0)] \sqrt{1 - \left(\frac{T}{T_c}\right)^3},
-\label{eq.DeltaapproxaboveTC1}
-\end{equation}
-where $\text{dom}$ is short for dominating. This has the same form as the approximate form in equation \eqref{eq.maxpairingapprox} apart from the $\alpha$. The coefficient $\alpha$ is slightly bigger than $1$, but seems to depend slightly on the other parameters of the problem. For the present set of parameters we have $\alpha = 1.3$. 
-
-\begin{figure} 
-\begin{center}  
-\input{Figures/twowires/Deltas4.5/Tdepend.tex}  
-\caption{Blue solid line: $\max_k[|\Delta^{12}_k|]$ as a function of temperature. Blue dashed line: approximate form from the single wire analysis, equation \eqref{eq.maxpairingapprox}. Red solid line: $\max_k[|\Delta^{11}_k|]$ as a function of temperature. Red dashed line: Approximate form according to equation \eqref{eq.DeltaapproxaboveTC1} above the critical temperature of the interwire pairing. Notice, that there are two critical temperatures, and that the intrawire pairing shows a downward kink, where the interwire pairing goes to zero. Parameters: $k_Fd = 0.61$, $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
-\label{fig.maximalpairingsTdepend_2wires}  
-\end{center}    
-\end{figure} 
-
-
-
- 
 
 

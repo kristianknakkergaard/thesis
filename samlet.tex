@@ -45,7 +45,11 @@
 \makeatother
 
 \usepackage{float}
+
+%%%%TIKZ:
 \usetikzlibrary{arrows}
+\usetikzlibrary{shapes.misc}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
 
 %\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 %[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]
@@ -354,14 +358,15 @@ In this third part we analyse the double wire system. The physical setup is the 
 \input{Chapters/Chapter8} 
 \input{Chapters/Chapter9}
 \input{Chapters/Chapter10}
+\input{Chapters/Chapter11}
 
 \part{Discussions and Conclusions}
 In this final part we first discuss the results and methods used in the present thesis. We further comment on how we can expand on the analysis in future work. We then move on to the conclusions. There we summarize the main results of the thesis. 
 \newpage 
 
-\input{Chapters/Chapter11}
+
 \input{Chapters/Chapter12} 
-%\input{Chapters/Chapter13}
+\input{Chapters/Chapter13}
 %\input{Chapters/Chapter14}
 
 %----------------------------------------------------------------------------------------

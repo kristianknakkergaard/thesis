@@ -1,27 +1,201 @@
-% Chapter Template
+% Chapter 11
 
-\chapter{Discussion} % Main chapter title
+\chapter{Continuous cross over: pairings and pair wave functions} % Main chapter title
 
-\label{Chapter11} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-\lhead{Part IV. \emph{Discussions \& Conclusions}}
-\chead{Chapter 11. \emph{Discussion}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\label{Chapter11} % For referencing the chapter elsewhere, use \ref{Chapter9} 
 
-\section{The mean field approach} \label{sec.Discussion.meanfieldapproach}
-In section \ref{sec.meanfieldvalidity} it was pointed out, that using the mean field approach in a one dimensional system is possibly quite problematic. It was also mentioned, that we would need to take steps beyond mean field theory to actually estimate, how this influences the analysis and in turn the results. It is clear, that if the mean field approach is problematic in the single wire system, the situation is only worsened in the double wire system. 
+\lhead{Part III. \emph{Two wires}}
+\chead{Chapter 11. \emph{Pairings \& pair wave functions}} % This is for the header on each page - perhaps a shortened title
+%----------------------------------------------------------------------------------------
+In this chapter we investigate the functional behaviour of the pairings and pair wave functions as a function of the interwire distance, $d$, in the case of the energetically favourable continuous cross over. This is done in section \ref{sec.2wirespairingspairwavefunction}. Further, in section \ref{sec.2wirespairingstemperature} we investigate the temperature dependence of the pairings. 
 
-In the spirit of this we do not expect the results of the thesis to be quantitatively in agreement with the findings of an experimental realisation of the system. A simple way to see this is the following. Consider the gap equations for the double wire system, equation \eqref{eq.2wiresgapequations}. As we bring the wires closer together the intrawire pairing is not affected by the interwire induced interaction until an interwire pairing potential forms. This is absurd. The interwire interaction will of course alter the physical properties internally in each wire, also when the wires are far apart. This also leads to the odd prediction, that the critical temperature for intrawire pairing is unaffected by the interwire interaction, as long as the interwire pairing is absent. This is \textit{not} physically reasonable. 
+\section{Functional behaviour} \label{sec.2wirespairingspairwavefunction}
+In this section we numerically calculate the functional behaviour of the pairings and the pair wave functions for the continuous cross over. The analysis is performed in the same manner as in section \ref{sec.2wiresCrossover_energy}. 
 
-The relevance of the present thesis is therefore in some sense in doubt. However, also as mentioned in section \ref{sec.meanfieldvalidity} there has been an impressive amount of work in one dimensional superfluid system, most in its fundamentals based on mean field theory. This includes systems where different types of pairings is in competition, see e.g. \cite{LiYangChen}. This suggests, that although the analysis might be quantitavely wrong, as mean field theory always is to some extent, the qualitative behaviour is correct. Hence, we would e.g. suspect that although the specific form of the cross over from intra- to interwire pairing is wrong, it remains valid that the intra- and interwire pairings coexist in a cross over region, when the interwire pairing is imaginary. It is more uncertain in the case of a real interwire pairing, whether the abrubt shift from intra- to interwire pairing remains valid. However, an analogous calculation in a 2D-3D system with fermions in two parallel layers give the same qualitative result. \footnote{Private communication with Jonathan Melk{\ae}r Midtgaard.} Since, the mean field theory is suspected to be more accurate in two dimensions, this does support the findings of the present thesis. 
+For the sake of clarity we again write up the gap equations in the case $\Delta^{22}_k = - \Delta^{11}_k$ real and $\Delta^{12}_k$ purely imaginary, which we found to support the continuous cross over:
+\begin{align}
+\Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\frac{\Delta^{11}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber \\
+\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{12}(k, k')\frac{\Delta^{12}_{k'}}{2E_{F,k'}}\tanh\left(\frac{\beta E_{F,k'}}{2}\right), \nonumber
+\end{align} 
+with $E_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. We numerically find self-consistent solutions to the above gap equations along with the number equation \eqref{eq.2wiresnumberequation}. This is summarized in figure \ref{fig.pairingkdependT0dvaried}. It explicitly shows, that the interwire pairing is even in $k$ and hence is a $s$-wave type pairing. We see, that it has its maximum value at $k = 0$ as one might expect from the interwire induced interaction. Further, it shows no oscillatory behaviour, it simply decays exponentially for large values of $k$. The intrawire pairing is seen to have the same functional form as for the single wire, hence a $p$-wave type pairing. The overall behaviour of the pairings are seen to be independent of $d$. The interwire pairing is simply enhanced as $d$ decreases, vice versa for the intrawire pairing.  
 
-The qualitative behaviour is also supported by the topological invariants calculated in section \ref{sec.2wires_CSinv}. However, from this it is still unclear whether the transition in the case of a real interwire pairing is abrubt, as we also mentioned in the end of subsection \ref{subsec.2wires_CSinv_Delta12real}. 
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas1/kdepend.tex}  
+\caption{The pairings $\Delta^{11}_k$ (odd) and $\Delta^{12}_k$ (even) plotted as a function of $k$ for $\Delta^{12}_k$ imaginary. We see, that the functional behaviour is independent of $d$, and that there is a cross over between interwire and intrawire dominated pairing. The intrawire pairing is increased as $d$ increases. Vice versa for the interwire pairing. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.pairingkdependT0dvaried}  
+\end{center}    
+\end{figure}
 
-Further, the one dimensional system also serves as an interest starting point for more advanced studies in higher dimensions. This is especially because the concepts and more crucially the numerics are simpler in one dimension. Hence, we can gain insight and intuition for Fermi-Bose mixtures by addressing a simplified one dimensional case. 
+To get a physically clearer picture of the effect of the pairings we calculate the pair wave functions in real space as well. Analogous to the calculation in subsection \ref{subsec.1wirepairwavefunction} we get the pair wave functions:
+\begin{align}
+\braket{\psi_{1,F}(x)\psi_{1,F}(0)} = - \braket{\psi_{2,F}(x)\psi_{2,F}(0)} &= \frac{i}{\mathcal{L}}\sum_k \sin(kx) \frac{\Delta^{11}_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right], \nonumber \\
+\braket{\psi_{1,F}(x)\psi_{2,F}(0)} &= \frac{1}{\mathcal{L}}\sum_k \cos(kx) \frac{\Delta^{12}_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right].
+\label{eq.2wirespairwavefunctionsDelta12imaginary}
+\end{align} 
+Here we should note, that if $E^\pm_{F,k} \neq E_{F,k}$ then the above pair wave functions will be altered. From this we can infer an overall functional behaviour. Firstly, we see that $\braket{\psi_{1,F}(x)\psi_{1,F}(0)}$ and $\braket{\psi_{1,F}(x)\psi_{2,F}(0)}$ are respectively odd and even in $x$. Further, since $\sin(kx)$ and $\cos(kx)$ oscillates more rapidly as a function of $k$ at higher values of $x$ we expect the pair wave functions to decay to 0. This is also physically reasonable.  
 
-It is however by no means a simple task to estimate the validity of the mean field approach. Such an analysis is therefore an obvious candidate for future work.
+As noted in subsection \ref{subsec.1wirepairwavefunction}, the pair wave function is a measure of the spatial correlations between the fermions. Hence, a high value of $\left|\braket{\psi_{1,F}(x)\psi_{1,F}(0)}\right|$ means, that there is a tendency of two particles in the same wire to have the interparticle distance $x$. Similarly a high value $\left|\braket{\psi_{1,F}(x)\psi_{2,F}(0)}\right|$ means, that if a fermion in wire 2 is located at $x' = 0$, there is a tendency of a second fermion to be located at the position $x$ in wire 1.  
 
-\section{Several wires}
-In this thesis we have looked at one and two fermionic wires embedded in a Bose-Einstein condensate. An obvious thing one might then do is to study systems consisting of severeal such wires placed in e.g. regular polygons. This is also a unique situation for the 1D-3D systems. For 2D-3D systems the closest to this scenario is three consecutive layers of fermions. Let us take the case of three wires as an example. 
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/pairwavefunctions/xdepend11.tex}  
+\caption{The \textit{intra}wire pairwave function $\braket{\psi_{1,F}(x)\psi_{1,F}(0)}$ as a function of $x$ for $\Delta^{12}_k$ imaginary. We see, that the functional behaviour is independent of $d$, the pair wave function is simply decreased as $d$ decreases. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.2wirespairwavefunction11}  
+\end{center}    
+\end{figure}
 
-Given that the mean field approach produces qualitatively correct results we can discuss the expected physical properties of such a system. If we fix all intrawire pairings to be identical, the three phases of the interwire pairings are idependent. This are between the wires according to: $1 \leftrightarrow 2, 2 \leftrightarrow 3$ and $1 \leftrightarrow 3$. Now the calculation in subsection \ref{subsec.2wires_CSinv_Delta12imag} suggests that even in the absence of Kramers degeneracy\footnote{Which is to say, that there is \textit{no} $T^2 = -\mathbb{I}$ symmetry.}, the separated wires constitute a topologically nontrivial system. For the separated system we namely expect the invariant to be the sum of the invariants for three single wire systems: $\nu = \nu_1 + \nu_2 + \nu_3$. The sign of the three invariants depends on the chosen sign of the corresponding intrawire pairing. Hence the sum gives four equivalent results $-3, -1, 1$ and $3$. All of these are different from the topologically trivial value of $\nu = 0$. Further, when the wires are closely spaced the interwire $s$-wave pairings will dominate, which is topologically trivial. This means, that there is a topological phase transition in the system. Hence, the bulk energy gap is forced to close in a three wire system. This makes such a system a good candidate for investigation. The downside is, that we now have to keep the three phases of the interwire pairings free and make a diagonalisation of a $3 \times 3$ matrix.  
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/pairwavefunctions/xdepend12.tex}  
+\caption{The \textit{inter}wire pairwave function $\braket{\psi_{1,F}(x)\psi_{2,F}(0)}$ as a function of $x$ for $\Delta^{12}_k$ imaginary. We see, that the functional behaviour is independent of $d$, the pair wave function is simply increased as $d$ decreases. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.2wirespairwavefunction12}  
+\end{center}    
+\end{figure}
+
+By using the pairings found in the above analysis we can readily calculate the pair wave functions numerically. The result is shown in figures \ref{fig.2wirespairwavefunction11} and \ref{fig.2wirespairwavefunction12}. They have the following physical interpretation. The \textit{intra}wire pair wave function of figure \ref{fig.2wirespairwavefunction11} has the exact same structure as in the single wire case. There is a high tendency of the particles to be a distance $1/k_F$ apart internally in each wire. Further, the correlation is decreased when we decrease the interwire distance, $d$, since the intrawire pairing decreases. The \textit{inter}wire pair wave function of figure \ref{fig.2wirespairwavefunction12}, shows that there is a tendency of a fermion in wire 1 to be facing a fermion in wire 2. As for the single wire case we can come with the following intuitive picture of how the pairings tend to order the system. When the wires are well separated the intrawire pairing dominates the interwire one. This means, that the fermions tend to have an interparticle distance of $1 / k_F$ internally in each wire, but there is no correlation of the positions between the wires. This is illustrated to the left in figure \ref{fig.2wirespositioncorrelations}. For intermediate distances both pairings are present and the system is ordered both with respect to the intrawire and interwire correlations. This is the middle of figure \ref{fig.2wirespositioncorrelations}. Finally for small interwire distances, only the interwire pairing is present: the system only orders with respect to the interwire correlation. 
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+
+%Only intrawire: 
+\node at (2, 3) {Only intrawire};
+
+%correlations:
+\draw[-, thick, blue] (6 * 1/3 - 1/6, 0.04) -- (6 * 1/3 - 1/6 + 0.2238, 1.96);  
+\draw (6 * 1/3 - 1/6 + 0.1119, 1.0) node[cross, rotate=-6.384836653, thick, red]{}; 
+\draw[-, thick, red]  (5 * 1/3 - 1/6 + 0.2238, 2.08) to[out=90, in=90, distance = 0.2cm] (6 * 1/3 - 1/6 + 0.2238, 2.08);
+
+\draw[-, thick] (0, 0) -- (4, 0);
+\draw[*-] (1 * 1/3 - 1/6, 0.08); 
+\draw[*-] (2 * 1/3 - 1/6, 0.08); 
+\draw[*-] (3 * 1/3 - 1/6, 0.08); 
+\draw[*-] (4 * 1/3 - 1/6, 0.08); 
+\draw[*-] (5 * 1/3 - 1/6, 0.08); 
+\draw[*-] (6 * 1/3 - 1/6, 0.08); 
+\draw[*-] (7 * 1/3 - 1/6, 0.08); 
+\draw[*-] (8 * 1/3 - 1/6, 0.08); 
+\draw[*-] (9 * 1/3 - 1/6, 0.08); 
+\draw[*-] (10 * 1/3 - 1/6, 0.08); 
+\draw[*-] (11 * 1/3 - 1/6, 0.08);
+\draw[*-] (12 * 1/3 - 1/6, 0.08); 
+
+\draw[-, thick] (0, 2) -- (4, 2);
+\draw[*-] (1 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (2 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (3 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (4 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (5 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (6 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (7 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (8 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (9 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (10 * 1/3 - 1/6 + 0.2238, 2.08); 
+\draw[*-] (11 * 1/3 - 1/6 + 0.2238, 2.08);
+\draw[*-] (12 * 1/3 - 1/6 + 0.2238 - 4, 2.08);
+
+%%%%%%%%
+
+%BOTH: 
+\node at (7, 3) {Both};
+
+%correlations:
+\draw[-, thick, blue] (5 + 6 * 1/3 - 1/6, 0.08) -- (5 + 6 * 1/3 - 1/6, 1.58);  
+\draw[-, thick, red]  (5 + 5 * 1/3 - 1/6, 1.58) to[out=90, in=90, distance = 0.2cm] (5 + 6 * 1/3 - 1/6, 1.58);
+
+\draw[-, thick] (5, 0) -- (9, 0);
+\draw[*-] (1 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (2 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (3 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (4 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (5 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (6 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (7 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (8 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (9 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (10 * 1/3 - 1/6 + 5, 0.08); 
+\draw[*-] (11 * 1/3 - 1/6 + 5, 0.08);
+\draw[*-] (12 * 1/3 - 1/6 + 5, 0.08);
+
+\draw[-, thick] (5, 1.5) -- (9, 1.5);
+\draw[*-] (1 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (2 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (3 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (4 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (5 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (6 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (7 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (8 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (9 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (10 * 1/3 - 1/6 + 5, 1.58); 
+\draw[*-] (11 * 1/3 - 1/6 + 5, 1.58);
+\draw[*-] (12 * 1/3 - 1/6 + 5, 1.58);
+
+%%%%%%%%
+
+%Only intrawire:
+\node at (12, 3) {Only interwire};
+
+%correlations:
+\draw[-, thick, blue] (1.8932 + 10, 0.04) -- (1.8932 + 10, 0.96);  
+\draw[-, thick, red]  (1.4066 + 10, 1.08) to[out=90, in=90] (1.8932 + 10, 1.08);
+\draw (1.4066 + 10 + 0.2433, 1.215) node[cross, thick, blue]{}; 
+
+\draw[-, thick] (10, 0) -- (14, 0);
+\draw[*-] (0.7864 + 10, 0.08); 
+\draw[*-] (0.9741 + 10, 0.08); 
+\draw[*-] (1.0043 + 10, 0.08); 
+\draw[*-] (1.3999 + 10, 0.08); 
+\draw[*-] (1.4066 + 10, 0.08); 
+\draw[*-] (1.8932 + 10, 0.08); 
+\draw[*-] (2.1989 + 10, 0.08); 
+\draw[*-] (2.3411 + 10, 0.08); 
+\draw[*-] (2.4642 + 10, 0.08); 
+\draw[*-] (3.2571 + 10, 0.08); 
+\draw[*-] (3.3233 + 10, 0.08);
+\draw[*-] (3.7171 + 10, 0.08);
+
+\draw[-, thick] (10, 1) -- (14, 1);
+\draw[*-] (0.7864 + 10, 1.08); 
+\draw[*-] (0.9741 + 10, 1.08); 
+\draw[*-] (1.0043 + 10, 1.08); 
+\draw[*-] (1.3999 + 10, 1.08); 
+\draw[*-] (1.4066 + 10, 1.08); 
+\draw[*-] (1.8932 + 10, 1.08); 
+\draw[*-] (2.1989 + 10, 1.08); 
+\draw[*-] (2.3411 + 10, 1.08); 
+\draw[*-] (2.4642 + 10, 1.08); 
+\draw[*-] (3.2571 + 10, 1.08); 
+\draw[*-] (3.3233 + 10, 1.08);
+\draw[*-] (3.7171 + 10, 1.08);
+
+\end{tikzpicture}
+\caption{An intuitive picture of how the pairings tend to order the system. The fermions are depicted by black dots. The \textit{intra}wire and \textit{inter}wire correlation is depicted by red and blue lines respectively. Left: large interwire distance; only intrawire pairing present. The intrawire correlation ruins the interwire correlation, hence the red cross over the blue line. Middle: intermediate interwire distance; both pairings present. Both types of correlation are present. Right: small interwire distance; only interwire pairing present. The \textit{inter}wire correlation ruins the intrawire correlation, hence the blue cross over the red line.}
+\label{fig.2wirespositioncorrelations}
+\end{figure}
 
 
+We can also use this to come with an intuitive explanation of the uptil now curious fact, that the numerical analysis shows, that the chemical potential is decreased by the presence of the \textit{intra}wire and increased by the presence of the \textit{inter}wire pairing. Specifically at $T = 0$, when only intrawire pairing is present $\mu < \epsilon_{F,0}$ whilst for only interwire pairing: $\mu > \epsilon_{F,0}$. The above analysis shows, that the intrawire pairing makes sure, that the fermions to a higher degree stay out of each others way. Therefore the energy to put in an additional fermion $\mu = \partial E/\partial N_F$ is lowered. Oppositely, the interwire pairing has a tendency to accumulate lumps of fermions, and so the energy required to put in an additional fermion $\mu = \partial E/\partial N_F$ is increased. 
+
+\section{Temperature dependency of pairings} \label{sec.2wirespairingstemperature}
+In this section we will investigate, how the pairings depend on temperature. The analysis is performed in complete analogy to the one in subsection \ref{subsec.momentum_and_temperature_pairing_singlewire}. 
+
+For small and large distances, where one of the pairings is dominant, it is not difficult to imagine, what will happen. Here we expect, that the two pairings go to zero in a similar manner to single wire at two different critical temperatures. The dominant pairing for $T = 0$ will have the highest critical temperature. However, a couple questions arise. How does it affect the dominant pairing, that the suppressed pairing goes to zero? And is the interwire or intrawire pairing the more robust to a rise in temperature?
+
+To answer these questions we investigate three cases, two where one pairing is strongly dominant, and one where the pairings are essentially equal for $T = 0$. The more interesting case is definitely the latter one, since this directly tests what pairing is the more robust. However, we might also gain some insight from the former. 
+
+The result of the analysis for a dominant interwire pairing is shown in figure \ref{fig.maximalpairingsTdepend_2wires}. We see, that the overall expected behaviour is observed. We observe that the intrawire pairing has a small downward kink, where the interwire pairing vanishes. The same behaviour is seen when the interwire pairing is dominant. This has to implications. The first is, that the dominant pairing would be higher at low temperatures if the other pairing was not present: there is a trade off between the size of the individual pairings and the presence of a second pairing. The second is, that the presence of a second smaller pairing seem to stabilize the dominant one, since the kink is downwards for increasing temperatures. Further, above the critical temperature of the smaller pairing, the maximal intrawire pairing of the dominating pairing is well described by the following relation:
+\begin{equation}
+\max_k[\Delta^{\text{dom}}_k(T)] = \alpha \max_k[\Delta^{\text{dom}}_k(T = 0)] \sqrt{1 - \left(\frac{T}{T_c}\right)^3},
+\label{eq.DeltaapproxaboveTC1}
+\end{equation}
+where $\text{dom}$ is short for dominating. This has the same form as the approximate form in equation \eqref{eq.maxpairingapprox} apart from the $\alpha$. The coefficient $\alpha$ is slightly bigger than $1$, but seems to depend slightly on the other parameters of the problem. For the present set of parameters we have $\alpha = 1.3$. 
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas4.5/Tdepend.tex}  
+\caption{Blue solid line: $\max_k[|\Delta^{12}_k|]$ as a function of temperature. Blue dashed line: approximate form from the single wire analysis, equation \eqref{eq.maxpairingapprox}. Red solid line: $\max_k[|\Delta^{11}_k|]$ as a function of temperature. Red dashed line: Approximate form according to equation \eqref{eq.DeltaapproxaboveTC1} above the critical temperature of the interwire pairing. Notice, that there are two critical temperatures, and that the intrawire pairing shows a downward kink, where the interwire pairing goes to zero. Parameters: $k_Fd = 0.61$, $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
+\label{fig.maximalpairingsTdepend_2wires}  
+\end{center}    
+\end{figure} 
