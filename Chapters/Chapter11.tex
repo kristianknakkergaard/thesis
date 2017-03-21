@@ -53,130 +53,337 @@ As noted in subsection \ref{subsec.1wirepairwavefunction}, the pair wave functio
 \end{center}    
 \end{figure}
 
-By using the pairings found in the above analysis we can readily calculate the pair wave functions numerically. The result is shown in figures \ref{fig.2wirespairwavefunction11} and \ref{fig.2wirespairwavefunction12}. They have the following physical interpretation. The \textit{intra}wire pair wave function of figure \ref{fig.2wirespairwavefunction11} has the exact same structure as in the single wire case. There is a high tendency of the particles to be a distance $1/k_F$ apart internally in each wire. Further, the correlation is decreased when we decrease the interwire distance, $d$, since the intrawire pairing decreases. The \textit{inter}wire pair wave function of figure \ref{fig.2wirespairwavefunction12}, shows that there is a tendency of a fermion in wire 1 to be facing a fermion in wire 2. As for the single wire case we can come with the following intuitive picture of how the pairings tend to order the system. When the wires are well separated the intrawire pairing dominates the interwire one. This means, that the fermions tend to have an interparticle distance of $1 / k_F$ internally in each wire, but there is no correlation of the positions between the wires. This is illustrated to the left in figure \ref{fig.2wirespositioncorrelations}. For intermediate distances both pairings are present and the system is ordered both with respect to the intrawire and interwire correlations. This is the middle of figure \ref{fig.2wirespositioncorrelations}. Finally for small interwire distances, only the interwire pairing is present: the system only orders with respect to the interwire correlation. 
+By using the pairings found in the above analysis we can readily calculate the pair wave functions numerically. The result is shown in figures \ref{fig.2wirespairwavefunction11} and \ref{fig.2wirespairwavefunction12}. They have the following physical interpretation. The \textit{intra}wire pair wave function of figure \ref{fig.2wirespairwavefunction11} has the exact same structure as in the single wire case. Fermions a distance $1/k_F$ apart internally in each wire correlate significantly. Further, the correlation is decreased when we decrease the interwire distance, $d$, since the intrawire pairing decreases. The \textit{inter}wire pair wave function of figure \ref{fig.2wirespairwavefunction12}, shows that there is a tendency of a fermion in wire 1 to be facing a fermion in wire 2. This correlation is increased as $d$ decreases. These correlations are schematically depicted in \ref{fig.2wirespositioncorrelations}. 
 
 \begin{figure}
 \center
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=2/3]
+\pgfmathsetmacro{\hmove}{0}
+\pgfmathsetmacro{\distance}{2.5}
 
-%Only intrawire: 
-\node at (2, 3) {Only intrawire};
+\node at (3 + \hmove, 4) {Only intrawire};
 
-%correlations:
-\draw[-, thick, blue] (6 * 1/3 - 1/6, 0.04) -- (6 * 1/3 - 1/6 + 0.2238, 1.96);  
-\draw (6 * 1/3 - 1/6 + 0.1119, 1.0) node[cross, rotate=-6.384836653, thick, red]{}; 
-\draw[-, thick, red]  (5 * 1/3 - 1/6 + 0.2238, 2.08) to[out=90, in=90, distance = 0.2cm] (6 * 1/3 - 1/6 + 0.2238, 2.08);
+\coordinate (a1) at (0.5 + \hmove, 0.14);
+\coordinate (a2) at (1.6 + \hmove, 0.14);
+\coordinate (a3) at (2.4 + \hmove, 0.14);
+\coordinate (correlation) at (3.14, 0);
 
-\draw[-, thick] (0, 0) -- (4, 0);
-\draw[*-] (1 * 1/3 - 1/6, 0.08); 
-\draw[*-] (2 * 1/3 - 1/6, 0.08); 
-\draw[*-] (3 * 1/3 - 1/6, 0.08); 
-\draw[*-] (4 * 1/3 - 1/6, 0.08); 
-\draw[*-] (5 * 1/3 - 1/6, 0.08); 
-\draw[*-] (6 * 1/3 - 1/6, 0.08); 
-\draw[*-] (7 * 1/3 - 1/6, 0.08); 
-\draw[*-] (8 * 1/3 - 1/6, 0.08); 
-\draw[*-] (9 * 1/3 - 1/6, 0.08); 
-\draw[*-] (10 * 1/3 - 1/6, 0.08); 
-\draw[*-] (11 * 1/3 - 1/6, 0.08);
-\draw[*-] (12 * 1/3 - 1/6, 0.08); 
+%Bottom:
 
-\draw[-, thick] (0, 2) -- (4, 2);
-\draw[*-] (1 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (2 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (3 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (4 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (5 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (6 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (7 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (8 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (9 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (10 * 1/3 - 1/6 + 0.2238, 2.08); 
-\draw[*-] (11 * 1/3 - 1/6 + 0.2238, 2.08);
-\draw[*-] (12 * 1/3 - 1/6 + 0.2238 - 4, 2.08);
+\draw[-, thick]  (0 + \hmove, 0) -- (6 + \hmove, 0);
+\draw[-|, thick] (0 + \hmove, 0) -- (1 + \hmove, 0);
+\draw[-|, thick] (1 + \hmove, 0) -- (2 + \hmove, 0);
+\draw[-|, thick] (2 + \hmove, 0) -- (3 + \hmove, 0);
+\draw[-|, thick] (3 + \hmove, 0) -- (4 + \hmove, 0);
+\draw[-|, thick] (4 + \hmove, 0) -- (5 + \hmove, 0);
 
-%%%%%%%%
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+%correlation 1:
+\coordinate (cor11) at (0.5 - 0.2 + \hmove, 0);
+\coordinate (cor12) at (3.14 + 0.5 + 0.2 + \hmove , 0);
+\draw[-, thick, red]  (cor11) to[out=90, in=90, distance=0.8cm] (cor12);
+\draw[-, thick, red]  (cor11) to[out=-90, in=-90, distance=0.8cm] (cor12);
 
-%BOTH: 
-\node at (7, 3) {Both};
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+%correlation 2 and 4:
+\coordinate (cor21) at (1.6 + 0.2 + \hmove, 0);
+\coordinate (prior1) at (0 + \hmove,  0.58);
+\coordinate (prior2) at (0 + \hmove, -0.58);
 
-%correlations:
-\draw[-, thick, blue] (5 + 6 * 1/3 - 1/6, 0.08) -- (5 + 6 * 1/3 - 1/6, 1.58);  
-\draw[-, thick, red]  (5 + 5 * 1/3 - 1/6, 1.58) to[out=90, in=90, distance = 0.2cm] (5 + 6 * 1/3 - 1/6, 1.58);
+\coordinate (cor22) at (1.6 + 3.14 - 0.2 + \hmove , 0);
+\coordinate (post1) at (6 + \hmove,  0.58);
+\coordinate (post2) at (6 + \hmove, -0.58);
 
-\draw[-, thick] (5, 0) -- (9, 0);
-\draw[*-] (1 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (2 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (3 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (4 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (5 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (6 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (7 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (8 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (9 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (10 * 1/3 - 1/6 + 5, 0.08); 
-\draw[*-] (11 * 1/3 - 1/6 + 5, 0.08);
-\draw[*-] (12 * 1/3 - 1/6 + 5, 0.08);
+\draw[-, thick, red]  (cor21) to[out= 90, in=0, distance=0.5cm] (prior1);
+\draw[-, thick, red]  (cor21) to[out=-90, in=0, distance=0.5cm] (prior2);
 
-\draw[-, thick] (5, 1.5) -- (9, 1.5);
-\draw[*-] (1 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (2 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (3 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (4 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (5 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (6 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (7 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (8 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (9 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (10 * 1/3 - 1/6 + 5, 1.58); 
-\draw[*-] (11 * 1/3 - 1/6 + 5, 1.58);
-\draw[*-] (12 * 1/3 - 1/6 + 5, 1.58);
+\draw[-, thick, red]  (cor22) to[out= 90, in=180, distance=0.45cm] (post1);
+\draw[-, thick, red]  (cor22) to[out=-90, in=180, distance=0.45cm] (post2);
 
-%%%%%%%%
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+%correlation 3:
+\coordinate (cor31) at (2.4 - 0.2 + \hmove, 0);
+\coordinate (cor32) at (2.4 + 3.14 + 0.2 + \hmove, 0);
+\draw[-, thick, red]  (cor31) to[out=90, in=90, distance=0.8cm] (cor32);
+\draw[-, thick, red]  (cor31) to[out=-90, in=-90, distance=0.8cm] (cor32);
 
-%Only intrawire:
-\node at (12, 3) {Only interwire};
 
-%correlations:
-\draw[-, thick, blue] (1.8932 + 10, 0.04) -- (1.8932 + 10, 0.96);  
-\draw[-, thick, red]  (1.4066 + 10, 1.08) to[out=90, in=90] (1.8932 + 10, 1.08);
-\draw (1.4066 + 10 + 0.2433, 1.215) node[cross, thick, blue]{}; 
+%Top:
+\pgfmathsetmacro{\hmovetoppoints}{-0.2}
+\coordinate (a1) at (0.5 + \hmove + \hmovetoppoints, 0.14 + \distance);
+\coordinate (a2) at (1.6 + \hmove + \hmovetoppoints, 0.14 + \distance);
+\coordinate (a3) at (2.4 + \hmove + \hmovetoppoints, 0.14 + \distance);
 
-\draw[-, thick] (10, 0) -- (14, 0);
-\draw[*-] (0.7864 + 10, 0.08); 
-\draw[*-] (0.9741 + 10, 0.08); 
-\draw[*-] (1.0043 + 10, 0.08); 
-\draw[*-] (1.3999 + 10, 0.08); 
-\draw[*-] (1.4066 + 10, 0.08); 
-\draw[*-] (1.8932 + 10, 0.08); 
-\draw[*-] (2.1989 + 10, 0.08); 
-\draw[*-] (2.3411 + 10, 0.08); 
-\draw[*-] (2.4642 + 10, 0.08); 
-\draw[*-] (3.2571 + 10, 0.08); 
-\draw[*-] (3.3233 + 10, 0.08);
-\draw[*-] (3.7171 + 10, 0.08);
+\draw[-, thick]  (0 + \hmove, 0 + \distance) -- (6 + \hmove, 0 + \distance);
+\draw[-|, thick] (0 + \hmove, 0 + \distance) -- (1 + \hmove, 0 + \distance);
+\draw[-|, thick] (1 + \hmove, 0 + \distance) -- (2 + \hmove, 0 + \distance);
+\draw[-|, thick] (2 + \hmove, 0 + \distance) -- (3 + \hmove, 0 + \distance);
+\draw[-|, thick] (3 + \hmove, 0 + \distance) -- (4 + \hmove, 0 + \distance);
+\draw[-|, thick] (4 + \hmove, 0 + \distance) -- (5 + \hmove, 0 + \distance);
 
-\draw[-, thick] (10, 1) -- (14, 1);
-\draw[*-] (0.7864 + 10, 1.08); 
-\draw[*-] (0.9741 + 10, 1.08); 
-\draw[*-] (1.0043 + 10, 1.08); 
-\draw[*-] (1.3999 + 10, 1.08); 
-\draw[*-] (1.4066 + 10, 1.08); 
-\draw[*-] (1.8932 + 10, 1.08); 
-\draw[*-] (2.1989 + 10, 1.08); 
-\draw[*-] (2.3411 + 10, 1.08); 
-\draw[*-] (2.4642 + 10, 1.08); 
-\draw[*-] (3.2571 + 10, 1.08); 
-\draw[*-] (3.3233 + 10, 1.08);
-\draw[*-] (3.7171 + 10, 1.08);
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+%correlation 1:
+\coordinate (cor11) at (0.5 - 0.2 + \hmove + \hmovetoppoints, 0 + \distance);
+\coordinate (cor12) at (3.14 + 0.5 + 0.2 + \hmove + \hmovetoppoints, 0 + \distance);
+\draw[-, thick, red]  (cor11) to[out=90, in=90, distance=0.8cm] (cor12);
+\draw[-, thick, red]  (cor11) to[out=-90, in=-90, distance=0.8cm] (cor12);
+
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+%correlation 2 and 4:
+\coordinate (cor21) at (1.6 + 0.2 + \hmove + \hmovetoppoints, 0 + \distance);
+\coordinate (prior1) at (0 + \hmove,  0.58 + \distance);
+\coordinate (prior2) at (0 + \hmove, -0.58 + \distance);
+
+\coordinate (cor22) at (1.6 + 3.14 - 0.2 + \hmove + \hmovetoppoints , 0 + \distance);
+\coordinate (post1) at (6 + \hmove,  0.58 + \distance);
+\coordinate (post2) at (6 + \hmove, -0.58 + \distance);
+
+\draw[-, thick, red]  (cor21) to[out= 90, in=0, distance=0.45cm] (prior1);
+\draw[-, thick, red]  (cor21) to[out=-90, in=0, distance=0.45cm] (prior2);
+
+\draw[-, thick, red]  (cor22) to[out= 90, in=180, distance=0.5cm] (post1);
+\draw[-, thick, red]  (cor22) to[out=-90, in=180, distance=0.5cm] (post2);
+
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+%correlation 3:
+\coordinate (cor31) at (2.4 - 0.2 + \hmove + \hmovetoppoints, 0 + \distance);
+\coordinate (cor32) at (2.4 + 3.14 + 0.2 + \hmove + \hmovetoppoints, 0 + \distance);
+\draw[-, thick, red]  (cor31) to[out=90, in=90, distance=0.8cm] (cor32);
+\draw[-, thick, red]  (cor31) to[out=-90, in=-90, distance=0.8cm] (cor32);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfmathsetmacro{\hmove}{7}
+\pgfmathsetmacro{\distance}{2}
+
+\node at (3 + \hmove, 4) {Both};
+
+\coordinate (a1) at (0.5 + \hmove, 0.14);
+\coordinate (a2) at (1.6 + \hmove, 0.14);
+\coordinate (a3) at (2.4 + \hmove, 0.14);
+\coordinate (correlation) at (3.14, 0);
+
+%Bottom:
+
+\draw[-, thick]  (0 + \hmove, 0) -- (6 + \hmove, 0);
+\draw[-|, thick] (0 + \hmove, 0) -- (1 + \hmove, 0);
+\draw[-|, thick] (1 + \hmove, 0) -- (2 + \hmove, 0);
+\draw[-|, thick] (2 + \hmove, 0) -- (3 + \hmove, 0);
+\draw[-|, thick] (3 + \hmove, 0) -- (4 + \hmove, 0);
+\draw[-|, thick] (4 + \hmove, 0) -- (5 + \hmove, 0);
+
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+%correlation 1:
+\coordinate (cor11) at (0.5 - 0.2 + \hmove, 0);
+\coordinate (cor12) at (3.14 + 0.5 + 0.2 + \hmove , 0);
+\draw[-, thick, red]  (cor11) to[out=90, in=90, distance=0.8cm] (cor12);
+\draw[-, thick, red]  (cor11) to[out=-90, in=-90, distance=0.8cm] (cor12);
+
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+%correlation 2 and 4:
+\coordinate (cor21) at (1.6 + 0.2 + \hmove, 0);
+\coordinate (prior1) at (0 + \hmove,  0.58);
+\coordinate (prior2) at (0 + \hmove, -0.58);
+
+\coordinate (cor22) at (1.6 + 3.14 - 0.2 + \hmove , 0);
+\coordinate (post1) at (6 + \hmove,  0.58);
+\coordinate (post2) at (6 + \hmove, -0.58);
+
+\draw[-, thick, red]  (cor21) to[out= 90, in=0, distance=0.5cm] (prior1);
+\draw[-, thick, red]  (cor21) to[out=-90, in=0, distance=0.5cm] (prior2);
+
+\draw[-, thick, red]  (cor22) to[out= 90, in=180, distance=0.45cm] (post1);
+\draw[-, thick, red]  (cor22) to[out=-90, in=180, distance=0.45cm] (post2);
+
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+%correlation 3:
+\coordinate (cor31) at (2.4 - 0.2 + \hmove, 0);
+\coordinate (cor32) at (2.4 + 3.14 + 0.2 + \hmove, 0);
+\draw[-, thick, red]  (cor31) to[out=90, in=90, distance=0.8cm] (cor32);
+\draw[-, thick, red]  (cor31) to[out=-90, in=-90, distance=0.8cm] (cor32);
+
+
+%Top:
+\coordinate (a1) at (0.5 + \hmove, 0.14 + \distance);
+\coordinate (a2) at (1.6 + \hmove, 0.14 + \distance);
+\coordinate (a3) at (2.4 + \hmove, 0.14 + \distance);
+
+\draw[-, thick]  (0 + \hmove, 0 + \distance) -- (6 + \hmove, 0 + \distance);
+\draw[-|, thick] (0 + \hmove, 0 + \distance) -- (1 + \hmove, 0 + \distance);
+\draw[-|, thick] (1 + \hmove, 0 + \distance) -- (2 + \hmove, 0 + \distance);
+\draw[-|, thick] (2 + \hmove, 0 + \distance) -- (3 + \hmove, 0 + \distance);
+\draw[-|, thick] (3 + \hmove, 0 + \distance) -- (4 + \hmove, 0 + \distance);
+\draw[-|, thick] (4 + \hmove, 0 + \distance) -- (5 + \hmove, 0 + \distance);
+
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+%correlation 1:
+\coordinate (cor11) at (0.5 - 0.2 + \hmove, 0 + \distance);
+\coordinate (cor12) at (3.14 + 0.5 + 0.2 + \hmove , 0 + \distance);
+\draw[-, thick, red]  (cor11) to[out=90, in=90, distance=0.8cm] (cor12);
+\draw[-, thick, red]  (cor11) to[out=-90, in=-90, distance=0.8cm] (cor12);
+
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+%correlation 2 and 4:
+\coordinate (cor21) at (1.6 + 0.2 + \hmove, 0 + \distance);
+\coordinate (prior1) at (0 + \hmove,  0.58 + \distance);
+\coordinate (prior2) at (0 + \hmove, -0.58 + \distance);
+
+\coordinate (cor22) at (1.6 + 3.14 - 0.2 + \hmove , 0 + \distance);
+\coordinate (post1) at (6 + \hmove,  0.58 + \distance);
+\coordinate (post2) at (6 + \hmove, -0.58 + \distance);
+
+\draw[-, thick, red]  (cor21) to[out= 90, in=0, distance=0.5cm] (prior1);
+\draw[-, thick, red]  (cor21) to[out=-90, in=0, distance=0.5cm] (prior2);
+
+\draw[-, thick, red]  (cor22) to[out= 90, in=180, distance=0.45cm] (post1);
+\draw[-, thick, red]  (cor22) to[out=-90, in=180, distance=0.45cm] (post2);
+
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+%correlation 3:
+\coordinate (cor31) at (2.4 - 0.2 + \hmove, 0 + \distance);
+\coordinate (cor32) at (2.4 + 3.14 + 0.2 + \hmove, 0 + \distance);
+\draw[-, thick, red]  (cor31) to[out=90, in=90, distance=0.8cm] (cor32);
+\draw[-, thick, red]  (cor31) to[out=-90, in=-90, distance=0.8cm] (cor32);
+
+%interwire correlations:
+
+%correlation 1 and 4:
+\coordinate (cor11) at (0.5 + \hmove, 0 - 0.2);
+\coordinate (cor12) at (0.5 + \hmove, 0 + 0.2 + \distance);
+\coordinate (cor13) at (0.5 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor11) to[out=0, in=0, distance=0.6cm] (cor12);
+\draw[-, thick, blue]  (cor11) to[out=180, in=180, distance=0.6cm] (cor12);
+
+\draw[-, thick, blue]  (cor11) + (correlation) to[out=0, in=0, distance=0.6cm] (cor13);
+\draw[-, thick, blue]  (cor11) + (correlation) to[out=180, in=180, distance=0.6cm] (cor13);
+
+%correlation 2:
+\coordinate (cor21) at (1.6 + \hmove, 0 - 0.2);
+\coordinate (cor22) at (1.6 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor21) to[out=0, in=0, distance=0.6cm] (cor22);
+\draw[-, thick, blue]  (cor21) to[out=180, in=180, distance=0.6cm] (cor22);
+
+%correlation 3 and 6:
+\coordinate (cor31) at (2.4 + \hmove, 0 - 0.2);
+\coordinate (cor32) at (2.4 + \hmove, 0 + 0.2 + \distance);
+\coordinate (cor33) at (2.4 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor31) to[out=0, in=0, distance=0.6cm] (cor32);
+\draw[-, thick, blue]  (cor31) to[out=180, in=180, distance=0.6cm] (cor32);
+
+\draw[-, thick, blue]  (cor31) + (correlation) to[out=0, in=0, distance=0.6cm] (cor33);
+\draw[-, thick, blue]  (cor31) + (correlation) to[out=180, in=180, distance=0.6cm] (cor33);
+
+%correlation 5:
+\coordinate (cor51) at (1.6 + 3.14 + \hmove, 0 - 0.2);
+\coordinate (cor52) at (1.6 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor51) to[out=0, in=0, distance=0.6cm] (cor52);
+\draw[-, thick, blue]  (cor51) to[out=180, in=180, distance=0.6cm] (cor52);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfmathsetmacro{\hmove}{14}
+\pgfmathsetmacro{\distance}{1.5}
+
+\node at (3 + \hmove, 4) {Only interwire};
+
+\coordinate (a1) at (0.5 + \hmove, 0.14);
+\coordinate (a2) at (1.6 + \hmove, 0.14);
+\coordinate (a3) at (2.4 + \hmove, 0.14);
+\coordinate (correlation) at (3.14, 0);
+
+%Bottom:
+
+\draw[-, thick]  (0 + \hmove, 0) -- (6 + \hmove, 0);
+\draw[-|, thick] (0 + \hmove, 0) -- (1 + \hmove, 0);
+\draw[-|, thick] (1 + \hmove, 0) -- (2 + \hmove, 0);
+\draw[-|, thick] (2 + \hmove, 0) -- (3 + \hmove, 0);
+\draw[-|, thick] (3 + \hmove, 0) -- (4 + \hmove, 0);
+\draw[-|, thick] (4 + \hmove, 0) -- (5 + \hmove, 0);
+
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+
+
+%Top:
+\coordinate (a1) at (0.5 + \hmove, 0.14 + \distance);
+\coordinate (a2) at (1.6 + \hmove, 0.14 + \distance);
+\coordinate (a3) at (2.4 + \hmove, 0.14 + \distance);
+
+\draw[-, thick]  (0 + \hmove, 0 + \distance) -- (6 + \hmove, 0 + \distance);
+\draw[-|, thick] (0 + \hmove, 0 + \distance) -- (1 + \hmove, 0 + \distance);
+\draw[-|, thick] (1 + \hmove, 0 + \distance) -- (2 + \hmove, 0 + \distance);
+\draw[-|, thick] (2 + \hmove, 0 + \distance) -- (3 + \hmove, 0 + \distance);
+\draw[-|, thick] (3 + \hmove, 0 + \distance) -- (4 + \hmove, 0 + \distance);
+\draw[-|, thick] (4 + \hmove, 0 + \distance) -- (5 + \hmove, 0 + \distance);
+
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+
+%interwire correlations:
+
+%correlation 1 and 4:
+\coordinate (cor11) at (0.5 + \hmove, 0 - 0.2);
+\coordinate (cor12) at (0.5 + \hmove, 0 + 0.2 + \distance);
+\coordinate (cor13) at (0.5 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor11) to[out=0, in=0, distance=0.6cm] (cor12);
+\draw[-, thick, blue]  (cor11) to[out=180, in=180, distance=0.6cm] (cor12);
+
+\draw[-, thick, blue]  (cor11) + (correlation) to[out=0, in=0, distance=0.6cm] (cor13);
+\draw[-, thick, blue]  (cor11) + (correlation) to[out=180, in=180, distance=0.6cm] (cor13);
+
+%correlation 2:
+\coordinate (cor21) at (1.6 + \hmove, 0 - 0.2);
+\coordinate (cor22) at (1.6 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor21) to[out=0, in=0, distance=0.6cm] (cor22);
+\draw[-, thick, blue]  (cor21) to[out=180, in=180, distance=0.6cm] (cor22);
+
+%correlation 3 and 6:
+\coordinate (cor31) at (2.4 + \hmove, 0 - 0.2);
+\coordinate (cor32) at (2.4 + \hmove, 0 + 0.2 + \distance);
+\coordinate (cor33) at (2.4 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor31) to[out=0, in=0, distance=0.6cm] (cor32);
+\draw[-, thick, blue]  (cor31) to[out=180, in=180, distance=0.6cm] (cor32);
+
+\draw[-, thick, blue]  (cor31) + (correlation) to[out=0, in=0, distance=0.6cm] (cor33);
+\draw[-, thick, blue]  (cor31) + (correlation) to[out=180, in=180, distance=0.6cm] (cor33);
+
+%correlation 5:
+\coordinate (cor51) at (1.6 + 3.14 + \hmove, 0 - 0.2);
+\coordinate (cor52) at (1.6 + 3.14 + \hmove, 0 + 0.2 + \distance);
+\draw[-, thick, blue]  (cor51) to[out=0, in=0, distance=0.6cm] (cor52);
+\draw[-, thick, blue]  (cor51) to[out=180, in=180, distance=0.6cm] (cor52);
 
 \end{tikzpicture}
-\caption{An intuitive picture of how the pairings tend to order the system. The fermions are depicted by black dots. The \textit{intra}wire and \textit{inter}wire correlation is depicted by red and blue lines respectively. Left: large interwire distance; only intrawire pairing present. The intrawire correlation ruins the interwire correlation, hence the red cross over the blue line. Middle: intermediate interwire distance; both pairings present. Both types of correlation are present. Right: small interwire distance; only interwire pairing present. The \textit{inter}wire correlation ruins the intrawire correlation, hence the blue cross over the red line.}
+\caption{Spatial distribution of the fermions along the wires. Intrawire and interwire correlations are shown in red and blue respectively. Left: large interwire distances. The fermions correlate internally in each wire only. Middle: intermediate interwire distances. The fermions correlate both internally and across the wires. Right: small interwire distances. The fermions only correlate across the wires.}
 \label{fig.2wirespositioncorrelations}
 \end{figure}
 
 
-We can also use this to come with an intuitive explanation of the uptil now curious fact, that the numerical analysis shows, that the chemical potential is decreased by the presence of the \textit{intra}wire and increased by the presence of the \textit{inter}wire pairing. Specifically at $T = 0$, when only intrawire pairing is present $\mu < \epsilon_{F,0}$ whilst for only interwire pairing: $\mu > \epsilon_{F,0}$. The above analysis shows, that the intrawire pairing makes sure, that the fermions to a higher degree stay out of each others way. Therefore the energy to put in an additional fermion $\mu = \partial E/\partial N_F$ is lowered. Oppositely, the interwire pairing has a tendency to accumulate lumps of fermions, and so the energy required to put in an additional fermion $\mu = \partial E/\partial N_F$ is increased. 
+%We can also use this to come with an intuitive explanation of the uptil now curious fact, that the numerical analysis shows, that the chemical potential is decreased by the presence of the \textit{intra}wire and increased by the presence of the \textit{inter}wire pairing. Specifically at $T = 0$, when only intrawire pairing is present $\mu < \epsilon_{F,0}$ whilst for only interwire pairing: $\mu > \epsilon_{F,0}$. The above analysis shows, that the intrawire pairing makes sure, that the fermions to a higher degree stay out of each others way. Therefore the energy to put in an additional fermion $\mu = \partial E/\partial N_F$ is lowered. Oppositely, the interwire pairing has a tendency to accumulate lumps of fermions, and so the energy required to put in an additional fermion $\mu = \partial E/\partial N_F$ is increased. 
 
 \section{Temperature dependency of pairings} \label{sec.2wirespairingstemperature}
 In this section we will investigate, how the pairings depend on temperature. The analysis is performed in complete analogy to the one in subsection \ref{subsec.momentum_and_temperature_pairing_singlewire}. 

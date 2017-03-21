@@ -182,63 +182,69 @@ A numerical solution is shown in figure \ref{fig.pairwavefunction}. We notice, t
 \begin{figure}
 \center
 \begin{tikzpicture}
+\coordinate (a1) at (7 + 0.5, 0.0925);
+\coordinate (a2) at (7 + 1.6, 0.0925);
+\coordinate (a3) at (7 + 2.4, 0.0925);
+\coordinate (correlation) at (3.14, 0);
+
 \node at (3, 1) {$\Delta_k = 0$};
+\draw[-, thick]  (0, 0) -- (6, 0);
+\draw[-|, thick] (0, 0) -- (1, 0);
+\draw[-|, thick] (1, 0) -- (2, 0);
+\draw[-|, thick] (2, 0) -- (3, 0);
+\draw[-|, thick] (3, 0) -- (4, 0);
+\draw[-|, thick] (4, 0) -- (5, 0);
 
-%correlation:
-\draw[-, thick, red]  (1.0271, 0.08) to[out=90, in=90] (1.6615, 0.08);
-\draw (1.0271 + 0.3172, 0.26) node[cross, thick, black]{};
-
-\draw[-, thick] (0, 0) -- (6, 0);
-\draw[*-] (4.0724, 0.08); 
-\draw[*-] (4.5464, 0.08); 
-\draw[*-] (4.4588, 0.08); 
-\draw[*-] (2.3534, 0.08); 
-\draw[*-] (3.9329, 0.08); 
-\draw[*-] (1.0271, 0.08); 
-\draw[*-] (4.2363, 0.08); 
-\draw[*-] (0.1910, 0.08); 
-\draw[*-] (1.6615, 0.08);
-\draw[*-] (0.2770, 0.08); 
-\draw[*-] (0.5828, 0.08); 
-\draw[*-] (4.9407, 0.08); 
-\draw[*-] (4.1690, 0.08); 
-\draw[*-] (1.9026, 0.08); 
-\draw[*-] (5.7013, 0.08); 
-\draw[*-] (0.2067, 0.08); 
-\draw[*-] (2.6325, 0.08); 
-\draw[*-] (2.2894, 0.08); 
-\draw[*-] (4.5931, 0.08); 
-\draw[*-] (4.7712, 0.08); 
+\draw[*-, semithick] (a1) + (-7, 0); 
+\draw[*-, semithick] (a2) + (-7, 0);
+\draw[*-, semithick] (a3) + (-7, 0);
+\draw[*-, semithick] (3.6, 0.0925);
+\draw[*-, semithick] (4.8, 0.0925);
+\draw[*-, semithick] (5.8, 0.0925);
 
 \node at (10, 1) {$\Delta_k \neq 0$};
+\draw[-, thick]  (7 + 0, 0) -- (7 + 6, 0);
+\draw[-|, thick] (7 + 0, 0) -- (7 + 1, 0);
+\draw[-|, thick] (7 + 1, 0) -- (7 + 2, 0);
+\draw[-|, thick] (7 + 2, 0) -- (7 + 3, 0);
+\draw[-|, thick] (7 + 3, 0) -- (7 + 4, 0);
+\draw[-|, thick] (7 + 4, 0) -- (7 + 5, 0);
 
-%correlation:
-\draw[-, thick, red]  (8.35, 0.08) to[out=90, in=90, distance = 0.25cm] (8.65, 0.08);
+\draw[*-, semithick] (a1); 
+\draw[*-, semithick] (a1) + (correlation);
+%correlation 1:
+\coordinate (cor11) at (7 + 0.5 - 0.2, 0);
+\coordinate (cor12) at (7 + 3.14 + 0.5 + 0.2 , 0);
+\draw[-, thick, red]  (cor11) to[out=90, in=90, distance=0.8cm] (cor12);
+\draw[-, thick, red]  (cor11) to[out=-90, in=-90, distance=0.8cm] (cor12);
 
-\draw[-, thick] (7, 0) -- (13, 0);
-\draw[*-] (7.15, 0.08); 
-\draw[*-] (7.45, 0.08); 
-\draw[*-] (7.75, 0.08); 
-\draw[*-] (8.05, 0.08); 
-\draw[*-] (8.35, 0.08); 
-\draw[*-] (8.65, 0.08); 
-\draw[*-] (8.95, 0.08); 
-\draw[*-] (9.25, 0.08); 
-\draw[*-] (9.55, 0.08);
-\draw[*-] (9.85, 0.08); 
-\draw[*-] (10.15, 0.08); 
-\draw[*-] (10.45, 0.08); 
-\draw[*-] (10.75, 0.08); 
-\draw[*-] (11.05, 0.08); 
-\draw[*-] (11.35, 0.08); 
-\draw[*-] (11.65, 0.08); 
-\draw[*-] (11.95, 0.08); 
-\draw[*-] (12.25, 0.08); 
-\draw[*-] (12.55, 0.08); 
-\draw[*-] (12.85, 0.08); 
+\draw[*-, semithick] (a2);
+\draw[*-, semithick] (a2) + (correlation);
+%correlation 2 and 4:
+\coordinate (cor21) at (7 + 1.6 + 0.2, 0);
+\coordinate (prior1) at (7,  0.58);
+\coordinate (prior2) at (7, -0.58);
+
+\coordinate (cor22) at (7 + 1.6 + 3.14 - 0.2 , 0);
+\coordinate (post1) at (13,  0.58);
+\coordinate (post2) at (13, -0.58);
+
+\draw[-, thick, red]  (cor21) to[out= 90, in=0, distance=0.5cm] (prior1);
+\draw[-, thick, red]  (cor21) to[out=-90, in=0, distance=0.5cm] (prior2);
+
+\draw[-, thick, red]  (cor22) to[out= 90, in=180, distance=0.45cm] (post1);
+\draw[-, thick, red]  (cor22) to[out=-90, in=180, distance=0.45cm] (post2);
+
+\draw[*-, semithick] (a3);
+\draw[*-, semithick] (a3) + (correlation);
+%correlation 3:
+\coordinate (cor31) at (7 + 2.4 - 0.2, 0);
+\coordinate (cor32) at (7 + 2.4 + 3.14 + 0.2 , 0);
+\draw[-, thick, red]  (cor31) to[out=90, in=90, distance=0.8cm] (cor32);
+\draw[-, thick, red]  (cor31) to[out=-90, in=-90, distance=0.8cm] (cor32);
 \end{tikzpicture}
-\caption{An intuitive picture of how the correlations tend to order the system. The fermions are depicted by black dots. Left: no pairing; the fermions are uncorrelated and are placed randomnly. The correlation marked with a red curve is therefore crossed over. Right: nonzero pairing; the positions of the fermions are correlated. They tend to form a pattern with an interparticle distance of $1 / k_F$. The correlation is depicted as the red curve.}
+\caption{Spatial destribution of the fermions along the wire. The mean interparticle distance $1 / n_F$ is marked by the ticks along in the lines. Left: uncorrelated fermions. The interparticle distance varies little around the mean. Right: The fermions pair up with correlations over a distance of $ 1 / k_F = \pi / n_F$. }
 \label{fig.positioncorrelations}
 \end{figure}
-We can come with an intuitive picture of the effect of the nonzero pairing. When there is no pairing, $\Delta_k = 0$, the positions of the fermions are \textit{not} correlated and they are randomnly distributed along the wire. This is shown to the left in figure \ref{fig.positioncorrelations}. When there is a pairing present, $\Delta_k \neq 0$, the pair wave function is nonzero, which describes that the position of one fermion is correlated to another. The fermions tend to have an interparticle distance of $1 / k_F$ and hereby form the pattern to the right in figure \ref{fig.positioncorrelations}.
 
+We can come with an intuitive picture of the effect of the nonzero pairing. When there is no pairing, $\Delta_k = 0$, the positions of the fermions are \textit{not} correlated. Because of the Pauli exclusion principle the fermions stay out of each others way. Hence, the interparticle distance only varies little around the average of $1/n_F = 1/(\pi k_F)$. This is shown to the left in figure \ref{fig.positioncorrelations}, where the mean distance is depicted by the ticks in the line. When there is a pairing present, $\Delta_k \neq 0$, the pair wave function is nonzero. This means, that the fermions are correlated in pairs. The correlation is over a distance of $ 1 / k_F = \pi / n_F$. We depict the correlation by encircling the correlated fermions. This leads to the right in figure \ref{fig.positioncorrelations}. Had there not been a significant overlap of the correlated fermions, the pair correlated fermions would dimerize in bosonic molecules. In turn this would condensate as a BEC. Hence, the significant overlap inhibits this condensation \cite{TaylorBCStoBEC}.  

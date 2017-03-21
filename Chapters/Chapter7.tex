@@ -1,11 +1,11 @@
 % Chapter 7
 
-\chapter{Topology and symmetries} % Main chapter title
+\chapter{Topology, symmetries and edge states } % Main chapter title
 
 \label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter7} 
 
 \lhead{Part II. \emph{One wire}}
-\chead{Chapter 7. \emph{Topology \& symmetries}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 7. \emph{Topology, symmetries \& edge states}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
@@ -53,7 +53,7 @@ since $\Delta_k$ is odd in $k$ and now also real. It is evident, that the found 
 \begin{equation}
 T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i c_{-k} \\ - i c^\dagger_{k} \end{bmatrix}. \nonumber
 \end{equation}
-It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. However, this is still a Cooper pair of momentum $k$ and $-k$. This also emphasizes the fact, that this time reversal symmetry is present due to a unitary parity symmetry. 
+It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. Explicitly: $Tc^\dagger_{-k}c^\dagger_{k}T^{-1} = -c^\dagger_{k}c^\dagger_{-k} = c^\dagger_{-k}c^\dagger_{k}$. Hereby the Cooper pair is invariant under the time reversal symmetry. Notice that this sounds a bit like inversion symmetry. Before performing the mean field approximation we can easily find an inversion symmetry of the system.\footnote{We can simply define $P\psi_F(x)P = \psi_F(-x)$.} However, in appendix \ref{AppendixB} we show, that the system has no inversion symmetry after the mean field approximation is performed. 
 
 \section{Sublattice transformation and topological classification}
 By composing the time reversal and particle-hole transformations we can form a third transformation: the socalled sublattice (or chiral) symmetry $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the previous section leads to the symmetry condition:
@@ -105,7 +105,7 @@ In this section we will anticipate a potential breaking of time reversal symmetr
 \node at (-0.4, 0) {$0$};
 
 \draw[red, ultra thick] (0, -3.5) arc (-90:90:3.5);
-\draw[-latex, red, thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
+\draw[-latex, red, ultra thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
 
 \draw[domain=33.540844097:90,smooth,variable=\x,blue, thick] plot ({3.5 * cos(\x)},{3.5 * sin(\x)});
 \draw[-latex, blue, thick] (0.6853426578, 3.4322601227) -- (0.6953426578, 3.4302330223);
@@ -166,13 +166,14 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 
 \draw[-, dashed] (0,0.01) --(1,0.01);
 
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x}});
+
 \node at (3, -0.4) {$0$};
 \node at (8, -0.4) {$\mathcal{L}$};
 \draw[|-latex, thick ] (3,0) -- (9,0) node[right]{$x$};
 
 \draw[-, ultra thick ] (3,0) -- (8,0);
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x}});
 \end{tikzpicture}
 \caption{To the left the energy spectrum is sketched. Because of the particle-hole symmetry, there is a negative energy state for every positive. There is a continuum of states above $\min_k[E_{F,k}]$ and below $-\min_k[E_{F,k}]$. At the boundary of the wire the gap closes, but the particle-hole symmetry only protects the single state at $E = 0$, indicated by the red dot. The corresponding wave function is sketched to the right.}
 \label{fig.edgestates}
@@ -224,6 +225,99 @@ By $\text{sgn}(\Delta_{k>0})$ we mean the sign of $\Delta_k$ for $k > 0$. Two ef
 W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu). 
 \end{equation}
 We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
+
+\section{The edge states}
+\label{sec.edgestates}
+In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite{BernevigTITSC}. 
+
+The single wire system has the Hamiltonian:
+\begin{equation}
+H_{FF} = E_0 + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix},
+\end{equation}
+with energy $E_{F,k} = \sqrt{ \varepsilon^2_k + \Delta^2_k}$. We would like to describe this Hamiltonian in real space, because we now ask whether certain states exist at well-located points in real space; namely states at the ends of the wire. To do this we define the operator $\Delta(p)$ as a function of the momentum operator $p = -i\partial_x$ in the following manner:
+\begin{equation}
+\Delta(p)\text{e}^{ikx} = \Delta_k\text{e}^{ikx}.
+\label{eq.Deltapdef}
+\end{equation}
+Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. With this definition we get the Hamiltonian in real space:
+\begin{equation}
+H = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
+\label{eq.MFHamiltonianrealspace}
+\end{equation}
+For the sake of clarity let us see, how e.g. the term $\Delta_kc_kc_{-k}$ appears from this expression:
+\begin{align}
+\int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}\int dx \; \text{e}^{ikx}c_k\Delta(p)\text{e}^{iqx}c_ q = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k+q)x} \nonumber \\
+&= \sum_{k}\Delta_kc_kc_{-k}, \nonumber 
+\end{align}
+since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
+\begin{equation}
+\psi_1(x) = \exp\left(-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
+\end{equation}  
+respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $\Delta > 0$ we see, that these states are exponentially localized at the edges. In both cases we get:
+\begin{equation}
+0 = \mathcal{H}(x)\psi_j(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_j(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber
+\end{equation}
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+\begin{axis}[samples=150, xtick=\empty, ytick=\empty, axis line style={draw=none}, 
+    xmin=-1, xmax=6,
+    ymin = -1/2, ymax = 1/2,
+    axis lines=center,
+    domain=-1:6,
+    ]
+
+    \addplot [mark=none,draw=blue, thick] {1/2 * (tanh(5 * \x) - tanh(5 * (\x - 5) ) - 1)};
+\end{axis}
+
+
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 0.975 * 2},{ 2 * 2.85 + 3 * exp{- 10 * \x*\x}});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 5.875 * 2},{ 2 * 2.85 + 3 * exp{- 10 * \x*\x}});
+
+\node at (0.975 + 0.12, 2.85 - 0.3) {$0$};
+\node at (5.875-0.12, 2.85 - 0.3) {$\mathcal{L}$};
+\draw[-latex, thick ] (0,2.85) -- (7,2.85) node[right]{$x$};
+\draw[-, ultra thick ] (0.975,2.85) -- (5.875,2.85);
+\draw[|-, thick ] (0.975,2.85) -- (1,2.85);
+\draw[-, ultra thick ] (0.975,2.85) -- (5.875,2.85);
+\draw[-|, thick ] (5.7,2.85) -- (5.875,2.85);
+
+\coordinate (a) at (7.8, 5.682);
+\coordinate (anode) at (7.5, 5.682);
+\coordinate (b) at (8.3, 5.682);
+\coordinate (c) at (7.8, 5.182);
+\coordinate (d) at (8.3, 5.182);
+\coordinate (cnode) at (6.7, 5.182);
+
+\draw[-, thick, blue] (a) -- (b);
+\node at (anode) {$\mu$}; 
+\draw[-, thick, red] (c) -- (d);
+\node at (cnode) {Edge states}; 
+\end{tikzpicture}
+\caption{Red: Edge states. Blue: chemical potential $\mu = \mu(x)$. Due to the spatial variation of the chemical potential the fermions are confined to the interval between $x = 0$ and $x = \mathcal{L}$. }
+\label{fig.edgestatesmux}
+\end{figure}
+
+By solving this eigenvalue problem we get:
+\begin{equation}
+\psi_1(x) = g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = g_2(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \nonumber
+\end{equation}
+with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx \; \text{e}^{-\frac{2}{\Delta}\int_{0}^{x} dx' \mu(x')}$ a normalization constant. We transform these states into operators in second quantization in the following manner. From equation \eqref{eq.MFHamiltonianrealspace} we see, that the vector $[1, -i]$ correspond to annihilation and creation operators as follows:
+\begin{equation}
+\begin{bmatrix} 1 \\ -i \end{bmatrix} \to \psi_F(x) - i\psi^\dagger_F(x). \nonumber
+\end{equation}
+Further we must integrate over all $x$:
+\begin{equation}
+\gamma_{0,j} = \int dx \; g_j(x) \frac{\text{e}^{i\pi/4}}{\sqrt{2}}(\psi_F(x) - i\psi^\dagger_F(x)).
+\label{eq.Majoranaedgemodedef} 
+\end{equation}
+In this manner $\psi_j(x)$ and $\gamma_{0,j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\gamma_{0,j}^\dagger = \gamma_{0,j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factor $\text{e}^{i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\gamma^\dagger_{0,j}$ and $\gamma_{0,j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being its own antiparticle, they have to obey the modified anticommutator relation:
+\begin{equation}
+\{\gamma_{0,i}, \gamma_{0,j} \} = 2\delta_{i,j}. \nonumber
+\end{equation}
+For the ones at hand an explicit calculation shows, that $\{\gamma_{0,1}, \gamma_{0,1} \} = \{\gamma_{0,2}, \gamma_{0,2} \} = 2$ and that $\{\gamma_{0,1}, \gamma_{0,2} \}$ is exponentially suppressed by the length of the wire. Hence, for a truly macroscopic system, $k_F\mathcal{L} \to \infty$, this anticommutator relation is exactly fulfilled. From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{2}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. 
+
 
 \vspace{1cm}
 The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the one already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
