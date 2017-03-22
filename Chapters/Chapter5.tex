@@ -1,6 +1,6 @@
 % Chapter 5
 
-\chapter{The pairing and chemical potentials} % Main chapter title
+\chapter{Pairing and chemical potentials} % Main chapter title
 
 \label{Chapter5} % For referencing the chapter elsewhere, use \ref{Chapter5} 
 
@@ -10,7 +10,7 @@
 %----------------------------------------------------------------------------------------
 In this chapter we will first derive an integral equation for the pairing potentials, the socalled gap equation. This is done in section \ref{sec.pairingpotential.integralequation}. Next we consider the chemical potential. Fundamentally the interaction of the fermions will alter the chemical potential from the one for the free gas. This is taken into acount by virtue of the number equation. See section \ref{sec.chemicalpotential.numberequation}. As a result, we will have \textit{two} integral equations for the \textit{two} potentials, and we can solve for both simultaneously. The numerical calculations are then done in section \ref{sec.pairingandchemicalpotential.numericalcalculation}. 
 
-\section{The gap equation} \label{sec.pairingpotential.integralequation}
+\section{Gap equation} \label{sec.pairingpotential.integralequation}
 In this section we find an integral equation for the pairing potential $\Delta_k$, known as the gap equation. Inspecting the definition in equation \eqref{eq.pairingpotentialdef} we see, that we need to calculate $\langle c_k c_{-k} \rangle$, which in turn specifies another term in the Hamiltonian: $\langle c^\dagger_k c^\dagger_{-k} \rangle$. From the transformation defined in equation \eqref{eq.fermionquasiparticledef}, we get that $c_k = u^*_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$ and $c_{-k} = v_{F,k}\gamma^\dagger_k + u^*_{F,k}\gamma_{-k}$. Hereby:
 \begin{align}
 \langle c_k c_{-k} \rangle &= \left \langle (u^*_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}) (v_{F,k}\gamma^\dagger_k + u^*_{F,k}\gamma_{-k}) \right \rangle = u^*_{F,k}v_{F,k}\left[ \left \langle \gamma_k \gamma^\dagger_{k} \right \rangle - \left \langle \gamma^\dagger_{-k} \gamma_{-k} \right \rangle \right]  \nonumber \\
@@ -35,7 +35,7 @@ Written out in the $l_t \to 0$ limit and with unitless quantities denoted by til
 \end{equation} 
 where $\tilde{\xi} = k_F\xi = \sqrt{ \frac{\pi}{ 8(n_Ba_B^3)^{1/3} } } \frac{n_F}{n_B^{1/3}}$, and $\tilde{E}_{F,\tilde{k}} = \sqrt{(\tilde{k}^2-\tilde{\mu})^2 + |\tilde{\Delta}_{\tilde{k}}|^2}$. We have also made use of the fact, that the integrand is even in $\tilde{k}'$. The important dependency of the above is that the effective induced interaction, $W_{\text{ind}}$, in unitless form is proportional to both the ratio of interparticle distances, $\frac{n_B^{1/3}}{n_F}$, and the Bose-Fermi gas parameter, $(n_Ba_{BF}^3)^{1/3}$, squared.
 
-\section{The number equation} \label{sec.chemicalpotential.numberequation}
+\section{Number equation} \label{sec.chemicalpotential.numberequation}
 In this section we use the number equation to derive a second integral equation for the chemical and pairing potentials. The number equation is: $N_F = \sum_k \left \langle c_k^\dagger c_k \right \rangle$, where we average with respect to the thermalized state of the system. From earlier we know, that $c_k = u_{F,k}^* \gamma_k -v_{F,k} \gamma_{-k}^\dagger$. This leads to the sum formula:
 \begin{equation}
 N_F = \sum_k \left(|u_{F,k}|^2-|v_{F,k}|^2\right) f(E_{F,k}) + |v_{F,k}|^2,\nonumber
@@ -53,6 +53,8 @@ This gives us the required second equation.
 
 
 \section{Calculating the pairing potential} \label{sec.pairingandchemicalpotential.numericalcalculation}
+In this subsection we calculate the momentum and temperature dependence of the pairing potential numerically. 
+
 \subsection{Assumptions}
 Before performing the numerical calculation, it is worthwhile to summarize what assumptions, we have made so far. To trap the fermions in one dimension we assumed, that the transverse energy, $\omega_t$, is much larger than the typical energy of the fermions, $\epsilon_{F,0}$. This lead to the requirement in the first line of table \ref{tab.assumptions}. To have neglible ground state depletion of the condensate, we saw in equation \eqref{eq.excitedbosonsBEC}, that we needed to assume $(n_Ba_B^3)^{1/3}\ll 1$. This is line two of the table. Further, to be able to neglect retardation effects, we needed to assume, that the fermions moves slowly relative to the quasiparticles in the BEC. This is line 3 in the table. Finally, to ensure that we only need to work to first order in the Bose-Fermi interaction strength $g_{BF}$, we need $(n_Ba_{BF}^3)^{1/3} \ll 1$. This is line 4 of the table. 
 
@@ -109,7 +111,7 @@ A note on the chosen phase of $\Delta_k$. Let me therefore write $\Delta_k = \De
 We observe for the solution at hand, that the pairing potential is odd in $k$ as already argued, and that it goes to 0 for $k/k_F \gg 1$. This decay does not seem to be exponential, but rather of a power type. It is actually quite well-described by a function of the form $a_1/(k^2 + a_2)$, where $a_1,a_2$ are constants in $k$. Further, the maximum value of the gap $\max_k[\Delta_k]$ decreases monotonically to 0 in a similar manner to the original BCS-theory. See \cite{Tinkham, BruusFlensberg, PlischkeStatPhys} for details. Finally, the chemical potential has not been plotted. Since the chemical potential numerically changes very little from the free gas potential, a very high resolution in $k$ is needed to get an accurate numerical result. Therefore, we do not plot the chemical potential and instead use the number equation only to enhance the precision of the found pairing. We do however see, that the chemical potential is shifted downwards for $T = 0$. This is physically reasonable, since it should cost less energy to add another fermion, when they are (partially) attracting each other through the induced interaction. Further, since the pairing goes continously to zero for $T\to T_c$ the chemical potential must go continuously to the free gas potential for $T\to T_c$. 
 
 
-\subsection{The relevant momenta and the effective interaction}
+\subsection{Relevant momenta and effective interaction}
 \label{subsec.relevantmomenta.effectiveinteraction}
 In this subsection we will see how the energy dispersion and the mean occupancy of the $k$'th state behave in an extreme case for the relative densities of the Bose and Fermi gases. This will explain, why it is momenta around the Fermi momentum ($k \approx k_F$), that are relevant to understand the influence of the pairing. 
 
@@ -151,8 +153,8 @@ I will emphasize, that in particular the red graphs of figures \ref{fig.EnergyDi
 
 The fact that the maximum of the pairing can be at very high momenta means, that to figure out the functional dependency on the parameters of the system, it is much more relevant to study the behaviour of the critical temperature $T_c$ rather than the maximal pairing.\footnote{Alternatively one could study the pairing around the Fermi surface.} This will be done in chapter \ref{Chapter6}.
 
-\subsection{The pair wave function in real space} \label{subsec.1wirepairwavefunction}
-In this subsection we calculate the pair wave function $\braket{\psi_F(x')\psi_F(x)}$. This is a correlation function, that describes how two fermions are correlated as a function of there respective positions. Specifically a high absolute value of $\braket{\psi_F(x')\psi_F(x)}$ for specific $x$ and $x'$ means, that the fermions have a tendency to be at those positions $x$ and $x'$. This is the reason why we refer to it as the pair wave function. However, caution should be taken, since the correlation function is not a direct measure of probability. 
+\section{Pair wave function in real space} \label{sec.1wirepairwavefunction}
+In this section we calculate the pair wave function $\braket{\psi_F(x')\psi_F(x)}$. This is a correlation function, that describes how two fermions are correlated as a function of there respective positions. Specifically a high absolute value of $\braket{\psi_F(x')\psi_F(x)}$ for specific $x$ and $x'$ means, that the fermions have a tendency to be at those positions $x$ and $x'$. This is the reason why we refer to it as the pair wave function. However, caution should be taken, since the correlation function is not a direct measure of probability. 
 
 We use the Fourier decomposition $\psi_F(x) = \frac{1}{\sqrt{\mathcal{L}}} \sum_k \text{e}^{ikx} c_k$ to get an expression for the pair wave function:
 \begin{equation}

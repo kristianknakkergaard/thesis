@@ -1,6 +1,6 @@
 % Chapter 9
 
-\chapter{The grand Fermi Hamiltonian} % Main chapter title
+\chapter{Grand Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter9} % For referencing the chapter elsewhere, use \ref{Chapter9} 
 
@@ -10,7 +10,7 @@
 %----------------------------------------------------------------------------------------
 In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we will classify the grand Hamiltonian topologically and discuss the symmetries. 
 
-\section{The interaction Hamiltonian and the mean field approximation}
+\section{Interaction Hamiltonian and the mean field approximation}
 \label{sec.2wiresmeanfieldapproximation}
 The interaction Hamiltonians for the intrawire interactions of the fermions are the same as the one studied in chapter \ref{Chapter4}. This also means, that we get analogous gap equations for the pairing potentials internally in wire 1 and 2 (see equation \ref{eq.pairingpotentialdef}) :
 \begin{align}
@@ -20,7 +20,7 @@ W_{\text{ind}}^{11}(k,k') &= W_{\text{ind}}^{22}(k,k') = \frac{1}{2}\left[V_{\te
 \label{eq.pairingpotentialsintrawire}
 \end{align}
 
-However, this does not mean, that $\Delta^{11}_k = \Delta^{22}_k$, since $\braket{c_{1,k'}c_{1,-k'}}$ and $\braket{c_{2,k'}c_{2,-k'}}$ can potentially be different. We will return to this later on. The above pairing potentials are associated with the following terms of the total $H^\text{int}_{FF}$:
+However, this does not mean, that $\Delta^{11}_k = \Delta^{22}_k$, since $\braket{c_{1,k}c_{1,-k}}$ and $\braket{c_{2,k}c_{2,-k}}$ can potentially be different. We will return to this later on. The above pairing potentials are associated with the following terms of the total $H^\text{int}_{FF}$:
 \begin{align}
 H^\text{int}_{FF,11} &= \frac{1}{2}\sum_k \left[\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} - \Delta^{11 *}_k c_{1,k}c_{1,-k} - \Delta^{11}_k\braket{c^\dagger_{1,k}c^\dagger_{1,-k}} \right], \nonumber \\
 H^\text{int}_{FF,22} &= \frac{1}{2}\sum_k \left[\Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k} - \Delta^{11 *}_k c_{2,k}c_{2,-k} - \Delta^{22}_k\braket{c^\dagger_{2,k}c^\dagger_{2,-k}} \right].
@@ -53,7 +53,7 @@ H^\text{int}_{FF,12} = \sum_{k} \left[\Delta^{12}_k c^\dagger_{2,k}c^\dagger_{1,
 \end{equation}
 Equations \ref{eq.Hintintrawire} and \ref{eq.Hintinterwire} are the essential equations for the following. 
 
-\section{The grand Hamiltonian}
+\section{Grand Hamiltonian}
 \label{sec.2wiresgrandHFF}
 The grand fermion Hamiltonian is obtained in a similar manner to the single wire analog. The free fermion part is now: $H_{0,1}+H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$. Further, the Hamiltonian is not particle number conserving, since it contains terms like $f^\dagger f^\dagger$. In stead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number of $j$ fermions. We hereby get the following grand Hamiltonian:
 \begin{align}
@@ -81,7 +81,7 @@ We have hereby specified two global phases. Since this is the total gauge freedo
 \begin{equation}
 E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)}. 
 \end{equation} 
-This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k$ in $E^{\pm}_{F,k})$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations are much more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
+This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)$ in $E^{\pm}_{F,k}$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations are much more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
 
 The new quasiparticle operators are found by finding the eigenvectors to $\mathcal{H}_{FF,k}$. We define the quasiparticle fermionic operators $\gamma_{j,k}$ by:
 \begin{equation}
@@ -141,7 +141,7 @@ Analogously to the single wire case the ground state is hereby defined by $\gamm
 \end{equation}
 We have expressed the momentum as $\tilde{k} = k/k_F$, and the energies as $\tilde{E} = E/\epsilon_{F,0}$. We notice, that the ground state grand energy is negative. This is because, we are measuring energies with respect to the chemical potential. The motivation for calculating the grand energy is the following. For any temperature the grand energy, $\Phi$, is given by $\Phi = U - TS - 2\mu N_F = F - 2\mu N_F$, where $F$ is the Helmholtz free energy \cite{SchroederThermal}. The presence of the factor of 2 is simply because there are $N_F$ fermions in \textit{each} wire. Physically, we hold the number of particles fixed. This means, that it is the Helmholtz free energy $F = \Phi + 2\mu N_F$ we have to minimize to find the preferred state, not $\Phi$. For $T = 0$, this means, that the energetically favourable state is the one, that exhibits a minimum of $F(T = 0) = E_0 + 2\mu N_F$. The aim is therefore to calculate the Helmholtz free energy for differing phases of $\Delta^{12}_k$ and see which one is the lowest. 
 
-\section{The gap and number equations}
+\section{Gap and number equations}
 \label{sec.2wiresgapandnumberequations}
 In this section we write up and discuss the gap equations. They are derived in complete analogy to the single wire case and in the same way as the ground state energy of the previous section. The gap equations hereby become:
 \begin{align}
@@ -170,12 +170,12 @@ Taking the real part of the first gap equation and the real and imaginary part o
 \begin{equation}
 0 = -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\left[\frac{\Delta^{12}_{k',i}}{4E^{+}_{F,k'}}\tanh\left(\frac{\beta E^{+}_{F,k'}}{2}\right) - \frac{\Delta^{12}_{k',i}}{4E^{-}_{F,k'}}\tanh\left(\frac{\beta E^{-}_{F,k'}}{2}\right)\right].
 \end{equation}
-This equation has two trivial solutions. The first is, where the interwire pairing is real. Then the integrand is 0 and the equation is fulfilled. The second is, where the interwire pairing is purely imaginary. Then the two dispersion relations are identical: $E^{\pm}_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. The integrand is then 0 here as well. In the end the numerical calculation will show, that these two solutions are the only ones of interest. This will be discussed in chapter \ref{Chapter10}. These two solutions are also interesting from a symmetry point of view. This is discussed in the following section.
+This equation has two trivial solutions. The first is, where the interwire pairing is real. Then the integrand is 0 and the equation is fulfilled. The second is, where the interwire pairing is purely imaginary. Then the two dispersion relations are identical: $E^{\pm}_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. The integrand is then 0 here as well. We will only investigate these two cases, because they exhibit interesting symmetries of the system. This is discussed in the following section.
 
 \section{Symmetries}
 \label{sec.2wiressymmetries}
 \subsection{Time reversal symmetries with wire exchange}
-In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is imaginary; this squares to $-\mathbb{I}$.We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
+In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is imaginary; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
 
 We first define a time reversal operator, that squares to $\mathbb{I}$ and interchanges the wires: 
 \begin{equation}
@@ -241,17 +241,6 @@ since $\Delta^{11}_k$ is chosen real. This shows, that we must have $\eta^2 = -1
 The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$, and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$.
 
 The symmetries found in this subsection are the same as the one found for the single wire. See section \ref{sec.SymmetriesTRandPH} for the details. This shows, that the real and imaginary interwire pairing does not break the time reversal symmetry internally in each wire.
-
-%\subsection{Symmetries for $d =\infty$}
-%In this subsection we will show, that the system has two other time reversal symmetries, when the wires are separated: $d = \infty$. When this is so, we have two copies of the same single wire, i.e. $\Delta^{12}_k = 0$. This means, that the time reversal symmetry for the single wire also works here. Explicitly, we can define a time reversal transformation $T_1^{\infty}$ according to:
-%\begin{equation}
-%T_1^{\infty} \begin{bmatrix} c_{j,k} \\ c^\dagger_{j,-k} \end{bmatrix} (T_1^{\infty})^{-1} = i\sigma_3\begin{bmatrix} c_{j,-k} \\ c^\dagger_{j,k} \end{bmatrix} = \begin{bmatrix} i c_{j,-k} \\ - i c^\dagger_{j,k} \end{bmatrix}.
-%\end{equation} 
-%Hence, we keep the two species of fermions, 1 and 2, separated under the transformation. It follows from the calculations in chapter \ref{Chapter7} on the time reversal transformation for the single wire, that this is a symmetry in the present setup. This we could have expected, and this time reversal symmetry also squares to unity, as we also saw in chapter \ref{Chapter7}. However, the puzzling thing is, that we can define a third time reversal transformation, that squares to $-\mathbb{I}$, and that this is a symmetry of the system for $d = \infty$. Explicitly, we define:
-%\begin{equation}
-%T_2^{\infty} \begin{bmatrix} c_{1,k} \\ c_{2,k} \end{bmatrix} (T_2^{\infty})^{-1} = \sigma_2\begin{bmatrix} c_{1,-k} \\ c_{2,-k} \end{bmatrix} = \begin{bmatrix} -i c_{2,-k} \\ i c_{1,-k} \end{bmatrix}.
-%\end{equation} 
-%A straight forward calculation then shows, that this is a symmetry for $d = \infty$, i.e. $T_2^{\infty}H_{FF} (T_2^{\infty})^{-1} = H_{FF}$. Further since $\sigma_2\sigma_2^* = -\mathbb{I}$, the transformation squares to minus the identity! This is truly puzzling. We have now shown, that the system for $d=\infty$ has both a time reversal symmetry that squares to plus and minus the identity, and therefore it is unclear, how the Hamiltonian should be classified, when we think of it in terms of the periodic table \ref{tab.PeriodicTableTISC}. 
 
 
 

@@ -1,6 +1,6 @@
 % Chapter 4
 
-\chapter{The grand Fermi Hamiltonian} % Main chapter title
+\chapter{Grand Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
@@ -10,19 +10,21 @@
 %----------------------------------------------------------------------------------------
 In this chapter we will finally arrive at the Kitaev Hamiltonian promised in chapter \ref{Chapter2}. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interaction to have a vanishing Matsubara frequency: $\omega_q = 0$. See section \ref{sec.RetardationEffects} for details. The result for the interaction Hamiltonian is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite{Tinkham,LandauStatPhys2,PlischkeStatPhys}. 
 
-\section{The interaction Hamiltonian in real and momentum space} \label{sec.HFFint}
+\section{Interaction Hamiltonian in real and momentum space} \label{sec.HFFint}
 
 We start out in real space. The interaction Hamiltonian for pair interactions is given by:
 \begin{equation}
 H^\text{int}_{FF} = \frac{1}{2}\int dx_1dx_2 \hat{\psi}^\dagger_F(x_1)\hat{\psi}^\dagger_F(x_2)\tilde{V}_{\text{ind}}(x_1-x_2,0) \hat{\psi}_F(x_2) \hat{\psi}_F(x_1).
 \label{eq.HFFintdef}
 \end{equation}
-With $\tilde{V}_\text{ind}(x,0)$ the induced interaction at zero frequency in real space (see equation \eqref{eq.VFFx_exact}). The factor of $1/2$ is present, since the particles are identical. First, we would like to transform the above expression to momentum space. This will make it clearer of how to perform the BCS assumption and in turn the mean field approximation. The transformation to momentum space is carried out by expanding the field operators in plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} c_k$. Here $c_k$ and $c^\dagger_k$ respectively annihilates and creates a fermion with momentum $k$. Hence, they satisfy the canonical anticommutation relations for fermionic operators. The transformation is a little tricky, because the momentum space induced interaction $V_{\text{ind}}(k, 0)$ is not well-defined in the zero trapping width limit: $l_t = 0$.\footnote{The Yukawa potential simply has no Fourier transform in one dimension.} However, it is possible to get an expression in momentum space that is well-defined for any value of $l_t$. We do this in the following manner. Firstly:
+With $\tilde{V}_\text{ind}(x,0)$ the induced interaction at zero frequency in real space (see equation \eqref{eq.VFFx_exact}). The factor of $1/2$ is present, since the particles are identical. First, we would like to transform the above expression to momentum space. This will make it clearer of how to perform the BCS assumption and in turn the mean field approximation. The transformation to momentum space is carried out by expanding the field operators in plane waves: $\hat{\psi}_F(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} c_k$. Here $c_k$ and $c^\dagger_k$ respectively annihilates and creates a fermion with momentum $k$. Hence, they satisfy the canonical anticommutation relations for fermionic operators. 
+
+The transformation is a little tricky, because the momentum space induced interaction $V_{\text{ind}}(k, 0)$ is not well-defined in the zero trapping width limit: $l_t = 0$.\footnote{The Yukawa potential simply has no Fourier transform in one dimension.} However, it is possible to get an expression in momentum space that is well-defined for any value of $l_t$. We do this in the following manner. Firstly:
 \begin{align}
 \hat{\psi}_F(x_2) \hat{\psi}_F(x_1) &= \frac{1}{\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} c_{k_2}c_{k_1} = \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} \left[c_{k_2}c_{k_1} - c_{k_1}c_{k_2}\right] \nonumber \\
 &= \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \left[\text{e}^{i(k_1x_1 + k_2x_2)} - \text{e}^{i(k_2x_1 + k_1x_2)}\right]c_{k_2}c_{k_1}, \nonumber
 \end{align}
-where we in the last equality switch the $k$'s: $k_1 \leftrightarrow k_2$. In this way we take care of the antisymmetry of the fermionic operators. A similar expression for $\hat{\psi}^\dagger_F(x_1)\hat{\psi}^\dagger_F(x_2)$ is obtained by letting $k_1 \to q_1$ and $k_2 \to q_2$ and taking the hermitian conjugate. All of this is then inserted into the interaction Hamiltonian of equation \eqref{eq.HFFintdef}. After a little computation, we get:
+where we in the last equality switch the momenta in the last term: $k_1 \leftrightarrow k_2$. In this way we take care of the antisymmetry of the fermionic operators. A similar expression for $\hat{\psi}^\dagger_F(x_1)\hat{\psi}^\dagger_F(x_2)$ is obtained by letting $k_1 \to q_1$ and $k_2 \to q_2$ and taking the hermitian conjugate. All of this is then inserted into the interaction Hamiltonian of equation \eqref{eq.HFFintdef}. After a little computation, we get:
 \begin{align}
 H^\text{int}_{FF} = \frac{1}{8\mathcal{L}^2} \sum_{k_1,k_2,q_1,q_2} c^\dagger_{q_1}c^\dagger_{q_2}c_{k_2}c_{k_1} & \int dx_2 \; \text{e}^{i((k_1+k_2)-(q_1+q_2))x_2}\cdot \nonumber \\ 
 &\int du\left(\text{e}^{-iq_1u} - \text{e}^{-iq_2u}\right)\left(\text{e}^{ik_1u} - \text{e}^{ik_2u}\right)\tilde{V}_\text{ind}(u,0), \nonumber
@@ -33,7 +35,7 @@ H^\text{int}_{FF} = \frac{1}{4\mathcal{L}} \sum_{k,q,p} c^\dagger_{k+p}c^\dagger
 \end{equation}
 where we have made the substitutions: $k_1 = k, k_2 = q, q_1 = k + p$ and $q_2 = k - p$. Finally, since the induced interaction is even in $u$, we have that $V_{\text{ind}}(p, 0) = \int du \cos(pu) \tilde{V}_{\text{ind}}(u, 0)$. Hence, we can define a scattering amplitude $W_{\text{ind}}(k, q, p)$ by:
 \begin{equation}
-W_{\text{ind}}(k, q, p) = \frac{1}{2}\left(V_\text{ind}\left( p, 0 \right) - V_\text{ind}\left( k + p - q, 0 \right) \right). 
+W_{\text{ind}}(k, q, p) = \frac{1}{2}\left(V_\text{ind}\left( p, 0 \right) - V_\text{ind}\left( p + k - q, 0 \right) \right). 
 \label{eq.Wkqp.scattering.amplitude}
 \end{equation}
 We hereby obtain the final Hamiltonian expanded in momentum space operators:
@@ -41,11 +43,11 @@ We hereby obtain the final Hamiltonian expanded in momentum space operators:
 H^\text{int}_{FF} = \frac{1}{2\mathcal{L}} \sum_{k,q,p} W_{\text{ind}}(k, q, p) c^\dagger_{k+p} c^\dagger_{q-p} c_{q} c_{k}. 
 \label{eq.HintMomentumSpace}
 \end{equation}
-The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W_{\text{ind}}(k, q, p)$. In section \ref{sec.Vanishingtrappingwidtlimit} we will show, that this amplitude has a well-defined $l_t \to 0$ limit. 
+The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W_{\text{ind}}(k, q, p)$. In section \ref{sec.Vanishingtrappingwidtlimit} we will show, that this amplitude has a well-defined $l_t \to 0$ limit. The total interaction Hamiltonian has hereby been transformed to momentum space. 
 
-The total interaction Hamiltonian has hereby been transformed to momentum space. The result is physically intuitive. 
+\clearpage
 
-\section{The mean field approximation} \label{sec.meanfieldapproximation}
+\section{Mean field approximation} \label{sec.meanfieldapproximation}
 In this section we will make the BCS mean field approximation. 
 
 First, we assume that only states belonging to opposite momenta couples.\footnote{At least they are assumed to be absolutely dominant.} This is the usual BCS assumption. This means, that we can truncate the sum in equation \eqref{eq.HintMomentumSpace} to only have $q = -k$. Second, we make a mean field approximation to get the Hamiltonian on a solvable quadratic form. We write:
@@ -98,8 +100,8 @@ Here $\xi(T)$ is the coherence length of the system. This describes the typical 
 \end{equation}
 Since $\left(1 - \frac{T}{T_c}\right)^{(d - 4)/2} \to \infty$ for $T \to T_c$ and $d < 4$, it follows, that for $d < 4$ there will always be a region of temperatures $\Delta T$ around $T_c$, where the mean field approximation fails, and that the problem gets bigger still at lower dimensions. The mean field approximation is therefore only reliable, if by some struck of luck $\Delta T / T_c \ll 1$. In three dimensional space this is shown to be exactly the case for the BCS theory of superfluidity \cite{PlischkeStatPhys}. However, it is unclear how reliable the approach will be in our one dimensional case. If one was to calculate the variance of the order parameter $\braket{c_{-k}c_k}$ \textit{within} mean field theory, this would simply give a zero result. This is of course selfconsistent, but not terribly illuminating in respect to estimating the validity of the approximation. Hence, we cannot use mean field theory to come with an estimate of how well it works. Instead we consider it a possible topic of future work. We will however continue on with this approach encouraged by the large amount of work done in one dimensional superfluid systems, see e.g. \cite{Alicea, KitaevTopPhases, KitaevQuantumWires, LiYangChen, FuKane2006, GreiterIsingKitaevChain, DeGottardiMajoranaFermions, BudichTopInvMajoranaWires, ZhangWu}. 
 
-\section{The grand Hamiltonian} \label{sec.HFFfull}
-The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} c^\dagger_k c_k$. Further, we will have terms like $c^\dagger c^\dagger$. This means, that the Hamiltonian is not particle number conserving. However, we inforce that the system is in diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k c^\dagger_k c_k$. We hereby obtain the grand fermion Hamiltonian:
+\section{Grand Hamiltonian} \label{sec.HFFfull}
+The free particle Hamiltonian for the fermions is of course $H_0 = \sum_k \frac{k^2}{2m_F} c^\dagger_k c_k$. Further, we will have terms like $c^\dagger c^\dagger$. This means, that the Hamiltonian is not particle number conserving, so that $[H_{FF}, N_F] \neq 0$. However, we inforce that the system is in diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k c^\dagger_k c_k$. We hereby obtain the grand fermion Hamiltonian:
 \begin{equation}
 H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k c^\dagger_k c_k + \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} - \Delta^*_k c_k c_{-k} - \Delta_k \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right], 
 \label{eq.HFFdef}
@@ -136,7 +138,7 @@ This inequality states, that for a specific speed $v$ of the fluid, it is only m
 
 Caution should be taken however. The argument only goes one way. It may be possible for a liquid not obeying this inequality to be a superfluid, but the reverse, a liquid obeying the inequality and being a normal fluid, is not possible as now shown. 
 
-\section{The distribution of the quasiparticles}
+\section{Distribution of the quasiparticles}
 In the previous section we inforced, that the number of physical (c) fermions in the system is fixed. However, we do not fix the number of quasiparticles ($\gamma$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the fermion Hamiltonian is diagonal in the quasiparticles $\gamma_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. Dropping the unimportant ground state energy $E_0 = \frac{1}{2}\sum_k (\varepsilon_k - E_{F,k} - \Delta_k\braket {c^\dagger_k c^\dagger_{-k}})$, we get:
 \begin{equation}
 Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{F,k}\gamma^\dagger_k\gamma_k }\right] = 1 + \text{e}^{-\beta E_{F,k}}. 
@@ -147,7 +149,7 @@ f(E_{F,k}) = \braket {\gamma^\dagger_k\gamma_k} = \sum_N N P_k(N) = \frac{0\cdot
 \end{equation}
 where $N=0,1$ is the possible number of fermions in the state, and $P_k(N) = \text{e}^{-\beta N E_{F,k}}/Z_k$ is the probability of the state being occupied\cite{PlischkeStatPhys,SchroederThermal}. This is the average number of $\gamma_k$ particles in the thermalized state of the system. We now know how to take all the averages met so far, and so the program is (in principle) clear. 
 
-\section{The ground state and Cooper pairs}
+\section{Ground state and Cooper pairs}
 The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $f$-operators as:
 \begin{equation}
 \ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}c^\dagger_{-k}c^\dagger_k\right)\ket{0},
@@ -158,7 +160,7 @@ where $\ket{0}$ is the vacuum: $c_k\ket{0} = 0$. This can be verified explicitly
 \end{equation}
 The action of $\gamma^\dagger_k$ is thus to break up the $k$'th Cooper pair. 
 
-\section{The fluctuations in the number of fermions}
+\section{Fluctuations in the number of fermions}
 In this section we discuss the variance of the fermion particle number in the $T = 0$ limit. For the full derivation the reader is referred to appendix \ref{AppendixA}.
 
 As noted in the derivation of the mean field Hamiltonian, the resulting Hamiltonian does not conserve the number of fermions: $[N_F, H_{FF}] \neq 0 $, where $N_F = \sum_k c^\dagger_k c_k$. As a consequence there will be a variance $\braket{(N_F-\braket{N_F})^2} \neq 0$ of the number of fermions. Calculating the variance gives a neat demonstration of how one can utilize Wick's theorem. First:
@@ -201,7 +203,3 @@ This will be used extensively in the numerical analyses in the next two chapters
 \label{eq.EffectiveInteractionlt=0dimensionless} 
 \end{equation}
 with $\tilde{k} = k/k_F$ and $\tilde{\xi} = k_F\xi = \sqrt{ \frac{ \pi }{ 8(n_Ba_B^3)^{1/3} } } \frac{n_F}{n_B^{1/3}}$. Hence, we notice that the effective induced interaction is proportional to the ratio of interparticle distances $n_B^{1/3}/n_F$ and the square of the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$. 
-
-
-
-

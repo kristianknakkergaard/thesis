@@ -10,7 +10,7 @@
 %----------------------------------------------------------------------------------------
 In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
 
-\section{The time reversal and particle-hole transformations and symmetries}
+\section{Time reversal and particle-hole symmetries}
 \label{sec.SymmetriesTRandPH}
 In this section we define the time reversal and particle-hole transformations. Let us remind ourselves of the form of the noninteracting Hamiltonian obtained after the mean field approximation of chapter \ref{Chapter4}: 
 \begin{equation}
@@ -88,7 +88,7 @@ The second remarkable thing, which I will not argue for either, is that the clas
 
 For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. 
 
-\section{The topological index and phases}
+\section{Topological index and phases}
 \label{sec.topindexandphases}
 In this section we will anticipate a potential breaking of time reversal symmetry. The corresponding perturbation is assumed weak in the sense, that it is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. We therefore search for a topological index in $\mathbb{Z}_2=\{-1,1\}$. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\sigma$, with $\boldsymbol\sigma = (\sigma_1,\sigma_2,\sigma_3)$ containg the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
 \begin{equation}
@@ -181,7 +181,7 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 
 We can now also clarify, what is meant by the term \textit{topological} superfluid. The above mentioned effects are called topological, because the classification with respect to the symmetries $T,C$ and $S$ is deeply connected to topology; specifically the study of manifolds. This is of abstract parameter spaces, and so the naming as such does not originate from the fact, that the edge states are located at specific places geometrically, as one might be led to believe.  
 
-\section{The Chern-Simons invariant and the Wilson loop}
+\section{Chern-Simons invariant and the Wilson loop}
 \label{sec.CS1}
 In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. We will work with $\Delta_k$ real. The calculation in this section is more rigorous but also less intuitive than the one in the previous section.
 
@@ -226,7 +226,7 @@ W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu).
 \end{equation}
 We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
 
-\section{The edge states}
+\section{Edge states}
 \label{sec.edgestates}
 In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite{BernevigTITSC}. 
 
@@ -239,9 +239,9 @@ with energy $E_{F,k} = \sqrt{ \varepsilon^2_k + \Delta^2_k}$. We would like to d
 \Delta(p)\text{e}^{ikx} = \Delta_k\text{e}^{ikx}.
 \label{eq.Deltapdef}
 \end{equation}
-Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. With this definition we get the Hamiltonian in real space:
+Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Further, we drop the ground state grand energy $E_0$. With this definition we get the Hamiltonian in real space:
 \begin{equation}
-H = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
+H_{FF} = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}_{FF}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
 \label{eq.MFHamiltonianrealspace}
 \end{equation}
 For the sake of clarity let us see, how e.g. the term $\Delta_kc_kc_{-k}$ appears from this expression:
@@ -249,13 +249,13 @@ For the sake of clarity let us see, how e.g. the term $\Delta_kc_kc_{-k}$ appear
 \int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}\int dx \; \text{e}^{ikx}c_k\Delta(p)\text{e}^{iqx}c_ q = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k+q)x} \nonumber \\
 &= \sum_{k}\Delta_kc_kc_{-k}, \nonumber 
 \end{align}
-since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
+since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
 \begin{equation}
 \psi_1(x) = \exp\left(-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
 \end{equation}  
 respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $\Delta > 0$ we see, that these states are exponentially localized at the edges. In both cases we get:
 \begin{equation}
-0 = \mathcal{H}(x)\psi_j(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_j(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber
+0 = \mathcal{H}_{FF}(x)\psi_j(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_j(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber
 \end{equation}
 
 \begin{figure}
@@ -316,7 +316,7 @@ In this manner $\psi_j(x)$ and $\gamma_{0,j}\ket{\text{S}}_0$ are equivalent. Th
 \begin{equation}
 \{\gamma_{0,i}, \gamma_{0,j} \} = 2\delta_{i,j}. \nonumber
 \end{equation}
-For the ones at hand an explicit calculation shows, that $\{\gamma_{0,1}, \gamma_{0,1} \} = \{\gamma_{0,2}, \gamma_{0,2} \} = 2$ and that $\{\gamma_{0,1}, \gamma_{0,2} \}$ is exponentially suppressed by the length of the wire. Hence, for a truly macroscopic system, $k_F\mathcal{L} \to \infty$, this anticommutator relation is exactly fulfilled. From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{2}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. 
+For the ones at hand an explicit calculation shows, that $\{\gamma_{0,1}, \gamma_{0,1} \} = \{\gamma_{0,2}, \gamma_{0,2} \} = 2$ and that $\{\gamma_{0,1}, \gamma_{0,2} \}$ is exponentially suppressed by the length of the wire. Hence, for a truly macroscopic system, $k_F\mathcal{L} \to \infty$, this anticommutator relation is exactly fulfilled. From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{2}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = 1$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
 
 
 \vspace{1cm}

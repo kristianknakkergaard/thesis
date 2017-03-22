@@ -1,6 +1,6 @@
 % Chapter 3
 
-\chapter{The induced interaction} % Main chapter title
+\chapter{Induced interaction} % Main chapter title
 
 \label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
@@ -9,7 +9,7 @@
 
 %----------------------------------------------------------------------------------------
 In this chapter we derive the induced interaction between the fermions on the wire. First stop is to look at the effective interaction between the fermions on the wire and the bosons in the cloud.
-\section{The effective Bose-Fermi interaction}
+\section{Effective Bose-Fermi interaction}
 The effective interaction between the fermions (F) and the bosons (B) is modelled by a delta function potential with strength $g_{BF}$: $V(\mathbf{r})=g_{BF}\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the effective pair interaction reads:
 \begin{equation}
 H_{BF}^\text{int}  = \int d^3 r d^3 r' \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r}')V(\mathbf{r}-\mathbf{r}')\hat{\psi}_B(\mathbf{r}')\hat{\psi}_F(\mathbf{r}) = g_{BF}\int d^3 r \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}),
@@ -35,7 +35,7 @@ H_{BF}^\text{int} &= \frac{g_{BF}}{\mathcal{V}}\sum_{p,p',q} \sum_{\mathbf{k}_\p
 \end{align}
 The last line is obtained by appropriate renaming. To be very specific: $p_1,p_2$ and $q$ are in the $x$ direction, along the wire, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to the wire. A relatively obvious thing one might do now, is to take the limit $\omega_t \to \infty$ or equivalently $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite, at least at the present stage. This interaction Hamiltonian shows, that the pair interaction between the fermions and bosons are associated with a factor $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp'-\mathbf{k}_\perp)^2}$, the transverse momenta being free. 
 
-\section{The 1D-3D induced interaction}
+\section{1D-3D induced interaction}
 The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This means, that the bosons are essentially lying still.\footnote{There is a small fraction in nonzero momenta states, but these are not considered.}  We are further only interested in the weak coupling limit. In a more general setup, one would have to calculate contributions from increasing orders in the underlying bare interaction leading to a socalled $T$-matrix, but this will not be pursued here. We will write the coupling strength as $g_{BF} = \frac{2\pi a_{BF}}{m_r}$, with $m_r = \frac{m_Fm_B}{m_B + m_F}$ the reduced mass, and $a_{BF}$ the effective scattering length. In a formally precise manner one can expand the $T$-matrix in orders of $a_{BF}$. From this analysis, it is clear that the smallness of the coupling strength is equivalent to demanding $(n_Ba_{BF}^3)^{1/3}\ll 1$. We can also argue for this by a dimensional analysis. From the form of $g_{BF}$ it is clear, that we should argue from $a_{BF}$. This has dimension of length, and so we need a parameter of dimension per length to get a unitless expression. The only reasonable parameter is the one that describes how many bosons, the fermions can actually interact with, leading to a length scale $n_B^{-1/3}$. Since a higher density of bosons leads to more fermion-boson interactions, we should therefore assume $(n_Ba_{BF}^3)^{1/3} \ll 1$. It follows, that the four essential diagrams for the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
 
 \begin{figure}
@@ -143,7 +143,8 @@ The bosons are assumed to be in a perfect Bose-Einstein Condensate (BEC). This m
     };
   \end{feynman}
 \end{tikzpicture}
-\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}, G_{21}$.} \label{fig.feynmandiagrams}
+\caption{Feynman diagrams for the induced interaction. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}$ and $G_{21}$.} 
+\label{fig.feynmandiagrams}
 \end{figure}
 
 Notice that the bosons of the BEC, shown with dashed lines, carry a factor of $\sqrt{n_B}$. This is simply because it is the pour condensate wave function. Further $\tilde{p}_j = (p_j, i\omega_{m_j})$, with $\omega_{m} = (2m+1)\pi kT$ a fermionic Matsubara frequency, and $\tilde{q} = (q, i\omega_q )$, with $\omega_q = \omega_{m_1}-\omega_{m_2}$ a bosonic Matsubara frequency. The blue lines in the diagrams are the normal and anormalous Bogoliubov phonon Green's functions derived in subsection \ref{sec.BECGreens}. Functionally they are:
@@ -178,7 +179,7 @@ From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction h
 \end{equation}
 whereby we have expressed the ratio of velocities in terms of unitless quantities. With this assumption at hand we can focus on the zero frequency induced interation $V_{\text{ind}}(q,0)$. 
 
-\section{The zero frequency induced interaction}
+\section{Zero frequency induced interaction}
 Let us now look at the zero frequency induced interaction $V_{\text{ind}}(q,0)$. We can write this interaction in two equivalent ways:
 \begin{equation}
 V_{\text{ind}}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)} = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q)),
