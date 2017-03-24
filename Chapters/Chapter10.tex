@@ -28,7 +28,7 @@ with $\chi^{i}_a$ the $a$'th eigenvector to the $i$'th Pauli matrix. Explicitly:
 \begin{equation}
 \chi^{3}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix},  \hspace{0.5cm} \chi^{3}_1 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \hspace{0.5cm} \chi^2_1 = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ i \end{bmatrix}, \hspace{0.5cm} \chi^2_2 = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}. \nonumber
 \end{equation}
-Further: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx \; \text{e}^{-\frac{2}{\Delta}\int_{0}^{x} dx' \mu(x')}$ is a normalization constant.
+Further: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \frac{1}{2}\int dx |g_j(x)|^2$ is a normalization constant.
 
 From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. We hereby get: $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x), \mathcal{T}_-\psi^1_2(x) = -\psi^2_2(x)$. The states belonging to separate wires are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states above: 
 \begin{align}
@@ -73,9 +73,9 @@ In this section we come with a qualitative analysis of how the cross over from $
 
 We can qualitatively understand the two ways in which the cross over from $p$- to $s$-wave pairing occures as follows. 
 
-\textbf{One}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{imaginary}. Then the system breaks the time reversal symmetry $T_-$. In this case there is no longer a Kramers degeneracy. As a consequence the edge states can couple and gap away. We can actually calculate by how much the edge states gap. In this connection we define the operator $\Delta^{12}(p)$ as: $\Delta^{12}(p)\text{e}^{ikx} = \Delta^{12}_k\text{e}^{ikx}$. Since $\Delta^{12}_k$ is even in $k$, there is no first order term in $k$. Hence for states with small curvatures like the edge states we can approximate $\Delta^{12}(p) = \Delta^{12}$ a constant. This means, that the perturbation in real space is:
+\textbf{One}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{imaginary}. Then the system breaks the time reversal symmetry $T_-$. In this case there is no longer a Kramers degeneracy. As a consequence the edge states can couple and gap away. We can actually calculate by how much the edge states gap. In this connection we define the operator $\Delta^{12}(p)$ as: $\Delta^{12}(p)\text{e}^{ikx} = \Delta^{12}_k\text{e}^{ikx}$. Since $\Delta^{12}_k$ is even in $k$, there is no first order term in $k$. Hence for states with small curvatures like the edge states we can approximate $\Delta^{12}(p) = \Delta^{12}_{k=0}$. This means, that the perturbation in real space relevant for the edge states is:
 \begin{equation}
-\mathcal{H}'_{FF}(x) = \Delta^{12} \sigma_2\otimes \tau_1. 
+\mathcal{H}'_{FF}(x) = \Delta^{12}_{k=0} \sigma_2\otimes \tau_1. 
 \label{eq.interwirepairingrealspace}
 \end{equation}
 The edge states in wires 1 and 2 in first quantization are described by the wave functions:
@@ -83,16 +83,17 @@ The edge states in wires 1 and 2 in first quantization are described by the wave
 \psi_1(x) = \frac{1}{2}(\psi^1_1(x) + i\psi^1_2(x)) = g(x)\text{e}^{i\pi/4}\chi^3_1\otimes\chi^2_2, \hspace{0.5cm} \psi_2(x) = \frac{1}{2}(\psi^2_1(x) + i\psi^2_2(x)) = g(x)\text{e}^{-i\pi/4}\chi^3_2\otimes\chi^2_1. \nonumber
 \end{equation} 
 Hence the coupling is given by:
+\begin{align}
+\bra{\psi_1}\mathcal{H}'_{FF}\ket{\psi_2} &= \Delta^{12}_{k=0}\text{e}^{-i\pi/2}\bra{\chi^3_1\otimes\chi^2_2}\sigma_2\otimes \tau_1\ket{\chi^3_2\otimes\chi^2_1}\int dx \; |g(x)|^2 = -i\Delta^{12}\braket{\chi^3_1\otimes\chi^2_2 | \chi^3_1\otimes\chi^2_2} \nonumber \\
+ &= -i\Delta^{12}_{k=0}. \nonumber
+\end{align}
+Further, $\mathcal{H}'_{FF}$ only couples states belonging to separate wires. Hence the diagonal elements vanish: $\bra{\psi_j}\mathcal{H}'_{FF}\ket{\psi_j} = 0$. So the perturbation matrix is:
 \begin{equation}
-\bra{\psi_1}\mathcal{H}'_{FF}\ket{\psi_2} = \Delta^{12}\text{e}^{-i\pi/2}\bra{\chi^3_1\otimes\chi^2_2}\sigma_2\otimes \tau_1\ket{\chi^3_2\otimes\chi^2_1}\int dx \; |g(x)|^2 = -i\Delta^{12}\braket{\chi^3_1\otimes\chi^2_2 | \chi^3_1\otimes\chi^2_2} = -i\Delta^{12}. \nonumber
+W = \begin{bmatrix} 0 & -i\Delta^{12}_{k=0} \\ i\Delta^{12}_{k=0} & 0 \end{bmatrix}. \nonumber
 \end{equation}
-Further, $\mathcal{H}'_{FF}$ only couples states belonging to separate wires. Hence the diagonal elements vanish: $\bra{\psi_j}\mathcal{H}'_{FF}\ket{\psi_j} = 0$. So the perturbation matrix is simply:
-\begin{equation}
-W = \begin{bmatrix} 0 & -i\Delta^{12} \\ i\Delta^{12} & 0 \end{bmatrix}. \nonumber
-\end{equation}
-The energy shifts of the states are then simply $E_{\pm} = \pm \Delta^{12}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. 
+The energy shifts of the states are then simply $\pm \Delta^{12}_{k=0}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. 
 
-\textbf{Two}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{real}. In this situation the system still respects the time reversal symmetry $T_-$. Kramers degeneracy is still present and therefore any energy state must be twofold degenerate. Further, since the system has a particle-hole symmetry the energy spectrum is symmetric around $E = 0$ (relative to the ground state). Therefore the zero energy edge states are locked as long as the bulk energy gap remains open. The energy dispersions in this situation are given by: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. The bulk gap will therefore eventually close as we bring the wires close together. This happens exactly when $|\Delta^{12}_{k_0}| = |\Delta^{11}_{k_0}|$, where $\pm k_0$ are the Fermi points given by: $\varepsilon_{\pm k_0} = 0$. Hence, we expect a topological phase transition in this situation, with a topologically non-trivial system for $|\Delta^{12}_{k_0}| < |\Delta^{11}_{k_0}|$ and topologically trivial for $|\Delta^{12}_{k_0}| > |\Delta^{11}_{k_0}|$. This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle and bottom right. 
+\textbf{Two}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{real}. In this situation the system still respects the time reversal symmetry $T_-$. Kramers degeneracy is still present and therefore any energy state must be twofold degenerate. Further, since the system has a particle-hole symmetry the energy spectrum is symmetric around $E = 0$ (relative to the ground state). Therefore the zero energy edge states are locked as long as the bulk energy gap remains open. A direct calculation of the first order energy shift performed in the same way as in the above verifies this explicitly. The bulk energy dispersions in this situation are given by: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. The bulk gap will therefore eventually close as we bring the wires close together. This happens exactly when $|\Delta^{12}_{k_0}| = |\Delta^{11}_{k_0}|$, where $\pm k_0$ are the Fermi points given by: $\varepsilon_{\pm k_0} = 0$. Hence, we expect a topological phase transition in this situation, with a topologically non-trivial system for $|\Delta^{12}_{k_0}| < |\Delta^{11}_{k_0}|$ and topologically trivial for $|\Delta^{12}_{k_0}| > |\Delta^{11}_{k_0}|$. This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle and bottom right. 
 
 \begin{figure}
 \center
@@ -159,17 +160,19 @@ The energy shifts of the states are then simply $E_{\pm} = \pm \Delta^{12}$. Thi
 \draw[-, ultra thick] (1 + \hmove, -1 + \vmove)--(1 + \hmove, -2 + \vmove);
 
 %gapped edge state:
-\node at (1 - 0.5 + \hmove, 0.25 + \vmove) {$+\Delta^{12}$}; 
+\coordinate (edge1energy) at (1 + \hmove, 0.5 + \vmove);
+\node[right=0.0cm of edge1energy] {$+\Delta^{12}_{k=0}$}; 
 \draw[-latex, semithick] (1 + \hmove, 0 + \vmove)--(1 + \hmove, 0.5 + \vmove);
-\node[red] at (1 + \hmove, 0.5 + \vmove) {\textbullet};
+\node[red] at (edge1energy) {\textbullet};
 
 \draw[-, ultra thick] (2 + \hmove, 1 + \vmove)--(2 + \hmove, 2 + \vmove);
 \draw[-, ultra thick] (2 + \hmove, -1 + \vmove)--(2 + \hmove, -2 + \vmove);
 
 %gapped edge state:
-\node at (2 + 0.5 + \hmove, -0.25 + \vmove) {$-\Delta^{12}$}; 
+\coordinate (edge2energy) at (2 + \hmove, -0.5 + \vmove);
+\node[right=0.0cm of edge2energy] {$-\Delta^{12}_{k=0}$}; 
 \draw[-latex, semithick] (2 + \hmove, 0 + \vmove)--(2 + \hmove, -0.5 + \vmove);
-\node[blue] at (2 + \hmove, -0.5 + \vmove) {\textbullet};
+\node[blue] at (edge2energy) {\textbullet};
 
 \draw[-, dashed] (0 + \hmove,0.01 + \vmove) -- (2 + \hmove,0.01 + \vmove);
 
@@ -283,7 +286,7 @@ The energy shifts of the states are then simply $E_{\pm} = \pm \Delta^{12}$. Thi
 \draw[-latex, semithick] (0.5 + \hmove, -1 + \Eminchange + \vmove)--(0.5 + \hmove, -1 + \vmove);
 
 \end{tikzpicture}
-\caption{Top centered: for $\Delta^{12}_k=0$ we have two copies of the single wire system with the interwire interaction as a perturbation. There are two symmetry-protected edge states, one at each wire and two energy dispersions mirrored in $E = 0$. $k_0$ is defined by: $0 = \varepsilon_{k_0} = \frac{k^2_0}{2m_F} - \mu$. This is indicated with red and blue. Middle left: If the system chooses an imaginary interwire pairing the system breaks the $T^2 = -\mathbb{I}$ symmetry. The edge states are therefore no longer protected at $E = 0$, and the edge states are gapped by $2\Delta^{12}$. Middle and bottom right: If the system chooses a real interwire pairing the system still respects the $T^2 = -\mathbb{I}$ symmetry. Middle right: Before an energy gap closing the edge states are still protected. The gap is getting smaller, this is indicated by the arrows squezzing the gap. Bottom right: After the gap closing the edge states are gone. The system is topologically trivial. The gap is opening again indicated by the arrows.}
+\caption{Top centered: for $\Delta^{12}_k=0$ we have two copies of the single wire system with the interwire interaction as a perturbation. There are two symmetry-protected edge states, one at each wire and two energy dispersions mirrored in $E = 0$. $k_0$ is defined by: $0 = \varepsilon_{k_0} = \frac{k^2_0}{2m_F} - \mu$. This is indicated with red and blue. Middle left: If the system chooses an imaginary interwire pairing the system breaks the $T^2 = -\mathbb{I}$ symmetry. The edge states are therefore no longer protected at $E = 0$, and the edge states are gapped by $2\Delta^{12}_{k=0}$. Middle and bottom right: If the system chooses a real interwire pairing the system still respects the $T^2 = -\mathbb{I}$ symmetry. Middle right: Before an energy gap closing the edge states are still protected. The gap is closing; this is indicated by the arrows squezzing the gap. Bottom right: After the gap closing the edge states are gone. The system is topologically trivial. The gap is opening again indicated by the arrows.}
 \label{fig.2wiresedgestates}
 \end{figure}
 
@@ -313,7 +316,7 @@ We are now ready for the computation. This will be done in the two cases $\Delta
 \label{subsec.2wires_CSinv_Delta12imag}
 The aim of this subsection is to calculate $\nu$ as given in equation \eqref{eq.2wires.topinv.T2eqplus1}. We follow the same procedure as the one in section \ref{sec.CS1}. 
 
-Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.2wiresgrandHFF}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it, which was also used in section \ref{sec.CS1}. This procedure is described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $C_k \to \tilde{C}_k = \begin{bmatrix} c_{1,k} & c_{2,k} & c^\dagger_{1,-k} & c^\dagger_{2,-k}  \end{bmatrix}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
+Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.2wiresgrandHFF}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it, which was also used in section \ref{sec.CS1}. This procedure is described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $C_k \to \tilde{C}_k = \begin{bmatrix} c_{1,k} & c_{2,k} & c^\dagger_{1,-k} & c^\dagger_{2,-k}  \end{bmatrix}^{T}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
 \begin{align}
 \mathcal{H}_{FF,k} &= \varepsilon_k \sigma_0 \otimes \tau_3 + \Delta^{11}_k \sigma_3 \otimes \tau_1 + \Delta^{12}_k \sigma_2 \otimes \tau_1 \to \nonumber \\
 \mathcal{H}'_{FF,k} &= \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_1 \otimes \tau_2, \nonumber 
