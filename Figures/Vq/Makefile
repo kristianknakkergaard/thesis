@@ -18,6 +18,7 @@ plot.tex: data makefile
 'set xlabel "$$q/k_F$$"; 		   '\
 'set ylabel "$$2m_F/k_F V^\text{ind}_{FF}(q,0)$$"; 	   '\
 'set key bottom left;					'\
+'set arrow from 0,0 to 0,-20 nohead lc rgb "black"; '\
 'plot [-20:20][-20:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 3 using 2:3 title "$$k_Fl_t = 0.20$$" with lines lc rgb "#002daa" '\

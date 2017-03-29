@@ -13,6 +13,8 @@ xdepend11.tex: xdepend Makefile
 'set xlabel "$$k_Fx$$"; 		    '\
 'set ylabel "$$Pair wave functions$$";'\
 'set key bottom right;					'\
+'set arrow from 0,-0.18 to 0,0.18 nohead lc rgb "black"; '\
+'set arrow from -15,0 to 15,0 nohead lc rgb "black"; '\
 'plot [-15:15][-0.18:0.18]			'\
 ' "$<" index 3    using 1:2 title "$$k_Fd = 0.720$$" with lines lc rgb "#e00000"'\
 ',"$<" index 6    using 1:2 title "$$k_Fd = 0.735$$" with lines lc rgb "#e05900"'\
@@ -30,6 +32,8 @@ xdepend12.tex: xdepend Makefile
 'set xlabel "$$k_Fx$$"; 		    '\
 'set ylabel "$$Pair wave functions$$";'\
 'set key bottom right;					'\
+'set arrow from 0,-0.18 to 0,0.18 nohead lc rgb "black"; '\
+'set arrow from -15,0 to 15,0 nohead lc rgb "black"; '\
 'plot [-15:15][-0.18:0.18]			'\
 ' "$<" index 3    using 1:3 title "$$k_Fd = 0.720$$" with lines lc rgb "#e00000"'\
 ',"$<" index 6    using 1:3 title "$$k_Fd = 0.735$$" with lines lc rgb "#e05900"'\

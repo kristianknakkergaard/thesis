@@ -12,9 +12,10 @@ corfunc.tex: corfunc Makefile
 'set tics out;       			   '\
 'set xlabel "$$k_Fx$$"; 		   '\
 'set ylabel "$$ \braket{\psi_F(x)\psi_F(0)}/k_F $$"; 	   '\
+'set arrow from -20,0 to 20,0 nohead lc rgb "black"; '\
+'set arrow from 0,-0.1 to 0,0.1 nohead lc rgb "black"; '\
 'plot [-20:20][-0.1:0.1] 		   '\
-'0 notitle with lines lc rgb "black" '\
-',"$<" index 2 using 1:2 title "$$T/T_F = 0.000$$" with lines lc rgb "#e00000" '\
+' "$<" index 2 using 1:2 title "$$T/T_F = 0.000$$" with lines lc rgb "#e00000" '\
 ',"$<" index 3 using 1:2 title "$$T/T_F = 0.075$$" with lines lc rgb "#e05900" '\
 ',"$<" index 4 using 1:2 title "$$T/T_F = 0.100$$" with lines lc rgb "#167000" '\
 ',"$<" index 5 using 1:2 title "$$T/T_F = 0.120$$" with lines lc rgb "#002daa" '\

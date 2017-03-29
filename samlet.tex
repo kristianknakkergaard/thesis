@@ -45,14 +45,6 @@
 \makeatother
 
 \usepackage{float}
-\usepackage{afterpage}
-
-\newcommand\blankpage{%
-    \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
-    \newpage}
-
 
 %%%%TIKZ:
 \usepackage{pgfplots}
@@ -196,6 +188,8 @@
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 
+\cleardoublepage
+
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \addtotoc{Summary} % Add the "Abstract" page entry to the Contents
@@ -204,19 +198,18 @@
 
 In this thesis we theoretically investigate the properties of 1D-3D Fermi-Bose mixtures. Specifically, we embed one dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. The single wire system is then studied in a weak coupling limit in a mean field approach. This produces a self-consistency equation for the resulting $p$-wave pairing, which we solve for numerically. The system realizes the Kitaev model of $p$-wave pairing, which we show to have a topological ground state by computing the topological index. As a result edge states form at the end of the wires. 
 
-The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave pairing is then numerically studied by decreasing the interwire distance. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We realize both a continuous and abrubt cross over and show that these correspond to a regular and topological phase transition by computing the topological index in both cases. 
+The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave for decreasing interwire distances is studied in terms of the symmetries and topology of the system. This analysis is compared to a numerical calculation of the pairings. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We realize both a continuous and abrubt cross over and show that these correspond to a regular and topological phase transition by computing the topological index in both cases. 
 
-\clearpage
-\afterpage{\blankpage}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
+\cleardoublepage
 
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but supportive, enthusiastic and patient. Further, I would like to thank ph.d. student Jonatan Melk{\ae}r Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study.  
+I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but supportive, enthusiastic and patient. Further, I would like to thank phD student Jonatan Melk{\ae}r Midtgaard for many frustrating but also exciting, interesting and illuminating discussions about the systems we both study.  
 }
 \clearpage
 %----------------------------------------------------------------------------------------
@@ -279,21 +272,21 @@ $c_0$ & speed of the bosons: $c_0 = \frac{\sqrt{4\pi n_Ba_B}}{m_B}$ \\
 $\xi$ & BEC coherence length: $\xi = \frac{1}{\sqrt{2m_Bn_Bg_B}}$ \\ \\
 
 $\omega_t$ & trapping frequency, fermion wires \\
-$l_t$ & trapping width, fermion wires: $l_t = 1/m_F\omega^2_t$ \\ \\
+$l_t$ & trapping width, fermion wires: $l_t = \frac{1}{m_F\omega^2_t}$ \\ \\
 
 $f(E)$ & Fermi-Dirac distribution function \\
 $b(E)$ & Bose-Einstein distribution function \\
-$\omega_n$ & bosonic Matsubara frequency: $\omega_n = 2\pi n/\beta$ \\ \\
+$\omega_n$ & bosonic Matsubara frequency: $\omega_n = \frac{2\pi n}{\beta}$ \\ \\
 
 $\chi_{\text{BEC}}$ & BEC density-density correlation function \\
 $d$ & interwire distance \\
-$V^{ij}_{\text{ind}}$ & induced interaction in momentum space between wires $i$ and $j$ \\
-$\tilde{V}^{ij}_{\text{ind}}$ & induced interaction in real space between wires $i$ and $j$ \\
-$\Delta^{ij}_k$ & momentum space pairing potential between wires $i$ and $j$ \\ \\
+$V^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in momentum space  \\
+$\tilde{V}^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in real space  \\
+$\Delta^{ij}_k$ & pairing potential between wires $i$ and $j$ in momentum space \\ \\
 
 $\ket{\text{BEC}}_0$ & BEC bosonic ground state at zero temperature	\\
 $\ket{\text{S}}_0$ & BCS fermionic superfluid ground state at zero temperature \\
-$T_c$ & (critical) phase transition temperature \\ \\
+$T_c$ & critical temperature between superfluid and normal phase \\ \\
 
 $T$ & time reversal transformation, second quantization \\
 $C$ & particle-hole transformation, second quantization \\
@@ -378,9 +371,7 @@ In this third part we analyse the double wire system. The physical setup is the 
 \input{Chapters/Chapter11}
 
 \part{Discussions and Conclusions}
-In this final part we first discuss the results and methods used in the present thesis. We further comment on how we can expand on the analysis in future work. We then move on to the conclusions. There we summarize the main results of the thesis. 
 \newpage 
-
 
 \input{Chapters/Chapter12} 
 \input{Chapters/Chapter13}

@@ -8,9 +8,9 @@
 \chead{Chapter 8. \emph{Induced interaction}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In the chapter we will introduce a second wire parallel to the first one already studied. The aim here is to calculate the additional (interwire) induced interaction between the wires. The approach mirrors chapter \ref{Chapter3}. For this reason we will not go in as much detail in the present chapter.
+In this chapter we will introduce a second wire parallel to the first one already studied. The aim here is to calculate the additional (interwire) induced interaction between the wires. The approach mirrors chapter \ref{Chapter3}. For this reason we will not go in as much detail in the present chapter.
 \section{Effective Bose-Fermi interaction} 
-As for the single wire the effective Bose-Fermi interaction is modelled by $V(\mathbf{r}) = g_{BF}\delta(\mathbf{r})$. To begin with, this gives the same expression for the interaction Hamiltonian between the bosons (B) and the fermions (F):
+As for the single wire the effective Bose-Fermi interaction is modelled by $V(\mathbf{r}) = g_{BF}\delta(\mathbf{r})$. To begin with, this gives the same expression for the interaction Hamiltonian between the bosons ($B$) and the fermions ($F$):
 \begin{equation}
 H_{BF}^\text{int} = g_{BF}\int d^3 r \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}).
 \end{equation}
@@ -18,11 +18,7 @@ The difference now is, that we trap the fermions along \textit{two parallel} wir
 \begin{equation}
 \psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \left[\phi_0(\mathbf{r}_\perp) c_{1,p} + \phi_0(\mathbf{r}_\perp-\mathbf{d}) c_{2,p}\right], \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}, 
 \end{equation}  
-with $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_t}\exp\left(-\frac{r_\perp^2}{2l_t^2}\right)$ the ground state with respect to the perpendicular directions. $c^\dagger_{j,p}$ therefore creates a fermion in wire $j$ with momentum $p$. We assume, that the wires are truly distinguishable. This means that all anticommutators like $\{c_{1,p}, c^\dagger_{2,p'}\}$ vanish. Inserting these expressions into $H_{BF}^\text{int}$ yields in total four terms. However, the cross terms where a fermion is annihilated in one wire and created in the other are proportional to the integral:
-\begin{equation}
-\int d^2 r_\perp \phi_0(\mathbf{r}_\perp)\phi_0(\mathbf{r}_\perp-\mathbf{d}) = 0. 
-\end{equation}
-The integral is negligible, because by assumption $l_t/d \ll 1$. A similar analysis to the one in chapter \ref{Chapter3} then yields for the diagonal terms:
+with $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_t}\exp\left(-\frac{r_\perp^2}{2l_t^2}\right)$ the ground state with respect to the perpendicular directions. $c^\dagger_{j,p}$ therefore creates a fermion in wire $j$ with momentum $p$. We assume, that the wires are truly distinguishable. This means that all anticommutators like $\{c_{1,p}, c^\dagger_{2,p'}\}$ vanish. Inserting these expressions into $H_{BF}^\text{int}$ yields in total four terms. However, the cross terms where a fermion is annihilated in one wire and created in the other are proportional to the integral: $\int d^2 r_\perp \phi_0(\mathbf{r}_\perp)\phi_0(\mathbf{r}_\perp-\mathbf{d}) = 0$. The integral is negligible, because by assumption $l_t/d \ll 1$. A similar analysis to the one in chapter \ref{Chapter3} then yields for the diagonal terms:
 \begin{align}
 H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} & \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}\left[ c^\dagger_{1,p_2-q} b^\dagger_{p_1+q, \mathbf{k}_\perp'} b_{p_1,\mathbf{k}_\perp}c_{1,p_2} + \right. \nonumber \\
 & \left. \text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}c_{2,p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}c_{2,p_2} \right].
@@ -35,7 +31,7 @@ The intrawire induced interaction is (of course) the same as the one for the sin
 V_{\text{ind}}^{11}(q,i\omega_q) = V_{\text{ind}}^{22}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
 \label{eq.VFF1122indXBEC} 
 \end{equation}
-with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2-E_{B,k}^2}$ the density-density correlation function. The index $11$ ($22$) indicates, that the interaction is between two fermions in wire 1 (wire 2). One might wonder what happens to the extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$ for wire 2. The incoming boson is associated with a factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$. However, the outgoing is associated with a factor of $\text{e}^{-i\mathbf{k}_\perp\cdot \mathbf{d}}$, and so these cancel. This is as it should be, because the intrawire interaction in the two wires should be the same!
+with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2-E_{B,k}^2}$ the density-density correlation function. The superscript $11$ ($22$) indicates, that the interaction is between two fermions in wire 1 (wire 2). One might wonder what happens to the extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$ for wire 2. The incoming boson is associated with a factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$. However, the outgoing is associated with a factor of $\text{e}^{-i\mathbf{k}_\perp\cdot \mathbf{d}}$, and so these cancel. This is as it should be, because the intrawire interaction in the two wires should be the same!
 
 \begin{figure}
 \begin{tabular}{cc}

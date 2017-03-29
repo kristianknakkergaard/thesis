@@ -1,16 +1,16 @@
 % Chapter 7
 
-\chapter{Topology, symmetries and edge states } % Main chapter title
+\chapter{Symmetries, topology and edge states } % Main chapter title
 
 \label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter7} 
 
 \lhead{Part II. \emph{One wire}}
-\chead{Chapter 7. \emph{Topology, symmetries \& edge states}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 7. \emph{Symmetries, topology \& edge states}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will define the socalled time reversal and particle-hole transformations. This we will use to come with a topological characterization of the now developed Kitaev model system. It entails defining a topological index $\nu$, that describes whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
+In this chapter we study the topological effects in the system at hand. The main result is, that we show the ground state to be topologically non-trivial. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. These we will use to come with a topological classification of the now developed Kitaev model system. This is done in section \ref{sec.Topology10foldway}. We then compute the topological index in two ways, respectively in section \ref{sec.topindexandphases} and \ref{sec.CS1}. These describe whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. An approximate solution for the edge states is found in section \ref{sec.edgestates}. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
 
-\section{Time reversal and particle-hole symmetries}
+\section{Time reversal, particle-hole and sublattice transformations}
 \label{sec.SymmetriesTRandPH}
 In this section we define the time reversal and particle-hole transformations. Let us remind ourselves of the form of the noninteracting Hamiltonian obtained after the mean field approximation of chapter \ref{Chapter4}: 
 \begin{equation}
@@ -23,7 +23,7 @@ T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} T^{-1} &= U^\dagg
 C \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} \psi^\dagger_F(x) \\ \psi_F(x) \end{bmatrix}, \hspace{0.5cm} CiC^{-1} = i.  
 \label{eq.TRandPH.realspace}
 \end{align}
-Here $T$ and $C$ is the time reversal and particle-hole transformation respectively. $U_T$ and $U_C$ are $2\times 2$ matrices. Inforcing that transformed operators are fermionic as well, means that the matrices have to be unitary. The operation on $i$ specifies, that $T$ is antiunitary and $C$ is unitary. In momentum space this definition leads to:
+Here $T$ and $C$ are the time reversal and particle-hole transformation respectively. $U_T$ and $U_C$ are $2\times 2$ matrices. Inforcing that transformed operators are fermionic as well, means that the matrices have to be unitary. The operation on $i$ specifies, that $T$ is antiunitary and $C$ is unitary. In momentum space this definition leads to:
 \begin{align}
 T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} c_{-k} \\ c^\dagger_{k} \end{bmatrix}, \nonumber \\
 C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix}. 
@@ -35,7 +35,7 @@ TH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_T\mathcal{H}^*_{FF,-k} U^\dagger_T = + 
 CH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_C\mathcal{H}^*_{FF,-k} U^\dagger_C = - \mathcal{H}_{FF,+k}. 
 \label{eq.Symmetryrequirements}
 \end{align}
-This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK, \mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general has a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $2\times 2$ matrix, even though there is only one energy solution. Another way of putting this, is that the two Nambu spinors on each side of the kernel $\mathcal{H}_{FF,k}$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy is here especially evident, since we can simply choose $C$ to have no effect on the Nambu spinor:
+This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK$ and $\mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general has a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $2\times 2$ matrix, even though there is only one energy solution. Another way of putting this, is that the two Nambu spinors on each side of the kernel $\mathcal{H}_{FF,k}$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy is here especially evident, since we can simply choose $C$ to have no effect on the Nambu spinor:
 \begin{equation}
 C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} =  \tau_1 \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix} = \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, 
 \end{equation}
@@ -53,18 +53,20 @@ since $\Delta_k$ is odd in $k$ and now also real. It is evident, that the found 
 \begin{equation}
 T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i c_{-k} \\ - i c^\dagger_{k} \end{bmatrix}. \nonumber
 \end{equation}
-It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. Explicitly: $Tc^\dagger_{-k}c^\dagger_{k}T^{-1} = -c^\dagger_{k}c^\dagger_{-k} = c^\dagger_{-k}c^\dagger_{k}$. Hereby the Cooper pair is invariant under the time reversal symmetry. Notice that this sounds a bit like inversion symmetry. Before performing the mean field approximation we can easily find an inversion symmetry of the system.\footnote{We can simply define $P\psi_F(x)P = \psi_F(-x)$.} However, in appendix \ref{AppendixB} we show, that the system has no inversion symmetry after the mean field approximation is performed. 
+It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. Explicitly: $Tc^\dagger_{-k}c^\dagger_{k}T^{-1} = -c^\dagger_{k}c^\dagger_{-k} = c^\dagger_{-k}c^\dagger_{k}$. Hereby the Cooper pair is invariant under the time reversal symmetry. Notice that this sounds a bit like inversion symmetry. Before performing the mean field approximation we can easily find an inversion symmetry of the system.\footnote{We can simply define $P\psi_F(x)P = \psi_F(-x)$.} However, in appendix \ref{AppendixB} we show that the mean field Hamiltonian has no inversion symmetry whatsoever. So the presence of the above time reversal symmetry is \textit{not} due to an underlying (unitary) inversion symmetry.
 
-\section{Sublattice transformation and topological classification}
-By composing the time reversal and particle-hole transformations we can form a third transformation: the socalled sublattice (or chiral) symmetry $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the previous section leads to the symmetry condition:
+By composing the time reversal and particle-hole transformations we can form a third transformation: the sublattice (or chiral) symmetry $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the above leads to the symmetry condition:
 \begin{equation}
-SH_{FF}S^{-1} = H_{FF} \Leftrightarrow U_S\mathcal{H}_{FF,-k} U^\dagger_S = - \mathcal{H}_{FF,+k}.
+SH_{FF}S^{-1} = H_{FF} \Leftrightarrow U_S\mathcal{H}_{FF,+k} U^\dagger_S = - \mathcal{H}_{FF,+k}.
 \end{equation}
-Hence, the transformation in first quantization is unitary, but has to anticommute with the Hamiltonian. It is also evident, that since the system at hand both has a time reversal and particle-hole symmetry, we can simply form the product to get the symmetry with $U_S = \sigma_3\sigma_1 = i\sigma_2$, $\sigma_j$ being the Pauli matrices. The reason for including this third transformation is the following. 
+Hence, the transformation in first quantization is unitary, but has to anticommute with the Hamiltonian. It is also evident, that since the system at hand both has a time reversal and particle-hole symmetry, we can simply form the product to get the symmetry with $U_S = i\tau_3\tau_1 = -\tau_2$. We explain the reason for including this third transformation in the next section. 
 
-In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one can classify all noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. The result is, that one needs three and only three transformations: time reversal, particle-hole and sublattice. Further there are three distinct possibilities for the two first. Either there is no symmetry or there is a symmetry and then the transformations can square to $\pm \mathbb{I}$. The sublattice transformation can only be realised in one way, yielding in total two possibilites. Further, as the system at hand explicitly shows, if there is both a time reversal, $T$, and particle-hole symmetry, $C$ there is also a sublattice symmetry, $S$. Further, if only $T$ or $C$ is present of the two, there cannot be a sublattice symmetry. Else, we would be able to make the remaining symmetry by composition. However, in the case of no $T$ nor $C$ symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason why this last symmetry is included. This yields $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the 10-fold way. The first remarkable thing, which I have not argued for, is that this classification is complete. There is nothing else to learn from the topology of the system. 
+\section{Topology and the 10-fold way} \label{sec.Topology10foldway}
+In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one in the broadest possible sense can classify \textit{all} noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. This includes insulators and superconductors. Hence, the authors build a framework in which two distinct Hamiltonians are viewed as equivalent, if one can continuously deform one to the other without closing the energy gap. These sort of deformations are linked to the study of topological spaces, also called manifolds. Hence, the term \textit{topology}. Later we will see, that the topology of the Hamiltonian has geometrical effects in real space, the edge states. However, as the above makes it clear, this is not the source of the term topology.  
 
-The second remarkable thing, which I will not argue for either, is that the classification puts the Hamiltonian in a specific Cartan class. The information from the classification is, that the socalled topological index has to be found in a specific set of numbers. This set can for example be the integers $\mathbb{Z}$. The result of the articles is then, that if two ground states have different integers as their topological index, they cannot be deformed continously into each other without closing the energy gap. The socalled periodic table for topological insulators and superconductors is shown in table \ref{tab.PeriodicTableTISC}.
+It turns out that one can use the three transformations of the previous section to classify the system within the above framework. Further, there are three possibilities of the time reversal and particle-hole symmetry. Either there is no symmetry, indicated by a $0$, or there is a symmetry and then the transformations can square to plus and minus the identity, indicated with $\pm 1$. The sublattice symmetry can either by absent, $0$, or present, $1$. Further, as the system at hand explicitly shows, if there is both a time reversal, $T$, and a particle-hole symmetry, $C$, present, there is also a sublattice symmetry, $S=TC$. Further, if only $T$ or $C$ is present of the two, there cannot be a sublattice symmetry. Else, we would be able to make the remaining symmetry by composition. However, in the case of no $T$ nor $C$ symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason why this last symmetry is included. In total we then have $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the 10-fold way. 
+
+Classifying the Hamiltonians in this framework puts the Hamiltonian in a specific Cartan class. The information from the classification is, that the socalled topological index has to be found in a specific set of numbers. This set can for example be the integers $\mathbb{Z}$. The result of the articles is then, that if two ground states have different integers as their topological index, they cannot be deformed continously into each other without closing the energy gap. The socalled periodic table for topological insulators and superconductors is shown in table \ref{tab.PeriodicTableTISC}.
 
 \begin{table}[htb]
 \centering
@@ -90,7 +92,7 @@ For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. Thi
 
 \section{Topological index and phases}
 \label{sec.topindexandphases}
-In this section we will anticipate a potential breaking of time reversal symmetry. The corresponding perturbation is assumed weak in the sense, that it is assumed to have no influence on the dispersion relation $E_{F,k}$, however it has the dramatic consequence, that we go from symmetry class BDI to D. We therefore search for a topological index in $\mathbb{Z}_2=\{-1,1\}$. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\sigma$, with $\boldsymbol\sigma = (\sigma_1,\sigma_2,\sigma_3)$ containg the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
+In this section we will anticipate a potential breaking of time reversal symmetry. This means, that we only want to look at topological effects protected by the built-in particle-hole symmetry. In this sense, we compute the topological index corresponding to symmetry class $D$. We therefore search for a topological index in $\mathbb{Z}_2=\{-1,1\}$. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\tau$, with $\boldsymbol\tau = (\tau_1,\tau_2,\tau_3)$ containing the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
 \begin{equation}
 \hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}. 
 \label{eq.hhatdefinition}
@@ -116,7 +118,7 @@ In this section we will anticipate a potential breaking of time reversal symmetr
 \label{fig.hhatplot}
 \end{figure}
 
-It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$, we notice that: 
+It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$ and $\Delta_k \overset{k\to \infty}{\to} 0$, we notice that: 
 \begin{equation}
 \hat{h}(k=0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k=\infty) = \hat{z} = p_{\infty}\hat{z},
 \label{eq.hhatk0kinfty}
@@ -132,7 +134,7 @@ For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. We can hereby disti
 
 We are only investigating the weak coupling regime, even with $\mu \approx \epsilon_{F,0}$. From the above arguments, this means, that we have found a ground state with $\nu = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there are junctions at the ends between a $\nu = -1$ (the superfluid wire) and a $\nu = 1$ state (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. 
 
-The interesting question is now: are there states that are topologically protected? More precisely, we are asking, whether there exist low energy states, that can only be removed by breaking the symmetries of the system. The answer lies in the build in particle-hole symmetry of the Hamiltonian. As we saw in section \ref{sec.SymmetriesTRandPH} we have a particle-hole symmetry $\mathcal{C} = \sigma_1 K$, with $K$ being the complex conjugation operator. Hereby $\mathcal{C}\mathcal{H}_{FF,k} = -\mathcal{H}_{FF,-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\ket{\psi_k}$. We hereby directly get:
+The interesting question is now: are there states that are topologically protected? More precisely, we are asking, whether there exist low energy states, that can only be removed by breaking the symmetries of the system. The answer lies in the built-in particle-hole symmetry of the Hamiltonian. As we saw in section \ref{sec.SymmetriesTRandPH} we have a particle-hole symmetry $\mathcal{C} = \tau_1 K$, with $K$ the complex conjugation operator. Hereby $\mathcal{C}\mathcal{H}_{FF,k} = -\mathcal{H}_{FF,-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\ket{\psi_k}$. We hereby directly get:
 \begin{equation}
 E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{FF,k}\ket{\psi_k} = -\mathcal{H}_{FF,-k}\mathcal{C}\ket{\psi_k} \Rightarrow \mathcal{H}_{FF,-k}\left(\mathcal{C}\ket{\psi_k}\right) = -E_k\left(\mathcal{C}\ket{\psi_k}\right).
 \end{equation}
@@ -179,8 +181,6 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \label{fig.edgestates}
 \end{figure}
 
-We can now also clarify, what is meant by the term \textit{topological} superfluid. The above mentioned effects are called topological, because the classification with respect to the symmetries $T,C$ and $S$ is deeply connected to topology; specifically the study of manifolds. This is of abstract parameter spaces, and so the naming as such does not originate from the fact, that the edge states are located at specific places geometrically, as one might be led to believe.  
-
 \section{Chern-Simons invariant and the Wilson loop}
 \label{sec.CS1}
 In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. We will work with $\Delta_k$ real. The calculation in this section is more rigorous but also less intuitive than the one in the previous section.
@@ -199,9 +199,9 @@ The result of Chern-Simons theory is then, that the Chern-Simons invariant is a 
 \end{equation}
 whereby the Berry connection and hereby the Chern-Simons invariant is unaltered. This is of course very reasonable; a topological invariant should not depend on the chosen basis. We now make a specific choice for $U$:
 \begin{equation}
-U = \text{e}^{i\sigma_1 \frac{3\pi}{4}} = \frac{1}{\sqrt{2}}\left(-\mathbb{I} + i\sigma_1\right). \nonumber 
+U = \text{e}^{i\tau_1 \frac{3\pi}{4}} = \frac{1}{\sqrt{2}}\left(-\mathbb{I} + i\tau_1\right). \nonumber 
 \end{equation}
-This transformation amounts to letting $(\sigma_1, \sigma_2, \sigma_3) \overset{U}{\to} (\sigma_1, \sigma_3, -\sigma_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\sigma_1 + \varepsilon_k\sigma_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\sigma_1 - \varepsilon_k\sigma_2$. The reason for changing basis is, that the eigenvectors are simpler. Explicitly:
+This transformation amounts to letting $(\tau_1, \tau_2, \tau_3) \overset{U}{\to} (\tau_1, \tau_3, -\tau_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\tau_1 + \varepsilon_k\tau_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\tau_1 - \varepsilon_k\tau_2$. The reason for changing basis is, that the eigenvectors are simpler. Explicitly:
 \begin{equation}
 \ket{\tilde{e}^{-}_k} = \frac{1}{\sqrt{2}}\begin{bmatrix} -\frac{\Delta_k + i \varepsilon_k}{E_{F,k}} \\ 1 \end{bmatrix}. \nonumber 
 \end{equation}
@@ -214,7 +214,7 @@ Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we
 \text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
 \label{eq.CSinv1}
 \end{equation}
-where the last equality stems from the fact, that the integrand is even. The integrand has a primitive given by $-\arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)$. Hence, the above is directly calculable:
+where the last equality stems from the fact, that the integrand is even. The integrand has a continuous primitive for $k > 0$ given by $-\arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)$. Hence, the above is directly calculable:
 \begin{align}
 \text{CS}_1 &= - \frac{1}{2\pi} \left. \arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)\right|^\infty_0 \overset{(*)}{=} -\frac{\text{sgn}(\Delta_{k>0})}{2\pi}\left(\frac{\pi}{2} - \lim_{a\to 0^{+}}\arctan\left(\frac{-\mu}{a}\right) \right) \nonumber \\
 & = \left\{ \begin{matrix} -\frac{\text{sgn}(\Delta_{k>0})}{2}, & \mu > 0, \\ 0, & \mu < 0. \end{matrix} \right. 
@@ -228,7 +228,7 @@ We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial p
 
 \section{Edge states}
 \label{sec.edgestates}
-In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite{BernevigTITSC}. 
+In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite[pp. 196-198]{BernevigTITSC}. 
 
 The single wire system has the Hamiltonian:
 \begin{equation}
@@ -244,12 +244,12 @@ Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator 
 H_{FF} = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}_{FF}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
 \label{eq.MFHamiltonianrealspace}
 \end{equation}
-For the sake of clarity let us see, how e.g. the term $\Delta_kc_kc_{-k}$ appears from this expression:
+For the sake of clarity let us see how e.g. the term $\Delta_kc_kc_{-k}$ appears from this expression:
 \begin{align}
 \int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}\int dx \; \text{e}^{ikx}c_k\Delta(p)\text{e}^{iqx}c_ q = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k+q)x} \nonumber \\
 &= \sum_{k}\Delta_kc_kc_{-k}, \nonumber 
 \end{align}
-since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
+since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
 \begin{equation}
 \psi_1(x) = \exp\left(-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
 \end{equation}  
@@ -303,7 +303,7 @@ By solving this eigenvalue problem we get:
 \begin{equation}
 \psi_1(x) = g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = g_2(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \nonumber
 \end{equation}
-with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \frac{1}{2}\int dx |g_j(x)|^2$ a normalization constant. We transform these states into operators in second quantization in the following manner. From equation \eqref{eq.MFHamiltonianrealspace} we see, that the vector $[1, -i]$ correspond to annihilation and creation operators as follows:
+with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \frac{1}{2}\int dx |g_j(x)|^2$ a normalization constant. We transform these states into operators in second quantization in the following manner. From equation \eqref{eq.MFHamiltonianrealspace} we see, that the vector $[1, -i]^T$ correspond to annihilation and creation operators as follows:
 \begin{equation}
 \begin{bmatrix} 1 \\ -i \end{bmatrix} \to \psi_F(x) - i\psi^\dagger_F(x). \nonumber
 \end{equation}

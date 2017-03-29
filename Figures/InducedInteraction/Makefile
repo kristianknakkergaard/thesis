@@ -12,10 +12,10 @@ InducedInteraction.tex: data makefile
 'set tics out;       			   '\
 'set xlabel "$$n_F^{1/3}/n_B$$"; 		   '\
 'set ylabel "$$2m_F/k_F W_{FF}^\text{ind}(k_F,k_F)$$"; 	   '\
+'set arrow from 0.6447,-2.5 to 0.6447,0 nohead dt 2 lw 2 lc rgb "black"; '\
 'plot [0:0.8][-2.5:0] 		   '\
 '0 notitle with lines lc rgb "black" '\
-', "$<" index 1 using ($0.6447):2 notitle with lines dt 2 lw 2 lc rgb "black" '\
-',"$<" index 1 using 1:2 notitle with lines lc rgb "black" '\
+', "$<" index 1 using 1:2 notitle with lines lc rgb "black" '\
 | gnuplot
 
 

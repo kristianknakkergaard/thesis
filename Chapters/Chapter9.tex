@@ -8,7 +8,7 @@
 \chead{Chapter 9. \emph{Grand Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we will classify the grand Hamiltonian topologically and discuss the symmetries. 
+In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we disciss the symmetries and use these to classify the grand Hamiltonian topologically. 
 
 \section{Interaction Hamiltonian and the mean field approximation}
 \label{sec.2wiresmeanfieldapproximation}
@@ -55,7 +55,7 @@ Equations \ref{eq.Hintintrawire} and \ref{eq.Hintinterwire} are the essential eq
 
 \section{Grand Hamiltonian}
 \label{sec.2wiresgrandHFF}
-The grand fermion Hamiltonian is obtained in a similar manner to the single wire analog. The free fermion part is now: $H_{0,1}+H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$. Further, the Hamiltonian is not particle number conserving, since it contains terms like $f^\dagger f^\dagger$. In stead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number of $j$ fermions. We hereby get the following grand Hamiltonian:
+The grand fermion Hamiltonian is obtained in a similar manner to the single wire analog. The free fermion part is now: $H_{0,1}+H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$. Further, the Hamiltonian is not particle number conserving, since it contains terms like $c^\dagger c^\dagger$. In stead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number of $j$ fermions. We hereby get the following grand Hamiltonian:
 \begin{align}
 H_{FF} = &\sum_j \left[H_{0,j} - \mu_j N_{j,F}\right] + H^\text{int}_{FF,11} + H^\text{int}_{FF,22} + H^\text{int}_{FF,12} \nonumber \\
        = &\frac{1}{2}\sum_k\left[\varepsilon_{1,k} + \varepsilon_{2,k} - \Delta^{11}_k\braket{c^\dagger_{1,k}c^\dagger_{1,-k}} - \Delta^{22}_k\braket{c^\dagger_{2,k}c^\dagger_{2,-k}} - 2\Delta^{12}_k\braket{c^\dagger_{2,k}c^\dagger_{1,-k}} \right] \nonumber \\
@@ -70,7 +70,7 @@ with:
                                      -\Delta^{12*}_{-k}& 0                  & \Delta^{22*}_k    & -\varepsilon_{2,k} \end{bmatrix}, \hspace{0.5cm}
 C_k =  \begin{bmatrix} c_{1,k} \\ c^\dagger_{1,-k} \\ c_{2,k} \\ c^\dagger_{2,-k} \end{bmatrix}.                                     
 \end{equation}
-Here $\varepsilon_{j,k} = \frac{k^2}{2m_F}-\mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential $\mu$. Hence we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we wish to investigate, whether we can find real solutions for the intrawire pairings $\Delta^{jj}_k$. First of all, since the chemical potentials of the two wires is now the same, the two wires are equivalent. Hence, the system is symmetric in the 1 and 2 fermions. This means, that the pairings must be equal up to an overall phase: $\Delta^{22}_k = \text{e}^{i\phi} \Delta^{11}_k$. Second, we can gauge transform the phase of $\Delta^{jj}_k$ away in the same way as in chapter \ref{Chapter7}. Since this gauge transformation can be done independently for each wire, we can obtain the relation: $\Delta^{22}_k = -\Delta^{11}_k$. The overall sign difference is chosen, since it makes the eigenvectors to $\mathcal{H}_{FF,k}$ a bit simpler. The interwire pairing $\Delta^{12}_k$ describes a pairing between distinguishable particles. If we think of the wires as indexed with a pseudospin, the pairing is expected to be a $s$-wave type pairing. We will therefore search for an even solution for $\Delta^{12}_k$. This means, that:
+Here $\varepsilon_{j,k} = \frac{k^2}{2m_F}-\mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential $\mu$. Hence we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we make two separate gauge transformations to make the intrawire pairings, $\Delta^{jj}_k$, real. Since the chemical potentials of the two wires is now the same, the two wires are equivalent. Hence, the system is symmetric in the 1 and 2 fermions. This means, that the pairings must be equal up to an overall phase: $\Delta^{22}_k = \text{e}^{i\phi} \Delta^{11}_k$. Since they are now real we can obtain the relation: $\Delta^{22}_k = -\Delta^{11}_k$. The overall sign difference is chosen, since it makes the eigenvectors to $\mathcal{H}_{FF,k}$ a bit simpler. The interwire pairing $\Delta^{12}_k$ describes a pairing between distinguishable particles. If we think of the wires as indexed with a pseudospin, the pairing is expected to be a $s$-wave type pairing. We will therefore search for an even solution for $\Delta^{12}_k$. This means, that:
 \begin{equation}
 \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_{k}   & \Delta^{11}_k      & 0                 & -\Delta^{12}_{k} \\ 
                                      \Delta^{11}_k     & -\varepsilon_{k}   & \Delta^{12*}_k    & 0 \\ 
@@ -81,7 +81,7 @@ We have hereby specified two global phases. Since this is the total gauge freedo
 \begin{equation}
 E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)}. 
 \end{equation} 
-This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)$ in $E^{\pm}_{F,k}$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations are much more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
+This shows, that the excitation energies depends on the phase of the interwire pairing, $\Delta^{12}_k$. Since $\Delta^{11}_k$ is odd in $k$ and and $\Delta^{12}_k$ is even in $k$, we get that $E^{+}_{F,k} = E^{-}_{F,-k}$. Notice, that due to the presence of $\pm \Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)$ in $E^{\pm}_{F,k}$, the dispersions are neither even nor odd in $k$. If one is bothered by this, it is possible to redefine the eigenvalues to $\bar{E}^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + \left(\Delta^{11}_k\right)^2 + \left|\Delta^{12}_k\right|^2 \pm |\Delta^{11}_k(\Delta^{12}_k + \Delta^{12*}_k)|}$, which are manifestly even in $k$. This is a basic reshuffling of the eigenvalues. The eigenvectors are however much more involved, and in turn the derivation of the gap equations is more cumbersome. The result in the end is the same however, and therefore we will stick to the above energy eigenvalues.  
 
 The new quasiparticle operators are found by finding the eigenvectors to $\mathcal{H}_{FF,k}$. We define the quasiparticle fermionic operators $\gamma_{j,k}$ by:
 \begin{equation}
@@ -139,17 +139,17 @@ Analogously to the single wire case the ground state is hereby defined by $\gamm
 \frac{E_0}{\epsilon_{F,0} N_F} = -\frac{1}{8} \int d\tilde{k} \left[\frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{+}_{F, \tilde{k}})^2}{\tilde{E}^{+}_{F, \tilde{k}}} + \frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{-}_{F, \tilde{k}})^2}{\tilde{E}^{-}_{F, \tilde{k}}}\right], \hspace{0.5cm} T = 0. 
 \label{eq.2wiresGrandGroundStateEnergy}
 \end{equation}
-We have expressed the momentum as $\tilde{k} = k/k_F$, and the energies as $\tilde{E} = E/\epsilon_{F,0}$. We notice, that the ground state grand energy is negative. This is because, we are measuring energies with respect to the chemical potential. The motivation for calculating the grand energy is the following. For any temperature the grand energy, $\Phi$, is given by $\Phi = U - TS - 2\mu N_F = F - 2\mu N_F$, where $F$ is the Helmholtz free energy \cite{SchroederThermal}. The presence of the factor of 2 is simply because there are $N_F$ fermions in \textit{each} wire. Physically, we hold the number of particles fixed. This means, that it is the Helmholtz free energy $F = \Phi + 2\mu N_F$ we have to minimize to find the preferred state, not $\Phi$. For $T = 0$, this means, that the energetically favourable state is the one, that exhibits a minimum of $F(T = 0) = E_0 + 2\mu N_F$. The aim is therefore to calculate the Helmholtz free energy for differing phases of $\Delta^{12}_k$ and see which one is the lowest. 
+We have expressed the momentum as $\tilde{k} = k/k_F$, and the energies as $\tilde{E} = E/\epsilon_{F,0}$. We notice, that the ground state grand energy is negative. This is because, we are measuring energies with respect to the chemical potential. The motivation for calculating the grand energy is the following. For any temperature the grand energy, $\Phi$, is given by $\Phi = U - TS - 2\mu N_F = F - 2\mu N_F$, where $F$ is the Helmholtz free energy \cite[pp. 161-162]{SchroederThermal}. The presence of the factor of 2 is simply because there are $N_F$ fermions in \textit{each} wire. Physically, we hold the number of particles fixed. This means, that it is the Helmholtz free energy $F = \Phi + 2\mu N_F$ we have to minimize to find the preferred state, not $\Phi$. For $T = 0$, this means, that the energetically favourable state is the one, that exhibits a minimum of $F(T = 0) = E_0 + 2\mu N_F$. The aim is therefore to calculate the Helmholtz free energy for differing phases of $\Delta^{12}_k$ and see which one is the lowest. 
 
 \section{Gap and number equations}
 \label{sec.2wiresgapandnumberequations}
 In this section we write up and discuss the gap equations. They are derived in complete analogy to the single wire case and in the same way as the ground state energy of the previous section. The gap equations hereby become:
 \begin{align}
-\Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\left[\frac{\Delta^{11}_{k'} + \Delta^{12}_{k'}}{4E^{+}_{F,k'}}\tanh\left(\frac{\beta E^{+}_{F,k'}}{2}\right) + \frac{\Delta^{11}_{k'} - \Delta^{12}_{k'}}{4E^{-}_{F,k'}}\tanh\left(\frac{\beta E^{-}_{F,k'}}{2}\right)\right], \nonumber \\
-\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{12}(k, k')\left[\frac{\Delta^{12}_{k'} + \Delta^{11}_{k'}}{4E^{+}_{F,k'}}\tanh\left(\frac{\beta E^{+}_{F,k'}}{2}\right) + \frac{\Delta^{12}_{k'} - \Delta^{11}_{k'}}{4E^{-}_{F,k'}}\tanh\left(\frac{\beta E^{-}_{F,k'}}{2}\right)\right].
+\Delta^{11}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\frac{\Delta^{11}_{k'} + \Delta^{12}_{k'}}{2E^{+}_{F,k'}}\tanh\left[\frac{\beta E^{+}_{F,k'}}{2}\right], \nonumber \\
+\Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{12}(k, k')\frac{\Delta^{12}_{k'} + \Delta^{11}_{k'}}{2E^{+}_{F,k'}}\tanh\left[\frac{\beta E^{+}_{F,k'}}{2}\right].
 \label{eq.2wiresgapequations}
 \end{align}
-We further get, that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumption is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective interwire interaction: 
+We further get that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumption is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective interwire interaction: 
 \begin{equation}
 W_{\text{ind}}^{12}(k, k') = \frac{1}{2}\left[V_{\text{ind}}^{12}(k - k', 0) + V_{\text{ind}}^{12}(k + k', 0) \right].
 \end{equation}
@@ -159,7 +159,7 @@ W_{\text{ind}}^{12}(k,k')   &= W_{\text{ind}}^{12}(k',k), \hspace{0.5cm} \text{S
 W_{\text{ind}}^{12}(-k,k')  &= W_{\text{ind}}^{12}(k,k'), \hspace{0.5cm} \text{Even in arguments}.
 \label{eq.EffectiveInterwireInteractionSymmetries}
 \end{align}
-This is very similar to the symmetry properties of $W_{\text{ind}}^{11}(k, k')$ listed in equation \ref{eq.EffectiveInteractionSymmetries}, with the only difference, that the interwire effective interaction defined here is even in a single argument. We notice, that these gap equations have a slightly different structure than the ones for the single wire. Finally, the above quations goes to the gap equations for the separated single wires found in chapter \ref{Chapter4}, when $\Delta^{12}_k$ goes to $0$.  	
+This is very similar to the symmetry properties of $W_{\text{ind}}^{11}(k, k')$ listed in equation \ref{eq.EffectiveInteractionSymmetries}, with the only difference, that the interwire effective interaction defined here is even in a single argument. We notice, that these gap equations have a slightly different structure than the ones for the single wire. Finally, the above quations goes to the gap equations for the separated single wires found in chapter \ref{Chapter4}, when $\Delta^{12}_k$ goes to $0$.   	
 
 It turns out that the number equation calculated from $N_F = \sum_k \braket{c^\dagger_{j,k}c_{j,k}}$ has the exact same structure as the single wire number equation. Explicitly: 
 \begin{equation}
@@ -168,14 +168,15 @@ n_F = \int \frac{dk}{2\pi} \frac{\varepsilon_k}{E^{+}_{F,k}}f(E^{+}_{F,k}) + \fr
 \end{equation}
 Taking the real part of the first gap equation and the real and imaginary part of the second one together with the number equation gives us four equations for the four quantitites $\Delta^{11}_k, \Delta^{12}_{k,r}, \Delta^{12}_{k,i} $ and $\mu$. Here we write the interwire pairing as decomposed in its real and imaginary parts: $\Delta^{12}_k = \Delta^{12}_{k,r} + i\Delta^{12}_{k,i}$. Finally, taking the imaginary part of the first gap equation gives a fifth self-consistency equation:
 \begin{equation}
-0 = -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\left[\frac{\Delta^{12}_{k',i}}{4E^{+}_{F,k'}}\tanh\left(\frac{\beta E^{+}_{F,k'}}{2}\right) - \frac{\Delta^{12}_{k',i}}{4E^{-}_{F,k'}}\tanh\left(\frac{\beta E^{-}_{F,k'}}{2}\right)\right].
+0 = -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{11}(k, k')\frac{\Delta^{12}_{k',i}}{2E^{+}_{F,k'}}\tanh\left[\frac{\beta E^{+}_{F,k'}}{2}\right].
 \end{equation}
-This equation has two trivial solutions. The first is, where the interwire pairing is real. Then the integrand is 0 and the equation is fulfilled. The second is, where the interwire pairing is purely imaginary. Then the two dispersion relations are identical: $E^{\pm}_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. The integrand is then 0 here as well. We will only investigate these two cases, because they exhibit interesting symmetries of the system. This is discussed in the following section.
+This equation has two trivial solutions. The first is, where the interwire pairing is real. Then the integrand is 0 and the equation is fulfilled. The second is, where the interwire pairing is purely imaginary. Then the two dispersion relations are identical: $E^{\pm}_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + |\Delta^{12}_k|^2}$. Then the summand is in total an odd function in $k'$ and so the equation is again fulfilled. We will only investigate these two cases, because they exhibit interesting symmetries of the system. This is discussed in the following section.
 
 \section{Symmetries}
 \label{sec.2wiressymmetries}
 \subsection{Time reversal symmetries with wire exchange}
-In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is imaginary; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
+\label{subsec.TRwireexchange}
+In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is real; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
 
 We first define a time reversal operator, that squares to $\mathbb{I}$ and interchanges the wires: 
 \begin{equation}
@@ -223,7 +224,8 @@ both for $j=1$ and $j=2$. It is then clear, that the total spinor $C_k$ is also 
 
 This analysis also gives us a sublattice symmetry in the case of an imaginary or real interwire pairing: $S_\pm = T_\pm C$. In total this puts the system in Cartan class BDI, if $\Delta^{12}_k$ is imaginary, and in Cartan class DIII, if $\Delta^{12}_k$ is real. The topological index is respectively to be found in the integers $\mathbb{Z}$ and in $\mathbb{Z}_2 = \{-1,1\}$. See table \ref{tab.PeriodicTableTISC} for the details. We will return to the actual determination of these invariants in chapter \ref{Chapter10}. 
 
-\subsection{Time reversal symmetries with separate wires}
+\subsection{Time reversal symmetries with separate wires} 
+\label{subsec.TRseparatewires}
 In this subsection we will show, that the system has yet another two time reversal symmetries. These keep the wires separated and both square to $+\mathbb{I}$. 
 
 There are two possibilities for this symmetry: 
@@ -240,7 +242,6 @@ since $\Delta^{11}_k$ is chosen real. This shows, that we must have $\eta^2 = -1
 \end{equation}
 The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$, and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$.
 
-The symmetries found in this subsection are the same as the one found for the single wire. See section \ref{sec.SymmetriesTRandPH} for the details. This shows, that the real and imaginary interwire pairing does not break the time reversal symmetry internally in each wire.
-
+The symmetries found in this subsection are the same as the one found for the single wire. See section \ref{sec.SymmetriesTRandPH} for the details. This shows, that the real and imaginary interwire pairing does not break the time reversal symmetry internally in each wire. Specifically, this shows that one can have both a $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ symmetry for the same system. In the present case $T_-$ and $T_2$ for $\Delta^{12}_k$ real. This might seem a little confusing at first sight, because as discussed in chapter \ref{Chapter7} the symmetries put the system in a specific Cartan class. However, the Cartan classes are not distinct in this sense per se. Rather one should think of the classification in the following sense. For the case at hand we can both put the Hamiltonian in class BDI and DIII, corresponding to $T^2 = +\mathbb{I}$ and $T^2=-\mathbb{I}$ respectively. This means, that we can ask what ground states are topologically distinct, if we preserve just one of these symmetries. Hence, the system is characterized by having \textit{two} topological indices in this case, one in $\mathbb{Z}$ and one in $\mathbb{Z}_2 = \{-1,1\}$.
 
 

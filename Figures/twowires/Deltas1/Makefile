@@ -13,6 +13,8 @@ kdepend.tex: kdepend Makefile
 'set xlabel "$$k/k_F$$"; 		    '\
 'set ylabel "$$Delta_k/epsilon_{F,0}$$";'\
 'set key bottom right;					'\
+'set arrow from 0,-0.6 to 0,0.6 nohead lc rgb "black"; '\
+'set arrow from -10,0 to 10,0 nohead lc rgb "black"; '\
 'plot [-10:10][-0.6:0.6]			'\
 ' "$<" index 3    using 1:2 title "$$k_Fd = 0.720$$" with lines lc rgb "#e00000"'\
 ',"$<" index 3    using 1:3 notitle with lines lc rgb "#e00000"'\

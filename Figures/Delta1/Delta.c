@@ -39,14 +39,14 @@ main (void)
 {
   /*variables */
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
-  double rBF = 0.18;    /*(nB * aBF^3)^(1/3) */
+  double rBF = 0.1;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
 
   /*nB:*/
   double nB  = 100.0; 
 
   /*k-values:*/
-  double k_low = 0.0, k_up = 200.0, dk = 0.01;
+  double k_low = 0.0, k_up = 50.0, dk = 0.009;
   int N = (int) (k_up - k_low)/dk;
 
   /*variables:*/
@@ -78,11 +78,11 @@ main (void)
   }
 
   /*For calculating mu:*/
-  double mu_low = 0.1, dmu = 0.0005;
+  double mu_low = 0.7, dmu = 0.0003; 
   double muintegral, muintegrand;
   double mu_min_value;
   double mu = 1.0;
-  int Nmu = 3000;
+  int Nmu = 2000;
   double mu_guess;
   gsl_vector *mu_vector = gsl_vector_calloc(Nmu);
   gsl_vector *find_min_mu = gsl_vector_calloc(Nmu);
@@ -92,6 +92,10 @@ main (void)
     mu_guess = (double) mu_low + imu * dmu;
     gsl_vector_set(mu_vector, imu, mu_guess);
   }
+
+  /*k for maximum of Delta*/
+  int kmax_index;
+  double kmax;
 
   /*T = 0: */
   for (int j = 0; j < 1000; ++j)
@@ -156,6 +160,8 @@ main (void)
     k = ((double)i) * dk + k_low;
     printf("%lg \t %lg \t %lg \n", k, gsl_vector_get(D,i), mu);
   }
+  printf("\n\n");
+
   /*Ground state energy: */
 
   double E0integrand; 
@@ -173,7 +179,77 @@ main (void)
 
   fprintf(stderr, "E0 = %lg, mu = %lg, check = %i\n", E0integral + mu, mu, check);
 
+  /*Temperatures:*/
+  const int numberT = 4; 
+  double T[numberT] = {0.075, 0.100, 0.120, 0.127};
 
+  for (int iT = 0; iT < numberT; ++iT)
+  {
+    check = 0;
+    for (int j = 0; j < 1000; ++j)
+    {
+      D_maxk = gsl_vector_max(D);
+      for (int i = 0; i < N; ++i)
+      {
+        if (D_maxk == 0)
+        {
+          break;
+        }
+        k = ((double)i) * dk + k_low;
+        gapintegral = 0.0;
+        for (int iprime = 0; iprime < N; ++iprime)
+        {
+          kprime        = ((double)iprime) * dk + k_low;
+          epsilonkprime = kprime * kprime - mu;
+          Deltakprime   = gsl_vector_get(D, iprime);
+          EFkprime      = pow(epsilonkprime * epsilonkprime + Deltakprime * Deltakprime, 1.0 / 2.0);
+          gapintegrand  =  -1.0/M_PI * gsl_matrix_get(WFF0matrix, i, iprime) * Deltakprime / (2.0 * EFkprime) * tanh(EFkprime / (2.0 * T[iT]));
+          gapintegral  += gapintegrand*dk; 
+        }
+        gsl_vector_set(D, i, gapintegral);
+      }
+      for (int imu = 0; imu < Nmu; ++imu)
+      {
+        mu_guess = (double) mu_low + imu * dmu;
+        muintegral = 0.0;
+        for (int iprime = 0; iprime < N; ++iprime)
+        {
+          kprime        = ((double)iprime) * dk + k_low;
+          epsilonkprime = kprime * kprime - mu_guess;
+          Deltakprime   = gsl_vector_get(D, iprime);
+          EFkprime      = pow(epsilonkprime * epsilonkprime + Deltakprime * Deltakprime, 1.0 / 2.0);
+          muintegrand   = epsilonkprime / EFkprime * ( 1.0/(exp(EFkprime / T[iT]) + 1.0) - 1.0/2.0) + 1.0/2.0;
+          muintegral   += muintegrand*dk;
+        }
+        gsl_vector_set(find_min_mu, imu, fabs(1.0 - muintegral) );
+      }
+      mu_min_value = gsl_vector_get(mu_vector,gsl_vector_min_index(find_min_mu));
+
+      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && fabs(gsl_vector_max(D) - D_maxk)/D_maxk < 1e-3 )
+      {
+        break;
+      }
+      mu = mu_min_value;
+      ++check;
+    }
+
+    kmax_index  = gsl_vector_max_index(D);
+    kmax        = ((double)kmax_index) * dk + k_low;
+    fprintf(stderr, "%lg \t %lg \t %lg \t %lg \t %i \n", T[iT], kmax, gsl_vector_max(D), mu_min_value, check);
+
+    for (int i = 0; i < N - 1; ++i)
+    {
+      k = ((double)i) * dk + k_low;
+      printf("%lg \t %lg \t %lg \t %lg \n", k - k_up + dk, -gsl_vector_get(D, N - 1 - i), T[iT], mu_min_value);
+    }
+    for (int i = 0; i < N; ++i)
+    {
+      k = ((double)i) * dk + k_low;
+      printf("%lg \t %lg \t %lg \t %lg  \n", k, gsl_vector_get(D,i), T[iT], mu_min_value );
+    }
+
+    printf("\n\n");
+  }
 
   
   gsl_vector_free(D);

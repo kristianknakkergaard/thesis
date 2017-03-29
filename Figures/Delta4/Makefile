@@ -13,7 +13,7 @@ Tdepend.tex: Tdepend Makefile
 'set xlabel "$$T/T_F$$"; 		   '\
 'set ylabel "$$\max_k[\Delta_k]/\epsilon_{F,0}$$"; 	   '\
 'plot [0:0.15][0:0.4] 		   '\
-' "$<" index 1 using 1:3 title "$$Numerical data$$" with lines lc rgb "black" '\
+',"$<" index 1 using 1:3 title "$$Numerical data$$" with lines lc rgb "black" '\
 ',"$<" index 2 using 1:2 title "$$Approximate behaviour$$" with lines lc rgb "red" '\
 ',"$<" index 1 using 1:(1.6789 * 0.279949 * sqrt(1.0 - $$1/0.1294)) title "$$Asymptotic behaviour$$" with lines lc rgb "blue" '\
 | gnuplot

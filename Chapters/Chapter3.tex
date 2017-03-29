@@ -10,13 +10,13 @@
 %----------------------------------------------------------------------------------------
 In this chapter we derive the induced interaction between the fermions on the wire. First stop is to look at the effective interaction between the fermions on the wire and the bosons in the cloud.
 \section{Effective Bose-Fermi interaction}
-The effective interaction between the fermions (F) and the bosons (B) is modelled by a delta function potential with strength $g_{BF}$: $V(\mathbf{r})=g_{BF}\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the effective pair interaction reads:
+The effective interaction between the fermions ($F$) and the bosons ($B$) is modelled by a delta function potential with strength $g_{BF}$: $V(\mathbf{r})=g_{BF}\delta(\mathbf{r})$. This means, that the \textit{int}eraction Hamiltonian for the effective pair interaction reads:
 \begin{equation}
 H_{BF}^\text{int}  = \int d^3 r d^3 r' \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r}')V(\mathbf{r}-\mathbf{r}')\hat{\psi}_B(\mathbf{r}')\hat{\psi}_F(\mathbf{r}) = g_{BF}\int d^3 r \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}),
 \end{equation}
 where $\hat{\psi}_i(\mathbf{r})$ is the field operator for the $i$-particles, and so $\hat{\psi}_i^\dagger(\mathbf{r})$ creates a particle at position $\mathbf{r}$.\footnote{The subscript $BF$ specifies, that it is the Hamiltonian for the interaction between bosons and fermions.} Notice, that there is no factor of $1/2$ in front of the integrals. As noted in section \ref{sec.secondquantization} the factor of $1/2$ should be omitted, when the particles are distinguishable, as fermions and bosons most certainly are. 
 
-The fermions (F) are confined to a one dimensional wire. Let this be along the $x$ axis. The confinement is provided by two harmonic traps in the $y$- and $z$-directions with the same trapping frequency $\omega_t$.\footnote{This is mostly for simplicity. It can easily be generalized to different trapping frequencies $\omega_y$ and $\omega_z$ for the two directions.} The energy gap from the ground state to the first excited state is therefore $\omega_t$ in the perpendicular directions $y$ and $z$. Hence by making $\omega_t$ sufficiently large we trap the fermions in the lowest lying state: $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_t}\exp\left(-\frac{r_\perp^2}{2l_t^2}\right)$, where $\mathbf{r}_\perp = (y,z)$ is the perpendicular direction away from the wire, and $l_t = \frac{1}{\sqrt{m_F \omega_t}}$ is roughly the length over which the fermions spread out in the two perpendicular directions $y$ and $z$. The typical energies of the fermions is roughly the free gas Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. Hence, we require that $\frac{\epsilon_{F,0}}{\omega_t} \ll 1$ or equivalently $(k_Fl_t)^2\ll 1$. One might be afraid of the Pauli exclusion principle in this context. However, the states in the $x$-direction are allowed to be different, and so we can symmetrize in the $y$- and $z$-directions. This means, that we can expand the field operators in the following fashion:
+The fermions ($F$) are confined to a one dimensional wire. Let this be along the $x$ axis. The confinement is provided by two harmonic traps in the $y$- and $z$-directions with the same trapping frequency $\omega_t$.\footnote{This is mostly for simplicity. It can easily be generalized to different trapping frequencies $\omega_y$ and $\omega_z$ for the two directions.} The energy gap from the ground state to the first excited state is therefore $\omega_t$ in the perpendicular directions $y$ and $z$. Hence by making $\omega_t$ sufficiently large we trap the fermions in the lowest lying state: $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_t}\exp\left(-\frac{r_\perp^2}{2l_t^2}\right)$, where $\mathbf{r}_\perp = (y,z)$ is the perpendicular direction away from the wire, and $l_t = \frac{1}{\sqrt{m_F \omega_t}}$ is roughly the length over which the fermions spread out in the two perpendicular directions $y$ and $z$. The typical energy of the fermions is the free gas Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. Hence, we require that $\frac{\epsilon_{F,0}}{\omega_t} \ll 1$ or equivalently $(k_Fl_t)^2\ll 1$. One might be afraid of the Pauli exclusion principle in this context. However, the states in the $x$-direction are allowed to be different, and so we can symmetrize in the $y$- and $z$-directions. This means, that we can expand the field operators in the following fashion:
 \begin{equation}
 \psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \phi_0(\mathbf{r}_\perp) c_p, \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}. 
 \end{equation}   
@@ -24,7 +24,7 @@ Hence, we expand the fields in plane wave states. $b_\mathbf{k}$ and $c_p$ denot
 \begin{equation}
 H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{LV}}\int d^3 r \sum_{p,p',q,q'}\sum_{\mathbf{k}_{\perp},\mathbf{k}_{\perp}'}\text{e}^{i((p-p')+(q-q'))x} \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} c^\dagger_{p'} b^\dagger_{q',\mathbf{k}_\perp'}b_{q,\mathbf{k}_\perp}c_p. \nonumber
 \end{equation}
-The integral over $x$ yields the factor $\mathcal{L}\delta_{p-p',q'-q}$, hereby yielding total momentum conservation along the wire. The integral over $\mathbf{r}_\perp$ gives the Fourier transform of $\phi_0^2(\mathbf{r}_\perp)$. Since $\phi_0$ is a gaussian the Fourier transform is as well. Explicitly:
+The integral over $x$ yields the factor $\mathcal{L}\delta_{p-p',q'-q}$, implying total momentum conservation along the wire. The integral over $\mathbf{r}_\perp$ gives the Fourier transform of $\phi_0^2(\mathbf{r}_\perp)$. Since $\phi_0$ is a gaussian the Fourier transform is as well. Explicitly:
 \begin{equation}
 \int d^2 r_\perp \; \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} = \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')^2}. \nonumber
 \end{equation}
@@ -153,7 +153,7 @@ G_{11}(\mathbf{k},i\omega_m) = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}
 \end{equation}
 Here $u_{B,k}$ and $v_{B,k}$ are the BEC coherence factors found in subsection \ref{sec.BEC} with $m_B$ the mass of the bosons. Further $\xi_{B,k} = \frac{k^2}{2m_B}+n_Bg_B$ and $g_B = \frac{4\pi a_B}{m_B}$, with $a_B$ the scattering length in the BEC. Finally $E_{B,k}^2 = \xi_{B,k}^2-(n_Bg_B)^2$ is the BEC Bogoliubov spectrum.
 
-The diagrams can intuitively be understood as follows. A fermion on the string interact with a (real) boson in the condensate. This creates a ripple in the condensate described by one of the Green's functions. This ripple reaches a second fermion on the string, where the momentum of the ripple is transferred to. Further, a (real) boson is "returned" to the condensate. 
+The diagrams can intuitively be understood as follows. A fermion on the wire interact with a (real) boson in the condensate. This creates a ripple in the condensate described by one of the Green's functions. This ripple reaches a second fermion on the wire, where the momentum of the ripple is transferred to. Further, a (real) boson is 'returned' to the condensate. In a more technical way we say, that the fermions interact by exchanging a condensate Bogoliubov phonon. 
 
 Since the perpendicular momentum $\mathbf{k}_\perp$ is completely free we have to integrate over this. Since the momentum of the incoming and outgoing boson in each diagram is 0 we simply get a factor of $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}k_\perp^2}$ \textit{twice}. Collecting all terms gives us the four contributions from the four diagrams (1)-(4) to the fermion-fermion induced interaction $V_{\text{ind}}$: 
 \begin{align}
@@ -172,7 +172,7 @@ with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega
 \section{Retardation effects} \label{sec.RetardationEffects}
 In this section we will discuss the $\omega_q = 0$ limit. 
 
-From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects.\footnote{It is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$. To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
+From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects. In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \frac{\sqrt{4\pi n_B a_B}}{m_B}$.\footnote{It is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
 \begin{equation}
 1 \gg \frac{v_F}{c_0} = \frac{\sqrt{\pi}}{2} \frac{m_B}{m_F}\frac{1}{ \sqrt{ (n_Ba_B^3)^{1/3} } }\frac{n_F}{ n_B^{1/3} }, 
 \label{eq.RetardationEffectsneglectionassumption}
@@ -202,7 +202,7 @@ Finally recognizing the last part as proportional to the complementary error fun
 \tilde{V}_{\text{ind}}(x,0) = -\frac{m_Bg_{BF}^2n_B}{\sqrt{2\pi} l_t} \text{e}^{-\frac{\sqrt{2}|x|}{\xi}}\text{e}^{\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right)^2}\text{erfc}\left(\frac{l_t}{\xi}+\frac{|x|}{\sqrt{2}l_t}\right).
 \label{eq.VFFx_exact}
 \end{equation}
-Notice, that there are \textit{two} relevant length scales: the coherence length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension:
+Notice, that there are \textit{two} relevant length scales: the coherence length $\xi$ and the trapping width $l_t$. For small values of $l_t/|x|$ we can use the asymptotic form: $\text{e}^{y^2}\text{erfc}(y) \to \frac{1}{\sqrt{\pi}y}$ and we get the Yukawa potential in one dimension with range $\xi/\sqrt{2}$: 
 \begin{equation}
 \lim_{l_t\to 0} \left[ \tilde{V}_{\text{ind}}(x,0) \right] = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_lt=0}
@@ -230,7 +230,7 @@ The mass ratio $m_B/m_F$, the ratio of interparticle distances $n_B^{1/3}/n_F$ a
 \begin{figure} 
 \begin{center}  
 \input{Figures/Vx/plot.tex}  
-\caption{The zero frequency potential $\tilde{V}_{\text{ind}}(x,0)$ plotted as a function of the dimensionless parameter $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction for $l_t \to 0$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
+\caption{The zero frequency potential $\tilde{V}_{\text{ind}}(x,0)$ plotted as a function of $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction for $l_t \to 0$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
 \label{fig.Vx}  
 \end{center}    
 \end{figure}
