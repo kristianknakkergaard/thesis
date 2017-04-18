@@ -16,32 +16,32 @@ In this section we come with an approximate analytical solution for the edge sta
 
 For the separated wires we have $\Delta^{12}_k = 0$. Analogously to the approach in section \ref{sec.edgestates} we can then write up a real space mean field Hamiltonian:
 \begin{equation}
-H_{FF} = \frac{1}{2}\int dx \Psi^\dagger_{F}(x) \mathcal{H}_{FF}(x) \Psi_{F}(x), \hspace{0.5cm} \mathcal{H}_{FF}(x) = \left(\frac{p^2}{2m_F} - \mu(x)\right)\sigma_0\otimes \tau_3 + \Delta^{11}(p)\sigma_3\otimes \tau_1.
+H_{FF} = \frac{1}{2}\int dx \Psi^\dagger_{F}(x) \mathcal{H}_{FF}(x) \Psi_{F}(x), \hspace{0.5cm} \Psi_{F}(x) = \begin{bmatrix} \psi_{1,F}(x) & \psi^\dagger_{1,F}(x) & \psi_{2,F}(x) & \psi^\dagger_{2,F}(x)\end{bmatrix}^T
 \label{eq.2wiresMFHamiltonianrealspace}
 \end{equation}
-with $\Psi^\dagger_{F}(x) = \begin{bmatrix} \psi^\dagger_{1,F}(x) & \psi_{1,F}(x) & \psi^\dagger_{2,F}(x) & \psi_{2,F}(x)\end{bmatrix}$. Here we assume that $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. $\sigma_i$ and $\tau_i$ are the Pauli matrices in wire space and particle-hole space respectively. $p = -i\partial_x$ is the momentum operator in real space. The operator $\Delta^{11}(p)$ is defined by: $\Delta^{11}(p)\text{e}^{ikx} = \Delta^{11}_k\text{e}^{ikx}$. We have also dropped the grand energy $E_0$. We hereby get four edge state solutions to $\mathcal{H}_{FF}(x)\psi(x) = 0$. By keeping only $p$ up to first order as in section \ref{sec.edgestates} we get the approximate solutions:
-\begin{align}
-\psi^1_1(x) &= g_1(x)\text{e}^{i\pi/4}\chi^{3}_1\otimes\chi^{2}_2, \hspace{0.5cm} \psi^1_2(x) = g_2(x)\text{e}^{i\pi/4}\chi^{3}_1\otimes\chi^{2}_2, \nonumber \\
-\psi^2_1(x) &= g_1(x)\text{e}^{-i\pi/4}\chi^{3}_2\otimes\chi^{2}_1, \hspace{0.5cm} \psi^2_2(x) = g_2(x)\text{e}^{-i\pi/4}\chi^{3}_2\otimes\chi^{2}_1,
-\end{align}
-with $\chi^{i}_a$ the $a$'th eigenvector to the $i$'th Pauli matrix. Explicitly: 
+With the real space Hamiltonian kernel:
 \begin{equation}
-\chi^{3}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix},  \hspace{0.5cm} \chi^{3}_1 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \hspace{0.5cm} \chi^2_1 = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ i \end{bmatrix}, \hspace{0.5cm} \chi^2_2 = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}. \nonumber
+\mathcal{H}_{FF}(x) = \begin{bmatrix} 
+\frac{p^2}{2m_F} - \mu & \Delta^{11}(p) & 0 & 0 \\
+\Delta^{11}(p) & -\left(\frac{p^2}{2m_F} - \mu \right) & 0 & 0 \\
+0 & 0 & \frac{p^2}{2m_F} - \mu & -\Delta^{11}(p) \\
+0 & 0 & -\Delta^{11}(p) & -\left(\frac{p^2}{2m_F} - \mu \right)
+\end{bmatrix}
+\label{eq.2wiresMFHamiltonianrealspacefirstquantization}
 \end{equation}
-Further: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \frac{1}{2}\int dx |g_j(x)|^2$ is a normalization constant.
+Here we assume that $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. $\sigma_i$ and $\tau_i$ are the Pauli matrices in wire space and particle-hole space respectively. $p = -i\partial_x$ is the momentum operator in real space. The operator $\Delta^{11}(p)$ is defined by: $\Delta^{11}(p)\text{e}^{ikx} = \Delta^{11}_k\text{e}^{ikx}$. We have also dropped the grand energy $E_0$. We hereby get four edge state solutions to $\mathcal{H}_{FF}(x)\psi(x) = 0$. By keeping only $p$ up to first order as in section \ref{sec.edgestates} we get the approximate solutions:
+\begin{align}
+\psi^1_1(x) &= g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & -i & 0 & 0 \end{bmatrix}^T , \hspace{0.5cm} \psi^1_2(x) = g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & +i & 0 & 0 \end{bmatrix}^T, \nonumber \\
+\psi^2_1(x) &= g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & +i \end{bmatrix}^T , \hspace{0.5cm} \psi^2_2(x) = g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & -i \end{bmatrix}^T
+\end{align}
+With: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{k_F}{N}\text{e}^{+\frac{1}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant. Further $\Delta^{11} = k_F\left.\frac{\partial \Delta^{11}_k}{\partial k}\right|_{k = 0}$. Hence, $g_1(x)$ and $g_2(x)$ are exponentially located around $x = 0$ and $x = \mathcal{L}$ respectively. The superscript refers to the wire, the subscript to which end the wave function is located. 
 
-From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. We hereby get: $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x), \mathcal{T}_-\psi^1_2(x) = +\psi^2_2(x)$. The states belonging to separate wires are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states above: 
+From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. We hereby get: $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x), \mathcal{T}_-\psi^1_2(x) = -\psi^2_2(x)$. The edge states at the same end in each wire are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states above: 
 \begin{align}
-\gamma^1_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x)-i\psi^\dagger_{1,F}(x)), \hspace{0.5cm} \gamma^1_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x)-i\psi^\dagger_{1,F}(x)), \nonumber \\
-\gamma^2_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x)+i\psi^\dagger_{2,F}(x)), \hspace{0.5cm} \gamma^2_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) + i \psi^\dagger_{2,F}(x)). \nonumber 
+\gamma^1_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) + i\psi^\dagger_{1,F}(x)), \hspace{0.5cm} \gamma^1_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) - i\psi^\dagger_{1,F}(x)), \nonumber \\
+\gamma^2_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) - i\psi^\dagger_{2,F}(x)), \hspace{0.5cm} \gamma^2_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) + i \psi^\dagger_{2,F}(x)). \nonumber 
 \end{align}
-Finally this yields the Kramers partners of fermionic annihilation operators:
-\begin{align}
-d_1 &= \frac{\gamma^1_{0,1} + i \gamma^1_{0,2}}{2} = \int dx\; g(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x)-i\psi^\dagger_{1,F}(x)), \nonumber \\
-d_2 &= \frac{\gamma^2_{0,1} + i \gamma^2_{0,2}}{2} = \int dx\; g(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x)+i\psi^\dagger_{2,F}(x)),
-\label{eq.2wiresedgestatesannihilationoperators}
-\end{align}
-with $g(x) = (g_1(x) + ig_2(x))/2$. That they are Kramers partners means that $T_-d_1T_-^{-1} = d_2$. 
+In second quantization the above notion of Kramers partners is described the fact, that: $T_-\gamma^1_{0,j}T_-^{-1} = \gamma^2_{0,j}$, simply because $\psi_{1,F}(x) \to \psi_{2,F}(x)$ under $T_-$ and $T_-$ is antiunitary. 
 
 \section{Kramers degeneracy: protection of edge states}
 \label{sec.2wireskramersdegeneracy}
@@ -75,23 +75,28 @@ We can qualitatively understand the two ways in which the cross over from $p$- t
 
 \textbf{Imaginary interwire pairing}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{imaginary}. Then the system \textit{breaks} the time reversal symmetry $T_-$. In this case there is no longer a Kramers degeneracy. As a consequence the edge states can couple and gap away. We can actually calculate by how much the edge states gap. In this connection we define the operator $\Delta^{12}(p)$ as: $\Delta^{12}(p)\text{e}^{ikx} = \Delta^{12}_k\text{e}^{ikx}$. Since $\Delta^{12}_k$ is even in $k$, there is no first order term in $k$. Hence for states with small curvatures like the edge states we can approximate $\Delta^{12}(p) = \Delta^{12}_{k=0}$. This means, that the perturbation in real space relevant for the edge states is:
 \begin{equation}
-\mathcal{H}'_{FF}(x) = \Delta^{12}_{k=0} \sigma_2\otimes \tau_1. 
+\mathcal{H}'_{FF}(x) = \Delta^{12}_{k=0}\begin{bmatrix} 
+0 & 0 &  0 & -i \\
+0 & 0 & -i & 0 \\
+0 & i & 0  & 0 \\
+i & 0 & 0  & 0  \end{bmatrix}
 \label{eq.interwirepairingrealspace}
 \end{equation}
-The edge states in wires 1 and 2 in first quantization are described by the wave functions:
+The edge states in wires 1 and 2 in first quantization are described by the wave functions $\psi^1_1, \psi^2_1, \psi^1_2, \psi^2_2$ found in section \ref{sec.2wiresedgestatesedgestates}. With this as an ordered basis we can calculate the perturbation matrix $W$ with entries $\bra{\psi^{i}_j}\mathcal{H}'\ket{\psi^{l}_k}$. We get:
 \begin{equation}
-\psi_1(x) = \frac{1}{2}(\psi^1_1(x) + i\psi^1_2(x)) = g(x)\text{e}^{i\pi/4}\chi^3_1\otimes\chi^2_2, \hspace{0.5cm} \psi_2(x) = \frac{1}{2}(\psi^2_1(x) + i\psi^2_2(x)) = g(x)\text{e}^{-i\pi/4}\chi^3_2\otimes\chi^2_1. \nonumber
-\end{equation} 
-Hence the coupling is given by:
+W = \Delta^{12}_{k=0} \begin{bmatrix} 
+0 & 0 & -i &  0 \\
+0 & 0 &  0 & -i \\
+i & 0 &  0 & 0 \\
+0 & i &  0 & 0 \end{bmatrix} \nonumber
+\end{equation}  
+There are also couplings between the edge state at one end in wire 1 with the edge state at the other end in wire 2 and vice versa. This coupling is proportional to $\int dx \; g_1(x)g_2(x)$ and is therefore exponentially suppressed by the length of the wire. Hence, it is negligible for a macroscopic system. In this sense the only nonzero couplings are between the edge states at the same end in each wire. The shift in energies are the eigenvalues of $W$. These along with the corresponding perturbed wave functions are then given by:
 \begin{align}
-\bra{\psi_1}\mathcal{H}'_{FF}\ket{\psi_2} &= \Delta^{12}_{k=0}\text{e}^{-i\pi/2}\bra{\chi^3_1\otimes\chi^2_2}\sigma_2\otimes \tau_1\ket{\chi^3_2\otimes\chi^2_1}\int dx \; |g(x)|^2 = -i\Delta^{12}\braket{\chi^3_1\otimes\chi^2_2 | \chi^3_1\otimes\chi^2_2} \nonumber \\
- &= -i\Delta^{12}_{k=0}. \nonumber
+E &= +\Delta^{12}_{k=0}, \hspace{0.5cm} \frac{1}{\sqrt{2}}\left( \psi^1_j(x) + i\psi^2_j(x) \right), \nonumber \\
+E &= -\Delta^{12}_{k=0}, \hspace{0.5cm} \frac{1}{\sqrt{2}}\left(\psi^1_j(x) - i\psi^2_j(x) \right),
+\label{eq.perturbededgestates}
 \end{align}
-Further, $\mathcal{H}'_{FF}$ only couples states belonging to separate wires. Hence the diagonal elements vanish: $\bra{\psi_j}\mathcal{H}'_{FF}\ket{\psi_j} = 0$. So the perturbation matrix is:
-\begin{equation}
-W = \begin{bmatrix} 0 & -i\Delta^{12}_{k=0} \\ i\Delta^{12}_{k=0} & 0 \end{bmatrix}. \nonumber
-\end{equation}
-The energy shifts of the states are then simply $\pm \Delta^{12}_{k=0}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. 
+for the edge at $x = 0$ and $x = \mathcal{L}$ indicated by $j = 1$ and $j = 2$ respectively. Hence, the interwire pairing couples the two edge states in each wire around $x = 0$ and the two edge states around $x = \mathcal{L}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. 
 
 \textbf{Real interwire pairing}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{real}. In this situation the system still respects the time reversal symmetry $T_-$. Kramers degeneracy is still present and therefore any energy state must be twofold degenerate. Further, since the system has a particle-hole symmetry the energy spectrum is symmetric around $E = 0$ (relative to the ground state). Therefore the zero energy edge states are locked as long as the bulk energy gap remains open. A direct calculation of the first order energy shift performed in the same way as in the above verifies this explicitly. The bulk energy dispersions in this situation are given by: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. The bulk gap will therefore eventually close as we bring the wires closer together. This happens exactly when $|\Delta^{12}_{k_0}| = |\Delta^{11}_{k_0}|$, where $\pm k_0$ are the Fermi points given by: $\varepsilon_{\pm k_0} = 0$. Hence, we expect a topological phase transition in this situation, with a topologically non-trivial system for $|\Delta^{12}_{k_0}| < |\Delta^{11}_{k_0}|$ and topologically trivial for $|\Delta^{12}_{k_0}| > |\Delta^{11}_{k_0}|$. This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle and bottom right. 
 
@@ -221,14 +226,14 @@ The energy shifts of the states are then simply $\pm \Delta^{12}_{k=0}$. This ma
 \node at (5 + \hmove, -1.4 + \vmove) {$\mathcal{L}$};
 
 \draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6 + 2*\hmove},{ 2 * exp{- 15 * \x*\x} - 2.0 + 2*\vmove});
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 10 + 2*\hmove},{ 2 * exp{- 15 * \x*\x} -2.0 + 2*\vmove});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 10 + 2*\hmove},{ 2 * exp{- 15 * \x*\x} -2.0 + 2*\vmove});
 \draw[|-latex, thick ] (3 + \hmove,-1.0 + \vmove) -- (5.8 + \hmove,-1.0 + \vmove) node[right]{$x$};
 \draw[-, ultra thick ] (3 + \hmove,-1.0 + \vmove) -- (5 + \hmove,-1.0 + \vmove);
 
 \node at (3 + \hmove, 0.6 + \vmove) {$0$};
 \node at (5 + \hmove, 0.6 + \vmove) {$\mathcal{L}$};
 
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 6  + 2*\hmove},{ 2 * exp{- 15 * \x*\x} + 2.0 + 2*\vmove});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red] plot ({\x + 6  + 2*\hmove},{ 2 * exp{- 15 * \x*\x} + 2.0 + 2*\vmove});
 \draw[scale=0.5,domain=-1:1,smooth,variable=\x,blue] plot ({\x + 10 + 2*\hmove},{ 2 * exp{- 15 * \x*\x} + 2.0 + 2*\vmove});
 
 \draw[|-latex, thick ] (3 + \hmove,1.0 + \vmove) -- (5.8 + \hmove,1.0 + \vmove) node[right]{$x$};
@@ -286,10 +291,23 @@ The energy shifts of the states are then simply $\pm \Delta^{12}_{k=0}$. This ma
 \draw[-latex, semithick] (0.5 + \hmove, -1 + \Eminchange + \vmove)--(0.5 + \hmove, -1 + \vmove);
 
 \end{tikzpicture}
-\caption{Top centered: for $\Delta^{12}_k=0$ we have two copies of the single wire system with the interwire interaction as a perturbation. There are two symmetry-protected edge states, one at each wire and two energy dispersions mirrored in $E = 0$. This is indicated with red and blue dots. $k_0$ is defined by: $0 = \varepsilon_{k_0} = \frac{k^2_0}{2m_F} - \mu$. Middle left: If the system chooses an imaginary interwire pairing the system breaks the $T^2 = -\mathbb{I}$ symmetry. The edge states are therefore no longer protected at $E = 0$, and the edge states are gapped by $2\Delta^{12}_{k=0}$. Middle and bottom right: If the system chooses a real interwire pairing the system still respects the $T^2 = -\mathbb{I}$ symmetry. Middle right: Before an energy gap closing the edge states are still protected. The gap is closing; this is indicated by the arrows squezzing the gap. Bottom right: After the gap closing the edge states are gone. The system is topologically trivial. The gap is opening again indicated by the arrows.}
+\caption{Top centered: for $\Delta^{12}_k=0$ we have two copies of the single wire system with the interwire interaction as a perturbation. There are two symmetry-protected edge states, one at each wire and two energy dispersions mirrored in $E = 0$. This is indicated with red and blue dots. $k_0$ is defined by: $0 = \varepsilon_{k_0} = \frac{k^2_0}{2m_F} - \mu$. Middle left: If the system chooses an imaginary interwire pairing the system breaks the $T^2 = -\mathbb{I}$ symmetry. The edge states are therefore no longer protected at $E = 0$, and the edge states are gapped by $2\Delta^{12}_{k=0}$. Middle and bottom right: If the system chooses a real interwire pairing the system still respects the $T^2 = -\mathbb{I}$ symmetry. Middle right: Before an energy gap closing the edge states are still protected. Due to the interwire pairing the two edge states are located equally on each wire in opposite ends. Hence, the colours of the wave functions. The gap is closing; this is indicated by the arrows squezzing the gap. Bottom right: After the gap closing the edge states are gone. The system is topologically trivial. The gap is opening again indicated by the arrows.}
 \label{fig.2wiresedgestates}
 \end{figure}
 
+It turns out that we can find approximate eigenstates for $\Delta^{12}_{k=0} \ll \Delta^{11}$. We take the ansatz $\psi_j^{\pm}(x) = g_j^{\pm}(x)\cdot \mathbf{u}^{\pm}_j$ for four component vectors $\mathbf{u}^{\pm}_j$. Further $g_1^{\pm}(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_0^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$ and $g_2^{\pm}(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$. We then seach for solutions to $(\mathcal{H}_{FF}(x) + \mathcal{H}'_{FF}(x))\psi_j^{\pm}(x) = 0$, only keeping $p$ up to first order. The first and second derivative ($l = 1$ and $l = 2$) has a term proportional to $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^l\psi_j^{\pm}(x)$. Since we only keep $p$ up to first order, the second derivative must be small with respect to the first one. It is then clear, that $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^2 \ll \frac{\Delta^{12}_{k=0}}{\Delta^{11}}$ is required. In turn $\Delta^{12}_{k=0} \ll \Delta^{11}$. As $\Delta^{12}_{k=0}$ comes closer to $\Delta^{11}$ we must add higher order terms in $p$ to get accurate results. With the above ansatz we get the following solutions in the $\Delta^{12}_{k=0} \ll \Delta^{11}$ regime:
+\begin{align}
+\psi_1^{+}(x) &= \frac{g_1^{+}(x)}{2}\begin{bmatrix} 1 & -i & 1 & i \end{bmatrix}^T, \hspace{0.5cm} \psi_1^{-}(x) = \frac{g_1^{-}(x)}{2}\begin{bmatrix} i & 1 & -i & 1 \end{bmatrix}^T, \nonumber \\
+\psi_2^{+}(x) &= \frac{g_2^{+}(x)}{2}\begin{bmatrix} 1 & i & -1 & i \end{bmatrix}^T, \hspace{0.5cm} \psi_2^{-}(x) = \frac{g_2^{-}(x)}{2}\begin{bmatrix} -i & 1 & -i & -1 \end{bmatrix}^T.
+\label{eq.zeromodesDelta12real}
+\end{align}
+We hereby form the matrix $U(x) = \begin{bmatrix} \psi_1^{+}(x) & \psi_1^{-}(x) & \psi_2^{+}(x) & \psi_2^{-}(x) \end{bmatrix}$. Then $\int dx \; U^\dagger(x) U(x) = \mathbb{I}$ and we get the second quantized operators:
+\begin{equation}
+\begin{bmatrix} \gamma^{+}_{0, 1} \\ \gamma^{-}_{0, 1} \\ \gamma^{+}_{0, 2} \\ \gamma^{-}_{0, 2} \end{bmatrix} = \int dx \; U^\dagger(x) \begin{bmatrix} \psi_{1, F}(x) \\ \psi_{1, F}^\dagger(x) \\ \psi_{2, F}(x) \\ \psi_{2, F}^\dagger(x) \end{bmatrix} \nonumber
+\end{equation}
+These new operators are not exactly Majorana operators. Specifically, $(\gamma^{+}_{0, j})^\dagger = \gamma^{-}_{0, j}$. However, this relation means that we can form the Majorana operators: $\gamma^{1}_{0,j} = \frac{1}{\sqrt{2}}(\gamma^{+}_{0, j} + \gamma^{-}_{0, j})$ and $\gamma^{2}_{0,j} = \frac{i}{\sqrt{2}}(\gamma^{+}_{0, j} - \gamma^{-}_{0, j})$ for $j = 1, 2$. Accidently, the corresponding fermionic annihilation operators are then simply $d_j = \frac{1}{\sqrt{2}}\left(\gamma^1_{0,1} + i\gamma^2_{0,1} \right) = \gamma^{-}_{0,j}$. 
+
+The effect of the interwire pairing is thus, that the new edge states are localised with even probability in each wire, one around $x = 0$ and one around $x = \mathcal{L}$. This is indicated in the middle right of figure \ref{fig.2wiresedgestates} by the colours of the wave functions. Further, to lowest order in $\Delta^{12}_{k = 0}/\Delta^{11}$ the edge state wave functions simply acquire a space dependent phase proportional to $\Delta^{12}_{k=0}$. 
 
 \section{Chern-Simons invariants}
 \label{sec.2wires_CSinv}
@@ -305,12 +323,12 @@ In the present case the Berry connection is a $2\times 2$ matrix. In the case of
  &= 2(\text{CS}_{1,1} + \text{CS}_{1,2})\in \mathbb{Z}, \hspace{0.5cm} T^2 = +\mathbb{I}.
 \label{eq.2wires.topinv.T2eqplus1}
 \end{align}
-Here we have indicated the contribution to the Chern-Simons invariant from the eigenvector $\ket{e^{-}_{i,k}}$ with $\text{CS}_{1,i}$. We will refer to these as the subsystem invariants. For $T^2 = +\mathbb{I}$ the subsystem invariants are not well-defined, only their sum is. For $T^2 = -\mathbb{I}$, Kramers degeneracy means, that as long as one Kramers partner is protected, so is the other. Since $\ket{e^{-}_{1,k}}$ and $\ket{e^{-}_{2,k}}$ are the only available eigenvectors to negative eigenvalues, these must be Kramers partners.\footnote{This can also be verified explicitly}. Hence, the topological invariant is found by simply calculated either $\text{CS}_{1,1}$ or $\text{CS}_{1,2}$\cite{FuKane2006, LiYangChen} and \cite[pp. 130-135]{BernevigTITSC}. In turns out, that the $\mathbb{Z}_2$ invariant can then be calculated by going to the Wilson loop:
+Here we have indicated the contribution to the Chern-Simons invariant from the eigenvector $\ket{e^{-}_{i,k}}$ with $\text{CS}_{1,i}$. We will refer to these as the subsystem invariants. For $T^2 = +\mathbb{I}$ the subsystem invariants are not well-defined, only their sum is. Therefore, in this situation they do not separately define an invariant, and in particular they can take non-integer values. For $T^2 = -\mathbb{I}$, Kramers degeneracy means, that as long as one Kramers partner is protected, so is the other. Since $\ket{e^{-}_{1,k}}$ and $\ket{e^{-}_{2,k}}$ are the only available eigenvectors to negative eigenvalues, these must be Kramers partners.\footnote{This can also be verified explicitly}. This means, that the subsystem invariants \textit{are} separately well-defined and it is meaningful to calculate their respective values \cite{FuKane2006, LiYangChen} and \cite[pp. 130-135]{BernevigTITSC}. The $\mathbb{Z}_2$ invariants can then be calculated by going to the Wilson loop:
 \begin{equation}
-\nu_{\mathbb{Z}_2} = W_{1,1} = \text{e}^{2\pi i\text{CS}_{1,1}} = \pm 1, \hspace{0.5cm} T^2 = -\mathbb{I}.
+\nu_{\mathbb{Z}_2} = W_{1,j} = \text{e}^{2\pi i\text{CS}_{1,j}} = \pm 1, \hspace{0.5cm} T^2 = -\mathbb{I}.
 \label{eq.2wires.topinv.T2eqminus1}
 \end{equation}
-We are now ready for the computation. This will be done in the two cases $\Delta^{12}_k$ imaginary and real corresponding to the presence of a wire exchanging time reversal symmetry of the form $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ respectively. 
+We are now ready for the computation. This will be done in the two cases $\Delta^{12}_k$ imaginary and real corresponding to the presence of a wire exchanging time reversal symmetry of the form $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ respectively.  
 
 \subsection{Imaginary interwire pairing}
 \label{subsec.2wires_CSinv_Delta12imag}
@@ -327,13 +345,17 @@ where $\otimes$ is the direct product, $\tau_i$ is the Pauli matrices in particl
 \end{equation}
 We then get the eigenvectors to negative energy eigenvalues:
 \begin{equation}
-\ket{e^{-}_{1,k}} = \frac{1}{\sqrt{2}E_{F,k}}\begin{bmatrix} \varepsilon_k \\ -\Delta^{11}_k + i\Delta^{12}_k \\ 0 \\ -E_{F,k} \end{bmatrix}, \hspace{0.5cm} \ket{e^{-}_{2,k}} = \frac{1}{\sqrt{2}E_{F,k}}\begin{bmatrix} \Delta^{11}_k + i\Delta^{12}_k \\ \varepsilon_k \\  -E_{F,k} \\ 0 \end{bmatrix},
+\ket{e^{-}_{1,k}} = \frac{1}{2E_{F,k}}\begin{bmatrix} \varepsilon_k + i(\Delta^{11}_k + i\Delta^{12}_k) \\ i\left(\varepsilon_k + i\left(\Delta^{11}_k - i\Delta^{12}_k\right)\right) \\ -iE_{F,k} \\ -E_{F,k} \end{bmatrix}, \hspace{0.5cm} \ket{e^{-}_{2,k}} = \frac{1}{2E_{F,k}}\begin{bmatrix} \varepsilon_k + i(-\Delta^{11}_k - i\Delta^{12}_k) \\ -i\left(\varepsilon_k + i\left(-\Delta^{11}_k + i\Delta^{12}_k\right)\right) \\ iE_{F,k} \\ -E_{F,k} \end{bmatrix},
 \end{equation}
 with $E_{F,k} = \sqrt{\varepsilon_k^2 + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2}$. These eigenvectors are manifestly well-defined for all $k$. Using these we explicitly get:
 \begin{equation}
-\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = -\frac{i}{2E_{F,k}^2}(\Delta^{11}_k\partial_k\Delta^{12}_k - \Delta^{12}_k\partial_k\Delta^{11}_k) = -\mathcal{A}^{22}_k. \nonumber
+\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = -\frac{i}{2E_{F,k}^2}(\Delta^{11}_k\partial_k\varepsilon_k - \varepsilon_k\partial_k\Delta^{11}_k) = -\mathcal{A}^{22}_k. \nonumber
 \end{equation}
-Hereby: $\text{tr}[\mathcal{A}_k] = \mathcal{A}^{11}_k  + \mathcal{A}^{22}_k = 0$, and the topological invariant is simply $\nu_{\mathbb{Z}} = 0$. As for the single wire this is the topologically trivial value. This means, that the edge states formed in the single wire are not protected in the two wire system, when we only have a time reversal symmetry with $T^2 = +\mathbb{I}$. This is consistent with the more pictorial analysis of the last section. 
+Hereby: $\text{tr}[\mathcal{A}_k] = \mathcal{A}^{11}_k  + \mathcal{A}^{22}_k = 0$, and the topological invariant is simply $\nu_{\mathbb{Z}} = 0$. As for the single wire this is the topologically trivial value. This means, that the edge states formed in the single wire are not protected in the two wire system, when we only have a time reversal symmetry with $T^2 = +\mathbb{I}$. This is consistent with the more pictorial analysis of the last section. We emphasize, that the subsystem "invariants" given by $2\text{CS}_{1,j} = \frac{i}{\pi}\int dk \mathcal{A}^{jj}_k$ are not well-defined separately. In the present context it means, that it takes non-integer values during the cross over, where both $\Delta^{11}_k$ and $\Delta^{12}_k$ are present. Only their sum, here equal to $0$, gives a topological invariant. Later we will numerically calculate these subsystem "invariants". From the above, they become:
+\begin{equation}
+\text{CS}_{1,1} = - \text{CS}_{1,2} = \frac{1}{4\pi}\int dk \; \frac{\Delta^{11}_k\partial_k\varepsilon_k - \varepsilon_k\partial_k\Delta^{11}_k}{\varepsilon^2_k + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2}. 
+\end{equation}
+From this we see, that $\text{CS}_{1,1}$ goes to the single wire invariant $\text{CS}_1$ studied in section \ref{sec.CS1} for $\Delta^{12}_k \to 0$. 
 
 \subsection{Real interwire pairing}
 \label{subsec.2wires_CSinv_Delta12real}
@@ -347,58 +369,48 @@ To calculate the $\mathbb{Z}$ topological invariant, we need both negative energ
 \begin{equation}
 \ket{e^{-}_{1,k}} = \frac{1}{2E^{+}_{F,k}}\begin{bmatrix} \varepsilon_k + i(\Delta^{11}_k + \Delta^{12}_k) \\ i(\varepsilon_k + i(\Delta^{11}_k + \Delta^{12}_k)) \\ -iE^{+}_{F,k} \\ -E^{+}_{F,k} \end{bmatrix}, \hspace{0.5cm} \ket{e^{-}_{2,k}} = \frac{1}{2E^{-}_{F,k}}\begin{bmatrix} \varepsilon_k + i(-\Delta^{11}_k + \Delta^{12}_k) \\ -i(\varepsilon_k + i(-\Delta^{11}_k + \Delta^{12}_k)) \\ iE^{-}_{F,k} \\ -E^{-}_{F,k} \end{bmatrix}. \nonumber
 \end{equation}
-These are seen to be manifestly well-defined for all $k$. Since the entries of $\ket{e^{-}_{1,k}}$ and $\ket{e^{-}_{2,-k}}$ are equal up to a sign, we get that:
+These are seen to be manifestly well-defined for all $k$. Since the entries of $\ket{e^{-}_{2,-k}}$ and $\ket{e^{-}_{1,+k}}$ are equal up to a sign, we get that:
 \begin{equation}
 \mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \bra{e^{-}_{2,-k}}\partial_k\ket{e^{-}_{2,-k}} = - \bra{e^{-}_{2,-k}}\partial_{-k}\ket{e^{-}_{2,-k}} = -\mathcal{A}^{22}_{-k}. \nonumber
 \end{equation}
-Hence the trace of the Berry connection vanishes: $\text{tr}[\mathcal{A}_k] = 0$. Hereby the $\mathbb{Z}$ topological invariant is trivial: $\nu_{\mathbb{Z}} = 0$. The $\mathbb{Z}_2$ invariant is now calculated. First, we get:
+Hence the trace of the Berry connection vanishes: $\text{tr}[\mathcal{A}_k] = 0$. In particular $\text{CS}_{1,2} = - \text{CS}_{1,1}$. The $\mathbb{Z}$ topological invariant is then trivial: $\nu_{\mathbb{Z}} = 0$. The $\mathbb{Z}_2$ invariants are now calculated. First, we get:
 \begin{equation}
-\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \frac{i}{2(E^{+}_{F,k})^2}\left(\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \epsilon_k\right) \nonumber
+\mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \frac{i}{2(E^{+}_{F,k})^2}\left(\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \varepsilon_k\right) \nonumber
 \end{equation}
-The subsystem invariant is hereby:
+The first subsystem invariant is then:
 \begin{equation}
-\text{CS}_{1,1} = \frac{1}{4\pi}\int dk \; \frac{\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \epsilon_k}{\varepsilon_k^2 + (\Delta^{11}_k + \Delta^{12}_k)^2}.
+\text{CS}_{1,1} = \frac{1}{4\pi}\int dk \; \frac{\varepsilon_k\partial_k(\Delta^{11}_k + \Delta^{12}_k) - (\Delta^{11}_k + \Delta^{12}_k)\partial_k \varepsilon_k}{\varepsilon_k^2 + (\Delta^{11}_k + \Delta^{12}_k)^2}.
 \label{eq.CS11integralform}
 \end{equation}
 We see, that this has the exact same structure as the single wire expression for $\text{CS}_{1}$, under the identification: $\Delta_k \to \Delta^{11}_k + \Delta^{12}_k$. The integrand therefore has a primitive in the same manner as in section \ref{sec.CS1}:
 \begin{equation}
-G_k(c) = -\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + c, \nonumber
+G_k(c) = \arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + c, \nonumber
 \end{equation}
-where $c$ is a constant. The evaluation of the integral itself however turns out to be a little subtle. Let us first take the simplest case: $\mu < 0$. For $\mu < 0$, $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ is strictly positive for any $k$. This means, that $-\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right)$ is well-defined for all $k$ and we can use $G_k(c=0)$ as the primitive. Then:
+where $c$ is a constant. The evaluation of the integral itself however turns out to be a little subtle. Let us first take the simplest case: $\mu < 0$. For $\mu < 0$, $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ is strictly positive for any $k$. This means, that $\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right)$ is well-defined for all $k$ and we can use $G_k(c = 0)$ as the primitive. Then:
 \begin{equation}
-\text{CS}_{1,1} = \frac{1}{4\pi}\left[-\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right)\right]^{\infty}_{-\infty} = 0, \nonumber
+\text{CS}_{1,1} = \frac{1}{4\pi}\left.\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right)\right|^{\infty}_{-\infty} = 0, \nonumber
 \end{equation}
 as both $\Delta^{11}_k$ and $\Delta^{12}_k$ goes to $0$ and $\varepsilon_k \to \infty$ for $k\to \pm \infty$, and $\arctan(0) = 0$. Hence, for $\mu < 0$ we get $\nu = \text{e}^{2\pi i\text{CS}_{1,1}} = 1$ and the system is topologically trivial as for the single wire case. 
 
-Now the more subtle $\mu > 0$ case. $\varepsilon_k$ has two zero points at the Fermi surface $k = \pm k_0$. This introduces discontinuities in $G_k(c=0)$ at $\pm k_0$. However, for the evaluation of the integral to be correct, we must use a continuous primitive. Therefore we have to patch a continuous solution together by looking in the intervals $k < -k_0, -k_0 < k < +k_0$ and $k > +k_0$. Since $E_{F,k} \neq 0$ for all $k$ and $\varepsilon_{\pm k_0} = 0$, we get that $\Delta^{11}_{\pm k_0} + \Delta^{11}_{\pm k_0} \neq 0$. If this was not the case, the energy gap would close at either $+k_0$ or $-k_0$ and the topological index would be ill-defined. This means, that $\text{sgn}(\Delta^{11}_k + \Delta^{12}_k)$ is well-defined in $k = \pm k_0$. Hence, we get:
-\begin{align}
-\lim_{k \uparrow +k_0} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   +\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber \\
-\lim_{k \downarrow +k_0} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber
-\end{align}
-since $\arctan(x) \to \pm \pi/2$ for $x \to \pm \infty$. To mend the discontinuity of $\pi\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$, we let $c = \pi\text{sgn}(\Delta^{11}_{k_+} + \Delta^{12}_{k_0})$ for $k > k_0$. This was the $k > 0$ part. For $k \to -k_0$ we analogously get:
-\begin{align}
-\lim_{k \downarrow -k_0} G_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} +\frac{\pi}{2}\text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), \nonumber \\
-\lim_{k \uparrow -k_0} G_k(c = 0)   &\overset{\varepsilon_k \downarrow 0}{=} -\frac{\pi}{2}\text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}). \nonumber
-\end{align}
-Here we use, that $\Delta^{11}_k$ and $\Delta^{12}_k$ are respectively odd and even in $k$. We therefore let $c = \pi \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0})$ for $k < - k_0$. We have hereby constructed a continuous primitive to the integrand in equation \eqref{eq.CS11integralform}:
+Now the more subtle $\mu > 0$ case. $\varepsilon_k$ has two zero points at the Fermi surface $k = \pm k_0$. This introduces discontinuities in $G_k(c = 0)$ at $\pm k_0$. However, for the evaluation of the integral to be correct, we must use a continuous primitive. Therefore we have to patch a continuous solution together by looking in the intervals $k < -k_0, -k_0 < k < +k_0$ and $k > +k_0$. Since $E_{F,k} \neq 0$ for all $k$ and $\varepsilon_{\pm k_0} = 0$, we get that $\Delta^{11}_{\pm k_0} + \Delta^{11}_{\pm k_0} \neq 0$. If this was not the case, the energy gap would close at either $+k_0$ or $-k_0$ and the topological index would be ill-defined. This means, that $\text{sgn}(\Delta^{11}_k + \Delta^{12}_k)$ is well-defined in $k = \pm k_0$. Hence, we can form a continuous primitive to the integrand in equation \eqref{eq.CS11integralform} analogously to the case in section \ref{sec.CS1}:
 \begin{equation}
 G_k = \left\{ \begin{matrix} 
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k > k_0, \\
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right), & -k_0 \leq k \leq k_0, \\
--\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) + \pi \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k < -k_0.
+\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) - \pi\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k > k_0, \\
+\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right), & -k_0 \leq k \leq k_0, \\
+\arctan\left(\frac{\Delta^{11}_k + \Delta^{12}_k }{\varepsilon_k}\right) - \pi \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0}), & k < -k_0.
   \end{matrix} \right.
-\label{eq.Gkmugreater0}
+\label{eq.2wires.Gkmugreater0}
 \end{equation}
 Since the $\arctan$ part of $G_k$ goes to $0$ for $k\to \pm \infty$ we see, that the signs $\text{sgn}(\Delta^{11}_{\pm k_0} + \Delta^{12}_{\pm k_0})$ must be different for the integral to give a nonzero result. Since $\Delta^{12}_{k}$ is even and $\Delta^{11}_{k}$ is odd, this can only be achieved if $\Delta^{11}_{k}$ is dominant at the Fermi points: $|\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}|$. Hence, we get:
 \begin{equation}
-\text{CS}_{1,1} = \frac{1}{4\pi} \left. G_k \right|^\infty_{-\infty} = \frac{1}{4}(\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) - \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0})) = \left\{ \begin{matrix} 
-\frac{1}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) , & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}|, \\
+\text{CS}_{1,1} = \left. \frac{1}{4\pi} G_k \right|^\infty_{-\infty} = -\frac{1}{4}(\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) - \text{sgn}(-\Delta^{11}_{k_0} + \Delta^{12}_{k_0})) = \left\{ \begin{matrix} 
+-\frac{1}{2}\text{sgn}(\Delta^{11}_{k_0} + \Delta^{12}_{k_0}) , & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}|, \\
 0, & |\Delta^{11}_{k_0}| < |\Delta^{12}_{k_0}|.
   \end{matrix} \right. \nonumber 
 \end{equation}
 The above calculations result in the $\mathbb{Z}_2$ invariant:
 \begin{equation}
-\nu_{\mathbb{Z}_2} = \text{e}^{2\pi i \text{CS}_{1,1}} = \left\{ \begin{matrix} 
+\nu_{\mathbb{Z}_2} = \text{e}^{2\pi i \text{CS}_{1,1}} = \text{e}^{2\pi i \text{CS}_{1,2}} = \left\{ \begin{matrix} 
 -1, & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}| & \text{and} & \mu > 0, \\
 +1, & |\Delta^{11}_{k_0}| < |\Delta^{12}_{k_0}| & \text{or}  & \mu < 0.
   \end{matrix} \right.
@@ -432,8 +444,16 @@ For $\Delta^{12}_k$ real the analysis is performed in the same way as in the abo
 \label{fig.2wiresE0ddepend}  
 
 \input{Figures/twowires/Deltas2.1.6/ddepend.tex}  
-\caption{The pairings at the Fermi momentum, $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$, as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. The \textit{inter}wire pairing is shown with dash-dotted lines. The \textit{intra}wire pairings are shown in solid. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
-\label{fig.2wiresMaximalPairingddepend}  
+\caption{The pairings at the Fermi momentum, $\left|\Delta^{11}_{k_F}\right|$ and $\left|\Delta^{12}_{k_F}\right|$, as a function of the distance $d$ between the wires. In red: pairings for $\Delta^{12}_k$ imaginary, corresponding to the red graph in figure \ref{fig.2wiresE0ddepend}. In blue: Pairings for $\Delta^{12}_k$ real, corresponding to the blue graph in figure \ref{fig.2wiresE0ddepend}. The \textit{inter}wire pairing are shown with dash-dotted lines. The \textit{intra}wire pairings are shown in solid. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.2wiresMaximalPairingddepend}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\input{Figures/twowires/DeltasCS11/CS11depend.tex}  
+\caption{The subsystem topological "invariant" $2\text{CS}_{1,1}$. $\text{CS}_{1,2} = - \text{CS}_{1,1}$. In red: $\Delta^{12}_k$ imaginary. For coexistence of $\Delta^{11}_k$ and $\Delta^{12}_k$, $\text{CS}_{1,1}$ is \textit{not} well-defined as an integer invariant. Then it is simply a continuous function, that can take any value. In blue: $\Delta^{12}_k$ real. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.11$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$. }  
+\label{fig.2wiresCS11ddepend}
 \end{center}    
 \end{figure}
 
@@ -445,9 +465,11 @@ Now let us concentrate on the energetically favourable solution: $\Delta^{12}_k$
 \end{align} 
 This explicitly shows, that the two pairings are only coupled through the energy $E_{F,k}$. We start the analysis around $d = d_c$, since both pairings are suspected to be present there. For each value of $d$ we do something very similar to the above. However, here we do not reinitiate the initial guess in each step of $d$. In stead we reuse the found solution from the previous value of $d$. This makes the analysis much faster, and as long as the transition between the pairings is continuous no mistake is made. Further, we record the pairings at the Fermi momentum as above. The result is shown as the red curves in figure \ref{fig.2wiresMaximalPairingddepend}.
  
-We see, that for small and large distances the expected behaviour is observed. Naively it seems to be the case, that the interwire pairing increases linearly for small $k_Fd$. However, an analysis to lower values of $d$ shows, that it diverges for $d \to 0$ as expected since the interwire interaction diverges in this limit. In between we see a continuous cross over region, where both pairings are present. Further, we notice that the intrawire pairing is constant from just under $k_Fd = 0.78$ and upwards as we expected. The fact that we start at $k_Fd = k_Fd_c = 0.748$, and then iterate downwards and upwards from there is the reason for the very small indent in the data precisely at this value. The figure only shows the pairing at $k_F$: $|\Delta_{k_F}|]$. We will return to the functional form of the pairings in chapter \ref{Chapter11}.
+We see, that for small and large distances the expected behaviour is observed. Naively it seems to be the case, that the interwire pairing increases linearly for small $k_Fd$. However, an analysis to lower values of $d$ shows, that it diverges for $d \to 0$ as expected since the interwire interaction diverges in this limit. In between we see a continuous cross over region, where both pairings are present. Further, we notice that the intrawire pairing is constant from just under $k_Fd = 0.78$ and upwards as we expected. The fact that we start at $k_Fd = k_Fd_c = 0.748$, and then iterate downwards and upwards from there is the reason for the very small indent in the data precisely at this value. The figure only shows the pairing at $k_F$: $|\Delta_{k_F}|$. We will return to the functional form of the pairings in chapter \ref{Chapter11}.
 
-The combined result of the two figures tells us the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. The continuity of this solution fits with the topological analyses of sections \ref{sec.2wirestransitionqualitative} and \ref{sec.2wires_CSinv}. Further for the imaginary interwire pairing the sudden flip from intra- to interwire pairing means, that the gap closes precisely at $d = d_c$. However, it does so in a discontinuous way, which is \textit{not} required by the topology, as is evident again from sections \ref{sec.2wirestransitionqualitative} and \ref{sec.2wires_CSinv}. Hence, the numerical analysis shows, that we cannot \textit{only} rely on the topological analysis to get an idea of how the transition occures. There are key insights to gather from the numerical analysis. 
+For clarity we have plotted the subsystem "invariant" $2\text{CS}_{1,1}$ in figure \ref{fig.2wiresCS11ddepend}. In the case of an imaginary interwire pairing, hence only a $T^2 = + \mathbb{I}$ symmetry, we observe the following. For large distances, $k_Fd > 0.8$ for the current set of parameters, only $\Delta^{11}_k$ is present and there is a $T^2 = -\mathbb{I}$ symmetry. Hence, $2\text{CS}_{1,1}$ is a well-defined integer invariant equal to $1$, which is the nontrivial value. For small distances only $\Delta^{12}_k$ is present. Here there is also a $T^2 = -\mathbb{I}$. Again $2\text{CS}_{1,1}$ is a well-defined invariant, now equal to $0$; the trivial value. In between there is a coexistence of intra- and interwire pairing as already discussed. Then $2\text{CS}_{1,1}$ is not well-defined as an integer invariant, but it is still a continuous function. We also argued for this in the end of subsection \ref{subsec.2wires_CSinv_Delta12imag}. In the case of real interwire pairing the topological invariant flips from $1$ to $0$ at the critical distance $d_c$. 
+
+The combined result of the figures is the following. We are able to find a cross over region of interwire distances $d$, where both an interwire $s$-wave pairing and an intrawire $p$-wave pairing is present, and this transition is the energetically favourable. The continuity of this solution fits with the topological analyses of sections \ref{sec.2wirestransitionqualitative} and \ref{sec.2wires_CSinv}. Further for the imaginary interwire pairing the sudden flip from intra- to interwire pairing means, that the gap closes precisely at $d = d_c$. However, it does so in a discontinuous way, which is \textit{not} required by the topology, as is evident again from sections \ref{sec.2wirestransitionqualitative} and \ref{sec.2wires_CSinv}. Hence, the numerical analysis shows, that we cannot \textit{only} rely on the topological analysis to get an idea of how the transition occures. There are key insights to gather from the numerical analysis. 
 
 
 \section{Control of cross over through the coherence length}

@@ -1,0 +1,30 @@
+% Appendix A
+
+\chapter{Basis invariance of the Chern-Simons invariant} % Main appendix title
+
+\label{AppendixC} % For referencing this appendix elsewhere, use \ref{AppendixC}
+\chead{}
+\lhead{Appendix C. \emph{Basis invariance of the Chern-Simons invariant}} % This is for the header on each page - perhaps a shortened title
+
+In this appendix we show, that the Chern-Simons invariant in one dimension $\text{CS}_1$ is independent of the choice of basis. 
+
+Let $\mathcal{H}_k$ be band Hamiltonian with a well-defined energy gap in the spectrum. We denote the $m$ band energies to occupied bands $E^{-}_{j,k}$ with corresponding differentiable eigenvectors $\ket{e^{-}_{j,k}}$: $\mathcal{H}_k\ket{e^{-}_{j,k}} = E^{-}_{j,k}\ket{e^{-}_{j,k}}$. The Berry connection is a matrix given by:
+\begin{equation}
+\mathcal{A}^{ij}_k = \bra{e^{-}_{i,k}}\partial_k \ket{e^{-}_{j,k}}, 
+\label{eq.Berryconnectiongeneral}
+\end{equation}
+which is well-defined as long as $\ket{e^{-}_{j,k}}$ are all differentiable. In turn the Chern-Simons invariant for this one-dimensional system is:
+\begin{equation}
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \tr(\mathcal{A}_k),
+\label{eq.Chernsimonsgeneral}
+\end{equation}
+where BZ is short for Brillouin zone. We wish to show, that $\text{CS}_1$ is invariant under a basis change. We only assume, that this basis change is independent of $k$:
+\begin{equation}
+\ket{\tilde{e}^{-}_{j,k}} = \sum_i U_{ji}\ket{e^{-}_{i,k}},
+\end{equation} 
+where $U$ is a unitary matrix of dimension $m \times m$. The unitarity means that: $\delta_{ij} = (U^\dagger U )_{ij} = \sum_l (U^\dagger)_{il}U_{lj}$. The corresponding transformation of the bra is: $\bra{\tilde{e}^{-}_{j,k}} = \sum_l \bra{e^{-}_{l,k}}(U^\dagger)_{lj}$. Then:
+\begin{align}
+\tr(\tilde{\mathcal{A}}_k) &= \sum_j \bra{\tilde{e}^{-}_{j,k}}\partial_k\ket{\tilde{e}^{-}_{j,k}} = \sum{j,l,i}\bra{e^{-}_{l,k}}(U^\dagger)_{lj}\partial_kU_{ji}\ket{\tilde{e}^{-}_{i,k}} \nonumber \\
+&= \sum_{l,i}\bra{e^{-}_{l,k}}\partial_k\sum_{j}(U^\dagger)_{lj}U_{ji}\ket{\tilde{e}^{-}_{i,k}} = \sum_{l}\bra{e^{-}_{l,k}}\partial_k\ket{\tilde{e}^{-}_{l,k}} = \tr(\mathcal{A}_k), \nonumber
+\end{align}
+where we use the unitarity of $U$. Hence, $\tr(\mathcal{A}_k)$ does not depend on the basis. Since $U$ is assumed independent of $k$, we see that this comes down to the invariance of the trace operation under basis change. The Chern-Simons invariant is in turn invariant as well. 

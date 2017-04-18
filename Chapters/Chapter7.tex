@@ -8,7 +8,7 @@
 \chead{Chapter 7. \emph{Symmetries, topology \& edge states}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we study the topological effects in the system at hand. The main result is, that we show the ground state to be topologically non-trivial. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. These we will use to come with a topological classification of the now developed Kitaev model system. This is done in section \ref{sec.Topology10foldway}. We then compute the topological index in two ways, respectively in section \ref{sec.topindexandphases} and \ref{sec.CS1}. These describe whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. An approximate solution for the edge states is found in section \ref{sec.edgestates}. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
+In this chapter we study the topological effects. The main result is, that we show the ground state to be topologically non-trivial. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. These we will use to come with a topological classification of the now developed Kitaev model system. This is done in section \ref{sec.Topology10foldway}. We then compute the topological index in two ways, respectively in section \ref{sec.topindexandphases} and \ref{sec.CS1}. These describe whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. An approximate solution for the edge states is found in section \ref{sec.edgestates}. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
 
 \section{Time reversal, particle-hole and sublattice transformations}
 \label{sec.SymmetriesTRandPH}
@@ -181,27 +181,25 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \label{fig.edgestates}
 \end{figure}
 
-\section{Chern-Simons invariant and the Wilson loop}
+\section{Chern-Simons invariant, Wilson loop and winding number}
 \label{sec.CS1}
-In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. We will work with $\Delta_k$ real. The calculation in this section is more rigorous but also less intuitive than the one in the previous section.
+In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. After this rather abstract calculation we will link the Chern-Simons invariant to the winding number of a specific mapping. We will work with $\Delta_k$ real. 
 
-The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$. The topological index, generally called the winding number, is twice the Chern-Simons invariant, hence an integer. This gives us the desired topological index in $\mathbb{Z}$. In one spatial dimension the Chern-Simons invariant is generally defined as:
+The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$. The topological index, generally called the winding number, is twice the Chern-Simons invariant, hence an integer. This gives us the desired topological index in $\mathbb{Z}$. We will return to this winding number at the end of the section. In one spatial dimension the Chern-Simons invariant is defined as:
 \begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \text{tr}\left[\mathcal{A}_k\right], \nonumber
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \tr\left[\mathcal{A}_k\right], \nonumber
 \end{equation}
-where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. The Berry connection is then in this case defined as:
+where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. However, in a similar manner the norm of the winding number $|\nu| = 2|\text{CS}_1|$ counts the number of edge states \cite{Chiu.Topology}. Hence, the invariant has a very specific physical interpretation. 
+
+Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. For a single occupied state, the Berry connection is defined as:
 \begin{equation}
 \mathcal{A}_k = \bra{e^{-}_k}\partial_k\ket{e^{-}_k}. \nonumber
 \end{equation}
-The result of Chern-Simons theory is then, that the Chern-Simons invariant is a topological invariant. By this, it is meant, that it characterizes different topological phases, that can only change when the energy gap closes. It turns out that the calculation in this scenario is easier in a different basis, than the one we have been working in so far. Let us therefore shortly investigate the influence of basis on the Berry connection. In a different basis we have: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger$, where $U$ is some unitary matrix not depending on $k$. If $\mathcal{H}_{FF,k}\ket{e^{-}_k} = -E_{F,k}\ket{e^{-}_k}$, the eigenvector in the new basis with negative eigenvalue is $\ket{\tilde{e}^{-}_k} = U\ket{e^{-}_k}$. The corresponding Berry connection is:
-\begin{equation}
-\tilde{\mathcal{A}}_k = \bra{\tilde{e}^{-}_k}\partial_k\ket{\tilde{e}^{-}_k} = \bra{e^{-}_k}U^\dagger\partial_k U\ket{e^{-}_k} = \bra{e^{-}_k}\partial_k\ket{e^{-}_k} = \mathcal{A}_k, \nonumber 
-\end{equation}
-whereby the Berry connection and hereby the Chern-Simons invariant is unaltered. This is of course very reasonable; a topological invariant should not depend on the chosen basis. We now make a specific choice for $U$:
+The result of Chern-Simons theory is then, that the Chern-Simons invariant is a topological invariant. By this we mean, that it characterizes different topological phases, that can only change when the energy gap closes. It turns out that the calculation is easier in a different basis, than the one we have been working in so far. In appendix \ref{AppendixC} we show, that $\tr\left[\mathcal{A}_k\right]$ is independent of basis as long as the basis change is independent of $k$. This simply comes down to the basis invariance of the trace operation $\tr[\dots]$. This is of course very reasonable; a topological invariant should not depend on the chosen basis. We use the following matrix to change basis:
 \begin{equation}
 U = \text{e}^{i\tau_1 \frac{3\pi}{4}} = \frac{1}{\sqrt{2}}\left(-\mathbb{I} + i\tau_1\right). \nonumber 
 \end{equation}
-This transformation amounts to letting $(\tau_1, \tau_2, \tau_3) \overset{U}{\to} (\tau_1, \tau_3, -\tau_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\tau_1 + \varepsilon_k\tau_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\tau_1 - \varepsilon_k\tau_2$. The reason for changing basis is, that the eigenvectors are simpler. Explicitly:
+This transformation amounts to letting $(\tau_1, \tau_2, \tau_3) \overset{U}{\to} (\tau_1, \tau_3, -\tau_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\tau_1 + \varepsilon_k\tau_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\tau_1 - \varepsilon_k\tau_2$. The reason for changing basis is, that the eigenvectors are simpler and continuous as long as the energy gap is nonzero. Explicitly:
 \begin{equation}
 \ket{\tilde{e}^{-}_k} = \frac{1}{\sqrt{2}}\begin{bmatrix} -\frac{\Delta_k + i \varepsilon_k}{E_{F,k}} \\ 1 \end{bmatrix}. \nonumber 
 \end{equation}
@@ -214,49 +212,57 @@ Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we
 \text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
 \label{eq.CSinv1}
 \end{equation}
-where the last equality stems from the fact, that the integrand is even. The integrand has a continuous primitive for $k > 0$ given by $-\arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)$. Hence, the above is directly calculable:
+where the last equality stems from the fact, that the integrand is even, since $\Delta_k$ is odd. The integrand has a primitive given by:
+\begin{equation}
+G_k(c) = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c \nonumber
+\end{equation}
+For $\mu < 0$, $\varepsilon_k > 0$ for all $k$ and $G_k(c = 0)$ is continuous. In this case the invariant simply becomes:
+\begin{equation}
+\text{CS}_1(\mu < 0) = \left. \frac{1}{2\pi}\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right)\right|_{0}^{\infty} = 0,
+\end{equation}
+since $\Delta_k$ is zero for $k = 0$ and $k = \infty$ and since $\varepsilon_k$ is nonzero in both limits. Since $\Delta_k = 0$ in the normal phase, we have $\text{CS}_1 = 0$ here as well. Hence, the system is topologically trivial for $\mu < 0$. 
+
+For $\mu > 0$, $G_k(c = 0)$ suffers a discontinuity in $k_0$ defined by $\varepsilon_{k_0} = \frac{k_0^2}{2m_F} - \mu = 0$. Explicitly:  
 \begin{align}
-\text{CS}_1 &= - \frac{1}{2\pi} \left. \arctan\left(\frac{\varepsilon_k}{\Delta_k}\right)\right|^\infty_0 \overset{(*)}{=} -\frac{\text{sgn}(\Delta_{k>0})}{2\pi}\left(\frac{\pi}{2} - \lim_{a\to 0^{+}}\arctan\left(\frac{-\mu}{a}\right) \right) \nonumber \\
-& = \left\{ \begin{matrix} -\frac{\text{sgn}(\Delta_{k>0})}{2}, & \mu > 0, \\ 0, & \mu < 0. \end{matrix} \right. 
+\lim_{k \uparrow +k_0} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   -\frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber \\
+\lim_{k \downarrow +k_0} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} +\frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber
+\end{align}
+This follows from the fact, that $\arctan(x) \overset{x \to \pm \infty}{\to} \pm \frac{\pi}{2}$. To mend this discontinuity we let $ c = -\pi\text{sgn}(\Delta_{k_0})$ for $k > k_0$. Notice, that $\Delta_{k_0} \neq 0$, since else the energy gap would close in $k_0$ ($E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}$). Hence, the sign of $\Delta_{k_0}$, $\text{sgn}(\Delta_{k_0})$, is well defined. Therefore, the integrand in this situation has the continuous integrand:
+\begin{equation}
+G_k = \left\{ \begin{matrix} 
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\text{sgn}(\Delta_{k_0}), & k > k_0, \\
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right), & 0 < k < k_0,
+  \end{matrix} \right.
+\label{eq.Gkmugreater0}
+\end{equation}
+Using this the invariant for $\mu > 0$ becomes:
+\begin{align}
+\text{CS}_1(\mu > 0) = \left. \frac{1}{2\pi} G_k\right|_0^{\infty} = -\frac{\text{sgn}(\Delta_{k_0})}{2}.
 \label{eq.CSinv2}
 \end{align}
-By $\text{sgn}(\Delta_{k>0})$ we mean the sign of $\Delta_k$ for $k > 0$. Two effects lead to the equality $(*)$. Firstly, $\arctan(x) \to \pi/2$ for $x \to \infty$. $\text{sgn}(\Delta_{k>0})$ appears, since if $\Delta_k$ is negative for $k > 0$, the argument $\frac{\varepsilon_k}{\Delta_k}$ goes to $-\infty$ for $k \to \infty$. Secondly, since $\Delta_{k=0} = 0$ the evaluation in $k = 0$ can be performed by the written limit of $a \to 0^+$. This shows, that the Chern-Simons invariant is \textit{not} invariant under gauge transformations, e.g. $\Delta_k \to - \Delta_k$. Since the two nonzero Chern-Simons invariants are related by a gauge transformation, they are equivalent. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
+Since $\Delta_k$ is real the only remaining gauge freedom is the sign of the $\Delta_k$: $\Delta_k \to - \Delta_k$. Hence, the invariants $-1/2$ and $+1/2$ are equivalent. This explicitly shows, that the Chern-Simons invariant depends on the chosen gauge. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
 \begin{equation}
 W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu). 
 \end{equation}
-We have $\Delta_k = 0$ in the normal phase, which is the topologically trivial phase. It therefore follows from equation \eqref{eq.CSinv1}, that $\text{CS}_1 = 0$ and hence $W_1 = 1$ for the trivial phase. This means, that $W_1 = -1$ is the (only) topological (non-trivial) phase. We also see, that the condition is exactly the same as the one found in the previous section. It is however quite satisfying to see, that we can come to this result in a more rigorous manner, also not assuming any brokenness of the time reversal symmetry. The edge states analysis of the previous section is unaltered in the present context.  
+This means, that $W_1 = -1$ is the (only) topological non-trivial phase. We also see, that the condition is exactly the same as the one found in the previous section. The current calculation does however have additional information. As mentioned above the norm of the winding number counts the number of edge states. Since $|\nu| = 1$ in the only non-trivial case this shows, that the gas only supports up to one edge state. It is not possible for the system at hand to produce more edge states than this. The edge states analysis of the previous section is therefore unaltered in the present context. Notice, that this does not depend on the details of the model; the only used assumptions are: $\Delta_k$ odd, $\varepsilon_k$ only zero in $k = k_0$ and the nonzero energy gap. 
+
+The question now becomes, what winding the winding number is a measure of. Here we return to the mapping investigated in the previous section: 
+\begin{equation}
+\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}, \hspace{0.5cm} \mathbf{h}(k) = \begin{bmatrix} \Delta_k & 0 & \varepsilon_k \end{bmatrix}, \hspace{0.5cm}  |\mathbf{h}(k)| = E_{F,k} \nonumber
+\end{equation}
+This mapping is as already discussed well-defined as long as the energy gap is nonzero. Now let $\theta_k$ be the angle from the $z$ axis to $\hat{h}(k)$. We then ask how many times the mapping $\hat{h}(k)$ winds around $\mathbf{h} = 0$. For $k = \pm \infty$ we have $\hat{h}(k) = (0, 0, 1)$. Hence, $\hat{h}$ winds an integer number of times around zero. This integer is given by the winding number of the mapping:
+\begin{equation}
+w = \frac{1}{2\pi}\oint d\theta_k, \nonumber
+\end{equation}  
+where we integrate from the start to the end of the Brillouin zone: $k \in (-\infty, \infty)$. The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta_k}{\varepsilon_k}$. In turn $\theta_k = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c$ for some constant $c$. Notice, that this is exactly the primitive $G_k(c)$ to the integrand in $\text{CS}_1$. Hence, the winding number of $\hat{h}$ becomes:
+\begin{equation}
+w = \frac{1}{2\pi}\oint d\theta_k = \frac{1}{2\pi}\int_{-\infty}^{\infty} dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = 2\text{CS}_1 = \nu. \nonumber
+\end{equation}
+The winding number of the map $\hat{h}(k)$ around zero is exactly the winding number connected to the Chern-Simons invariant. From this we also see, that winding numbers of differing sign are equivalent, since it simply corresponds to which way around $0$ $\hat{h}$ winds. This corresponds to the gauge transformation $\Delta_k \to - \Delta_k$. Further, two winding numbers $w_1$ and $w_2$ are topological distinct if $|w_1|\neq |w_2|$ in the following sense. The map must wind an integer number of times around zero. Therefore, we cannot continuously deform the mapping resulting in $w_1$ to the mapping resulting in $w_2$, hence they are topolologically distinct in a mathematical sense. Summarising, when the BdG Hamiltonian has a time reversal symmetry squaring to plus the identity, the topologically distinct physical phases of the system correspond to topologically different winding numbers of $\hat{h}$.  
 
 \section{Edge states}
 \label{sec.edgestates}
 In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite[pp. 196-198]{BernevigTITSC}. 
-
-The single wire system has the Hamiltonian:
-\begin{equation}
-H_{FF} = E_0 + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix},
-\end{equation}
-with energy $E_{F,k} = \sqrt{ \varepsilon^2_k + \Delta^2_k}$. We would like to describe this Hamiltonian in real space, because we now ask whether certain states exist at well-located points in real space; namely states at the ends of the wire. To do this we define the operator $\Delta(p)$ as a function of the momentum operator $p = -i\partial_x$ in the following manner:
-\begin{equation}
-\Delta(p)\text{e}^{ikx} = \Delta_k\text{e}^{ikx}.
-\label{eq.Deltapdef}
-\end{equation}
-Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Further, we drop the ground state grand energy $E_0$. With this definition we get the Hamiltonian in real space:
-\begin{equation}
-H_{FF} = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}_{FF}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
-\label{eq.MFHamiltonianrealspace}
-\end{equation}
-For the sake of clarity let us see how e.g. the term $\Delta_kc_kc_{-k}$ appears from this expression:
-\begin{align}
-\int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}\int dx \; \text{e}^{ikx}c_k\Delta(p)\text{e}^{iqx}c_ q = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k+q)x} \nonumber \\
-&= \sum_{k}\Delta_kc_kc_{-k}, \nonumber 
-\end{align}
-since $\int dx\; \text{e}^{i(k+q)x} =\mathcal{L} \delta_{k,q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Hence we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot p$, with $\Delta > 0$. We take the ansatz:
-\begin{equation}
-\psi_1(x) = \exp\left(-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')\right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
-\end{equation}  
-respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $\Delta > 0$ we see, that these states are exponentially localized at the edges. In both cases we get:
-\begin{equation}
-0 = \mathcal{H}_{FF}(x)\psi_j(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_j(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber
-\end{equation}
 
 \begin{figure}
 \center
@@ -299,26 +305,53 @@ respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $
 \label{fig.edgestatesmux}
 \end{figure}
 
-By solving this eigenvalue problem we get:
+The single wire system has the Hamiltonian:
 \begin{equation}
-\psi_1(x) = g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = g_2(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \nonumber
+H_{FF} = E_0 + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix},
 \end{equation}
-with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{-\frac{1}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \frac{1}{2}\int dx |g_j(x)|^2$ a normalization constant. We transform these states into operators in second quantization in the following manner. From equation \eqref{eq.MFHamiltonianrealspace} we see, that the vector $[1, -i]^T$ correspond to annihilation and creation operators as follows:
+with energy $E_{F,k} = \sqrt{ \varepsilon^2_k + \Delta^2_k}$. We would like to describe this Hamiltonian in real space, because we now ask whether certain states exist at the ends of the wire. To do this we define the operator $\Delta(p)$ as a function of the momentum operator $p = -i\partial_x$ in the following manner:
 \begin{equation}
-\begin{bmatrix} 1 \\ -i \end{bmatrix} \to \psi_F(x) - i\psi^\dagger_F(x). \nonumber
+\Delta(p)\text{e}^{ikx} = \Delta_k\text{e}^{ikx}.
+\label{eq.Deltapdef}
 \end{equation}
-Further we must integrate over all $x$:
+Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Further, we drop the ground state grand energy $E_0$. With this definition we get the Hamiltonian in real space:
 \begin{equation}
-\gamma_{0,j} = \int dx \; g_j(x) \frac{\text{e}^{i\pi/4}}{\sqrt{2}}(\psi_F(x) - i\psi^\dagger_F(x)).
+H_{FF} = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}_{FF}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
+\label{eq.MFHamiltonianrealspace}
+\end{equation}
+For the sake of clarity let us see how e.g. the term $\Delta_kc_{-k}c_{k}$ appears from this expression:
+\begin{align}
+\int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}c_k c_q\int dx \; \text{e}^{ikx}\Delta(p)\text{e}^{iqx} = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k + q)x} \nonumber \\
+&= \sum_{k}\Delta_kc_{-k}c_k, \nonumber 
+\end{align}
+since $\int dx\; \text{e}^{i(k + q)x} =\mathcal{L} \delta_{k,-q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Hence, we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot \tilde{p}$, with $\Delta = k_F\left.\frac{\partial \Delta_k}{\partial k}\right|_{k=0}$ and $\tilde{p} = p/k_F$. We assume $\Delta > 0$. We take the ansatz:
+\begin{equation}
+\psi_1(x) = \exp\left(-\frac{k_F}{\Delta}\int_{0}^{x} dx'\; \mu(x') \right)\begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(+\frac{k_F}{\Delta}\int_{\mathcal{L}}^{x} dx'\; \mu(x') \right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
+\end{equation}  
+respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $\Delta$ is in units of energy the exponents are unitless. Since $\Delta > 0$, we see that these states are exponentially localized at the edges. From this we get two eigenvalue equations:
+\begin{align}
+0 &= \mathcal{H}_{FF}(x)\psi_1(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_1(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \nonumber \\
+0 &= \mathcal{H}_{FF}(x)\psi_2(x) = \begin{bmatrix} - \mu  & -i\mu \\ -i\mu & + \mu \end{bmatrix}\psi_2(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & -i\mu \\ -i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber.
+\end{align}
+By solving these equations we get:
+\begin{equation}
+\psi_1(x) = g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ +i \end{bmatrix}, \nonumber
+\end{equation}
+with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant. Notice the sign differences between the two solutions. The above eigenstates define the diagonalisation matrix $U(x) = \begin{bmatrix} \psi_1(x) & \psi_2(x) \end{bmatrix}$. This has the unitarity property, that $\int dx \; U^\dagger(x) U(x) = \mathbb{I}$. We then let the operators $\gamma_{0,1}, \gamma_{0,2}$ be given by:
+\begin{equation}
+\begin{bmatrix} \psi_F(x) \\ \psi_F^\dagger(x) \end{bmatrix} = U(x) \begin{bmatrix} \gamma_{0,1} \\ \gamma_{0,2} \end{bmatrix} \Rightarrow \begin{bmatrix} \gamma_{0,1} \\ \gamma_{0,2} \end{bmatrix} = \int dx \; U^\dagger(x) \begin{bmatrix} \psi_F(x) \\ \psi_F^\dagger(x) \end{bmatrix}.
 \label{eq.Majoranaedgemodedef} 
 \end{equation}
-In this manner $\psi_j(x)$ and $\gamma_{0,j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\gamma_{0,j}^\dagger = \gamma_{0,j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factor $\text{e}^{i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\gamma^\dagger_{0,j}$ and $\gamma_{0,j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being its own antiparticle, they have to obey the modified anticommutator relation:
+Written out the operators are:
 \begin{equation}
-\{\gamma_{0,i}, \gamma_{0,j} \} = 2\delta_{i,j}. \nonumber
+\gamma_{0,1} = \int dx \; g_1(x) \frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_F(x) + i\psi^\dagger_F(x)), \hspace{0.5cm} \gamma_{0,2} = \int dx \; g_2(x) \frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_F(x) - i\psi^\dagger_F(x)).
+\label{eq.Majoranaedgemodegeneraldef} 
 \end{equation}
-For the ones at hand an explicit calculation shows, that $\{\gamma_{0,1}, \gamma_{0,1} \} = \{\gamma_{0,2}, \gamma_{0,2} \} = 2$ and that $\{\gamma_{0,1}, \gamma_{0,2} \}$ is exponentially suppressed by the length of the wire. Hence, for a truly macroscopic system, $k_F\mathcal{L} \to \infty$, this anticommutator relation is exactly fulfilled. From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{2}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = 1$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
+In this manner $\psi_j(x)$ and $\gamma_{0,j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\gamma_{0,j}^\dagger = \gamma_{0,j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factors $\text{e}^{i\pi/4}$ and $\text{e}^{-i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\gamma^\dagger_{0,j}$ and $\gamma_{0,j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being their own antiparticle, they have to obey the modified anticommutator relation:
+\begin{equation}
+\{\gamma_{0,i}, \gamma_{0,j} \} = \delta_{i,j}. \nonumber
+\end{equation}
+This is explicitly verified to be the case for the above operators.\footnote{Often one also meets the requirement, that the anticommutator equals $2\delta_{i,j}$. This is simply a matter of convention.} From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{2}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = \frac{1}{2}$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
 
-
-\vspace{1cm}
 The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the one already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
 

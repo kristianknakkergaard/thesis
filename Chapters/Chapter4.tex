@@ -31,7 +31,7 @@ H^\text{int}_{FF} = \frac{1}{8\mathcal{L}^2} \sum_{k_1,k_2,q_1,q_2} c^\dagger_{q
 \end{align}
 where we have made the substitution of variables $u = x_1 - x_2$. The integral over $x_2$ is now independent of $\tilde{V}_{\text{ind}}$. Since, we are working with periodic boundary conditions, we get $\int dx_2 \text{e}^{i((k_1+k_2)-(q_1+q_2))u} = \mathcal{L}\delta_{k_1+k_2,q_1+q_2}$, which ensures total conservation of momentum. This means, that we can get the above expression on the following form: 
 \begin{equation}
-H^\text{int}_{FF} = \frac{1}{4\mathcal{L}} \sum_{k,q,p} c^\dagger_{k+p}c^\dagger_{q-p}c_{q}c_{k} \int du\left[\cos\left(pu\right) - \cos\left(\left(q-\left(k+p\right)\right)u\right)\right]\tilde{V}_{\text{ind}}(u,0), \nonumber
+H^\text{int}_{FF} = \frac{1}{4\mathcal{L}} \sum_{k,q,p} c^\dagger_{k+p}c^\dagger_{q-p}c_{q}c_{k} \int du\left[\cos\left(pu\right) - \cos\left(\left( p + k - q \right)u\right)\right]\tilde{V}_{\text{ind}}(u,0), \nonumber
 \end{equation}
 where we have made the substitutions: $k_1 = k, k_2 = q, q_1 = k + p$ and $q_2 = k - p$. Finally, since the induced interaction is even in $u$, we have that $V_{\text{ind}}(p, 0) = \int du \cos(pu) \tilde{V}_{\text{ind}}(u, 0)$. Hence, we can define a scattering amplitude $W_{\text{ind}}(k, q, p)$ by:
 \begin{equation}
@@ -71,7 +71,7 @@ W_{\text{ind}}(-k,k') &= -W_{\text{ind}}(k,k'), \hspace{0.5cm} \text{Odd in sing
 \end{align}
 These symmmetries will be important later on. The above sum can hereby be brought on the form:
 \begin{equation}
-H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W_{\text{ind}}(k,k')\left[ \braket{ c_{k'}c_{-k'}} c^\dagger_k c^\dagger_{-k} + \braket {c^\dagger_{k'}c^\dagger_{-k'}} c_k c_{-k} - \braket {c_{k}c_{-k}} \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right]. \nonumber
+H^\text{int}_{FF} = -\frac{1}{2\mathcal{L}}\sum_{k,k'} W_{\text{ind}}(k,k')\left[ \braket{ c_{k'}c_{-k'}} c^\dagger_k c^\dagger_{-k} + \braket {c^\dagger_{k'}c^\dagger_{-k'}} c_k c_{-k} - \braket {c_{k'}c_{-k'}} \braket {c^\dagger_{k}c^\dagger_{-k}} \right]. \nonumber
 \end{equation}
 We simplify the expression by defining the pairing potential:
 \begin{equation}
@@ -80,10 +80,10 @@ We simplify the expression by defining the pairing potential:
 \end{equation}
 Then the interaction Hamiltonian can finally be written as:
 \begin{equation}
-H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} - \Delta^*_k c_k c_{-k} - \Delta_k \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right]
+H^\text{int}_{FF} = \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} + \Delta^*_k c_{-k} c_k  - \Delta_k \braket {c^\dagger_{k}c^\dagger_{-k}} \right]
 \label{eq.HFFintfinal}
 \end{equation}
-The minus sign in front of $\Delta^*_k$ comes from anticommuting the operators. Since the effective interaction is odd in a single argument, the pairing potential is odd as well: $\Delta_{-k} = -\Delta_k$. Here it is in order to discuss the naming of $s$- and $p$-wave pairing. In the present thesis we will only use the naming to distinguish between pairings respectively even and odd in $k$. In a more general setup the naming stems from the fact, that the pairings come from a partial wave expansion, so that there are also a $d$-wave pairing, $f$-wave pairing etc. We will not go into any detail with this.
+Since the effective interaction is odd in a single argument, the pairing potential is odd as well: $\Delta_{-k} = -\Delta_k$. Here it is in order to discuss the naming of $s$- and $p$-wave pairing. In the present thesis we will only use the naming to distinguish between pairings respectively even and odd in $k$. In a more general setup the naming stems from the fact, that the pairings come from a partial wave expansion, so that there are also a $d$-wave pairing, $f$-wave pairing etc. We will not go into any detail with this.
 
 \section{Validity of the mean field approximation} \label{sec.meanfieldvalidity}
 In this section we comment on the validity of the performed mean field approximation with offset in the socalled Ginzburg criterion. We do this for a general order parameter $m(x)$ in real space of general dimension $d$. This is based on the work of Huang in \cite[chapter 17]{HuangStatMech}. 
@@ -103,7 +103,7 @@ Since $\left(1 - \frac{T}{T_c}\right)^{(d - 4)/2} \to \infty$ for $T \to T_c$ an
 \section{Grand Hamiltonian} \label{sec.HFFfull}
 The free particle Hamiltonian for the fermions is $H_0 = \sum_k \frac{k^2}{2m_F} c^\dagger_k c_k$. From the interaction we further get terms like $c^\dagger c^\dagger$. This means, that the Hamiltonian is not particle number conserving, so that $[H_{FF}, N_F] \neq 0$. However, we inforce that the system is in diffusive equilibrium and thus has a well-defined chemical potential $\mu(T)$. This is achieved by subtracting $\mu N_F = \mu \sum_k c^\dagger_k c_k$. We hereby obtain the grand fermion Hamiltonian:
 \begin{equation}
-H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k c^\dagger_k c_k + \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} - \Delta^*_k c_k c_{-k} - \Delta_k \braket {c^\dagger_{k'}c^\dagger_{-k'}} \right], 
+H_{FF} = H_0-\mu N_F + H^\text{int}_{FF} = \sum_k \varepsilon_k c^\dagger_k c_k + \frac{1}{2}\sum_{k} \left[ \Delta_k c^\dagger_k c^\dagger_{-k} + \Delta^*_k c_{-k} c_k  - \Delta_k \braket {c^\dagger_{k}c^\dagger_{-k}} \right], 
 \label{eq.HFFdef}
 \end{equation} 
 where $\varepsilon_k = \frac{k^2}{2m_F}-\mu$ is the kinetic energy relative to the chemical potential. We can bring the above into a standard Bogoliubov-de Gennes (BdG) form:
