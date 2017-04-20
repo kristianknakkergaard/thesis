@@ -38,7 +38,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
 
 double Deltaguess(double k)
 {
-  return 0.2 * sin(2.0 * k);
+  return 0.1 * sin(k) - 0.2 * sin(2.0 * k);
 }
 
 
@@ -48,17 +48,18 @@ main (void)
   /*variables */
   double rBB     = 0.01; /*(nB * aBB^3)^(1/3) < 0.03 atmost! (1 percent depletion) */
   double rBF     = 0.15;    /*(nB * aBF^3)^(1/3) */
+  double nB      = 100.0;
   double mB      = 7.0 / 40.0; /*mB/mF*/
   
   double t1      = 1.0;  /*the unit of energy, also gives unit of length */
-  double t2      = 1.0;  
-  double eps0    = 10.0; 
+  double t2_low  =-1.0;
+  double t2_up   = 3.0; 
+  double dt2     = 0.005;
+  double eps0    = 20.0; 
   
-  int    N       = 200; 
+  int    N       = 500; 
   double Ndouble = (double)N;
   double r       = 1.0;
-
-  double Bdist_low = 0.001, Bdist_up = 1.0, dBdist = 0.01;
 
   /*k-values:*/
   double k_low = - M_PI, dk = 2.0 * M_PI / Ndouble;
@@ -75,10 +76,10 @@ main (void)
   double D_maxk;
 
   int check     = 0;
-  int nBcounter = 0;
+  int t2counter = 0;
 
   /*variables for chemical potential:*/
-  double mu = 0.5;
+  double mu = 0.7;
   double muintegral = 0.0, muintegrand;
   
   /*variables for CS1 */
@@ -87,9 +88,12 @@ main (void)
   double depsilon; 
 
   /*system parameters:*/
+  double xi       = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0); 
+  double vFoverc0 = sqrt(M_PI) / 2.0 * mB * 1.0 / sqrt(rBB) * pow(nB, -1.0 / 3.0);
+  double strength = 8.0 / M_PI * (mB + 1.0 / mB + 2.0) * eps0 * pow(nB, 1.0 / 3.0) * rBF * rBF;
 
   /*print system parameters:*/
-  fprintf(stderr, "(nBaB^3)^(1/3) = %lg, (nBaBF^3)^(1/3) = %lg, mB/mF = %lg, epsilon0 / t = %lg", rBB, rBF, mB, eps0);
+  fprintf(stderr, "(nBaB^3)^(1/3) = %lg, (nBaBF^3)^(1/3) = %lg, mB/mF = %lg, nB*a^3 = %lg, xi / a = %lg, vF/c0 = %lg, epsilon0 / t = %lg, G / at = %lg \n", rBB, rBF, mB, nB, xi, vFoverc0, eps0, strength);
   fprintf(stderr, "\n \n");
 
   /*vectors and matrices:*/
@@ -97,25 +101,28 @@ main (void)
   gsl_vector *E          = gsl_vector_calloc(N);
   gsl_matrix *WFF0matrix = gsl_matrix_calloc(N, N);
 
-  printf("%s \t %s \t %s \t %s \t %s \t %s \n", "Bdist", "CS1", "Deltamax", "Nmu/N", "Emin", "check" );
-
-
-  double nB; 
-  /*T = 0:*/
-  for (double Bdist = Bdist_low; Bdist < Bdist_up; Bdist+=dBdist)
+  /* WFFOmatrix: */
+  for (int i = 0; i < N; ++i)
   {
-    nB = pow(Bdist, -3.0);
+    k = ((double)i) * dk + k_low;
 
+    for (int iprime = 0; iprime < N; ++iprime)
+    {
+      kprime = ((double)iprime) * dk + k_low;
+      gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, rBB, rBF, nB, mB, N, eps0, r) );
+    }
+  }
+
+  printf("%s \t %s \t %s \t %s \t %s \t %s \n", "t2", "CS1", "Deltamax", "Nmu/N", "Emin", "check" );
+
+
+  /*T = 0:*/
+  for (double t2 = t2_low; t2 < t2_up; t2+=dt2)
+  {
     for (int i = 0; i < N; ++i)
     {
       k = ((double)i) * dk + k_low;
       gsl_vector_set( D, i, Deltaguess(k) );
-      
-      for (int iprime = 0; iprime < N; ++iprime)
-      {
-        kprime = ((double)iprime) * dk + k_low;
-        gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, rBB, rBF, nB, mB, N, eps0, r) );
-      }
     }
     
     check = 0; 
@@ -173,9 +180,9 @@ main (void)
       }
     }
 
-    printf("%lg \t %lg \t %lg \t %lg \t %lg \t %i \n", Bdist, CS1, gsl_vector_max(D), muintegral, gsl_vector_min(E), check );
+    printf("%lg \t %lg \t %lg \t %lg \t %lg \t %i \n", t2, CS1, gsl_vector_max(D), muintegral, gsl_vector_min(E), check );
 
-    fprintf(stderr, "nBcounter = %i, total = %lg \n", ++nBcounter, (Bdist_up - Bdist_low) / dBdist );
+    fprintf(stderr, "t2counter = %i, total = %lg \n", ++t2counter, (t2_up - t2_low) / dt2);
   }
   
   

@@ -2,9 +2,9 @@ CFLAGS = -Wall -Werror -std=gnu99 -O
 CFLAGS += `gsl-config --cflags`
 LDLIBS += $$(gsl-config --libs)
 
-all: mudepend.tex mudepend Edepend.tex parameters 
+all: t2depend.tex t2depend Edepend.tex parameters 
 
-mudepend.tex: mudepend Makefile
+t2depend.tex: t2depend Makefile
 	echo \
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
@@ -14,13 +14,13 @@ mudepend.tex: mudepend Makefile
 'set ylabel "$$CS_1, E_{\min}$$";'\
 'set key top left;					'\
 'set arrow from 0,-2.1 to 0,2.1 nohead lc rgb "black"; '\
-'set arrow from -0.1,0 to 2,0 nohead lc rgb "black"; '\
-'plot [-0.1:2][-2.1:2.1]			'\
+'set arrow from -1,0 to 3,0 nohead lc rgb "black"; '\
+'plot [10:15][-2.1:2.1]			'\
 ' "$<" index 0  using 1:2 notitle with lines lc rgb "red"'\
 ',"$<" index 0  using 1:5 notitle with lines lc rgb "blue"'\
 | gnuplot
 
-Edepend.tex: mudepend Makefile
+Edepend.tex: t2depend Makefile
 	echo \
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
@@ -31,12 +31,12 @@ Edepend.tex: mudepend Makefile
 'set key top left;					'\
 'set arrow from 0,-2.1 to 0,2.1 nohead lc rgb "black"; '\
 'set arrow from -1,0 to 3,0 nohead lc rgb "black"; '\
-'plot [-1:2][-2.1:2.1]			'\
+'plot [-1:3][-2.1:2.1]			'\
 ' "$<" index 0  using 1:5 notitle with lines lc rgb "red"'\
 | gnuplot
 
-mudepend parameters: Delta
-	./$< 1> mudepend 2> parameters
+t2depend parameters: Delta
+	./$< 1> t2depend 2> parameters
 
 
 Delta: Delta.o

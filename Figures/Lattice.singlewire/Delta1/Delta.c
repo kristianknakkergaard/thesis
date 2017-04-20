@@ -38,7 +38,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
 
 double Deltaguess(double k)
 {
-  return 0.1 * sin(k) - 0.2 * sin(2.0 * k);
+  return - 0.2 * sin(2.0 * k);
 }
 
 
@@ -52,10 +52,10 @@ main (void)
   double mB      = 7.0/40.0; /*mB/mF*/
   
   double t1      = 1.0;  /*the unit of energy, also gives unit of length */
-  double t2      = 0.5;
-  double eps0    = 2.0; 
+  double t2      = 1.0;
+  double eps0    = 3.0; 
   
-  int    N       = 200; 
+  int    N       = 400; 
   double Ndouble = (double)N;
   double r       = 1.0;
 
@@ -101,7 +101,7 @@ main (void)
     }
   }
 
-  double mu = 0.3;
+  double mu = 0.5;
   double muintegral = 0.0, muintegrand;
   
   

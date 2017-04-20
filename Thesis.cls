@@ -193,7 +193,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{On topological superfluids in 1D-3D Bose-Fermi mixtures} % Your thesis title - this is used in the title and abstract
+\thesistitle{On topological superfluids in 1D-3D Fermi-Bose mixtures} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------
 \supervisor{Ass. professor Georg M. Bruun} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
@@ -316,7 +316,7 @@
     \bigskip
     {\normalsize \degreename\par} % Degree name
     \bigskip
-    {\normalsize\bf On topological superfluids in 1D-3D Bose-Fermi mixtures \par} % Thesis title
+    {\normalsize\bf On topological superfluids in 1D-3D Fermi-Bose mixtures \par} % Thesis title
     \medskip
     {\normalsize by \authornames \par} % Author name
     \bigskip
