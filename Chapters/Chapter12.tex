@@ -1,83 +1,25 @@
-% Chapter 12
+\chapter{Discussion} % Main chapter title
 
-\chapter{Grand Hamiltonian} % Main chapter title
+\label{Chapter13} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\lhead{Part IV. \emph{Discussions \& Conclusions}}
+\chead{Chapter 13. \emph{Discussion}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
-\label{Chapter12} % For referencing the chapter elsewhere, use \ref{Chapter12} 
+\section{Mean field approach} \label{sec.Discussion.meanfieldapproach}
+In section \ref{sec.meanfieldvalidity} it was pointed out, that using the mean field approach in a one dimensional system is possibly quite problematic. It was also mentioned, that we would need to take steps beyond mean field theory to actually estimate, how this influences the analysis and in turn the results. It is clear, that if the mean field approach is problematic in the single wire system, the situation is only worsened in the double wire system. 
 
-\lhead{Part IV. \emph{The Kitaev chain}}
-\chead{Chapter 12. \emph{Grand Hamiltonian}} % This is for the header on each page - perhaps a shortened title
-%----------------------------------------------------------------------------------------
-In this chapter we derive the grand Hamiltonian for the fermionic chain. In section \ref{sec.TightbindingHam.lattice} we introduce the tight-binding Hamiltonian. In section \ref{sec.interaction.lattice} we discuss the interaction mediated by the Bose-Einstein condensate and write up the effective interaction Hamiltonian for the fermions. Finally in section \ref{sec.grandhamiltonian.lattice} we outline the mean field approximation and write up the grand Hamiltonian. 
+In the spirit of this we do not expect the results of the thesis to be quantitatively in agreement with the findings of an experimental realisation of the system. A simple way to see this is the following. Consider the gap equations for the double wire system, equation \eqref{eq.2wiresgapequations}. As we bring the wires closer together the intrawire pairing is not affected by the interwire induced interaction until an interwire pairing forms. This is absurd. The interwire interaction will of course alter the physical properties internally in each wire, also when the wires are far apart. This also leads to the odd prediction, that the critical temperature for intrawire pairing is unaffected by the interwire interaction, as long as the interwire pairing is absent. This is \textit{not} physically reasonable. 
 
-\section{Tight-binding Hamiltonian} \label{sec.TightbindingHam.lattice}
-In this section we introduce the tight-binding Hamiltonian. 
+However, also as mentioned in section \ref{sec.meanfieldvalidity} there has been an impressive amount of work in one dimensional superfluid system, most in its fundamentals based on mean field theory. This includes systems where different types of pairings is in competition, see e.g. \cite{LiYangChen, BudichTopInvMajoranaWires, BudichArdonne1DDIII}. This suggests, that although the analysis might be quantitavely wrong, as mean field theory always is to some extent, the qualitative behaviour is correct. Hence, we would e.g. suspect that although the specific form of the cross over from intra- to interwire pairing is wrong, it remains valid that the intra- and interwire pairings coexist in a cross over region, when the interwire pairing is imaginary. It is more uncertain in the case of a real interwire pairing, whether the abrubt shift from intra- to interwire pairing remains valid. However, an analogous calculation in a 2D-3D system with fermions in two parallel layers give the same qualitative result.\footnote{Private communication with Jonathan Melk{\ae}r Midtgaard.} Since, the mean field theory is suspected to be more accurate in two dimensions, this does support the findings of the present thesis. 
 
-The fermions are arranged in a one dimensional lattice with lattice constant $a$ and $N$ sites. The Hamiltonian for nearest and next-nearest hopping is then:
-\begin{equation}
-H_{0} = \frac{1}{2}\sum_{j} \left[- t_1(c^\dagger_{j+1}c_j + c^\dagger_j c_{j + 1}) - t_2(c^\dagger_{j + 2}c_j + c^\dagger_j c_{j + 2}) \right].
-\label{eq.Htightbindingrealspace} 
-\end{equation}
-Here $c_j$ is a fermionic annihilation operator for a fermion in site $j$. $t_1$ and $t_2$ are the energies associated with nearest-neighbour and next-nearest-neighbour hopping respectively. We define the corresponding momentum space operators through: $c_j = \frac{1}{\sqrt{N}}\sum_{k} c_k \text{e}^{ikx_j}$, where $ka = \frac{2\pi n}{N}$ are the allowed momenta for $n = -\frac{N}{2}, \dots, \frac{N}{2} - 1$ for periodic boundary conditions and $x_j = ja$ the positions of the fermions. Inserting this into the above transforms the Hamiltonian to momentum space:
-\begin{equation}
-H_{0} = \sum_k \left[ - t_1\cos(ka) - t_2\cos(2ka)\right]c^\dagger_kc_k.
-\label{eq.Htightbindingmomentumspace} 
-\end{equation}
-In this sense, we can already see, that going from the gas to the chain corresponds to letting $\frac{k^2}{2m_F} \to - t_1\cos(ka) - t_2\cos(2ka)$. It is hereby natural to use $t_1$ as the unit of energy and $a$ as the unit of length.
+The qualitative behaviour is also supported by the topological invariants calculated in section \ref{sec.2wires_CSinv}. However, from this it is still unclear whether the transition in the case of a real interwire pairing is abrubt, as we also mentioned in the end of subsection \ref{subsec.2wires_CSinv_Delta12real}. 
 
-\section{Interaction Hamiltonian} \label{sec.interaction.lattice}
-We return to the Bose-Fermi interaction Hamiltonian of equation \eqref{eq.HintBF}:
-\begin{equation}
-H_{BF}^\text{int} = g_{BF}\int d^3 r \; \hat{\psi}_F^\dagger(\mathbf{r}) \hat{\psi}_B^\dagger(\mathbf{r})\hat{\psi}_B(\mathbf{r})\hat{\psi}_F(\mathbf{r}),
-\end{equation} 
-This time around we trap the fermions along a wire as before \textit{and} in a lattice. Assuming, that the trapping frequency, $\omega_{\perp}$ for the perpendicular directions to the wire is large with respect to the typical energy $t_1$ means, that the fermions are trapped in the harmonic oscillator ground state, the gaussian: $\phi_0(\mathbf{r}_{\perp})$ of width $l_{\perp} = \frac{1}{\sqrt{m_F\omega_{\perp}}}$. Further, the lattice confinement means, that the states can be expanded in terms of well-localised (orthonormal) Wannier states. We approximate these states with gaussians $\phi_0(x - x_j)$ of width $l_x$. In this sense, we expand the field operators according to:
-\begin{equation}
-\hat{\psi}_F(x, \mathbf{r}_{\perp}) = \sum_j \phi_0(\mathbf{r}_{\perp})\phi_0(x - x_j) c_j, 
-\end{equation}
-where $c_j$ annihilates a fermion at site $j$. Using this we can run through the same steps as taken in the single and double wire system leading to the induced interactions. If we let $l_{\perp}$ and $l_x$ go to zero, the real space induced interaction is unchanged from the single wire case. The zero frequency component is therefore still the Yukawa potential:
-\begin{equation}
-\tilde{V}_{\text{ind}}(j, l) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x_j - x_l|}{\xi}}}{|x_j - x_l|},
-\label{eq.Vindx.lattice}
-\end{equation}
-which describes the interaction between sites $j$ and $l$. This is lattice periodic, as it should be. The factor in front measures the strength of the interaction, $G$. On unitless form we write this:
-\begin{equation}
-\frac{G}{at} = \frac{8}{\pi}\left( \frac{m_B}{m_F} + \frac{m_F}{m_B} + 2 \right) \frac{\varepsilon_0}{t} n_B^{1/3}a \left(n_B a^3_{BF}\right)^{2 / 3}, \hspace{0.5cm} \varepsilon_0 = \frac{\pi^2}{2m_Fa^2}.
-\label{eq.interactionstrength.lattice}
-\end{equation}
-Here $\varepsilon_0$ is the energy a single particle would have in an infinite square well of width $a$. We hereby choose to express the system using the independent variables: $\frac{m_B}{m_F}, n_B^{1/3}a, \frac{\varepsilon_0}{t}, \left(n_B a^3_{BF}\right)^{1 / 3}$, and finally the Bose gas parameter: $\left(n_B a^3_{B}\right)^{1 / 3}$. In this we assume, that we can separately control the hopping $t_1$ and the lattice constant $a$. This is the reason for the additional parameter $\frac{\varepsilon_0}{t}$. The fermion interaction Hamiltonian in the zero frequency limit is then given by:
-\begin{equation}
-H^{\text{int}}_{FF} = \frac{1}{2}\sum_{j,l} c^\dagger_j c^\dagger_l \tilde{V}_{\text{ind}}(j, l) c_l c_j
-\label{eq.Hintrealspace.lattice}
-\end{equation}
-Using the Fourier decomposition $c_j = \frac{1}{\sqrt{N}}\sum_k \text{e}^{ikx_j}c_k$, with $N$ the number of sites, we transform this to momentum space:
-\begin{align}
-H^{\text{int}}_{FF} &= \frac{1}{2N} \sum_{k, q, p} W_{\text{ind}}(k, q, p) c^\dagger_{k + p} c^\dagger_{q - p} c_q c_k, \nonumber \\  
-W_{\text{ind}}(k, q, p) &= \frac{1}{2}\sum_{j\neq 0} \left[\cos(px_j) - \cos((p + k - q)x_j) \right]\tilde{V}_{\text{ind}}(0, j). 
-\label{eq.Hintmomentumspace.lattice}
-\end{align}
-We notice, that $W_{\text{ind}}(k, q, p)$ is explicitly periodic in the Brillouin zone of width $2\pi / a$. The functional difference between the wire and the lattice is hereby, that the momentum space interaction $W_{\text{ind}}(k, q, p)$ is a finite sum of components of the real space interaction $\tilde{V}_{\text{ind}}(0, j)$, not a combination of Fourier transforms. 
+Further, the one dimensional system also serves as an interesting starting point for more advanced studies in higher dimensions. This is especially because the concepts and more crucially the numerics are simpler in one dimension. Hence, we can gain insight and intuition for Fermi-Bose mixtures by addressing a simplified one dimensional case. 
 
-\section{Grand Hamiltonian, gap equation and filling fraction} \label{sec.grandhamiltonian.lattice}
-The mean field approximation is performed in exactly the same way as for the single wire. The sum in equation \eqref{eq.Hintmomentumspace.lattice} is truncated to $q = -k$, and the operator $c_kc_{-k}$ is written as it's mean plus a deviation. The deviation is then only kept up to first order. See section \ref{sec.meanfieldapproximation} for the details. This means, that the Hamiltonian has the exact same structure as for the single wire, but now we use $W_{\text{ind}}(k, k') = W_{\text{ind}}(k, q = -k, p = k' - k)$ of equation \eqref{eq.Hintmomentumspace.lattice} and $\varepsilon_k = - t_1\cos(ka) - t_2\cos(2ka) - \mu$. The system hereby realises the Kitaev chain with next-nearest hopping included: 
-\begin{equation}
-H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {c^\dagger_k c^\dagger_{-k}}\right] + \frac{1}{2}\sum_{k} \begin{bmatrix} c_k^\dagger & c_{-k} \end{bmatrix} \mathcal{H}_{FF,k} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, 
-\label{eq.grandhamiltonian.lattice}
-\end{equation}
-where the sum over $k$ extends over the interval $[-\pi/a, \pi/a )$, and: 
-\begin{equation}
-\Delta_k = - \frac{1}{N}\sum_{k'} W_{\text{ind}}(k,k')\braket{c_{k'}c_{-k'}}.
-\label{eq.pairingpotential.lattice}
-\end{equation}
-The Hamiltonian is diagonalised in the same manner as the single wire, yielding a dispersion $E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}$. Further using the transformation to the quasiparticle operators, we obtain the gap equation for the pairing potential: 
-\begin{equation}
-\Delta_k = - \frac{1}{N}\sum_{k'} W_{\text{ind}}(k,k')\frac{\Delta_{k'}}{2E_{F,k'}}\tanh\left[\frac{\beta E_{F,k'}}{2}\right].
-\label{eq.gapequation.lattice}
-\end{equation}
-So far everything has been analogous to the single wire system. In that system we externally set the number of fermions. In turn the chemical potential adjusted according to the number equation. For the lattice we will externally set the chemical potential. The number equation $N_F = \sum_k \braket{c^\dagger_k c_k}$ then determines the filling fraction $N_F / N$:
-\begin{equation}
-\frac{N_F}{N} = \frac{1}{N}\sum_k |v_{F,k}|^2 = \frac{1}{2}\left(1 - \frac{1}{N}\sum_k \frac{\varepsilon_k}{E_{F,k}}\tanh\left[\frac{\beta E_{F,k}}{2} \right] \right), 
-\label{eq.fillingfraction.lattice}
-\end{equation}
-which measures how full the lattice is. Since the lattice consists of identical fermions the filling fraction is less than 1: $0 \leq \frac{N_F}{N} \leq 1$. For $\Delta_k \to 0$ the above filling fraction hits exactly 1 for $T = 0$. Hence, a nonzero pairing makes the filling fraction deviate from 1. This is also physically intuitive: the lattice can only be a superfluid, if there are a significant number of vacant sites. Else the lattice turns rigid, since the fermions can only hop to vacant sites. 
+It is however by no means a simple task to estimate the validity of the mean field approach. Such an analysis is therefore an obvious candidate for future work.
 
+\section{Several wires}
+In this thesis we have looked at one and two fermionic wires embedded in a Bose-Einstein condensate. An obvious thing one might then do is to study systems consisting of severeal such wires placed in e.g. regular polygons. This is also a unique configuration for the 1D-3D systems. Let us take the case of three wires as an example. 
+
+Given that the mean field approach produces qualitatively correct results we can discuss the expected physical properties of such a system. If we fix all intrawire pairings to be identical, the three phases of the interwire pairings are independent. These are between the wires according to: $1 \leftrightarrow 2, 2 \leftrightarrow 3$ and $3 \leftrightarrow 1$. Now the calculation in subsection \ref{subsec.2wires_CSinv_Delta12imag} suggests that even in the absence of Kramers degeneracy\footnote{Which is to say, that there is \textit{no} $T^2 = -\mathbb{I}$ symmetry.}, the separated wires constitute a topologically nontrivial system. For the separated system we namely expect the invariant to be the sum of the invariants for three single wire systems: $\nu = \nu_1 + \nu_2 + \nu_3$. The sign of the three invariants depends on the chosen sign of the corresponding intrawire pairing. Hence the sum gives four equivalent results $-3, -1, 1$ and $3$. All of these are different from the topologically trivial value of $\nu = 0$. Further, when the wires are closely spaced the interwire $s$-wave pairings will dominate, which is topologically trivial. This means, that there is a topological phase transition in the system. Hence, the bulk energy gap is forced to close in a three wire system. This makes such a system a good candidate for investigation. The downside is, that we now have to keep the three phases of the interwire pairings free and make a diagonalisation of a $3 \times 3$ matrix.  
 
 
