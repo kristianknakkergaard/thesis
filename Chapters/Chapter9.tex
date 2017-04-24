@@ -131,7 +131,7 @@ E_0 &= \frac{1}{2}\sum_k \left[2\varepsilon_k - \left( E^{-}_{F,k} + E^{+}_{F,k}
 \end{align}  
 Analogously to the single wire case the ground state is hereby defined by $\gamma_{j,k}\ket{\text{S}}_0 = 0$ for $j = 1, 2$. The ground state \textit{grand} energy $E_0$ is derived similarly to the gap equations of the next section. Using the found diagonalisation matrix $U_{F,k}$, we express the $c$-operators in terms of $\gamma$-operators and use, that the $\gamma$-operators obey Fermi statistics: $\braket{\gamma^\dagger_{1,k}\gamma_{1,k}} = f(E^{-}_{F,k})$, and $\braket{\gamma^\dagger_{2,k}\gamma_{2,k}} = f(E^{+}_{F,k})$, with $f(E) = (\text{e}^{\beta E} + 1)^{-1}$ the Fermi-Dirac distribution. For $T=0$ the expression is particularly simple. We get:
 \begin{equation}
-\frac{E_0}{\epsilon_{F,0} N_F} = -\frac{1}{8} \int d\tilde{k} \left[\frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{+}_{F, \tilde{k}})^2}{\tilde{E}^{+}_{F, \tilde{k}}} + \frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{-}_{F, \tilde{k}})^2}{\tilde{E}^{-}_{F, \tilde{k}}}\right], \hspace{0.5cm} T = 0. 
+\frac{E_0}{\epsilon_{F,0} N_F} = -\frac{1}{4} \int d\tilde{k} \frac{(\tilde{\varepsilon}_{\tilde{k}} - \tilde{E}^{+}_{F, \tilde{k}})^2}{\tilde{E}^{+}_{F, \tilde{k}}}, \hspace{0.5cm} T = 0. 
 \label{eq.2wiresGrandGroundStateEnergy}
 \end{equation}
 We have expressed the momentum as $\tilde{k} = k/k_F$, and the energies as $\tilde{E} = E/\epsilon_{F,0}$. We notice, that the ground state grand energy is negative. This is because, we are measuring energies with respect to the chemical potential. The motivation for calculating the grand energy is the following. For any temperature the grand energy, $\Phi$, is given by $\Phi = U - TS - 2\mu N_F = F - 2\mu N_F$, where $F$ is the Helmholtz free energy \cite[pp. 161-162]{SchroederThermal}. The presence of the factor of 2 is simply because there are $N_F$ fermions in \textit{each} wire. Physically, we hold the number of particles fixed. This means, that it is the Helmholtz free energy $F = \Phi + 2\mu N_F$ we have to minimize to find the preferred state, not $\Phi$. For $T = 0$, this means, that the energetically favourable state is the one, that exhibits a minimum of $F(T = 0) = E_0 + 2\mu N_F$. The aim is therefore to calculate the Helmholtz free energy for differing phases of $\Delta^{12}_k$ and see which one is the lowest. 
@@ -144,11 +144,11 @@ In this section we write up and discuss the gap equations. They are derived in c
 \Delta^{12}_k &= -\frac{1}{\mathcal{L}}\sum_{k'} W_{\text{ind}}^{12}(k, k')\frac{\Delta^{12}_{k'} + \Delta^{11}_{k'}}{2E^{+}_{F,k'}}\tanh\left[\frac{\beta E^{+}_{F,k'}}{2}\right].
 \label{eq.2wiresgapequations}
 \end{align}
-We further get that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumption is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective interwire interaction: 
+We further get that $\Delta^{22}_k = - \Delta^{11}_k$, so that this assumption is self-consistent. Notice, that the two equations have the exact same structure. This is achieved by defining the effective \textit{inter}wire interaction: 
 \begin{equation}
 W_{\text{ind}}^{12}(k, k') = \frac{1}{2}\left[V_{\text{ind}}^{12}(k - k', 0) + V_{\text{ind}}^{12}(k + k', 0) \right].
 \end{equation}
-This is seen to be quite analogous to the intrawire effective interaction $W_{\text{ind}}^{11}(k, k')$. The induced interaction $V_{\text{ind}}^{12}(q, 0)$ only depends on $q^2$. This gives us the following symmetry properties of the effective interaction:
+This is seen to be quite analogous to the \textit{intra}wire effective interaction $W_{\text{ind}}^{11}(k, k')$. The induced interaction $V_{\text{ind}}^{12}(q, 0)$ only depends on $q^2$. This gives us the following symmetry properties of the effective interaction:
 \begin{align}
 W_{\text{ind}}^{12}(k,k')   &= W_{\text{ind}}^{12}(k',k), \hspace{0.5cm} \text{Symmetry in arguments}, \nonumber \\
 W_{\text{ind}}^{12}(-k,k')  &= W_{\text{ind}}^{12}(k,k'), \hspace{0.5cm} \text{Even in arguments}.
