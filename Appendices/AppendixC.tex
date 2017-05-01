@@ -1,76 +1,28 @@
 % Appendix C
 
-\chapter{Long range order of the pairing phase} % Main appendix title
+\chapter{Quasiparticle distribution, 1 wire} % Main appendix title
 
-\label{AppendixC} % For referencing this appendix elsewhere, use \ref{AppendixC}
+\label{Appendix.distribution.quasiparticles} % For referencing this appendix elsewhere, use \ref{AppendixA}
 \chead{}
-\lhead{Appendix C. \emph{Long range order of the pairing phase}} % This is for the header on each page - perhaps a shortened title
-In this appendix we use a classical argument to show, that there is no true long range order of the pairing phase in one dimension. It is largely based on the formulation of Cardy \cite{Cardy.StatPhys}. 
+\lhead{Appendix C. \emph{Quasiparticle distribution, 1 wire}} % This is for the header on each page - perhaps a shortened title
+In this appendix we in detail describe how to take the thermal average for the single wire within the mean field approximation. We use this to show, that the quasiparticles are Fermi-Dirac distributed. Throughout we neglect the ground state grand energy $E_0 = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {c^\dagger_k c^\dagger_{-k}}\right]$.
 
-Let $\phi$ denote the phase of the pairing potential in real space $\Delta(x)$. We will investigate the effect of a spatial variation of $\phi = \phi(x)$. We let $\phi = 0$ be the assumed equilibrium value. For a truly ordered phase we expect that $\phi \ll 2\pi$. It therefore makes sense to infer a Hamiltonian in powers of $\phi$. The Hamiltonian is assumed not to depend on the phase itself. Therefore, to lowest order in $\phi$, the Hamiltonian associated with a spatially varying phase is: 
+Throughout the thesis we keep the mean number of fermions, $\braket{N_F}$, constant. However, we do not fix the number of quasiparticles ($\gamma$). This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H_{FF}}\right]$. In terms of thermodynamics this means, that every single quasiparticle is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the Hamiltonian is diagonal in the quasiparticles $\gamma_k$, we can calculate the partition function for each $k$ by replacing $H_{FF}$ with the $k$'th (diagonal) term. We then get:
 \begin{equation}
-H[\phi] = \frac{K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2, 
-\label{eq.Hphi}
+Z_k = \tr\left[\text{e}^{-\beta H_{FF,k}}\right] = \tr\left[\text{e}^{-\beta E_{F,k}\gamma^\dagger_k\gamma_k }\right] = 1 + \text{e}^{-\beta E_{F,k}}. \nonumber
+\end{equation}     
+For the calculation of the trace, we use the single particle complete basis $\{\ket{\text{S}}_0, \gamma^\dagger_k\ket{\text{S}}_0\}$. This is all a rather involved way of saying, that the quasiparticle can either be absent, $\ket{\text{S}}_0$, and have zero energy or present, $\gamma^\dagger_k\ket{\text{S}}_0$, and have energy $E_{F,k}$. The total partition function is then simply $Z = \prod_k Z_k$. The mean number of quasiparticles with momentum $k$ is given by $\braket{\gamma^\dagger_k\gamma_k} = \tr\left[\text{e}^{-\beta H_{FF}}\gamma^\dagger_k\gamma_k\right]/Z$. For the calculation of the trace we need a complete basis. The basis consists of states with any number of quasiparticles present with all possible momenta. These states can all be written as: $\prod_{q\in K} \gamma^\dagger_q \ket{\text{S}}_0$, where $K$ is an arbitrary set of momenta. Since $\gamma^\dagger_k\gamma_k$ counts the number of quasiparticles present with momentum $k$, we only need sets $K$ with $k \in K$. For these states we get:
+\begin{equation}
+\text{e}^{-\beta H_{FF}} \gamma^\dagger_k \gamma_k\prod_{q\in K} \gamma^\dagger_q \ket{\text{S}}_0 = \text{e}^{-\beta H_{FF}}\prod_{q\in K} \gamma^\dagger_q \ket{\text{S}}_0  = \text{e}^{-\beta \sum_{q \in K} E_{F,q}} \prod_{q\in K} \gamma^\dagger_q \ket{\text{S}}_0. \nonumber
 \end{equation}
-in $D$ spatial dimensions. There is no linear term $\nabla \phi$ present, because this would imply a dependency on the direction of the change of $\phi$. 
-In the analysis we will as a start keep $x$ a dimensionless variable, so that there is an implicit length scale $\xi_s$. We return to this later on. $K$ is a parameter of unit energy. The corresponding partition function is: 
+The desired trace is then the sum of $\text{e}^{-\beta \sum_{q \in K} E_{F,q}}$ for all combinations of $K$ containing $k$:
 \begin{equation}
-Z = \int D\phi(x) \; \text{e}^{-\beta H[\phi]}, 
-\label{eq.partitionfunction}
+\tr\left[\text{e}^{-\beta H_{FF}}\gamma^\dagger_k\gamma_k\right] = \sum_K \text{e}^{-\beta \sum_{q \in K} E_{F,q}} = \text{e}^{-\beta E_{F,k}}\prod_{q \neq k} \left[1 + \text{e}^{-\beta E_{F,q}}\right] = \text{e}^{-\beta E_{F,k}} \frac{Z}{Z_k}. \nonumber 
 \end{equation}
-where $\beta = 1 / k_BT$ is the inverse temperature. The symbol $\int D\phi(x)$ denotes a socalled functional integration, which is to be taken over all configurations of $\phi(x)$. We define the kernel $G^{-1}(x,x')$ as: 
+The second equality is most easily verified by writing out the product. By doing this one explicitly sees, that all combinations of energies are present. Finally: 
 \begin{equation}
-Z = \int D\phi(x)\; \text{e}^{-\frac{1}{2}\int d^{D}x\; d^{D}x' \; \phi(x)G^{-1}(x,x')\phi(x')} \nonumber
+\braket{\gamma^\dagger_k\gamma_k} = \frac{\tr\left[\text{e}^{-\beta H_{FF}}\gamma^\dagger_k\gamma_k\right]}{Z} = \frac{\text{e}^{-\beta E_{F,k}}}{Z_k} = \frac{\text{e}^{-\beta E_{F,k}}}{1 + \text{e}^{-\beta E_{F,k}}} = f(E_{F,k}),
 \end{equation}
-We can therefore extract the kernel by a partial integration of equation \eqref{eq.Hphi}: 
-\begin{align}
-\beta H[\phi] &= \frac{\beta K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2 = \frac{\beta K}{2}\left( \left.\phi\nabla\phi\right|_{\partial V} - \int d^{D}x \; \phi \nabla^2\phi \right) \nonumber \\
-&= \frac{\beta K}{2}\int d^{D}x\; d^{D}x'\; \phi(x')\left(-\delta^{(D)}(x - x')\nabla^2\right)\phi(x) \nonumber 
-\end{align}
-The boundary term $\left.\phi\nabla\phi\right|_{\partial V}$ vanishes, since we use periodic boundary conditions. The kernel is hereby: 
-\begin{equation}
-G^{-1}(x,x') = -\beta K \delta^{(D)}(x - x')\nabla^2 \nonumber
-\end{equation}
-This verifies, that the Hamiltonian of \eqref{eq.Hphi} leads to Gaussian distributed variables with the kernel $G^{-1}$. We now define the inverse, $G(x,x')$, as:
-\begin{equation}
-\int d^{D}x' \; G^{-1}(x,x')G(x',x'') = \delta^{(D)}(x - x''). \nonumber
-\end{equation}
-Inserting the above we hereby get:
-\begin{equation}
-\nabla^2G(x) = -\frac{1}{\beta K} \delta^{(D)}(x). \nonumber
-\end{equation}
-$G$ is therefore simply the Green's function. Before actually solving for this function, we will first investigate its importance. Cardy argues, that for a continuous distribution one has \cite[p. 227]{Cardy.StatPhys}: 
-\begin{equation}
-\braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}} = \text{e}^{ -\frac{1}{2}\int d^{D}x\; d^{D}x'\; J(x) G(x,x') J(x')  }
-\label{eq.gaussianintegration}
-\end{equation}
-where the average is with respect to the Gaussian distribution with kernel $G^{-1}$. We can hereby extract the two-point correlation function:
-\begin{equation}
-\braket{\phi(x)\phi(x')} = \left. \frac{\partial}{\partial J(x)}\frac{\partial}{\partial J(x')} \braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}}\right|_{J = 0} = \frac{1}{2}\left(G(x, x') + G(x', x)\right) = G(x, x'), \nonumber
-\end{equation} 
-since $G(x,x')$ is symmetric in $x$ and $x'$. Now for the specific $G$ at hand we can solve for it by Fourier decomposition $G(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx} \tilde{G}(k)$. With the definition of the $\delta$-function $\delta^{(D)}(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx}$, this yields $\tilde{G}(k) = \frac{1}{\beta K}\frac{1}{k^2}$. So the two-point correlation function is given by: 
-\begin{equation}
-\braket{\phi(x)\phi(x')} = G(x - x') = \frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{\text{e}^{ikx}}{k^2}. 
-\label{eq.anglecorrelationfunction.generaldimension}
-\end{equation} 
-Further by letting $J(x_1) = \delta(x_1 - x) - \delta(x_1 - x')$ and integrating over $x_1$ in equation \eqref{eq.gaussianintegration} we can show, that:
-\begin{equation}
-\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)}. 
-\label{eq.phasecorrelationfunction.generaldimension} 
-\end{equation}
-It is this phase-phase correlation function that we are after, since it describes how the phase at two points correlates. Now:
-\begin{equation}
-G(x,x') - G(0) = -\frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{1 - \text{e}^{ikx}}{k^2}. \nonumber
-\end{equation}
-In three dimensions the phase-phase correlation function approaches a constant in the $|x - x'| \to \infty$ limit. In two dimensions it goes to zero according to a power law \cite[p. 115]{Cardy.StatPhys}. In one dimension we get: 
-\begin{equation}
-G(x,x') - G(0) = -\frac{|x - x'|}{2\beta K}  \to -\frac{|x - x'|}{2\beta K \xi_s},  
-\end{equation}
-where we introduce the aforementioned length scale $\xi_s$. The phase-phase correlation function in one dimension is hereby exponentially damped:
-\begin{equation}
-\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)} = \text{e}^{-\frac{|x - x'|}{2\beta K \xi_s}}. 
-\label{eq.phasecorrelationfunction.onedimension} 
-\end{equation}
+with $f(E)$ the Fermi-Dirac distribution. This is the average number of $\gamma_k$ particles in the thermalized state of the system. We emphasize that this calculation is a rather formal approach. In a simpler manner we have, that the average number of quasiparticles with momentum $k$ is given by: $\sum_n n P_k(n) = \frac{1}{Z_k}\sum_{n = 0}^{1} \text{e}^{ -n\beta E_{F,k} } = f( E_{F,k} )$, with the probability of occupation with $n$ quasiparticles in the $k$'th state given by $\text{e}^{-n\beta E_{F,k}}/Z_k$. In any regard the above explicitly shows, how we equivalently can formulate this using the second quantized operators. 
 
-A true long range order demands, that the above correlation function approached a constant as $|x - x'| \to \infty$, as is the case in three dimensions. However, as we discuss in the main text in chapter \ref{Chapter4}, if the length scale $\xi_s$ is macroscopically large, there are correlations over a macroscopic scale. The absence of true long range order in one and two dimensions is in accordance with the Mermin-Wagner-Hohenberg theorem \cite{Hohenberg.MerminWagnertheorem}. 
-
+By going from the $c$ to $\gamma$ operators we can calculate all desired averages.

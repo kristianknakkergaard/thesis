@@ -427,7 +427,14 @@
 \begin{center}{\huge{\textit{Acknowledgements}} \par}\end{center}
 {\normalsize #1}
 \vfil\vfil\null
-
+}
+\newcommand\preface[1]{
+\btypeout{Preface}
+\addtotoc{Preface}
+\thispagestyle{plain}
+\begin{center}{\huge{\textit{Preface}} \par}\end{center}
+{\normalsize #1}
+\vfil\vfil\null
 }
 \newcommand\dedicatory[1]{
 \btypeout{Dedicatory}

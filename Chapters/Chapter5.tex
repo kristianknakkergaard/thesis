@@ -87,19 +87,19 @@ The numerical calculation is based on the following idea. We start at $T = 0$ an
 \end{center}    
 \end{figure}
 
-Near the phase transition, at $T = T_c$, it is a general result due to Landau, that the order parameter goes as $\sqrt{1 - T/T_c}$ \cite[86-87]{PlischkeStatPhys}. The pairing potential is linearly dependent on the mean field, $\braket{c_kc_{-k}}$, which is the order parameter in the present case. Hence, close to $T_c$ we must have:
+Near the phase transition, at $T = T_c$, it is a general result due to Landau, that the order parameter goes as $\sqrt{1 - T/T_c}$, see section \ref{sec.landauphasetransitions} and \cite[86-87]{PlischkeStatPhys}. The pairing potential is linearly dependent on the mean field, $\braket{c_{-k}c_k}$, which is the order parameter in the present case. Hence, close to $T_c$ we must have:
 \begin{equation}
 \max_k[\Delta_k(T)] = \alpha\max_k[\Delta_k(T=0)]\sqrt{1 - \frac{T}{T_c}},  
 \label{eq.maxpairingasymp}
 \end{equation}
-where $\alpha$ is a constant. We therefore fit this function with the data close to $T_c$. This results in the blue curve in figure \ref{fig.maxkDeltakTdepend} with $\alpha = 1.68$. This is remarkably close to the original BCS value of $1.74$ \cite[p. 369]{PlischkeStatPhys}. From here we get, that $\max_{k,T}[\Delta_k(T)]/\epsilon_{F,0} \approx 0.280$. It follows, that the ratio of maximal gap to critical temperature for the present calculation is: $\max_{k,T}[\Delta_k(T)]/(k_B T_c) \approx 2.16$. This is similar to the BCS-value of $1.77$ \cite[p. 369]{PlischkeStatPhys}. Finally, the pairing potential is well described for all temperatures below $T_c$ by:
+where $\alpha$ is a constant. We therefore fit this function with the data close to $T_c$. This results in the blue curve in figure \ref{fig.maxkDeltakTdepend} with $\alpha = 1.68$. This is remarkably close to the original BCS value of $1.74$ \cite[p. 369]{PlischkeStatPhys}. Further, we get the ratio of maximal gap to critical temperature for the present calculation to be: $\max_{k,T}[\Delta_k(T)]/k_B T_c \approx 2.16$. This is similar to the BCS-value of $1.77$ \cite[p. 369]{PlischkeStatPhys}. Finally, the pairing potential is well described for all temperatures below $T_c$ by:
 \begin{equation}
 \max_k[\Delta_k(T)] \approx \max_k[\Delta_k(T=0)]\sqrt{1 - \left(\frac{T}{T_c}\right)^3}.
 \label{eq.maxpairingapprox}
 \end{equation} 
 This is the red curve of figure \ref{fig.maxkDeltakTdepend}. 
 
-A note on the chosen phase of $\Delta_k$. Let me therefore write $\Delta_k = \Delta_{k,0}\text{e}^{i\phi}$. In the numerical calculation we have chosen a \textit{real} function as a starting guess for $\Delta_k$. The numerical calculation then shows, that such a \textit{real} solution can be found. This amounts to \textit{choosing} a specific phase $\phi$ of $\Delta_k$, namely $\phi = 0$. Since the pairing potential depends linearly on the mean field, $\braket{c_kc_{-k}}$, this amounts to a choice of the phase on the mean field. From the gap equation it is clear, that we could have picked this phase to be whatever we like. This is what is meant, when the term "spontaneous symmetry breaking" is used. We can for any choice of the phase $\phi$ find a solution, but we \textit{have} to choose a specific one.\footnote{This is equivalent to the symmetry breaking of a spin chain. Here the polarization of the spins is chosen spontaneously, when the system is cooled.} This symmetry breaking has other important physical consequences. Those I will return to later on. 
+A note on the chosen phase of $\Delta_k$. Let me therefore write $\Delta_k = \Delta_{k,0}\text{e}^{i\phi}$. In the numerical calculation we have chosen a \textit{real} function as a starting guess for $\Delta_k$. The numerical calculation then shows, that such a \textit{real} solution can be found. This amounts to \textit{choosing} a specific phase $\phi$ of $\Delta_k$, namely $\phi = 0$. Since the pairing potential depends linearly on the mean field, $\braket{c_{-k}c_k}$, this amounts to a choice of the phase on the mean field. From the gap equation it is clear, that we could have picked this phase to be whatever we like. This is what is meant, when the term \textit{spontaneous symmetry breaking} is used. We can for any choice of the phase $\phi$ find a solution, but we \textit{have} to choose a specific one.\footnote{This is equivalent to the symmetry breaking of a spin chain. Here the polarization of the spins is chosen spontaneously, when the system is cooled.} 
 
 \begin{figure} 
 \begin{center}  

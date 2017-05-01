@@ -1,38 +1,76 @@
-% Appendix A
+% Appendix B
 
-\chapter{No inversion symmetry of the single wire} % Main appendix title
+\chapter{Long range order of the pairing phase} % Main appendix title
 
-\label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\label{Appendix.longrangeorder.pairingphase} % For referencing this appendix elsewhere, use \ref{AppendixC}
 \chead{}
-\lhead{Appendix B. \emph{No inversion symmetry, 1 wire}} % This is for the header on each page - perhaps a shortened title
+\lhead{Appendix B. \emph{Long range order of the pairing phase}} % This is for the header on each page - perhaps a shortened title
+In this appendix we use a classical argument to show, that there is no true long range order of the pairing phase in one dimension. It is largely based on the formulation of Cardy \cite{Cardy.StatPhys}. 
 
-In this appendix we show, that the single wire system has no inversion symmetry. We define the parity transformation, $P$, in the following manner in second quantization: 
+Let $\phi$ denote the phase of the pairing potential in real space $\Delta(x)$. We will investigate the effect of a spatial variation of $\phi = \phi(x)$. We let $\phi = 0$ be the assumed equilibrium value. For a truly ordered phase we expect that $\phi \ll 2\pi$. It therefore makes sense to infer a Hamiltonian in powers of $\phi$. The Hamiltonian is assumed not to depend on the phase itself. Therefore, to lowest order in $\phi$, the Hamiltonian associated with a spatially varying phase is: 
 \begin{equation}
-P^2 = \mathbb{I}, \hspace{0.5cm} P\begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} P = U_P\begin{bmatrix} \psi_F(-x) \\ \psi^\dagger_F(-x) \end{bmatrix}.
-\label{eq.definversion}
+H[\phi] = \frac{K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2, 
+\label{eq.Hphi}
 \end{equation}
-The first expression states, that the parity transformation is assumed to be unitary and hermitian: $P^\dagger = P$. Notice, that we allow for some nontrivial mixing of particles and holes. The above definition sets a restriction on the $2 \times 2$ matrix $U_P$. Firstly, since $P^2 = \mathbb{I}$ we also get that $U_P^2 = \mathbb{I}$, so that $U_P$ is unitary and hermitian. Secondly, since the entries of the Nambu spinor are not independent, we get:
+in $D$ spatial dimensions. There is no linear term $\nabla \phi$ present, because this would imply a dependency on the direction of the change of $\phi$. 
+In the analysis we will as a start keep $x$ a dimensionless variable, so that there is an implicit length scale $\xi_s$. We return to this later on. $K$ is a parameter of unit energy. The corresponding partition function is: 
+\begin{equation}
+Z = \int D\phi(x) \; \text{e}^{-\beta H[\phi]}, 
+\label{eq.partitionfunction}
+\end{equation}
+where $\beta = 1 / k_BT$ is the inverse temperature. The symbol $\int D\phi(x)$ denotes a socalled functional integration, which is to be taken over all configurations of $\phi(x)$. We define the kernel $G^{-1}(x,x')$ as: 
+\begin{equation}
+Z = \int D\phi(x)\; \text{e}^{-\frac{1}{2}\int d^{D}x\; d^{D}x' \; \phi(x)G^{-1}(x,x')\phi(x')} \nonumber
+\end{equation}
+We can therefore extract the kernel by a partial integration of equation \eqref{eq.Hphi}: 
 \begin{align}
-P\psi_F(x)P &= U_P^{11} \psi_F(-x) + U_P^{12} \psi^\dagger(-x), \nonumber \\
-P\psi_F(x)P &= U_P^{21*} \psi^\dagger_F(-x) + U_P^{22*} \psi(-x). \nonumber
+\beta H[\phi] &= \frac{\beta K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2 = \frac{\beta K}{2}\left( \left.\phi\nabla\phi\right|_{\partial V} - \int d^{D}x \; \phi \nabla^2\phi \right) \nonumber \\
+&= \frac{\beta K}{2}\int d^{D}x\; d^{D}x'\; \phi(x')\left(-\delta^{(D)}(x - x')\nabla^2\right)\phi(x) \nonumber 
 \end{align}
-The second line is obtained by taking the hermitian conjugate of the second line in the definition. Since the coefficients to the same operator must be identical we get: $U_P^{11} = U_P^{22*}, U_P^{12} = U_P^{21*}$. The second requirement is already fulfilled when $U_P$ is hermitian, but the first one is a further restriction to the matrix. Hence, we have:
+The boundary term $\left.\phi\nabla\phi\right|_{\partial V}$ vanishes, since we use periodic boundary conditions. The kernel is hereby: 
 \begin{equation}
-U_P = \begin{bmatrix} U_P^{11} & U_P^{12} \\ U_P^{12*} & U_P^{11*}\end{bmatrix}. 
-\label{eq.UP}
+G^{-1}(x,x') = -\beta K \delta^{(D)}(x - x')\nabla^2 \nonumber
 \end{equation}
-In momentum space the above definition means, that:
+This verifies, that the Hamiltonian of \eqref{eq.Hphi} leads to Gaussian distributed variables with the kernel $G^{-1}$. We now define the inverse, $G(x,x')$, as:
 \begin{equation}
-P\begin{bmatrix} c_k \\ c^\dagger_k \end{bmatrix} P = U_P\begin{bmatrix} c_{-k} \\ c^\dagger_{-k} \end{bmatrix}.
+\int d^{D}x' \; G^{-1}(x,x')G(x',x'') = \delta^{(D)}(x - x''). \nonumber
 \end{equation}
-Now to investigate whether the Hamiltonian has an inversion symmetry, we should first write the Hamiltonian in a form depending on the above spinor. Gauge transforming $\Delta_k$ to be real as in chapter \ref{Chapter7}, and transforming the Hamiltonian yields:
-\begin{align}
-H_{FF} &= \frac{1}{2}\sum_k \begin{bmatrix} c_k^\dagger & c_{-k}\end{bmatrix}\mathcal{H}_{FF,k} \begin{bmatrix} c_k \\ c^\dagger_{-k}\end{bmatrix} \nonumber \\
-	   &= \frac{1}{4}\sum_k \tilde{C}^\dagger_k \tilde{\mathcal{H}}_{FF,k} \tilde{C}_k, \hspace{0.5cm} \tilde{\mathcal{H}}_{FF,k} = \epsilon_k \rho_0 \otimes \tau_3 - \Delta_k \rho_2 \otimes \tau_2, \hspace{0.5cm} \tilde{C}_k = \begin{bmatrix} c_k \\ c^\dagger_{k} \\ c_{-k} \\ c^\dagger_{-k}\end{bmatrix}, 
-\end{align}
-where we let $\rho_i$ be the Pauli matrices in $k\to -k$ space and $\tau_i$ the matrices in particle-hole space. Now: $P\tilde{C}_kP = \tilde{U}_P \tilde{C}_k$ with $\tilde{U}_P = \rho_1\otimes U_P$. This means, that to have an inversion symmetry we need:
+Inserting the above we hereby get:
 \begin{equation}
-PH_{FF}P = H_{FF} \Rightarrow \tilde{U}_P\tilde{\mathcal{H}}_{FF,k}\tilde{U}_P = \tilde{\mathcal{H}}_{FF,k}. \nonumber 
+\nabla^2G(x) = -\frac{1}{\beta K} \delta^{(D)}(x). \nonumber
 \end{equation}
-Since $\rho_1$ of course commutes with $\rho_0$ we need $U_P$ to commute with $\tau_3$ Hence, $U_P = \tau_0$ or $U_P = \tau_3$. Further, since $\rho_1$ anticommutes with $\rho_2$ we need $U_P$ to anticommute with $\tau_2$. In total, this means that $U_P = \tau_3$ is the \textit{only} possibility. This transformation does fulfill the requirement above, however it does not have the right structure. Specifically from equation \ref{eq.UP} we get, that $1 = U_P^{11} = U_P^{22*} = -1$. A clear contradiction. Hence, we get that the system has no inversion symmetry. 
+$G$ is therefore simply the Green's function. Before actually solving for this function, we will first investigate its importance. Cardy argues, that for a continuous distribution one has \cite[p. 227]{Cardy.StatPhys}: 
+\begin{equation}
+\braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}} = \text{e}^{ -\frac{1}{2}\int d^{D}x\; d^{D}x'\; J(x) G(x,x') J(x')  }
+\label{eq.gaussianintegration}
+\end{equation}
+where the average is with respect to the Gaussian distribution with kernel $G^{-1}$. We can hereby extract the two-point correlation function:
+\begin{equation}
+\braket{\phi(x)\phi(x')} = \left. \frac{\partial}{\partial J(x)}\frac{\partial}{\partial J(x')} \braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}}\right|_{J = 0} = \frac{1}{2}\left(G(x, x') + G(x', x)\right) = G(x, x'), \nonumber
+\end{equation} 
+since $G(x,x')$ is symmetric in $x$ and $x'$. Now for the specific $G$ at hand we can solve for it by Fourier decomposition $G(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx} \tilde{G}(k)$. With the definition of the $\delta$-function $\delta^{(D)}(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx}$, this yields $\tilde{G}(k) = \frac{1}{\beta K}\frac{1}{k^2}$. So the two-point correlation function is given by: 
+\begin{equation}
+\braket{\phi(x)\phi(x')} = G(x - x') = \frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{\text{e}^{ikx}}{k^2}. 
+\label{eq.anglecorrelationfunction.generaldimension}
+\end{equation} 
+Further by letting $J(x_1) = \delta(x_1 - x) - \delta(x_1 - x')$ and integrating over $x_1$ in equation \eqref{eq.gaussianintegration} we can show, that:
+\begin{equation}
+\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)}. 
+\label{eq.phasecorrelationfunction.generaldimension} 
+\end{equation}
+It is this phase-phase correlation function that we are after, since it describes how the phase at two points correlates. Now:
+\begin{equation}
+G(x,x') - G(0) = -\frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{1 - \text{e}^{ikx}}{k^2}. \nonumber
+\end{equation}
+In three dimensions the phase-phase correlation function approaches a constant in the $|x - x'| \to \infty$ limit. In two dimensions it goes to zero according to a power law \cite[p. 115]{Cardy.StatPhys}. In one dimension we get: 
+\begin{equation}
+G(x,x') - G(0) = -\frac{|x - x'|}{2\beta K}  \to -\frac{|x - x'|}{2\beta K \xi_s},  
+\end{equation}
+where we introduce the aforementioned length scale $\xi_s$. The phase-phase correlation function in one dimension is hereby exponentially damped:
+\begin{equation}
+\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)} = \text{e}^{-\frac{|x - x'|}{2\beta K \xi_s}}. 
+\label{eq.phasecorrelationfunction.onedimension} 
+\end{equation}
+
+A true long range order demands, that the above correlation function approached a constant as $|x - x'| \to \infty$, as is the case in three dimensions. However, as we discuss in the main text in chapter \ref{Chapter4}, if the length scale $\xi_s$ is macroscopically large, there are correlations over a macroscopic scale. The absence of true long range order in one and two dimensions is in accordance with the Mermin-Wagner-Hohenberg theorem \cite{Hohenberg.MerminWagnertheorem}. 
 

@@ -1,57 +1,39 @@
 % Appendix D
 
-\chapter{General real space induced interaction} % Main appendix title
+\chapter{Variance of the number of fermions} % Main appendix title
 
-\label{AppendixD} % For referencing this appendix elsewhere, use \ref{AppendixC}
+\label{Appendix.Fluctuationfermionnumber} % For referencing this appendix elsewhere, use \ref{AppendixA}
 \chead{}
-\lhead{Appendix D. \emph{General real space induced interaction}} % This is for the header on each page - perhaps a shortened title
-In this appendix we calculate the real space induced interaction in the weak coupling limit for general Matsubara frequency $i\omega_m = 2\pi m k_B T$. This is only done for $l_t = 0$. 
-
-From equation \eqref{eq.VFFindXBEC} we have the induced interaction in momentum space for all $l_t > 0$:
+\lhead{Appendix D. \emph{Variance of $N_F$}} % This is for the header on each page - perhaps a shortened title
+In this appendix we rigorously compute the variance of the fermion number $N_F$ for the single wire. First:
 \begin{equation}
-V_{\text{ind}}(q, i\omega_m) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q, \mathbf{k}_\perp, i\omega_m)\text{e}^{-\frac{l_t^2}{2}k_\perp^2},\nonumber
-\end{equation}
-with $\chi_\text{BEC}(\mathbf{k}, i\omega_m) = -\frac{k^2}{m_B}\frac{n_B}{\omega^2_m + E_{B,k}^2}$ the BEC density-density correlation function, and $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2n_Bg_B\right)$ the Bogoliubov BEC spectrum. The real space induced interaction is the Fourier transform of the above. Therefore, we can use the following limiting procedure for $l_t = 0$:
-\begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m) = \lim_{d \to 0}\left[g_{BF}^2\int\frac{d^3k_\perp}{(2\pi)^3}\; \chi_\text{BEC}(\mathbf{k}, i\omega_m)\text{e}^{i\mathbf{k}\cdot \mathbf{r}_d}\right] = \lim_{d \to 0} I(\mathbf{r}_d, \omega_m), 
-\label{eq.limitVindxomegam}
-\end{equation}
-which defines $I(\mathbf{r}, \omega_m)$ and where $\mathbf{r}_d = (x, \mathbf{d})$. With a bit of rearranging we get the expression:
-\begin{equation}
-I(\mathbf{r}, \omega_m) = -4m_Bg^2_{BF}n_B\int \frac{d^3k}{(2\pi)^3} \frac{k^2}{g(k)}\text{e}^{i\mathbf{k}\cdot\mathbf{r}} = +4m_Bg^2_{BF}n_B\int_0^\pi d\theta \sin(\theta)\int_0^{\infty} \frac{dk}{(2\pi)^2} \frac{k^4}{g(k)}\text{e}^{ikr\cos(\theta)}, \nonumber
-\end{equation}
-where we define $g(k) = 4m_B^2\omega^2_m + k^2(k^2 + 2/\xi^2)$, and where $1/\xi^2 = 2m_Bn_Bg_B$ defines the BEC coherence length $\xi$. Here we let $\theta$ be the angle between $\mathbf{k}$ and $\mathbf{r}$ and use, that the integrand does not depend on the azimuthal angle $\phi$. Performing the $\theta$ integral directly we get:
-\begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{4m_Bg^2_{BF}n_B}{2\pi}\int \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
-\end{equation}
-where the limits are implicitly $\pm \infty$. We will now think of $k$ as a complex variable and make a half-circle contour $\mathcal{C}$ in the upper half-plane. Since the integrand goes exponentially fast to zero on the boundary of $\mathcal{C}$, we get:
-\begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
-\end{equation}
-in the limit of infinite radius $R$ of the half-circle. By Cauchy's residue theorem we can then calculate the integral by calculating the residues of the integrand. To do this we need the poles of $g(k)$, that $\mathcal{C}$ surrounds, hence the poles in the upper half-plane. We therefore solve $g(k) = 0$, a quadratic equation in $k^2$, with the two solutions:
-\begin{equation}
-k^2_{\pm} = -\frac{1}{\xi^2}\left(1 \pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2}\right), \nonumber
+\braket{(N_F-{\braket{N_F}})^2} = \braket{N_F^2} - \braket{N_F}^2 = \sum_{k,q} \braket{c^\dagger_kc_kc^\dagger_qc_q} - \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q}. \nonumber
 \end{equation} 
-where the square root is chosen to give positive real parts. The roots of $g(k)$ are then $ik_+, -ik_+, ik_-, -ik_-$, with $ik_{\pm}$ the roots in the upper half-plane, and with: 
+We use Wick's theorem, valid for quadratic Hamiltonians, to break up the four body mean into a sum of two body means \cite{BruusFlensberg}:
 \begin{equation}
-k_{\pm} = \frac{1}{\xi}\sqrt{1\pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2}} = \sqrt{ 2m_Bn_Bg_B\left( 1 \pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2 } \right) }
-\label{eq.polesVindxomegam}
+\braket{c^\dagger_kc_kc^\dagger_qc_q} = \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q} - \braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} + \braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q}. \nonumber
 \end{equation}
-We can therefore write $g(k) = (k + ik_+)(k - ik_-)(k + ik_-)(k - ik_-)$ and the residues in the upper half-plane poles $ik_{\pm}$ then simply becomes:
+The first tern is identical to the one coming from $\braket{N_F}^2$. Hence, we only need the later two terms. From equation \eqref{eq.fermionquasiparticledef} we have: $c_k = u^{*}_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$. Further $u_{F,k}$ is even in $k$ and $v_{F,k}$ is odd. 
+\begin{align}
+\braket{c_kc_q} &= u^{*}_{F,k}v_{F,k}\left(1 - 2f(E_{F,k})\right)\delta_{k,-q}, \nonumber \\
+\braket{c^\dagger_kc_q} &= \left(|u_{F,k}|^2f(E_{F,k}) + |v_{F,k}|^2(1-f(E_{F,k})\right)\delta_{k,q}. \nonumber
+\end{align}
+Here we have used, that the quasiparticles are distributed according to: $\braket{\gamma^\dagger_k\gamma_k} = f(E_{F,k})$, with $f$ the Fermi-Dirac distribution. Further, we use the anticommutator relations for the $\gamma$-operators. Further:
+\begin{align}
+-\braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} &= -\braket{c_qc_k}^*\braket{c_kc_q} = +\left|\braket{c_kc_q}\right|^2, \nonumber \\
+\braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q} &= \braket{c^\dagger_kc_q}\braket{c_qc^\dagger_k}^* = -\left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q}. \nonumber
+\end{align}
+In the second line we use the anticommutator $\{c_q, c^\dagger_k\} = \delta_{k,q}$. In total we hereby get:
+\begin{align}
+\braket{(N_F-{\braket{N_F}})^2} = \sum_{k,q} & \left[\left|\braket{c_kc_q}\right|^2 - \left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q} \right] \nonumber \\
+=\sum_k & \left[ |u_{F,k}|^2|v_{F,k}|^2\left( (1 - 2f(E_{F,k}))^2 - 2f(E_{F,k})(1 - f(E_{F,k})) \right)^2  + \right. \nonumber \\
+& |u_{F,k}|^2f(E_{F,k})(1 - |u_{F,k}|^2f(E_{F,k})) + \nonumber \\
+&\left. |v_{F,k}|^2 ( 1 - f(E_{F,k}) )\left(1  - |v_{F,k}|^2 (1 - f(E_{F,k})) \right) \right]
+\label{eq.VarianceNFgeneralT}
+\end{align}
+For $T = 0$ we have $f(E_{F,k}) = 0$. Since $|u_{F,k}|^2 + |v_{F,k}|^2 = 1$ we simply get:
 \begin{equation}
-\text{Res}(f, k_{\pm}) = \lim_{k\to ik_{\pm}} (k - ik_{\pm})f(k), \hspace{0.5cm} f(k) = \frac{k^3}{g(k)}\text{e}^{ikr}. \nonumber
+\braket{(N_F-{\braket{N_F}})^2} = 2\sum_k |u_{F,k}^2|v_{F,k}|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}
+\label{eq.VarianceNFT0}
 \end{equation}
-Now using $\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr} = \text{Res}(f, k_+) + \text{Res}(f, k_-)$ we get the expression:
-\begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi r}\left[ \text{e}^{-k_+r} + \text{e}^{-k_-r} + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+r} - \text{e}^{-k_-r}  \right) \right]. \nonumber
-\end{equation}
-Finally taking the limit in equation \eqref{eq.limitVindxomegam} gives:
-\begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi |x|}\left[ \text{e}^{-k_+|x|} + \text{e}^{-k_-|x|}  + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+|x|} - \text{e}^{-k_-|x|}  \right) \right], 
-\end{equation}
-by simply replacing $r$ with $|x|$. We know, that for $\omega_m = 0$ we must get the Yukawa interaction. In this situation $k_- = 0, k_+ = \sqrt{2}/\xi$ and we get:
-\begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m = 0) = -\frac{m_Bg^2_{BF}n_B}{\pi |x|}\text{e}^{-\sqrt{2}|x|/\xi}, \nonumber
-\end{equation}
-which is identical to equation \eqref{eq.Vx_lt=0}. 
 
