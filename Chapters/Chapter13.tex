@@ -1,9 +1,74 @@
-\chapter{Conclusion} 
-\label{Chapter13} 
-\lhead{Chapter 13. \emph{Conclusion}} 
+% Chapter 13
 
-We have studied the many-body effects of wires of identical fermions embedded in a three-dimensional Bose-Einstein condensate. We have shown, that a point interaction between the fermions and bosons lead to an induced attractive interaction between the fermions of the Yukawa form in the weak-coupling limit. In a mean field approach we have shown, that the single wire system realises the Kitaev model of superfluidity. In turn we have found selfconsistent numerical solutions for the pairing and chemical potentials, that demonstrates a superfluid phase with $p$-wave pairing. Using the linearized gap equation we have numerically demonstrated, that any nonzero point interaction between the fermions and bosons lead to the formation of the superfluid. We have calculated the bulk topological invariant of the system and demonstrated, that the ground state is topologically nontrivial. This is verified explicitly by finding an approximate solution for the resulting edge states at the boundary of the wire. 
+\chapter{Numerical analysis} % Main chapter title
 
-For the double wire system the above steps have been repeated. Here the interwire interaction is shown to lead to a competing interwire $s$-wave pairing. The resulting Hamiltonian has the structure of a spin-$1/2$ system with $p$-wave pairing between identical spins and $s$-wave pairing between opposite spins. The competition between the pairings is shown to be controllable through the interwire distance or analogously the Bose-Einstein coherence length. The edge states in each wire in the separated wire system are shown to be Kramers partners in accordance with a time reversal symmetry, that squares to minus the identity. By calculating the topological invariant we show, that there are two possible and physically distinct configurations of the system. These configurations are different only in the phase of the interwire pairing. In one, as the wires are brought closer together, the interwire pairing chooses a phase, that obeys the time reversal symmetry. In turn a topological phase transition, where the bulk energy gap closes, must occur as the wires are brought closer together. In the other, the interwire pairing chooses a phase, that breaks this time reversal symmetry. The Kramers partners of edge states are then shown to couple and gain a nonzero energy. Then in a numerical analysis we find the selfconsistent solutions for the pairing and chemical potentials. We hereby show, that the configuration that breaks the time reversal symmetry is the energetically favourable. Using mean field theory, we therefore predict, that the two wire system will undergo a normal, nontopological phase transition between a topologically nontrivial and trivial phase. This is the main result of the thesis.
+\label{Chapter13} % For referencing the chapter elsewhere, use \ref{Chapter12} 
 
-We emphasize, that we are aware, that the mean field approach is problematic for these one-dimensional systems. However, we speculate that in the long coherence length limit, the results will be qualitatively correct. 
+\lhead{Part IV. \emph{Kitaev chain}}
+\chead{Chapter 13. \emph{Numerical analysis}} % This is for the header on each page - perhaps a shortened title
+%----------------------------------------------------------------------------------------
+In this chapter we present the numerical analysis for the Kitaev chain in the one-dimensional Bose gas. In section \ref{sec.onlyNN} we briefly investigate the nearest neighbour only system, i.e. $t_2 = 0$. In section \ref{sec.NNNincluded} we include the next-nearest neighbour hopping and study the effect of introducing this parameter. 
+ 
+\section{Only nearest neighbour hopping} \label{sec.onlyNN}
+We numerically study the system as a function of two parameters: the coherence length, $\xi$, and the filling fraction $n = N_F/N$. We use the Bose gas parameter $n_Ba_B$ to adjust the coherence length through $\xi \propto (n_Ba_B)^{-1/2}$. We keep the interaction strength, $G$, constant. The phase diagrams are produced in the following manner. For each value of $\xi$ we compute the effective interaction using equation \eqref{eq.gapequation.lattice}. Then for each value of $n$ we come with an initial guess for the pairing. We use $\sin(kd)$, since this is the expected qualitative behaviour. Finally we use equations \eqref{eq.gapequation.lattice} and \eqref{eq.fillingfraction.lattice} to solve for the pairing and chemical potentials in a self-consistent manner for $T = 0$ only. This is done in precisely the same way as in the single and double wire system. This is iterated over $\xi > d$ and $0\leq n \leq 1$. 
+
+The result of the analysis for $G = 4$ and $G = 8$ is shown in figure \ref{fig.phasediagram.t20}. We notice, that the plots are symmetrical around $n = 1/2$ and that a higher interaction strength leads to a narrower window of the topologically nontrivial phase of $\nu = 1$ shown in red. Finally as the coherence length grows, the topological nontrivial phase narrows. We can understand these three effects in the following manner. 
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/Delta0.0/xifilldepend.tex}
+\caption{Phase diagrams for $G = 4$ and $G = 8$ as a function of the filling fraction $n = N_F/N$ and the coherence length $\xi$. In white: $\nu = 0$. In red: $\nu = 1$. We notice that the phase diagram for a stronger interaction exhibits a narrower window of topological nontrivial $\nu = 1$. Number of sites: $N = 100$. }
+\label{fig.phasediagram.t20}
+\end{center}
+\end{figure}
+
+First, the symmetry around $n = 1/2$ was discussed in section \ref{sec.fillingfractionsymmetry.breakdown}. Here we showed, that letting $n\to 1 - n$ is a symmetry of the system, if we let $\mu \to -\mu$ and $\Delta_{k} \to \Delta_{k + \pi/d}$. The topological invariant is protected under this symmetry for the following two reasons. Firstly, if $\varepsilon_k(\mu) = -t_1\cos(kd) - \mu$ crosses zero, then so does $\varepsilon_k(-\mu)$. Further, the pairing is simply shifted by $\pi / d$. This means, that there is still a contribution of $\text{sgn}(\Delta_{k_1+\pi/d})$ to the invariant from the zero of $\varepsilon_k$ in $k_1$.
+
+Secondly, for increasing coherence lengths, $\xi$, the chemical potential must \textit{decrease}. This is because the induced interaction then attracts a larger number of neighbours lowering the total energy $E$, and thereby the chemical potential $\mu = \partial E / \partial N$. For a fixed filling fraction this eventually leads to a completely positive $\varepsilon_k = -t_1\cos(kd) - \mu$. Hereby there are no zero-points, and the invariant is zero. 
+
+Thirdly, for a stronger interaction strength, $G$, the window of the topological phase narrows. The reason is, that when there is a nonzero interaction, the band $-t_1\cos(kd)$ can be populated eventhough $\mu$ is below the minimum of the band, i.e. $\mu < -t_1$. For a stronger interaction still, this population starts for lower and lower $\mu$ and there is a larger and larger region, where $\varepsilon_k = -t_1\cos(kd) - \mu$ is strictly positive.
+
+The two latter effects are the same at $n$ and $1 - n$, because of the filling fraction symmetry. They can be confirmed by studying the dependency $\mu(n)$, e.g. for $G = 0, G = 4$ and $G = 8$. This results in figure \ref{fig.mun.t20.Gdepend}. We clearly observe a nonzero population in the regions with $|\mu| > t_1$ for nonzero interactions, and an increase in the size of these regions with increasing interaction strength. 
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/Delta.mu.n0Gvary/ndepend.tex}
+\caption{The chemical potential, $\mu$, as a function of filling fraction $n$ for different interaction strengths $G$. We notice, that for nonzero interaction strengths the lattice starts populating for $|\mu| > t_1$. There is a topological phase transition exactly at $|\mu| = t_1$. $\nu = 1$ for $|\mu|< t_1$ and $\nu = 0$ for $|\mu| > t_1$. Other parameters: $N = 100, \xi / d = 8.0$}
+\label{fig.mun.t20.Gdepend}
+\end{center}
+\end{figure}
+
+\section{Next-nearest neighbour hopping included}
+\label{sec.NNNincluded} 
+In this section the program is very similar to the above. Now however, we include the next-nearest neighbour hopping, i.e. $t_2 \neq 0$. We produce two sets of phase diagrams, one for $t_2 = t_1$ and one for $t_2 = 0.63t_1$. For these two values of $t_2$ we do the following. First we search for the same solution as in the above, i.e. the start guess is $\Delta_k \propto \sin(kd)$. This produces the diagrams to the right in figures \ref{fig.phasediagram.t21.0} and \ref{fig.phasediagram.t20.63}. Next we search for a solutions with $\sin(2kd)$-like behaviour. This results in the diagrams to the left. The topological invariant is calculated according to equation \eqref{eq.topologicalinvariant}. We go into more detail with this below. The interesting part of the figures are the blue areas. These show, where it is possible to find a self-consistent solution with a topological invariant $\nu = 2$. It is exactly this sort of solution we are after!  
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/t2nonzerophasediagrams/xifilldepend1.tex}
+\caption{Topological phase diagram for $t_2 = t_1$ as a function of the filling fraction $n = N_F/N$ and the coherence length $\xi$. Invariant: in white: $\nu = 0$, in red: $\nu = 1$, in blue: $\nu = 2$. To the left: (anomalous) result of searching for $\Delta_k\propto \sin(2kd)$-like solutions. To the right: (normal) result of searching for $\Delta_k \propto \sin(kd)$-like solutions. The algorithm is a little uncertain around the blue tip at $n \approx 0.4, \xi / d \approx 2$. The phase has here been checked by doubling the number of lattice sites. Other parameters: $G = 4$, $N = 100$. }
+\label{fig.phasediagram.t21.0}
+\vspace{0.5cm}
+\input{Figures/Lattice.singlewire/t2nonzerophasediagrams/xifilldepend2.tex}
+\caption{Topological phase diagrams for $t_2 = 0.63t_1$ as a function of the filling fraction $n = N_F/N$ and the coherence length $\xi$. In white: $\nu = 0$, in red: $\nu = 1$, in blue: $\nu = 2$. To the left: (anomalous) result of searching for $\Delta_k\propto \sin(2kd)$-like solutions. To the right: (normal) result of searching for $\Delta_k \propto \sin(kd)$-like solutions. Other parameters: $G = 4$, $N = 100$. }
+\label{fig.phasediagram.t20.63}
+\end{center}
+\end{figure}
+
+In figure \ref{fig.Deltaexamples.t21.0} we go into more detail with the pairing at the points $(i)$ and $(ii)$ specified in figure \ref{fig.phasediagram.t21.0}. Remember, that the topological invariant depends on both the kinetic energy, $\varepsilon_k$, and the pairing, $\Delta_k$. Every zero of $\varepsilon_k$ for $k > 0$ contributes the sign of the pairing times the sign of the slope of $\varepsilon_k$. 
+
+ At $(i)$ we only find one solution for the pairing, irrespective of the initial guess. This single solution is $\sin(kd)$-like in that it only crosses zero at $k = 0$. 
+
+
+
+
+However, this is not the case in the entire red region of topological invariant $\nu = 1$. Closer to the point $(ii)$, but still in the red region, we indeed find $\sin(2kd)$-like solutions. These however still have $\nu = 1$, because the filling fraction is too low to make an additional pair of zeroes of $\varepsilon_k$. At $(ii)$ we find two solutions for the pairing. Here both a (normal) $\sin(kd)$- and an (anomalous) $\sin(2kd)$-like solution are self-consistent. Since $\varepsilon_k$ now has two pairs of zeroes, the topological invariant is $\nu = 0$ and $\nu = 2$ for the normal and anomalous pairing respectively.   
+
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/Deltaexamples/kdepend.tex}
+\caption{The pairing, $\Delta_k$, and kinetic energy, $\varepsilon_k$, across the Brillouin zone. In black: $\varepsilon_k$. $(i)$, red solid line: only one solution for $\Delta_k$. This is $\sin(kd)$-like. Topological invariant: $\nu = 1$. $(ii)$, blue lines: two solutions for $\Delta_k$. Dashed blue line: $\sin(kd)$-like solution with $\nu = 0$. Solid blue line: $\sin(2kd)$-like solution with $\nu = 2$. Notice that the pairing is maximal around the zeroes of $\varepsilon_k$. Parameters: $G = 4$, $N = 100$, $\xi / d = 5$. $(i)$: $n = 0.2$, $(ii)$: $n = 0.5$.}
+\label{fig.Deltaexamples.t21.0}
+\end{center}
+\end{figure}
+

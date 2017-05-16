@@ -218,12 +218,12 @@
                 {AARHUS UNIVERSITY}}
 %-------------------------------------------------                
 \department{\texorpdfstring{\href{http://phys.au.dk} % Your department's URL
-                {IFA}} % Your department's name - used in the title page and abstract
-                {IFA}}
+                {Department of Physics and Astronomy}} % Your department's name - used in the title page and abstract
+                {Department of Physics and Astronomy}}
 %-------------------------------------------------                
 \DEPARTMENT{\texorpdfstring{\href{http://phys.au.dk} % Your department's URL
-                {IFA}} % Your department's name in capitals - this is not currently used anywhere in the template, cite it with \DEPTNAME if you want it
-                {IFA}}
+                {DEPARTMENT OF PHYSICS AND ASTRONOMY}} % Your department's name in capitals - this is not currently used anywhere in the template, cite it with \DEPTNAME if you want it
+                {DEPARTMENT OF PHYSICS AND ASTRONOMY}}
 %-------------------------------------------------                
 \group{\texorpdfstring{\href{\;} % Your research group's URL
                 {\;}} % Your research group's name - this is currently used in the title page 
@@ -307,12 +307,9 @@
   \null\vfil
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\normalsize \UNIVNAME \par} % University name in capitals
+    \includegraphics[scale=0.2]{Pictures/IFA.png}\\
     \bigskip
     {\huge{\textit{Summary}} \par}
-    \bigskip
-    {\normalsize \facname \par} % Faculty name
-    {\normalsize \deptname \par} % Department name
     \bigskip
     {\normalsize \degreename\par} % Degree name
     \bigskip

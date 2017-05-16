@@ -161,11 +161,11 @@ We use the Fourier decomposition $\psi_F(x) = \frac{1}{\sqrt{\mathcal{L}}} \sum_
 \end{equation}
 Here we first use, that we consider only states, where opposite momenta couples: $q = -k$. Then we use, that the fermionic operators anticommute, so that $c_kc_{-k}$ is odd in $k$. From this expression it is also clear, that the pair wave function only depends on the difference $x'-x$. Therefore we let $x \to 0$ and $x' \to x$:
 \begin{equation}
-\braket{\hat{\psi}_F(x) \hat{\psi}_F(0)} = \frac{i}{\mathcal{L}}\sum_{k} \sin(kx)\braket{c_{k}c_{-k}}. \nonumber
+\braket{\psi_F(x) \psi_F(0)} = \frac{i}{\mathcal{L}}\sum_{k} \sin(kx)\braket{c_{k}c_{-k}}. \nonumber
 \end{equation}
 The mean field $\braket{c_{k}c_{-k}}$ was further calculated, when we derived the gap equation. This yielded: $\braket{c_{k}c_{-k}} = \frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{\beta E_{F,k} }{2}\right]$. Inserting this into the above and changing the sum to an integral yields:
 \begin{equation}
-\braket{\hat{\psi}_F(x) \hat{\psi}_F(0)} = i\int \frac{dk}{2\pi} \sin(kx)\frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right].
+\braket{\psi_F(x) \psi_F(0)} = i\int \frac{dk}{2\pi} \sin(kx)\frac{\Delta_k}{2E_{F,k}}\tanh\left[\frac{ \beta E_{F,k} }{2}\right].
 \label{eq.pairwavefunction}
 \end{equation}
 With the pairing potential $\Delta_k$ at hand we can therefore readily calculate this function numerically. The behaviour for $T > 0$ is expected to be the following. The integrand is damped by the factor $\tanh\left[\frac{ \beta E_{F,k} }{2}\right]$, since it will be less than its maximal value of 1 for $T = 0$. Hence the pair wave function will be more and more significantly damped until we reach the critical temperature $T_c$, where the pairing will vanish: $\Delta_k = 0$ as already seen. And so the pair wave function will also vanish for $T\to T_c$. This simply expresses the fact, that there are no correlations between the positions of the particles in the free gas. Further we can see, what the overall functional behaviour must be. Firstly, we notice that the pair wave function is odd in $x$, and so vanishes for $x = 0$. This is in perfect harmony with the Pauli exclusion principle: the identical fermions cannot be at the same point in space. We notice that for high values of $x$ the sine function will start to oscillate rapidly leading to rapid cancelation of the integral. Hence, we expect the correlation function to go rapidly to zero for high values of $k_F x$. 

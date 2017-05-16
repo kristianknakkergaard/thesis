@@ -13,6 +13,7 @@ Occupancyplot.tex: data makefile
 'set xlabel "$$k/k_F$$"; 		   '\
 'set ylabel "$$\braket{f_k^\dagger f_k}$$"; 	   '\
 'set key top right;					'\
+'set key width -0.7;'\
 'plot [0:2][0:1.1] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 1:2 title "Free gas" with lines lw 2 lc rgb "black" '\
@@ -32,6 +33,7 @@ energyplot.tex: data makefile
 'set xlabel "$$k/k_F$$"; 		   '\
 'set ylabel "$$ E_{F,k}/\epsilon_{F,0}$$"; 	   '\
 'set key top left;					'\
+'set key width -0.7;'\
 'plot [0:2.0][0:5.0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 1:5 title "Free gas" with lines lw 2 lc rgb "black" '\

@@ -13,6 +13,7 @@ kdepend.tex: kdepend Makefile
 'set xlabel "$$k/k_F$$"; 		    '\
 'set ylabel "$$Delta_k/epsilon_{F,0}$$";'\
 'set key top left;					'\
+'set key width -1;					'\
 'set arrow from 0,-0.3 to 0,0.3 nohead lc rgb "black"; '\
 'set arrow from -10,0 to 10,0 nohead lc rgb "black"; '\
 'plot [-10:10][-0.3:0.3]			'\

@@ -9,6 +9,7 @@ xifilldepend.tex: xifilldepend Makefile
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
 'set grid;       			   		'\
+'set title "$$G = 8$$";       		'\
 'set tics out;       			    '\
 'set palette defined (0 "white", 1 "red");							'\
 'set xlabel "$$n$$"; 		    	'\

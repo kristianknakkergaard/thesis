@@ -25,7 +25,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[11pt, twoside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\documentclass[11pt, twoside]{Thesis} 
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
 \newcommand{\Var}{\mathbb{V}}
@@ -59,7 +59,7 @@
 \usepackage{microtype}
 \microtypecontext{spacing=nonfrench}
 
-\hypersetup{urlcolor=blue, linkcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\hypersetup{urlcolor=red, linkcolor=black, colorlinks=false} % Colors hyperlinks in blue - change to black if annoying
 
 \usepackage{caption}
 \captionsetup{
@@ -107,13 +107,14 @@
 {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
 \HRule \\[1.5cm] % Horizontal line
  
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-{\authornames} % Author name - remove the \href bracket to remove the link
+{\authornames}\\ 
+{Student ID: 201205966} % Author name - remove the \href bracket to remove the link 
 \end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
+\end{minipage}%
+\begin{minipage}[t]{0.4\textwidth}
 \begin{flushright} \large
 \emph{Supervisor:} \\
 {\supname} % Supervisor name - remove the \href bracket to remove the link  
@@ -199,7 +200,7 @@
 In this thesis we theoretically investigate the properties of 1D-3D Fermi-Bose mixtures. Specifically, we embed one dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. The single wire system is then studied in a weak coupling limit in a mean field approach. This produces a self-consistency equation for the resulting $p$-wave pairing, which we solve for numerically. The system realises the Kitaev model of $p$-wave pairing, which we show to have a topological ground state by computing the topological index. As a result edge states form at the end of the wires. 
 
 The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave for decreasing interwire distances is studied in terms of the symmetries and topology of the system. This analysis is compared to a numerical calculation of the pairings. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We realize both a continuous and abrubt cross over and show that these correspond to a regular and topological phase transition by computing the topological index in both cases. The continuous cross over is found to be the energetically favourable.
-
+}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
@@ -211,7 +212,7 @@ The double wire system of parallel fermion wires is then studied in a similar ma
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter7}, we investigate the single fermion wire system. In part III, chapters \ref{Chapter8} through \ref{Chapter11}, we investigate a two wire system of parallel wires. Finally, in part IV we discuss the main results and come with our conclusions. 
 
-I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also exciting, interesting and illuminating discussions about the systems we both study. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
+I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. Also, I would like to thank postdoc Zhigang Wu for his comments and thoughts. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
 \clearpage
 %----------------------------------------------------------------------------------------
@@ -245,32 +246,32 @@ $\mathcal{L}$ & length of fermionic wires \\ \\
 $H$ & Hamiltonian, second quantization \\
 $\mathcal{H}$ & Hamiltonian, first quantization \\
 $b_k$ & annihilation operator for real boson \\
-$\beta_k$ & annihilation operator for the corresponding boson quasiparticle \\
+$\beta_k$ & annihilation operator for corresponding boson quasiparticle \\
 $c_k$ & annihilation operator for real fermion \\
-$\gamma_k$ & annihilation operator for the corresponding fermion quasiparticle \\ \\
+$\gamma_k$ & annihilation operator for corresponding fermion quasiparticle \\ \\
 
-$m_B$ & mass of the bosons \\
-$m_F$ & mass of the fermions \\
+$m_B$ & mass of bosons \\
+$m_F$ & mass of fermions \\
 $m_r$ & reduced mass: $m_r = \frac{m_Fm_B}{m_F + m_B}$ \\ \\
 
-$\epsilon_{F,0}$ & Fermi energy, the free gas \\
-$k_F$ & Fermi momentum, the free gas: $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$ \\
-$T_F$ & Fermi temperature, the free gas: $\epsilon_{F,0} = k_BT_F$ \\
-$\mu(T)$ & chemical potential of the fermions \\ \\
+$\epsilon_{F,0}$ & Fermi energy, free gas \\
+$k_F$ & Fermi momentum, free gas: $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$ \\
+$T_F$ & Fermi temperature, free gas: $\epsilon_{F,0} = k_BT_F$ \\
+$\mu$ & chemical potential of fermions \\ \\
 
-$n_F$ & density of the fermions: $k_F = \pi n_F$ \\
-$n_B$ & density of the bosons \\ \\
+$n_F$ & density of fermions: $k_F = \pi n_F$ \\
+$n_B$ & density of bosons \\ \\
 
-$E_{F,k}$ & energy dispersion of the fermions \\
-$E_{B,k}$ & energy dispersion of the bosons \\ \\
+$E_{F,k}$ & energy dispersion of fermions \\
+$E_{B,k}$ & energy dispersion of bosons \\ \\
 
-$g_B$ & point interaction strength between the bosons \\
-$g_{BF}$ & point interaction strength between the bosons and fermions \\
+$g_B$ & point interaction strength between bosons \\
+$g_{BF}$ & point interaction strength between bosons and fermions \\
 $a_B$ & BEC scattering length: $g_B = \frac{4\pi a_B}{m_B}$ \\
-$a_{BF}$ & Bose-Fermi scattering length: $g_B = \frac{2\pi a_B}{m_r}$ \\ \\
+$a_{BF}$ & Bose-Fermi scattering length: $g_B = \frac{2\pi a_{BF}}{m_r}$ \\ \\
 
-$v_F$ & speed of the fermions, the free gas: $k_F = m_Fv_F$ \\
-$c_0$ & speed of the bosons: $c_0 = \frac{\sqrt{4\pi n_Ba_B}}{m_B}$ \\
+$v_F$ & speed of fermions, free gas: $k_F = m_Fv_F$ \\
+$c_0$ & speed of bosons: $c_0 = \sqrt{\frac{n_Bg_B}{m_B}}$ \\
 $\xi$ & BEC coherence length: $\xi = \frac{1}{\sqrt{2m_Bn_Bg_B}}$ \\ \\
 
 $\omega_t$ & trapping frequency, fermion wires \\
@@ -372,11 +373,17 @@ In this third part we analyse the double wire system. The physical setup is the 
 \input{Chapters/Chapter10}
 \input{Chapters/Chapter11}
 
+\part{Kitaev chain in 1D Bose gas}
+In this fourth part..
+\newpage
+\input{Chapters/Chapter12}
+\input{Chapters/Chapter13}
+
 \part{Discussions and Conclusions}
 \newpage 
 
-\input{Chapters/Chapter12}
-\input{Chapters/Chapter13}
+\input{Chapters/Chapter14}
+\input{Chapters/Chapter15}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
