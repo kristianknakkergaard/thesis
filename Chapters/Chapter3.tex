@@ -25,11 +25,11 @@ Hence, we expand the fields in plane wave states. $b_\mathbf{k}$ and $c_p$ denot
 \begin{equation}
 H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{LV}}\int d^3 r \sum_{p,p',q,q'}\sum_{\mathbf{k}_{\perp},\mathbf{k}_{\perp}'}\text{e}^{i((p-p')+(q-q'))x} \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} c^\dagger_{p'} b^\dagger_{q',\mathbf{k}_\perp'}b_{q,\mathbf{k}_\perp}c_p. \nonumber
 \end{equation}
-The integral over $x$ yields the factor $\mathcal{L}\delta_{p-p',q'-q}$, implying total momentum conservation along the wire. The integral over $\mathbf{r}_\perp$ gives the Fourier transform of $\phi_0^2(\mathbf{r}_\perp)$. Since $\phi_0$ is a gaussian the Fourier transform is as well. Explicitly:
+The integral over $x$ yields the factor $\mathcal{L}\delta_{p-p',q'-q}$, implying total momentum conservation along the wire. The integral over $\mathbf{r}_\perp$ gives the Fourier transform of $\phi_0^2(\mathbf{r}_\perp)$. Since $\phi_0$ is a gaussian, the Fourier transform is as well. Explicitly:
 \begin{equation}
 \int d^2 r_\perp \; \phi^2_0(\mathbf{r}_{\perp})\text{e}^{i(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')\cdot \mathbf{r}_\perp} = \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_{\perp}-\mathbf{k}_{\perp}')^2}. \nonumber
 \end{equation}
-Taking the sum over $q'$ forces $q' = p-p' + q$. In total:
+Taking the sum over $q'$ forces $q' = p - p' + q$. In total:
 \begin{align}
 H_{BF}^\text{int} &= \frac{g_{BF}}{\mathcal{V}}\sum_{p,p',q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp-\mathbf{k}_\perp')^2} c^\dagger_{p'} b^\dagger_{p-p'+q, \mathbf{k}_\perp'} b_{q,\mathbf{k}_\perp}c_{p} \nonumber \\
                   &= \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp-\mathbf{k}_\perp')^2} c_{p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}c_{p_2}.
@@ -173,12 +173,12 @@ with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega
 \section{Retardation effects} \label{sec.RetardationEffects}
 In this section we will discuss the $\omega_q = 0$ limit. 
 
-From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects. In turn this embodies, that the bosons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \sqrt{\frac{n_Bg_B}{m_B}} = \frac{\sqrt{4\pi n_B a_B}}{m_B}$.\footnote{It is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
+From equation \eqref{eq.VFFindXBEC} it is evident that the induced interaction has a frequency dependency. This dependency reflects, that the fermions do not interact instanteneously. This is also called retardation effects. In turn this embodies, that the phonons in the condensate, the mediators of the fermion-fermion interaction, moves at a finite speed $c_0 = \sqrt{\frac{n_Bg_B}{m_B}} = \frac{\sqrt{4\pi n_B a_B}}{m_B}$.\footnote{It is analogous to the retarded fields in electrodynamics. There it reflects the finiteness of the speed of light.} To neglect these effects we therefore need to assume, that the typical speed of the fermions is much smaller than the speed of the bosons: $v_F \ll c_0$, $v_F = k_F/m_F$ the Fermi speed for free fermions. This leads to the relation:
 \begin{equation}
 1 \gg \frac{v_F}{c_0} = \frac{\sqrt{\pi}}{2} \frac{m_B}{m_F}\frac{1}{ \sqrt{ (n_Ba_B^3)^{1/3} } }\frac{n_F}{ n_B^{1/3} } = \frac{m_B}{m_F}\frac{k_F\xi}{\sqrt{2}}, 
 \label{eq.RetardationEffectsneglectionassumption}
 \end{equation}
-whereby we have expressed the ratio of velocities in terms of unitless quantities and in terms of the coherence length. With this assumption at hand we can focus on the zero frequency induced interation $V_{\text{ind}}(q,0)$. It is also clear, that the neglect of retardation effects is equivalent to only studying short range interactions: $k_F\xi \approx 1$. 
+whereby we have expressed the ratio of velocities in terms of unitless quantities and in terms of the coherence length. With this assumption at hand we can focus on the zero frequency induced interaction $V_{\text{ind}}(q,0)$. It is also clear, that the neglect of retardation effects is equivalent to only studying short range interactions: $k_F\xi \lesssim 1$. 
 
 \section{Zero frequency induced interaction}
 Let us now look at the zero frequency induced interaction $V_{\text{ind}}(q,0)$. We can write this interaction in two equivalent ways:
@@ -186,7 +186,7 @@ Let us now look at the zero frequency induced interaction $V_{\text{ind}}(q,0)$.
 V_{\text{ind}}(q,0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\int_{0}^\infty dv \frac{\text{e}^{-v}}{v+F(q)} = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q)),
 \label{eq.VFF(q,0)}
 \end{equation}
-where $F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)$, $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC coherence length and $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{\text{ind}}(x,0)$. This is of course done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
+where $F(q) = \frac{l_t^2}{2}\left(q^2+\frac{2}{\xi^2} \right)$, $\frac{1}{\xi^2} = 2m_Bn_Bg_B$ is the BEC coherence length and $E_1(x)$ is the exponential integral: $E_1(x) = \int_1^\infty du \frac{\text{e}^{-xu}}{u}$. I now wish to calculate the position space potential $\tilde{V}_{\text{ind}}(x,0)$. This is done by Fourier transforming the above. Using equation \eqref{eq.VFF(q,0)} we obtain:
 \begin{equation}
 \tilde{V}_{\text{ind}}(x,0) = -\frac{m_Bg_{BF}^2n_B}{2\pi^2}\int_0^\infty dv\;  \text{e}^{-v}\int_{-\infty}^\infty dq \frac{\text{e}^{iqx}}{v+F(q)}.
 \end{equation}
@@ -208,12 +208,12 @@ Notice, that there are \textit{two} relevant length scales: the coherence length
 \lim_{l_t\to 0} \left[ \tilde{V}_{\text{ind}}(x,0) \right] = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{-\frac{\sqrt{2}|x|}{\xi}}}{|x|}.
 \label{eq.Vx_lt=0}
 \end{equation}
-The result for $V_{\text{ind}}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{\text{ind}}(x,0)$ along with the asymptotic form is shown in \ref{fig.Vx}. Both have been done for several values of $l_t$. As expected we see, that the momentum space interaction diverges as $l_t \to 0$, and that the real space interaction asymptotically goes to the Yukawa interaction. The plots are performed by going to a dimensionless form of the interactions; utilizing that the relevant energy scale is the Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. In detail the asymptotic Yukawa potential in dimensionless form is:
+The result for $V_{\text{ind}}(q,0)$ is shown in figure \ref{fig.Vq} and the result for $\tilde{V}_{\text{ind}}(x,0)$ along with the asymptotic form is shown in figure \ref{fig.Vx}. Both have been done for several values of $l_t$. As expected we see, that the momentum space interaction diverges as $l_t \to 0$, and that the real space interaction asymptotically goes to the Yukawa interaction. The plots are performed by going to a dimensionless form of the interactions; utilizing that the relevant energy scale is the Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. In detail the asymptotic Yukawa potential on dimensionless form is:
 \begin{equation}
 \frac{\tilde{V}_{\text{ind}}(x,0)}{\epsilon_{F,0}} = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ -\frac{ \sqrt{2}|x|}{\xi} } }{k_F|x|}.
 \label{eq.Vxdimensionless}
 \end{equation}
-Since the momentum space induced interaction is given by the Fourier transform of induced interaction in real space one unit of $k_F$ is lost to the integration. The dimensionless form is hereby for any $l_t > 0$: 
+Since the momentum space induced interaction is given by the Fourier transform of the induced interaction in real space one unit of $k_F$ is lost to the integration. The dimensionless form is hereby for any $l_t > 0$: 
 \begin{equation}
 \frac{2m_F}{k_F}V_{\text{ind}}(q,0) = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \text{e}^{F(q)} E_1(F(q)).
 \label{eq.Vqdimensionless}

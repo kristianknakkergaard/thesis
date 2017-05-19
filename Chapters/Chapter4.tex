@@ -42,7 +42,7 @@ We hereby obtain the final Hamiltonian expanded in momentum space operators:
 H^\text{int}_{FF} = \frac{1}{2\mathcal{L}} \sum_{k,q,p} W_{\text{ind}}(k, q, p) c^\dagger_{k+p} c^\dagger_{q-p} c_{q} c_{k}. 
 \label{eq.HintMomentumSpace}
 \end{equation}
-The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W_{\text{ind}}(k, q, p)$. This depends both on the exchange $p$ and the difference $k - q$. In section \ref{sec.Vanishingtrappingwidtlimit} we will show, that this amplitude has a well-defined $l_t \to 0$ limit. The total interaction Hamiltonian has hereby been transformed to momentum space. 
+The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W_{\text{ind}}(k, q, p)$. This depends both on the exchange, $p$, and the difference of incoming momenta, $k - q$. In section \ref{sec.Vanishingtrappingwidtlimit} we will show, that this amplitude has a well-defined $l_t \to 0$ limit. The total interaction Hamiltonian has hereby been transformed to momentum space. 
 
 \clearpage
 
@@ -164,7 +164,7 @@ The expected temperature dependence of the system is inferred from the original 
 In terms of Landau theory of phase transitions as reviewed in section \ref{sec.landauphasetransitions} the order parameter is the quantity, that is zero in the normal phase above the critical temperature, $T_c$, and nonzero below. From this it is clear, that $\braket{c_{-k}c_k}$ is exactly this quantity.
 
 \section{Ground state and Cooper pairs}
-The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $f$-operators as:
+The ground state $\ket{\text{S}}_0$ can be expressed simply in terms of the original $c$-operators as:
 \begin{equation}
 \ket{\text{S}}_0 = \prod_{k > 0} \left(u_{F,k} + v_{F,k}c^\dagger_{-k}c^\dagger_k\right)\ket{0},
 \end{equation} 
@@ -211,7 +211,7 @@ Since $W_{\text{ind}}(k, k') = W_{\text{ind}}(k, q = -k, p = k' - k) $, we get a
 \lim_{l_t \to 0} \; W_{\text{ind}}(k, k') = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k + k')^2+2/\xi^2}{(k - k')^2+2/\xi^2}\right].
 \label{eq.EffectiveInteractionlt=0} 
 \end{equation}
-This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the effective interaction diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero. The dimensionless effective induced interaction for $l_t = 0$ is hereby:
+This will be used extensively in the numerical analyses in the next two chapters. We notice that along the lines $k = k'$ and $k = -k'$ the effective interaction diverges logarithmically for $k\to \infty$. Away from these lines the function quickly goes to zero. The dimensionless effective induced interaction for $l_t = 0$ is:
 \begin{equation}
 \frac{2m_F}{k_F} W_{\text{ind}}(k,k') = - 4\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right],
 \label{eq.EffectiveInteractionlt=0dimensionless} 

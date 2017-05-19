@@ -34,14 +34,14 @@ Here we assume that $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. $
 \psi^1_1(x) &= g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & -i & 0 & 0 \end{bmatrix}^T , \hspace{0.5cm} \psi^1_2(x) = g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & +i & 0 & 0 \end{bmatrix}^T, \nonumber \\
 \psi^2_1(x) &= g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & +i \end{bmatrix}^T , \hspace{0.5cm} \psi^2_2(x) = g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & -i \end{bmatrix}^T
 \end{align}
-With: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{k_F}{N}\text{e}^{+\frac{1}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant. Further $\Delta^{11} = k_F\left.\frac{\partial \Delta^{11}_k}{\partial k}\right|_{k = 0}$. Hence, $g_1(x)$ and $g_2(x)$ are exponentially located around $x = 0$ and $x = \mathcal{L}$ respectively. The superscript ${}^i$ refers to the wire, the subscript ${}_j$ to which end the wave function is located. 
+With: $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant. Further $\Delta^{11} = k_F\left.\frac{\partial \Delta^{11}_k}{\partial k}\right|_{k = 0}$. Hence, $g_1(x)$ and $g_2(x)$ are exponentially located around $x = 0$ and $x = \mathcal{L}$ respectively. The superscript ${}^i$ refers to the wire, the subscript ${}_j$ to which end the wave function is located. 
 
 From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. We hereby get: $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x), \mathcal{T}_-\psi^1_2(x) = -\psi^2_2(x)$. The edge states at the same end in each wire are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states above: 
 \begin{align}
 \gamma^1_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) + i\psi^\dagger_{1,F}(x)), \hspace{0.5cm} \gamma^1_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) - i\psi^\dagger_{1,F}(x)), \nonumber \\
 \gamma^2_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) - i\psi^\dagger_{2,F}(x)), \hspace{0.5cm} \gamma^2_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) + i \psi^\dagger_{2,F}(x)). \nonumber 
 \end{align}
-In second quantization the above notion of Kramers partners is described the fact, that: $T_-\gamma^1_{0,j}T_-^{-1} = \gamma^2_{0,j}$, simply because $\psi_{1,F}(x) \to \psi_{2,F}(x)$ under $T_-$ and $T_-$ is antiunitary. 
+In second quantization the above notion of Kramers partners is described the fact, that: $T_-\gamma^1_{0,j}T_-^{-1} = \gamma^2_{0,j}$, simply because $\psi_{1,F}(x) \overset{T_-}{\to} \psi_{2,F}(x)$ and $T_-$ is antiunitary.
 
 \section{Kramers degeneracy: protection of edge states}
 \label{sec.2wireskramersdegeneracy}
@@ -59,7 +59,7 @@ In the first equality we use, that we can flip the inner product by going to the
 \begin{equation}
 \bra{\psi_1}H'\ket{\psi_2} = \bra{T\psi_2}TH'T^{-1}\ket{T\psi_1} = \bra{T\psi_2}H'\ket{T\psi_1} = -\bra{\psi_1}H'\ket{\psi_2} \Rightarrow \bra{\psi_1}H'\ket{\psi_2} = 0. \nonumber
 \end{equation}
-The first equality holds, since $H'$ is hermitian \cite{Sakurai}. 
+The first equality holds, since $H'$ is hermitian \cite[p. 274]{Sakurai}. 
 
 Now what has this to do with the system at hand? We let $\ket{\psi_j} = d^\dagger_j\ket{\text{S}}_0$ for $j = 1, 2$. If we can show, that the interwire interaction $H' = H^\text{int}_{FF,12}$ is time reversal invariant under $T_-$, then the above analysis shows that the edge states cannot couple. From equation \eqref{eq.Hint12realspace} we have:
 \begin{equation}

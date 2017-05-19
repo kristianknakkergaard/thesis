@@ -12,15 +12,15 @@ Occupancyplot.tex: data makefile
 'set tics out;       			   '\
 'set xlabel "$$k/k_F$$"; 		   '\
 'set ylabel "$$\braket{f_k^\dagger f_k}$$"; 	   '\
-'set key top right;					'\
-'set key width -0.7;'\
+'set key top right Left;					'\
+'set key width -4;'\
+'set key spacing 1.5; '\
 'plot [0:2][0:1.1] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 1:2 title "Free gas" with lines lw 2 lc rgb "black" '\
-',"$<" index 1 using 1:2 title "$$r_B = 0.005$$" with lines lw 2 lc rgb "#e00000" '\
-',"$<" index 2 using 1:2 title "$$r_B = 0.006$$" with lines lw 2 lc rgb "#167000" '\
-',"$<" index 3 using 1:2 title "$$r_B = 0.007$$" with lines lw 2 lc rgb "#002daa" '\
-',"$<" index 4 using 1:2 title "$$r_B = 0.010$$" with lines lw 2 lc rgb "#9100aa" '\
+',"$<" index 2 using 1:2 title "$$n_F / n_B^{1/3} = 0.2$$" with lines lw 2 lc rgb "#e00000" '\
+',"$<" index 3 using 1:2 title "$$n_F / n_B^{1/3} = 0.4$$" with lines lw 2 lc rgb "#167000" '\
+',"$<" index 4 using 1:2 title "$$n_F / n_B^{1/3} = 0.6$$" with lines lw 2 lc rgb "#9100aa" '\
 | gnuplot
 
 
@@ -32,15 +32,15 @@ energyplot.tex: data makefile
 'set tics out;       			   '\
 'set xlabel "$$k/k_F$$"; 		   '\
 'set ylabel "$$ E_{F,k}/\epsilon_{F,0}$$"; 	   '\
-'set key top left;					'\
-'set key width -0.7;'\
+'set key top left Left;					'\
+'set key width -4;'\
+'set key spacing 1.5; '\
 'plot [0:2.0][0:5.0] 		   '\
 '0 notitle with lines lc rgb "black" '\
 ',"$<" index 0 using 1:5 title "Free gas" with lines lw 2 lc rgb "black" '\
-',"$<" index 1 using 1:5 title "$$r_B = 0.005$$" with lines lw 2 lc rgb "#e00000" '\
-',"$<" index 2 using 1:5 title "$$r_B = 0.006$$" with lines lw 2 lc rgb "#167000" '\
-',"$<" index 3 using 1:5 title "$$r_B = 0.007$$" with lines lw 2 lc rgb "#002daa" '\
-',"$<" index 4 using 1:5 title "$$r_B = 0.010$$" with lines lw 2 lc rgb "#9100aa" '\
+',"$<" index 2 using 1:5 title "$$n_F / n_B^{1/3} = 0.2$$" with lines lw 2 lc rgb "#e00000" '\
+',"$<" index 3 using 1:5 title "$$n_F / n_B^{1/3} = 0.4$$" with lines lw 2 lc rgb "#167000" '\
+',"$<" index 4 using 1:5 title "$$n_F / n_B^{1/3} = 0.6$$" with lines lw 2 lc rgb "#9100aa" '\
 | gnuplot
 
 data log: Occupancy

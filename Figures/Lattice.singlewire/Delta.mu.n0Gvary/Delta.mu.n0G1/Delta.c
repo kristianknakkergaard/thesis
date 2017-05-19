@@ -55,7 +55,7 @@ main (void)
   double constant = sqrt(2.0) * (mB + 1.0 / mB + 2.0) * rBF * rBF * 1.0 / (lt * lt * lt) * eps0;  
 
   /*free parameters:*/
-  double xi           = 8.0; /*we will eventually want to control the range rather than the Bose gas parameter*/
+  double xi           = 5.0; /*we will eventually want to control the range rather than the Bose gas parameter*/
   double fill_middle  = 0.5, dfill = 0.004;
   double t2           = 0.0;
   int    N            = 100; 

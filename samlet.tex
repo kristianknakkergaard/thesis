@@ -45,6 +45,7 @@
 \makeatother
 
 \usepackage{float}
+\usepackage{color}
 
 %%%%TIKZ:
 \usepackage{pgfplots}
@@ -199,7 +200,9 @@
 
 In this thesis we theoretically investigate the properties of 1D-3D Fermi-Bose mixtures. Specifically, we embed one dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. The single wire system is then studied in a weak coupling limit in a mean field approach. This produces a self-consistency equation for the resulting $p$-wave pairing, which we solve for numerically. The system realises the Kitaev model of $p$-wave pairing, which we show to have a topological ground state by computing the topological index. As a result edge states form at the end of the wires. 
 
-The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave for decreasing interwire distances is studied in terms of the symmetries and topology of the system. This analysis is compared to a numerical calculation of the pairings. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We realize both a continuous and abrubt cross over and show that these correspond to a regular and topological phase transition by computing the topological index in both cases. The continuous cross over is found to be the energetically favourable.
+The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave for decreasing interwire distances is studied in terms of the symmetries and topology of the system. This analysis is compared to a numerical calculation of the pairings. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We show, that the energetically favourable transition exhibits a coexistence of $p$- and $s$-wave pairing. This transition is nontopological, eventhough it is between a topological and trivial phase. 
+
+Finally, we study an extension of the Kitaev chain in a 1D Bose gas. We show, that there are two possible topological phases; one with a single edge state, one with two.
 }
 
 %----------------------------------------------------------------------------------------
@@ -212,25 +215,25 @@ The double wire system of parallel fermion wires is then studied in a similar ma
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter7}, we investigate the single fermion wire system. In part III, chapters \ref{Chapter8} through \ref{Chapter11}, we investigate a two wire system of parallel wires. Finally, in part IV we discuss the main results and come with our conclusions. 
 
-I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. Also, I would like to thank postdoc Zhigang Wu for his comments and thoughts. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
+I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. Also, I would like to thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
 \clearpage
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
 
-\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
-\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
-{
-\textbf{B} & \textbf{B}osons \\
-\textbf{BCS} & \textbf{B}ardeen-\textbf{C}ooper-\textbf{S}chrieffer \\
-\textbf{BdG} & \textbf{B}ogoliubov-\textbf{d}e \textbf{G}ennes \\
-\textbf{BEC} & \textbf{B}ose-\textbf{E}instein \textbf{C}ondensate \\
-\textbf{F} & \textbf{F}ermions \\
-}
-\clearpage
+%\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+%{
+%\textbf{B} & \textbf{B}osons \\
+%\textbf{BCS} & \textbf{B}ardeen-\textbf{C}ooper-\textbf{S}chrieffer \\
+%\textbf{BdG} & \textbf{B}ogoliubov-\textbf{d}e \textbf{G}ennes \\
+%\textbf{BEC} & \textbf{B}ose-\textbf{E}instein \textbf{C}ondensate \\
+%\textbf{F} & \textbf{F}ermions \\
+%}
+%\clearpage
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
@@ -262,8 +265,8 @@ $\mu$ & chemical potential of fermions \\ \\
 $n_F$ & density of fermions: $k_F = \pi n_F$ \\
 $n_B$ & density of bosons \\ \\
 
-$E_{F,k}$ & energy dispersion of fermions \\
-$E_{B,k}$ & energy dispersion of bosons \\ \\
+$E_{F,k}$ & energy dispersion of fermion quasiparticles  \\
+$E_{B,k}$ & energy dispersion of boson quasiparticles \\ \\
 
 $g_B$ & point interaction strength between bosons \\
 $g_{BF}$ & point interaction strength between bosons and fermions \\
@@ -279,7 +282,7 @@ $l_t$ & trapping width, fermion wires: $l_t = \frac{1}{m_F\omega^2_t}$ \\ \\
 
 $f(E)$ & Fermi-Dirac distribution function \\
 $b(E)$ & Bose-Einstein distribution function \\
-$\omega_n$ & bosonic Matsubara frequency: $\omega_n = \frac{2\pi n}{\beta}$ \\ \\
+$\omega_n$ & Matsubara frequency. Bosonic: $\omega_n = \frac{2\pi n}{\beta}$. Fermionic: $\omega_n = \frac{2\pi (n+1)}{\beta}$  \\ \\
 
 $\chi_{\text{BEC}}$ & BEC density-density correlation function \\
 $d$ & interwire distance \\
@@ -300,8 +303,7 @@ $\mathcal{C}$ & particle-hole transformation, first quantization \\
 $\mathcal{S}$ & chiral transformation, first quantization \\ \\
 
 $\mathcal{A}$ & Berry connection \\
-$\text{CS}_1$ & Chern-Simons invariant in one dimension \\
-$W_1$ & Wilson loop in one dimension 
+$\text{CS}_1$ & Chern-Simons invariant in one dimension
 }
 \newpage
 
@@ -311,16 +313,16 @@ $W_1$ & Wilson loop in one dimension
 
 \setstretch{1.3}
 
-\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+%\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
 \lhead{\emph{Contents}} % Set the left side page header to "Contents"
 \tableofcontents % Write out the Table of Contents
 
-\lhead{\emph{List of figures}} % Set the left side page header to "List of Figures"
-\listoffigures % Write out the List of Figures and Tables
+%\lhead{\emph{List of figures}} % Set the left side page header to "List of Figures"
+%\listoffigures % Write out the List of Figures and Tables
 
-\lhead{\emph{List of tables}} % Set the left side page header to "List of Tables"
-\listoftables % Write out the List of Tables
+%\lhead{\emph{List of tables}} % Set the left side page header to "List of Tables"
+%\listoftables % Write out the List of Tables
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS

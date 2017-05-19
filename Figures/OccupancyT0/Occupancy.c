@@ -28,7 +28,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
 
 double Deltaguess(double k)
 {
-  return 0.4 * k / (pow(k,4) + 1);
+  return 0.4 * k / (pow(k, 2.0) + 3.0);
 }
 
 
@@ -40,14 +40,13 @@ main (void)
   double rBF = 0.1;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
 
-  /*nB:*/
-  double nB  = 1.0e5; 
-  double aB, retneg;
-
   
   /*k-values:*/
-  double k_low = 0.0, k_up = 150.0, dk = 0.005;
+  double k_low = 0.0, k_up = 50.0, dk = 0.005;
   int N = (int) (k_up - k_low)/dk;
+
+  /*convergence:*/
+  double convergence = 1e-4;
 
   /*variables:*/
   double epsilonkprime;
@@ -63,9 +62,9 @@ main (void)
 
 
   /*For calculating mu:*/
-  double mu_low = 0.1, dmu = 0.001;
+  double mu_low = 0.9, dmu = 0.0001;
   double muintegral, vkprimenorm2;
-  double mu_min_value = 0.9;
+  double mu_min_value = 0.95;
   double mu;
   int Nmu   = 1000;
   double mu_guess;
@@ -82,7 +81,7 @@ main (void)
   double kprime;
   int check = 0;
   /*Occupancy plot */
-  int N_plot = 20.0/dk;
+  int N_plot = 5.0 / dk;
 
   printf("%s \t %s \t %s \t %s \t %s \n", "k", "Occupancy", "mu", "kmax", "Energy" );
 
@@ -108,18 +107,22 @@ main (void)
   fprintf(stderr, "%i\n", ++check);
 
   /*gas parameter*/
-  const int Nr = 4;
+  const int NBdist = 4;
   int iter;
-  double rBB[Nr] = {0.005, 0.006, 0.007, 0.01}; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
+  double rBB     = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
+  double Bdist[NBdist] = {0.05, 0.2, 0.4, 0.6};  
+  double nB; 
+  /*vFoverc0:*/
+  double vFoverc0;
 
-  for (int r = 0; r < Nr; ++r)
+  for (int r = 0; r < NBdist; ++r)
   {
-    aB     = M_PI * rBB[r] / pow(nB, 1.0/3.0);
-    retneg = pow(1.0/mB, 2.0) * nB * aB;
-    
-    if (retneg < 20.0)
+    nB       = pow(Bdist[r], -3.0);
+    vFoverc0 = sqrt(M_PI) / 2.0 * mB * 1.0 / sqrt(rBB) * pow(nB, -1.0 / 3.0);
+
+    if (vFoverc0 > 1.0)
     {
-      fprintf(stderr, "retneg = %lg \n", retneg );
+      fprintf(stderr, "vFoverc0 = %lg \n", vFoverc0 );
       break;
     }
     
@@ -132,7 +135,7 @@ main (void)
       for (int iprime = 0; iprime < N; ++iprime)
       {
         kprime = ((double)iprime) * dk + k_low;
-        gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, rBB[r], rBF, nB, mB) );
+        gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, rBB, rBF, nB, mB) );
       }
     }
 
@@ -179,14 +182,14 @@ main (void)
       }
       mu_min_value = gsl_vector_get(mu_vector,gsl_vector_min_index(find_min_mu));
 
-      if ( fabs(mu - mu_min_value)/mu_min_value < 1e-3 && fabs( gsl_vector_max(D) - D_maxk )/D_maxk < 1e-3 )
+      if ( fabs(mu - mu_min_value)/mu_min_value < convergence && fabs( gsl_vector_max(D) - D_maxk )/D_maxk < convergence )
       {
         break;
       }
       fprintf(stderr, "%i \t %i\n", check, ++iter);
     }
 
-    if (gsl_vector_max(D) < 1e-2)
+    if (gsl_vector_max(D) < convergence)
     {
       fprintf(stderr, "%s\n","Pairing too small" );
       return 0;
@@ -200,10 +203,10 @@ main (void)
       EFkprime      = pow(epsilonkprime * epsilonkprime + Deltakprime * Deltakprime, 1.0 / 2.0);
 
       vkprimenorm2  = 1.0 / 2.0 * ( 1.0 - epsilonkprime / EFkprime ); 
-      printf("%lg \t %lg \t %lg \t %lg \t %lg \n", kprime, vkprimenorm2, mu, kmax, EFkprime);
+      printf("%lg \t %lg \t %lg \t %lg \t %lg  \n", kprime, vkprimenorm2, mu, kmax, EFkprime);
     }
     printf("\n \n");
-    fprintf(stderr, "%i \t %i\n", ++check, iter);
+    fprintf(stderr, "%i \t %i \t %lg \n", ++check, iter, vFoverc0);
   }
 
 

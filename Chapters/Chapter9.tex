@@ -8,7 +8,7 @@
 \chead{Chapter 9. \emph{Grand Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we disciss the symmetries and use these to classify the grand Hamiltonian topologically. 
+In this chapter we will study the fermion Hamiltonian. Firstly, we will make the mean field approximation analogous to the one in chapter \ref{Chapter4}. See section \ref{sec.2wiresmeanfieldapproximation}. Secondly, we will write up the grand Hamiltonian for the fermions. See section \ref{sec.2wiresgrandHFF}. Thirdly, we will derive the gap equations in section \ref{sec.2wiresgapandnumberequations}. Finally, in section \ref{sec.2wiressymmetries} we discuss the symmetries and use these to classify the grand Hamiltonian topologically. 
 
 \section{Interaction Hamiltonian and the mean field approximation}
 \label{sec.2wiresmeanfieldapproximation}
@@ -154,7 +154,7 @@ W_{\text{ind}}^{12}(k,k')   &= W_{\text{ind}}^{12}(k',k), \hspace{0.5cm} \text{S
 W_{\text{ind}}^{12}(-k,k')  &= W_{\text{ind}}^{12}(k,k'), \hspace{0.5cm} \text{Even in arguments}.
 \label{eq.EffectiveInterwireInteractionSymmetries}
 \end{align}
-This is very similar to the symmetry properties of $W_{\text{ind}}^{11}(k, k')$ listed in equation \ref{eq.EffectiveInteractionSymmetries}, with the only difference, that the interwire effective interaction defined here is even in a single argument. We notice, that these gap equations have a slightly different structure than the ones for the single wire. Finally, the above quations goes to the gap equations for the separated single wires found in chapter \ref{Chapter4}, when $\Delta^{12}_k$ goes to $0$.   	
+This is very similar to the symmetry properties of $W_{\text{ind}}^{11}(k, k')$ listed in equation \ref{eq.EffectiveInteractionSymmetries}, with the only difference, that the interwire effective interaction defined here is \textit{even} in a single argument. We notice, that these gap equations have a slightly different structure than the ones for the single wire. Finally, the above quations goes to the gap equations for the separated single wires found in chapter \ref{Chapter4}, when $\Delta^{12}_k$ goes to $0$.   	
 
 It turns out that the number equation calculated from $N_F = \sum_k \braket{c^\dagger_{j,k}c_{j,k}}$ has the exact same structure as the single wire number equation. Explicitly: 
 \begin{equation}
@@ -173,11 +173,11 @@ This equation has two trivial solutions. The first is, where the interwire pairi
 \label{subsec.TRwireexchange}
 In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is real; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
 
-We first define a time reversal operator, that squares to $\mathbb{I}$ and interchanges the wires: 
+We first define a time reversal operator, that squares to $ + \mathbb{I}$ and interchanges the wires: 
 \begin{equation}
 T_+\begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_+^{-1} = \eta\sigma_1 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{2,-k} \\ c^\dagger_{1,-k} \end{bmatrix},\nonumber
 \end{equation} 
-with $\sigma_1$ the first Pauli matrix operating in wire space and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $(\eta\sigma_1)(\eta\sigma_1)^* = \sigma_1^2 = \mathbb{I}$ we get, that $T_+$ squares to plus the identity. The question is now, under what circumstances $T_+$ is a symmetry of the Hamiltonian. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
+with $\sigma_1$ the first Pauli matrix operating in wire space and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $(\eta\sigma_1)(\eta\sigma_1)^* = \sigma_1^2 = + \mathbb{I}$ we get, that $T_+$ squares to plus the identity. The question is now, under what circumstances $T_+$ is a symmetry of the Hamiltonian. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
 \begin{equation}
 \Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_+}{\to} \Delta^{11*}_k \left(\eta c^\dagger_{2,-k}\right)\left(\eta c^\dagger_{2,k}\right) = -\eta^2\Delta^{11}_k c^\dagger_{2,k}c^\dagger_{2,-k}. \nonumber
 \end{equation}
@@ -215,7 +215,7 @@ Similarly to the single wire case we can define a particle-hole transformation, 
 \begin{equation}
 C\begin{bmatrix} c_{j,k} \\ c^\dagger_{j,-k} \end{bmatrix}C^{-1} = \tau_1 \begin{bmatrix} c^\dagger_{j,-k} \\ c_{j,k} \end{bmatrix} = \begin{bmatrix} c_{j,k} \\ c^\dagger_{j,-k} \end{bmatrix}, 
 \end{equation} 
-both for $j=1$ and $j=2$. It is then clear, that the total spinor $C_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\tau_1^2 = \mathbb{I}$ so the transformation squares to unity. 
+both for $j=1$ and $j=2$. It is then clear, that the total spinor $C_k$ is also unaffected by the transformation. As a result the Hamiltonian is invariant under $C$, and $\tau_1^2 = + \mathbb{I}$ so the transformation squares to unity. 
 
 This analysis also gives us a sublattice symmetry in the case of an imaginary or real interwire pairing: $S_\pm = T_\pm C$. In total this puts the system in Cartan class BDI, if $\Delta^{12}_k$ is imaginary, and in Cartan class DIII, if $\Delta^{12}_k$ is real. The topological index is respectively to be found in the integers $\mathbb{Z}$ and in $\mathbb{Z}_2 = \{-1,1\}$. See table \ref{tab.PeriodicTableTISC} for the details. We will return to the actual determination of these invariants in chapter \ref{Chapter10}. 
 

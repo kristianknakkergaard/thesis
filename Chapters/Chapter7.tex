@@ -88,16 +88,17 @@ Classifying the Hamiltonians in this framework puts the Hamiltonian in a specifi
 \label{tab.PeriodicTableTISC}
 \end{table}
 
-For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. 
+For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = + \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. However, we will also consider what effect it has, if the time reversal symmetry is broken. In this situation the system is in Cartan class $D$ and the topological index is to be found in $\mathbb{Z}_2 = \{-1,1\}$. In the following section we clarify the distinction by explicitly constructing a mapping, which in turn is used to calculate these topological indices. 
 
-\section{Topological index and phases}
+\section{\texorpdfstring{$\mathbb{Z}_2$}{Z2} topological index and phases}
 \label{sec.topindexandphases}
-In this section we will anticipate a potential breaking of time reversal symmetry. This means, that we only want to look at topological effects protected by the built-in particle-hole symmetry. In this sense, we compute the topological index corresponding to symmetry class $D$. We therefore search for a topological index in $\mathbb{Z}_2=\{-1,1\}$. This mimics the approach in \cite{Alicea}. The idea is the following. Define the vector $\mathbf{h}(k)$ with the components $h_z(k) = \varepsilon_k, h_y(k) = 0, h_x(k) = \Delta_k$. Since $\Delta_k$ has been chosen real, we can then see, that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\tau$, with $\boldsymbol\tau = (\tau_1,\tau_2,\tau_3)$ containing the Pauli matrices. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
+In this section we calculate the $\mathbb{Z}_2$ topological invariant. This means, that any perturbations obey the original particle-hole symmetry of the system. This mimics the approach in \cite{Alicea}.
+
+ The idea of the analysis is the following. Define the vector $\mathbf{h}(k)$, so that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\tau$, with $\boldsymbol\tau = (\tau_1,\tau_2,\tau_3)$ containing the Pauli matrices. In the case of no perturbations and $\Delta_k$ real we have: $h_z(k) = \varepsilon_k, h_y(k) = 0$ and $h_x(k) = \Delta_k$. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
 \begin{equation}
 \hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}. 
 \label{eq.hhatdefinition}
 \end{equation}
-
 
 \begin{figure}
 \center
@@ -120,19 +121,23 @@ In this section we will anticipate a potential breaking of time reversal symmetr
 
 It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$ and $\Delta_k \overset{k\to \infty}{\to} 0$, we notice that: 
 \begin{equation}
-\hat{h}(k=0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k=\infty) = \hat{z} = p_{\infty}\hat{z},
+\hat{h}(k = 0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k = \infty) = \hat{z} = p_{\infty}\hat{z},
 \label{eq.hhatk0kinfty}
 \end{equation}
-where $\text{sgn}$ denotes the sign function. The idea is then, that we can specify a number $\nu \in \{-1,1\}$ by:
+where $\text{sgn}$ denotes the sign function. The idea is then, that we can specify a number $\nu_{\mathbb{Z}_2} \in \mathbb{Z}_2$ by:
 \begin{equation}
-\nu = p_0p_{\infty} = -\text{sgn}(\mu).
+\nu_{\mathbb{Z}_2} = p_0p_{\infty} = -\text{sgn}(\mu).
 \label{eq.topinvnudefition}
 \end{equation}
-The claim is, that we have hereby defined a topological index, which specifies two states, that cannot be deformed into each other without closing the energy gap. Graphically this is clear from figure \ref{fig.hhatplot}. In red (blue) I have plotted the behaviour of $\hat{h}$ for $\mu > 0$ ($\mu < 0$), omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand, we see that $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This is of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu = 1$. 
+The claim is, that we have hereby defined a topological index, which specifies two states, that cannot be deformed into each other without closing the energy gap. The precise statement is, that these two phases stays distinct under symmetry-preserving perturbations, i.e. under perturbations that also have the particle-hole symmetry, $\mathcal{C}$. Therefore, we should check that $\nu_{\mathbb{Z}_2}$ is well-defined for any $\hat{h}(k)$, that obeys the symmetry. Hence, we write a more general Hamiltonian kernel $\mathcal{H}_k = \mathbf{h}(k)\cdot \boldsymbol\tau$. We impose $\mathcal{C} = \tau_1 K$ to be a symmetry of the system: $\mathcal{C}\mathcal{H}_k\mathcal{C}^{-1} = \mathcal{H}_{-k}$. A small calculation then shows, that $h_{x,y}$ are odd in $k$ and $h_z$ even. This means, that $\mathbf{h}(k = 0) = h_z(k = 0)\hat{z}$. Further, we inforce that in the large momentum limit, it is still the $h_z$ component, that dominates. After all we are only considering perturbations to the system. Hence, $h_{x,y}(k)/h_z(k) \to 0$ for $k \to \pm \infty$. Therefore, in this more general setup we still have:
+\begin{equation}
+\hat{h}(k = 0) = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k = \infty) = p_{\infty}\hat{z}, \nonumber
+\end{equation}
+and $\nu_{\mathbb{Z}_2} = p_0p_{\infty}$ is still well-defined. It is in this sense, that $\nu_{\mathbb{Z}_2}$ specifies a topological invariant. We can also make this very explicit graphically. This is done in figure \ref{fig.hhatplot}. In red and blue we have plotted the behaviour of $\hat{h}$ for $\mu > 0$  and $\mu < 0$ respectively, omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand, we see that $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This is of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other, as long as this picture of starting and ending at one pole stays well-defined. This is exactly the content of the analysis for a more general $\mathcal{H}_k$. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu_{\mathbb{Z}_2}$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu_{\mathbb{Z}_2} = 1$. 
 
-For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. We can hereby distinguish between two regimes. The first is the weak coupling regime. The pairing does not significantly alter the chemical potential: $\mu(T=0) > 0$. Hereby $\nu = -1$ and the ground state is topologically \textit{non}-trivial. The second is the strong coupling regime, where $\mu(T = 0) < 0$, $\nu = 1$ and the ground state is topologically trivial. This is in complete harmony with the findings in \cite{Alicea} for the Kitaev chain.\footnote{In the article by Alicea the fermions sit in a lattice, but the physical properties are essentially the same.}
+For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. We can hereby distinguish between two regimes. The first is the weak coupling regime. The pairing does not significantly alter the chemical potential: $\mu(T=0) > 0$. Hereby $\nu_{\mathbb{Z}_2} = -1$ and the ground state is topologically \textit{non}-trivial. The second is the strong coupling regime, where $\mu(T = 0) < 0$, $\nu_{\mathbb{Z}_2} = 1$ and the ground state is topologically trivial. This is in complete harmony with the findings in \cite{Alicea} for the Kitaev chain.\footnote{In the article by Alicea the fermions sit in a lattice, but the physical properties are essentially the same.}
 
-We are only investigating the weak coupling regime, even with $\mu \approx \epsilon_{F,0}$. From the above arguments, this means, that we have found a ground state with $\nu = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there are junctions at the ends between a $\nu = -1$ (the superfluid wire) and a $\nu = 1$ state (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. 
+We are only investigating the weak coupling regime, even with $\mu \approx \epsilon_{F,0}$. From the above arguments, this means, that we have found a ground state with $\nu_{\mathbb{Z}_2} = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there are junctions at the ends between a $\nu_{\mathbb{Z}_2} = -1$ (the superfluid wire) and a $\nu_{\mathbb{Z}_2} = 1$ phase (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. 
 
 The interesting question is now: are there states that are topologically protected? More precisely, we are asking, whether there exist low energy states, that can only be removed by breaking the symmetries of the system. The answer lies in the built-in particle-hole symmetry of the Hamiltonian. As we saw in section \ref{sec.SymmetriesTRandPH} we have a particle-hole symmetry $\mathcal{C} = \tau_1 K$, with $K$ the complex conjugation operator. Hereby $\mathcal{C}\mathcal{H}_{FF,k} = -\mathcal{H}_{FF,-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\ket{\psi_k}$. We hereby directly get:
 \begin{equation}
@@ -140,7 +145,7 @@ E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{FF,k}\ket{\psi_k} = -\mathc
 \end{equation}
 This shows, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The bulk spectrum is here indicated by a solid line above the bulk gap $\min_k[E_{F,k}]$ and mirrored in $E = 0$. Now suppose that we introduce a perturbation, that respects the particle-hole symmetry. The energies therefore still come in plus/minus pairs, but apart from that the energies can change. Hence, we can perturb any low energy state with $E \neq 0 $ away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the plus/minus symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
 
-With no energy cost edge states at the ends of the wire can hereby emerge and are robust to symmetry-conserving perturbations. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu = -1$, to an edge effect (the edge states). As is indicated to the right in figure \ref{fig.edgestates}, the state has to be localised on the boundaries. The reason is, that all bulk states are already occupied, and so a zero energy bulk state is not available. 
+With no energy cost edge states at the ends of the wire can hereby emerge and are robust to symmetry-conserving perturbations. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu_{\mathbb{Z}_2} = - 1$, to an edge effect (the edge states). As is indicated to the right in figure \ref{fig.edgestates}, the state has to be localised on the boundaries. This is simply, because it is here the energy gap closes. 
 
 \begin{figure}
 \center
@@ -181,93 +186,70 @@ With no energy cost edge states at the ends of the wire can hereby emerge and ar
 \label{fig.edgestates}
 \end{figure}
 
-\section{Chern-Simons invariant, Wilson loop and winding number}
+\section{\texorpdfstring{$\mathbb{Z}$}{Z} topological index and Chern-Simons invariant}
 \label{sec.CS1}
-In this section we calculate the Chern-Simons topological invariant of the system and in turn the gauge independent Wilson loop. It is based on the article \cite{Ryu.Topology}. We do not anticipate any breaking of time reversal symmetry. The topological index is therefore to be found in the integers, $\mathbb{Z}$. After this rather abstract calculation we will link the Chern-Simons invariant to the winding number of a specific mapping. We will work with $\Delta_k$ real. 
+In this section we calculate the $\mathbb{Z}$ topological index corresponding to the protection of the particle-hole \textit{and} time reversal symmetry. We connect this to the general Chern-Simons invariant of systems with a chiral symmetry. 
 
-The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$. The topological index, generally called the winding number, is twice the Chern-Simons invariant, hence an integer. This gives us the desired topological index in $\mathbb{Z}$. We will return to this winding number at the end of the section. In one spatial dimension the Chern-Simons invariant is defined as:
+Consider again the mapping $\hat{h}(k)$ from the previous section for a more general Hamiltonian kernel $\mathcal{H}_k = \mathbf{h}(k)\cdot\boldsymbol\tau$. Besides the particle-hole symmetry we also impose the time reversal symmetry $\mathcal{T} = i\tau_3$: $\mathcal{T}\mathcal{H}_k\mathcal{T}^{-1} = \mathcal{H}_{-k}$. A small calculation then shows, that $h_y(k) = 0$. This means, that the mapping $\hat{h}(k)$ is restricted to a great circle. We also have, that $\hat{h}(k = \pm \infty) = \hat{z}$ from the particle-hole symmetry. Therefore, $\hat{h}(k)$ maps an integer number of times around $\mathbf{h} = 0$.\footnote{Had we chosen the phase of $\Delta_k$ differently, the time reversal symmetry would also be different. This would in turn impose a specific phase between $h_x$ and $h_y$. Again the mapping is restricted to a great circle.} This integer is called the \textit{winding number}, $w$, of the mapping. Within these symmetries it is still allowed to change the sign of $h_x(k)$. This means, that $\nu_{\mathbb{Z}} = |w|$ is the topological invariant of the system. We clarify this in the following way. The winding number is an integer, so it cannot change from say $0$ to $1$ without the mapping $\hat{h}$ being ill-defined in-between. Windings $1$ and $-1$ are however equivalent, since we can simply change the sign of $h_x(k)$. The only way for $\hat{h}$ to become ill-defined is if the energy gap closes. It is exactly this, that characterises a topological phase transition. 
+
+We now return to the system at hand. We have $h_z(k) = \varepsilon_k$ and $h_x(k) = \Delta_k$. If we let $\theta_k$ denote the angle of $\hat{h}(k)$ with the $z$-axis, the winding number is:
 \begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \tr\left[\mathcal{A}_k\right], \nonumber
+w = \frac{1}{2\pi}\oint d\theta_k.
+\label{eq.definition.windingnumber}
+\end{equation} 
+The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta_k}{\varepsilon_k}$. In turn $\theta_k(c) = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c$ for some constant $c$. Calculating $d\theta_k = dk \cdot \partial_k \theta_k$ then gives:
+\begin{equation}
+w = \frac{1}{2\pi}\int dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k}. \nonumber
+\end{equation} 
+In the normal phase we have $\Delta_k = 0$. In turn $w = 0$, which is hereby the topologically trivial value. We see, that we can flip the sign of the winding as mentioned above by making the gauge transformation $\Delta_k \to - \Delta_k$. 
+
+For $\mu < 0$, $\varepsilon_k > 0$ for all $k$ and $\theta_k(c = 0)$ is continuous. In this case the invariant simply becomes:
+\begin{equation}
+\nu_{\mathbb{Z}}(\mu < 0) = \left|\left. \frac{1}{\pi}\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right)\right|_{0}^{\infty}\right| = 0,
 \end{equation}
-where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. However, in a similar manner the norm of the winding number $|\nu| = 2|\text{CS}_1|$ counts the number of edge states \cite{Chiu.Topology}. Hence, the invariant has a very specific physical interpretation. 
+since $\Delta_k$ is zero for $k = 0$ and $k = \infty$ and since $\varepsilon_k$ is nonzero in both limits. Hence, the system is topologically trivial for $\mu < 0$. 
+
+For $\mu > 0$, $\theta_k(c = 0)$ suffers a discontinuity in $k_0$ defined by $\varepsilon_{k_0} = \frac{k_0^2}{2m_F} - \mu = 0$. Explicitly:  
+\begin{align}
+\lim_{k \uparrow +k_0} \theta_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} 	  - \frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber \\
+\lim_{k \downarrow +k_0} \theta_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} + \frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber
+\end{align}
+This follows from the fact, that $\arctan(x) \overset{x \to \pm \infty}{\to} \pm \frac{\pi}{2}$. To mend this discontinuity we let $ c = -\pi\text{sgn}(\Delta_{k_0})$ for $k > k_0$. Notice, that $\Delta_{k_0} \neq 0$, since else the energy gap would close in $k_0$ $\left(E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}\right)$. Hence, the sign of $\Delta_{k_0}$, $\text{sgn}(\Delta_{k_0})$, is well defined. Therefore, the integrand in this situation has the continuous integrand:
+\begin{equation}
+\theta_k = \left\{ \begin{matrix} 
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\text{sgn}(\Delta_{k_0}), & k > k_0, \\
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right), & 0 < k < k_0,
+  \end{matrix} \right.
+\label{eq.thetakmugreater0}
+\end{equation}
+Using this the invariant for $\mu > 0$ becomes:
+\begin{align}
+\nu_{\mathbb{Z}}(\mu > 0) = \left|\left. \frac{1}{\pi} \theta_k\right|_0^{\infty}\right| = \left|-\text{sgn}(\Delta_{k_0})\right| = 1.
+\label{eq.CSinv2}
+\end{align}
+We see, that when we impose the time reversal symmetry for the specific system at hand, there is still only two possible phases, a trivial one for $\mu < 0$ and a topological one for $\mu > 0$. The current calculation does however have additional information. The $\mathbb{Z}$ topological invariant namely counts the number of edge states \cite{Chiu.Topology}. Since $\nu_{\mathbb{Z}} = 1$ in the only non-trivial case this shows, that the gas only supports up to one edge state. It is not possible for the system at hand to produce more edge states than this. The edge states analysis of the previous section is therefore unaltered in the present context. Notice, that this does not depend on the details of the model; the only used assumptions are: $\Delta_k$ odd, $\varepsilon_k$ only zero in $k = \pm k_0$ and the nonzero energy gap. An analysis shows, that this comes down to the fact, that the kinetic energy $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ only has one pair of zeroes, the two Fermi points. In systems with several pairs of zeroes in the kinetic energy, states with several edge states are possible. An example is a one-dimensional lattice of fermions with nonzero hopping terms to several neighbours \cite{Alecce.extendKitaev}. In part IV of this thesis we will investigate exactly such a model, that can exhibit up to $\nu_{\mathbb{Z}} = 2$ edge states. 
+
+We now wish to connect this winding number to the much more general Chern-Simons invariant. For the double wire system in part III we namely have to rely solely on this approach. The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$, which is a well-defined topological invariant as long as the system has a chiral symmetry. In one spatial dimension the Chern-Simons invariant is defined as:
+\begin{equation}
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \tr\left[\mathcal{A}_k\right],
+\label{eq.definition.CS1}
+\end{equation}
+where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. However, we will find, that the winding number is exactly twice the Chern-Simons invariant: $w = 2\text{CS}_1$. So the invariant is still connected to the number of edge states. 
 
 Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. For a single occupied state, the Berry connection is defined as:
 \begin{equation}
 \mathcal{A}_k = \bra{e^{-}_k}\partial_k\ket{e^{-}_k}. \nonumber
 \end{equation}
-The result of Chern-Simons theory is then, that the Chern-Simons invariant is a topological invariant. By this we mean, that it characterizes different topological phases, that can only change when the energy gap closes. It turns out that the calculation is easier in a different basis, than the one we have been working in so far. It is clear, that $\tr\left[\mathcal{A}_k\right]$ is invariant under a basis change, as long as it is $k$-independent.\footnote{The demand of $k$-independence stems from the fact, that we are differentiating the eigenvectors with respect to $k$.} It is a simple consequence of the basis invariance of the trace operation $\tr[\dots]$. This is of course also very reasonable; a topological invariant should not depend on the chosen basis. We use the following matrix to change basis:
-\begin{equation}
-U = \text{e}^{i\tau_1 \frac{3\pi}{4}} = \frac{1}{\sqrt{2}}\left(-\mathbb{I} + i\tau_1\right). \nonumber 
-\end{equation}
-This transformation amounts to letting $(\tau_1, \tau_2, \tau_3) \overset{U}{\to} (\tau_1, \tau_3, -\tau_2)$. Since $\mathcal{H}_{FF,k} = \Delta_k\tau_1 + \varepsilon_k\tau_3$, in the new basis we get: $\tilde{\mathcal{H}}_{FF,k} = U\mathcal{H}_{FF,k}U^\dagger = \Delta_k\tau_1 - \varepsilon_k\tau_2$. The reason for changing basis is, that the eigenvectors are simpler and continuous as long as the energy gap is nonzero. Explicitly:
-\begin{equation}
-\ket{\tilde{e}^{-}_k} = \frac{1}{\sqrt{2}}\begin{bmatrix} -\frac{\Delta_k + i \varepsilon_k}{E_{F,k}} \\ 1 \end{bmatrix}. \nonumber 
-\end{equation}
-With this and a bit of calculating the Berry connection becomes:
+A careful calculation of this Berry connection yields: 
 \begin{equation}
 \mathcal{A}_k = \bra{\tilde{e}^{-}_k}\partial_k\ket{\tilde{e}^{-}_k} = -\frac{i}{2E^2_{F,k}}(\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k). \nonumber 
 \end{equation}
 Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we get:
 \begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int_{-\infty}^{\infty} dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2\pi}\int_0^\infty dk \; \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k}, 
+\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2}w. 
 \label{eq.CSinv1}
 \end{equation}
-where the last equality stems from the fact, that the integrand is even, since $\Delta_k$ is odd. The integrand has a primitive given by:
-\begin{equation}
-G_k(c) = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c \nonumber
-\end{equation}
-For $\mu < 0$, $\varepsilon_k > 0$ for all $k$ and $G_k(c = 0)$ is continuous. In this case the invariant simply becomes:
-\begin{equation}
-\text{CS}_1(\mu < 0) = \left. \frac{1}{2\pi}\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right)\right|_{0}^{\infty} = 0,
-\end{equation}
-since $\Delta_k$ is zero for $k = 0$ and $k = \infty$ and since $\varepsilon_k$ is nonzero in both limits. Since $\Delta_k = 0$ in the normal phase, we have $\text{CS}_1 = 0$ here as well. Hence, the system is topologically trivial for $\mu < 0$. 
-
-For $\mu > 0$, $G_k(c = 0)$ suffers a discontinuity in $k_0$ defined by $\varepsilon_{k_0} = \frac{k_0^2}{2m_F} - \mu = 0$. Explicitly:  
-\begin{align}
-\lim_{k \uparrow +k_0} G_k(c = 0)   &\overset{\varepsilon_k \uparrow 0}{=}   -\frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber \\
-\lim_{k \downarrow +k_0} G_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} +\frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber
-\end{align}
-This follows from the fact, that $\arctan(x) \overset{x \to \pm \infty}{\to} \pm \frac{\pi}{2}$. To mend this discontinuity we let $ c = -\pi\text{sgn}(\Delta_{k_0})$ for $k > k_0$. Notice, that $\Delta_{k_0} \neq 0$, since else the energy gap would close in $k_0$ ($E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}$). Hence, the sign of $\Delta_{k_0}$, $\text{sgn}(\Delta_{k_0})$, is well defined. Therefore, the integrand in this situation has the continuous integrand:
-\begin{equation}
-G_k = \left\{ \begin{matrix} 
-\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\text{sgn}(\Delta_{k_0}), & k > k_0, \\
-\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right), & 0 < k < k_0,
-  \end{matrix} \right.
-\label{eq.Gkmugreater0}
-\end{equation}
-Using this the invariant for $\mu > 0$ becomes:
-\begin{align}
-\text{CS}_1(\mu > 0) = \left. \frac{1}{2\pi} G_k\right|_0^{\infty} = -\frac{\text{sgn}(\Delta_{k_0})}{2}.
-\label{eq.CSinv2}
-\end{align}
-Since $\Delta_k$ is real the only remaining gauge freedom is the sign of the $\Delta_k$: $\Delta_k \to - \Delta_k$. Hence, the invariants $-1/2$ and $+1/2$ are equivalent. This explicitly shows, that the Chern-Simons invariant depends on the chosen gauge. To account for this, we compute the \textit{gauge independent} Wilson loop $W_1$. We get: 
-\begin{equation}
-W_1 = \text{e}^{2\pi i \text{CS}_1} = -\text{sgn}(\mu). 
-\end{equation}
-This means, that $W_1 = -1$ is the (only) topological non-trivial phase. We also see, that the condition is exactly the same as the one found in the previous section. The current calculation does however have additional information. As mentioned above the norm of the winding number counts the number of edge states. Since $|\nu| = 1$ in the only non-trivial case this shows, that the gas only supports up to one edge state. It is not possible for the system at hand to produce more edge states than this. The edge states analysis of the previous section is therefore unaltered in the present context. Notice, that this does not depend on the details of the model; the only used assumptions are: $\Delta_k$ odd, $\varepsilon_k$ only zero in $k = k_0$ and the nonzero energy gap. 
-
-The question now becomes, what winding the winding number is a measure of. Here we return to the mapping investigated in the previous section: 
-\begin{equation}
-\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}, \hspace{0.5cm} \mathbf{h}(k) = \begin{bmatrix} \Delta_k & 0 & \varepsilon_k \end{bmatrix}, \hspace{0.5cm}  |\mathbf{h}(k)| = E_{F,k} \nonumber
-\end{equation}
-This mapping is as already discussed well-defined as long as the energy gap is nonzero. Now let $\theta_k$ be the angle from the $z$ axis to $\hat{h}(k)$. We then ask how many times the mapping $\hat{h}(k)$ winds around $\mathbf{h} = 0$. For $k = \pm \infty$ we have $\hat{h}(k) = (0, 0, 1)$. Hence, $\hat{h}$ winds an integer number of times around zero. This integer is given by the winding number of the mapping:
-\begin{equation}
-w = \frac{1}{2\pi}\oint d\theta_k, \nonumber
-\end{equation}  
-where we integrate from the start to the end of the Brillouin zone: $k \in (-\infty, \infty)$. The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta_k}{\varepsilon_k}$. In turn $\theta_k = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c$ for some constant $c$. Notice, that this is exactly the primitive $G_k(c)$ to the integrand in $\text{CS}_1$. Hence, the winding number of $\hat{h}$ becomes:
-\begin{equation}
-w = \frac{1}{2\pi}\oint d\theta_k = \frac{1}{2\pi}\int_{-\infty}^{\infty} dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = 2\text{CS}_1 = \nu. \nonumber
-\end{equation}
-The winding number of the map $\hat{h}(k)$ around zero is exactly the winding number connected to the Chern-Simons invariant. From this we also see, that winding numbers of differing sign are equivalent, since it simply corresponds to which way $\hat{h}$ winds around $0$. This corresponds to the gauge transformation $\Delta_k \to - \Delta_k$. Further, two winding numbers $w_1$ and $w_2$ are topological distinct if $|w_1|\neq |w_2|$ in the following sense. The map must wind an integer number of times around zero. Therefore, we cannot continuously deform the mapping resulting in $w_1$ to the mapping resulting in $w_2$. Summarising, if we do not break the time reversal symmetry, the topologically distinct physical phases of the system correspond to topologically different winding numbers of $\hat{h}$.
-
-In the preceding section \ref{sec.topindexandphases} we only considered the particle-hole symmetry to be protected. We can now in a formal way see, what the distinction to the present case is. For the sake of this analysis we let $\mathbf{h}(k)$ be general and let $\mathcal{H}_k = \mathbf{h}(k)\cdot \boldsymbol\tau$ be the Hamiltonian kernel. Now we impose $\mathcal{C} = \tau_1 K$ to be a symmetry of the system: $\mathcal{C}\mathcal{H}_k\mathcal{C}^{-1} = \mathcal{H}_{-k}$. A small calculation then shows, that $h_{x,y}$ are odd in $k$ and $h_z$ even. This means, that $\mathbf{h}(k = 0) = h_z(k = 0)\hat{z}$. Further, we inforce that in the large momentum limit, it is still the $h_z$ component, that dominates. Hence, $h_{x,y}(k)/h_z(k) \to 0$ for $k \to \pm \infty$. Therefore, in this more general setup we still have:
-\begin{equation}
-\hat{h}(k = 0) = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k = \infty) = p_{\infty}\hat{z}, \nonumber
-\end{equation}
-and the topological index $\nu = p_0p_{\infty}$ is also still well-defined. However, what is not well-defined here is the winding of $\hat{h}(k)$ around zero. This is because, the mapping is not restricted to a circle anymore. In contrast we can also impose the time reversal symmetry $\mathcal{T} = i\tau_3 K$, so that $\mathcal{T}\mathcal{H}_k\mathcal{T}^{-1} = \mathcal{H}_{-k}$. Then a small calculation shows, that $h_y(k) = 0$. Had we chosen a different value of the ($k$-independent) phase of the pairing, $\Delta_k$, the time reversal symmetry would impose this same phase between $h_x$ and $h_y$. This means, that the mapping $\hat{h}(k)$ is still restricted to a (great) circle, and the winding number is well-defined. 
-
-What is special about the specific one-dimensional gas of fermions we look at, is that even when we obey the time-reversal symmetry, there are only two topologically distinct phases. An analysis shows, that this comes down to the fact, that the kinetic energy $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ only has one pair of zeroes, the two Fermi points. In systems with several pairs of zeroes in the kinetic energy, states with several numbers of Majorana edge states are possible. An example is a one-dimensional lattice of fermions with nonzero hopping terms to several neighbours \cite{Alecce.extendKitaev}. For a further discussion see section \ref{sec.Discussion.KitaevChain}. 
-  
+Hence, we see that the Chern-Simons invariant in the present context simply yields half the winding number found above. This is actually a general feature; the Chern-Simons invariant is always connected in this way to a generalized winding. In the present context we have hereby explicitly demonstrated the connection between the topological invariant, the winding of a specific mapping and the Chern-Simons invariant. For the double wire system we will not be able to define the mapping explicitly. However, what makes the Chern-Simons invariant so powerful, is that we do not need to. We simply have to use equation \eqref{eq.definition.CS1}.  
 
 \section{Edge states}
 \label{sec.edgestates}

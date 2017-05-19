@@ -25,7 +25,6 @@ xifilldepend1.tex: xifilldepend Makefile
 'set palette defined (0 "white", 1 "red", 2 "blue" );						'\
 'set label "$$(i)$$" center at graph 0.2, 0.7142857143 front textcolor rgb "white";			'\
 'set label "$$(ii)$$" center at graph 0.5, 0.7142857143 front textcolor rgb "white";			'\
-'set label "$$(iii)$$" center at graph 0.8, 0.7142857143 front textcolor rgb "black";			'\
 'set ylabel "$$\xi / d$$";													'\
 'set title "$$t_2 = t_1, \text{anomalous}$$";								'\
 'plot  																		'\
