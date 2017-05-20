@@ -1,38 +1,39 @@
 % Appendix E
 
-\chapter{No inversion symmetry of mean field Hamiltonian, 1 wire} % Main appendix title
+\chapter{Variance of the number of fermions} % Main appendix title
 
-\label{Appendix.noinversionsymmetry} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\label{Appendix.Fluctuationfermionnumber} % For referencing this appendix elsewhere, use \ref{AppendixA}
 \chead{}
-\lhead{Appendix E. \emph{No inversion symmetry of mean field Hamiltonian}} % This is for the header on each page - perhaps a shortened title
-
-In this appendix we show, that the single wire system has no inversion symmetry. We define the parity transformation, $P$, in the following manner in second quantization: 
+\lhead{Appendix E. \emph{Variance of $N_F$}} % This is for the header on each page - perhaps a shortened title
+In this appendix we rigorously compute the variance of the fermion number $N_F$ for the single wire. First:
 \begin{equation}
-P^2 = \mathbb{I}, \hspace{0.5cm} P\begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} P = U_P\begin{bmatrix} \psi_F(-x) \\ \psi^\dagger_F(-x) \end{bmatrix}.
-\label{eq.definversion}
+\braket{(N_F-{\braket{N_F}})^2} = \braket{N_F^2} - \braket{N_F}^2 = \sum_{k,q} \braket{c^\dagger_kc_kc^\dagger_qc_q} - \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q}. \nonumber
+\end{equation} 
+We use Wick's theorem, valid for quadratic Hamiltonians, to break up the four body mean into a sum of two body means \cite[pp. 198-202]{BruusFlensberg}:
+\begin{equation}
+\braket{c^\dagger_kc_kc^\dagger_qc_q} = \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q} - \braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} + \braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q}. \nonumber
 \end{equation}
-The first expression states, that the parity transformation is assumed to be unitary and hermitian: $P^\dagger = P$. Notice, that we allow for some nontrivial mixing of particles and holes. The above definition sets a restriction on the $2 \times 2$ matrix $U_P$. Firstly, since $P^2 = \mathbb{I}$ we also get that $U_P^2 = \mathbb{I}$, so that $U_P$ is unitary and hermitian. Secondly, since the entries of the Nambu spinor are not independent, we get:
+The first term is identical to the one coming from $\braket{N_F}^2$. Hence, we only need the later two terms. From equation \eqref{eq.fermionquasiparticledef} we have: $c_k = u^{*}_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$. Further $u_{F,k}$ is even in $k$ and $v_{F,k}$ is odd. We get:
 \begin{align}
-P\psi_F(x)P &= U_P^{11} \psi_F(-x) + U_P^{12} \psi^\dagger(-x), \nonumber \\
-P\psi_F(x)P &= U_P^{21*} \psi^\dagger_F(-x) + U_P^{22*} \psi(-x). \nonumber
+\braket{c_kc_q} &= u^{*}_{F,k}v_{F,k}\left(1 - 2f(E_{F,k})\right)\delta_{k,-q}, \nonumber \\
+\braket{c^\dagger_kc_q} &= \left(|u_{F,k}|^2f(E_{F,k}) + |v_{F,k}|^2(1-f(E_{F,k})\right)\delta_{k,q}. \nonumber
 \end{align}
-The second line is obtained by taking the hermitian conjugate of the second line in the definition. Since the coefficients to the same operator must be identical we get: $U_P^{11} = U_P^{22*}, U_P^{12} = U_P^{21*}$. The second requirement is already fulfilled when $U_P$ is hermitian, but the first one is a further restriction to the matrix. Hence, we have:
-\begin{equation}
-U_P = \begin{bmatrix} U_P^{11} & U_P^{12} \\ U_P^{12*} & U_P^{11*}\end{bmatrix}. 
-\label{eq.UP}
-\end{equation}
-In momentum space the above definition means, that:
-\begin{equation}
-P\begin{bmatrix} c_k \\ c^\dagger_k \end{bmatrix} P = U_P\begin{bmatrix} c_{-k} \\ c^\dagger_{-k} \end{bmatrix}.
-\end{equation}
-Now to investigate whether the Hamiltonian has an inversion symmetry, we should first write the Hamiltonian in a form depending on the above spinor. Gauge transforming $\Delta_k$ to be real as in chapter \ref{Chapter7} and transforming the Hamiltonian yields:
+Here we have used, that the quasiparticles are distributed according to: $\braket{\gamma^\dagger_k\gamma_k} = f(E_{F,k})$, with $f$ the Fermi-Dirac distribution. We also use the anticommutator relations for the $\gamma$-operators. Further:
 \begin{align}
-H_{FF} &= \frac{1}{2}\sum_k \begin{bmatrix} c_k^\dagger & c_{-k}\end{bmatrix}\mathcal{H}_{FF,k} \begin{bmatrix} c_k \\ c^\dagger_{-k}\end{bmatrix} \nonumber \\
-	   &= \frac{1}{4}\sum_k \tilde{C}^\dagger_k \tilde{\mathcal{H}}_{FF,k} \tilde{C}_k, \hspace{0.5cm} \tilde{\mathcal{H}}_{FF,k} = \epsilon_k \rho_0 \otimes \tau_3 - \Delta_k \rho_2 \otimes \tau_2, \hspace{0.5cm} \tilde{C}_k = \begin{bmatrix} c_k \\ c^\dagger_{k} \\ c_{-k} \\ c^\dagger_{-k}\end{bmatrix}, 
+-\braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} &= -\braket{c_qc_k}^*\braket{c_kc_q} = +\left|\braket{c_kc_q}\right|^2, \nonumber \\
+\braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q} &= \braket{c^\dagger_kc_q}\braket{c_qc^\dagger_k}^* = -\left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q}. \nonumber
 \end{align}
-where we let $\rho_i$ be the Pauli matrices in $k\to -k$ space and $\tau_i$ the matrices in particle-hole space. Now: $P\tilde{C}_kP = \tilde{U}_P \tilde{C}_k$ with $\tilde{U}_P = \rho_1\otimes U_P$. This means, that to have an inversion symmetry we need:
+In the second line we use the anticommutator $\{c_q, c^\dagger_k\} = \delta_{k,q}$. In total we hereby get:
+\begin{align}
+\braket{(N_F-{\braket{N_F}})^2} = \sum_{k,q} & \left[\left|\braket{c_kc_q}\right|^2 - \left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q} \right] \nonumber \\
+=\sum_k & \left[ |u_{F,k}|^2|v_{F,k}|^2\left( (1 - 2f(E_{F,k}))^2 - 2f(E_{F,k})(1 - f(E_{F,k})) \right)^2  + \right. \nonumber \\
+& |u_{F,k}|^2f(E_{F,k})(1 - |u_{F,k}|^2f(E_{F,k})) + \nonumber \\
+&\left. |v_{F,k}|^2 ( 1 - f(E_{F,k}) )\left(1  - |v_{F,k}|^2 (1 - f(E_{F,k})) \right) \right]
+\label{eq.VarianceNFgeneralT}
+\end{align}
+For $T = 0$ we have $f(E_{F,k}) = 0$. Since $|u_{F,k}|^2 + |v_{F,k}|^2 = 1$ we simply get:
 \begin{equation}
-PH_{FF}P = H_{FF} \Rightarrow \tilde{U}_P\tilde{\mathcal{H}}_{FF,k}\tilde{U}_P = \tilde{\mathcal{H}}_{FF,k}. \nonumber 
+\braket{(N_F-{\braket{N_F}})^2} = 2\sum_k |u_{F,k}^2|v_{F,k}|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}
+\label{eq.VarianceNFT0}
 \end{equation}
-Since $\rho_1$ of course commutes with $\rho_0$ we need $U_P$ to commute with $\tau_3$. Hence, $U_P = \tau_0$ or $U_P = \tau_3$. Further, since $\rho_1$ anticommutes with $\rho_2$ we need $U_P$ to anticommute with $\tau_2$. In total, this means that $U_P = \tau_3$ is the \textit{only} possibility. This transformation does fulfill the requirement above, however it does not have the right structure. Specifically from equation \ref{eq.UP} we get, that $1 = U_P^{11} = U_P^{22*} = -1$. A clear contradiction. Hence, we get that the system has no inversion symmetry. 
 

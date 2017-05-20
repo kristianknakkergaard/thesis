@@ -1,75 +1,57 @@
 % Appendix B
 
-\chapter{Long range order of the pairing phase} % Main appendix title
+\chapter{General real space induced interaction} % Main appendix title
 
-\label{Appendix.longrangeorder.pairingphase} % For referencing this appendix elsewhere, use \ref{AppendixC}
+\label{Appendix.inducedinteraction.realspace} % For referencing this appendix elsewhere, use \ref{AppendixC}
 \chead{}
-\lhead{Appendix B. \emph{Long range order of the pairing phase}} % This is for the header on each page - perhaps a shortened title
-In this appendix we use a classical argument to show, that there is no true long range order of the pairing phase in one dimension. It is largely based on the formulation of Cardy \cite{Cardy.StatPhys}. 
+\lhead{Appendix B. \emph{General real space induced interaction}} % This is for the header on each page - perhaps a shortened title
+In this appendix we calculate the real space induced interaction in the weak coupling limit for general Matsubara frequency $\omega_m = 2\pi m k_B T$. This is only done for $l_t = 0$. 
 
-Let $\phi$ denote the phase of the pairing potential in real space $\Delta(x)$. We will investigate the effect of a spatial variation of $\phi = \phi(x)$. We let $\phi = 0$ be the assumed equilibrium value. For a truly ordered phase we expect that $\phi \ll 2\pi$. It therefore makes sense to infer a Hamiltonian in powers of $\phi$. The Hamiltonian is assumed not to depend on the phase itself. Therefore, to lowest order in $\phi$, the Hamiltonian associated with a spatially varying phase is: 
+From equation \eqref{eq.VFFindXBEC} we have the induced interaction in momentum space for all $l_t > 0$:
 \begin{equation}
-H[\phi] = \frac{K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2, 
-\label{eq.Hphi}
+V_{\text{ind}}(q, i\omega_m) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q, \mathbf{k}_\perp, i\omega_m)\text{e}^{-\frac{l_t^2}{2}k_\perp^2},\nonumber
 \end{equation}
-in $D$ spatial dimensions. There is no linear term $\nabla \phi$ present, because this vanishes under integration. In the analysis we will as a start keep $x$ a dimensionless variable, so that there is an implicit length scale $\xi_s$. We return to this later on. $K$ is a parameter of unit energy. The corresponding partition function is: 
+with $\chi_\text{BEC}(\mathbf{k}, i\omega_m) = -\frac{k^2}{m_B}\frac{n_B}{\omega^2_m + E_{B,k}^2}$ the BEC density-density correlation function, and $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2n_Bg_B\right)$ the Bogoliubov BEC spectrum. The real space induced interaction is the Fourier transform of the above. Therefore, we can use the following limiting procedure for $l_t = 0$:
 \begin{equation}
-Z = \int D\phi(x) \; \text{e}^{-\beta H[\phi]}, 
-\label{eq.partitionfunction}
+\tilde{V}_{\text{ind}}(x, i\omega_m) = \lim_{d \to 0}\left[g_{BF}^2\int\frac{d^3k}{(2\pi)^3}\; \chi_\text{BEC}(\mathbf{k}, i\omega_m)\text{e}^{i\mathbf{k}\cdot \mathbf{r}_d}\right] = \lim_{d \to 0} I(\mathbf{r}_d, \omega_m), 
+\label{eq.limitVindxomegam}
 \end{equation}
-where $\beta = 1 / k_BT$ is the inverse temperature. The symbol $\int D\phi(x)$ denotes a socalled functional integration, which is to be taken over all configurations of $\phi(x)$. We define the kernel $G^{-1}(x,x')$ as: 
+which defines $I(\mathbf{r}, \omega_m)$ and where $\mathbf{r}_d = (x, \mathbf{d})$. With a bit of rearranging we get the expression:
 \begin{equation}
-Z = \int D\phi(x)\; \text{e}^{-\frac{1}{2}\int d^{D}x\; d^{D}x' \; \phi(x)G^{-1}(x,x')\phi(x')} \nonumber
+I(\mathbf{r}, \omega_m) = +4m_Bg^2_{BF}n_B\int \frac{d^3k}{(2\pi)^3} \frac{k^2}{g(k)}\text{e}^{i\mathbf{k}\cdot\mathbf{r}} = +4m_Bg^2_{BF}n_B\int_0^\pi d\theta \sin(\theta)\int_0^{\infty} \frac{dk}{(2\pi)^2} \frac{k^4}{g(k)}\text{e}^{ikr\cos(\theta)}, \nonumber
 \end{equation}
-We can therefore extract the kernel by a partial integration of equation \eqref{eq.Hphi}: 
-\begin{align}
-\beta H[\phi] &= \frac{\beta K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2 = \frac{\beta K}{2}\left( \left.\phi\nabla\phi\right|_{\partial V} - \int d^{D}x \; \phi \nabla^2\phi \right) \nonumber \\
-&= \frac{\beta K}{2}\int d^{D}x\; d^{D}x'\; \phi(x')\left(-\delta^{(D)}(x - x')\nabla^2\right)\phi(x) \nonumber 
-\end{align}
-The boundary term $\left.\phi\nabla\phi\right|_{\partial V}$ vanishes, since we use periodic boundary conditions. The kernel is hereby: 
+where we define $g(k) = 4m_B^2\omega^2_m + k^2(k^2 + 2/\xi^2)$, and where $1/\xi^2 = 2m_Bn_Bg_B$ defines the BEC coherence length $\xi$. Here we let $\theta$ be the angle between $\mathbf{k}$ and $\mathbf{r}$ and use, that the integrand does not depend on the azimuthal angle $\phi$. Performing the $\theta$ integral directly we get:
 \begin{equation}
-G^{-1}(x,x') = -\beta K \delta^{(D)}(x - x')\nabla^2 \nonumber
+I(\mathbf{r}, \omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
 \end{equation}
-This verifies, that the Hamiltonian of \eqref{eq.Hphi} leads to Gaussian distributed variables with the kernel $G^{-1}$. We now define the inverse, $G(x,x')$, as:
+where the limits are implicitly $\pm \infty$. We will now think of $k$ as a complex variable and make a half-circle contour $\mathcal{C}$ in the upper half-plane. Since the integrand goes exponentially fast to zero on the boundary of $\mathcal{C}$, we get:
 \begin{equation}
-\int d^{D}x' \; G^{-1}(x,x')G(x',x'') = \delta^{(D)}(x - x''). \nonumber
+I(\mathbf{r}, \omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
 \end{equation}
-Inserting the above we hereby get:
+in the limit of infinite radius $R$ of the half-circle. By Cauchy's residue theorem we can then calculate the integral by calculating the residues of the integrand. To do this we need the poles of $g(k)$, that $\mathcal{C}$ surrounds, hence the poles in the upper half-plane. We therefore solve $g(k) = 0$, a quadratic equation in $k^2$, with the two solutions:
 \begin{equation}
-\nabla^2G(x) = -\frac{1}{\beta K} \delta^{(D)}(x). \nonumber
-\end{equation}
-$G$ is therefore simply the Green's function. Before actually solving for this function, we will first investigate its importance. Cardy argues, that for a continuous distribution one has \cite[p. 227]{Cardy.StatPhys}: 
-\begin{equation}
-\braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}} = \text{e}^{ -\frac{1}{2}\int d^{D}x\; d^{D}x'\; J(x) G(x,x') J(x')  }
-\label{eq.gaussianintegration}
-\end{equation}
-where the average is with respect to the Gaussian distribution with kernel $G^{-1}$. We can hereby extract the two-point correlation function:
-\begin{equation}
-\braket{\phi(x)\phi(x')} = \left. \frac{\partial}{\partial J(x)}\frac{\partial}{\partial J(x')} \braket{\text{e}^{i\int d^{D}x\; J(x) \phi(x)}}\right|_{J = 0} = \frac{1}{2}\left(G(x, x') + G(x', x)\right) = G(x, x'), \nonumber
+k^2_{\pm} = -\frac{1}{\xi^2}\left(1 \pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2}\right), \nonumber
 \end{equation} 
-since $G(x,x')$ is symmetric in $x$ and $x'$. Now for the specific $G$ at hand we can solve for it by Fourier decomposition $G(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx} \tilde{G}(k)$. With the definition of the $\delta$-function $\delta^{(D)}(x) = \int \frac{d^{D}k}{(2\pi)^D}\; \text{e}^{ikx}$, this yields $\tilde{G}(k) = \frac{1}{\beta K}\frac{1}{k^2}$. So the two-point correlation function is given by: 
+where the square root is chosen to give positive real parts. The roots of $g(k)$ are then $ik_+, -ik_+, ik_-, -ik_-$, with $ik_{\pm}$ the roots in the upper half-plane, and with: 
 \begin{equation}
-\braket{\phi(x)\phi(x')} = G(x - x') = \frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{\text{e}^{ikx}}{k^2}. 
-\label{eq.anglecorrelationfunction.generaldimension}
-\end{equation} 
-Further by letting $J(x_1) = \delta(x_1 - x) - \delta(x_1 - x')$ and integrating over $x_1$ in equation \eqref{eq.gaussianintegration} we can show, that:
-\begin{equation}
-\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)}. 
-\label{eq.phasecorrelationfunction.generaldimension} 
+k_{\pm} = \frac{1}{\xi}\sqrt{1\pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2}} = \sqrt{ 2m_Bn_Bg_B\left( 1 \pm \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2 } \right) }
+\label{eq.polesVindxomegam}
 \end{equation}
-It is this phase-phase correlation function that we are after, since it describes how the phase at two points correlates. Now:
+We can therefore write $g(k) = (k + ik_+)(k - ik_-)(k + ik_-)(k - ik_-)$ and the residues in the upper half-plane poles $ik_{\pm}$ then simply becomes:
 \begin{equation}
-G(x,x') - G(0) = -\frac{1}{\beta K}\int \frac{d^{D}k}{(2\pi)^D}\; \frac{1 - \text{e}^{ikx}}{k^2}. \nonumber
+\text{Res}(f, k_{\pm}) = \lim_{k\to ik_{\pm}} (k - ik_{\pm})f(k), \hspace{0.5cm} f(k) = \frac{k^3}{g(k)}\text{e}^{ikr}. \nonumber
 \end{equation}
-In three dimensions the phase-phase correlation function approaches a constant in the $|x - x'| \to \infty$ limit. In two dimensions it goes to zero according to a power law \cite[p. 115]{Cardy.StatPhys}. In one dimension we get: 
+Now using $\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr} = \text{Res}(f, k_+) + \text{Res}(f, k_-)$ we get the expression:
 \begin{equation}
-G(x,x') - G(0) = -\frac{|x - x'|}{2\beta K}  \to -\frac{|x - x'|}{2\beta K \xi_s},  
+I(\mathbf{r}, \omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi r}\left[ \text{e}^{-k_+r} + \text{e}^{-k_-r} + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+r} - \text{e}^{-k_-r}  \right) \right]. \nonumber
 \end{equation}
-where we introduce the aforementioned length scale $\xi_s$. The phase-phase correlation function in one dimension is hereby exponentially damped:
+Finally taking the limit in equation \eqref{eq.limitVindxomegam} gives:
 \begin{equation}
-\braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)} = \text{e}^{-\frac{|x - x'|}{2\beta K \xi_s}}. 
-\label{eq.phasecorrelationfunction.onedimension} 
+\tilde{V}_{\text{ind}}(x, i\omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi |x|}\left[ \text{e}^{-k_+|x|} + \text{e}^{-k_-|x|}  + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+|x|} - \text{e}^{-k_-|x|}  \right) \right], 
 \end{equation}
-
-A true long range order demands, that the above correlation function approached a constant as $|x - x'| \to \infty$, as is the case in three dimensions. However, as we discuss in the main text in chapter \ref{Chapter4}, if the length scale $\xi_s$ is macroscopically large, there are correlations over a macroscopic scale. The absence of true long range order in one and two dimensions is in accordance with the Mermin-Wagner-Hohenberg theorem \cite{Hohenberg.MerminWagnertheorem}. 
+by simply replacing $r$ with $|x|$. We know, that for $\omega_m = 0$ we must get the Yukawa interaction. In this situation $k_- = 0, k_+ = \sqrt{2}/\xi$ and we get:
+\begin{equation}
+\tilde{V}_{\text{ind}}(x, i\omega_m = 0) = -\frac{m_Bg^2_{BF}n_B}{\pi |x|}\text{e}^{-\sqrt{2}|x|/\xi}, \nonumber
+\end{equation}
+which is identical to equation \eqref{eq.Vx_lt=0}. 
 

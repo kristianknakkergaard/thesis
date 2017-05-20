@@ -1,39 +1,33 @@
 % Appendix D
 
-\chapter{Variance of the number of fermions} % Main appendix title
+\chapter{Quasiparticle distribution} % Main appendix title
 
-\label{Appendix.Fluctuationfermionnumber} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\label{Appendix.distribution.quasiparticles} % For referencing this appendix elsewhere, use \ref{AppendixA}
 \chead{}
-\lhead{Appendix D. \emph{Variance of $N_F$}} % This is for the header on each page - perhaps a shortened title
-In this appendix we rigorously compute the variance of the fermion number $N_F$ for the single wire. First:
-\begin{equation}
-\braket{(N_F-{\braket{N_F}})^2} = \braket{N_F^2} - \braket{N_F}^2 = \sum_{k,q} \braket{c^\dagger_kc_kc^\dagger_qc_q} - \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q}. \nonumber
-\end{equation} 
-We use Wick's theorem, valid for quadratic Hamiltonians, to break up the four body mean into a sum of two body means \cite[pp. 198-202]{BruusFlensberg}:
-\begin{equation}
-\braket{c^\dagger_kc_kc^\dagger_qc_q} = \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q} - \braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} + \braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q}. \nonumber
-\end{equation}
-The first term is identical to the one coming from $\braket{N_F}^2$. Hence, we only need the later two terms. From equation \eqref{eq.fermionquasiparticledef} we have: $c_k = u^{*}_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$. Further $u_{F,k}$ is even in $k$ and $v_{F,k}$ is odd. We get:
-\begin{align}
-\braket{c_kc_q} &= u^{*}_{F,k}v_{F,k}\left(1 - 2f(E_{F,k})\right)\delta_{k,-q}, \nonumber \\
-\braket{c^\dagger_kc_q} &= \left(|u_{F,k}|^2f(E_{F,k}) + |v_{F,k}|^2(1-f(E_{F,k})\right)\delta_{k,q}. \nonumber
-\end{align}
-Here we have used, that the quasiparticles are distributed according to: $\braket{\gamma^\dagger_k\gamma_k} = f(E_{F,k})$, with $f$ the Fermi-Dirac distribution. We also use the anticommutator relations for the $\gamma$-operators. Further:
-\begin{align}
--\braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} &= -\braket{c_qc_k}^*\braket{c_kc_q} = +\left|\braket{c_kc_q}\right|^2, \nonumber \\
-\braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q} &= \braket{c^\dagger_kc_q}\braket{c_qc^\dagger_k}^* = -\left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q}. \nonumber
-\end{align}
-In the second line we use the anticommutator $\{c_q, c^\dagger_k\} = \delta_{k,q}$. In total we hereby get:
-\begin{align}
-\braket{(N_F-{\braket{N_F}})^2} = \sum_{k,q} & \left[\left|\braket{c_kc_q}\right|^2 - \left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q} \right] \nonumber \\
-=\sum_k & \left[ |u_{F,k}|^2|v_{F,k}|^2\left( (1 - 2f(E_{F,k}))^2 - 2f(E_{F,k})(1 - f(E_{F,k})) \right)^2  + \right. \nonumber \\
-& |u_{F,k}|^2f(E_{F,k})(1 - |u_{F,k}|^2f(E_{F,k})) + \nonumber \\
-&\left. |v_{F,k}|^2 ( 1 - f(E_{F,k}) )\left(1  - |v_{F,k}|^2 (1 - f(E_{F,k})) \right) \right]
-\label{eq.VarianceNFgeneralT}
-\end{align}
-For $T = 0$ we have $f(E_{F,k}) = 0$. Since $|u_{F,k}|^2 + |v_{F,k}|^2 = 1$ we simply get:
-\begin{equation}
-\braket{(N_F-{\braket{N_F}})^2} = 2\sum_k |u_{F,k}^2|v_{F,k}|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}
-\label{eq.VarianceNFT0}
-\end{equation}
+\lhead{Appendix D. \emph{Quasiparticle distribution, 1 wire}} % This is for the header on each page - perhaps a shortened title
+In this appendix we calculate the distribution function for fermionic particles, that are not number-conserved. This distribution function is used for the quasiparticles of the single and double wire system. 
 
+Let $H = \sum_i E_i a^\dagger_i a_i$ be the Hamiltonian with $a^\dagger_i$ a fermionic creation operator:
+\begin{equation}
+\{a_i, a^\dagger_j\} = \delta_{i,j}, 
+\label{eq.appendix.fermioniccommutationrelation}
+\end{equation}
+and $i$ the quantum number. We assume, that the number of these fermions are \textit{not} conserved. This means, that the partition function takes the form of the \textit{canonical} partition function: $Z = \tr\left[\text{e}^{-\beta H}\right]$. In terms of thermodynamics this means, that every single fermion is in thermal (and not diffusive) equilibrium with all the others, hence working as a heat reservoir. Since the Hamiltonian is diagonal, we can calculate the partition function for each $i$ by replacing $H$ with the $i$'th (diagonal) term. We then get:
+\begin{equation}
+Z_i = \tr\left[\text{e}^{-\beta H_i}\right] = \tr\left[\text{e}^{-\beta E_ia^\dagger_i a_i }\right] = 1 + \text{e}^{-\beta E_i}. \nonumber
+\end{equation}     
+For the calculation of the trace, we use the single particle complete basis $\{\ket{0}, a^\dagger_i\ket{0}\}$, with $\ket{0}$ the ground state: $a_i\ket{0} = 0$. This is all a rather involved way of saying, that the fermion can either be absent, $\ket{0}$, and have zero energy or be present, $a^\dagger_i\ket{0}$, and have energy $E_i$. The total partition function is then simply $Z = \prod_i Z_i$. The mean number of fermions with quantum number $i$ is given by $\braket{a^\dagger_ia_i} = \tr\left[\text{e}^{-\beta H}a^\dagger_ia_i\right]/Z$. For the calculation of the trace we need a complete basis. The basis consists of states with any number of fermions present with all possible quantum numbers. These states can all be written as: $\prod_{j\in J} a^\dagger_j \ket{0}$, where $J$ is an arbitrary set of quantum numbers. Since $a^\dagger_ia_i$ counts the number of fermions present with quantum number $i$, we only need sets $J$ with $i \in J$. For these states we get:
+\begin{equation}
+\text{e}^{-\beta H} a^\dagger_i a_i\prod_{j\in J} a^\dagger_j \ket{0} = \text{e}^{-\beta H}\prod_{j\in J} a^\dagger_i \ket{0} = \text{e}^{-\beta \sum_{j \in J} E_j} \prod_{j \in J} a^\dagger_i \ket{0}. \nonumber
+\end{equation}
+The desired trace is then the sum of $\text{e}^{-\beta \sum_{j \in J} E_j}$ for all combinations of $J$ containing $i$:
+\begin{equation}
+\tr\left[\text{e}^{-\beta H}a^\dagger_ia_i\right] = \sum_J \text{e}^{-\beta \sum_{j \in J} E_j} = \text{e}^{-\beta E_i}\prod_{j \neq i} \left[1 + \text{e}^{-\beta E_j}\right] = \text{e}^{-\beta E_i} \frac{Z}{Z_i}. \nonumber 
+\end{equation}
+The second equality is most easily verified by writing out the product. By doing this one explicitly sees, that all combinations of energies are present. Finally: 
+\begin{equation}
+\braket{a^\dagger_ia_i} = \frac{\tr\left[\text{e}^{-\beta H}a^\dagger_ia_i\right]}{Z} = \frac{\text{e}^{-\beta E_i }}{Z_i} = \frac{\text{e}^{-\beta E_i}}{ 1 + \text{e}^{-\beta E_i} } = \frac{1}{ \text{e}^{\beta E_i} + 1 } = f(E_i),
+\end{equation}
+with $f(E)$ the Fermi-Dirac distribution. This is the average number of $a$ particles in the thermalized state of the system. We emphasize that this calculation is a rather formal approach. In a simpler manner we have, that the average number of fermions with quantum number $i$ is given by: $\sum_n n P_i(n) = \frac{1}{Z_i}\sum_{n = 0}^{1} \text{e}^{ -n\beta E_i } = f( E_i )$, with the probability of occupation with $n$ fermions in the $i$'th state given by $\text{e}^{-n\beta E_i}/Z_i$. In any regard the above explicitly shows, how we equivalently can formulate this using the second quantized operators. 
+
+The present appendix hereby in detail shows, that fermionic free particles with energy $E_i$, that are not number-conserved, are distributed according to $f(E_i)$. For the single wire system we make the identification: $a_i \to \gamma_k$. For the double wire system: $a_i \to \gamma_{j,k}$, where $j$ specifies the wire and $k$ is the momentum. 
