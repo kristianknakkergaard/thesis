@@ -1,348 +1,185 @@
-% Chapter 7
+\chapter{Induced interaction, grand Hamiltonian and topology} % Main chapter title
 
-\chapter{Symmetries, topology and edge states } % Main chapter title
+\label{Chapter7} 
 
-\label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter7} 
-
-\lhead{Part II. \emph{One wire}}
-\chead{Chapter 7. \emph{Symmetries, topology \& edge states}} % This is for the header on each page - perhaps a shortened title
-
+\lhead{Part IV. \emph{Kitaev chain}}
+\chead{Chapter 7. \emph{Interaction, Hamiltonian \& topology}} % This is for the header on each page - perhaps a shortened title
 %----------------------------------------------------------------------------------------
-In this chapter we study the topological effects. The main result is, that we show the ground state to be topologically non-trivial. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. These we will use to come with a topological classification of the now developed Kitaev model system. This is done in section \ref{sec.Topology10foldway}. We then compute the topological index in two ways, respectively in section \ref{sec.topindexandphases} and \ref{sec.CS1}. These describe whether the system is in a topological or trivial phase. Finally, we will see what physical consequences the phases have by discussing the bulk-edge correspondence principle and edge states. An approximate solution for the edge states is found in section \ref{sec.edgestates}. The treatment is heavily based on the articles \cite{Ludwig.Topology, Chiu.Topology, Alicea}. 
+In this chapter we derive the grand Hamiltonian for the fermionic chain. We start off by going back to the Bose gas and consider the effect of making the gas one-dimensional. See section \ref{sec.1DBosegas}. In section \ref{sec.TightbindingHam.lattice} we introduce the tight-binding Hamiltonian for the lattice fermions. In section \ref{sec.interaction.lattice} we calculate the induced interaction and write up the effective interaction Hamiltonian for the fermions. In section \ref{sec.grandhamiltonian.lattice} we outline the mean field approximation and write up the grand Hamiltonian. Finally, in section \ref{sec.topology.lattice} we discuss the topology of the system and calculate the topological index.
 
-\section{Time reversal, particle-hole and sublattice transformations}
-\label{sec.SymmetriesTRandPH}
-In this section we define the time reversal and particle-hole transformations. Let us remind ourselves of the form of the noninteracting Hamiltonian obtained after the mean field approximation of chapter \ref{Chapter4}: 
+\section{1D Bose gas} \label{sec.1DBosegas}
+Going back to equation \eqref{eq.BECHamiltonianrealspace} we have the real space expansion of the Hamiltonian for the bosons:
 \begin{equation}
-H_{FF} = -\sum_k \Delta_k \braket {c^\dagger_k c^\dagger_{-k}} + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}. \nonumber 
+H_{BB} = \int d^3 r \left(\psi_B^\dagger(\mathbf{r})\left[-\frac{\nabla^2}{2m_B}\right]\psi_B(\mathbf{r}) + \frac{g_B}{2}\psi_B^\dagger(\mathbf{r})\psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_B(\mathbf{r})  \right), \nonumber
 \end{equation}
-
-It is clear, that the Hamiltonian is translationally invariant. Explicitly, the (unitary) translation operator is defined through: $\tau(x_0)\psi_F(x)\tau^\dagger (x_0) = \psi_F(x+x_0)$. In momentum space, we hereby get $\tau(x_0) c_k \tau^\dagger(x_0) = \text{e}^{ikx_0}c_k$, as one might expect. Hence, terms like $c^\dagger_k c_k, c_k c^\dagger_k, c^\dagger_kc^\dagger_{-k}$ and $c_{-k}c_k$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well. Because of the translational invariance, we \textit{inforce} that the time reversal and particle-hole transformations do not mix states with different positions. Specifically:
-\begin{align}
-T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix}, \hspace{0.5cm} TiT^{-1} = -i, \nonumber \\
-C \begin{bmatrix} \psi_F(x) \\ \psi^\dagger_F(x) \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} \psi^\dagger_F(x) \\ \psi_F(x) \end{bmatrix}, \hspace{0.5cm} CiC^{-1} = i.  
-\label{eq.TRandPH.realspace}
-\end{align}
-Here $T$ and $C$ are the time reversal and particle-hole transformation respectively. $U_T$ and $U_C$ are $2\times 2$ matrices. Inforcing that transformed operators are fermionic as well, means that the matrices have to be unitary. The operation on $i$ specifies, that $T$ is antiunitary and $C$ is unitary. In momentum space this definition leads to:
-\begin{align}
-T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} &= U^\dagger_T \begin{bmatrix} c_{-k} \\ c^\dagger_{k} \end{bmatrix}, \nonumber \\
-C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} &= (U^*_C)^\dagger \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix}. 
-\label{eq.TRandPH.momentumspace}
-\end{align}
-By inspecting the transformations $TH_{FF}T^{-1}$ and $CH_{FF}C^{-1}$, we get the following symmetry requirements:
-\begin{align}
-TH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_T\mathcal{H}^*_{FF,-k} U^\dagger_T = + \mathcal{H}_{FF,+k}, \nonumber \\
-CH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_C\mathcal{H}^*_{FF,-k} U^\dagger_C = - \mathcal{H}_{FF,+k}. 
-\label{eq.Symmetryrequirements}
-\end{align}
-This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK$ and $\mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general has a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $2\times 2$ matrix, even though there is only one energy solution. Another way of putting this, is that the two Nambu spinors on each side of the kernel $\mathcal{H}_{FF,k}$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy is here especially evident, since we can simply choose $C$ to have no effect on the Nambu spinor:
+We assume, that the bosons are trapped along the $x$-axis and that the energy required to be excited in the transverse direction is much larger than the typical energy of the bosons. This means, that we can make the following expansion for the bosons:
 \begin{equation}
-C \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} C^{-1} =  \tau_1 \begin{bmatrix} c^\dagger_{-k} \\ c_{k} \end{bmatrix} = \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, 
+\psi_B(x, \mathbf{r}_{\perp}) = \phi_0(\mathbf{r}_{\perp}) \psi_B(x) = \frac{1}{\sqrt{\mathcal{L}}} \sum_k \text{e}^{ikx} \phi_0(\mathbf{r}_{\perp}) b_k, 
+\nonumber
 \end{equation}
-with $\tau_1$ the first Pauli matrix in particle-hole space. This of course means, that $H_{FF}$ is invariant under $C$. Since, it stems from a redundancy in the \textit{structure} of the Hamiltonian, it is often referred to as a particle-hole \textit{constraint} of BdG systems rather than a symmetry. This also means, that for the system to be consistent, we need $\tau_1\mathcal{H}^*_{FF,+k} \tau_1 = - \mathcal{H}_{FF,-k}$, which can also explicitly be checked. 
-
-The time reversal case is somewhat trickier. Firstly, in general the pairing $\Delta_k$ is complex. However, as seen in the previous chapters we can explicitly find a real solution. This is also evident mathematically. For this purpose we let $\Delta_k \to \text{e}^{i\phi}\Delta_k$, with $\phi$ the phase of the pairing, and now $\Delta_k$ real. We then perform a gauge transformation in the $c_k$ operators according to: $c_k \to \text{e}^{-i\phi/2} c_k$. Since $\Delta_k$ depends linearly on $\braket{c_kc_{-k}}$ the resulting transformation of the pairing is:
+where $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_{\perp}}\text{e}^{-r_{\perp}^2/2l_{\perp}^2}$ is the harmonic ground state of the transverse directions with trapping width $l_{\perp}$. Inserting this expansion into the quartic interaction part of the Hamiltonian yields:
 \begin{equation}
-\text{e}^{i\phi}\Delta_k \to \text{e}^{i\phi}\Delta_k\text{e}^{-i\phi} = \Delta_k. \nonumber
+H_{BB}^{\text{int}} = \frac{g_B}{2}\int d^3 r \; \psi_B^\dagger(\mathbf{r})\psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_B(\mathbf{r}) = \frac{g_B}{2\pi l_{\perp}^2}\frac{1}{2\mathcal{L}}\sum_{k_1,k_2,q} b^\dagger_{k_1 + q}b^\dagger_{k_2 - q}b_{k_1}b_{k_2}. \nonumber
 \end{equation}
-With this the kernel $\mathcal{H}_{FF,k}$ is real, and with $U_T = i\tau_3$ we get a time reversal symmetry in accordance with equation \ref{eq.Symmetryrequirements}. Explicitly:
+We see, that this has the exact same form as the momentum space interaction Hamiltonian for the 3D gas contained in equation \eqref{eq.BECHamiltonianmomentumspace}. Further they are equivalent under the identification $g_B \to \frac{g_B}{2\pi l_{\perp}^2}$. We could now carry through the condensate approximation with $\psi_B(x) = \sqrt{n_B} + \delta\psi_B(x)$ with the last term being small and containing the $k \neq 0$ terms, and $n_B = \frac{N_B}{\mathcal{L}}$. The numerics are exactly the same as before, under the above change of $g_B$ and $n_B$. Hence, in this approximation we get the same properties of the one-dimensional gas. The Green's functions of section \ref{sec.BECGreens} is altered only in the change of $g_B$ and $n_B$. The Bose gas parameter is now $n_Ba_B$ and in turn the coherence length is: $\xi = \frac{l_{\perp}}{2\sqrt{n_Ba_B}}$. We are thus ready to calculate the induced interaction for the fermions once again. To get familiar with the relevant energy and length scale we first turn to the tight-binding Hamiltonian.
+
+\section{Tight-binding Hamiltonian} \label{sec.TightbindingHam.lattice}
+The fermions are arranged in a one dimensional lattice with lattice constant $d$ and $N$ sites. The Hamiltonian for nearest and next-nearest hopping is then:
 \begin{equation}
-U_T\mathcal{H}^*_{FF,-k}U^\dagger_T = \tau_3\mathcal{H}^*_{FF,-k}\tau_3 = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} \varepsilon_k & -\Delta_k \\ -\Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} = \mathcal{H}_{FF,k}, \nonumber
+H_{0} = \frac{1}{2}\sum_{j} \left[- t_1(c^\dagger_{j+1}c_j + c^\dagger_j c_{j + 1}) - t_2(c^\dagger_{j + 2}c_j + c^\dagger_j c_{j + 2}) \right].
+\label{eq.Htightbindingrealspace} 
 \end{equation}
-since $\Delta_k$ is odd in $k$ and now also real. It is evident, that the found time reversal symmetry physically transforms a particle into a particle with opposite momentum:
+Here $c_j$ is a fermionic annihilation operator for a fermion in site $j$. $t_1$ and $t_2$ are the energies associated with nearest neighbour and next-nearest neighbour hopping respectively. We define the corresponding momentum space operators through: $c_j = \frac{1}{\sqrt{N}}\sum_{k} c_k \text{e}^{ikx_j}$, where $kd = \frac{2\pi n}{N}$ are the allowed momenta for $n = -\frac{N}{2}, \dots, \frac{N}{2} - 1$ for periodic boundary conditions and $x_j = jd$ the positions of the fermions. Inserting this into the above transforms the Hamiltonian to momentum space:
 \begin{equation}
-T \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix} T^{-1} = \begin{bmatrix} i c_{-k} \\ - i c^\dagger_{k} \end{bmatrix}. \nonumber
+H_{0} = \sum_k \left[ - t_1\cos(kd) - t_2\cos(2kd)\right]c^\dagger_kc_k.
+\label{eq.Htightbindingmomentumspace} 
 \end{equation}
-It is intuitively reasonable, that this \textit{should} be a symmetry of the system. Physically the fermions are bound in Cooper pairs of momentum $k$ and $-k$. This time reversal transformation transforms such a pair by flipping the momentum of both fermions. Explicitly: $Tc^\dagger_{-k}c^\dagger_{k}T^{-1} = -c^\dagger_{k}c^\dagger_{-k} = c^\dagger_{-k}c^\dagger_{k}$. Hereby the Cooper pair is invariant under the time reversal symmetry. Notice that this sounds a bit like inversion symmetry. Before performing the mean field approximation we can easily find an inversion symmetry of the system.\footnote{We can simply define $P\psi_F(x)P = \psi_F(-x)$.} However, in appendix \ref{Appendix.noinversionsymmetry} we show that the mean field Hamiltonian has no inversion symmetry whatsoever. So the presence of the above time reversal symmetry is \textit{not} due to an underlying (unitary) inversion symmetry.
+In this sense, we can already see, that going from the gas to the chain corresponds to letting $\frac{k^2}{2m_F} \to - t_1\cos(kd) - t_2\cos(2kd)$. It is hereby natural to use $t_1$ as the unit of energy and $d$ as the unit of length.
 
-By composing the time reversal and particle-hole transformations we can form a third transformation: the sublattice (or chiral) symmetry $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the above leads to the symmetry condition:
+
+\section{Interaction Hamiltonian} \label{sec.interaction.lattice}
+We return to the Bose-Fermi interaction Hamiltonian of equation \eqref{eq.HintBF}:
 \begin{equation}
-SH_{FF}S^{-1} = H_{FF} \Leftrightarrow U_S\mathcal{H}_{FF,+k} U^\dagger_S = - \mathcal{H}_{FF,+k}.
-\end{equation}
-Hence, the transformation in first quantization is unitary, but has to anticommute with the Hamiltonian. It is also evident, that since the system at hand both has a time reversal and particle-hole symmetry, we can simply form the product to get the symmetry with $U_S = i\tau_3\tau_1 = -\tau_2$. We explain the reason for including this third transformation in the next section. 
-
-\section{Topology and the 10-fold way} \label{sec.Topology10foldway}
-In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one in the broadest possible sense can classify \textit{all} noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. This includes insulators and superconductors. Hence, the authors build a framework in which two distinct Hamiltonians are viewed as equivalent, if one can continuously deform one to the other without closing the energy gap. These sort of deformations are linked to the study of topological spaces, also called manifolds. Hence, the term \textit{topology}. Later we will see, that the topology of the Hamiltonian has geometrical effects in real space, the edge states. However, as the above makes it clear, this is not the source of the term topology.  
-
-It turns out that one can use the three transformations of the previous section to classify the system within the above framework. Further, there are three possibilities of the time reversal and particle-hole symmetry. Either there is no symmetry, indicated by a $0$, or there is a symmetry and then the transformations can square to plus and minus the identity, indicated with $\pm 1$. The sublattice symmetry can either by absent, $0$, or present, $1$. Further, as the system at hand explicitly shows, if there is both a time reversal, $T$, and a particle-hole symmetry, $C$, present, there is also a sublattice symmetry, $S=TC$. Further, if only $T$ or $C$ is present of the two, there cannot be a sublattice symmetry. Else, we would be able to make the remaining symmetry by composition. However, in the case of no $T$ nor $C$ symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason why this last symmetry is included. In total we then have $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the 10-fold way. 
-
-Classifying the Hamiltonians in this framework puts the Hamiltonian in a specific Cartan class. The information from the classification is, that the socalled topological index has to be found in a specific set of numbers. This set can for example be the integers $\mathbb{Z}$. The result of the articles is then, that if two ground states have different integers as their topological index, they cannot be deformed continously into each other without closing the energy gap. The socalled periodic table for topological insulators and superconductors is shown in table \ref{tab.PeriodicTableTISC}.
-
-\begin{table}[htb]
-\centering
-\caption{\textit{Periodic table of topological superconductors and insulators. $d$ is the spatial dimension. A 0-value for T,C and S indicates no symmetry. For T and C the sign indicates the sign of the square $T^2$ and $C^2$ for a symmetry present. $S=1$ indicates presence of a sublattice symmetry. The sets to the right indicates in what set of numbers the topological index should be found. }}
-\begin{tabular}{|l|l l l|l l l l|}
-\hline Cartan/$d$   &  T &  C & S					& 0 & 1 & 2 & 3 \\
-\hline A    		&  0 &  0 & 0					& $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0   			 \\
-\hline AIII 		&  0 &  0 & 1					& 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$   			 \\
-\hline AI   		& +1 &  0 & 0					& $\mathbb{Z}$ & 0 & 0 & 0 			    			 \\
-\hline BDI	       	& +1 & +1 & 1 					& $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 			 \\
-\hline D	       	&  0 & +1 & 0 					& $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 \\
-\hline DIII	       	& -1 & +1 & 1 					& 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ \\
-\hline AII	       	& -1 &  0 & 0 				 	& $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}$  \\
-\hline CII	       	& -1 & -1 & 1 					& 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$  			 \\
-\hline C	       	&  0 & -1 & 0 					& 0 & 0 & $2\mathbb{Z}$ & 0  						 \\
-\hline CI	       	& +1 & -1 & 1 					& 0 & 0 & 0 & $2\mathbb{Z}$  						 \\
-\hline 
-\end{tabular}
-\label{tab.PeriodicTableTISC}
-\end{table}
-
-For the system at hand we have $\mathcal{T}^2 = \mathcal{C}^2 = + \mathbb{I}$. This puts the system in the Cartan class BDI as table \ref{tab.PeriodicTableTISC} shows. This also means, that we in principle should look in the integers, $\mathbb{Z}$, to find the topological index of the system. However, we will also consider what effect it has, if the time reversal symmetry is broken. In this situation the system is in Cartan class $D$ and the topological index is to be found in $\mathbb{Z}_2 = \{-1,1\}$. In the following section we clarify the distinction by explicitly constructing a mapping, which in turn is used to calculate these topological indices. 
-
-\section{\texorpdfstring{$\mathbb{Z}_2$}{Z2} topological index and phases}
-\label{sec.topindexandphases}
-In this section we calculate the $\mathbb{Z}_2$ topological invariant. This means, that any perturbations obey the original particle-hole symmetry of the system. This mimics the approach in \cite{Alicea}.
-
- The idea of the analysis is the following. Define the vector $\mathbf{h}(k)$, so that $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot\boldsymbol\tau$, with $\boldsymbol\tau = (\tau_1,\tau_2,\tau_3)$ containing the Pauli matrices. In the case of no perturbations and $\Delta_k$ real we have: $h_z(k) = \varepsilon_k, h_y(k) = 0$ and $h_x(k) = \Delta_k$. The energy dispersion is $E_{F,k} = \sqrt{\varepsilon^2_k + \Delta^2_k} = |\mathbf{h}(k)|$. We hereby define a unit vector:
-\begin{equation}
-\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}. 
-\label{eq.hhatdefinition}
-\end{equation}
-
-\begin{figure}
-\center
-\begin{tikzpicture}
-\draw[-latex, thick] ( 0.0, -4) -- (0, 4) node[above]{$z$};
-\draw[-latex, thick] (-0.1,  0) -- (4, 0) node[right]{$x$};
-\node at (-0.4, 0) {$0$};
-
-\draw[red, ultra thick] (0, -3.5) arc (-90:90:3.5);
-\draw[-latex, red, ultra thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
-
-\draw[domain=33.540844097:90,smooth,variable=\x,blue, thick] plot ({3.5 * cos(\x)},{3.5 * sin(\x)});
-\draw[-latex, blue, thick] (0.6853426578, 3.4322601227) -- (0.6953426578, 3.4302330223);
-\draw[-latex, blue, thick] (2.4748737348,  2.4748737348) -- (2.4648737348, 2.4848737348);
-
-\end{tikzpicture}
-\caption{In red (blue) $(h_x(k),h_z(k))$ is plotted as function of $k\in \{0, \infty\}$ for $\mu > 0$ ($\mu < 0$). Notice that for $\mu < 0$ the curve starts and ends at the north pole.}
-\label{fig.hhatplot}
-\end{figure}
-
-It is then clear, that as long as there is an energy gap, $\hat{h}(k)$ is well defined. Since $E_{F,k=0} = |\mu|$, we see that the energy is gapped exactly when $\mu \neq 0$. Finally, since $\Delta_{k=0} = 0$ and $\Delta_k \overset{k\to \infty}{\to} 0$, we notice that: 
-\begin{equation}
-\hat{h}(k = 0) = -\text{sgn}(\mu)\hat{z} = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k = \infty) = \hat{z} = p_{\infty}\hat{z},
-\label{eq.hhatk0kinfty}
-\end{equation}
-where $\text{sgn}$ denotes the sign function. The idea is then, that we can specify a number $\nu_{\mathbb{Z}_2} \in \mathbb{Z}_2$ by:
-\begin{equation}
-\nu_{\mathbb{Z}_2} = p_0p_{\infty} = -\text{sgn}(\mu).
-\label{eq.topinvnudefition}
-\end{equation}
-The claim is, that we have hereby defined a topological index, which specifies two states, that cannot be deformed into each other without closing the energy gap. The precise statement is, that these two phases stays distinct under symmetry-preserving perturbations, i.e. under perturbations that also have the particle-hole symmetry, $\mathcal{C}$. Therefore, we should check that $\nu_{\mathbb{Z}_2}$ is well-defined for any $\hat{h}(k)$, that obeys the symmetry. Hence, we write a more general Hamiltonian kernel $\mathcal{H}_k = \mathbf{h}(k)\cdot \boldsymbol\tau$. We impose $\mathcal{C} = \tau_1 K$ to be a symmetry of the system: $\mathcal{C}\mathcal{H}_k\mathcal{C}^{-1} = \mathcal{H}_{-k}$. A small calculation then shows, that $h_{x,y}$ are odd in $k$ and $h_z$ even. This means, that $\mathbf{h}(k = 0) = h_z(k = 0)\hat{z}$. Further, we inforce that in the large momentum limit, it is still the $h_z$ component, that dominates. After all we are only considering perturbations to the system. Hence, $h_{x,y}(k)/h_z(k) \to 0$ for $k \to \pm \infty$. Therefore, in this more general setup we still have:
-\begin{equation}
-\hat{h}(k = 0) = p_0\hat{z}, \hspace{0.5cm} \hat{h}(k = \infty) = p_{\infty}\hat{z}, \nonumber
-\end{equation}
-and $\nu_{\mathbb{Z}_2} = p_0p_{\infty}$ is still well-defined. It is in this sense, that $\nu_{\mathbb{Z}_2}$ specifies a topological invariant. We can also make this very explicit graphically. This is done in figure \ref{fig.hhatplot}. In red and blue we have plotted the behaviour of $\hat{h}$ for $\mu > 0$  and $\mu < 0$ respectively, omitting the zero component $h_y$. For $\mu > 0$ we see, that we go from the south pole to the north pole as $k$ goes from $0$ to $\infty$. For $\mu < 0$ on the other hand, we see that $\hat{h}(k)$ starts out at the north pole, then goes somewhat along the circle arc before returning to the north pole. This is of course the same behaviour as written in equation \eqref{eq.hhatk0kinfty}. It is then clear, that there is no way of continuously deforming one map to the other, as long as this picture of starting and ending at one pole stays well-defined. This is exactly the content of the analysis for a more general $\mathcal{H}_k$. Further, we notice that the mapping becomes ill-defined exactly when $\mu = 0$. This is also evident from the appearance of $\text{sgn}(\mu)$ in $\nu_{\mathbb{Z}_2}$. We notice, that since $\mu(T) \to -\infty$ and $\Delta_k(T)\to 0$ for $T\to \infty$, the $\mu < 0$ phase is connected continously to the normal phase. Hence, the normal phase, and thereby also the vacuum, is associated with $\nu_{\mathbb{Z}_2} = 1$. 
-
-For $T = 0$ the normal phase has $\mu = \epsilon_{F,0} > 0$. We can hereby distinguish between two regimes. The first is the weak coupling regime. The pairing does not significantly alter the chemical potential: $\mu(T=0) > 0$. Hereby $\nu_{\mathbb{Z}_2} = -1$ and the ground state is topologically \textit{non}-trivial. The second is the strong coupling regime, where $\mu(T = 0) < 0$, $\nu_{\mathbb{Z}_2} = 1$ and the ground state is topologically trivial. This is in complete harmony with the findings in \cite{Alicea} for the Kitaev chain.\footnote{In the article by Alicea the fermions sit in a lattice, but the physical properties are essentially the same.}
-
-We are only investigating the weak coupling regime, even with $\mu \approx \epsilon_{F,0}$. From the above arguments, this means, that we have found a ground state with $\nu_{\mathbb{Z}_2} = -1$. So far, we have investigated the bulk properties of the superfluid by imposing cyclic boundary conditions. Imagine it now as a wire with open ends. This means, that there are junctions at the ends between a $\nu_{\mathbb{Z}_2} = -1$ (the superfluid wire) and a $\nu_{\mathbb{Z}_2} = 1$ phase (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu$ has to change its value abrubtly at the boundary. Hence, the energy gap has to dramatically drop to $0$ at the boundary. 
-
-The interesting question is now: are there states that are topologically protected? More precisely, we are asking, whether there exist low energy states, that can only be removed by breaking the symmetries of the system. The answer lies in the built-in particle-hole symmetry of the Hamiltonian. As we saw in section \ref{sec.SymmetriesTRandPH} we have a particle-hole symmetry $\mathcal{C} = \tau_1 K$, with $K$ the complex conjugation operator. Hereby $\mathcal{C}\mathcal{H}_{FF,k} = -\mathcal{H}_{FF,-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\ket{\psi_k}$. We hereby directly get:
-\begin{equation}
-E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{FF,k}\ket{\psi_k} = -\mathcal{H}_{FF,-k}\mathcal{C}\ket{\psi_k} \Rightarrow \mathcal{H}_{FF,-k}\left(\mathcal{C}\ket{\psi_k}\right) = -E_k\left(\mathcal{C}\ket{\psi_k}\right).
-\end{equation}
-This shows, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The bulk spectrum is here indicated by a solid line above the bulk gap $\min_k[E_{F,k}]$ and mirrored in $E = 0$. Now suppose that we introduce a perturbation, that respects the particle-hole symmetry. The energies therefore still come in plus/minus pairs, but apart from that the energies can change. Hence, we can perturb any low energy state with $E \neq 0 $ away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the plus/minus symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
-
-With no energy cost edge states at the ends of the wire can hereby emerge and are robust to symmetry-conserving perturbations. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu_{\mathbb{Z}_2} = - 1$, to an edge effect (the edge states). As is indicated to the right in figure \ref{fig.edgestates}, the state has to be localised on the boundaries. This is simply, because it is here the energy gap closes. 
-
-\begin{figure}
-\center
-\begin{tikzpicture}
-\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
-\draw[-, thick]   (0, 0) -- (0, -2);
-\node at (-0.4, 0) {$0$};
-
-\draw[-, dashed] (0, 1)--(1, 1);
-\draw[-, thick] (-0.1, 1)--(0.1, 1);
-\node at (-1.17,1) {$\min_k[E_{F,k}]$};
-
-\draw[-, dashed] (0, -1)--(1, -1);
-\draw[-, thick] (-0.1, -1)--(0.1, -1);
-\node at (-1.35,-1) {$-\min_k[E_{F,k}]$};
-
-\draw[-, ultra thick] (1, 1)--(1, 2);
-\draw[-, ultra thick] (1, -1)--(1, -2);
-\node[red] at (1, 0) {\textbullet};
-
-\node at (1, 0.5) {\textbullet};
-\draw[-latex] (1, 0.5) --  (1,  1);
-\node at (1, -0.5) {\textbullet};
-\draw[-latex] (1, -0.5) -- (1, -1);
-
-\draw[-, dashed] (0,0.01) --(1,0.01);
-
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x}});
-
-\node at (3, -0.4) {$0$};
-\node at (8, -0.4) {$\mathcal{L}$};
-\draw[|-latex, thick ] (3,0) -- (9,0) node[right]{$x$};
-
-\draw[-, ultra thick ] (3,0) -- (8,0);
-\end{tikzpicture}
-\caption{To the left the energy spectrum is sketched. Because of the particle-hole symmetry, there is a negative energy state for every positive. There is a continuum of states above $\min_k[E_{F,k}]$ and below $-\min_k[E_{F,k}]$. At the boundary of the wire the gap closes, but the particle-hole symmetry only protects the single state at $E = 0$, indicated by the red dot. The corresponding wave function is sketched to the right.}
-\label{fig.edgestates}
-\end{figure}
-
-\section{\texorpdfstring{$\mathbb{Z}$}{Z} topological index and Chern-Simons invariant}
-\label{sec.CS1}
-In this section we calculate the $\mathbb{Z}$ topological index corresponding to the protection of the particle-hole \textit{and} time reversal symmetry. We connect this to the general Chern-Simons invariant of systems with a chiral symmetry. 
-
-Consider again the mapping $\hat{h}(k)$ from the previous section for a more general Hamiltonian kernel $\mathcal{H}_k = \mathbf{h}(k)\cdot\boldsymbol\tau$. Besides the particle-hole symmetry we also impose the time reversal symmetry $\mathcal{T} = i\tau_3$: $\mathcal{T}\mathcal{H}_k\mathcal{T}^{-1} = \mathcal{H}_{-k}$. A small calculation then shows, that $h_y(k) = 0$. This means, that the mapping $\hat{h}(k)$ is restricted to a great circle. We also have, that $\hat{h}(k = \pm \infty) = \hat{z}$ from the particle-hole symmetry. Therefore, $\hat{h}(k)$ maps an integer number of times around $\mathbf{h} = 0$.\footnote{Had we chosen the phase of $\Delta_k$ differently, the time reversal symmetry would also be different. This would in turn impose a specific phase between $h_x$ and $h_y$. Again the mapping is restricted to a great circle.} This integer is called the \textit{winding number}, $w$, of the mapping. Within these symmetries it is still allowed to change the sign of $h_x(k)$. This means, that $\nu_{\mathbb{Z}} = |w|$ is the topological invariant of the system. We clarify this in the following way. The winding number is an integer, so it cannot change from say $0$ to $1$ without the mapping $\hat{h}$ being ill-defined in-between. Windings $1$ and $-1$ are however equivalent, since we can simply change the sign of $h_x(k)$. The only way for $\hat{h}$ to become ill-defined is if the energy gap closes. It is exactly this, that characterises a topological phase transition. 
-
-We now return to the system at hand. We have $h_z(k) = \varepsilon_k$ and $h_x(k) = \Delta_k$. If we let $\theta_k$ denote the angle of $\hat{h}(k)$ with the $z$-axis, the winding number is:
-\begin{equation}
-w = \frac{1}{2\pi}\oint d\theta_k.
-\label{eq.definition.windingnumber}
+H_{BF}^\text{int} = g_{BF}\int d^3 r \; \psi_F^\dagger(\mathbf{r}) \psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_F(\mathbf{r}),
 \end{equation} 
-The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta_k}{\varepsilon_k}$. In turn $\theta_k(c) = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c$ for some constant $c$. Calculating $d\theta_k = dk \cdot \partial_k \theta_k$ then gives:
+This time around we trap the fermions along a wire as before \textit{and} in a lattice. Assuming, that the trapping frequency, $\omega_{\perp}$ for the perpendicular directions to the wire is large with respect to the typical energy $t_1$ means, that the fermions are trapped in the harmonic oscillator ground state like the bosons, i.e. the gaussian: $\phi_0(\mathbf{r}_{\perp})$ of width $l_{\perp} = \frac{1}{\sqrt{m_F\omega_{\perp}}}$. Further, the lattice confinement means, that the states can be expanded in terms of well-localised (orthonormal) Wannier states around the lattice points $x_j = jd$, $d$ being the lattice constant. We approximate these states with gaussians $\phi_0(x - x_j)$ of width $l_x$. In this sense, we expand the field operators according to:
 \begin{equation}
-w = \frac{1}{2\pi}\int dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k}. \nonumber
-\end{equation} 
-In the normal phase we have $\Delta_k = 0$. In turn $w = 0$, which is hereby the topologically trivial value. We see, that we can flip the sign of the winding as mentioned above by making the gauge transformation $\Delta_k \to - \Delta_k$. 
-
-For $\mu < 0$, $\varepsilon_k > 0$ for all $k$ and $\theta_k(c = 0)$ is continuous. In this case the invariant simply becomes:
-\begin{equation}
-\nu_{\mathbb{Z}}(\mu < 0) = \left|\left. \frac{1}{\pi}\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right)\right|_{0}^{\infty}\right| = 0,
+\psi_F(x, \mathbf{r}_{\perp}) = \sum_j \phi_0(\mathbf{r}_{\perp})\phi_0(x - x_j) c_j, 
 \end{equation}
-since $\Delta_k$ is zero for $k = 0$ and $k = \infty$ and since $\varepsilon_k$ is nonzero in both limits. Hence, the system is topologically trivial for $\mu < 0$. 
-
-For $\mu > 0$, $\theta_k(c = 0)$ suffers a discontinuity in $k_0$ defined by $\varepsilon_{k_0} = \frac{k_0^2}{2m_F} - \mu = 0$. Explicitly:  
+where $c_j$ annihilates a fermion at site $j$. Inserting this into the interaction Hamiltonian along with the expansion for the bosons, we get:
+\begin{equation}
+H_{BF}^{\text{int}} = \frac{g_{BF}}{2\pi l_{\perp}^2}\frac{1}{\mathcal{L}}\sum_{p_1, p_2, q} c^\dagger_{p_1 - q}b^\dagger_{p_2 + q}b_{p_2}c_{p_1}. \nonumber
+\end{equation}
+Here we have taken the $l_x \to 0$ limit and used that $c_j = \frac{1}{\sqrt{N}}\sum_p \text{e}^{ipx_j}c_p$. This is equivalent to the Kitaev wires in the 3D Bose gas by letting $g_{BF} \to \frac{g_{BF}}{2\pi l_{\perp}^2}$. The calculation of the induced interaction is therefore only altered in the sense, that we should not integrate over the perpendicular directions. This is because, the bosons are now also confined to move in one direction. See section \ref{sec.1D3Dinducedinteraction} for the details. Hence, the Fourier transform of the real space interaction is simply given by equation \eqref{eq.V11indXBEC} without the double integration and by letting $g_B \to \frac{g_B}{2\pi l_{\perp}^2}, g_{BF} \to \frac{g_{BF}}{2\pi l_{\perp}^2}$ and $n_B = \frac{N_B}{\mathcal{L}}$:
+\begin{equation}
+V_{\text{ind}}(q, i\omega_q) = \left(\frac{g_{BF}}{2\pi l_{\perp}^2}\right)^2 \chi_\text{BEC}(q, i\omega_q), 
+\label{eq.VFFmomentumspace.kitaevchain}
+\end{equation}
+with $\chi_\text{BEC}(q, i\omega_q) = \frac{q^2}{m_B}\frac{n_B}{(i\omega_q)^2 - E_{B,q}^2}$ the density-density correlation function of the BEC. The change of $g_B$ means, that the Bogoliubov spectrum $E_{B,q}$ is altered to: $E_{B,q}^2 = \frac{q^2}{2m_B}\left(\frac{q^2}{2m_B} + 2n_B\frac{g_B}{2\pi l_{\perp}^2}\right)$.\footnote{Since the coherence length is similarly altered, the spectrum expressed in terms of the coherence length is unaltered.} The real space interaction is obtained by a Fourier transformation of the above. As for the single and double wire systems we focus on the $\omega_q = 0$ component, whereby we do not take retardation effects into account. However, we wish to consider long coherence lengths, so it is worth discussing these effects. An upper bound for the momentum is provided by the Brillouin zone: $k_F \approx \frac{\pi}{d}$. This means, that the relevant speed of the fermions is $v_F = \frac{k_F}{m_F} = \frac{\pi}{m_Fd}$. Letting $g_B \to \frac{g_B}{2\pi l_{\perp}^2}$ means, that the speed of the bosonic Bogoliubov excitations is: $c_0 = \frac{1}{\sqrt{2}m_B\xi}$. The ratio of the velocities hereby becomes: $\frac{v_F}{c_0} = \sqrt{2}\pi\frac{m_B}{m_F}\frac{\xi}{d}$. The retardation effects are only negligible when $v_F\ll c_0$. This means, that either the mass ratio must be unrealistically small, or $\xi \approx d$. Since we wish to consider coherence lengths that are several times the lattice spacing, retardation effects \textit{will} be quantitatively significant. However, we speculate that the zero frequency component will give us qualitatively correct results. The zero frequency component of the real space interaction is:
+\begin{equation}
+\tilde{V}_{\text{ind}}(x, 0) = \int \frac{dq}{2\pi} \; \text{e}^{iqx}V_{\text{ind}}(q, 0) = -\frac{n_Bg_{BF}^2m_B}{\pi^2l_{\perp}^4}\int \frac{dq}{2\pi} \; \text{e}^{iqx} \frac{1}{q^2 + 2/\xi^2}. \nonumber
+\end{equation}
+This integration can be performed using Cauchy's residue theorem. The result is:
+\begin{equation}
+\tilde{V}_{\text{ind}}(j, l, 0) = -\frac{n_Bg_{BF}^2m_B}{2\sqrt{2}\pi^2l_{\perp}^4}\xi \cdot \text{e}^{-\frac{\sqrt{2}|x_j - x_l|}{\xi}},
+\label{eq.Inducedcinteractionrealspace.kitaevchain}
+\end{equation}
+where we have put $x = x_j - x_l$, the distance between sites $j$ and $l$. From this it is clear what the effect is of making the boson gas one-dimensional. The induced interaction is no longer of the Yukawa form, it is purely exponential. This also means, that we can effectively make the interaction over a range of the lattice constant by making the coherence length large enough. The unitless form of this interaction is obtained by dividing by the nearest neighbour hopping $t_1$:
+\begin{equation}
+\frac{\tilde{V}_{\text{ind}}(j, l, 0)}{t_1} = -G \cdot \text{e}^{-\frac{\sqrt{2}|x_j - x_l|}{\xi}}, \hspace{0.5cm} G = \frac{\sqrt{2}}{\pi^2} \left(\frac{m_F}{m_B} + \frac{m_B}{m_F} + 2\right)\frac{\varepsilon_0}{t_1}\left(\frac{d}{l_{\perp}}\right)^3 (n_Ba_{BF})^2 \frac{1}{n_Bd\sqrt{n_Ba_B}},
+\label{eq.Inducedcinteractionrealspaceunitless.kitaevchain} 
+\end{equation}
+where $G$ is a measure of the strength of the interaction. Here $\varepsilon_0 = \frac{\pi^2}{2m_Fd^2}$ is the energy of a single fermion in an infinite square well of width $d$. We hereby choose to express the system using the independent variables: $\frac{m_B}{m_F}, n_Bd, \frac{\varepsilon_0}{t}, n_B a_{BF}$, and finally the Bose gas parameter: $n_B a_{B}$. In this we assume, that we can separately control the hopping $t_1$ and the lattice constant $d$. This is the reason for the additional parameter $\frac{\varepsilon_0}{t}$. Instead of specifying this large amount of parameters, we will simply set an overall interaction strength $G$ and use the Bose gas parameter, $n_B a_{B}$, to control the coherence length, $\xi$. Dropping the $0$ in the induced interaction, we can hereby write the fermion interaction Hamiltonian in the zero frequency limit as:
+\begin{equation}
+H^{\text{int}}_{FF} = \frac{1}{2}\sum_{j,l} c^\dagger_j c^\dagger_l \tilde{V}_{\text{ind}}(j, l) c_l c_j
+\label{eq.Hintrealspace.lattice}
+\end{equation}
+Using the Fourier decomposition $c_j = \frac{1}{\sqrt{N}}\sum_k \text{e}^{ikx_j}c_k$, we transform this to momentum space:
 \begin{align}
-\lim_{k \uparrow +k_0} \theta_k(c = 0) &\overset{\varepsilon_k \uparrow 0}{=} 	  - \frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber \\
-\lim_{k \downarrow +k_0} \theta_k(c = 0) &\overset{\varepsilon_k \downarrow 0}{=} + \frac{\pi}{2}\text{sgn}(\Delta_{k_0}), \nonumber
+H^{\text{int}}_{FF} &= \frac{1}{2N} \sum_{k, q, p} W_{\text{ind}}(k, q, p) c^\dagger_{k + p} c^\dagger_{q - p} c_q c_k, \nonumber \\  
+W_{\text{ind}}(k, q, p) &= \frac{1}{2}\sum_{j\neq 0} \left[\cos(px_j) - \cos((p + k - q)x_j) \right]\tilde{V}_{\text{ind}}(0, j). 
+\label{eq.Hintmomentumspace.lattice}
 \end{align}
-This follows from the fact, that $\arctan(x) \overset{x \to \pm \infty}{\to} \pm \frac{\pi}{2}$. To mend this discontinuity we let $ c = -\pi\text{sgn}(\Delta_{k_0})$ for $k > k_0$. Notice, that $\Delta_{k_0} \neq 0$, since else the energy gap would close in $k_0$ $\left(E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}\right)$. Hence, the sign of $\Delta_{k_0}$, $\text{sgn}(\Delta_{k_0})$, is well defined. Therefore, the integrand in this situation has the continuous integrand:
+We notice, that $W_{\text{ind}}(k, q, p)$ is explicitly periodic in the Brillouin zone of width $2\pi / d$. The functional difference between the wire and the lattice is, that the momentum space interaction $W_{\text{ind}}(k, q, p)$ is a finite sum of components of the real space interaction $\tilde{V}_{\text{ind}}(0, j)$, not a combination of Fourier transforms.
+
+\section{Grand Hamiltonian, gap equation and filling fraction} \label{sec.grandhamiltonian.lattice}
+The mean field approximation is performed in exactly the same way as for the Kitaev wires. The sum in equation \eqref{eq.Hintmomentumspace.lattice} is truncated to $q = -k$, and the operator $c_kc_{-k}$ is written as it's mean plus a deviation. The deviation is then only kept up to first order. See section \ref{sec.meanfieldapproximation} for the details. This means, that the Hamiltonian has the exact same structure as for the single wire, but now we use $W_{\text{ind}}(k, k') = W_{\text{ind}}(k, q = -k, p = k' - k)$ of equation \eqref{eq.Hintmomentumspace.lattice} and $\varepsilon_k = - t_1\cos(kd) - t_2\cos(2kd) - \mu$. The system hereby realises the Kitaev chain with next-nearest neighbour hopping included: 
+\begin{equation}
+H_{FF} = \frac{1}{2}\sum_k \left[\varepsilon_k - \Delta_k \braket {c^\dagger_k c^\dagger_{-k}}\right] + \frac{1}{2}\sum_{k} \begin{bmatrix} c_k^\dagger & c_{-k} \end{bmatrix} \mathcal{H}_{FF,k} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta^*_k & -\varepsilon_k \end{bmatrix}, 
+\label{eq.grandhamiltonian.lattice}
+\end{equation}
+where the sum over $k$ extends over the Brillouin zone $[-\pi/d, \pi/d )$, and: 
+\begin{equation}
+\Delta_k = - \frac{1}{N}\sum_{k'} W_{\text{ind}}(k,k')\braket{c_{k'}c_{-k'}}.
+\label{eq.pairingpotential.lattice}
+\end{equation}
+The Hamiltonian realises the Kitaev model of section \ref{sec.KitaevModel}. It is therefore readily diagonalised. This yields a dispersion $E_{F,k} = \sqrt{\varepsilon^2_k + |\Delta_k|^2}$. Further using the transformation to the quasiparticle operators, we obtain the gap equation for the pairing potential: 
+\begin{align}
+\Delta_k &= - \frac{1}{N}\sum_{k'} W_{\text{ind}}(k,k')\frac{\Delta_{k'}}{2E_{F,k'}}\tanh\left[\frac{\beta E_{F,k'}}{2}\right], \nonumber \\
+W_{\text{ind}}(k,k') &= \frac{1}{2}\sum_{j\neq 0} \left[\cos((k - k')x_j) - \cos((k + k')x_j) \right]\tilde{V}_{\text{ind}}(0, j).
+\label{eq.gapequation.lattice}
+\end{align}
+So far everything has been analogous to the Kitaev wires. There we externally set the number of fermions. In turn the chemical potential adjusted according to the number equation. For the lattice we will externally set the filling fraction $n = N_F / N$ determined by the number equation $N_F = \sum_k \braket{c^\dagger_k c_k}$:
+\begin{equation}
+n = \frac{N_F}{N} = \frac{1}{N}\sum_k |v_{F,k}|^2 = \frac{1}{2}\left(1 - \frac{1}{N}\sum_k \frac{\varepsilon_k}{E_{F,k}}\tanh\left[\frac{\beta E_{F,k}}{2} \right] \right), 
+\label{eq.fillingfraction.lattice}
+\end{equation}
+which measures how full the lattice is. In turn the chemical potential will again adjust. Since the lattice consists of identical fermions the filling fraction is less than 1: $0 \leq n \leq 1$. For $\Delta_k \to 0$ the above filling fraction hits exactly 1 for $T = 0$. Hence, a nonzero pairing makes the filling fraction deviate from 1. This is also physically intuitive: the lattice can only be a superfluid, if there are vacant sites. Else the lattice turns rigid, since the fermions can only hop to vacant sites. In addition to the overall interaction strength, $G$, and the coherence length, $\xi / d$, we thus have to specify the filling, $n$. This gives us essentially only three parameters to vary. 
+
+To have a clearer intuition for the chemical potential we solve for it, for $G = t_2 = T = 0$. In this case the above equation can be written simply as:
+\begin{equation}
+n = \frac{1}{2N}\sum_k \left( 1 - \frac{\varepsilon_k}{|\varepsilon_k|}\right) = \frac{2}{N}\sum_{k > 0, k < k_1}. \nonumber
+\end{equation}
+Here we have used, that the summand is even in $k$, and defined $k_1$ through: $0 = \varepsilon_{k = k_1} = -t_1\cos(k_1d) - \mu$. Further we use, that $1 - \frac{\varepsilon_k}{|\varepsilon_k|} = 2$ for $-k_1 < k < k_1$ and $0$ otherwise. The sum can be evaluated when $N \gg 1$. By letting $\sum_k \to \frac{1}{\Delta k}\int dk$ we get:
+\begin{equation}
+n = \frac{d}{\pi}\int_0^{k_1} dk =  \frac{k_1d}{\pi} = \frac{\cos^{-1}\left(-\frac{\mu}{t_1}\right)}{\pi}. \nonumber
+\end{equation}
+Here we use $\varepsilon_{k_1} = 0 \Rightarrow k_1d = \cos^{-1}\left(-\frac{\mu}{t_1}\right)$. Hence we get a simple expression for $\mu(n)$ for $N\gg 1$:
+\begin{equation}
+\mu(n) = -t_1\cos(\pi n), \hspace{0.5cm} N\gg 1.
+\label{eq.mun.T0.G0.lattice}
+\end{equation}
+We notice, that $\mu$ is bounded to lie between $-t_1$ and $t_1$ hitting these for $n = 0$ and $n = 1$ respectively, as it should in the noninteracting $T = 0$ case. More specifically we can understand this cosinusoidal behaviour as follows. The key is the form of kinetic energy $-t_1\cos(kd)$. For small filling only the bottom most points of $-t_1\cos(kd)$ are occupied. The band is flat in this region, so the chemical potential increases slowly with $n$. When we reach $n = 1/2$ the band is linear, and there is a linear relation between $\mu$ and $n$. When the filling becomes very close to one, the band again flattens out and $\mu$ changes very slowly with rising $n$. For $n = 1$ the band is completely full and $\mu = t_1$. 
+
+\section{Filling fraction symmetry and break down}
+\label{sec.fillingfractionsymmetry.breakdown}
+In this section we show, that the system has a filling fraction symmetry $n \to 1 - n$, when next-nearest neighbour hopping is absent, i.e. $t_2 = 0$. We will also show, how $t_2 \neq 0$ breaks this symmetry. 
+
+For $t_2 = 0$, transforming the filling fraction of equation \eqref{eq.fillingfraction.lattice} to $n' = 1 - n$ we get:
+\begin{align}
+n' 	&= \frac{1}{2}\left(1 + \frac{1}{N}\sum_k \frac{\varepsilon_k}{E_{F,k}}\tanh\left[\frac{\beta E_{F,k}}{2} \right] \right) = \frac{1}{2}\left(1 + \frac{1}{N}\sum_k \frac{\varepsilon_{k + \pi/d}}{E_{F,k + \pi/d}}\tanh\left[\frac{\beta E_{F,k + \pi/d}}{2} \right] \right) \nonumber \\ 
+	&= \frac{1}{2}\left(1 - \frac{1}{N}\sum_k \frac{\varepsilon_{k}(-\mu)}{E_{F,k}(-\mu, \Delta_{k + \pi/d})}\tanh\left[\frac{\beta E_{F,k}(-\mu, \Delta_{k + \pi/d})}{2} \right] \right), \nonumber
+\end{align}
+where we in the last equality explicitly write $\varepsilon_{k}(-\mu) = -t_1\cos(kd) + \mu$ and $E^2_{F,k}(-\mu, \Delta_{k + \pi/d}) = (-t_1\cos(kd)+\mu)^2 + \Delta^2_{k+\pi/d}$. This means, that if we come from a system with a solution $n, \mu, \Delta_k$ and change $n \to n' = 1 - n$, then this has the solution $1 - n, -\mu, \Delta_{k+\pi/d}$. It is in this sense, the system has a symmetry in the filling fraction. Specifically this is around $n = 1/2$.\footnote{This must in fact also be checked for consistency with the gap equation \eqref{eq.gapequation.lattice}. This is quite simply and verifies the new solution $\Delta_{k + \pi/d}$. } 
+
+For $t_2 \neq 0$, this changes dramatically. The key point above was to use the transformation $k\to k + \pi/d$. Under this transformation now: $\varepsilon_{k + \pi/d} = -t_1\cos(kd + \pi) - t_2\cos(2kd + 2\pi) - \mu = t_1\cos(kd) - t_2\cos(2kd) - \mu = -\varepsilon_k(t_1,-t_2,-\mu)$. Hence, to obtain a symmetry we now also need to transform $t_2 \to -t_2$. It is in this sense, that the nearest neighbour hopping \textit{breaks} the filling fraction symmetry around $n = 1/2$. 
+
+We emphasize that this filling fraction symmetry is not simply a particle-hole symmetry $c_i \to c^\dagger_i$. The particle-hole symmetry is always present and corresponds to the transformation: $n \to 1 - n, \mu \to -\mu, t_1 \to -t_1, t_2 \to -t_2$ and  $\Delta_k \to \Delta_k^*$. Hence, it requires a flip in sign of the nearest neighbour hopping, $t_1$, as well and changes the pairing in a different manner.  
+
+\section{Topology} \label{sec.topology.lattice}
+In this section we characterise the system topologically and calculate the $\mathbb{Z}$ topological index. 
+
+In subsection \ref{subsec.windingnumber} we studied the Kitaev model in detail. As a result of this analysis we know, that the system belongs to the Cartan class BDI and that it is hereby characterized by a $\mathbb{Z}$ topological index. We showed, that the topological index is the winding number of a specific mapping. The mapping is defined in the following manner. We write $\mathcal{H}_{FF,k} = \mathbf{h}(k)\cdot \boldsymbol\tau$ with $\boldsymbol\tau = (\tau_1, \tau_2, \tau_3)$ and $\mathbf{h}(k) = (\Delta_k, 0, \epsilon_k)$ for $\Delta_k$ real. The mapping is then given by $\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}$, which maps from the Brillouin zone to the unit circle. Since $E_{F,k} = |\mathbf{h}(k)|$ the mapping is well-defined as long as the system has an energy gap. The winding number of this mapping was found in section \ref{subsec.windingnumber}. Adjusting for the fact, that the Briillouin zone is now $[-\pi/d, \pi/d)$, we get:
+\begin{equation}
+w = \frac{1}{2\pi}\oint d\theta_k = \frac{1}{2\pi}\int_{-\pi/d}^{\pi/d} dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{\pi}\int_{0}^{\pi/d} dk \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k\partial_k\varepsilon_k}{\varepsilon^2_k + \Delta^2_k}
+\label{eq.windingnumber.kitaevmodel}
+\end{equation} 
+In section \ref{sec.2wires_CSinv} we calculated the topological invariant for the Kitaev wires. Then the kinetic energy only had a single pair of Fermi points. Now we wish to generalise this strategy to the case, where $\varepsilon_k$ has several pairs of Fermi points, i.e. several pairs of zeroes. To keep the calculation simple we will assume, that there are only up to two pairs of zeroes. In figure \ref{fig.dispersions.lattice} we have plotted several possibilities for the dispersion and the resulting pairing. The effect of next-nearest neighbour hopping is the addition of the term $-t_2\cos(2kd)$ to $\varepsilon_k$. This makes the dispersion bend downwards towards the Brillouin zone boundary. This makes it possible for two pairs of zeroes as can be seen in the bottom two figures. We denote the positive zeroes as $0 < k_1 < k_2 < \pi / d$.\footnote{One could equivalently use the negative zeroes.} The primitive of the integrand above was also found in section \ref{sec.2wires_CSinv} and is given by:
+\begin{equation}
+\theta_k(c) = \arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) + c, \nonumber
+\end{equation}
+where $c$ is some constant. As in the single wire system $\theta_k(0)$ suffers discontinuities when $\varepsilon_k$ hits zero, which must be remedied. Explicitly, we found a discontinuity of $\pm \pi$ depending on the sign of $\Delta_k$ and whether $\varepsilon_k$ approaches zero from negative or positive values. Hence, we can form the continuous primitive:
 \begin{equation}
 \theta_k = \left\{ \begin{matrix} 
-\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\text{sgn}(\Delta_{k_0}), & k > k_0, \\
-\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right), & 0 < k < k_0,
-  \end{matrix} \right.
-\label{eq.thetakmugreater0}
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right), & 0 < k < k_1, \\
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\text{sgn}(\Delta_{k_1})\text{sgn}\left(\partial_k\varepsilon_{k = k_1}\right), & k_1 < k < k_2, \\
+\arctan\left(\frac{\Delta_k}{\varepsilon_k}\right) - \pi\left(\text{sgn}(\Delta_{k_1})\text{sgn}\left(\partial_k\varepsilon_{k = k_1}\right) + \text{sgn}(\Delta_{k_2})\text{sgn}\left(\partial_k\varepsilon_{k = k_2}\right)\right), & k_2 < k < \pi / d,
+  \end{matrix} \right. \nonumber 
 \end{equation}
-Using this the invariant for $\mu > 0$ becomes:
-\begin{align}
-\nu_{\mathbb{Z}}(\mu > 0) = \left|\left. \frac{1}{\pi} \theta_k\right|_0^{\infty}\right| = \left|-\text{sgn}(\Delta_{k_0})\right| = 1.
-\label{eq.CSinv2}
-\end{align}
-We see, that when we impose the time reversal symmetry for the specific system at hand, there is still only two possible phases, a trivial one for $\mu < 0$ and a topological one for $\mu > 0$. The current calculation does however have additional information. The $\mathbb{Z}$ topological invariant namely counts the number of edge states \cite{Chiu.Topology}. Since $\nu_{\mathbb{Z}} = 1$ in the only non-trivial case this shows, that the gas only supports up to one edge state. It is not possible for the system at hand to produce more edge states than this. The edge states analysis of the previous section is therefore unaltered in the present context. Notice, that this does not depend on the details of the model; the only used assumptions are: $\Delta_k$ odd, $\varepsilon_k$ only zero in $k = \pm k_0$ and the nonzero energy gap. An analysis shows, that this comes down to the fact, that the kinetic energy $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ only has one pair of zeroes, the two Fermi points. In systems with several pairs of zeroes in the kinetic energy, states with several edge states are possible. An example is a one-dimensional lattice of fermions with nonzero hopping terms to several neighbours \cite{Alecce.extendKitaev}. In part IV of this thesis we will investigate exactly such a model, that can exhibit up to $\nu_{\mathbb{Z}} = 2$ edge states. 
-
-We now wish to connect this winding number to the much more general Chern-Simons invariant. For the double wire system in part III we namely have to rely solely on this approach. The Chern-Simons invariant is generally a half integer: $\dots, -3/2, -1, -1/2, 0, 1/2, \dots$, which is a well-defined topological invariant as long as the system has a chiral symmetry. In one spatial dimension the Chern-Simons invariant is defined as:
+where $\partial_k\varepsilon_{k = k_i}$ denotes the derivative $\partial_k\varepsilon_k$ at $k_i$ and $\text{sgn}$ is the sign function. The integral can now be evaluated using the above primitive:
 \begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \tr\left[\mathcal{A}_k\right],
-\label{eq.definition.CS1}
+w = \left.\frac{1}{\pi}\theta_k\right|^{\pi / d}_{0} = -\left( \text{sgn}\left(\Delta_{k_1}\partial_k\varepsilon_{k = k_1}\right) + \text{sgn}\left(\Delta_{k_2}\partial_k\varepsilon_{k = k_2}\right) \right). \nonumber
 \end{equation}
-where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socalled Berry connection. In the literature the Chern-Simons invariant is also referred to as the (total) polarisation. This naming has a physical reasoning in electronic topological insulators, because it is actually a measure of the charge polarisation as a consequence of the edge states \cite{FuKane2006}. Since there are no charge carriers in our system, we will not use this naming. However, we will find, that the winding number is exactly twice the Chern-Simons invariant: $w = 2\text{CS}_1$. So the invariant is still connected to the number of edge states. 
-
-Now let $\ket{e^{-}_k}$ be the eigenvector to $\mathcal{H}_{FF,k}$ with eigenvalue $-E_{F,k}$. For a single occupied state, the Berry connection is defined as:
+Here we put the signs together. This formula illustrates the fact, that we can flip the sign of the winding number by flipping the overal sign of the pairing, $\Delta_k$. Hence, the invariant is the absolute value: $\nu = |w|$. In the case of nearest and next-nearest neighbour hopping we hereby see, that:
 \begin{equation}
-\mathcal{A}_k = \bra{e^{-}_k}\partial_k\ket{e^{-}_k}. \nonumber
+\nu = \left\{ \begin{matrix} 	0, 								& \text{no zeroes of } \varepsilon_k, \\
+								1, 								& \varepsilon_{k_1} = 0, \\
+								\left|\text{sgn}(\Delta_{k_1}\partial_k\varepsilon_{k = k_1}) + \text{sgn}(\Delta_{k_2}\partial_k\varepsilon_{k = k_2})\right|,   & \varepsilon_{k_1} = 0 = \varepsilon_{k_2}.
+\end{matrix} \right. \nonumber
 \end{equation}
-A careful calculation of this Berry connection yields: 
+Here we see, that for $0$ and $1$ pairs of zeroes of $\varepsilon_k$, the invariant is unambigously also $0$ and $1$ respectively. However, for $2$ pairs of zeroes, the invariant can both be $0$ and $2$. Further, since the slope of $\varepsilon_k$ will have opposite sign at $k_1$ and $k_2$ we see, that the following two conditions must be satisfied to get a topological invariant $\nu = 2$. First, there must be \textit{two} zeroes of $\varepsilon_k$. Second, the sign of the pairing must be different at these two zeroes. In this manner we have established a general formula for the topological invariant in case of an arbitrary number of pairs of zeroes of $\varepsilon_k$:
 \begin{equation}
-\mathcal{A}_k = \bra{\tilde{e}^{-}_k}\partial_k\ket{\tilde{e}^{-}_k} = -\frac{i}{2E^2_{F,k}}(\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k). \nonumber 
-\end{equation}
-Since the Brillouin zone is simply the entire axis, $k\in (-\infty, \infty)$, we get:
-\begin{equation}
-\text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}} dk\; \text{tr}\left[\mathcal{A}_k\right] = \frac{1}{4\pi}\int dk \;  \frac{\varepsilon_k\partial_k\Delta_k - \Delta_k \partial_k \varepsilon_k}{\varepsilon^2_k + \Delta^2_k} = \frac{1}{2}w. 
-\label{eq.CSinv1}
-\end{equation}
-Hence, we see that the Chern-Simons invariant in the present context simply yields half the winding number found above. This is actually a general feature; the Chern-Simons invariant is always connected in this way to a generalized winding. In the present context we have hereby explicitly demonstrated the connection between the topological invariant, the winding of a specific mapping and the Chern-Simons invariant. For the double wire system we will not be able to define the mapping explicitly. However, what makes the Chern-Simons invariant so powerful, is that we do not need to. We simply have to use equation \eqref{eq.definition.CS1}.  
-
-\section{Edge states}
-\label{sec.edgestates}
-In this section we will come with an approximate analytical solution for the edge states between topologically distinct phases. This is primarily to get an idea of what these edge states are. The analysis is largely based on \cite[pp. 196-198]{BernevigTITSC}. 
+\nu = \left|\sum_{k_n > 0, \varepsilon_{k_n} = 0} \text{sgn}\left(\Delta_{k_n}\partial_k\varepsilon_{k = k_n}\right)\right|.
+\label{eq.topologicalinvariant}
+\end{equation} 
 
 \begin{figure}
-\center
-\begin{tikzpicture}
-\begin{axis}[samples=150, xtick=\empty, ytick=\empty, axis line style={draw=none}, 
-    xmin=-1, xmax=6,
-    ymin = -1/2, ymax = 1/2,
-    axis lines=center,
-    domain=-1:6,
-    ]
-
-    \addplot [mark=none,draw=blue, thick] {1/2 * (tanh(5 * \x) - tanh(5 * (\x - 5) ) - 1)};
-\end{axis}
-
-
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 0.975 * 2},{ 2 * 2.85 + 3 * exp{- 10 * \x*\x}});
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 5.875 * 2},{ 2 * 2.85 + 3 * exp{- 10 * \x*\x}});
-
-\node at (0.975 + 0.12, 2.85 - 0.3) {$0$};
-\node at (5.875-0.12, 2.85 - 0.3) {$\mathcal{L}$};
-\draw[-latex, thick ] (0,2.85) -- (7,2.85) node[right]{$x$};
-\draw[-, ultra thick ] (0.975,2.85) -- (5.875,2.85);
-\draw[|-, thick ] (0.975,2.85) -- (1,2.85);
-\draw[-, ultra thick ] (0.975,2.85) -- (5.875,2.85);
-\draw[-|, thick ] (5.7,2.85) -- (5.875,2.85);
-
-\coordinate (a) at (7.8, 5.682);
-\coordinate (anode) at (7.5, 5.682);
-\coordinate (b) at (8.3, 5.682);
-\coordinate (c) at (7.8, 5.182);
-\coordinate (d) at (8.3, 5.182);
-\coordinate (cnode) at (6.7, 5.182);
-
-\draw[-, thick, blue] (a) -- (b);
-\node at (anode) {$\mu$}; 
-\draw[-, thick, red] (c) -- (d);
-\node at (cnode) {Edge states}; 
-\end{tikzpicture}
-\caption{Red: Edge states. Blue: chemical potential $\mu = \mu(x)$. Due to the spatial variation of the chemical potential the fermions are confined to the interval between $x = 0$ and $x = \mathcal{L}$. }
-\label{fig.edgestatesmux}
+\begin{center}
+\input{Figures/Lattice.singlewire/dispersion/kdepend.tex}
+\caption{In blue: kinetic energy relative to chemical potential, $\varepsilon_k$. In red: pairing $\Delta_k$. Both in units of $t_1$ as a function of $kd$. Top row: $\mu = -0.5 t_1$. Bottom row: $\mu = 0.5 t_1$. Left column: $\Delta_k = \frac{t_1}{2}\sin(kd)$. Right column: $\Delta_k = \frac{t_1}{2}\sin(2kd)$. The bottom right figure is the only one, that exhibits $\nu = 2$, since we both need two zeroes for $k >0$ of $\varepsilon_k$ and a change in sign of $\Delta_k$ in-between these zeroes. For all figures we have set $t_2 = t_1$. }
+\label{fig.dispersions.lattice}
+\end{center}
 \end{figure}
 
-The single wire system has the Hamiltonian:
-\begin{equation}
-H_{FF} = E_0 + \frac{1}{2}\sum_{k} \begin{bmatrix} c^\dagger_k & c_{-k} \end{bmatrix} \begin{bmatrix} \varepsilon_k & \Delta_k \\ \Delta_k & -\varepsilon_k \end{bmatrix} \begin{bmatrix} c_k \\ c^\dagger_{-k} \end{bmatrix},
-\end{equation}
-with energy $E_{F,k} = \sqrt{ \varepsilon^2_k + \Delta^2_k}$. We would like to describe this Hamiltonian in real space, because we now ask whether certain states exist at the ends of the wire. To do this we define the operator $\Delta(p)$ as a function of the momentum operator $p = -i\partial_x$ in the following manner:
-\begin{equation}
-\Delta(p)\text{e}^{ikx} = \Delta_k\text{e}^{ikx}.
-\label{eq.Deltapdef}
-\end{equation}
-Hence, we replace the variable dependency of $k$ in $\Delta_k$ with an operator dependency on $p$ in $\Delta(p)$. Further, we drop the ground state grand energy $E_0$. With this definition we get the Hamiltonian in real space:
-\begin{equation}
-H_{FF} = \frac{1}{2}\int dx \begin{bmatrix} \psi^\dagger_{F}(x) & \psi_{F}(x) \end{bmatrix} \mathcal{H}_{FF}(x) \begin{bmatrix} \psi_{F}(x) \\ \psi^\dagger_{F}(x) \end{bmatrix}, \hspace{0.5cm} \mathcal{H}_{FF}(x) = \begin{bmatrix} \frac{p^2}{2m_F} - \mu  & \Delta(p) \\ \Delta(p) & -\left( \frac{p^2}{2m_F} - \mu \right) \end{bmatrix},
-\label{eq.MFHamiltonianrealspace}
-\end{equation}
-For the sake of clarity let us see how e.g. the term $\Delta_kc_{-k}c_{k}$ appears from this expression:
-\begin{align}
-\int dx \; \psi_{F}(x) \Delta(p) \psi_{F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}c_k c_q\int dx \; \text{e}^{ikx}\Delta(p)\text{e}^{iqx} = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta_qc_kc_q\int dx \; \text{e}^{i(k + q)x} \nonumber \\
-&= \sum_{k}\Delta_kc_{-k}c_k, \nonumber 
-\end{align}
-since $\int dx\; \text{e}^{i(k + q)x} =\mathcal{L} \delta_{k,-q} $. Here we use the Fourier decomposition $\psi_{F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_k$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $ E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Since $\Delta_k$ is linear in $k$ for $k/k_F \ll 1$, then $\Delta(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Hence, we ignore $p^2/2m_F$ and let $\Delta(p) = \Delta \cdot \tilde{p}$, with $\Delta = k_F\left.\frac{\partial \Delta_k}{\partial k}\right|_{k=0}$ and $\tilde{p} = p/k_F$. We assume $\Delta > 0$. We take the ansatz:
-\begin{equation}
-\psi_1(x) = \exp\left(-\frac{k_F}{\Delta}\int_{0}^{x} dx'\; \mu(x') \right)\begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = \exp\left(+\frac{k_F}{\Delta}\int_{\mathcal{L}}^{x} dx'\; \mu(x') \right)\begin{bmatrix} v_1 \\ v_2 \end{bmatrix}, \nonumber
-\end{equation}  
-respectively at the lower and upper edge: $x = 0$ and $x = \mathcal{L}$. Since $\Delta$ is in units of energy the exponents are unitless. Since $\Delta > 0$, we see that these states are exponentially localized at the edges. From this we get two eigenvalue equations:
-\begin{align}
-0 &= \mathcal{H}_{FF}(x)\psi_1(x) = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\psi_1(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & i\mu \\ i\mu & + \mu \end{bmatrix}\begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \nonumber \\
-0 &= \mathcal{H}_{FF}(x)\psi_2(x) = \begin{bmatrix} - \mu  & -i\mu \\ -i\mu & + \mu \end{bmatrix}\psi_2(x) \Rightarrow 0 = \begin{bmatrix} - \mu  & -i\mu \\ -i\mu & + \mu \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \nonumber.
-\end{align}
-By solving these equations we get:
-\begin{equation}
-\psi_1(x) = g_1(x)\frac{\text{e}^{i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ -i \end{bmatrix}, \hspace{0.5cm} \psi_2(x) = g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 \\ +i \end{bmatrix}, \nonumber
-\end{equation}
-with $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant. Notice the sign differences between the two solutions. The above eigenstates define the diagonalisation matrix $U(x) = \begin{bmatrix} \psi_1(x) & \psi_2(x) \end{bmatrix}$. This has the unitarity property, that $\int dx \; U^\dagger(x) U(x) = \mathbb{I}$. We then let the operators $\gamma_{0,1}, \gamma_{0,2}$ be given by:
-\begin{equation}
-\begin{bmatrix} \psi_F(x) \\ \psi_F^\dagger(x) \end{bmatrix} = U(x) \begin{bmatrix} \gamma_{0,1} \\ \gamma_{0,2} \end{bmatrix} \Rightarrow \begin{bmatrix} \gamma_{0,1} \\ \gamma_{0,2} \end{bmatrix} = \int dx \; U^\dagger(x) \begin{bmatrix} \psi_F(x) \\ \psi_F^\dagger(x) \end{bmatrix}.
-\label{eq.Majoranaedgemodedef} 
-\end{equation}
-Written out the operators are:
-\begin{equation}
-\gamma_{0,1} = \int dx \; g_1(x) \frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_F(x) + i\psi^\dagger_F(x)), \hspace{0.5cm} \gamma_{0,2} = \int dx \; g_2(x) \frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_F(x) - i\psi^\dagger_F(x)).
-\label{eq.Majoranaedgemodegeneraldef} 
-\end{equation}
-In this manner $\psi_j(x)$ and $\gamma_{0,j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\gamma_{0,j}^\dagger = \gamma_{0,j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factors $\text{e}^{\pm i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\gamma^\dagger_{0,j}$ and $\gamma_{0,j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being their own antiparticle, they have to obey the modified anticommutator relation:
-\begin{equation}
-\{\gamma_{0,i}, \gamma_{0,j} \} = \delta_{i,j}. \nonumber
-\end{equation}
-This is explicitly verified to be the case for the above operators.\footnote{Often one also meets the requirement, that the anticommutator equals $2\delta_{i,j}$. This is simply a matter of convention.} From this we can form a regular but highly nonlocal fermionic operator: $d = \frac{1}{\sqrt{2}}(\gamma_{0,1} + i\gamma_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = \frac{1}{2}$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
-
-The question now becomes the following. Is it possible to make a simple physical change of the system, that allows us to observe a topological phase transition? The proposal is to put in a \textit{second} wire parallel to the one already studied. By doing this we get two kinds of interactions. The first is the \textit{intra}wire interaction, the interaction internally in each wire, which we have already studied in detail. The second is the \textit{inter}wire interaction, the interaction between the two wires. Further, we get an extra parameter, namely the distance $d$ between the wires. It will allow us to study the transition between intrawire and interwire dominated interactions, and further what effect the topology has on the transition. This is the subject of part III of this thesis. 
+For the sake of clarity let us see, how we use this formula on the examples given in figure \ref{fig.dispersions.lattice}. Here we assume, that the pairing, shown in red, is either proportional to $\sin(kd)$ or $\sin(2kd)$, respectively the left and right column. The kinetic energy dispersion is shown in blue for two values of the chemical potential $\mu = -1/2$ and $\mu = 1/2$, top and bottom row respectively. The required \textit{two} zeroes of $\varepsilon_k$ for $\nu = 2$ is achieved in the bottom two figures. It is clear from the figure, that this is equivalent to a high filling fraction, since much of $\varepsilon_k$ must be negative. Further, we need the pairing to change sign in between the two zeroes of $\varepsilon_k$. Hence, a $\sin(2kd)$-like pairing is needed as well. This requirement means, that we need a high coherence length, because the $\sin(lkd)$ term of $\Delta_k$ is connected to pairing to the $l$'th neighbour. We will expand on this analysis in the following chapter, where we explicitly find the pairing using equation \eqref{eq.gapequation.lattice}.
 

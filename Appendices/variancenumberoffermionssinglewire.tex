@@ -1,0 +1,39 @@
+% Appendix E
+
+\chapter{Variance of the number of fermions} % Main appendix title
+
+\label{Appendix.Fluctuationfermionnumber} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\chead{}
+\lhead{Appendix E. \emph{Variance of $N_F$}} % This is for the header on each page - perhaps a shortened title
+In this appendix we rigorously compute the variance of the fermion number $N_F$ for the single wire. First:
+\begin{equation}
+\braket{(N_F-{\braket{N_F}})^2} = \braket{N_F^2} - \braket{N_F}^2 = \sum_{k,q} \braket{c^\dagger_kc_kc^\dagger_qc_q} - \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q}. \nonumber
+\end{equation} 
+We use Wick's theorem, valid for quadratic Hamiltonians, to break up the four body mean into a sum of two body means \cite[pp. 198-202]{BruusFlensberg}:
+\begin{equation}
+\braket{c^\dagger_kc_kc^\dagger_qc_q} = \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q} - \braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} + \braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q}. \nonumber
+\end{equation}
+The first term is identical to the one coming from $\braket{N_F}^2$. Hence, we only need the later two terms. From equation \eqref{eq.fermionquasiparticledef} we have: $c_k = u^{*}_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$. Further $u_{F,k}$ is even in $k$ and $v_{F,k}$ is odd. We get:
+\begin{align}
+\braket{c_kc_q} &= u^{*}_{F,k}v_{F,k}\left(1 - 2f(E_{F,k})\right)\delta_{k,-q}, \nonumber \\
+\braket{c^\dagger_kc_q} &= \left(|u_{F,k}|^2f(E_{F,k}) + |v_{F,k}|^2(1-f(E_{F,k})\right)\delta_{k,q}. \nonumber
+\end{align}
+Here we have used, that the quasiparticles are distributed according to: $\braket{\gamma^\dagger_k\gamma_k} = f(E_{F,k})$, with $f$ the Fermi-Dirac distribution. We also use the anticommutator relations for the $\gamma$-operators. Further:
+\begin{align}
+-\braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} &= -\braket{c_qc_k}^*\braket{c_kc_q} = +\left|\braket{c_kc_q}\right|^2, \nonumber \\
+\braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q} &= \braket{c^\dagger_kc_q}\braket{c_qc^\dagger_k}^* = -\left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q}. \nonumber
+\end{align}
+In the second line we use the anticommutator $\{c_q, c^\dagger_k\} = \delta_{k,q}$. In total we hereby get:
+\begin{align}
+\braket{(N_F-{\braket{N_F}})^2} = \sum_{k,q} & \left[\left|\braket{c_kc_q}\right|^2 - \left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q} \right] \nonumber \\
+=\sum_k & \left[ |u_{F,k}|^2|v_{F,k}|^2\left( (1 - 2f(E_{F,k}))^2 - 2f(E_{F,k})(1 - f(E_{F,k})) \right)^2  + \right. \nonumber \\
+& |u_{F,k}|^2f(E_{F,k})(1 - |u_{F,k}|^2f(E_{F,k})) + \nonumber \\
+&\left. |v_{F,k}|^2 ( 1 - f(E_{F,k}) )\left(1  - |v_{F,k}|^2 (1 - f(E_{F,k})) \right) \right]
+\label{eq.VarianceNFgeneralT}
+\end{align}
+For $T = 0$ we have $f(E_{F,k}) = 0$. Since $|u_{F,k}|^2 + |v_{F,k}|^2 = 1$ we simply get:
+\begin{equation}
+\braket{(N_F-{\braket{N_F}})^2} = 2\sum_k |u_{F,k}^2|v_{F,k}|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}
+\label{eq.VarianceNFT0}
+\end{equation}
+

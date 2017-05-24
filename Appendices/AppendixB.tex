@@ -1,32 +1,28 @@
 % Appendix B
 
-\chapter{General real space induced interaction} % Main appendix title
+\chapter{General induced interaction} % Main appendix title
 
 \label{Appendix.inducedinteraction.realspace} % For referencing this appendix elsewhere, use \ref{AppendixC}
 \chead{}
-\lhead{Appendix B. \emph{General real space induced interaction}} % This is for the header on each page - perhaps a shortened title
+\lhead{Appendix B. \emph{General induced interaction}} % This is for the header on each page - perhaps a shortened title
 In this appendix we calculate the real space induced interaction in the weak coupling limit for general Matsubara frequency $\omega_m = 2\pi m k_B T$. This is only done for $l_t = 0$. 
 
-From equation \eqref{eq.VFFindXBEC} we have the induced interaction in momentum space for all $l_t > 0$:
+From section \ref{sec.1D3Dinducedinteraction} we find, that we can write both the intra- and interwire real space induced interaction as:
 \begin{equation}
-V_{\text{ind}}(q, i\omega_m) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q, \mathbf{k}_\perp, i\omega_m)\text{e}^{-\frac{l_t^2}{2}k_\perp^2},\nonumber
-\end{equation}
-with $\chi_\text{BEC}(\mathbf{k}, i\omega_m) = -\frac{k^2}{m_B}\frac{n_B}{\omega^2_m + E_{B,k}^2}$ the BEC density-density correlation function, and $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2n_Bg_B\right)$ the Bogoliubov BEC spectrum. The real space induced interaction is the Fourier transform of the above. Therefore, we can use the following limiting procedure for $l_t = 0$:
-\begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m) = \lim_{d \to 0}\left[g_{BF}^2\int\frac{d^3k}{(2\pi)^3}\; \chi_\text{BEC}(\mathbf{k}, i\omega_m)\text{e}^{i\mathbf{k}\cdot \mathbf{r}_d}\right] = \lim_{d \to 0} I(\mathbf{r}_d, \omega_m), 
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m) = g_{BF}^2\int\frac{d^3k}{(2\pi)^3}\; \chi_\text{BEC}(\mathbf{k}, i\omega_m)\text{e}^{i\mathbf{k}\cdot \mathbf{r}}, 
 \label{eq.limitVindxomegam}
 \end{equation}
-which defines $I(\mathbf{r}, \omega_m)$ and where $\mathbf{r}_d = (x, \mathbf{d})$. With a bit of rearranging we get the expression:
+with $\chi_\text{BEC}(\mathbf{k}, i\omega_m) = -\frac{k^2}{m_B}\frac{n_B}{\omega^2_m + E_{B,k}^2}$ the BEC density-density correlation function, and $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2n_Bg_B\right)$ the Bogoliubov BEC spectrum. For the intrawire interaction $\mathbf{r} = (x, 0, 0)$. For the interwire interaction $\mathbf{r} = (x, 0, d)$. With a bit of rearranging we get the expression:
 \begin{equation}
-I(\mathbf{r}, \omega_m) = +4m_Bg^2_{BF}n_B\int \frac{d^3k}{(2\pi)^3} \frac{k^2}{g(k)}\text{e}^{i\mathbf{k}\cdot\mathbf{r}} = +4m_Bg^2_{BF}n_B\int_0^\pi d\theta \sin(\theta)\int_0^{\infty} \frac{dk}{(2\pi)^2} \frac{k^4}{g(k)}\text{e}^{ikr\cos(\theta)}, \nonumber
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m) = +4m_Bg^2_{BF}n_B\int \frac{d^3k}{(2\pi)^3} \frac{k^2}{g(k)}\text{e}^{i\mathbf{k}\cdot\mathbf{r}} = +4m_Bg^2_{BF}n_B\int_0^\pi d\theta \sin(\theta)\int_0^{\infty} \frac{dk}{(2\pi)^2} \frac{k^4}{g(k)}\text{e}^{ikr\cos(\theta)}, \nonumber
 \end{equation}
 where we define $g(k) = 4m_B^2\omega^2_m + k^2(k^2 + 2/\xi^2)$, and where $1/\xi^2 = 2m_Bn_Bg_B$ defines the BEC coherence length $\xi$. Here we let $\theta$ be the angle between $\mathbf{k}$ and $\mathbf{r}$ and use, that the integrand does not depend on the azimuthal angle $\phi$. Performing the $\theta$ integral directly we get:
 \begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
 \end{equation}
 where the limits are implicitly $\pm \infty$. We will now think of $k$ as a complex variable and make a half-circle contour $\mathcal{C}$ in the upper half-plane. Since the integrand goes exponentially fast to zero on the boundary of $\mathcal{C}$, we get:
 \begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m) = -\frac{2m_Bg^2_{BF}n_B}{\pi}\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr}, \nonumber
 \end{equation}
 in the limit of infinite radius $R$ of the half-circle. By Cauchy's residue theorem we can then calculate the integral by calculating the residues of the integrand. To do this we need the poles of $g(k)$, that $\mathcal{C}$ surrounds, hence the poles in the upper half-plane. We therefore solve $g(k) = 0$, a quadratic equation in $k^2$, with the two solutions:
 \begin{equation}
@@ -43,15 +39,11 @@ We can therefore write $g(k) = (k + ik_+)(k - ik_-)(k + ik_-)(k - ik_-)$ and the
 \end{equation}
 Now using $\int_{\mathcal{C}} \frac{dk}{2\pi i} \frac{k^3}{g(k)}\text{e}^{ikr} = \text{Res}(f, k_+) + \text{Res}(f, k_-)$ we get the expression:
 \begin{equation}
-I(\mathbf{r}, \omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi r}\left[ \text{e}^{-k_+r} + \text{e}^{-k_-r} + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+r} - \text{e}^{-k_-r}  \right) \right]. \nonumber
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi r}\left[ \text{e}^{-k_+r} + \text{e}^{-k_-r} + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+r} - \text{e}^{-k_-r}  \right) \right]. \nonumber
 \end{equation}
-Finally taking the limit in equation \eqref{eq.limitVindxomegam} gives:
+Remember that for the intrawire interaction: $\mathbf{r} = (x, 0, 0)$. For the interwire interaction: $\mathbf{r} = (x, 0, d)$. For $\omega_m = 0$ we must get the Yukawa interaction. In this situation $k_- = 0, k_+ = \sqrt{2}/\xi$ and we get:
 \begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m) = -\frac{m_Bg^2_{BF}n_B}{2\pi |x|}\left[ \text{e}^{-k_+|x|} + \text{e}^{-k_-|x|}  + \frac{1}{ \sqrt{1 - \left(\frac{\omega_m}{n_Bg_B}\right)^2} }\left(\text{e}^{-k_+|x|} - \text{e}^{-k_-|x|}  \right) \right], 
+\tilde{V}_{\text{ind}}(\mathbf{r}, i\omega_m = 0) = -\frac{m_Bg^2_{BF}n_B}{\pi r}\text{e}^{-\sqrt{2}r/\xi}, \nonumber
 \end{equation}
-by simply replacing $r$ with $|x|$. We know, that for $\omega_m = 0$ we must get the Yukawa interaction. In this situation $k_- = 0, k_+ = \sqrt{2}/\xi$ and we get:
-\begin{equation}
-\tilde{V}_{\text{ind}}(x, i\omega_m = 0) = -\frac{m_Bg^2_{BF}n_B}{\pi |x|}\text{e}^{-\sqrt{2}|x|/\xi}, \nonumber
-\end{equation}
-which is identical to equation \eqref{eq.Vx_lt=0}. 
+which is identical to the results in equations \eqref{eq.V12indx} and \eqref{eq.V11indx}. 
 

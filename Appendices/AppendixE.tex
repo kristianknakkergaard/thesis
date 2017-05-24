@@ -1,39 +1,65 @@
-% Appendix E
+\chapter{Critical temperature, separated wires} % Main chapter title
 
-\chapter{Variance of the number of fermions} % Main appendix title
-
-\label{Appendix.Fluctuationfermionnumber} % For referencing this appendix elsewhere, use \ref{AppendixA}
+\label{Appendix.criticaltemperature} % For referencing this appendix elsewhere, use \ref{AppendixA}
 \chead{}
-\lhead{Appendix E. \emph{Variance of $N_F$}} % This is for the header on each page - perhaps a shortened title
-In this appendix we rigorously compute the variance of the fermion number $N_F$ for the single wire. First:
+\lhead{Appendix E. \emph{Critical temperature}}
+
+%----------------------------------------------------------------------------------------
+In this chapter we will first derive a linearized gap equation. See section \ref{sec.linearizedgapequation}. This will give us a more efficient way of calculating the critical temperature $T_c$ for the transition between the superfluid and normal phase. In section \ref{sec.criticaltemperature.numerical} we will then solve the equation numerically and investigate the dependency of $T_c$ on the gas parameters $(n_Ba_{BF}^3)^{1/3}$ and $(n_Ba_B^3)^{1/3}$. 
+
+\section{Linearized gap equation} \label{sec.linearizedgapequation}
+In the analysis of chapter \ref{Chapter6} the estimation of the critical temperature $T_c$ is quite tedious. We have to wait for an increasing number of iterations near $T_c$ to get a good estimate and calculating the critical temperature as a function of the parameters of the problem is out of the question. In this section we will describe a much more efficient way of estimating the critical temperature through \textit{the linearized gap equation}. 
+
+For the separated wires, the gap equation in integral form is:
 \begin{equation}
-\braket{(N_F-{\braket{N_F}})^2} = \braket{N_F^2} - \braket{N_F}^2 = \sum_{k,q} \braket{c^\dagger_kc_kc^\dagger_qc_q} - \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q}. \nonumber
+\Delta^{11}_k = - \int \frac{dk'}{2\pi} W_{\text{ind}}(k,k')\frac{\tanh\left(\frac{\beta E_{F,k}}{2}\right)}{2E_{F,k'}}\Delta^{11}_{k'}. \nonumber
 \end{equation} 
-We use Wick's theorem, valid for quadratic Hamiltonians, to break up the four body mean into a sum of two body means \cite[pp. 198-202]{BruusFlensberg}:
+As we saw in chapter \ref{Chapter6} the gap goes to zero at the critical temperature $T_c$: $\Delta^{11}_k(T_c) = 0$. The energy $E_{F,k} = \sqrt{\epsilon_k^2 + |\Delta^{11}_k|^2}$ is quadratic in the gap. It follows that by only retaining the gap to first order, we obtain a linear equation near $T_c$:
 \begin{equation}
-\braket{c^\dagger_kc_kc^\dagger_qc_q} = \braket{c^\dagger_kc_k}\braket{c^\dagger_qc_q} - \braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} + \braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q}. \nonumber
-\end{equation}
-The first term is identical to the one coming from $\braket{N_F}^2$. Hence, we only need the later two terms. From equation \eqref{eq.fermionquasiparticledef} we have: $c_k = u^{*}_{F,k}\gamma_k - v_{F,k}\gamma^\dagger_{-k}$. Further $u_{F,k}$ is even in $k$ and $v_{F,k}$ is odd. We get:
-\begin{align}
-\braket{c_kc_q} &= u^{*}_{F,k}v_{F,k}\left(1 - 2f(E_{F,k})\right)\delta_{k,-q}, \nonumber \\
-\braket{c^\dagger_kc_q} &= \left(|u_{F,k}|^2f(E_{F,k}) + |v_{F,k}|^2(1-f(E_{F,k})\right)\delta_{k,q}. \nonumber
-\end{align}
-Here we have used, that the quasiparticles are distributed according to: $\braket{\gamma^\dagger_k\gamma_k} = f(E_{F,k})$, with $f$ the Fermi-Dirac distribution. We also use the anticommutator relations for the $\gamma$-operators. Further:
-\begin{align}
--\braket{c^\dagger_kc^\dagger_q}\braket{c_kc_q} &= -\braket{c_qc_k}^*\braket{c_kc_q} = +\left|\braket{c_kc_q}\right|^2, \nonumber \\
-\braket{c^\dagger_kc_q}\braket{c_kc^\dagger_q} &= \braket{c^\dagger_kc_q}\braket{c_qc^\dagger_k}^* = -\left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q}. \nonumber
-\end{align}
-In the second line we use the anticommutator $\{c_q, c^\dagger_k\} = \delta_{k,q}$. In total we hereby get:
-\begin{align}
-\braket{(N_F-{\braket{N_F}})^2} = \sum_{k,q} & \left[\left|\braket{c_kc_q}\right|^2 - \left|\braket{c^\dagger_kc_q}\right|^2 + \braket{c^\dagger_k c_q}\delta_{k,q} \right] \nonumber \\
-=\sum_k & \left[ |u_{F,k}|^2|v_{F,k}|^2\left( (1 - 2f(E_{F,k}))^2 - 2f(E_{F,k})(1 - f(E_{F,k})) \right)^2  + \right. \nonumber \\
-& |u_{F,k}|^2f(E_{F,k})(1 - |u_{F,k}|^2f(E_{F,k})) + \nonumber \\
-&\left. |v_{F,k}|^2 ( 1 - f(E_{F,k}) )\left(1  - |v_{F,k}|^2 (1 - f(E_{F,k})) \right) \right]
-\label{eq.VarianceNFgeneralT}
-\end{align}
-For $T = 0$ we have $f(E_{F,k}) = 0$. Since $|u_{F,k}|^2 + |v_{F,k}|^2 = 1$ we simply get:
+\Delta_k = - \int \frac{dk'}{2\pi} W_{\text{ind}}(k,k')\frac{\tanh\left(\frac{\beta \varepsilon_k}{2}\right)}{2\varepsilon_k} \Delta^{11}_{k'}.
+\label{eq.GapequationIntegralLinear}
+\end{equation} 
+Here we have also used, that $\frac{\tanh\left(\frac{\beta \varepsilon_k}{2}\right)}{2\varepsilon_k}$ is even in $\varepsilon_k$, so that the absolute value from the square root can be omitted. This defines a linear equation with eigenvalue $1$: $\Delta^{11}_k = L(\Delta^{11}_k)$. $L$ is then a linear transformation defined by the integral above. Hence, the program for the evaluation of $T_c$ is now clear. We must find the highest temperature at which, there is an eigenvalue of 1. Notice, that this specifies where the normal to superfluid phase transition occures. This also means, that the chemical potential in $\varepsilon_k = \frac{k^2}{2m_F} - \mu$ can be taken to be the normal phase chemical potential (the chemical potential for the free gas). 
+
+\section{Calculating the critical temperature} \label{sec.criticaltemperature.numerical}
+In this section we will describe how in practice to perform the calculation outlined in the above. 
+
+We need to but the linear equation on matrix form. From equation \eqref{eq.GapequationIntegralLinear} we get the matrix equation:
 \begin{equation}
-\braket{(N_F-{\braket{N_F}})^2} = 2\sum_k |u_{F,k}^2|v_{F,k}|^2 = \sum_k \frac{|\Delta_k|^2}{2E^2_{F,k}}
-\label{eq.VarianceNFT0}
+\Delta^{11}_k = L \Delta^{11}_k, \hspace{0.5cm} L(k,k') = -\frac{dk'}{2\pi} W_{\text{ind}}(k,k')\frac{\tanh(\beta \varepsilon_{k'}/2)}{2\varepsilon_{k'}}. 
+\label{eq.Gapmatrixequation}
 \end{equation}
+Explicitly we define a cutoff $k_{\text{up}}$ and spacing $dk'$. We then need to make $k_{\text{up}}$ large enough and $dk'$ small enough for the eigenvalues to have converged. From the form of $L(k,k')$ it is also clear, that $L$ is not a symmetric matrix; each row of $L$ has all the possible values of $\varepsilon_{k'}$, but each column only has a single value belonging to the entire column. The evaluation is performed in MatLab in the following fashion. For a fixed set of parameters we start out with an initial guess $T$ for $T_c$, that we know is too high. We then iteratively decrease $T$ by a small amount $dT$ and calculate the largest eigenvalue for each iteration. When the largest eigenvalue becomes larger than 1, we halt the iteration and set the critical temperature to the current value of $T$. The numerical analysis is a balancing act. We have to choose a resolution fine enough, defined by $dk'$ and $k_{\text{up}}$, for the eigenvalues to have converged to the eigenvalue for the integral operator, and still keep the matrix $L$ small enough for the analysis to be feasible. In this context it is crucial that we have a closed form expression for $W_{\text{ind}}(k,k')$ in the $l_t \to 0$ limit. As already commented we use the free gas chemical potential. Since $T/T_F \ll 1$ for all relevant temperatures, we use the Sommerfeld expansion: $\frac{\mu(T)}{\epsilon_{F,0}} = 1 + \frac{\pi^2}{12}\left(\frac{T}{T_F}\right)^2$. See equation \eqref{eq.Sommerfeldexpansionchemicalpotential}. 
+
+The aboved described strategy is made graphic in figure \ref{fig.TCeigenvalues}. For a specific set of parameters, we have calculated the five highest eigenvalues of $L$ as a function of $T$. We notice, that it is solely the largest eigenvalue, that determines the critical temperature: the eigenvalue crosses 1 for one specific temperature. In the present case: $T_c \approx 0.130 T_F$. The next 4 eigenvalues are significantly lower. 
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/TCeigenvalues/TCeigen.tex}  
+\caption{In black: The five largest eigenvalues of $L$ plotted as a function of $T$. We see, that the largest eigenvalue intersects 1 (the red line) at one well defined temperature. Parameters: $(n_Ba_{B}^3)^{1/3} = 0.01, (n_Ba_{BF}^3)^{1/3} = 0.1, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$. }
+\label{fig.TCeigenvalues}  
+\end{center}    
+\end{figure}
+
+In figure \ref{fig.TCrB} we see the dependency of $T_c$ on the Bose gas parameter $(n_Ba_B^3)^{1/3}$. We observe a simple monotonic decrease with increasing gas parameter. Physically this can be understood in the following way. When $(n_Ba_B^3)^{1/3}$ is increased for $\frac{n_F}{n_B^{1/3}}$ fixed, the BEC coherence length $k_F\xi = \sqrt{ \frac{\pi}{ 8(n_Ba_B^3)^{1/3} } }\frac{ n_F }{ n_B^{1/3} }$ decreases. The coherence length is the range of the interaction in real space: $\tilde{V}_{\text{ind}} \propto \frac{ \text{e}^{ -\sqrt{2}|x|/\xi } } {|x|}$. Therefore the interaction range is decreased, when we increase $(n_Ba_B^3)^{1/3}$, and so it is physically reasonable, that the critical temperature goes down with increasing $(n_Ba_B^3)^{1/3}$. Notice, that for $(n_Ba_{B}^3)^{1/3} = 0.01$ we recover the critical temperature found in figure \ref{fig.TCeigenvalues}: $T_c \approx 0.130 T_F$. 
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/TCrB/TCrB.tex}  
+\caption{The critical temperatur $T_c$ is plotted as a function of the Bose gas parameter $(n_Ba_B^3)^{1/3}$. We observe a simple monotonic decrease with increasing gas parameter. Other parameters: $(n_Ba_{BF}^3)^{1/3} = 0.1, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$. }  
+\label{fig.TCrB}  
+\end{center}    
+\end{figure}
+
+In figure \ref{fig.TCrBF} we see the dependency of $T_c$ on the Bose-\textit{Fermi} gas parameter $(n_Ba_{BF}^3)^{1/3}$. We observe an increase of $T_c$ with $(n_Ba_{BF}^3)^{1/3}$. This stems from the fact, that a higher value of the Bose-Fermi gas parameter gives a higher interaction strength between the fermions. The system at hand therefore shares one of the key features with the $s$-wave BCS-theory: any nonzero attractive interaction between the fermions leads to a superfluid phase \cite[pp. 156-157]{LandauStatPhys2}. 
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/TCrBF2/TCrBF.tex}  
+\caption{The critical temperatur $T_c$ is plotted as a function of the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$. We see, that for every nonzero induced interaction, there is a superfluid phase for $T\to 0$. Other parameters: $(n_Ba_{B}^3)^{1/3} = 0.01, \frac{m_B}{m_F} = 7/40, \frac{n_F}{n_B^{1/3}} = 0.215$. }  
+\label{fig.TCrBF}  
+\end{center}    
+\end{figure}
+
+
 

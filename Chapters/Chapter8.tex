@@ -1,212 +1,91 @@
-% Chapter 8
+\chapter{Numerical analysis} % Main chapter title
 
-\chapter{Induced interaction} % Main chapter title
+\label{Chapter8} 
 
-\label{Chapter8} % For referencing the chapter elsewhere, use \ref{Chapter8} 
-
-\lhead{Part III. \emph{Two wires}}
-\chead{Chapter 8. \emph{Induced interaction}} % This is for the header on each page - perhaps a shortened title
-
+\lhead{Part IV. \emph{Kitaev chain}}
+\chead{Chapter 8. \emph{Numerical analysis}} % This is for the header on each page - perhaps a shortened title
 %----------------------------------------------------------------------------------------
-In this chapter we will introduce a second wire parallel to the first one already studied. The aim here is to calculate the additional (interwire) induced interaction between the wires. The approach mirrors chapter \ref{Chapter3}. For this reason we will not go in as much detail in the present chapter.
-\section{Effective Bose-Fermi interaction} 
-As for the single wire the effective Bose-Fermi interaction is modelled by $V(\mathbf{r}) = g_{BF}\delta(\mathbf{r})$. To begin with, this gives the same expression for the interaction Hamiltonian between the bosons ($B$) and the fermions ($F$):
-\begin{equation}
-H_{BF}^\text{int} = g_{BF}\int d^3 r \; \psi_F^\dagger(\mathbf{r}) \psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_F(\mathbf{r}).
-\end{equation}
-The difference now is, that we trap the fermions along \textit{two parallel} wires. Let the first one be along the $x$-axis, the second at $z=d, y=0$. The fermions are trapped in a harmonic trap with trapping frequency $\omega_t$. In this connection we have two central assumptions. The first is the same as for the single wire: we require, that the fermions are trapped in the ground state with respect to the perpendicular directions. The second assumption is, that the distance between the wires is much larger than the trapping width of the wires $l_t = \frac{1}{\sqrt{m_F\omega_t}}$. Hence, $l_t/d \ll 1$. This is done, so that we can actually talk about distinguishable wires of fermions. This leads to the following expansion in momentum eigenstates:
-\begin{equation}
-\psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \left[\phi_0(\mathbf{r}_\perp) c_{1,p} + \phi_0(\mathbf{r}_\perp-\mathbf{d}) c_{2,p}\right], \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}, 
-\end{equation}  
-with $\phi_0(\mathbf{r}_\perp) = \frac{1}{\sqrt{\pi}l_t}\exp\left(-\frac{r_\perp^2}{2l_t^2}\right)$ the ground state with respect to the perpendicular directions. $c^\dagger_{j,p}$ therefore creates a fermion in wire $j$ with momentum $p$. We assume, that the wires are truly distinguishable. This means that all anticommutators like $\{c_{1,p}, c^\dagger_{2,p'}\}$ vanish. Inserting these expressions into $H_{BF}^\text{int}$ yields in total four terms. However, the cross terms where a fermion is annihilated in one wire and created in the other are proportional to the integral: $\int d^2 r_\perp \phi_0(\mathbf{r}_\perp)\phi_0(\mathbf{r}_\perp-\mathbf{d}) = 0$. The integral is negligible, because by assumption $l_t/d \ll 1$. A similar analysis to the one in chapter \ref{Chapter3} then yields for the diagonal terms:
-\begin{align}
-H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} & \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}\left[ c^\dagger_{1,p_2-q} b^\dagger_{p_1+q, \mathbf{k}_\perp'} b_{p_1,\mathbf{k}_\perp}c_{1,p_2} + \right. \nonumber \\
-& \left. \text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}c_{2,p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}c_{2,p_2} \right].
-\end{align}
-This shows, that a scattering event in wire 1 is associated with the factor $g_{BF} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}$ as before, and that the corresponding scattering in wire 2 has an extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$. 
-
-\section{1D-3D induced interaction}
-The intrawire induced interaction is (of course) the same as the one for the single line. Referring to equation \ref{eq.VFFindXBEC} this means, that:
-\begin{equation}
-V_{\text{ind}}^{11}(q,i\omega_q) = V_{\text{ind}}^{22}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
-\label{eq.VFF1122indXBEC} 
-\end{equation}
-with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2-E_{B,k}^2}$ the density-density correlation function. The superscript $11$ ($22$) indicates, that the interaction is between two fermions in wire 1 (wire 2). One might wonder what happens to the extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$ for wire 2. The incoming boson is associated with a factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$. However, the outgoing is associated with a factor of $\text{e}^{-i\mathbf{k}_\perp\cdot \mathbf{d}}$, and so these cancel. This is as it should be, because the intrawire interaction in the two wires should be the same!
-
-\begin{figure}
-\begin{tabular}{cc}
-  \begin{tikzpicture}[scale=0.25]
-  \begin{feynman}[small]
-    \vertex (number1) {\( (1) \)};
-    \vertex [above left=of number1] (fermion1) {\( 1, \tilde{p}_1 \)};
-    \vertex [above right=of fermion1] (a);
-    \vertex [below right=of a] (fermion2) {\(1, \tilde{p}_1+\tilde{q}\)}; 
-    \vertex [above=of a] (b);
-    \vertex [left=of b] (boson1) {\( \sqrt{n_B} \)}; 
-    \vertex [above= of b] (c);
-    \vertex [right= of c] (boson2) {\( \sqrt{n_B} \)};
-    \vertex [above= of c] (d);
-    \vertex [above left=of d] (f3) {\(2, \tilde{p}_2\)};
-    \vertex [above right=of d] (f4) {\(2, \tilde{p}_2-\tilde{q}\)};
+In this chapter we present the numerical analysis for the Kitaev chain in the one-dimensional Bose gas. In section \ref{sec.onlyNN} we briefly investigate the nearest neighbour hopping only, i.e. $t_2 = 0$. In section \ref{sec.NNNincluded} we include the next-nearest neighbour hopping and study the effect of introducing this parameter. 
  
-    \diagram* {
-      (number1) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
-      (b) -- [dashed] (boson1),
-      (b) -- [blue, fermion, edge label' = {\(-\tilde{q}, \mathbf{k}_\perp \)}] (c),
-      (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
-      (d) -- [anti fermion] (f3),
-      (d) -- [fermion] (f4)
-    };
-  \end{feynman}
-\end{tikzpicture} 
-\hspace{1cm}
-&
-\begin{tikzpicture}
-  \begin{feynman}[small]
-    \vertex (number2) {\( (2) \)};
-    \vertex [above left=of number2] (fermion1) {\(1, \tilde{p}_1 \)};
-    \vertex [above right=of fermion1] (a);
-    \vertex [below right=of a] (fermion2) {\(1, \tilde{p}_1+\tilde{q}\)}; 
-    \vertex [above=of a] (b);
-    \vertex [left=of b] (boson1) {\( \sqrt{n_B} \)}; 
-    \vertex [above= of b] (c);
-    \vertex [right= of c] (boson2) {\( \sqrt{n_B} \)};
-    \vertex [above= of c] (d);
-    \vertex [above left=of d] (f3) {\(2, \tilde{p}_2\)};
-    \vertex [above right=of d] (f4) {\(2, \tilde{p}_2-\tilde{q}\)};
- 
-    \diagram* {
-      (number2) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
-      (b) -- [dashed] (boson1),
-      (b) -- [blue, anti fermion, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
-      (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
-      (d) -- [anti fermion] (f3),
-      (d) -- [fermion] (f4)
-    };
-  \end{feynman}
-\end{tikzpicture} \\
-\vspace{0.5cm}
-\begin{tikzpicture}
-  \begin{feynman}[small]
-    \vertex (number3) {\( (3) \)};
-    \vertex [above left=of number3] (fermion1) {\(1, \tilde{p}_1 \)};
-    \vertex [above right=of fermion1] (a);
-    \vertex [below right=of a] (fermion2) {\(1, \tilde{p}_1+\tilde{q}\)}; 
-    \vertex [above=of a] (b);
-    \vertex [left=of b] (boson1) {\( \sqrt{n_B} \)}; 
-    \vertex [above= of b] (c);
-    \vertex [right= of c] (boson2) {\( \sqrt{n_B} \)};
-    \vertex [above= of c] (d);
-    \vertex [above left=of d] (f3) {\(2, \tilde{p}_2\)};
-    \vertex [above right=of d] (f4) {\(2, \tilde{p}_2-\tilde{q}\)};
- 
-    \diagram* {
-      (number3) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
-      (b) -- [dashed] (boson1),
-      (b) -- [blue, majorana, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
-      (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
-      (d) -- [anti fermion] (f3),
-      (d) -- [fermion] (f4)
-    };
-  \end{feynman}
-\end{tikzpicture} 
-\hspace{1cm}
-&  
-\begin{tikzpicture}
-  \begin{feynman}[small]
-    \vertex (number4) {\( (4) \)};
-    \vertex [above left=of number4] (fermion1) {\(1, \tilde{p}_1 \)};
-    \vertex [above right=of fermion1] (a);
-    \vertex [below right=of a] (fermion2) {\(1, \tilde{p}_1+\tilde{q}\)}; 
-    \vertex [above=of a] (b);
-    \vertex [left=of b] (boson1) {\( \sqrt{n_B} \)}; 
-    \vertex [above= of b] (c);
-    \vertex [right= of c] (boson2) {\( \sqrt{n_B} \)};
-    \vertex [above= of c] (d);
-    \vertex [above left=of d] (f3) {\(2, \tilde{p}_2\)};
-    \vertex [above right=of d] (f4) {\(2, \tilde{p}_2-\tilde{q}\)};
- 
-    \diagram* {
-      (number3) -- [opacity=0.0] (fermion1) -- [fermion] (a) -- [fermion] (fermion2),
-      (a) -- [photon, edge label'=\(g_{BF}\)] (b),
-      (b) -- [dashed] (boson1),
-      (b) -- [blue, anti majorana, edge label' = {\(\tilde{q}, \mathbf{k}_\perp \)}] (c),
-      (c) -- [dashed] (boson2),
-      (c) -- [photon, edge label'=\(g_{BF}\)] (d),
-      (d) -- [anti fermion] (f3),
-      (d) -- [fermion] (f4)
-    };
-  \end{feynman}
-\end{tikzpicture} 
-\end{tabular}
-\caption{Feynman diagrams for the induced interaction between the wires. Since the interaction is weak, we can neglect all other Feynman diagrams than (1)-(4). Diagrams (1) and (2) stems from the normal Green's function $G_{11}$. Diagrams (3) and (4) stems from the anormalous Green's functions $G_{12}, G_{21}$.} 
-\label{fig.interwirefeynmandiagrams}
-\end{figure}
+\section{Only nearest neighbour hopping} \label{sec.onlyNN}
+We numerically study the system as a function of two parameters: the coherence length, $\xi$, and the filling fraction $n = N_F/N$. We use the Bose gas parameter $n_Ba_B$ to adjust the coherence length through $\xi \propto (n_Ba_B)^{-1/2}$. We keep the interaction strength, $G$, constant. The phase diagrams are produced in the following manner. For each value of $\xi$ we compute the effective interaction using equation \eqref{eq.gapequation.lattice}. Then for each value of $n$ we come with an initial guess for the pairing. We use $\sin(kd)$, since this is the expected qualitative behaviour. Finally we use equations \eqref{eq.gapequation.lattice} and \eqref{eq.fillingfraction.lattice} to solve for the pairing and chemical potentials in a self-consistent manner for $T = 0$ only. This is done in precisely the same way as in the single and double wire system. This is iterated over $\xi > d$ and $0\leq n \leq 1$. 
 
-The additional scenario now is, that there is also an interwire induced interaction, which we will denote $V_{\text{ind}}^{12}(q,i\omega_q)$. The preceding section shows, that the calculation of this induced interaction is analogous to the above, but with the additional factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$ from scattering in the second wire. Explicitly the Feynman diagrams of importance are shown in figure \ref{fig.interwirefeynmandiagrams}. They have the same form as the ones in figure \ref{fig.feynmandiagrams} with the (obvious) caveat, that the induced interaction is now between a fermion in wire 1 and a fermion in wire 2. Hence,
-\begin{equation}
-V_{\text{ind}}^{12}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}. 
-\label{eq.VFF12indXBEC} 
-\end{equation}
-We will only investigate the $l_t \to 0$ and $\omega_q = 0$ limit. The reasoning behind the $\omega_q = 0$ limit is the same as for the single wire. See section \ref{sec.RetardationEffects} for details. Further, it is already here possible to take the $l_t \to 0$ limit in contrast to the intrawire interaction case. By rewriting the above integral, we get:
-\begin{align}
-V_{\text{ind}}^{12}(q,0) &= -\frac{n_Bg_{BF}^2m_B}{\pi^2}\int_0^\infty d k_\perp \; \frac{k_\perp}{k_\perp^2 + q^2 + 2/\xi^2} \int_0^{2\pi} d\theta \; \text{e}^{ik_\perp d\cos(\theta)} \nonumber \\
-						  &= -\frac{2n_Bg_{BF}^2m_B}{\pi}\int_0^\infty d k_\perp \; \frac{k_\perp J_0(k_\perp d)}{k_\perp^2 + q^2 + 2/\xi^2},
-\label{eq.secondwireinducedinteractionmomentumspaceintegralexpression}
-\end{align}
-with $J_0$ the zero order Bessel function of the first kind. This form of the potential is not terrible illuminating. In stead let us take the Fourier transform to get the induced interaction in real space, $\tilde{V}_{\text{ind}}^{12}(x,0)$. Write $\mathbf{r} = (x,\mathbf{d})$ and $\mathbf{k} = (q,\mathbf{k}_\perp)$. We then get the expression:
-\begin{align}
-\tilde{V}_{\text{ind}}^{12}(x,0) &= \int \frac{dq}{2\pi} \; \text{e}^{iqx} V_{\text{ind}}^{12}(q,0) = -4n_Bg^2_{BF}m_B\int \frac{d^3k}{(2\pi)^3} \frac{\text{e}^{i\mathbf{k}\cdot \mathbf{r}}}{k^2 + 2/\xi^2} \nonumber \\
-								  &= -\frac{n_Bg^2_{BF}m_B}{\pi} \frac{\text{e}^{-\sqrt{2}\sqrt{x^2+d^2}/\xi}}{\sqrt{x^2+d^2}},
-\end{align}
-since we recognise the second expression as the Yukawa potential in momentum space with range $\xi/\sqrt{2}$. It is hereby evident, that in the $d = 0$ limit the interwire induced interaction goes to the intrawire one found in chapter \ref{Chapter3}, as it should. This further enables us to get a closed form expression for the induced interaction in momentum space. Writing up the Fourier transform, we get:
-\begin{equation}
-V_{\text{ind}}^{12}(q,0) = \int dx \; \text{e}^{-iqx}\tilde{V}_{\text{ind}}^{12}(x,0) = 2\int_0^\infty \cos(qx)\tilde{V}_{\text{ind}}^{12}(x,0), \nonumber
-\end{equation}
-since the induced interaction is even in real space. Writing the variables in units of the range $\xi/\sqrt{2}$:
-\begin{equation}
-V_{\text{ind}}^{12}(\tilde{q},0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}\int_0^\infty d\tilde{x} \cos(\tilde{q}\tilde{x})\frac{ \text{e}^{ -\sqrt{\tilde{x}^2+\tilde{d}^2} } }{\sqrt{\tilde{x}^2+\tilde{d}^2}} = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left[\tilde{d}\sqrt{\tilde{q}^2+1}\right], \nonumber
-\end{equation}
-where $K_0(x)$ is the modified Bessel function of the second kind of order zero. This calculation is done with the use of the Fourier cosine transform routine in Maple 16. The result is verified by comparing it graphically to the integral expression of equation \eqref{eq.secondwireinducedinteractionmomentumspaceintegralexpression}. Since $\tilde{q} = \frac{q\xi}{\sqrt{2}}, \tilde{d} = \frac{\sqrt{2}d}{\xi}$, we finally get:
- \begin{equation}
-V_{\text{ind}}^{12}(q,0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left[\sqrt{(qd)^2+\frac{2d^2}{\xi^2}}\right]. 
-\label{eq.VFF12indq}
-\end{equation}
-The fact, that we can express the induced interaction in terms of a known function is crucial for the feasibility of the later numerical analysis. It is instructive to see, what the functional form of the induced interaction is; both in real and momentum space.  This is shown in figures \ref{fig.VFF12indq} and \ref{fig.VFF12indx}. For comparison and later reference, let us list the intra- and interwire induced interactions on unitless form. This we do for $l_t = 0$. In real space we have:
-\begin{align}
-\frac{\tilde{V}_{\text{ind}}^{11}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ -\sqrt{2}|x| / \xi } }{k_F|x|}, \nonumber \\
-\frac{\tilde{V}_{\text{ind}}^{12}(x,0)}{\epsilon_{F,0}} &= - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \cdot \frac{\text{e}^{ - \sqrt{2}\sqrt{x^2 + d^2} /\xi } }{k_F\sqrt{x^2 + d^2}}. 
-\end{align}
-
-\begin{figure} 
-\begin{center}  
-\input{Figures/twowires/InducedInteractionInterwireMomentumSpace/InducedInteraction.tex}  
-\caption{The zero frequency potential $V_{\text{ind}}^{12}(q,0)$ plotted as a function of $q$. The induced interaction is seen to increase with decreasing distance $d$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
-\label{fig.VFF12indq}
-\end{center}
-\end{figure}
+The result of the analysis for $G = 4$ and $G = 8$ is shown in figure \ref{fig.phasediagram.t20}. We notice, that the plots are symmetrical around $n = 1/2$ and that a higher interaction strength leads to a narrower window of the topologically nontrivial phase of $\nu = 1$ shown in red. Finally as the coherence length grows, the topological nontrivial phase narrows. We can understand these three effects in the following manner. 
 
 \begin{figure}
 \begin{center}
-\input{Figures/twowires/InducedInteractionInterwireRealSpace/InducedInteraction.tex}  
-\caption{The zero frequency potential $\tilde{V}_{\text{ind}}^{12}(x,0)$ plotted as a function of $x$. The induced interaction is seen to increase with decreasing distance $d$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
-\label{fig.VFF12indx}  
-\end{center}    
+\input{Figures/Lattice.singlewire/Delta0.0/xifilldepend.tex}
+\caption{Phase diagrams for $G = 4$ and $G = 8$ as a function of the filling fraction $n = N_F/N$ and the coherence length $\xi$. In white: $\nu = 0$. In red: $\nu = 1$. We notice that the phase diagram for a stronger interaction exhibits a narrower window of topological nontrivial $\nu = 1$. Number of sites: $N = 100$. }
+\label{fig.phasediagram.t20}
+\end{center}
 \end{figure}
 
-As mentioned above, the interaction in real space is essentially the same. The only difference is, that the interaction distance between the wires is at least $d$. In momentum space we should compare the interwire induced interaction with the effective intrawire interaction, formerly denoted $W_{\text{ind}}(k,k')$. To avoid any confusion we will now denote these $W_{\text{ind}}^{jj}(k,k')$ for the effective interaction in wire $j = 1, 2$. Then from equations \eqref{eq.EffectiveInteractionlt=0dimensionless} and \eqref{eq.VFF12indq} we get:
-\begin{align}
-\frac{2m_F}{k_F} W_{\text{ind}}^{jj}(k,k') &= - 4\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3} \ln\left[\frac{(\tilde{k}+\tilde{k}')^2+2/\tilde{\xi}^2}{(\tilde{k}-\tilde{k}')^2+2/\tilde{\xi}^2}\right], \nonumber \\
-\frac{2m_F}{k_F} V_{\text{ind}}^{12}(q,0) &= - 16\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3}K_0\left[\sqrt{(qd)^2+\frac{2d^2}{\xi^2}}\right].
-\end{align}
-We notice, that apart from a factor of $4$ the prefactors are identical. The main focus of the next two chapters will be to investigate the competition between the intra- and interwire pairings, stemming from the above interactions. Since the interwire interaction is between distinguishable particles the interwire interaction Hamiltonian is a factor of 2 larger than the intrawire one; see equation \eqref{eq.InteractionHamiltonain2ndQuantization}. Therefore, one might suspect that the competition of the pairings simply comes down to whether $\tilde{V}_{\text{ind}}^{11}(x,0)$ or $2\tilde{V}_{\text{ind}}^{12}(x,0)$ is the larger. This will be discussed in detail in section \ref{sec.2wires_crossover_control_coherence_length}. 
+First, the symmetry around $n = 1/2$ was discussed in section \ref{sec.fillingfractionsymmetry.breakdown}. Here we showed, that letting $n\to 1 - n$ is a symmetry of the system, if we let $\mu \to -\mu$ and $\Delta_{k} \to \Delta_{k + \pi/d}$. The topological invariant is protected under this symmetry for the following two reasons. Firstly, if $\varepsilon_k(\mu) = -t_1\cos(kd) - \mu$ crosses zero, then so does $\varepsilon_k(-\mu)$. Further, the pairing is simply shifted by $\pi / d$. This means, that there is still a contribution of $\text{sgn}(\Delta_{k_1+\pi/d})$ to the invariant from the zero of $\varepsilon_k$ in $k_1$.
 
+Secondly, for a stronger interaction strength, $G$, the window of the topological phase narrows. The reason is, that when there is a nonzero interaction, the band $-t_1\cos(kd)$ can be populated eventhough $\mu$ is below the minimum of the band, i.e. $\mu < -t_1$. For a stronger interaction still, this population starts for lower and lower $\mu$ and there is a larger and larger region, where $\varepsilon_k = -t_1\cos(kd) - \mu$ is strictly positive. This is the topologically trivial region, which hereby becomes larger. The argument for the coherence length follows the same logic.
 
+The effects of higher interaction strength and longer coherence length are the same at $n$ and $1 - n$, because of the filling fraction symmetry. They can be confirmed by studying the dependency $\mu(n)$, e.g. for $G = 0, G = 4$ and $G = 8$. This results in figure \ref{fig.mun.t20.Gdepend}. We clearly observe a nonzero population in the regions with $|\mu| > t_1$ for nonzero interactions, and an increase in the size of these regions with increasing interaction strength. Studying the effect of an increase in $\xi$ confirms, that the effect hereof is essentially the same as increasing the strength, $G$.  
 
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/Delta.mu.n0Gvary/ndepend.tex}
+\caption{The chemical potential, $\mu$, as a function of filling fraction, $n$, for different interaction strengths, $G$. We notice, that for nonzero interaction strengths the lattice starts populating for $|\mu| > t_1$. There is a topological phase transition exactly at $|\mu| = t_1$. $\nu = 1$ for $|\mu|< t_1$ and $\nu = 0$ for $|\mu| > t_1$. Other parameters: $N = 100, \xi / d = 5.0$}
+\label{fig.mun.t20.Gdepend}
+\end{center}
+\end{figure}
 
+\section{Next-nearest neighbour hopping included}
+\label{sec.NNNincluded} 
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/t2nonzerophasediagrams/xifilldepend1.tex}
+\caption{Topological phase diagram for $t_2 = t_1$ as a function of the filling fraction $n = N_F/N$ and coherence length $\xi$. Invariant: in white: $\nu = 0$, in red: $\nu = 1$, in blue: $\nu = 2$. For points $(i)$ and $(ii)$: see figure \ref{fig.Deltaexamples.t21.0}. To the left: (anomalous) result of searching for $\Delta_k\propto \sin(2kd)$-like solutions. To the right: (normal) result of searching for $\Delta_k \propto \sin(kd)$-like solutions. The algorithm is a little uncertain around the blue tip at $n \approx 0.4, \xi / d \approx 2$. The phase has here been checked by doubling the number of lattice sites. Other parameters: $G = 4$, $N = 100$. }
+\label{fig.phasediagram.t21.0}
+\vspace{0.5cm}
+\input{Figures/Lattice.singlewire/t2nonzerophasediagrams/xifilldepend2.tex}
+\caption{Topological phase diagrams for $t_2 = 0.63t_1$ as a function of the filling fraction $n = N_F/N$ and coherence length $\xi$. In white: $\nu = 0$, in red: $\nu = 1$, in blue: $\nu = 2$. To the left: (anomalous) result of searching for $\Delta_k\propto \sin(2kd)$-like solutions. To the right: (normal) result of searching for $\Delta_k \propto \sin(kd)$-like solutions. Other parameters: $G = 4$, $N = 100$. }
+\label{fig.phasediagram.t20.63}
+\end{center}
+\end{figure}
+
+In this section the program is very similar to the above. Now however, we include the next-nearest neighbour hopping, i.e. $t_2 \neq 0$. We produce two sets of phase diagrams, one for $t_2 = t_1$ and one for $t_2 = 0.63t_1$. For these two values of $t_2$ we do the following. First we search for the same solution as in the above, i.e. the start guess is $\Delta_k \propto \sin(kd)$. This produces the diagrams to the right in figures \ref{fig.phasediagram.t21.0} and \ref{fig.phasediagram.t20.63}. Next we search for a solutions with $\sin(2kd)$-like behaviour. This results in the diagrams to the left. The topological invariant is calculated according to equation \eqref{eq.topologicalinvariant}. We go into more detail with this below. The interesting part of the figures are the blue areas. These show, where it is possible to find a self-consistent solution with a topological invariant $\nu = 2$. It is exactly this sort of solution we are after!  
+
+In figure \ref{fig.Deltaexamples.t21.0} we go into more detail with the pairing at the points $(i)$ and $(ii)$ specified in figure \ref{fig.phasediagram.t21.0}. Remember, that the topological invariant depends on both the kinetic energy, $\varepsilon_k$, and the pairing, $\Delta_k$. Every zero of $\varepsilon_k$ for $k > 0$ contributes the sign of the pairing times the sign of the slope of $\varepsilon_k$:
+\begin{equation}
+\nu = \left| \text{sgn}\left(\Delta_{k_1}\partial_k\varepsilon_{k = k_1}\right) + \text{sgn}\left(\Delta_{k_1}\partial_k\varepsilon_{k = k_2}\right)\right|, \nonumber
+\end{equation}
+where $k_1 > 0$ and $k_2 > 0$ denote the two positive zeroes.\footnote{We could also use the negative zeroes. In both cases we can only take the zeroes of the same sign.} Now at $(i)$ we only find one solution for the pairing, irrespective of the initial guess. This single solution is $\sin(kd)$-like in that it only crosses zero at $k = 0$. There is only one positive zero of $\varepsilon_k$, so the invariant is $\nu = 1$. This behaviour is not general for the entire red region of topological invariant $\nu = 1$. Closer to the point $(ii)$, but still in the red region, we indeed find $\sin(2kd)$-like solutions. These however still have $\nu = 1$, because the filling fraction is too low to make an additional pair of zeroes of $\varepsilon_k$. At $(ii)$ we find two solutions for the pairing. Here both a (normal) $\sin(kd)$- and an (anomalous) $\sin(2kd)$-like solution are self-consistent. Since $\varepsilon_k$ now has two pairs of zeroes, the topological invariant is $\nu = 0$ and $\nu = 2$ for the normal and anomalous pairing respectively. This is because the pairing must change sign in-between the zeroes of $\varepsilon_k$ to produce a $\nu = 2$ phase as evident from the above equation and the discussion in the end of chapter \ref{Chapter7}. 
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/Deltaexamples/kdepend.tex}
+\caption{The pairing, $\Delta_k$, and kinetic energy, $\varepsilon_k$, across the Brillouin zone. In black: $\varepsilon_k$. $(i)$, red solid line: only one solution for $\Delta_k$. This is $\sin(kd)$-like. Topological invariant: $\nu = 1$. $(ii)$, blue lines: two solutions for $\Delta_k$. Dashed blue line: $\sin(kd)$-like solution with $\nu = 0$. Solid blue line: $\sin(2kd)$-like solution with $\nu = 2$. Notice that the pairing is maximal around the zeroes of $\varepsilon_k$. Parameters: $G = 4$, $N = 100$, $\xi / d = 5$. $(i)$: $n = 0.2$, $(ii)$: $n = 0.5$.}
+\label{fig.Deltaexamples.t21.0}
+\end{center}
+\end{figure}
+
+The occurrence of the anomalous $\nu = 2$ phase is at high filling and high coherence lengths. The former condition we already discussed above. We must have a high filling fraction to produce two pairs of zero points of $\varepsilon_k$. The latter condition we can understand by transforming the pairing to real space. The relevant term in the Hamiltonian has the form $\sum_k \Delta_k c_{-k}c_{k}$. Plugging in $c_k = \frac{1}{\sqrt{N}}\sum_j \text{e}^{-ikx_j}x_j$, with $x_j = jd$ we get:
+\begin{equation}
+\sum_k \Delta_k c_{-k}c_{k} = \sum_{j,l} \tilde{\Delta}_{j,l}c_jc_l, \hspace{0.5cm} \tilde{\Delta}_{j,l} = \frac{1}{N}\sum_k\Delta_k\text{e}^{ik(x_j-x_l)}. \nonumber
+\end{equation}
+Hence, the real space pairing is quite simply the Fourier transform of the momentum space pairing. We use the orthogonality of $\sin(lkd)$ for different $l$ to get the following. For $\Delta_k = \Delta_1\sin(kd)$ we get $\tilde{\Delta}_{0,1} = -\tilde{\Delta}_{1,0} = -i\frac{\Delta_1}{2}$ with all others zero. In the same manner for $\Delta_k = \Delta_2\sin(2kd)$ we get $\tilde{\Delta}_{0,2} = -\tilde{\Delta}_{2,0} = -i\frac{\Delta_2}{2}$ with all others zero. Spelled out this means, that a $\sin(kd)$-like pairing has dominant \textit{nearest} neighbour pairing, whereas a $\sin(2kd)$-like pairing has dominant \text{next-nearest} neighbour pairing. This explains, why we must go to long coherence lengths. We simply need a long-range interaction for the particles to dominantly be able to pair with next-nearest neighbours. In turn a $\sin(2kd)$-like pairing in momentum space forms and the $\nu = 2$ phase is realized if the filling fraction is large as well, as discussed above. 
+
+Now we can also explain, why the $\nu = 2$ phase region is larger for an increase in $t_2$ as illustrated by the diagrams to the left in figures \ref{fig.phasediagram.t21.0} and \ref{fig.phasediagram.t20.63}. The above analysis shows, that we need a window of two zeroes of the kinetic energy, $\varepsilon_k$. This window is simply larger for increasing $t_2$, since the kinetic energy then bends down more significantly at the Brillouin zone boundary. As $t_2$ decreases, this window narrows, and we observe that the $\nu = 2$ phase completely vanishes. 
+
+The last important feature to study is the total free energy of the system for the different solutions, since the one with minimal free energy will be favourable for the system. The grand energy, $E_0$, is calculated in the same manner as for the double wire using:
+\begin{equation}
+E_0 = \frac{1}{2}\sum_k \left[\varepsilon_k - E_{F,k} - \Delta_k\braket{c^\dagger_{k}c^\dagger_{-k}}\right] = \frac{1}{2}\sum_k \left[\varepsilon_k - E_{F,k} - \frac{1}{2}|\Delta_k|^2\right], \hspace{0.5cm} T = 0
+\label{eq.groundstategrandenergy.sumformula}
+\end{equation}
+where we use, that $\braket{c_{-k}c_k} = \frac{\Delta_k}{2E_{F,k}}$ for $T = 0$. The free energy is hereby $F = E_0 + \mu N_F$. Since we fix the filling fraction and in turn the number of fermions, it is the free energy, that must be minimal.\footnote{See section \ref{sec.groundstateenergy} for an elaborate argument.}  It would be highly interesting, if the $\nu = 2$ phase could be energetically favourable in some parameter region. We therefore plot the relative difference $(F_2 - F_1)/|F_1|$, where $F_l$ is the free energy when we search for a solution of the form $\Delta_k \sim \sin(lkd)$. Hence, $F_1$ and $F_2$ correspond to the diagrams on the right and left in figure \ref{fig.phasediagram.t21.0} respectively. The result of this analysis for $t_2 = t_1$ is given in figure \ref{fig.energydifference.t21.0}. This explicitly shows, that the $\nu = 2$ phase is \textit{not} energetically favourable. Further, we notice that the higher the filling, the larger the relative difference. However, the figure also shows, that this difference is within $6\%$. This makes it plausible, that one can make the $\nu = 2$ phase favourable through some perturbation of the system. 
+
+The figure has the additional advantage, that it shows us exactly in what region, we find $\Delta_k \sim \sin(2kd)$ solutions. Comparing this with figure \ref{fig.phasediagram.t21.0} we see, that there is a region of the $\nu = 1$ phase, where we find $\sin(2kd)$-like solutions as mentioned above. 
+
+\begin{figure}
+\begin{center}
+\input{Figures/Lattice.singlewire/E01.0/E0depend.tex}
+\caption{Relative free energy difference $(F_2 - F_1) / |F_1|$ of searching for $\Delta_k \sim \sin(2kd)$ and $\Delta_k\sim \sin(kd)$ corresponding to the diagrams in figure \ref{fig.phasediagram.t21.0}. A positive value indicates, that the $\sin(kd)$-like solution is energetically favourable. Parameters: $t_2 = t_1$, $G = 4$, $N = 100$. }
+\label{fig.energydifference.t21.0}
+\end{center}
+\end{figure}
