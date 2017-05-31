@@ -16,7 +16,9 @@ kdepend.tex: kandsitedepend Makefile
 'set arrow from 0,-3 to 0,3 nohead lc rgb "black"; '\
 'set arrow from -3.2,0 to 3.2,0 nohead lc rgb "black"; '\
 'plot [-3.14:3.14][-3:3]			'\
-' "$<" index 0  using 1:2 title "$$T/T_F = 0.000$$" with lines lc rgb "#e00000"'\
+' "$<" index 0  using 1:2 title "$$numerical$$" with lines lc rgb "#e00000"'\
+',"$<" index 0  using 1:(sin(2.0 * $$1)) title "$$\sin(2kd)$$" with lines dt 2 lc rgb "#e00000"'\
+',"$<" index 0  using 1:(sin(1.0 * $$1)) title "$$\sin(2kd)$$" with lines dt 3 lc rgb "#e00000"'\
 ',"$<" index 0  using 1:3 title "$$\varepsilon_k / t_1$$" with lines lc rgb "black"'\
 | gnuplot
 

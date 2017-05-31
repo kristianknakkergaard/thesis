@@ -15,22 +15,19 @@
 /*nB/nF^3, kF * aB HERE*/
 /*SET mB/mF, nB/nF^3 and kF * aBF */
 
-double Vindx (double x, double rBB, double rBF, double nB, double mB, double eps0, double lt)
+double Vindx (double x, double xi, double strength)
 {
-  double xi     = lt / (2.0 * sqrt( rBB ) ); /*xi / a*/
-  double factor = sqrt(2.0) * (mB + 1.0 / mB + 2.0) * rBF * rBF * 1.0 / (lt * lt * lt) * eps0 * 1.0 / nB * pow(rBB, -1.0 / 2.0);
-
-  return - factor * exp(- sqrt(2.0) * fabs(x) / xi ); 
+  return - strength * exp( - sqrt(2.0) * fabs(x) / xi );
 }
 
-double WFF0(double k, double kprime, double rBB, double rBF, double nB, double mB, int N, double eps0, double lt)
+double WFF0( double k, double kprime, double xi, double strength, int N )
 {
   double W = 0.0;
 
   for (int i = 1; i < N; ++i)
   {
     double x  = (double) i;
-    W += 1.0 / 2.0 * ( cos((kprime - k) * i ) - cos( (kprime + k) * i ) ) * Vindx( x, rBB, rBF, nB, mB, eps0, lt); 
+    W += 1.0 / 2.0 * ( cos((kprime - k) * i ) - cos( (kprime + k) * i ) ) * Vindx( x, xi, strength ); 
   }
 
   return W; 
@@ -38,7 +35,7 @@ double WFF0(double k, double kprime, double rBB, double rBF, double nB, double m
 
 double Deltaguess(double k)
 {
-  return 0.0 * sin(k) + 1.0 * sin(2.0 * k);
+  return 1.0 * sin(k) + 0.0 * sin(2.0 * k);
 }
 
 
@@ -46,27 +43,24 @@ int
 main (void)
 {
   /*restricted variables */
-  double t1       = 1.0;  /*the unit of energy */
+  double t1       = -1.0;  
   double strength = 4.0; /*total strength of interaction*/
-  double mB       = 7.0/40.0; /*mB/mF*/
-  double rBF      = 0.005;    /*(nB * aBF^3)^(1/3) */
-  double eps0     = 0.5; /*energy of particle box */
-  double lt       = 0.1;
-  double constant = sqrt(2.0) * (mB + 1.0 / mB + 2.0) * rBF * rBF * 1.0 / (lt * lt * lt) * eps0;  
+  double lt       = 0.05;
 
   /*free parameters:*/
-  double xi       = 2.5; /*we will eventually want to control the range rather than the Bose gas parameter*/
+  double xi       = 5.0; /*we will eventually want to control the range rather than the Bose gas parameter*/
   double t2       = 1.0;
-  int    N        = 200; 
+  int    N        = 100; 
   double Ndouble  = (double)N;
-  double filling  = 0.48;
-  double filltolerance = 1e-4; 
-  double fillingnum; 
+  double filling  = 0.5;
+
+  int    iterations    = 300;
+  double convergence   = 1e-4;
+  double filltolerance = 1e-4;
+  double fillingnow, fillingprior;
 
   /*derived parameters:*/
   double rBB      = pow(lt / (2.0 * xi), 2.0); /*(nB * aBB^3)^(1/3) < 0.03 atmost! (1 percent depletion) */
-  double nB       = constant * 1.0 / (strength * sqrt(rBB));
-
 
   /*k-values:*/
   double k_low = - M_PI, dk = 2.0 * M_PI / Ndouble;
@@ -99,15 +93,16 @@ main (void)
     for (int iprime = 0; iprime < N; ++iprime)
     {
       kprime = ((double)iprime) * dk + k_low;
-      gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, rBB, rBF, nB, mB, N, eps0, lt) );
+      gsl_matrix_set( WFF0matrix, i, iprime, WFF0(k, kprime, xi, strength, N) );
     }
   }
 
   /*for the chemical potential*/
 
-  double mu_low     = -3.0, dmu = 0.001;
-  double mu         = 0.3;
   int Nmu           = 6000;
+  double mu_low     = -3.0, dmu = 0.001;
+  double mu         = -3.0 + 2.0 * 3.0 * filling;
+  
   double muintegral = 0.0, muintegrand;
   double mu_min_value;
   
@@ -124,7 +119,7 @@ main (void)
 
 
   /*T = 0: */
-  for (int j = 0; j < 1000; ++j)
+  for (int j = 0; j < iterations; ++j)
   {
     D_maxk = gsl_vector_max(D);
     for (int i = 0; i < N; ++i)
@@ -142,6 +137,7 @@ main (void)
       }
       gsl_vector_set(D, i, gapintegral);
     }
+
     for (int imu = 0; imu < Nmu; ++imu)
     {
       mu_guess    = (double) mu_low + imu * dmu;
@@ -155,26 +151,34 @@ main (void)
         muintegrand   = 1.0 / ( 2.0 * Ndouble ) * ( 1.0 -  epsilonkprime / EFkprime );
         muintegral   += muintegrand;
       }
+       
       gsl_vector_set(find_min_mu, imu, pow(filling - muintegral, 2.0) );
       gsl_vector_set(fillingvector, imu, muintegral );
     }
     mu_min_value = gsl_vector_get(mu_vector, gsl_vector_min_index(find_min_mu));
-    fillingnum   = gsl_vector_get(fillingvector, gsl_vector_min_index(find_min_mu));
+    fillingnow   = gsl_vector_get(fillingvector, gsl_vector_min_index(find_min_mu));
 
-    if ( fabs(mu - mu_min_value) / mu_min_value < 1e-4 && fabs(gsl_vector_max(D) - D_maxk)/D_maxk < 1e-4 && pow(fillingnum - filling, 2.0) < filltolerance )
+    if ( fabs(mu - mu_min_value) / mu_min_value < convergence &&  fabs(gsl_vector_max(D) - D_maxk)/D_maxk < convergence && fabs(fillingnow - fillingprior) < filltolerance )
     {
       break;
     }
-    if ( fabs(mu - mu_min_value) < 1e-4 && fabs(mu) < 1e-4 && fabs(gsl_vector_max(D) - D_maxk)/D_maxk < 1e-4 && pow(fillingnum - filling, 2.0) < filltolerance )
+    if ( fabs(mu - mu_min_value) < convergence && fabs(mu_min_value) < convergence && fabs(gsl_vector_max(D) - D_maxk)/D_maxk < convergence  && fabs(fillingnow - fillingprior) < filltolerance )
     {
       break;
     }
-    if (gsl_vector_max(D) < 1e-4 )
+    if ( fabs(mu - mu_min_value) / mu_min_value < convergence &&  fabs(gsl_vector_max(D)) < convergence && fabs(fillingnow - fillingprior) < filltolerance )
     {
       break;
     }
-    mu          = mu_min_value;
-    ++check; 
+    if ( fabs(mu - mu_min_value) < convergence && fabs(mu_min_value) < convergence && fabs(gsl_vector_max(D)) < convergence  && fabs(fillingnow - fillingprior) < filltolerance )
+    {
+      break;
+    }
+    mu = mu_min_value;
+
+    fillingprior = fillingnow;
+
+    fprintf(stderr, "Deltamax = %lg, \t fillingnow/filling = %lg, \t mu = %lg, \t check = %i \n", gsl_vector_max(D), fillingnow/filling, mu, ++check );
   }
 
   /*variables for CS1 */
@@ -217,7 +221,7 @@ main (void)
     E0integral   += E0integrand; 
   }
 
-  fprintf(stderr, "E0 + fillingnum * mu = %lg, mu = %lg, filling/fillingnum = %lg, fillingnum = %lg, nBaB = %lg, nBaBF = %lg, mB/mF = %lg, nB * a = %lg, xi / a = %lg, strength = %lg, CS1 = %lg \n", E0integral + fillingnum * mu, mu, filling/fillingnum, fillingnum, rBB, rBF, mB, nB, xi, strength, CS1);
+  fprintf(stderr, "E0 + fillingnow * mu = %lg, mu = %lg, fillingnow = %lg, nBaB = %lg, xi / a = %lg, strength = %lg, CS1 = %lg \n", E0integral + fillingnow * mu, mu, fillingnow, rBB, xi, strength, CS1);
   fprintf(stderr, "\n \n");
 
 

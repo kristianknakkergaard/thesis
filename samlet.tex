@@ -198,11 +198,9 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-In this thesis we theoretically investigate the properties of 1D-3D Fermi-Bose mixtures. Specifically, we embed one dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. The single wire system is then studied in a weak coupling limit in a mean field approach. This produces a self-consistency equation for the resulting $p$-wave pairing, which we solve for numerically. The system realises the Kitaev model of $p$-wave pairing, which we show to have a topological ground state by computing the topological index. As a result edge states form at the end of the wires. 
+In this thesis we theoretically investigate the properties of Fermi-Bose mixtures. First we investigate two one-dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. This double wire system is then studied in a weak coupling limit in a mean field approach. The intra- and interwire interactions then result in $p$- and $s$-wave pairing of the fermions. As a result a system of interacting Kitaev wires is realised. We can control a $p$- to $s$-wave phase transition by adjusting the interwire distance. The separated wires with $p$-wave pairing are shown to have a topological ground state. In turn a single edge state emerge in each wire. As the interwire distances decreases the $s$-wave pairing becomes dominant and the system becomes topological trivial. The edge states vanish. Analytically we find two possibilites for this transition. In one the transition is topological and the edge states are protected until the energy gap closes. In the other the edge states simply couple through the interwire $s$-wave pairing and gap away. Numerically we show the latter nontopological phase transition to be the energetically favourable. This is the main result of the thesis. 
 
-The double wire system of parallel fermion wires is then studied in a similar manner. The \textit{intra}wire interaction again forms $p$-wave pairing. The additional \textit{inter}wire interaction is between distinguishable fermions. As a result a competing $s$-wave pairing forms. The transition from $p$- to $s$-wave for decreasing interwire distances is studied in terms of the symmetries and topology of the system. This analysis is compared to a numerical calculation of the pairings. The form of the transition is seen to depend on the phase of the interwire $s$-wave pairing. We show, that the energetically favourable transition exhibits a coexistence of $p$- and $s$-wave pairing. This transition is nontopological, eventhough it is between a topological and trivial phase. 
-
-Finally, we study an extension of the Kitaev chain in a 1D Bose gas. We show, that there are two possible topological phases; one with a single edge state, one with two.
+Second we investigate a Kitaev chain including next-nearest neigbour hopping in a one-dimensional Bose gas. The one-dimensional Bose gas results in a longer range interaction. In turn we show, that it is possible to find phases with winding number larger than 1, hence several edge states. 
 }
 
 %----------------------------------------------------------------------------------------
@@ -213,7 +211,7 @@ Finally, we study an extension of the Kitaev chain in a 1D Bose gas. We show, th
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter7}, we investigate the single fermion wire system. In part III, chapters \ref{Chapter8} through \ref{Chapter11}, we investigate a two wire system of parallel wires. Finally, in part IV we discuss the main results and come with our conclusions. 
+The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain. Finally, in part IV we come with our conclusions.
 
 I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. Also, I would like to thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
@@ -239,73 +237,73 @@ I would like to thank my supervisor, associate professor Georg Bruun, for his gu
 %----------------------------------------------------------------------------------------
 \setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
 
-\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
+%\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
 
-\listofnomenclature{ll} % Include a list of Symbols (a three column table)
-{
-$\beta$ & inverse temperature: $\beta = 1/k_BT$ \\
-$\mathcal{L}$ & length of fermionic wires \\ \\
+%\listofnomenclature{ll} % Include a list of Symbols (a three column table)
+%{
+%$\beta$ & inverse temperature: $\beta = 1/k_BT$ \\
+%$\mathcal{L}$ & length of fermionic wires \\ \\
 
-$H$ & Hamiltonian, second quantization \\
-$\mathcal{H}$ & Hamiltonian, first quantization \\
-$b_k$ & annihilation operator for real boson \\
-$\beta_k$ & annihilation operator for corresponding boson quasiparticle \\
-$c_k$ & annihilation operator for real fermion \\
-$\gamma_k$ & annihilation operator for corresponding fermion quasiparticle \\ \\
+%$H$ & Hamiltonian, second quantization \\
+%$\mathcal{H}$ & Hamiltonian, first quantization \\
+%$b_k$ & annihilation operator for real boson \\
+%$\beta_k$ & annihilation operator for corresponding boson quasiparticle \\
+%$c_k$ & annihilation operator for real fermion \\
+%$\gamma_k$ & annihilation operator for corresponding fermion quasiparticle \\ \\
 
-$m_B$ & mass of bosons \\
-$m_F$ & mass of fermions \\
-$m_r$ & reduced mass: $m_r = \frac{m_Fm_B}{m_F + m_B}$ \\ \\
+%$m_B$ & mass of bosons \\
+%$m_F$ & mass of fermions \\
+%$m_r$ & reduced mass: $m_r = \frac{m_Fm_B}{m_F + m_B}$ \\ \\
 
-$\epsilon_{F,0}$ & Fermi energy, free gas \\
-$k_F$ & Fermi momentum, free gas: $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$ \\
-$T_F$ & Fermi temperature, free gas: $\epsilon_{F,0} = k_BT_F$ \\
-$\mu$ & chemical potential of fermions \\ \\
+%$\epsilon_{F,0}$ & Fermi energy, free gas \\
+%$k_F$ & Fermi momentum, free gas: $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$ \\
+%$T_F$ & Fermi temperature, free gas: $\epsilon_{F,0} = k_BT_F$ \\
+%$\mu$ & chemical potential of fermions \\ \\
 
-$n_F$ & density of fermions: $k_F = \pi n_F$ \\
-$n_B$ & density of bosons \\ \\
+%$n_F$ & density of fermions: $k_F = \pi n_F$ \\
+%$n_B$ & density of bosons \\ \\
 
-$E_{F,k}$ & energy dispersion of fermion quasiparticles  \\
-$E_{B,k}$ & energy dispersion of boson quasiparticles \\ \\
+%$E_{F,k}$ & energy dispersion of fermion quasiparticles  \\
+%$E_{B,k}$ & energy dispersion of boson quasiparticles \\ \\
 
-$g_B$ & point interaction strength between bosons \\
-$g_{BF}$ & point interaction strength between bosons and fermions \\
-$a_B$ & BEC scattering length: $g_B = \frac{4\pi a_B}{m_B}$ \\
-$a_{BF}$ & Bose-Fermi scattering length: $g_B = \frac{2\pi a_{BF}}{m_r}$ \\ \\
+%$g_B$ & point interaction strength between bosons \\
+%$g_{BF}$ & point interaction strength between bosons and fermions \\
+%$a_B$ & BEC scattering length: $g_B = \frac{4\pi a_B}{m_B}$ \\
+%$a_{BF}$ & Bose-Fermi scattering length: $g_B = \frac{2\pi a_{BF}}{m_r}$ \\ \\
 
-$v_F$ & speed of fermions, free gas: $k_F = m_Fv_F$ \\
-$c_0$ & speed of bosons: $c_0 = \sqrt{\frac{n_Bg_B}{m_B}}$ \\
-$\xi$ & BEC coherence length: $\xi = \frac{1}{\sqrt{2m_Bn_Bg_B}}$ \\ \\
+%$v_F$ & speed of fermions, free gas: $k_F = m_Fv_F$ \\
+%$c_0$ & speed of bosons: $c_0 = \sqrt{\frac{n_Bg_B}{m_B}}$ \\
+%$\xi$ & BEC coherence length: $\xi = \frac{1}{\sqrt{2m_Bn_Bg_B}}$ \\ \\
 
-$\omega_t$ & trapping frequency, fermion wires \\
-$l_t$ & trapping width, fermion wires: $l_t = \frac{1}{m_F\omega^2_t}$ \\ \\
+%$\omega_t$ & trapping frequency, fermion wires \\
+%$l_t$ & trapping width, fermion wires: $l_t = \frac{1}{m_F\omega^2_t}$ \\ \\
 
-$f(E)$ & Fermi-Dirac distribution function \\
-$b(E)$ & Bose-Einstein distribution function \\
-$\omega_n$ & Matsubara frequency. Bosonic: $\omega_n = \frac{2\pi n}{\beta}$. Fermionic: $\omega_n = \frac{2\pi (n+1)}{\beta}$  \\ \\
+%$f(E)$ & Fermi-Dirac distribution function \\
+%$b(E)$ & Bose-Einstein distribution function \\
+%$\omega_n$ & Matsubara frequency. Bosonic: $\omega_n = \frac{2\pi n}{\beta}$. Fermionic: $\omega_n = \frac{2\pi (n+1)}{\beta}$  \\ \\
 
-$\chi_{\text{BEC}}$ & BEC density-density correlation function \\
-$d$ & interwire distance \\
-$V^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in momentum space  \\
-$\tilde{V}^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in real space  \\
-$\Delta^{ij}_k$ & pairing potential between wires $i$ and $j$ in momentum space \\ \\
+%$\chi_{\text{BEC}}$ & BEC density-density correlation function \\
+%$d$ & interwire distance \\
+%$V^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in momentum space  \\
+%$\tilde{V}^{ij}_{\text{ind}}$ & induced interaction between wires $i$ and $j$ in real space  \\
+%$\Delta^{ij}_k$ & pairing potential between wires $i$ and $j$ in momentum space \\ \\
 
-$\ket{\text{BEC}}_0$ & BEC bosonic ground state at zero temperature	\\
-$\ket{\text{S}}_0$ & BCS fermionic superfluid ground state at zero temperature \\
-$T_c$ & critical temperature between superfluid and normal phase \\ \\
+%$\ket{\text{BEC}}_0$ & BEC bosonic ground state at zero temperature	\\
+%$\ket{\text{S}}_0$ & BCS fermionic superfluid ground state at zero temperature \\
+%$T_c$ & critical temperature between superfluid and normal phase \\ \\
 
-$T$ & time reversal transformation, second quantization \\
-$C$ & particle-hole transformation, second quantization \\
-$S$ & chiral transformation, second quantization \\ \\
+%$T$ & time reversal transformation, second quantization \\
+%$C$ & particle-hole transformation, second quantization \\
+%$S$ & chiral transformation, second quantization \\ \\
 
-$\mathcal{T}$ & time reversal transformation, first quantization \\
-$\mathcal{C}$ & particle-hole transformation, first quantization \\
-$\mathcal{S}$ & chiral transformation, first quantization \\ \\
+%$\mathcal{T}$ & time reversal transformation, first quantization \\
+%$\mathcal{C}$ & particle-hole transformation, first quantization \\
+%$\mathcal{S}$ & chiral transformation, first quantization \\ \\
 
-$\mathcal{A}$ & Berry connection \\
-$\text{CS}_1$ & Chern-Simons invariant in one dimension
-}
-\newpage
+%$\mathcal{A}$ & Berry connection \\
+%$\text{CS}_1$ & Chern-Simons invariant in one dimension
+%}
+%\newpage
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -349,8 +347,8 @@ In this second part we analyse the double wire system. The physical setup is the
 
 \begin{figure}[H]
 \center
-\includegraphics[width=0.8\columnwidth]{gasandwires3.eps}
-\\ The double wire system. In blue: bosons. In red: fermions.   
+\includegraphics[width=0.8\columnwidth]{gasandwires2D.eps}
+\\ Two wires of fermions in 3D BEC. In blue: bosons. In red: fermions.  
 \end{figure}
 
 \newpage
@@ -363,15 +361,31 @@ In this second part we analyse the double wire system. The physical setup is the
 \part{Kitaev chain and winding numbers larger than 1}
 In this third part we study an extended version of the Kitaev chain. The fermions are arranged along a single wire in a lattice. We further assume, that the fermions both have significant nearest and next-nearest hopping. The Bose gas is now one-dimensional, because we expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
 
+\vspace{2.5cm}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=0.8\columnwidth]{gasandlattice2.pdf}
+\\ Lattice of fermions in 1D Bose gas. In blue: bosons. In red: fermions. In grey: lattice.   
+\end{figure}
+
 \newpage
 \input{Chapters/Chapter7}
 \input{Chapters/Chapter8}
 
-\part{Discussions and Conclusions}
+\part{Conclusions}
+\lhead{Part IV. \emph{Conclusions}}
+\chead{}
+We have studied fermions in one dimension embedded in boson gasses. For the two parallel fermion wires in a three-dimensional Bose-Einstein condensate we have shown, that a point interaction between the fermions and bosons lead to an induced attractive interaction between the fermions of the Yukawa form in the weak-coupling limit. In a mean field approach we have found selfconsistent numerical solutions for the pairing and chemical potentials. The intrawire interaction is shown to lead to a $p$-wave pairing. In turn the separated wires are shown to have a topologically nontrivial ground state. This is verified explicitly by finding an approximate solution for the resulting edge states at the ends of the wires. The interwire interaction is shown to lead to a competing $s$-wave pairing. The resulting Hamiltonian has the structure of a spin-$1/2$ system with $p$-wave pairing between identical spins and $s$-wave pairing between opposite spins. Hence, it describes interacting Kitaev wires. The competition between the pairings is shown to be controllable through the interwire distance or analogously the Bose-Einstein coherence length. 
+
+The edge states in each wire in the separated wire system are shown to be Kramers partners in accordance with a time reversal symmetry, that squares to minus the identity. By calculating the topological invariant we show, that there are two possible and physically distinct configurations of the system. These configurations are different only in the phase of the interwire pairing. In one, as the wires are brought closer together, the interwire pairing chooses a phase, that obeys the time reversal symmetry. In turn a topological phase transition, where the bulk energy gap closes, must occur as the wires are brought closer together. In the other, the interwire pairing chooses a phase, that breaks the time reversal symmetry. The Kramers partners of edge states are then shown to couple and gain a nonzero energy. In a numerical analysis we find the selfconsistent solutions for the pairing and chemical potentials. We hereby show, that the configuration that breaks the time reversal symmetry is the energetically favourable. Using mean field theory, we therefore predict, that the two wire system will undergo a nontopological phase transition between a topological $p$-wave pairing and trivial $s$-wave pairing phase. This is the main result of the thesis. 
+
+Finally, we come with a proposal for a system exhibiting several Majorana edge states. This is a Kitaev chain of identical fermions with both nearest and next-nearest neighbour hopping. Further, the boson gas is made one-dimensional to make the interaction longer range. We show, that this leads to the possibility of dominant next-nearest neighbour pairing. In turn a phase with two edge states is realised. We further show, that this solution is not energetically favourable. Rather a pairing with dominant nearest neigbbour hopping is. However, the energy difference is only of a few percent. We therefore speculate, that it is possible to make the next-nearest neighbour pairing favourable by some perturbation to the system. 
+
+We emphasize, that the mean field approach is problematic for these one-dimensional systems. However, we speculate that in the long coherence length limit, the results will be qualitatively correct. 
 \newpage 
 
-\input{Chapters/Chapter9}
-\input{Chapters/Chapter10}
+%\input{Chapters/Chapter9}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES

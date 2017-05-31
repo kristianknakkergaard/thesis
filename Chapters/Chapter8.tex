@@ -1,9 +1,9 @@
-\chapter{Numerical analysis} % Main chapter title
+\chapter{Numerical and analytical solutions} % Main chapter title
 
 \label{Chapter8} 
 
 \lhead{Part IV. \emph{Kitaev chain}}
-\chead{Chapter 8. \emph{Numerical analysis}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 8. \emph{Numerical and analytical solutions}} % This is for the header on each page - perhaps a shortened title
 %----------------------------------------------------------------------------------------
 In this chapter we present the numerical analysis for the Kitaev chain in the one-dimensional Bose gas. In section \ref{sec.onlyNN} we briefly investigate the nearest neighbour hopping only, i.e. $t_2 = 0$. In section \ref{sec.NNNincluded} we include the next-nearest neighbour hopping and study the effect of introducing this parameter. 
  
@@ -60,7 +60,7 @@ where $k_1 > 0$ and $k_2 > 0$ denote the two positive zeroes.\footnote{We could 
 \begin{figure}
 \begin{center}
 \input{Figures/Lattice.singlewire/Deltaexamples/kdepend.tex}
-\caption{The pairing, $\Delta_k$, and kinetic energy, $\varepsilon_k$, across the Brillouin zone. In black: $\varepsilon_k$. $(i)$, red solid line: only one solution for $\Delta_k$. This is $\sin(kd)$-like. Topological invariant: $\nu = 1$. $(ii)$, blue lines: two solutions for $\Delta_k$. Dashed blue line: $\sin(kd)$-like solution with $\nu = 0$. Solid blue line: $\sin(2kd)$-like solution with $\nu = 2$. Notice that the pairing is maximal around the zeroes of $\varepsilon_k$. Parameters: $G = 4$, $N = 100$, $\xi / d = 5$. $(i)$: $n = 0.2$, $(ii)$: $n = 0.5$.}
+\caption{The pairing, $\Delta_k$, and kinetic energy, $\varepsilon_k$, across the Brillouin zone. In black: $\varepsilon_k$. $(i)$, red solid line: only one solution for $\Delta_k$. This is $\sin(kd)$-like. Topological invariant: $\nu = 1$. $(ii)$, blue lines: two solutions for $\Delta_k$. Dashed blue line: $\sin(kd)$-like solution with $\nu = 0$. Solid blue line: $\sin(2kd)$-like solution with $\nu = 2$. Notice that the pairing is maximal around the zeroes of $\varepsilon_k$. Parameters: $t_2 = t_1$, $G = 4$, $N = 100$, $\xi / d = 5$. $(i)$: $n = 0.2$, $(ii)$: $n = 0.5$.}
 \label{fig.Deltaexamples.t21.0}
 \end{center}
 \end{figure}
@@ -71,7 +71,7 @@ The occurrence of the anomalous $\nu = 2$ phase is at high filling and high cohe
 \end{equation}
 Hence, the real space pairing is quite simply the Fourier transform of the momentum space pairing. We use the orthogonality of $\sin(lkd)$ for different $l$ to get the following. For $\Delta_k = \Delta_1\sin(kd)$ we get $\tilde{\Delta}_{0,1} = -\tilde{\Delta}_{1,0} = -i\frac{\Delta_1}{2}$ with all others zero. In the same manner for $\Delta_k = \Delta_2\sin(2kd)$ we get $\tilde{\Delta}_{0,2} = -\tilde{\Delta}_{2,0} = -i\frac{\Delta_2}{2}$ with all others zero. Spelled out this means, that a $\sin(kd)$-like pairing has dominant \textit{nearest} neighbour pairing, whereas a $\sin(2kd)$-like pairing has dominant \text{next-nearest} neighbour pairing. This explains, why we must go to long coherence lengths. We simply need a long-range interaction for the particles to dominantly be able to pair with next-nearest neighbours. In turn a $\sin(2kd)$-like pairing in momentum space forms and the $\nu = 2$ phase is realized if the filling fraction is large as well, as discussed above. 
 
-Now we can also explain, why the $\nu = 2$ phase region is larger for an increase in $t_2$ as illustrated by the diagrams to the left in figures \ref{fig.phasediagram.t21.0} and \ref{fig.phasediagram.t20.63}. The above analysis shows, that we need a window of two zeroes of the kinetic energy, $\varepsilon_k$. This window is simply larger for increasing $t_2$, since the kinetic energy then bends down more significantly at the Brillouin zone boundary. As $t_2$ decreases, this window narrows, and we observe that the $\nu = 2$ phase completely vanishes. 
+Now we can also explain, why the $\nu = 2$ phase region is larger for an increase in $t_2$ as illustrated by the diagrams to the left in figures \ref{fig.phasediagram.t21.0} and \ref{fig.phasediagram.t20.63}. The above analysis shows, that we need a window of two zeroes of the kinetic energy, $\varepsilon_k$. This window is simply larger for increasing $t_2$, since the kinetic energy decreaes more at the Brillouin zone boundary. As $t_2$ decreases, this window narrows, and we observe that the $\nu = 2$ phase completely vanishes. 
 
 The last important feature to study is the total free energy of the system for the different solutions, since the one with minimal free energy will be favourable for the system. The grand energy, $E_0$, is calculated in the same manner as for the double wire using:
 \begin{equation}
@@ -89,3 +89,26 @@ The figure has the additional advantage, that it shows us exactly in what region
 \label{fig.energydifference.t21.0}
 \end{center}
 \end{figure}
+
+In the above analysis we have only studied the dominant nearest neighbour hopping regime: $t_1 \leq t_2$. However, as mentioned in section \ref{sec.TightbindingHam.lattice} it is possible to tune $t_2$ to be the dominant hopping term by appropriately shaking the optical lattice. We have briefly studied the case of $t_1 = 0 \neq t_2$. The results are not altered significantly in this case.\footnote{The most important difference is, that there is only a $\nu = 0$ and $\nu = 2$ phase.} The dominant nearest neighbour pairing is still slightly energetically favourable.
+
+\section{Analytical solutions} \label{sec.lattice.analyticalsolutions}
+In this section we show, that the system exhibit interesting analytical solutions within the mean field approximation. First, we study the infinite coherence length limit. 
+
+\subsection{\texorpdfstring{$\xi \to \infty$}{Infinite range} limit}
+The infinite coherence limit can be achieved in the following manner. We let $n_Ba_B \to 0$, so that $\xi \propto 1/\sqrt{n_Ba_B} \to \infty$. However, the strength has the proportionality: $G \propto (n_Ba_{BF})^2/\sqrt{n_Ba_B}$. Therefore, we keep this ratio constant. In this manner the strength of the interaction is held constant, whilst the coherence length goes to infinity. 
+
+The real space interaction is now simply a constant: $\tilde{V}_{\text{ind}}(0,j)/t_{\max} = - G$. The effective interaction hereby simplify considerably:
+\begin{align}
+\frac{W_{\text{ind}(k,k')}}{t_{\max}} 
+&= \frac{1}{2}\sum_j \left[\cos( (k - k')x_j ) - \cos( (k + k')x_j ) \right]\frac{\tilde{V}_{\text{ind}}(0,j)}{t_{\max}} \nonumber \\
+&= -\frac{G}{2}\sum_j \left[\cos( (k - k')x_j ) - \cos( (k + k')x_j ) \right] = -\frac{GN}{2}\left[\delta_{k,k'} - \delta_{k, -k'}\right]. \nonumber
+\end{align}
+Inserting this into the gap equation yields:
+\begin{equation}
+\Delta_k = \frac{G}{2E_k}\Delta_k \Rightarrow \Delta_k = 0 \text{ or } |\Delta_k|^2 = \left(\frac{G}{2}\right)^2 - \varepsilon_k^2
+\end{equation}
+Hence, we have an analytical solution for the pairing. In the regions where $|\varepsilon_k| < G / 2$ the last expression is positive, and this solution is self-consistent. Otherwise, $\Delta_k = 0$. 
+
+
+
