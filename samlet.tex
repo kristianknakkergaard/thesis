@@ -28,15 +28,14 @@
 \documentclass[11pt, twoside]{Thesis} 
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\newcommand{\Var}{\mathbb{V}}
-\newcommand{\Cov}{\text{Cov}}
-
 \usepackage[backend=biber, sorting=none, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
   
 \bibliography{Bibliography}
 \usepackage{csquotes}
+\usepackage{bookmark}
+\usepackage{diagbox}
 
 \usepackage{xpatch}
 \makeatletter
@@ -198,9 +197,9 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-In this thesis we theoretically investigate the properties of Fermi-Bose mixtures. First we investigate two one-dimensional wires of gas constituted by identical fermions in a three dimensional Bose-Einstein condensate constituted by identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. This double wire system is then studied in a weak coupling limit in a mean field approach. The intra- and interwire interactions then result in $p$- and $s$-wave pairing of the fermions. As a result a system of interacting Kitaev wires is realised. We can control a $p$- to $s$-wave phase transition by adjusting the interwire distance. The separated wires with $p$-wave pairing are shown to have a topological ground state. In turn a single edge state emerge in each wire. As the interwire distances decreases the $s$-wave pairing becomes dominant and the system becomes topological trivial. The edge states vanish. Analytically we find two possibilites for this transition. In one the transition is topological and the edge states are protected until the energy gap closes. In the other the edge states simply couple through the interwire $s$-wave pairing and gap away. Numerically we show the latter nontopological phase transition to be the energetically favourable. This is the main result of the thesis. 
+In this thesis we theoretically investigate the properties of Fermi-Bose mixtures, both in a 1D-3D mixed dimensional setup and in a pure 1D setup. First, we investigate two one-dimensional wires of gas constituted by identical fermions embedded in a three-dimensional Bose-Einstein condensate of identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. This double wire system is then studied in a weak coupling limit in a mean field approach. The intra- and interwire interactions then respectively result in $p$- and $s$-wave pairing of the fermions. Hence, a system of interacting Kitaev wires is realised. We can control a $p$- to $s$-wave phase transition by adjusting the interwire distance. The separated wires with $p$-wave pairing are shown to have a topological ground state. In turn a single edge state emerge in each wire. As the interwire distance decreases the $s$-wave pairing becomes dominant and the system becomes topologically trivial. In turn the edge states vanish. We show, that for the energetically favourable transition the edge states couple and gap away. The bulk gap hereby remains open. Hence, the phase transition is nontopological. 
 
-Second we investigate a Kitaev chain including next-nearest neigbour hopping in a one-dimensional Bose gas. The one-dimensional Bose gas results in a longer range interaction. In turn we show, that it is possible to find phases with winding number larger than 1, hence several edge states. 
+Second, in the pure 1D setup we investigate a Kitaev chain including next-nearest neigbour hopping in a one-dimensional Bose gas. For a high filling fraction and long interaction range we show, that it is possible to find phases with winding number larger than 1. As a result several edge states emerge.  
 }
 
 %----------------------------------------------------------------------------------------
@@ -211,7 +210,7 @@ Second we investigate a Kitaev chain including next-nearest neigbour hopping in 
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain. Finally, in part IV we come with our conclusions.
+The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain supporting several edge states. In part IV we come with our conclusions. Finally, the supplementary material is listed in part V, appendices \ref{Appendix.intrawireinteraction.ltnonzero} to \ref{Appendix.groundstatedeltion.1DBosegas}. 
 
 I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I would like to thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. Also, I would like to thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
@@ -235,7 +234,7 @@ I would like to thank my supervisor, associate professor Georg Bruun, for his gu
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
-\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
 
 %\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
 
@@ -359,7 +358,7 @@ In this second part we analyse the double wire system. The physical setup is the
 \input{Chapters/Chapter6} 
 
 \part{Kitaev chain and winding numbers larger than 1}
-In this third part we study an extended version of the Kitaev chain. The fermions are arranged along a single wire in a lattice. We further assume, that the fermions both have significant nearest and next-nearest hopping. The Bose gas is now one-dimensional, because we expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
+In this third part we study an extended version of the Kitaev chain \cite{KitaevQuantumWires}. The fermions are arranged along a single wire in a lattice. We further assume, that the fermions both have significant nearest and next-nearest hopping. The Bose gas is now one-dimensional, because we expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
 
 \vspace{2.5cm}
 
@@ -385,13 +384,12 @@ Finally, we come with a proposal for a system exhibiting several Majorana edge s
 We emphasize, that the mean field approach is problematic for these one-dimensional systems. However, we speculate that in the long coherence length limit, the results will be qualitatively correct. 
 \newpage 
 
-%\input{Chapters/Chapter9}
-
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
+\addtocontents{toc}{\newpage}
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\part{Appendices}
 
 \appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
@@ -403,8 +401,11 @@ We emphasize, that the mean field approach is problematic for these one-dimensio
 \input{Appendices/AppendixC}
 \input{Appendices/AppendixD}
 \input{Appendices/AppendixE}
+\input{Appendices/AppendixF}
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\bookmarksetup{startatroot}
 
 \backmatter
 
@@ -416,10 +417,10 @@ We emphasize, that the mean field approach is problematic for these one-dimensio
 
 %\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 %\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
-\printbibliography
 \chead{}
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
- 
+\printbibliography
+
 
 
 

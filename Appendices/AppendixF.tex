@@ -1,0 +1,23 @@
+\chapter{Ground state depletion in 1D Bose gas} % Main chapter title
+
+\label{Appendix.groundstatedeltion.1DBosegas} 
+\chead{F. \emph{Ground state depletion in 1D Bose gas}}
+\lhead{Part V. Appendices} 
+
+%----------------------------------------------------------------------------------------
+In this appendix we calculate the ground state depletion of the one-dimensional Bose gas within Bogoliubov theory. 
+
+We can calculate the number of excited bosons in the same manner as for the three-dimensional condensate. Hence, we have:
+\begin{equation}
+N_{B,\text{exc}} = \sum_{k\neq 0} v_{B,k}^2 = \frac{1}{k_1}\int_{k_1}^{\infty} dk \left[ \frac{k^2 + 1/\xi^2}{k\sqrt{k^2 + 2/\xi^2}} - 1 \right]. \nonumber
+\end{equation}
+Here we have used, that $v_{B,k}^2 = \frac{1}{2}\left[\frac{\chi_{B,k}}{E_{B,k}} - 1 \right]$ is even in $k$ and the lowest nonzero momentum state is $k_1 = \Delta k = \frac{2\pi}{\mathcal{L}}$. The integrand has a primitive. Using this we get the ground state depletion:
+\begin{equation}
+\frac{N_{B,\text{exc}}}{N_B} = \frac{1}{N_B}\left[\frac{1}{\sqrt{2}k_1\xi}\ln\left( \frac{ \sqrt{2} }{ k_1\xi } + \sqrt{ 1 + 2/(k_1\xi)^2 }\right) + 1 - \sqrt{ 1 + 2/(k_1\xi)^2 } \right]. \nonumber
+\end{equation}
+Now $k_0\xi = \frac{2\pi \xi}{\mathcal{L}}$. We can make the dependencies more explicit by writing $N_B = n_B \mathcal{L}$:
+\begin{equation}
+\frac{N_{B,\text{exc}}}{N_B} = \frac{1}{2\sqrt{2}\pi}\frac{1}{n_B\xi}\ln\left( \frac{ \sqrt{2} }{ k_1\xi } + \sqrt{ 1 + 2/(k_1\xi)^2 }\right) + \frac{1}{n_B\mathcal{L}}\left[1 - \sqrt{ 1 + 2/(k_1\xi)^2 } \right].
+\label{eq.groundstatedepletion.1Dbosegas}
+\end{equation}
+In the usual thermodynamic limit we would let $\mathcal{L}, N_B \to \infty$ but keep $n_B = \frac{N_B}{\mathcal{L}}$ constant. However, in this limit the above expression diverges logarithmically $\propto \ln\left(\frac{\sqrt{2}\mathcal{L}}{\pi\xi} \right)$. This illuminates the importance of keeping the system finite. For a finite system the above ratio can be controlled to be small by increasing the density $n_B$. 

@@ -27,7 +27,7 @@ main (void)
   double mB  = 7.0/40.0; /*mB/mF*/
   double nB = 100.0;
 
-  double lt, lt_low = 0.05, lt_high = 0.2, dlt = 0.05;
+  double lt, lt_low = 0.2, lt_high = 0.7, dlt = 0.2;
   double x, x_low = -5, x_high = 5, dx = 0.001; 
 
   for (lt = lt_low; lt <= lt_high; lt+=dlt)

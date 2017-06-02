@@ -1,9 +1,9 @@
-\chapter{Numerical and analytical solutions} % Main chapter title
+\chapter{Numerical analysis} % Main chapter title
 
 \label{Chapter8} 
 
 \lhead{Part IV. \emph{Kitaev chain}}
-\chead{Chapter 8. \emph{Numerical and analytical solutions}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 8. \emph{Numerical analysis}} % This is for the header on each page - perhaps a shortened title
 %----------------------------------------------------------------------------------------
 In this chapter we present the numerical analysis for the Kitaev chain in the one-dimensional Bose gas. In section \ref{sec.onlyNN} we briefly investigate the nearest neighbour hopping only, i.e. $t_2 = 0$. In section \ref{sec.NNNincluded} we include the next-nearest neighbour hopping and study the effect of introducing this parameter. 
  
@@ -91,24 +91,4 @@ The figure has the additional advantage, that it shows us exactly in what region
 \end{figure}
 
 In the above analysis we have only studied the dominant nearest neighbour hopping regime: $t_1 \leq t_2$. However, as mentioned in section \ref{sec.TightbindingHam.lattice} it is possible to tune $t_2$ to be the dominant hopping term by appropriately shaking the optical lattice. We have briefly studied the case of $t_1 = 0 \neq t_2$. The results are not altered significantly in this case.\footnote{The most important difference is, that there is only a $\nu = 0$ and $\nu = 2$ phase.} The dominant nearest neighbour pairing is still slightly energetically favourable.
-
-\section{Analytical solutions} \label{sec.lattice.analyticalsolutions}
-In this section we show, that the system exhibit interesting analytical solutions within the mean field approximation. First, we study the infinite coherence length limit. 
-
-\subsection{\texorpdfstring{$\xi \to \infty$}{Infinite range} limit}
-The infinite coherence limit can be achieved in the following manner. We let $n_Ba_B \to 0$, so that $\xi \propto 1/\sqrt{n_Ba_B} \to \infty$. However, the strength has the proportionality: $G \propto (n_Ba_{BF})^2/\sqrt{n_Ba_B}$. Therefore, we keep this ratio constant. In this manner the strength of the interaction is held constant, whilst the coherence length goes to infinity. 
-
-The real space interaction is now simply a constant: $\tilde{V}_{\text{ind}}(0,j)/t_{\max} = - G$. The effective interaction hereby simplify considerably:
-\begin{align}
-\frac{W_{\text{ind}(k,k')}}{t_{\max}} 
-&= \frac{1}{2}\sum_j \left[\cos( (k - k')x_j ) - \cos( (k + k')x_j ) \right]\frac{\tilde{V}_{\text{ind}}(0,j)}{t_{\max}} \nonumber \\
-&= -\frac{G}{2}\sum_j \left[\cos( (k - k')x_j ) - \cos( (k + k')x_j ) \right] = -\frac{GN}{2}\left[\delta_{k,k'} - \delta_{k, -k'}\right]. \nonumber
-\end{align}
-Inserting this into the gap equation yields:
-\begin{equation}
-\Delta_k = \frac{G}{2E_k}\Delta_k \Rightarrow \Delta_k = 0 \text{ or } |\Delta_k|^2 = \left(\frac{G}{2}\right)^2 - \varepsilon_k^2
-\end{equation}
-Hence, we have an analytical solution for the pairing. In the regions where $|\varepsilon_k| < G / 2$ the last expression is positive, and this solution is self-consistent. Otherwise, $\Delta_k = 0$. 
-
-
 

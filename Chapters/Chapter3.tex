@@ -41,7 +41,7 @@ This shows, that a scattering event in wire 1 is associated with the factor $g_{
 
 \section{1D-3D induced interactions} \label{sec.1D3Dinducedinteraction}
 \subsection{Feynman diagrams} \label{subsec.Feynmandiagrams}
-The bosons are assumed to be in a perfect Bose-Einstein condensate (BEC). This means, that they are essentially lying still. We are further only interested in the weak coupling limit.\footnote{There is a small fraction in nonzero momenta states, which is neglected. It would be necessary to include this for a strong interaction.} In a more general setup, one would have to calculate contributions from increasing orders in the underlying bare interaction leading to a socalled $T$-matrix, but this will not be pursued here. We will write the coupling strength as $g_{BF} = \frac{2\pi a_{BF}}{m_r}$, with $m_r = \frac{m_Fm_B}{m_B + m_F}$ the reduced mass, and $a_{BF}$ the effective scattering length. In a formally precise manner one can expand the $T$-matrix in orders of $a_{BF}$. From this analysis, it is clear that the smallness of the coupling strength is equivalent to demanding $(n_Ba_{BF}^3)^{1/3}\ll 1$. We can also argue for this by a dimensional analysis. From the form of $g_{BF}$ it is clear, that we should argue from $a_{BF}$. This has dimension of length, and so we need a parameter of dimension per length to get a unitless expression. The only reasonable parameter is the one that describes how many bosons, the fermions can actually interact with, leading to a length scale $n_B^{-1/3}$. Since a higher density of bosons leads to more fermion-boson interactions, we should therefore assume $(n_Ba_{BF}^3)^{1/3} \ll 1$. In this weak coupling limit we can safely take interactions only up to second order in $g_{BF}$. This means, that the four essential diagrams for the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
+The bosons are assumed to be in a perfect Bose-Einstein condensate (BEC). This means, that they are essentially lying still. We are further only interested in the weak coupling limit.\footnote{There is a small fraction in nonzero momenta states, which is neglected. It would be necessary to include this for stronger interactions.} In a more general setup, one would have to calculate contributions from increasing orders in the underlying bare interaction leading to a socalled $T$-matrix, but this will not be pursued here. We will write the coupling strength as $g_{BF} = \frac{2\pi a_{BF}}{m_r}$, with $m_r = \frac{m_Fm_B}{m_B + m_F}$ the reduced mass, and $a_{BF}$ the effective scattering length. In a formally precise manner one can expand the $T$-matrix in orders of $a_{BF}$. From this analysis, it is clear that the smallness of the coupling strength is equivalent to demanding $(n_Ba_{BF}^3)^{1/3}\ll 1$. We can also argue for this by a dimensional analysis. From the form of $g_{BF}$ it is clear, that we should argue from $a_{BF}$. This has dimension of length, and so we need a parameter of dimension per length to get a unitless expression. The only reasonable parameter is the one that describes how many bosons, the fermions can actually interact with, leading to a length scale $n_B^{-1/3}$. Since a higher density of bosons leads to more fermion-boson interactions, we should therefore assume $(n_Ba_{BF}^3)^{1/3} \ll 1$. In this weak coupling limit we can safely take interactions only up to second order in $g_{BF}$. This means, that the four essential diagrams for the fermion-fermion induced interaction are the ones showed in figure \ref{fig.feynmandiagrams}. 
 
 \begin{figure}
 \begin{tikzpicture}[scale=0.25]
@@ -156,11 +156,9 @@ Notice that the bosons of the BEC, shown with dashed lines, carry a factor of $\
 \begin{equation}
 G_{11}(\mathbf{k},i\omega_m) = \frac{u_{B,k}^2}{i\omega_m-E_{B,k}}-\frac{v_{B,k}^2}{i\omega_m+E_{B,k}}, \hspace{0.5cm} G_{12}(\mathbf{k},i\omega_m) = G_{21}(\mathbf{k},i\omega_m) = \frac{u_{B,k}v_{B,k}}{i\omega_m+E_{B,k}}-\frac{u_{B,k}v_{B,k}}{i\omega_m-E_{B,k}}.\nonumber
 \end{equation}
-Here $u_{B,k}$ and $v_{B,k}$ are the BEC coherence factors found in subsection \ref{sec.BEC} with $m_B$ the mass of the bosons. Further $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2g_Bn_B \right)$ is the BEC Bogoliubov spectrum and $g_B = \frac{4\pi a_B}{m_B}$, with $a_B$ the scattering length in the BEC. 
+Here $u_{B,k}$ and $v_{B,k}$ are the BEC coherence factors found in subsection \ref{sec.BEC} with $m_B$ the mass of the bosons. Further $E^2_{B,k} = \frac{k^2}{2m_B}\left(\frac{k^2}{2m_B} + 2g_Bn_B \right)$ is the BEC Bogoliubov spectrum and $g_B = \frac{4\pi a_B}{m_B}$, with $a_B$ the scattering length in the BEC. The diagrams can intuitively be understood as follows. A fermion in one wire interact with a (real) boson in the condensate. This creates a ripple in the condensate described by one of the Green's functions. This ripple reaches a second fermion in one of the two wires, where the momentum of the ripple is transferred to.  
 
-The diagrams can intuitively be understood as follows. A fermion in one wire interact with a (real) boson in the condensate. This creates a ripple in the condensate described by one of the Green's functions. This ripple reaches a second fermion in one of the two wires, where the momentum of the ripple is transferred to. Further, a (real) boson is "returned" to the condensate. In a more technical way we say, that the fermions interact by exchanging a condensate Bogoliubov phonon. 
-
-Let us first focus on the induced interaction of two fermions in wire 1. Since the perpendicular momentum $\mathbf{k}_\perp$ is completely free we have to integrate over this. Since the momentum of the incoming and outgoing boson in each diagram is 0 we simply get a factor of $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}k_\perp^2}$ \textit{twice}. Collecting all terms gives us the four contributions from the four diagrams (1)-(4) to the fermion-fermion induced interaction $V_{\text{ind}}$: 
+Let us first focus on the induced interaction of two fermions in wire 1. Since the perpendicular momentum $\mathbf{k}_\perp$ is completely free we have to integrate over this. Since the momentum of the incoming and outgoing boson in each diagram is 0 we simply get a factor of $g_{BF}\; \text{e}^{-\frac{l_t^2}{4}k_\perp^2}$ \textit{twice}. Collecting all factors gives us the four contributions from the four diagrams (1)-(4) to the fermion-fermion induced interaction $V_{\text{ind}}^{11}$: 
 \begin{align}
 V^{11}_{\text{ind}, 1}(q,i\omega_q) &= n_Bg_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{11}(-q,\mathbf{k}_\perp,-\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, \nonumber \\
 V^{11}_{\text{ind}, 2}(q,i\omega_q) &= n_Bg_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}G_{11}(q,\mathbf{k}_\perp,\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, \nonumber \\
@@ -172,9 +170,7 @@ We notice, that the last two give the same contribution in this weak interacting
 V^{11}_{\text{ind}}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp,i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}, 
 \label{eq.V11indXBEC}
 \end{equation}
-with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2 - E_{B,k}^2}$ the socalled density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$ at this stage. For $l_t\to 0$ the above has an integrand of the form $k^2/(ak^4 + bk^2 + c)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. We return to this later on. Intuitively, the induced interaction of fermions in wire 2 must be the same as the above. However, one might wonder what happens to the extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$ for wire 2. The incoming boson is associated with a factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$. However, the outgoing is associated with a factor of $\text{e}^{-i\mathbf{k}_\perp\cdot \mathbf{d}}$, and so these cancel. Hence, we have $V^{22}_{\text{ind}}(q,i\omega_q) = V^{11}_{\text{ind}}(q,i\omega_q)$. These interactions we denote \textit{intra}wire interactions. 
-
-Additionally, there is an \textit{inter}wire induced interaction between the wires, which we will denote $V_{\text{ind}}^{12}(q,i\omega_q)$. The preceding section shows, that the calculation of this induced interaction is analogous to the above, but with the additional factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$ from scattering in the second wire. Hence:
+with $\chi_\text{BEC}(\mathbf{k},i\omega_q) = \frac{k^2}{m_B}\frac{n_B}{(i\omega_q)^2 - E_{B,k}^2}$ the socalled density-density correlation function of the BEC. It now becomes clear, why we had to retain a nonzero value of $l_t$ at this stage. For $l_t\to 0$ the above has an integrand of the form $k^2/(ak^4 + bk^2 + c)$, with $a,b,c$ positive constants. As a result the integral is logarithmically divergent. The situation in a 2D-3D system is different. Here there is a single integral in the above, and the result converges for $l_t\to 0$. We return to this later on. For two fermions in wire 2, there is two additional phase factors. The incoming boson is associated with $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$, the outgoing with $\text{e}^{-i\mathbf{k}_\perp\cdot \mathbf{d}}$. These phase factors cancel and $V^{22}_{\text{ind}}(q,i\omega_q) = V^{11}_{\text{ind}}(q,i\omega_q)$ as one would expect. We denote these \textit{intra}wire interactions. Additionally, there is an \textit{inter}wire induced interaction between the wires, which we will denote $V_{\text{ind}}^{12}(q,i\omega_q)$. The preceding section shows, that the calculation of this induced interaction is analogous to the above, but with the additional factor of $\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}$ from scattering in the second wire. Hence:
 \begin{equation}
 V_{\text{ind}}^{12}(q,i\omega_q) = g_{BF}^2\int\frac{d^2k_\perp}{(2\pi)^2}\; \chi_\text{BEC}(q,\mathbf{k}_\perp, i\omega_q)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}\text{e}^{i\mathbf{k}_\perp\cdot \mathbf{d}}. 
 \label{eq.V12indXBEC} 
@@ -195,7 +191,7 @@ In this subsection we calculate the real space interactions, $\tilde{V}^{ij}_{\t
 
 We start with the \textit{inter}wire interaction. We get:
 \begin{equation}
-V^{12}_{\text{ind}}(x, 0) = \int \frac{dq}{2\pi} \; \text{e}^{iqx} V^{12}_{\text{ind}}(q, 0) = g^2_{BF}\int \frac{d^3 k}{(2\pi)^3}\;\chi_\text{BEC}(\mathbf{k}, 0)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}\text{e}^{i\mathbf{k}\cdot \mathbf{r}}, \nonumber
+\tilde{V}^{12}_{\text{ind}}(x, 0) = \int \frac{dq}{2\pi} \; \text{e}^{iqx} V^{12}_{\text{ind}}(q, 0) = g^2_{BF}\int \frac{d^3 k}{(2\pi)^3}\;\chi_\text{BEC}(\mathbf{k}, 0)\text{e}^{-\frac{l_t^2}{2}k_\perp^2}\text{e}^{i\mathbf{k}\cdot \mathbf{r}}, \nonumber
 \end{equation}
 where we write $\mathbf{k} = (q, \mathbf{k}_{\perp})$ and $\mathbf{r} = (x, \mathbf{r}_{\perp})$. The above expression converges for $l_t \to 0$, because the integrand is monotonically increasing for decreasing $l_t$. The gaussian, $\text{e}^{-\frac{l_t^2}{2}k_\perp^2}$, hereby drops out and we are left with the Fourier transformation of $\chi_\text{BEC}(\mathbf{k}, 0) = -4m_Bn_B\frac{1}{k^2 + 1/\xi^2}$. We recognise this as the Yukawa potential in momentum space. For completeness we here show how to perform the Fourier transformation. The integral of interest is:
 \begin{equation}
@@ -212,35 +208,31 @@ I(\mathbf{r}) = \frac{1}{2\pi r}\int \frac{dk}{2\pi i} \frac{k}{k^2 + 1/\xi^2}\t
 \end{equation}
 where $\text{Res}(f(x), x_0)$ denotes the residue of $f(x)$ in $x = x_0$. Setting $\mathbf{r} = (x, \mathbf{d})$ we get for the induced interaction between the wires:
 \begin{equation}
-V^{12}_{\text{ind}}(x, 0) = -4m_Bg^2_{BF}n_B I(x, \mathbf{d}) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{ -\sqrt{2}\sqrt{x^2 + d^2}/\xi }}{\sqrt{x^2 + d^2}}.
+\tilde{V}^{12}_{\text{ind}}(x, 0) = -4m_Bg^2_{BF}n_B I(x, \mathbf{d}) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{ -\sqrt{2}\sqrt{x^2 + d^2}/\xi }}{\sqrt{x^2 + d^2}}.
 \label{eq.V12indx}
 \end{equation}
 As noted in section \ref{sec.1D3Dinducedinteraction} we can obtain the intrawire interaction by simply setting $d = 0$. We get:
 \begin{equation}
-V^{11}_{\text{ind}}(x, 0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{ -\sqrt{2}|x|/\xi }}{|x|}.
+\tilde{V}^{11}_{\text{ind}}(x, 0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{ -\sqrt{2}|x|/\xi }}{|x|}.
 \label{eq.V11indx}
 \end{equation}
 The induced interaction in real space is seen to be the Yukawa interaction with a range of interaction given by the BEC coherence length, $\xi$. We can also understand this physically. The coherence length is in general the length scale over which, the condensate adjusts to an influence on the boson density. Hence, it is physically intuitive that this is exactly the range of the interaction. 
 
-We could also have calculated the intrawire induced interaction for a general $l_t > 0$ and then taken the $l_t \to 0$ limit. The reader is referred to appendix \ref{Appendix.intrawireinteraction.ltnonzero} to see this explicitly. In the end it gives the same result. 
+We could have calculated the intrawire induced interaction for a general $l_t > 0$ and then taken the $l_t \to 0$ limit. The reader is referred to appendix \ref{Appendix.intrawireinteraction.ltnonzero} to see this explicitly. In the end it gives the same result. 
 
-We get a unitless form of the real space interaction by dividing with the typical energy of the fermions, the Fermi energy $\epsilon_{F,0}$. In this way the resulting front factor of $V^{11}_{\text{ind}} / \epsilon_{F,0}$ is a measure of the strength of interaction given by:
+We get a unitless form of the real space interaction by dividing with the typical energy of the fermions, the Fermi energy $\epsilon_{F,0}$. In this way the resulting front factor of $\tilde{V}^{ij}_{\text{ind}} / \epsilon_{F,0}$ is a measure of the strength of interaction given by:
 \begin{equation}
 G = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3}.
 \label{eq.interactionstrength.wires}
 \end{equation}
 The mass ratio $m_B / m_F$, The relative interparticle distance $n_B^{1/3} / n_F$ and the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$ hereby comes naturally about by going to unitless quantities. 
 
-In figure \ref{fig.V11indx} we show, how the Yukawa interaction for the intrawire case is approached in the $l_t\to 0$ limit. In figure \ref{fig.V12indx} we show the interwire interaction for several interwire distances, $d$. 
+In figure \ref{fig.V12indx} we show the interwire interaction for several interwire distances, $d$. The black curve is the $d = 0$ limit where the inter- and intrawire interactions coincide. 
 
 \begin{figure} 
 \begin{center}  
-\input{Figures/Vx/plot.tex}  
-\caption{The zero frequency \textit{intra}wire interaction $\tilde{V}^{11}_{\text{ind}}(x,0)$ plotted as a function of $k_Fx$ for several values of $l_t$. The black curve is the asymptotic Yukawa interaction for $l_t \to 0$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
-\label{fig.V11indx}  
-\vspace{0.5cm}
 \input{Figures/twowires/InducedInteractionInterwireRealSpace/InducedInteraction.tex}  
-\caption{The zero frequency \textit{inter}wire interaction $\tilde{V}_{\text{ind}}^{12}(x,0)$ plotted as a function of $x$. The induced interaction is seen to increase with decreasing distance $d$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
+\caption{Coloured lines: The \textit{inter}wire induced interaction, $\tilde{V}^{12}_{\text{ind}}(x, 0)$, plotted as a function of $x$ for several values of $d$. Black line: the \textit{intra}wire induced interaction, $\tilde{V}^{11}_{\text{ind}}(x, 0)$. Parameters: $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $\frac{m_B}{m_F} = 7/40$, $\frac{n_F}{n_B^{1/3}} = 0.215$, $v_F/c_0 = 0.33$.}  
 \label{fig.V12indx}  
 \end{center}    
 \end{figure}
@@ -264,14 +256,12 @@ where $K_0(x)$ is the modified Bessel function of the second kind of order zero.
 V_{\text{ind}}^{12}(q,0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left[\sqrt{(qd)^2+\frac{2d^2}{\xi^2}}\right]. 
 \label{eq.V12indq.zerofrequency}
 \end{equation}
-We hereby have a closed form expression for the interwire induced interaction in momentum space. 
-
-Next we turn to the \textit{intra}wire interaction. The situation here is more tricky. As already noted, the induced interaction in equation \eqref{eq.V11indXBEC} diverges for $l_t \to 0$. However, in chapter \ref{Chapter4} we will see, that the anticommutator relations for the fermionic creation and annihilation operators leads to the following expression for the scattering amplitude in momentum space:
+We hereby have a closed form expression for the interwire induced interaction in momentum space. Next we turn to the \textit{intra}wire interaction. The situation here is more tricky. As already noted, the induced interaction in equation \eqref{eq.V11indXBEC} diverges for $l_t \to 0$. However, in chapter \ref{Chapter4} we will see, that the anticommutator relations for the fermionic creation and annihilation operators leads to the following expression for the scattering amplitude in momentum space:
 \begin{equation}
 W^{11}_{\text{ind}}(k, q, p) = \frac{1}{2}\left(V^{11}_{\text{ind}}\left( p, 0 \right) - V^{11}_\text{ind}\left( p + k - q, 0 \right) \right). 
 \label{eq.Wkqp.scattering.amplitude}
 \end{equation}
-The scattering amplitude is hereby a combination of two Fourier transforms. We will comment further on the meaning of this expression in chapter \ref{Chapter4}. For now we simply wish to calculate the $l_t \to 0$ limit. Going back to equation \eqref{eq.V11indXBEC} for $\omega_q = 0$, it turns out, that we can express $V_\text{ind}\left( q, 0 \right)$ as:
+The scattering amplitude is hereby a combination of two Fourier transforms. We will comment further on the meaning of this expression in chapter \ref{Chapter4}. For now we simply wish to calculate the $l_t \to 0$ limit. Going back to equation \eqref{eq.V11indXBEC} for $\omega_q = 0$, it turns out, that we can express $V^{11}_\text{ind}\left( q, 0 \right)$ as:
 \begin{equation}
 V^{11}_{\text{ind}}(q, 0) = -\frac{m_Bg_{BF}^2n_B}{\pi} \text{e}^{F(q)} E_1(F(q)),
 \label{eq.V11indq.zerofrequency.ltnonzero}

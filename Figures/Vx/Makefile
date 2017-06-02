@@ -20,12 +20,11 @@ plot.tex: data makefile
 'set key bottom left;												'\
 'set key width -2;													'\
 'set arrow from 0,0 to 0,-60 nohead lc rgb "black"; 				'\
-'plot [-1:1][-60:0] 		   										'\
+'plot [-5:5][-3:0] 		   										'\
 ' "$<" index 0 using 2:4 notitle with lines lw 2 lc rgb "black" 				'\
-',"$<" index 3 using 2:3 title "$$k_Fl_t = 0.20$$" with lines lc rgb "#002daa" 	'\
-',"$<" index 2 using 2:3 title "$$k_Fl_t = 0.15$$" with lines lc rgb "#167000" 	'\
-',"$<" index 1 using 2:3 title "$$k_Fl_t = 0.10$$" with lines lc rgb "#e05900" 	'\
-',"$<" index 0 using 2:3 title "$$k_Fl_t = 0.05$$" with lines lc rgb "#e00000" 	'\
+',"$<" index 2 using 2:3 title "$$k_Fl_t = 0.6$$" with lines lc rgb "#002daa" 	'\
+',"$<" index 1 using 2:3 title "$$k_Fl_t = 0.4$$" with lines lc rgb "#167000" 	'\
+',"$<" index 0 using 2:3 title "$$k_Fl_t = 0.2$$" with lines lc rgb "#e00000" 	'\
 | tee log | gnuplot
 
 

@@ -1,6 +1,6 @@
 clc; close all; clear all; 
 
-N_b = 100; 
+N_b = 30; 
 
 x_b = rand(1, N_b); 
 y1_b = 0.4 + 0.1 * rand(1, N_b);

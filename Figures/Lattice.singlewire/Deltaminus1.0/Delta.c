@@ -47,13 +47,13 @@ main (void)
   double strength = 4.0; /*total strength of interaction*/
 
   /*free parameters:*/
-  double xi_low   = 4.0,  dxi   = 0.1; /*we will eventually want to control the range rather than the Bose gas parameter*/
-  double fill_low = 0.35, dfill  = 0.01;
+  double xi_low   = 1.0,  dxi   = 0.1; /*we will eventually want to control the range rather than the Bose gas parameter*/
+  double fill_low = 0.0, dfill  = 0.01;
   double t2       = 1.0;
   int    N        = 100; 
   double Ndouble  = (double)N;
-  int    Nxi      = 21;
-  int    Nfill    = 21;
+  int    Nxi      = 61;
+  int    Nfill    = 101;
   
   /*k-values:*/
   double k_low = - M_PI, dk = 2.0 * M_PI / Ndouble;
