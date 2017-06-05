@@ -19,14 +19,6 @@ double VFF12(double x, double d, double rBB, double rBF, double nB, double mB)
   return f;
 }
 
-double VFF11 (double x, double rBB, double rBF, double nB, double mB)
-{
-  double xi     = sqrt(M_PI / ( 8.0 * rBB) ) * pow(nB, -1.0 / 3.0) ; /*xi * kF*/
-  double factor = 8.0 * (mB + 1.0/mB + 2.0) * pow(nB, 1.0 / 3.0) * rBF * rBF;
-
-  return - factor * exp(-sqrt(2)*fabs(x)/xi) / fabs(x); 
-}
-
 int
 main (void)
 {
@@ -36,18 +28,18 @@ main (void)
   double rBB = 0.01;
   double mB  = 7.0/40.0; /*mB/mF*/
   double nB = 100.0;
-  double d, d_low = 0.6, d_up = 2.0, dd = 0.4;
+  double d, d_low = 0.0, d_up = 2.1, dd = 0.5;
 
   /*q's*/
   double x_low = -10.0, x_up = 10.0, dx = 0.01; 
   
-  printf("%s \t %s \t %s \n", "x", "Vind12", "Vind11" );
+  printf("%s \t %s \t %s  \n", "x", "Vind12", "d");
   printf("\n\n");
   for (d = d_low; d < d_up; d+=dd)
   {
     for ( double x = x_low; x < x_up; x += dx )
     {
-      printf("%lg \t %lg \t %lg \n", x, VFF12(x, d, rBB, rBF, nB, mB), VFF11(x, rBB, rBF, nB, mB) );
+      printf("%lg \t %lg \t %lg \n", x, VFF12(x, d, rBB, rBF, nB, mB), d);
     }
     printf("\n\n");
   }

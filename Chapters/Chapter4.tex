@@ -1,24 +1,26 @@
 % Chapter 4
 
-\chapter{Grand Fermi Hamiltonian} % Main chapter title
+\chapter{Effective Fermi Hamiltonian} % Main chapter title
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter3} 
 
 \lhead{Part II. \emph{Kitaev wires}}
-\chead{Chapter 4. \emph{Grand Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
+\chead{Chapter 4. \emph{Effective Fermi Hamiltonian}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we will study the induced interactions more extensively. Firstly, we calculate the pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interactions to have a vanishing Matsubara frequency: $\omega_q = 0$. See subsection \ref{sec.RetardationEffects} for details. In section \ref{sec.meanfieldapproximation} we perform the mean field approximation. The validity of this approach is discussed in section \ref{sec.meanfieldvalidity}. The result of the approximation is then inserted into the full Hamiltonian in section \ref{sec.HFFfull}. Here we also diagonalise the Hamiltonian. In section \ref{sec.gapandnumberequations} we derive the gap and number equations. Finally in section \ref{sec.groundstateenergy} we derive an expression for the ground state grand energy. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite[pp. 359-369]{PlischkeStatPhys}, \cite[pp. 153-163]{LandauStatPhys2} and \cite[chapter 3]{Tinkham}.   
+In this chapter we will investigate the effective interactions between the fermions more extensively. Firstly, we calculate the effective pair interaction Hamiltonian for the fermions in section \ref{sec.HFFint}. This is done under the assumption, that we can restrict the induced interactions to have a vanishing Matsubara frequency: $\omega_q = 0$. See subsection \ref{sec.RetardationEffects} for the details. In section \ref{sec.meanfieldapproximation} we perform the mean field approximation. The validity of this approach is discussed in section \ref{sec.meanfieldvalidity}. In section \ref{sec.HFFfull} we write up a resulting effective Hamiltonian for the fermions. Here we also diagonalise the Hamiltonian. In section \ref{sec.gapandnumberequations} we derive the gap and number equations. Finally in section \ref{sec.groundstateenergy} we derive an expression for the ground state grand energy. The approach is an example of a Bardeen-Cooper-Schrieffer (BCS) theory, see e.g. \cite[pp. 359-369]{PlischkeStatPhys}, \cite[pp. 153-163]{LandauStatPhys2} and \cite[chapter 3]{Tinkham}.   
 
-\section{Interaction Hamiltonian} \label{sec.HFFint}
-In this section we transform the interactions from real to momentum space. The \textit{intrawire} interaction Hamiltonian for pair interactions between fermions in wire 1 is given by:
+\section{Effective interaction Hamiltonian} \label{sec.HFFint}
+The induced interaction between the fermions mediated by the bosons in the condensate result in an effective interaction Hamiltonian for the fermions. In this section we transform the interactions from real to momentum space. 
+
+The \textit{intrawire} interaction Hamiltonian for the effective pair interactions between fermions in wire 1 is given by:
 \begin{equation}
 H^\text{int,11}_{FF} = \frac{1}{2}\int dx_1dx_2\; \psi^\dagger_{1,F}(x_1)\psi^\dagger_{1,F}(x_2)\tilde{V}^{11}_{\text{ind}}(x_1 - x_2, 0) \psi_{1,F}(x_2) \psi_{1,F}(x_1).
 \label{eq.HFF11intdef}
 \end{equation}
 With $\tilde{V}^{11}_\text{ind}(x,0)$ the induced interaction at zero frequency in real space, equation \eqref{eq.V11indx}. The factor of $1/2$ is present, since the particles are identical. Transforming the above expression to momentum space will make it clearer of how to perform the BCS assumption and in turn the mean field approximation. 
 
-The transformation to momentum space is carried out by expanding the field operators in plane waves: $\psi_{1,F}(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} c_{1,k}$. The transformation is a little tricky, because the momentum space induced interaction $V^{11}_{\text{ind}}(k, 0)$ is not well-defined in the zero trapping width limit: $l_t = 0$.\footnote{The Yukawa potential simply has no Fourier transform in one dimension.} However, it is possible to get an expression in momentum space that is well-defined for any value of $l_t$. We do this in the following manner. Firstly:
+The transformation to momentum space is carried out by expanding the field operators in plane waves: $\psi_{1,F}(x) = \frac{1}{\sqrt{\mathcal{L}}}\sum_k \text{e}^{ikx} c_{1,k}$. The transformation is a little tricky, because the momentum space induced interaction $V^{11}_{\text{ind}}(k, 0)$ is not well-defined in the very narrow wire width limit: $l_t = 0$.\footnote{The Yukawa potential simply has no Fourier transform in one dimension.} However, it is possible to get an expression in momentum space that is well-defined for any value of the wire width. We do this in the following manner. Firstly:
 \begin{align}
 \psi_{1,F}(x_2) \psi_{1,F}(x_1) &= \frac{1}{\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} c_{1, k_2}c_{1, k_1} = \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \text{e}^{i(k_1x_1 + k_2x_2)} \left[c_{1, k_2}c_{1, k_1} - c_{1, k_1}c_{1, k_2}\right] \nonumber \\
 &= \frac{1}{2\mathcal{L}}\sum_{k_1,k_2} \left[\text{e}^{i(k_1x_1 + k_2x_2)} - \text{e}^{i(k_2x_1 + k_1x_2)}\right]c_{1, k_2}c_{1, k_1}, \nonumber
@@ -32,12 +34,29 @@ where we have made the substitution of variables $u = x_1 - x_2$. The integral o
 \begin{equation}
 H^\text{int,11}_{FF} = \frac{1}{4\mathcal{L}} \sum_{k, q, p} c^\dagger_{1, k + p}c^\dagger_{1, q - p}c_{1, q}c_{1, k} \int du\left[\cos\left(pu\right) - \cos\left(\left( p + k - q \right)u\right)\right]\tilde{V}^{11}_{\text{ind}}(u,0), \nonumber
 \end{equation}
-where we have made the substitutions: $k_1 = k, k_2 = q, q_1 = k + p$ and $q_2 = k - p$. Finally, since the induced interaction is even in $u$, we have that $V^{11}_{\text{ind}}(p, 0) = \int du \cos(pu) \tilde{V}^{11}_{\text{ind}}(u, 0)$. Hence, we see that the scattering amplitude $W^{11}_{\text{ind}}(k, q, p) = \frac{1}{2}\left(V^{11}_\text{ind}\left( p, 0 \right) - V^{11}_\text{ind}\left( p + k - q, 0 \right) \right)$ arises as promised in subsection \ref{subsec.inducedinteraction.momentumspace}. We hereby obtain the final Hamiltonian expanded in momentum space operators:
+where we have made the substitutions: $k_1 = k, k_2 = q, q_1 = k + p$ and $q_2 = q - p$. Finally, since the induced interaction is even in $u$, we have that $V^{11}_{\text{ind}}(p, 0) = \int du \cos(pu) \tilde{V}^{11}_{\text{ind}}(u, 0)$. Due to the antisymmetry of the fermionic particles, there are hereby two relevant interaction vertices:
+\begin{align}
+W^{11}_{\text{ind}}(k, q, p) &= \frac{1}{2}( \hspace{0.75cm} \underset{\text{Direct}}{\underbrace{V^{11}_{\text{ind}}\left( p, 0 \right)}} \hspace{1.18cm} - \hspace{0.49cm} \underset{\text{Exchange}}{\underbrace{V^{11}_\text{ind}\left( p + k - q, 0 \right) }} \hspace{0.75cm} ) \nonumber \\
+&= \feynmandiagram [small, inline, horizontal=a to b] {
+  a -- [fermion] i2 [particle={\(1, k - p\)}],
+  i1 [particle={\(1, k\)}] -- [fermion] a, 
+  a -- [photon, edge label=\( \), momentum'=\(p\)] b,
+  f1 [particle={\(1, q\)}] -- [fermion] b, 
+  b -- [fermion] f2 [particle={\(1, q + p\)}],
+}; - \feynmandiagram [small, inline, horizontal=a to b] {
+  a -- [fermion] i2 [particle={\(1, q - p\)}],
+  i1 [particle={\(1, k\)}] -- [fermion] a, 
+  a -- [photon, edge label=\( \), momentum'=\(k - q + p\)] b,
+  f1 [particle={\(1, q\)}] -- [fermion] b, 
+  b -- [fermion] f2 [particle={\(1, k + p\)}],
+};, \nonumber
+\end{align}
+as promised in subsection \ref{subsec.inducedinteraction.momentumspace}. There is a direct term, $V^{11}_\text{ind}\left( p, 0 \right)$, describing a momentum transfer, $p$, and an exchange term where the fermions exchange their momenta $k$ and $q$, and transfer momentum $p$. We hereby obtain:
 \begin{equation}
 H^\text{int,11}_{FF} = \frac{1}{2\mathcal{L}} \sum_{k,q,p} W^{11}_{\text{ind}}(k, q, p) c^\dagger_{1, k + p} c^\dagger_{1, q - p} c_{1, q} c_{1, k}. 
 \label{eq.H11intMomentumSpace}
 \end{equation}
-The summand describes a scattering of two fermions. They exchange momentum $p$ with an amplitude $W^{11}_{\text{ind}}(k, q, p)$ given by equation \eqref{eq.Wkqp.scattering.amplitude}. This depends both on the exchange, $p$, and the difference of incoming momenta, $k - q$. In subsection \ref{subsec.inducedinteraction.momentumspace} we showed, that this scattering amplitude has a well-defined $l_t \to 0$ limit. The total interaction Hamiltonian has hereby been transformed to momentum space. The interaction of fermions in wire 2 is identically to the above by letting $c_1 \to c_2$.  
+In subsection \ref{subsec.inducedinteraction.momentumspace} we showed, that the scattering amplitude, $W^{11}_{\text{ind}}$, has a well-defined narrow wire width limit, $l_t \to 0$. The total interaction Hamiltonian has hereby been transformed to momentum space. The interaction of fermions in wire 2 is identically to the above by letting $c_1 \to c_2$.  
 
 Now we turn to the \textit{interwire} interaction Hamiltonian:
 \begin{equation}
@@ -130,13 +149,12 @@ It is also possible, that the work we precent is qualitatively sound, eventhough
 
 There are mainly two reasons, why we would like to be able to use the mean field approach. Firstly, this approximation approach is by far the simpler one. Secondly, the topological classification dubbed the tenfold way is developed for band Hamiltonians \cite{Ryu.Topology}. There is no fully developed classification scheme for interaction Hamiltonians. We will continue on with the mean field approach encouraged by the result of Ortiz and Cobanero and by the large amount of work done in one dimensional superfluid systems, see e.g. articles \cite{Alicea, KitaevTopPhases, KitaevQuantumWires, LiYangChen, FuKane2006, GreiterIsingKitaevChain, DeGottardiMajoranaFermions, BudichTopInvMajoranaWires}. 
 
-\section{Grand Hamiltonian} \label{sec.HFFfull}
-The free particle Hamiltonian for the fermions is: $H_{0,1} + H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$. Further, the Hamiltonian is not particle number conserving, since it contains terms like $c^\dagger c^\dagger$. In stead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number of $j$ fermions. We hereby get the following grand Hamiltonian:
+\section{Mean field Hamiltonian for the fermions} \label{sec.HFFfull}
+The free particle Hamiltonian for the fermions is: $H_{0,1} + H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$. The mean field "interaction" Hamiltonian derived in section \ref{sec.meanfieldapproximation} is not particle number conserving, since it contains terms like $c^\dagger c^\dagger$. In stead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number operator for the $j$ fermions. We hereby get the following \textit{grand} Hamiltonian:\footnote{It is a \textit{grand} Hamiltonian because we subtract by $\mu_1N_{1,F}+\mu_2N_{2,F}$. }
 \begin{align}
 H_{FF} = &\sum_j \left[H_{0,j} - \mu_j N_{j,F}\right] + H^\text{int}_{FF,11} + H^\text{int}_{FF,22} + H^\text{int}_{FF,12} \nonumber \\
        = &\frac{1}{2}\sum_k C^\dagger_k \mathcal{H}_{FF,k}C_k + \frac{1}{2}\sum_k\left[\varepsilon_{1,k} + \varepsilon_{2,k} - \Delta^{11}_k\braket{c^\dagger_{1,k}c^\dagger_{1,-k}} - \Delta^{22}_k\braket{c^\dagger_{2,k}c^\dagger_{2,-k}} - 2\Delta^{12}_k\braket{c^\dagger_{2,k}c^\dagger_{1,-k}} \right], \nonumber
 \end{align}
-
 with:
 \begin{equation}
 \mathcal{H}_{FF,k} = \begin{bmatrix} \varepsilon_{1,k} & \Delta^{11}_k      & 0                 & -\Delta^{12}_{-k} \\ 
@@ -145,7 +163,7 @@ with:
                                      -\Delta^{12*}_{-k}& 0                  & \Delta^{22*}_k    & -\varepsilon_{2,k} \end{bmatrix}, \hspace{0.5cm}
 C_k =  \begin{bmatrix} c_{1,k} \\ c^\dagger_{1,-k} \\ c_{2,k} \\ c^\dagger_{2,-k} \end{bmatrix}.                                     
 \end{equation}
-Here $\varepsilon_{j,k} = \frac{k^2}{2m_F}-\mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential $\mu$. Hence we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we make two separate gauge transformations to make the intrawire pairings, $\Delta^{jj}_k$, real. This works in the following fashion. We assume, that the phase of the intrawire pairings are global, i.e. not dependent on the $k$. Hence, we let $\Delta^{jj}_k \to \Delta^{jj}_k \text{e}^{i\phi^{jj}}$, with $\text{e}^{i\phi^{jj}}$ the phase of the pairing. We then make the gauge transformation $c_{j,k} \to \text{e}^{-i\phi^{jj}/2}c_{j,k}$. From equation \eqref{eq.intrawirepairingpotentialdef} the intrawire pairing is linearly dependent on $\braket{c_{j,k}c_{j,-k}}$. Hence, under this gauge transformation we get:
+Here $\varepsilon_{j,k} = \frac{k^2}{2m_F} - \mu_j$ is the kinetic energy relative to the chemical potential of the $j$ fermions. This has a quite general structure. To simplify matters we firstly assume, that the wires are held at the same chemical potential, $\mu$, so that there is the same number of fermions in each wire: $N_{j,F} = N_F$. Hence, we let $\varepsilon_{j,k} \to \varepsilon_k$. Secondly, we make two separate gauge transformations to make the intrawire pairings, $\Delta^{jj}_k$, real. This works in the following fashion. We assume, that the phase of the intrawire pairings are global, i.e. not dependent on the $k$. Hence, we let $\Delta^{jj}_k \to \Delta^{jj}_k \text{e}^{i\phi^{jj}}$, with $\text{e}^{i\phi^{jj}}$ the phase of the pairing. We then make the gauge transformation $c_{j,k} \to \text{e}^{-i\phi^{jj}/2}c_{j,k}$. From equation \eqref{eq.intrawirepairingpotentialdef} the intrawire pairing is linearly dependent on $\braket{c_{j,k}c_{j,-k}}$. Hence, under this gauge transformation we get:
 \begin{equation}
 \Delta^{jj}_k \text{e}^{i\phi^{jj}} \to \text{e}^{-i\phi^{jj}}\Delta^{jj}_k \text{e}^{i\phi^{jj}} = \Delta^{jj}_k, \nonumber
 \end{equation}
@@ -210,12 +228,12 @@ H_{FF} &= \Phi + \sum_{k} \left[ E^{-}_{F,k}\gamma^\dagger_{1, k}\gamma_{1, k} +
 \Phi &= \frac{1}{2}\sum_k \left[2\varepsilon_k - \left( E^{-}_{F,k} + E^{+}_{F,k} + \Delta^{11}_k\braket{c^\dagger_{1,k}c^\dagger_{1,-k}} + \Delta^{22}_k\braket{c^\dagger_{2,k}c^\dagger_{2,-k}} + 2\Delta^{12}_k\braket{c^\dagger_{2,k}c^\dagger_{1,-k}} \right) \right]. 
 \label{eq.2wiresDiagonalisedHamiltonian}
 \end{align}  
-Here we have defined the ground state grand energy $\Phi$. From this we see, that the ground state of the system at $T = 0$ is defined by having no quasiparticles present: $\gamma_{j,k} \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} This means, that we can write the ground state as:
+Here we have defined the ground state grand energy $\Phi$. The ground state of the system at $T = 0$ is hereby defined by having no quasiparticles present: $\gamma_{j,k} \ket{\text{S}}_0 = 0$ for all $k$.\footnote{S is short for \text{S}uperfluid ground state.} This means, that we can write the ground state as:
 \begin{equation}
 \ket{\text{S}}_0 = \prod_{j,k > 0} \gamma_{j,-k}\gamma_{j,k}\ket{0}.
 \label{eq.superfluidgroundstate}
 \end{equation}
-If one inserts the transformation to the regular fermionic $c$-operators, terms like $c^\dagger_{1,-k}c^\dagger_{1,k}$ appear. This is a manifestation of the concept of Cooper pairs: in the ground state all the fermions are in pairs with opposite momenta. The excited states hereby consists of breaking up a number of Coopers pairs.   
+If one inserts the transformation to the regular fermionic $c$-operators, terms like $c^\dagger_{1,-k}c^\dagger_{1,k}$ appear. This is a manifestation of the concept of Cooper pairs: in the ground state all the fermions are in pairs with opposite momenta. The excited states hereby consists of breaking up a number of Coopers pairs: $\gamma^\dagger{j,k}\ket{\text{S}}_0$. The energy of such excitations is $E^{\pm}_{F,k}$ with the minus for $j = 1$ and the plus for $j = 2$. These excitations consist of a superposition of particles and holes as is evident from the form of $U_{F,k}$. 
 
 From the diagonalisation we can also find the distribution of the quasiparticles, $\braket{\gamma^\dagger_{j,k}\gamma_{j,k}}$. Since the presence of such a particle is a fermionic excitation with energy $E^{\pm}_{F,k}$ it is intuitively clear, that they are distributed according to the Fermi-Dirac distribution given by:
 \begin{equation}
@@ -224,9 +242,9 @@ From the diagonalisation we can also find the distribution of the quasiparticles
 \end{equation}
 where the minus is for $j = 1$, the plus for $j = 2$. Notice the absence of a quasiparticle chemical potential. This is because the number of quasiparticles is not fixed. One can show this with a standard statistical mechanics argument, see e.g. \cite[p. 225]{SchroederThermal}. For a rigorous argument based on the second quantized operators, the reader is referred to appendix \ref{Appendix.distribution.quasiparticles}. Because of the absence of a quasiparticle chemical potential the distribution function differs functionally from the distribution of the fermions in the free gas. In the free gas for low temperatures, the distribution is close to one for $|k|< \sqrt{2m_F\mu}$ and quickly decays to zero outside this region. The present quasiparticle distribution is exactly zero for $T = 0$ and exhibit well-defined peaks around $k = \pm \sqrt{2m_F\mu}$ for $T > 0$, showing that the excitations are near the Fermi points of the free gas. 
 
-The expected temperature dependency of the system is inferred from the original BCS-theory \cite[chapter 3]{Tinkham}. The pairing potentials $\Delta^{ij}_k(T)$ is expected to have their maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. This, we will see, defines a phase transition from a superfluid phase below $T_c$, as defined in section \ref{sec.Superfluidity}, to the normal phase above $T_c$. 
+The expected temperature dependency of the system is inferred from the original BCS-theory \cite[chapter 3]{Tinkham}. The pairing potentials $\Delta^{ij}_k(T)$ is expected to have their maximum for $T = 0$ and then monotonically decrease to 0, when the temperature is increased to a critical temperature $T_c$. If either $\Delta^{11}_k$ or $\Delta^{12}_k$ is nonzero, we will see, that $E^{\pm}_{F,k} = \sqrt{\varepsilon_k^2 + |\Delta^{11}_k \pm \Delta^{12}_k|^2} > 0$ for all $k$. In turn we get $\min_k[E^{\pm}_{F,k} / k] > 0$, which is exactly Landau's criterion for superfluidity \cite[pp. 88-90]{LandauStatPhys2}. Explicitly this means, that if the gas of fermions move with a speed below $v_c = \min_k[E^{\pm}_{F,k} / k] > 0$, the gas will not experience any drag. Hence, it is a superfluid. If we increase the temperature across $T_c$, the system will therefore experience a phase transition from a superfluid phase below $T_c$ to a normal phase above $T_c$.
 
-In terms of Landau theory of phase transitions as reviewed in section \ref{sec.landauphasetransitions} the order parameters are the quantities, that are zero in the normal phase above the critical temperature, $T_c$, and nonzero below. From this it is clear, that $\braket{c_{i,-k}c_{j,k}}$, or equivalently $\Delta^{ij}_k$, are exactly the order parameters of the system.
+In terms of Landau's theory of phase transitions as reviewed in section \ref{sec.landauphasetransitions} the order parameters are the quantities, that are zero in the normal phase above the critical temperature, $T_c$, and nonzero below. From this it is clear, that $\braket{c_{i,-k}c_{j,k}}$, or equivalently $\Delta^{ij}_k$, are exactly the order parameters of the system.
 
 \section{Fluctuations in the number of fermions} \label{sec.fluctuation.fermionnumber}
 In this section we discuss the variance of the fermion particle number in the $T = 0$ limit. 

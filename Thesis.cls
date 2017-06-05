@@ -307,7 +307,7 @@
   \null\vfil
   \begin{center}
     \setlength{\parskip}{0pt}
-    \includegraphics[scale=0.2]{Pictures/IFA.png}\\
+    \includegraphics[scale=0.2]{Pictures/AU.jpg}\\
     \bigskip
     {\huge{\textit{Summary}} \par}
     \bigskip

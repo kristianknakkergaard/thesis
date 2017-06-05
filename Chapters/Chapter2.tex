@@ -98,34 +98,12 @@ And the solutions for $u_{F,k}$ and $v_{F,k}$ are:
 \end{equation}
 The latter expression is given, because it is an often used relation between $u_{F,k}$ and $v_{F,k}$. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Superfluidity} \label{sec.Superfluidity}
-In this section we derive the Landau criterion for superfluidity. It is heavily based on the argument in \cite[pp. 88-90]{LandauStatPhys2}. It is a classical argument based solely on the transformation laws of energy and momentum in classical mechanics. 
-
-Let us imagine a fluid of total mass $M$ moving in a capillary with constant velocity $\mathbf{v}$. This reference frame we denote $S_0$. Because of friction with the walls of the capillary we expect, that the fluid will gradually slow down. Let us then switch to the reference frame $S$, where the fluid initially lies still and the capillary moves with velocity $-\mathbf{v}$. The capillary will then, because of the viscosity, make a drag on the liquid. Let us assume, that this drag makes an elementary excitation of the liquid with momentum $\mathbf{k}$. The corresponding energy is then $E_{\mathbf{k}}$. The whole liquid now has a momentum $\mathbf{K}_0 = \mathbf{k}$ and an energy $\frac{K_0^2}{2M} = E_0 = E_{\mathbf{k}}$. Let us now switch back to the original frame $S_0$. Then the liquid has the momentum $\mathbf{K} = \mathbf{K}_0 + M\mathbf{v}$, and the energy is:
-\begin{equation}
-E = \frac{K^2}{2M} = \frac{(\mathbf{K}_0 + M\mathbf{v})^2}{2M} = E_0 + \mathbf{K}_0\cdot \mathbf{v} + \frac{1}{2}Mv^2 = E_{\mathbf{k}} + \mathbf{k} \cdot \mathbf{v} + \frac{1}{2}Mv^2 . \nonumber
-\end{equation}
-$\frac{1}{2}Mv^2$ is the initial energy of the moving liquid. Since the energy of the liquid most be lowered by the drag, we have $E_{\mathbf{k}} + \mathbf{k} \cdot \mathbf{v} < 0 $. For a given value of $\mathbf{k}$ it is clear, that the left hand side is a minimum, when $\mathbf{k}$ and $\mathbf{v}$ are antiparallel, such that: $ \mathbf{k}\cdot \mathbf{v} = -kv$. In total we get the condition:
-\begin{equation}
-v > \frac{E_{\mathbf{k}}}{k}. \nonumber
-\end{equation}
-
-This inequality states, that for a specific speed $v$ of the fluid, it is only momentum states obeying the inequality that can be excited. Now let us assume, that the minimum of the right hand side is nonzero: $v_c = \inf_{\mathbf{k}}\left[\frac{E_{\mathbf{k}}}{k} \right] > 0$. The inequality above then means, that for $v < v_c$, the liquid cannot be excited and no drag can occur. This is the defining quality of a superfluid, and we arrive at the Landau criterion for superfluidity:
-\begin{equation}
-\inf_{\mathbf{k}}\left[\frac{E_{\mathbf{k}}}{k} \right] > 0.
-\end{equation}
-
-Caution should be taken however. The argument only goes one way. It may be possible for a liquid not obeying this inequality to be a superfluid. However, the reverse, a liquid obeying the inequality and not being a superfluid, is not possible as now shown. 
-
-%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Bose-Einstein condensate}
 In this section we introduce a microscopic theory for the three dimensional uniform Bose-Einstein condensate (BEC). It is largely based on \cite[chapter 8]{Pethick}. Further we calculate the condensate Green's functions. 
 
-\subsection{Microscopic theory of the uniform BEC}
+\subsection{Bogoliubov theory for the uniform BEC}
 \label{sec.BEC}
-The second quantized Hamiltonian describing the uniform BEC is given by the following expansion in real space: 
+We consider $N_B$ identical bosons in a volume $\mathcal{V}$. The Hamiltonian describing the uniform BEC is given by the following expansion in real space: 
 \begin{equation}
 H_{BB} = \int d^3 r \left(\psi_B^\dagger(\mathbf{r})\left[-\frac{\nabla^2}{2m_B}\right]\psi_B(\mathbf{r}) + \frac{g_B}{2}\psi_B^\dagger(\mathbf{r})\psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_B(\mathbf{r})  \right). 
 \label{eq.BECHamiltonianrealspace}
@@ -135,7 +113,7 @@ The second part stems from a pair interaction between the bosons ($B$) given by 
 H_{BB} = \sum_\mathbf{k} \frac{k^2}{2m_B}b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{g_B}{2\mathcal{V}}\sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} b^\dagger_{\mathbf{k}_1+\mathbf{q}}b^\dagger_{\mathbf{k}_2-\mathbf{q}}b_{\mathbf{k}_1}b_{\mathbf{k}_2}. 
 \label{eq.BECHamiltonianmomentumspace} 
 \end{equation}
-Now writing $\psi_B = \sqrt{n_B} + \delta \psi_B$ we have perturbatively separated the field operator in a perfect condensate term $\sqrt{n_B}$, $n_B = N_B/\mathcal{V}$ being the uniform density of the condensed bosons, and a fluctuating excited term $\delta \psi_B(\mathbf{r}) =  \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}\neq \mathbf{0}} \text{e}^{i\mathbf{k}\cdot\mathbf{r}}b_\mathbf{k}$. Assuming a small number of excited bosons, we neglect terms with more than two $b$-operators with $\mathbf{k}$ nonzero. This along with other simple algebraic manipulations lead us to the form:\footnote{More details can be found in chapter 8 in \cite{Pethick}.} 
+The Bogoliubov approximation consists in writing $\psi_B = \sqrt{n_B} + \delta \psi_B$, with $n_B = N_B/\mathcal{V}$ the density of the condensate being a large number. We have hereby perturbatively separated the field operator in a large condensate term, $\sqrt{n_B}$, and a small fluctuating excited term, $\delta \psi_B(\mathbf{r}) =  \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}\neq \mathbf{0}} \text{e}^{i\mathbf{k}\cdot\mathbf{r}}b_\mathbf{k}$. Assuming a small number of excited bosons, we neglect terms with more than two $b$-operators with $\mathbf{k}$ nonzero. This along with other simple algebraic manipulations lead us to the form:\footnote{More details can be found in chapter 8 in \cite{Pethick}.} 
 \begin{equation}
 H_{BB} = \frac{N^2g_B}{2\mathcal{V}} + \sum_{\mathbf{k}\neq \mathbf{0}}\left[\left(\frac{k^2}{2m_B}+n_Bg_B\right)b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{n_Bg_B}{2}\left( b_\mathbf{k}^\dagger b_{-\mathbf{k}}^\dagger + b_{\mathbf{k}} b_{-\mathbf{k}} \right) \right].
 \label{eq.bosonHamiltonian}
@@ -144,7 +122,7 @@ This Hamiltonian can be diagonalized by a canonical Bogoliubov transformation:
 \begin{equation}
 \begin{bmatrix} b_\mathbf{k} \\ b^\dagger_{-\mathbf{k}} \end{bmatrix} = U_{B,k} \begin{bmatrix} \beta_\mathbf{k} \\ \beta^\dagger_{-\mathbf{k}}\end{bmatrix}, \hspace{0.5cm} U_{B,k} = \begin{bmatrix} u_{B,k} & -v_{B,k} \\ -v_{B,k} & u_{B,k} \end{bmatrix}. 
 \end{equation}
-Demanding that the $\beta_\mathbf{k}$-operators are bosonic as well leads to $\det(U_{B,k}) = u_{B,k}^2-v_{B,k}^2=1$. The analogy with the fermion case in the preceding section should now be clear. Mind the sign differences in $U_{B,k}$ and $U_{F,k}$ stemming fundamentally from requiring specific \textit{commutator} relations here, not \textit{anti}commutator relations as before. A diagonalization procedure analogous to the fermion case leads to: 
+Demanding that the $\beta_\mathbf{k}$-operators are bosonic as well leads to $\det(U_{B,k}) = u_{B,k}^2-v_{B,k}^2 = 1$. The analogy with the fermion case in the preceding section should now be clear. Mind the sign differences in $U_{B,k}$ and $U_{F,k}$ stemming fundamentally from requiring specific \textit{commutator} relations here, not \textit{anti}commutator relations as before. A diagonalization procedure analogous to the fermion case leads to: 
 \begin{equation}
 H_{BB} = \sum_\mathbf{k} E_{B,k} \beta_\mathbf{k}^\dagger \beta_\mathbf{k}. 
 \end{equation}
@@ -152,39 +130,39 @@ Here the ground state energy is neglected. The Bogoliubov spectrum is $E_{B,k}^2
 \begin{equation}
 u_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,k}}{ E_{B,k}}+1 \right), \hspace{0.5cm} v_{B,k}^2 = \frac{1}{2}\left(\frac{\xi_{B,k}}{ E_{B,k}}-1 \right).
 \end{equation}
-Finally, I wish to comment on how we ensure, that the fraction of excited bosons is limited. We write the number operator as: $N_B = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} b^\dagger_{\mathbf{k}}b_{\mathbf{k}}$. For $T=0$, we have the defining relation for the ground state: $\beta_{\mathbf{k}}\ket{\text{BEC}}_0 = 0$. This enables us to calculate the expectation value for $N_B$:
+An essential assumption in the above is, that $\sqrt{n_B}$ is large with respect to the fluctuation part $\delta\psi_B$. Hence, we need the number of excited bosons to be small: $N_{B,\text{exc}}/ N_B \ll 1$. We write the number operator as: $\hat{N}_B = \hat{N}_0 + \sum_{\mathbf{k}\neq \mathbf{0}} b^\dagger_{\mathbf{k}}b_{\mathbf{k}}$. For $T = 0$, we have the defining relation for the ground state: $\beta_{\mathbf{k}}\ket{\text{BEC}}_0 = 0$. This enables us to calculate the mean number of particles:
 \begin{equation}
-\braket{N_B} =\;_{0}\!\bra{\text{BEC}} N_B \ket{\text{BEC}}_0 = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}.\nonumber
+N_B =\;_{0}\!\bra{\text{BEC}} \hat{N}_B \ket{\text{BEC}}_0 = N_0 + \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}.\nonumber
 \end{equation} 
-Hence $N_{B,\text{exc}} = \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}$ is the number of excited bosons for $T=0$. Transforming the sum to an integral and calculating the fraction $N_{B,\text{exc}}/N_B$ yields:
+Hence, $N_{B,\text{exc}} = \sum_{\mathbf{k}\neq \mathbf{0}} v^2_{B,k}$ is the number of excited bosons for $T = 0$. Transforming the sum to an integral and calculating the fraction $N_{B,\text{exc}}/N_B$ yields:
 \begin{equation}
 \frac{N_{B,\text{exc}}}{N_B} = \frac{8}{3\sqrt{\pi}}(n_Ba_B^3)^{1/2},
 \label{eq.excitedbosonsBEC}
 \end{equation}
-with $a_B$ the scattering length in the condensate defined through: $g_B = \frac{4\pi a_B}{m_B}$. Thus, we see that to have a selfconsistent assumption about a small number of excited bosons, we need to assume, that $(n_Ba_B^3)^{1/3}\ll 1$. We call $(n_Ba_B^3)^{1/3}$ the Bose gas parameter. This ends our microscopic theory prerequisite. 
+with $a_B$ the scattering length in the condensate defined through: $g_B = \frac{4\pi a_B}{m_B}$. Thus, we see that to have a selfconsistent assumption about a small number of excited bosons, we need to assume, that $(n_Ba_B^3)^{1/3}\ll 1$. We call $(n_Ba_B^3)^{1/3}$ the Bose gas parameter. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Imaginary time Green's functions for the BEC}
 \label{sec.BECGreens}
-Later we will see, that the investigated interactions are between physical ($c$) fermions on the wire and physical ($b$) bosons in the condensate. This means, that it is the terms in the Hamiltonian with respect to the $b$-operators, that determine which Green's functions we need. These terms are $b_\mathbf{k}^\dagger b_\mathbf{k}, b_\mathbf{k}^\dagger b_{-\mathbf{k}}^\dagger$ and $b_{\mathbf{k}} b_{-\mathbf{k}}$. Further we take the average with respect to the assumed state of the system: the thermalized state of the condensate at nonzero temperatures, $\ket{\text{BEC}}$. Hence, we get the following Green's functions:
+Later we will be interested in the induced interaction between the fermions mediated by the bosons in the condensate. Therefore, we need the Green's functions of the condensate given by: 
 \begin{align}
 \feynmandiagram [inline=(a.base), horizontal=a to b] 
 {
 a --  [blue, fermion, edge label' = {\(\mathbf{k} \)}] b,
-}; &= G_{11}(\mathbf{k},\tau) = -\bra{\text{BEC}} b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)\ket{\text{BEC}},  \nonumber \\
+}; &= G_{11}(\mathbf{k},\tau) = -\bra{\text{BEC}} T_{\tau}\left[b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)\right]\ket{\text{BEC}},  \nonumber \\
 \feynmandiagram [inline=(a.base), horizontal=a to b] 
 {
 a --  [blue, anti majorana, edge label' = {\(\mathbf{k} \)}] b,
-}; &= G_{12}(\mathbf{k},\tau) = -\bra{\text{BEC}} b_\mathbf{k}(\tau)b_{-\mathbf{k}}(0)\ket{\text{BEC}},  \nonumber \\
+}; &= G_{12}(\mathbf{k},\tau) = -\bra{\text{BEC}} T_{\tau}\left[b_\mathbf{k}(\tau)b_{-\mathbf{k}}(0)\right]\ket{\text{BEC}},  \nonumber \\
 \feynmandiagram [inline=(a.base), horizontal=a to b] 
 {
 a --  [blue, majorana, edge label' = {\(\mathbf{k} \)}] b,
-}; &=G_{21}(\mathbf{k},\tau) = -\bra{\text{BEC}} b^\dagger_\mathbf{k}(\tau)b_{-\mathbf{k}}^\dagger(0)\ket{\text{BEC}},  
+}; &=G_{21}(\mathbf{k},\tau) = -\bra{\text{BEC}} T_{\tau}\left[b^\dagger_\mathbf{k}(\tau)b_{-\mathbf{k}}^\dagger(0)\right]\ket{\text{BEC}},  
 \label{eq.defBECGreens}
 \end{align}
-all for $\tau > 0$. Normally one includes a imaginary time ordering operator $T_\tau$, however here we only need the Green's functions for $\tau > 0$. Please notice, that the ground state at $T=0$ is defined by the equation $\beta_\mathbf{k}\ket{\text{BEC}}_0 = 0$. The thermalized state $\ket{\text{BEC}}$ is a superposition of all $T=0$ eigenstates, since there are thermal excitations in the ground state. The probabilities of being in one of these excited states is given by the Bose-Einstein distribution $b(E_\mathbf{k})$. $G_{11}$ is called the normal Green's function, whilst $G_{12}$ and $G_{21}$ are the anomalous Green's functions. This is probably because the $G_{11}$ Green's function is analogous to the one encountered for a simple non-interacting system \cite[pp. 192-193]{BruusFlensberg}. $G_{12}$ and $G_{21}$ on the other hand are new 'anormal' functions. The form of the Green's functions means, that we use the diagrammatic rules shown to the left in the above.
+Here $T_{\tau}[A(\tau)B(0)] = \theta(\tau)A(\tau)B(0) + \theta(-\tau)B(0)A(\tau)$, is the time ordering operator and $\theta(\tau)$ is the Heavyside step function. The ground state of the condensate for $T = 0$ is defined by the equation: $\beta_\mathbf{k}\ket{\text{BEC}}_0 = 0$. For $T > 0$ the probability of being in one of the excited states is given by the Bose-Einstein distribution $b(E_{B,\mathbf{k}})$. $G_{11}$ is called the normal Green's function, whilst $G_{12}$ and $G_{21}$ are the anomalous Green's functions. This is because $G_{11}$ is number conserving, the others are not. The form of the Green's functions means, that we use the diagrammatic rules shown to the left in the above.
 
-Let us do the calculation for $G_{11}$ explicitly to see how the imaginary time formalism works. In this formalism the imaginary time Heisenberg operators are $A(\tau) = \text{e}^{+\tau H_{BB}}A(0)\text{e}^{-\tau H_{BB}}$ and $A^\dagger(\tau) = \text{e}^{+\tau H_{BB}}A^\dagger(0)\text{e}^{-\tau H_{BB}}$ \cite[p. 185]{BruusFlensberg}. It is then easy to show, that $\beta_\mathbf{k}(\tau) = \beta_\mathbf{k}\text{e}^{-\tau E_{B,k}}$ and $\beta^\dagger_\mathbf{k}(\tau) = \beta^\dagger_\mathbf{k}\text{e}^{\tau E_{B,k}}$. Rewriting the $b$-operators in terms of Bogoliubov $\beta_\mathbf{k}$-operators we then get:\footnote{Here I am afraid the notation is a little hazardous. $\beta$ is the inverse temperature $1/k_BT$. $\beta_\mathbf{k}$ is the annihilation operator for the Bogoliubov excitations of the condensate.}
+Let us do the calculation for $G_{11}$ explicitly to see how the imaginary time formalism works. In this formalism the imaginary time Heisenberg operators are $A(\tau) = \text{e}^{+\tau H_{BB}}A(0)\text{e}^{-\tau H_{BB}}$ and $A^\dagger(\tau) = \text{e}^{+\tau H_{BB}}A^\dagger(0)\text{e}^{-\tau H_{BB}}$ \cite[p. 185]{BruusFlensberg}. It is then easy to show, that $\beta_\mathbf{k}(\tau) = \beta_\mathbf{k}\text{e}^{-\tau E_{B,k}}$ and $\beta^\dagger_\mathbf{k}(\tau) = \beta^\dagger_\mathbf{k}\text{e}^{\tau E_{B,k}}$. For $\tau > 0$ $T_{\tau}[b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)] = b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)$. Rewriting the $b$-operators in terms of Bogoliubov $\beta_\mathbf{k}$-operators we then get:\footnote{Here I am afraid the notation is a little hazardous. $\beta$ is the inverse temperature $1/k_BT$. $\beta_\mathbf{k}$ is the annihilation operator for the Bogoliubov excitations of the condensate.}
 \begin{align}
 G_{11}(\mathbf{k},\tau) &= -\bra{\text{BEC}} b_\mathbf{k}(\tau)b_\mathbf{k}^\dagger(0)\ket{\text{BEC}} \nonumber \\
 &= -\bra{\text{BEC}} \left(u_{B,k}\beta_\mathbf{k}\text{e}^{-\tau E_{B,k}} - v_{B,k} \beta^\dagger_{-\mathbf{k}}\text{e}^{\tau E_{B,k}} \right)\left( -v_{B,k}\beta_{-\mathbf{k}} + u_{B,k} \beta^\dagger_{\mathbf{k}} \right)\ket{\text{BEC}} \nonumber \\

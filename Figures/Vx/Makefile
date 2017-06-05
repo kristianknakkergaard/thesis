@@ -16,15 +16,15 @@ plot.tex: data makefile
 'set grid;       			   										'\
 'set tics out;       			  				 					'\
 'set xlabel "$$k_Fx$$"; 		   									'\
-'set ylabel "$$\tilde{V}_{FF}^\text(x,0)/\epsilon_{F,0}$$"; 	   	'\
+'set ylabel "$$\tilde{V}^{11}_{\text{ind}}(x,0)}/\epsilon_{F,0}$$"; 	   	'\
 'set key bottom left;												'\
 'set key width -2;													'\
-'set arrow from 0,0 to 0,-60 nohead lc rgb "black"; 				'\
-'plot [-5:5][-3:0] 		   										'\
-' "$<" index 0 using 2:4 notitle with lines lw 2 lc rgb "black" 				'\
-',"$<" index 2 using 2:3 title "$$k_Fl_t = 0.6$$" with lines lc rgb "#002daa" 	'\
-',"$<" index 1 using 2:3 title "$$k_Fl_t = 0.4$$" with lines lc rgb "#167000" 	'\
-',"$<" index 0 using 2:3 title "$$k_Fl_t = 0.2$$" with lines lc rgb "#e00000" 	'\
+'set arrow from 0,0 to 0,-30 nohead lc rgb "black"; 				'\
+'plot [-1:1][-30:0] 		   										'\
+' "$<" index 6 using 2:3 title "$$k_Fd = 0.3$$" with lines 		lc rgb "#002daa" '\
+',"$<" index 4 using 2:3 title "$$k_Fd = 0.2$$" with lines 		lc rgb "#167000" '\
+',"$<" index 2 using 2:3 title "$$k_Fd = 0.1$$" with lines 		lc rgb "#e00000" '\
+',"$<" index 0 using 2:3 title "$$k_Fd = 0.0$$" with lines lw 2 lc rgb "black" '\
 | tee log | gnuplot
 
 

@@ -11,17 +11,17 @@ InducedInteraction.tex: data makefile
 'set grid;       			   										'\
 'set tics out;       			   									'\
 'set xlabel "$$k_Fx$$"; 		   									'\
-'set ylabel "$$V_{FF,12}^\text{ind}(x,0)/\epsilon_{F,0}$$"; 	   	'\
+'set ylabel "$$V^{12}_{\\text{ind}}(x,0)/\\epsilon_{F,0}$$"; 	   	'\
 'set key bottom left;												'\
 'set key width -0.8;												'\
 'set arrow from 0,0 to 0,-3 nohead lc rgb "black"; 					'\
 'plot [-5.0:5.0][-3.0:0] 		   									'\
 '0 notitle with lines lc rgb "black" 										'\
-',"$<" index 4 using 1:2 title "$$k_Fd = 1.8$$" with lines 		lc rgb "#002daa" '\
-',"$<" index 3 using 1:2 title "$$k_Fd = 1.4$$" with lines 		lc rgb "#167000" '\
-',"$<" index 2 using 1:2 title "$$k_Fd = 1.0$$" with lines 		lc rgb "#e05900" '\
-',"$<" index 1 using 1:2 title "$$k_Fd = 0.6$$" with lines 		lc rgb "#e00000" '\
-',"$<" index 1 using 1:3 notitle 				with lines lw 2 lc rgb "black" '\
+',"$<" index 5 using 1:2 title "$$k_Fd = 2.0$$" with lines 		lc rgb "#002daa" '\
+',"$<" index 4 using 1:2 title "$$k_Fd = 1.5$$" with lines 		lc rgb "#167000" '\
+',"$<" index 3 using 1:2 title "$$k_Fd = 1.0$$" with lines 		lc rgb "#e05900" '\
+',"$<" index 2 using 1:2 title "$$k_Fd = 0.5$$" with lines 		lc rgb "#e00000" '\
+',"$<" index 1 using 1:2 title "$$k_Fd = 0.0$$" with lines lw 2 lc rgb "black" '\
 | gnuplot
 
 
