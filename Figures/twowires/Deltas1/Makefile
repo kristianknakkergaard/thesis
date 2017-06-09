@@ -30,7 +30,6 @@ kdepend.tex: kdepend Makefile
 | gnuplot
 
 
-
 kdepend: Delta
 	./$< 1> kdepend
 

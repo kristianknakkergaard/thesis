@@ -45,12 +45,12 @@ double Deltaasymp(double D11_maxkT, double T, double TC)
 
 double Deltaguess11(double k)
 {
-  return 0.4 * k / (pow(k, 4.0) + 1);
+  return 0.4 * k / (k * k + 3.2);
 }
 
 double Deltaguess12(double k)
 {
-  return 0.4 / (pow(k, 4.0) + 1);
+  return 0.4 * exp( - 2.0 * k * k);
 }
 
 

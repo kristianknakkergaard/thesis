@@ -20,9 +20,6 @@ y_f = 0.45;
 figure(1)
 hold on
 plot(x, y, '-', 'color', [0, 0, 0] + 0.6)
-plot(x_b, y1_b, 'r.', 'MarkerSize', 10)
-plot(x_f, y_f, 'b.', 'MarkerSize', 40)
-
 
 set(gca,'xtick',[])
 set(gca,'xticklabel',[])

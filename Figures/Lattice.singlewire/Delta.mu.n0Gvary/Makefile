@@ -14,7 +14,7 @@ ndepend.tex: ndepend Makefile
 'set ylabel "$$\mu$$";				'\
 'set key top left;					'\
 'set arrow from 0,0 to 1,0 nohead lc rgb "black"; '\
-'plot [0:1][-2.5:2.5]			'\
+'plot [0:1][-2:2]			'\
 ' "$<" index 0  using 1:(-cos(3.14159265 * $$1)) title "$$G = 0.0$$" with lines lw 2 lc rgb "black"'\
 ',"$<" index 2  using 1:2 title "$$G = 2.0$$" with lines lw 2 lc rgb "#e00000"'\
 ',"$<" index 2  using (1 -$$1):(-$$2) notitle with lines lw 2 lc rgb "#e00000"'\

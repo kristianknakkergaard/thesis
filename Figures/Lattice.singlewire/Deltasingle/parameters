@@ -1,14 +1,9 @@
-Deltamax = 0.371106, 	 fillingnow/filling = 0.999994, 	 mu = 0.12, 	 check = 1 
-Deltamax = 0.331039, 	 fillingnow/filling = 1.00002, 	 mu = 0.114, 	 check = 2 
-Deltamax = 0.332235, 	 fillingnow/filling = 0.999659, 	 mu = 0.112, 	 check = 3 
-Deltamax = 0.32978, 	 fillingnow/filling = 0.999574, 	 mu = 0.112, 	 check = 4 
-Deltamax = 0.328178, 	 fillingnow/filling = 1.00031, 	 mu = 0.113, 	 check = 5 
-Deltamax = 0.327541, 	 fillingnow/filling = 1.0003, 	 mu = 0.113, 	 check = 6 
-Deltamax = 0.327209, 	 fillingnow/filling = 1.00027, 	 mu = 0.113, 	 check = 7 
-Deltamax = 0.327012, 	 fillingnow/filling = 1.00026, 	 mu = 0.113, 	 check = 8 
-Deltamax = 0.326897, 	 fillingnow/filling = 1.00024, 	 mu = 0.113, 	 check = 9 
-Deltamax = 0.326829, 	 fillingnow/filling = 1.00024, 	 mu = 0.113, 	 check = 10 
-Deltamax = 0.32679, 	 fillingnow/filling = 1.00023, 	 mu = 0.113, 	 check = 11 
-E0 + fillingnow * mu = -0.416083, mu = 0.113, fillingnow = 0.450104, nBaB = 3.90625e-05, xi / a = 4, strength = 4, CS1 = 2 
+Deltamax = 0.993898, 	 fillingnow/filling = 0.999417, 	 mu = -0.894, 	 check = 1 
+Deltamax = 1.50344, 	 fillingnow/filling = 0.999861, 	 mu = -0.978, 	 check = 2 
+Deltamax = 1.51764, 	 fillingnow/filling = 1.00063, 	 mu = -0.999, 	 check = 3 
+Deltamax = 1.51523, 	 fillingnow/filling = 1.00506, 	 mu = -0.999, 	 check = 4 
+Deltamax = 1.51569, 	 fillingnow/filling = 0.994335, 	 mu = -1, 	 check = 5 
+Deltamax = 1.51566, 	 fillingnow/filling = 0.99492, 	 mu = -1, 	 check = 6 
+E0 + fillingnow * mu = -0.319672, mu = -1, fillingnow = 0.21894, nBaB = 1.73611e-05, xi / a = 6, strength = 8, CS1 = 0 
 
  

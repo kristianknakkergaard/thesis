@@ -61,7 +61,7 @@ main (void)
   double rBB = 0.01; /*(nB * aBB^3)^(1/3) <= 0.03 atmost! (1 percent depletion) */
   double rBF = 0.11;    /*(nB * aBF^3)^(1/3) */
   double mB  = 7.0/40.0; /*mB/mF*/
-  double d_low = 0.71, d_up = 0.78, dd = 0.0002, d_middle = 0.748; 
+  double d_low = 0.71, d_up = 0.78, dd = 0.0001, d_middle = 0.748; 
 
   double convergence = 1e-4;
 

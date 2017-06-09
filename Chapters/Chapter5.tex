@@ -8,80 +8,101 @@
 \chead{Chapter 5. \emph{Symmetries, topology \& edge states}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we study the symmetries and topology of the Kitaev wires. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. We further show, that the system has an intrinsic particle-hole symmetry. In section \ref{sec.Topology10foldway} we use the transformations to formulate the topological classification dubbed the tenfold way. In section \ref{sec.2wirestimereversalsymmetries} we analyse the time reversal symmetries of the system. In turn the system is classified according to the tenfold way. In section \ref{sec.2wires_CSinv} we calculate the topological invariants of the system. In section \ref{sec.separatedwires} we study the separated wires and show that these support edge states. In section \ref{sec.2wireskramersdegeneracy} we study how the interwire interaction affects the edge states. Finally, in section \ref{sec.2wirestransitionqualitative} we formulate two possibilities for the $p$- to $s$-wave phase transition in a qualitative manner. 
-
+In this chapter we study the symmetries and topology of the Kitaev wires. In section \ref{sec.SymmetriesTRandPH} we define the time reversal, particle-hole and sublattice transformations. We further show, that the system has an intrinsic particle-hole symmetry. In section \ref{sec.Topology10foldway} we use the transformations to formulate the topological classification dubbed the tenfold way. In section \ref{sec.2wirestimereversalsymmetries} we analyse the time reversal symmetries of the system. In turn the system is classified according to the tenfold way. In section \ref{sec.2wires_CSinv} we calculate the topological invariants of the system and discuss the presence of gapless Majorana edge states. In section \ref{sec.edgestatesandkramers} we study the edge states in more detail. We find explicit solutions for them for the uncoupled wires. Further, we go beyond mean field theory and discuss how Kramers theorem protects the edge states. Finally, in section \ref{sec.2wirestransitionqualitative} we formulate two possibilities for the $p$- to $s$-wave phase transition in a qualitative manner. 
 
 \section{Time reversal, particle-hole and sublattice transformations}
 \label{sec.SymmetriesTRandPH}
-The mean field Hamiltonian is diagonal in momentum space. This means, that it is translationally invariant. Specifically, the (unitary) translation operator is defined through: $\tau(x_0)\psi_{j,F}(x)\tau^\dagger (x_0) = \psi_{j,F}(x + x_0)$. In momentum space, we hereby get $\tau(x_0) c_{j,k} \tau^\dagger(x_0) = \text{e}^{ikx_0}c_{j,k}$, as one might expect. Hence, terms like $c^\dagger_{j,k} c_{j,k}$ and $c_{i,k}c_{j,-k}$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well. Because of the translational invariance, we \textit{inforce} that the time reversal, $T$, and particle-hole transformation, $C$, do not mix states with different positions. Specifically:
+The mean field Hamiltonian is diagonal in momentum space. This means, that it is translationally invariant. Specifically, the (unitary) translation operator is defined through: $\tau(x_0)\psi_{j,F}(x)\tau^\dagger (x_0) = \psi_{j,F}(x + x_0)$. In momentum space, we hereby get $\tau(x_0) c_{j,k} \tau^\dagger(x_0) = \text{e}^{ikx_0}c_{j,k}$, as one might expect. Hence, terms like $c^\dagger_{j,k} c_{j,k}$ and $c_{i,k}c_{j,-k}$ are invariant under the translation. This means, that $H_{FF}$ is invariant as well. Because of the translational invariance, we enforce that the time reversal, $T$, and particle-hole transformation, $C$, do not mix states with different positions. Specifically:
 \begin{align}
 T \Psi(x) T^{-1} &= U^\dagger_T \Psi(x), \hspace{0.5cm} TiT^{-1} = -i, \nonumber \\
 C \Psi(x) C^{-1} &= (U^*_C)^\dagger (\Psi^\dagger(x))^t, \hspace{0.5cm} CiC^{-1} = i, 
 \label{eq.TRandPH.realspace}
 \end{align}
-with $\Psi(x) = \begin{bmatrix} \psi_{1,F}(x) & \psi^\dagger_{1,F}(x) & \psi_{2,F}(x) & \psi^\dagger_{2,F}(x) \end{bmatrix}^t$, $t$ the transpose operation and $T$, $C$ the time reversal and particle-hole transformation respectively. The construction $(\Psi^\dagger(x))^t$ is to make the entries of $\Psi(x)$ daggered, but still have $\Psi(x)$ as a column vector. The trivial particle-hole transformation, i.e. $U_C = \mathbb{I}$, is hereby $\psi_{j,F}(x) \to \psi^\dagger_{j,F}(x)$. $U_T$ and $U_C$ are $4\times 4$ matrices. Inforcing that the transformed operators are fermionic as well ensures these matrices to be unitary. The operation on $i$ specifies, that time reversal is antiunitary and the particle-hole transformation is unitary. In momentum space this definition leads to:
+with $\Psi(x) = \begin{bmatrix} \psi_{1,F}(x) & \psi^\dagger_{1,F}(x) & \psi_{2,F}(x) & \psi^\dagger_{2,F}(x) \end{bmatrix}^t$, $t$ the transpose operation and $T$, $C$ the time reversal and particle-hole transformation respectively. The construction $(\Psi^\dagger(x))^t$ is to make the entries of $\Psi(x)$ daggered, but still have $\Psi(x)$ as a column vector. The trivial particle-hole transformation, i.e. $U_C = \mathbb{I}$, is hereby $\psi_{j,F}(x) \to \psi^\dagger_{j,F}(x)$. $U_T$ and $U_C$ are $4\times 4$ matrices. Enforcing that the transformed operators are fermionic as well ensures these matrices to be unitary. The operation on $i$ specifies, that time reversal is antiunitary and the particle-hole transformation is unitary. In momentum space this definition leads to:
 \begin{equation}
 T C_k T^{-1} = U^\dagger_T C_{-k}, \hspace{0.5cm} C C_k C^{-1} = (U^*_C)^\dagger (C^\dagger_{-k})^t,  
 \label{eq.TRandPH.momentumspace}
 \end{equation}
-with $C_k = \begin{bmatrix} c_{1,k} & c^\dagger_{1,-k} & c_{2,k} & c^\dagger_{2,-k} \end{bmatrix}^t$. In momentum space, the trivial particle-hole transformation is $c_{j,k} \to c^\dagger_{j,-k}$. By inspecting the transformations $TH_{FF}T^{-1}$ and $CH_{FF}C^{-1}$, we get the following symmetry requirements:
+with $C_k = \begin{bmatrix} c_{1,k} & c^\dagger_{1,-k} & c_{2,k} & c^\dagger_{2,-k} \end{bmatrix}^t$. In momentum space, the trivial particle-hole transformation is $c_{j,k} \to c^\dagger_{j,-k}$. The trivial time reversal transformation is $c_{j,k} \to c_{j,-k}$. By inspecting the transformations $TH_{FF}T^{-1}$ and $CH_{FF}C^{-1}$, we get the following symmetry requirements:
 \begin{align}
 TH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_T\mathcal{H}^*_{FF,-k} U^\dagger_T = + \mathcal{H}_{FF,+k}, \nonumber \\
 CH_{FF}T^{-1} = H_{FF} \Leftrightarrow U_C\mathcal{H}^*_{FF,-k} U^\dagger_C = - \mathcal{H}_{FF,+k}. 
 \label{eq.Symmetryrequirements}
 \end{align}
-This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK$ and $\mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system. See e.g. the articles \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general have a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $4\times 4$ matrix, even though there are only two energy solutions for each $k$. Another way of putting this is that the two Nambu spinors, $C^\dagger_k$ and $C_k$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy means, that we can choose $C$ to have no effect on the Nambu spinor:
+This means, that we can think of the second quantization transformations $T$ and $C$ in terms of first quantization antiunitary transformations $\mathcal{T} = U_TK$ and $\mathcal{C} = U_CK$, where $K$ is the complex conjugation operator. This is a general property of these transformation, not restricted to our specific system \cite{Ludwig.Topology, Chiu.Topology}. The Hamiltonian at hand is a socalled Bogoliubov-de Gennes (BdG) Hamiltonian. These BdG Hamiltonians in general have a particle-hole symmetry. The reason is, that there is a redundancy in the matrix structure of the Hamiltonian. Explicitly, the structure contains a $4\times 4$ matrix, even though there are only two energy solutions for each $k$. Another way of putting this is that the two Nambu spinors, $C^\dagger_k$ and $C_k$ are not independent. We can transform one into the other by going to $-k$ and flipping the entries. The redundancy means, that we can choose $C$ to have no effect on the Nambu spinor:
 \begin{equation}
 C C_k C^{-1} =  \sigma_0\otimes \tau_1 (C^\dagger_{-k})^t = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} \begin{bmatrix} c^\dagger_{1,-k} \\ c_{1,k} \\ c^\dagger_{2,-k} \\ c_{2,k} \end{bmatrix} = \begin{bmatrix} c_{1,k} \\ c^\dagger_{1,-k} \\ c_{2,k} \\ c^\dagger_{2,-k} \end{bmatrix} = C_k,
 \end{equation}
 with $\sigma_0$ the identity in wire space and $\tau_1$ the first Pauli matrix in particle-hole space. $\otimes$ is the direct matrix product. This means, that $H_{FF}$ is invariant under $C$. Since it stems from a redundancy in the \textit{structure} of the Hamiltonian, it is often referred to as a particle-hole \textit{constraint} of BdG systems rather than a symmetry.
 
-By composing the time reversal and particle-hole transformations we can form a third transformation; the chiral (or sublattice) transformation $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the above leads to the symmetry condition:
+By composing the time reversal and particle-hole transformations we can form a third transformation; the sublattice (or chiral) transformation $S = TC$. It is evident, that this transformation is antiunitary like $T$. The same analysis as in the above leads to the symmetry condition:
 \begin{equation}
 SH_{FF}S^{-1} = H_{FF} \Leftrightarrow U_S\mathcal{H}_{FF,+k} U^\dagger_S = - \mathcal{H}_{FF,+k}.
 \end{equation}
-Hence, the transformation in first quantization is unitary, but has to anticommute with the Hamiltonian. We explain the reason for studying these transformations in the next section.
+Hence, the transformation in first quantization is unitary, but has to \textit{anti}commute with the Hamiltonian. We explain the reason for studying these transformations in the next section.
 
 \section{Topology and the tenfold way} \label{sec.Topology10foldway}
-In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one in the broadest possible sense can classify \textit{all} noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. This includes insulators and superconductors. Hence, the authors build a framework in which two distinct Hamiltonians are viewed as equivalent, if one can continuously deform one to the other without closing the energy gap. These sort of deformations are linked to the study of topological spaces, also called manifolds. Hence, the term \textit{topology}. Later we will see, that the topology of the Hamiltonian has geometrical effects in real space, the edge states. However, as the above makes it clear, this is not the source of the term topology.  
+In the articles \cite{Ludwig.Topology, Chiu.Topology} it is studied, how one in the broadest possible sense can classify \textit{all} noninteracting fermionic Hamiltonians, that has an energy gap in the spectrum. This includes insulators and superconductors. Hence, the authors build a framework in which two distinct Hamiltonians are viewed as equivalent, if one can continuously deform one to the other without closing the energy gap. These sort of deformations are linked to the study of topological spaces. Hence, the term \textit{topology}. Later we will see, that the topology of the Hamiltonian has geometrical effects in real space, the edge states. However, as the above makes it clear, this is not the source of the term topology.  
 
-One can use the three transformations of the previous section to classify the system within the above framework in the following manner. There are three possibilities for the time reversal and particle-hole symmetries. Either there is no symmetry, indicated by a $0$, or there is a symmetry and then the transformations can square to plus and minus the identity, indicated with $\pm 1$. The sublattice symmetry can either by absent, $0$, or present, $1$. Per construction, if there is both a time reversal, $T$, and a particle-hole symmetry, $C$, present, there is also a sublattice symmetry, $S=TC$. On the other hand, if only $T$ or $C$ is present of the two, there cannot be a sublattice symmetry. Else, we would be able to make the remaining symmetry by composition. However, in the case of no $T$ nor $C$ symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason why this last transformation is included. In total we then have $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the tenfold way. 
+One can use the three transformations of the previous section to classify the system within the above framework in the following manner. There are three possibilities for the time reversal and particle-hole symmetries. Either there is no symmetry, indicated by a $0$, or there is a symmetry and then the transformations can square to plus and minus the identity, indicated with $\pm 1$. The sublattice symmetry can either by absent, $0$, or present, $1$. Per construction, if there is both a time reversal, $T$, and a particle-hole symmetry, $C$, present, there is also a sublattice symmetry, $S = T C$. On the other hand, if only $T$ or $C$ is present of the two, there cannot be a sublattice symmetry. Else, we would be able to make the remaining symmetry by composition. However, in the case of no $T$ nor $C$ symmetry, there is still two possibilities for $S$: symmetry or no symmetry. This is the reason for including this last transformation. In total we then have $(3\cdot 3 - 1) + 2 = 10$ possibilities of combining the symmetries. It is therefore also referred to as the tenfold way. 
 
 \begin{table}[htb]
 \def\arraystretch{1.5}
 \centering
-\caption{\textit{Periodic table of topological superconductors and insulators. $d$ is the spatial dimension. A 0-value for T,C and S indicates no symmetry. For T and C the sign indicates the sign of the square $T^2$ and $C^2$ for a symmetry present. $S=1$ indicates presence of a sublattice symmetry. The sets to the right indicates in what set of numbers the topological index should be found. }}
+\caption{\textit{Periodic table of topological superconductors and insulators. Cartan is the ten socalled Cartan classes. $d$ is the spatial dimension. A 0-value for T,C and S indicates no symmetry. For T and C the sign indicates the sign of the square $T^2$ and $C^2$ for a symmetry present. $S=1$ indicates presence of a sublattice symmetry. The sets to the right indicates in what set of numbers the topological index should be found. The Cartan classes of interest are shown in red, along with the corresponding topological index in $d = 1$ dimension. }}
 \begin{tabular}{|l||r r r||c c c c|}
- \hline \diagbox[height=2em]{Cartan}{$d$}   	&  T &  C & S					& 0 			 & 1 			  & 2 			   & 3 				 \\ \hline 
- \hline A    									&  0 &  0 & 0					& $\mathbb{Z}$ 	 & 0 			  & $\mathbb{Z}$   & 0   			 \\
- \hline AIII 									&  0 &  0 & \phantom{+}1		& 0 			 & $\mathbb{Z}$   & 0 			   & $\mathbb{Z}$    \\
- \hline AI   									& +1 &  0 & 0					& $\mathbb{Z}$ 	 & 0 			  & 0 			   & 0 			     \\
- \hline BDI	       								& +1 & +1 & 1 					& $\mathbb{Z}_2$ & $\mathbb{Z}$   & 0 			   & 0 			 	 \\
- \hline D	       								&  0 & +1 & 0 					& $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$   & 0 				 \\
- \hline DIII	    							& -1 & +1 & 1 					& 0 			 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ 	 \\
- \hline AII	       								& -1 &  0 & 0 				 	& $2\mathbb{Z}$  & 0 			  & $\mathbb{Z}_2$ & $\mathbb{Z}$  	 \\
- \hline CII	       								& -1 & -1 & 1 					& 0 			 & $2\mathbb{Z}$  & 0 			   & $\mathbb{Z}_2$  \\
- \hline C	       								&  0 & -1 & 0 					& 0 			 & 0 			  & $2\mathbb{Z}$  & 0  			 \\
- \hline CI	       								& +1 & -1 & 1 					& 0 			 & 0 			  & 0 			   & $2\mathbb{Z}$   \\
+ \hline \diagbox[height=2em]{Cartan}{$d$}   	&  T &  C & S					& 0 			 & 1 			  				   & 2 			   	& 3 				\\ \hline 
+ \hline A    									&  0 &  0 & 0					& $\mathbb{Z}$ 	 & 0 			  				   & $\mathbb{Z}$   & 0   			 	\\
+ \hline AIII 									&  0 &  0 & \phantom{+}1		& 0 			 & $\mathbb{Z}$   				   & 0 			   	& $\mathbb{Z}$    	\\
+ \hline AI   									& +1 &  0 & 0					& $\mathbb{Z}$ 	 & 0 			  				   & 0 			   	& 0 			    \\
+ \hline \textcolor{red}{BDI}	       			& +1 & +1 & 1 					& $\mathbb{Z}_2$ & \textcolor{red}{$\mathbb{Z}$}   & 0 			   	& 0 			 	\\
+ \hline \textcolor{red}{D}	       				&  0 & +1 & 0 					& $\mathbb{Z}_2$ & \textcolor{red}{$\mathbb{Z}_2$} & $\mathbb{Z}$   & 0 				\\
+ \hline \textcolor{red}{DIII}	    			& -1 & +1 & 1 					& 0 			 & \textcolor{red}{$\mathbb{Z}_2$} & $\mathbb{Z}_2$ & $\mathbb{Z}$ 	 	\\
+ \hline AII	       								& -1 &  0 & 0 				 	& $2\mathbb{Z}$  & 0 			  				   & $\mathbb{Z}_2$ & $\mathbb{Z}$  	\\
+ \hline CII	       								& -1 & -1 & 1 					& 0 			 & $2\mathbb{Z}$  				   & 0 			   & $\mathbb{Z}_2$  	\\
+ \hline C	       								&  0 & -1 & 0 					& 0 			 & 0 			  				   & $2\mathbb{Z}$  & 0  			 	\\
+ \hline CI	       								& +1 & -1 & 1 					& 0 			 & 0 			  				   & 0 			   & $2\mathbb{Z}$   	\\
  \hline 
 \end{tabular}
 \label{tab.PeriodicTableTISC}
 \end{table}
 
-Classifying the Hamiltonians in this framework puts the Hamiltonian in a specific Cartan class. The information from the classification is, that the socalled topological index has to be found in a specific set of numbers. This set can for example be the integers, $\mathbb{Z}$. The result of the articles is then, that if two ground states have different integers as their topological index, they cannot be deformed continously into each other. This means, that the deformation from one to the other includes a closing of the energy gap. The socalled periodic table for topological insulators and superconductors is shown in table \ref{tab.PeriodicTableTISC}.
+Classifying the Hamiltonians in this framework puts the Hamiltonian in a socalled Cartan class. The information from the classification is, that the topological index has to be found in a specific set of numbers. This set can for example be the integers, $\mathbb{Z}$. The result of the articles is then, that if two ground states have different integers as their topological index, they cannot be deformed continously into each other. This means, that the deformation from one to the other includes a closing of the energy gap. The socalled periodic table for topological insulators and superconductors is shown in table \ref{tab.PeriodicTableTISC}.
 
+Using the above classification scheme we can formulate the bulk-boundary correspondence principle. For the sake of argument assume, that we have a wire of particles with open ends in $d = 1$ dimension with $T^2 = C^2 = +\mathbb{I}$ and $S = 1$. Then the system belongs to Cartan class BDI, with a topological index in the integers, $\mathbb{Z}$. Assume, that the system is topological, with index $1$. The vacuum is topologically trivial, say with index $0$. Now imagine that we follow the spatial transition from the topological wire to the trivial vacuum. The index then has to jump from $1$ to $0$ at the boundary. This means that the bulk energy gap must close at the edges of the wire. In turn gapless states form at the edges. We have hereby connected a bulk effect, the topological index, to a boundary effect, the edge states. 
 
 \section{Time reversal symmetries} \label{sec.2wirestimereversalsymmetries}
+We will now analyse the time reversal symmetries of the system at hand. They come in two classes: one where the symmetry works in each wire independently and one which swaps particles between the wires. 
+
+\subsection{With separate wires} 
+\label{subsec.TRseparatewires}
+In this subsection we will show, that the system has two time reversal symmetries, that keep the wires separated. These both square to $+\mathbb{I}$.
+
+There are two possibilities for this symmetry: 
+\begin{equation}
+T_1 \begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_1^{-1} = \eta\sigma_0 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix}, \hspace{0.5cm} T_2 \begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_2^{-1} = \eta\sigma_3 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{1,-k} \\  - c^\dagger_{2,-k} \end{bmatrix}, \nonumber
+\end{equation} 
+with $\sigma_j$ the $j$'th Pauli matrix operating in wire space and $\eta$ some overall phase. Since $(\eta\sigma_0)(\eta\sigma_0)^* = \sigma_0^2 = + \mathbb{I}$ and $(\eta\sigma_3)(\eta\sigma_3)^* = \sigma_3^2 = + \mathbb{I}$, we get that both time reversal transformations square to $+\mathbb{I}$. We see, that up to a phase, these transformations consist of sending a state in $k$ to a state in $-k$ \textit{without} swapping the wires. 
+
+The question is now: under what circumstances is $T_1$ or $T_2$ a symmetry of the Hamiltonian? The problematic terms under these time reversal transformations are the pairing terms of the Hamiltonian: $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. For the first term, connected to $\Delta^{11}_k$, both $T_1$ and $T_2$ hereby give:
+\begin{equation}
+\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_j}{\to} \Delta^{11*}_k \left(\eta c^\dagger_{1,-k}\right)\left(\eta c^\dagger_{1,k}\right) = -\eta^2\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \nonumber
+\end{equation}
+since $\Delta^{11}_k$ is chosen real. Since the first and last expression must be identical for one of the symmetries to be obeyed, we need $\eta^2 = -1$. The transformation of the second term, connected to $\Delta^{22}_k$, yields the same result. The relevant terms containing $\Delta^{12}_k$ transform according to:
+\begin{equation}
+\sum_k \Delta^{12}_k c^\dagger_{2,k}c^\dagger_{1,-k} \overset{T_j}{\to} \sum_k \Delta^{12*}_k \left(\pm \eta c^\dagger_{2,-k}\right)\left( \eta c^\dagger_{1,k}\right) = \mp \sum_k \Delta^{12*}_{k} c^\dagger_{2,k}c^\dagger_{1,-k}. \nonumber
+\end{equation}
+The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$ and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $ + \mathbb{I}$.
 
 \subsection{With wire exchange}
 \label{subsec.TRwireexchange}
-In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is real; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how these symmetries puts the Hamiltonian in a specific symmetry class. 
+In this subsection we will show, that we can construct two types of time reversal symmetries of the system, that exchange the wires. One is obeyed if the interwire pairing is imaginary; this squares to $+\mathbb{I}$. The other is obeyed if the interwire pairing is real; this squares to $-\mathbb{I}$. We will further shortly discuss the particle-hole and sublattice symmetries, and finally how the symmetries of the preceding and current subsection puts the Hamiltonian in a specific symmetry class. 
 
 We first define a time reversal operator, that squares to $ + \mathbb{I}$ and interchanges the wires: 
 \begin{equation}
 T_+\begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_+^{-1} = \eta\sigma_1 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{2,-k} \\ c^\dagger_{1,-k} \end{bmatrix},\nonumber
 \end{equation} 
-with $\sigma_1$ the first Pauli matrix operating in wire space and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $(\eta\sigma_1)(\eta\sigma_1)^* = \sigma_1^2 = + \mathbb{I}$ we get, that $T_+$ squares to \textit{plus} the identity. The question is now: under what circumstances is $T_+$ a symmetry of the Hamiltonian? Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. We remember, that time reversal is antiunitary: $TiT^{-1} = -i$. This means, that the first transform according to:
+with $\sigma_1$ the first Pauli matrix operating in wire space and $\eta$ some overall phase. Hence, under this time reversal transformation a fermion from wire 1 is transformed into a fermion in wire 2 and acquires the phase $\eta$. Since $(\eta\sigma_1)(\eta\sigma_1)^* = \sigma_1^2 = + \mathbb{I}$ we get, that $T_+$ squares to \textit{plus} the identity. Since $\varepsilon_{1,k} = \varepsilon_{2,k}$, the only problematic terms under time reversal are still the pairing terms: $\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \Delta^{22}_k c^\dagger_{2,k}c^\dagger_{2,-k}$ and $\Delta^{12}_kc^\dagger_{2,k}c^\dagger_{1,-k}$. The first term transform according to:
 \begin{equation}
 \Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_+}{\to} \Delta^{11*}_k \left(\eta c^\dagger_{2,-k}\right)\left(\eta c^\dagger_{2,k}\right) = -\eta^2\Delta^{11}_k c^\dagger_{2,k}c^\dagger_{2,-k}. \nonumber
 \end{equation}
@@ -96,7 +117,7 @@ Hence, we need $\Delta^{12*}_k = - \Delta^{12}_k$; the interwire pairing must be
 \end{equation}
 where $K$ is the complex conjugation operator and $\tau_i$ are the Pauli matrices operating in particle-hole space. Here we have chosen $\eta = 1$. The symmetry is then described by the fact that: $\mathcal{T}_+\mathcal{H}_{FF,k} = \mathcal{H}_{FF,-k}\mathcal{T}_+$.
 
-We now define a time reversal operator, that squares to $-\mathbb{I}$ and interchanges the wires:
+We now define a time reversal operator, that squares to $ - \mathbb{I}$ and interchanges the wires:
 \begin{equation}
 T_-\begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_-^{-1} = \eta\sigma_2 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = -i\eta\begin{bmatrix} c^\dagger_{2,-k} \\ - c^\dagger_{1,-k} \end{bmatrix}.\nonumber
 \end{equation} 
@@ -115,33 +136,15 @@ So we need $\Delta^{12*}_k = \Delta^{12}_k$. Hence, the interwire pairing must b
 \end{equation}
 where again $\sigma_i, \tau_i$ are Pauli matrices operating in wire and particle-hole space respectively. 
 
-This analysis also gives us a sublattice symmetry in the case of an imaginary or real interwire pairing: $S_\pm = T_\pm C$. In total this puts the system in Cartan class BDI if $\Delta^{12}_k$ is imaginary, and in Cartan class DIII if $\Delta^{12}_k$ is real. The topological index is respectively to be found in the integers $\mathbb{Z}$ and in $\mathbb{Z}_2 = \{-1,1\}$. See table \ref{tab.PeriodicTableTISC} for the details. We will calculate these invariants in section \ref{sec.2wires_CSinv}. 
+The analyses of these two subsections give us four possible sublattice symmetries in the case of an imaginary or real interwire pairing. For an imaginary interwire pairing $S_+ = T_+C$ and $S_1 = T_1C$ are both symmetries of the system. Both time reversal symmetries in this case square to plus the identity and the system unambigously belong to Cartan class BDI. For a real interwire pairing, the system both have a time reversal symmetry, that squares to $+ \mathbb{I}$ and one that squares to $-\mathbb{I}$. This means, that we can both put the Hamiltonian in the Cartan class BDI \textit{and} DIII. See table \ref{tab.PeriodicTableTISC} for the details. 
 
-\subsection{With separate wires} 
-\label{subsec.TRseparatewires}
-In this subsection we will show, that the system has yet another two time reversal symmetries. These keep the wires separated and both square to $+\mathbb{I}$. 
+This may seem a little confusing. Should the Hamiltonian not belong to a specific class according to its symmetries? We emphasize, that the Cartan classes are not distinct in this sense per se. Rather one should think of the classification in the following sense. For a real interwire pairing we can both put the Hamiltonian in class BDI and DIII, corresponding to $T^2 = +\mathbb{I}$ and $T^2=-\mathbb{I}$ respectively. This means, that we can ask what ground states are topologically distinct, if we preserve just one of these symmetries. Hence, the system is characterized by having \textit{two} topological invariants in this case, one in $\mathbb{Z}$ and one in $\mathbb{Z}_2 = \{-1, 1\}$. 
 
-There are two possibilities for this symmetry: 
-\begin{equation}
-T_1 \begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_1^{-1} = \eta\sigma_0 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix}, \hspace{0.5cm} T_2 \begin{bmatrix} c^\dagger_{1,k} \\ c^\dagger_{2,k} \end{bmatrix} T_2^{-1} = \eta\sigma_3 \begin{bmatrix} c^\dagger_{1,-k} \\ c^\dagger_{2,-k} \end{bmatrix} = \eta\begin{bmatrix} c^\dagger_{1,-k} \\  - c^\dagger_{2,-k} \end{bmatrix}. \nonumber
-\end{equation} 
-It is evident, that both symmetries square to $+\mathbb{I}$. For both of them we get: 
-\begin{equation}
-\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k} \overset{T_j}{\to} \Delta^{11*}_k \left(\eta c^\dagger_{1,-k}\right)\left(\eta c^\dagger_{1,k}\right) = -\eta^2\Delta^{11}_k c^\dagger_{1,k}c^\dagger_{1,-k}, \nonumber
-\end{equation}
-since $\Delta^{11}_k$ is chosen real. This shows, that we must have $\eta^2 = -1$. The relevant terms containing $\Delta^{12}_k$ transform according to:
-\begin{equation}
-\sum_k \Delta^{12}_k c^\dagger_{2,k}c^\dagger_{1,-k} \overset{T_j}{\to} \sum_k \Delta^{12*}_k \left(\pm \eta c^\dagger_{2,-k}\right)\left( \eta c^\dagger_{1,k}\right) = \mp \sum_k \Delta^{12*}_{k} c^\dagger_{2,k}c^\dagger_{1,-k}. \nonumber
-\end{equation}
-The last equality is achieved by going from $k$ to $-k$ in the sum, using that $\Delta^{12}_k$ is even in $k$ and that $\eta^2 = -1$. This shows, that both $\Delta^{12}_k$ real and imaginary realises a time reversal symmetry, which does not exchange the wires. Further, these both square to $+\mathbb{I}$.
-
-The symmetries found in this subsection are symmetries of the separated wires. This shows, that the real and imaginary interwire pairing does not break the time reversal symmetry internally in each wire. Specifically, this shows that one can have both a $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ symmetry for the same system. In the present case $T_-$ and $T_2$ for $\Delta^{12}_k$ real. This might seem a little confusing at first sight, because as discussed in section \ref{sec.Topology10foldway} the symmetries put the system in a specific Cartan class. However, the Cartan classes are not distinct in this sense per se. Rather one should think of the classification in the following sense. For the case at hand we can both put the Hamiltonian in class BDI and DIII, corresponding to $T^2 = +\mathbb{I}$ and $T^2=-\mathbb{I}$ respectively. This means, that we can ask what ground states are topologically distinct, if we preserve just one of these symmetries. Hence, the system is characterized by having \textit{two} topological indices in this case, one in $\mathbb{Z}$ and one in $\mathbb{Z}_2 = \{-1,1\}$.
-
-\section{Chern-Simons invariants}
+\section{Chern-Simons invariants and winding number}
 \label{sec.2wires_CSinv}
-For systems with a chiral symmetry, $S$, in odd spatial dimensions the topological invariant can be calculated from the socalled Chern-Simons invariant \cite{Ryu.Topology}. In this section we directly calculate this invariant for the double wire system.
+In the previous section we have shown, that the ground state of the system can be characterized by an integer, the topological invariant. This integer belongs to $\mathbb{Z}_2$ or $\mathbb{Z}$ depending on whether the system obeys a time reversal symmetry with $T^2 = -\mathbb{I}$ or $T^2 = + \mathbb{I}$. However, we said nothing about how to calculate it. This is the aim of the current section.
 
-In one spatial dimension the Chern-Simons invariant is defined as:
+For systems with a sublattice symmetry, $S$, in odd spatial dimensions the topological invariant can be calculated from the socalled Chern-Simons invariant \cite{Ryu.Topology}. In one spatial dimension the Chern-Simons invariant is defined as:
 \begin{equation}
 \text{CS}_1 = \frac{i}{2\pi}\int_{\text{BZ}}dk \; \tr\left[\mathcal{A}_k\right],
 \label{eq.definition.CS1}
@@ -150,29 +153,130 @@ where BZ is short for the first Brillouin zone, and $\mathcal{A}_k$ is the socal
 \begin{equation}
 \mathcal{A}^{ij}_k = \bra{e^{-}_{i,k}}\partial_k\ket{e^{-}_{j,k}}.
 \end{equation}
-In the present case the Berry connection is a $2\times 2$ matrix. In the case of a $T^2 = + \mathbb{I}$ symmetry the topological invariant, $\nu_{\mathbb{Z}}$, is simply given by the winding number, twice the Chern-Simons invariant:
+For the double wire system the Berry connection is a $2\times 2$ matrix. For a single wire it is simply a scalar. We return to the form of the actual topological invariant in three cases: the single wire, the double wire with imaginary interwire pairing and the double wire with real interwire pairing. 
+
+\subsection{Single wire: the winding number} \label{subsec.topologicalinvariant.singlewire}
+In this subsection we digress to the single wire system. This will give us a good intuition for what the topological invariant actually is. Further, we use the formalism developed here, when we analyse the extended Kitaev chain in a one-dimensional Bose gas in part III of this thesis. 
+
+The Hamiltonian kernel for wire 1 only is given by: 
+\begin{equation}
+\mathcal{H}^{1}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta^{11}_k \\ \Delta^{11}_k & -\varepsilon_k \end{bmatrix} = \mathbf{h}(k)\cdot\boldsymbol\tau,
+\label{eq.singlewire.Hamiltoniankernel}
+\end{equation}
+with $\boldsymbol\tau = (\tau_1, \tau_2, \tau_3)$ containing the Pauli matrices in particle-hole space and $\mathbf{h}(k) = (\Delta^{11}_k, 0, \varepsilon_k)$. The Hamiltonian is still of the Bogoliubov-de-Gennes type, so it still has a built-in particle-hole symmetry, that squares to $+\mathbb{I}$. It also has the time reversal symmetry of the uncoupled wires; $T_1$ of subsection \ref{subsec.TRseparatewires}. This also squares to $+\mathbb{I}$. This shows, that the Kitaev (single) wire belong to Cartan class BDI. The corresponding topological index is hereby to be found in the integers. 
+
+For the single wire $T_1$ is expressed through the first quantization operator $\mathcal{T}_1 = U_TK$, with $U_T = i\tau_3$ and $K$ the complex conjugation operator. Hence, we have $\mathcal{T}_1\mathcal{H}^{1}_{FF,k}\mathcal{T}^{-1}_1 = \mathcal{H}^{1}_{FF,-k}$. Now consider a more general Hamiltonian kernel $\mathcal{H}^{1}_k = \mathbf{h}(k)\cdot\boldsymbol\tau$, but with the same imposed symmetries. We define the mapping $\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}$, with $E_k = |\mathbf{h}(k)|$ the energy dispersion. The time reversal symmetry then forces $h_y(k) = 0$. This means, that the mapping $\hat{h}(k)$ is restricted to a circle.\footnote{Had we chosen the phase of $\Delta^{11}_k$ differently, the time reversal symmetry would also be different. This would in turn impose a specific phase between $h_x$ and $h_y$. Again the mapping is restricted to a circle.} For $\mathcal{H}^{1}_{FF,k}$, $h_z(k) = \varepsilon_k$ is dominant for $k\to \pm \infty$. We are only considering perturbations to this Hamiltonian, so we still enforce this behaviour. This means, that $\hat{h}(k = \pm \infty) = \hat{z}$. Therefore, $\hat{h}(k)$ maps an integer number of times around $\mathbf{h} = 0$. This integer is called the \textit{winding number}, $w$, of the mapping and is in fact the topological invariant. We clarify this in the following way. The winding number is an integer, so it cannot change from say $0$ to $1$ without the mapping $\hat{h}$ being ill-defined in-between. The only way for $\hat{h}$ to become ill-defined is if the energy gap closes. It is exactly this, that characterizes a topological phase transition. Further, the mapping is well-defined as long as the symmetries of the system are obeyed. 
+
+We now return to the system at hand. We have $h_z(k) = \varepsilon_k$ and $h_x(k) = \Delta^{11}_k$. If we let $\theta_k$ denote the angle of $\hat{h}(k)$ with the $z$-axis, the winding number is:
+\begin{equation}
+w = \frac{1}{2\pi}\oint d\theta_k.
+\label{eq.definition.windingnumber}
+\end{equation} 
+The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta^{11}_k}{\varepsilon_k}$. In turn $\theta_k(c) = \arctan\left(\frac{\Delta^{11}_k}{\varepsilon_k}\right) + c$ for some constant $c$. Calculating $d\theta_k = dk \cdot \partial_k \theta_k$ then gives:
+\begin{equation}
+w = \frac{1}{2\pi}\int dk \frac{\varepsilon_k\partial_k\Delta^{11}_k - \Delta^{11}_k\partial_k\varepsilon_k}{\varepsilon^2_k + (\Delta^{11}_k)^2}.
+\label{eq.windingnumber.Kitaevsinglewire}
+\end{equation} 
+In the beginning of this section we argued, that the topological invariant can be calculated from the Chern-Simons invariant. In the next subsections we will go into detail of how to do this, here we simply wish to come with an intuitive link to the winding number. If we calculate the Berry connection, $\mathcal{A}_k = \bra{e^{-}_{k}}\partial_k\ket{e^{-}_{k}}$, and in turn the Chern-Simons invariant of equation \eqref{eq.definition.CS1}, $\text{CS}_{1,1}$, we get exactly $w = 2\text{CS}_{1,1}$. Hence, we see that for the single wire, twice the Chern-Simons invariant is simply the winding of $\hat{h}$ around $\mathbf{h} = 0$. We can hereby very directly understand, why the Chern-Simons invariant is in fact a topological invariant, at least in this simpler single wire case. 
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+\draw[-latex, thick] ( 0.0, -4) -- (0, 4) node[above]{$z$};
+\draw[-latex, thick] (-4,  0) -- (4, 0) node[right]{$x$};
+
+\draw[red, ultra thick] (3.5, 0) arc (0:360:3.5);
+\draw[-latex, red, ultra thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
+\draw[-latex, red, ultra thick] (-2.4748737348, -2.4748737348) -- (-2.4648737348, -2.4848737348);
+
+\draw[domain=33.540844097:146.459155903,smooth,variable=\x,blue, thick] plot ({3.5 * cos(\x)},{3.5 * sin(\x)});
+\draw[-latex, blue, thick] (0.6853426578, 3.4322601227) -- (0.6953426578, 3.4302330223);
+\draw[-latex, blue, thick] (2.4748737348,  2.4748737348) -- (2.4648737348, 2.4848737348);
+\draw[-latex, blue, thick] (-0.6853426578, 3.4322601227) -- (-0.6953426578, 3.4302330223);
+\draw[-latex, blue, thick] (-2.4748737348,  2.4748737348) -- (-2.4648737348, 2.4848737348);
+
+%nodes:
+\node[black] at (0, 3.5) {\textbullet};
+\node[blue] at (-2.9172225397, 1.9338595227) {\textbullet};
+\node[black] at (-2.9172225397 - 0.3, 1.9338595227 + 0.3) {(1)};
+\node[blue] at (2.9172225397, 1.9338595227) {\textbullet};
+\node[black] at (2.9172225397 + 0.3, 1.9338595227 + 0.3) {(2)};
+\end{tikzpicture}
+\caption{$\hat{h}(k)$ plotted as function of $k$. The angle with respect to the $z$ axis is given by $\tan(\theta_k) = \Delta^{11}_k/\varepsilon_k$.  In blue: $\mu < 0$. The blue curve starts on the north pole, at the black dot. It then goes counterclockwise until it reaches the point (1). It turns around, goes clockwise until it reaches (2). Finally it returns to the north pole. The total winding number is $w = 0$. In red: $\mu > 0$. The red curve starts and ends at the north pole, at the black dot. It goes counterclockwise around 0. The total winding number is $w = -1$. }
+\label{fig.hhatplot}
+\end{figure}
+
+From equation \eqref{eq.windingnumber.Kitaevsinglewire} it is clear, that for vacuum, where $\Delta^{11}_k = 0$, the winding number is $w = 0$. Hence, this is the topologically trivial value. For nonzero pairing it turns out that there are three possibilities for the topological invariant: 
+\begin{equation}
+w = 2\text{CS}_{1,1} = \left\{ \begin{matrix} 
+-\text{sgn}(\Delta^{11}_{k_0}) & \mu > 0, \\
+0, & \mu < 0,
+\end{matrix} \right. \nonumber 
+\end{equation}
+where $\text{sgn}$ denotes the sign function and $k_0 > 0$ is defined by $\varepsilon_{k_0} = 0$. In section \ref{subsec.2wires_CSinv_Delta12real} this result will appear as a limiting case to a more general result. The negative chemical potential case, $\mu < 0$, specifies a strong coupling phase, because the pairings strongly alters the chemical potential from the free gas one, $\epsilon_{F,0} > 0$. Here the system is topologically trivial: $w = 0$. In the same manner $\mu > 0$ specifies a weak coupling case with two possibilites, $w = \pm 1$, depending on the sign of the pairing, $\Delta^{11}_k$, at $k = k_0$. These are topologically nontrivial. This fits with the results for the Kitaev chain \cite{Alicea}. We have depicted the winding of $\hat{h}(k)$ in figure \ref{fig.hhatplot}. Here we assume, that $\Delta^{11}_k$ is negative for $k < 0$ and positive for $k > 0$. 
+
+In the numerical analysis we will see, that in the weak coupling limit we are investigating, the chemical potential is not significantly altered from the free gas Fermi energy, hence $\mu > 0$. Now suppose that the wire has open ends, with junctions to the vacuum with $\Delta^{11}_k = 0$. From equation \eqref{eq.windingnumber.Kitaevsinglewire} it is clear, that the winding number is zero for vacuum: $w = 0$. The above topological analysis therefore shows, that when we spatially follow the transition between the wire and vacuum, the winding number must jump from $w = \pm 1$ to $w = 0$ at the boundary. Therefore, the bulk gap goes to zero at the boundary. In turn an edge state with zero energy emerges. Now suppose that we introduce perturbations, which respect the symmetries of the system. The robustness of the edge state can then be understood from the built-in particle-hole symmetry of the Hamiltonian. For the single wire the particle-hole symmetry is described by: $\mathcal{C} = \tau_1 K$, with $K$ the complex conjugation operator. Hereby the perturbed Hamiltonian $\mathcal{H}_k$ obeys: $\mathcal{C}\mathcal{H}_{k} = -\mathcal{H}_{-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{k}\ket{\psi_k} = E_k\ket{\psi_k}$. We then get:
+\begin{equation}
+E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{k}\ket{\psi_k} = -\mathcal{H}_{-k}\mathcal{C}\ket{\psi_k} \Rightarrow \mathcal{H}_{-k}\left(\mathcal{C}\ket{\psi_k}\right) = -E_k\left(\mathcal{C}\ket{\psi_k}\right).
+\end{equation}
+This shows, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The perturbations may move the bulk gap, $\Delta E$, because any low energy state with $E \neq 0 $ can simply be gapped away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} gapless state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the +/- symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
+
+\begin{figure}
+\center
+\begin{tikzpicture}
+\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
+\draw[-, thick]   (0, 0) -- (0, -2);
+\node at (-0.4, 0) {$0$};
+
+\draw[-, dashed] (0, 1)--(1, 1);
+\draw[-, thick] (-0.1, 1)--(0.1, 1);
+\node at (-1.17,1) {$\phantom{min[]}\Delta E$};
+
+\draw[-, dashed] (0, -1)--(1, -1);
+\draw[-, thick] (-0.1, -1)--(0.1, -1);
+\node at (-1.38,-1) {$\phantom{min[]}-\Delta E$};
+
+\draw[-, ultra thick] (1, 1)--(1, 2);
+\draw[-, ultra thick] (1, -1)--(1, -2);
+\node[red] at (1, 0) {\textbullet};
+
+\node at (1, 0.5) {\textbullet};
+\draw[-latex] (1, 0.5) --  (1,  1);
+\node at (1, -0.5) {\textbullet};
+\draw[-latex] (1, -0.5) -- (1, -1);
+
+\draw[-, dashed] (0,0.01) --(1,0.01);
+
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
+\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x}});
+
+\node at (3, -0.4) {$0$};
+\node at (8, -0.4) {$\mathcal{L}$};
+\draw[|-latex, thick ] (3,0) -- (9,0) node[right]{$x$};
+
+\draw[-, ultra thick ] (3,0) -- (8,0);
+\end{tikzpicture}
+\caption{To the left the energy spectrum is sketched. Because of the particle-hole symmetry, there is a negative energy state for every positive. $\Delta E$ is the bulk energy gap. There is a continuum of states above $\Delta E$ and below $-\Delta E$. Any low energy state can be perturbed away, but the particle-hole symmetry protects the single state at $E = 0$, indicated by the red dot. The corresponding wave function is sketched to the right.}
+\label{fig.edgestates}
+\end{figure}
+
+\subsection{Double wire, imaginary interwire pairing} \label{subsec.2wires_CSinv_Delta12imag}
+In this subsection we will in detail calculate the $\mathbb{Z}$ topological invariant in the case of an imaginary interwire pairing. 
+
+For an imaginary interwire pairing, there is only a $T^2 = + \mathbb{I}$ symmetry. The topological invariant, $\nu_{\mathbb{Z}}$, is then given by the winding number, twice the Chern-Simons invariant:
 \begin{align}
 \nu_{\mathbb{Z}} &= 2\text{CS}_1 = \frac{i}{\pi} \int dk\; \text{tr}[\mathcal{A}] = \frac{i}{\pi} \int dk\; \left[\bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} + \bra{e^{-}_{2,k}}\partial_k\ket{e^{-}_{2,k}}  \right] \nonumber \\
  &= 2(\text{CS}_{1,1} + \text{CS}_{1,2})\in \mathbb{Z}, \hspace{0.5cm} T^2 = +\mathbb{I}.
 \label{eq.2wires.topinv.T2eqplus1}
 \end{align}
-Here we have indicated the contribution to the Chern-Simons invariant from the eigenvector $\ket{e^{-}_{i,k}}$ with $\text{CS}_{1,i}$. We will refer to these as the subsystem invariants. For $T^2 = +\mathbb{I}$ the subsystem invariants are not well-defined, only their sum is. Therefore, in this situation they do not separately define an invariant, and in particular they can take non-integer values. For $T^2 = -\mathbb{I}$ the states of the system come in time reversal, or Kramers, pairs. We will see this explicitly later on. At the present stage this means, that the subsystem invariants \textit{are} separately well-defined and it is meaningful to calculate their respective values \cite{FuKane2006, LiYangChen} and \cite[pp. 130-135]{BernevigTITSC}. The $\mathbb{Z}_2$ invariants can then be calculated by going to the socalled Wilson loop:
-\begin{equation}
-\nu_{\mathbb{Z}_2} = W_{1,j} = \text{e}^{2\pi i\text{CS}_{1,j}} = \pm 1, \hspace{0.5cm} T^2 = -\mathbb{I}.
-\label{eq.2wires.topinv.T2eqminus1}
-\end{equation}
-We are now ready for the computation. This will be done in the two cases $\Delta^{12}_k$ imaginary and real corresponding to the presence of a wire exchanging time reversal symmetry of the form $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ respectively.  
+Here we have indicated the contribution to the Chern-Simons invariant from the eigenvector $\ket{e^{-}_{i,k}}$ with $\text{CS}_{1,i}$. We will refer to these as the subsystem invariants. For $T^2 = +\mathbb{I}$ the subsystem invariants are not well-defined, only their sum is. Therefore, in this situation they do not separately define an invariant, and in particular they can take non-integer values.
 
-\subsection{Imaginary interwire pairing}
-\label{subsec.2wires_CSinv_Delta12imag}
-The aim of this subsection is to calculate $\nu_{\mathbb{Z}}$ as given in equation \eqref{eq.2wires.topinv.T2eqplus1} for an imaginary interwire pairing.
-
-Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.HFFfull}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $C_k \to \tilde{C}_k = \begin{bmatrix} c_{1,k} & c_{2,k} & c^\dagger_{1,-k} & c^\dagger_{2,-k}  \end{bmatrix}^{T}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
+We now calculate $\nu_{\mathbb{Z}}$. Since we differentiate the eigenvectors with respect to $k$, it is essential that these are well-behaved in any $k$. If we look closely at the eigenvectors derived back in section \ref{sec.HFFfull}, we can see that if $\Delta^{12}_k = 0$, the eigenvectors are not well-behaved in $k = 0$. Back then this was no issue, since a single problem point in the integral makes no difference.\footnote{One might be concerned about this line of thinking. However, the gap equations in the special cases investigated in the current section have also been derived using well-behaved eigenvectors. The result is the same.} Hence, the single truly tricky part is to get well-behaved eigenvectors. However, there is a procedure for it described in \cite{Ryu.Topology}. First we transform the Hamiltonian to the standard Nambu spinor form, so that $C_k \to \tilde{C}_k = \begin{bmatrix} c_{1,k} & c_{2,k} & c^\dagger_{1,-k} & c^\dagger_{2,-k}  \end{bmatrix}^{t}$. This amounts to the following transformation of $\mathcal{H}_{FF,k}$:
 \begin{align}
 \mathcal{H}_{FF,k} &= \varepsilon_k \sigma_0 \otimes \tau_3 + \Delta^{11}_k \sigma_3 \otimes \tau_1 + \Delta^{12}_k \sigma_2 \otimes \tau_1 \to \nonumber \\
 \mathcal{H}'_{FF,k} &= \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_1 \otimes \tau_2, \nonumber 
 \end{align}
-where $\otimes$ is the direct product, $\tau_i$ is the Pauli matrices in particle-hole space and $\sigma_i$ are the Pauli matrices in wire-space. We have also written the imaginary interwire pairing as $i\Delta^{12}_k$. Notice, that we simply flip the $\tau$ and $\sigma$ matrices. Since the Hamiltonian both has a time reversal and particle-hole symmetry, it also has a chiral symmetry: $\{\mathcal{S}, \mathcal{H}_{FF,k}\} = 0$. In the new basis after the above transformation we see, that $\mathcal{S} = \sigma_1\otimes \tau_1$. $\mathcal{S}$ has eigenvectors $v_{ab} = \chi^{1}_a\otimes \chi^{1}_b$, where $\chi^{1}_a$ for $a = 1,2$ are the eigenvectors to the first Pauli matrix $\tau_1, \sigma_1$. We then transform to the basis, where $\mathcal{S}$ is diagonal by forming $V = (v_{ab})$ and calculating:
+where $\otimes$ is the direct product and $\sigma_i, \tau_i$ are the Pauli matrices. We have also written the imaginary interwire pairing as $i\Delta^{12}_k$. Notice, that we simply flip the $\tau$ and $\sigma$ matrices. Since the Hamiltonian both has a time reversal and particle-hole symmetry, it also has a sublattice symmetry anticommuting with the Hamiltonian in first quantization: $\{\mathcal{S}, \mathcal{H}_{FF,k}\} = 0$. In the new basis after the above transformation we see, that $\mathcal{S} = \sigma_1\otimes \tau_1$. $\mathcal{S}$ has eigenvectors $v_{ab} = \chi^{1}_a\otimes \chi^{1}_b$, where $\chi^{1}_a$ for $a = 1,2$ are the eigenvectors to the first Pauli matrix $\tau_1, \sigma_1$. We then transform to the basis, where $\mathcal{S}$ is diagonal by forming $V = (v_{ab})$ and calculating:
 \begin{equation}
 \tilde{\mathcal{H}}_{FF,k} = V^\dagger\mathcal{H}'_{FF,k}V = \varepsilon_k \sigma_1\otimes \tau_1 + \Delta^{11}_k \sigma_1\otimes\tau_3 - \Delta^{12}_k\sigma_2\otimes\tau_0. \nonumber 
 \end{equation}
@@ -188,13 +292,20 @@ Hereby: $\text{tr}[\mathcal{A}_k] = \mathcal{A}^{11}_k  + \mathcal{A}^{22}_k = 0
 \begin{equation}
 \text{CS}_{1,1} = - \text{CS}_{1,2} = \frac{1}{4\pi}\int dk \; \frac{\Delta^{11}_k\partial_k\varepsilon_k - \varepsilon_k\partial_k\Delta^{11}_k}{\varepsilon^2_k + (\Delta^{11}_k)^2 + (\Delta^{12}_k)^2}. 
 \end{equation}
-These are continuous functions of $\Delta^{11}_k, \Delta^{12}_k$ and $\varepsilon_k$. 
+These are continuous functions of $\Delta^{11}_k, \Delta^{12}_k$ and $\varepsilon_k$. Notice, that for the uncoupled wires, $\Delta^{12}_k = 0$, we retrieve the winding number, $w$, for the single wire as discussed in the previous subsection. 
 
-\subsection{Real interwire pairing}
-\label{subsec.2wires_CSinv_Delta12real}
-For a real interwire pairing the system both has a $T^2 = +\mathbb{I}$ and $T^2=-\mathbb{I}$ symmetry. The former is given by $T_2$ of section \ref{subsec.TRseparatewires}, the latter by $T_-$ of section \ref{subsec.TRwireexchange}. Therefore, we calculate both the $\mathbb{Z}$ and $\mathbb{Z}_2$ invariant from equation \eqref{eq.2wires.topinv.T2eqplus1} and \eqref{eq.2wires.topinv.T2eqminus1} respectively.
 
-To get to well-behaved eigenvectors we follow the same procedure as outlined in the previous subsection. The $\Delta^{12}_k$ term of $\mathcal{H}_{FF,k}$ now has the form $\Delta^{12}_k \sigma_2 \otimes \tau_2$. After going to the Nambu spinor form, we therefore have $\mathcal{H}'_{FF,k} = \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_2 \otimes \tau_2$. The anticommuting symmetry is now given by: $\mathcal{S} = \sigma_1\otimes \tau_2$. The corresponding eigenvectors are therefore $v_{ab} = \chi^{1}_a\otimes\chi^{2}_b$. Letting $V = (v_{ab})$ and calculating the conjugation of $\mathcal{H}'_{FF,k}$ then yields:
+\subsection{Double wire, real interwire pairing} \label{subsec.2wires_CSinv_Delta12real}
+In this subsection we calculate the topological invariants in the case of a real interwire pairing. 
+
+For a real interwire pairing the system both has a $T^2 = +\mathbb{I}$ and $T^2 = -\mathbb{I}$ symmetry. The former is given by $T_2$ of section \ref{subsec.TRseparatewires}, which only exchange particles within the same wire. The latter is given by $T_-$ of section \ref{subsec.TRwireexchange}, which exchanges particles between the two wires. Therefore, the system both has $\mathbb{Z}$ and $\mathbb{Z}_2$ invariant. The $\mathbb{Z}$ invariant is given by equation \eqref{eq.2wires.topinv.T2eqplus1}.
+
+The $\mathbb{Z}_2$ invariant is connected to the $T^2 = -\mathbb{I}$ symmetry. For such a time reversal symmetry, the states of the system come in time reversal, or Kramers, pairs. We will see this explicitly later on. At the present stage this means, that the subsystem invariants $\text{CS}_{1,i}$ of  \eqref{eq.2wires.topinv.T2eqplus1} \textit{are} separately well-defined and it is meaningful to calculate their respective values \cite{FuKane2006, LiYangChen} and \cite[pp. 130-135]{BernevigTITSC}. The $\mathbb{Z}_2$ invariants can then be calculated by going to the socalled Wilson loop:
+\begin{equation}
+\nu_{\mathbb{Z}_2} = W_{1,j} = \text{e}^{2\pi i\text{CS}_{1,j}} = \pm 1, \hspace{0.5cm} T^2 = -\mathbb{I}.
+\label{eq.2wires.topinv.T2eqminus1}
+\end{equation}
+We are now ready for the computation. To get to well-behaved eigenvectors we follow the same procedure as outlined in the previous subsection. The $\Delta^{12}_k$ term of $\mathcal{H}_{FF,k}$ now has the form $\Delta^{12}_k \sigma_2 \otimes \tau_2$. After going to the Nambu spinor form, we therefore have $\mathcal{H}'_{FF,k} = \varepsilon_k \sigma_3 \otimes \tau_0 + \Delta^{11}_k \sigma_1 \otimes \tau_3 + \Delta^{12}_k \sigma_2 \otimes \tau_2$. The anticommuting sublattice symmetry is now given by: $\mathcal{S} = \sigma_1\otimes \tau_2$. The corresponding eigenvectors are therefore $v_{ab} = \chi^{1}_a\otimes\chi^{2}_b$. Letting $V = (v_{ab})$ and calculating the conjugation of $\mathcal{H}'_{FF,k}$ then yields:
 \begin{equation}
 \tilde{\mathcal{H}}_{FF,k} = V^\dagger\mathcal{H}'_{FF,k}V = \varepsilon_k \sigma_1\otimes \tau_1 + \Delta^{11}_k \sigma_1\otimes\tau_3 - \Delta^{12}_k\sigma_2\otimes\tau_1. \nonumber 
 \end{equation}
@@ -202,7 +313,7 @@ To calculate the $\mathbb{Z}$ topological invariant, we need both negative energ
 \begin{equation}
 \ket{e^{-}_{1,k}} = \frac{1}{2E^{+}_{F,k}}\begin{bmatrix} \varepsilon_k + i(\Delta^{11}_k + \Delta^{12}_k) \\ i(\varepsilon_k + i(\Delta^{11}_k + \Delta^{12}_k)) \\ -iE^{+}_{F,k} \\ -E^{+}_{F,k} \end{bmatrix}, \hspace{0.5cm} \ket{e^{-}_{2,k}} = \frac{1}{2E^{-}_{F,k}}\begin{bmatrix} \varepsilon_k + i(-\Delta^{11}_k + \Delta^{12}_k) \\ -i(\varepsilon_k + i(-\Delta^{11}_k + \Delta^{12}_k)) \\ iE^{-}_{F,k} \\ -E^{-}_{F,k} \end{bmatrix}. \nonumber
 \end{equation}
-These are seen to be manifestly well-defined for all $k$. Since the entries of $\ket{e^{-}_{2,-k}}$ and $\ket{e^{-}_{1,+k}}$ are equal up to a sign, we get that:
+These are seen to be manifestly well-defined for all $k$. Notice, that these eigenvectors are different from the ones for an imaginary interwire pairing, $\Delta^{12}_k$, in two ways. First, for a real interwire pairing the energies $E^{\pm}_{F,k}$ are in general different. Second, the front factors of $\Delta^{12}_k$ are altered. Since the entries of $\ket{e^{-}_{2,-k}}$ and $\ket{e^{-}_{1,+k}}$ are equal up to a sign, we get that:
 \begin{equation}
 \mathcal{A}^{11}_k = \bra{e^{-}_{1,k}}\partial_k\ket{e^{-}_{1,k}} = \bra{e^{-}_{2,-k}}\partial_k\ket{e^{-}_{2,-k}} = - \bra{e^{-}_{2,-k}}\partial_{-k}\ket{e^{-}_{2,-k}} = -\mathcal{A}^{22}_{-k}. \nonumber
 \end{equation}
@@ -244,7 +355,7 @@ We expect, that the pairings go to zero for $k\to \pm \infty$. We will verify th
 0, & |\Delta^{11}_{k_0}| < |\Delta^{12}_{k_0}|.
   \end{matrix} \right. \nonumber 
 \end{equation}
-The above calculations result in the $\mathbb{Z}_2$ invariant:
+This is the form we used for the winding number in subsection \ref{subsec.topologicalinvariant.singlewire} for $\Delta^{12}_k = 0$. The above results in the $\mathbb{Z}_2$ invariant:
 \begin{equation}
 \nu_{\mathbb{Z}_2} = \text{e}^{2\pi i \text{CS}_{1,1}} = \text{e}^{2\pi i \text{CS}_{1,2}} = \left\{ \begin{matrix} 
 -1, & |\Delta^{11}_{k_0}| > |\Delta^{12}_{k_0}| & \text{and} & \mu > 0, \\
@@ -252,121 +363,16 @@ The above calculations result in the $\mathbb{Z}_2$ invariant:
   \end{matrix} \right.
 \label{eq.CS11T2eqminus1}
 \end{equation}
-Hence, to be in a topological nontrivial phase we need $\mu > 0$. Further the intrawire pairing, $\Delta^{11}_k$, \textit{must} be dominant at the Fermi surface points $k = \pm k_0$, where $\varepsilon_{\pm k_0} = 0$. 
+Hence, to be in a topological nontrivial phase we need to be in the weak coupling phase, $\mu > 0$. Further the intrawire pairing, $\Delta^{11}_k$, \textit{must} be dominant at the Fermi surface points $k = \pm k_0$, where $\varepsilon_{\pm k_0} = 0$. 
 
-As a by-product of these two subsections, we get that in the $d \to 0$ limit, the system is topologically trivial, since $\Delta^{12}_k$ is dominant here. This shows explicitly, that a system with $s$-wave pairing only is topologically trivial. 
+As a by-product of this subsection, we get that in the $d \to 0$ limit, the system is topologically trivial, since $\Delta^{12}_k$ is dominant here. This shows explicitly, that a system with only $s$-wave pairing is topologically trivial. 
 
-\section{Separated wires} \label{sec.separatedwires}
-
-\subsection{Topology and edge states} \label{subsec.topologyandedgestates}
-In this subsection we explain, how one can interpret the topological considerations of the previous sections for the separated wires. 
-
-In the numerical analysis we will see, that in the weak coupling limit we are investigating, the chemical potential is not significantly altered from the free gas Fermi energy. For the separated wires $\Delta^{12}_k = 0$, and equation \eqref{eq.CS11T2eqminus1} tells us, that the system is topologically nontrivial. Actually, the subsystem invariants $\text{CS}_{1,j}$ in this case gives us the number of edge states in each wire $2|\text{CS}_{1,j}| = 1$. In the following we consider in what sense these edge states are protected. 
-
-So far we have investigated the bulk properties of the wires by imposing cyclic boundary conditions. We focus now on a single wire and imagine that it has open ends. This means, that there are junctions at the ends between a $\nu_{\mathbb{Z}_2} = -1$ phase (the superfluid wire) and a $\nu_{\mathbb{Z}_2} = 1$ phase (the vacuum). It also means, that when we spatially follow the transition between the two phases, the wire and the vacuum, $\nu_{\mathbb{Z}_2}$ has to change its value abrubtly at the boundary. This means, that the eigenvectors $\ket{e^{-}_{j,k}}$ must become ill-defined at the boundary. This can only happen by closing the energy gap. Hence, the energy gap closes at the boundary.  
-
-\begin{figure}
-\center
-\begin{tikzpicture}
-\draw[|-latex, thick] (0, 0) -- (0,  2) node[above]{$E$};
-\draw[-, thick]   (0, 0) -- (0, -2);
-\node at (-0.4, 0) {$0$};
-
-\draw[-, dashed] (0, 1)--(1, 1);
-\draw[-, thick] (-0.1, 1)--(0.1, 1);
-\node at (-1.17,1) {$\phantom{min[]}E_{F,k_0}$};
-
-\draw[-, dashed] (0, -1)--(1, -1);
-\draw[-, thick] (-0.1, -1)--(0.1, -1);
-\node at (-1.38,-1) {$\phantom{min[]}-E_{F,k_0}$};
-
-\draw[-, ultra thick] (1, 1)--(1, 2);
-\draw[-, ultra thick] (1, -1)--(1, -2);
-\node[red] at (1, 0) {\textbullet};
-
-\node at (1, 0.5) {\textbullet};
-\draw[-latex] (1, 0.5) --  (1,  1);
-\node at (1, -0.5) {\textbullet};
-\draw[-latex] (1, -0.5) -- (1, -1);
-
-\draw[-, dashed] (0,0.01) --(1,0.01);
-
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 6},{ 3 * exp{- 10 * \x*\x}});
-\draw[scale=0.5,domain=-1:1,smooth,variable=\x,red, thick] plot ({\x + 16},{ 3 * exp{- 10 * \x*\x}});
-
-\node at (3, -0.4) {$0$};
-\node at (8, -0.4) {$\mathcal{L}$};
-\draw[|-latex, thick ] (3,0) -- (9,0) node[right]{$x$};
-
-\draw[-, ultra thick ] (3,0) -- (8,0);
-\end{tikzpicture}
-\caption{To the left the energy spectrum is sketched. Because of the particle-hole symmetry, there is a negative energy state for every positive. $k_0$ is defined through $\varepsilon_{k_0} = \frac{k_0^2}{2m_F} - \mu = 0$. There is a continuum of states above $E_{F,k_0}$ and below $-E_{F,k_0}$. At the boundary of the wire the gap closes, but the particle-hole symmetry only protects the single state at $E = 0$, indicated by the red dot. The corresponding wave function is sketched to the right.}
-\label{fig.edgestates}
-\end{figure}
-
-The interesting question is now: are there states that are topologically protected? More precisely, we are asking, whether there exist low energy states, that can only be removed by breaking the symmetries of the system. The answer lies in the built-in particle-hole symmetry of the Hamiltonian. As we saw in section \ref{sec.SymmetriesTRandPH} we have a particle-hole symmetry $\mathcal{C} = \sigma_0\otimes\tau_1 K$, with $K$ the complex conjugation operator. Hereby $\mathcal{C}\mathcal{H}_{FF,k} = -\mathcal{H}_{FF,-k}\mathcal{C}$. Let us assume, that we have a single particle energy solution in $k$: $\mathcal{H}_{FF,k}\ket{\psi_k} = E_k\ket{\psi_k}$. We hereby directly get:
-\begin{equation}
-E_k\mathcal{C}\ket{\psi_k} = \mathcal{C}\mathcal{H}_{FF,k}\ket{\psi_k} = -\mathcal{H}_{FF,-k}\mathcal{C}\ket{\psi_k} \Rightarrow \mathcal{H}_{FF,-k}\left(\mathcal{C}\ket{\psi_k}\right) = -E_k\left(\mathcal{C}\ket{\psi_k}\right).
-\end{equation}
-This shows, that if $\ket{\psi_k}$ has the energy $E_k$, then $\mathcal{C}\ket{\psi_k}$ has the energy $-E_k$. In other words for every positive energy solution there is also a negative one, as is shown to the left in figure \ref{fig.edgestates}. The bulk spectrum is here indicated by a solid line above the bulk gap $E_{F,k_0}$ and mirrored in $E = 0$. Now suppose that we introduce a perturbation, that respects the particle-hole symmetry. The energies therefore still come in plus/minus pairs, but apart from that the energies can change. Hence, we can perturb any low energy state with $E \neq 0 $ away. This is indicated in the figure by the black dots and arrows. However, the \textit{single} state at $E = 0$ remains exactly there, because if it moved either up or down, there would not be the plus/minus symmetry in the energies. This leads to an energy spectrum, which is \textit{robust} against symmetry-conserving perturbations with the continuum above the bulk gap and a \textit{single} zero energy edge state as indicated in figure \ref{fig.edgestates}. 
-
-With no energy cost edge states at the ends of the single wire can hereby emerge and are robust to symmetry-conserving perturbations. This phenomenon is known as the bulk-edge correspondence principle, since it connects bulk effects, $\nu_{\mathbb{Z}_2} = - 1$, to an edge effect, the edge states.
-
-\subsection{Topological invariant as a winding number} \label{subsec.windingnumber}
-In this subsection we will investigate how we can understand the topological invariant as the winding number of a specific mapping. 
-
-For the separated wires the Hamiltonian consists of two disconnected blocks of the Kitaev model type. We will therefore think of wire 1 as a single wire system with the Hamiltonian kernel:
-\begin{equation}
-\mathcal{H}^{1}_{FF,k} = \begin{bmatrix} \varepsilon_k & \Delta^{11}_k \\ \Delta^{11}_k & -\varepsilon_k \end{bmatrix} = \mathbf{h}(k)\cdot\boldsymbol\tau,
-\label{eq.singlewire.Hamiltoniankernel}
-\end{equation}
-with $\boldsymbol\tau = (\tau_1, \tau_2, \tau_3)$ containing the Pauli matrices in particle-hole space and $\mathbf{h}(k) = (\Delta_k, 0, \varepsilon_k)$. The Hamiltonian is still of the Bogoliubov-de-Gennes type, so it still has a built-in particle-hole symmetry, that squares to $+\mathbb{I}$. It also has the time reversal symmetry of separated wires; $T_1$ of subsection \ref{subsec.TRseparatewires}. This also squares to $+\mathbb{I}$.  This shows, that the Kitaev (single) wire belong to Cartan class BDI. The corresponding topological index is $\nu_{\mathbb{Z}} = 2\text{CS}_{1,1}$ in the integers. 
-
-In this single wire picture, $T_1$ is expressed through the operator $\mathcal{T}_1 = U_TK$, with $U_T = i\tau_3$ and $K$ the complex conjugation operator. Hence, we have $\mathcal{T}_1\mathcal{H}^{1}_{FF,k}\mathcal{T}^{-1}_1 = \mathcal{H}^{1}_{FF,-k}$. Now consider a more general Hamiltonian kernel $\mathcal{H}^{1}_k = \mathbf{h}(k)\cdot\boldsymbol\tau$, but with the same imposed symmetries. We define the mapping $\hat{h}(k) = \frac{\mathbf{h}(k)}{|\mathbf{h}(k)|}$, with $E_k = |\mathbf{h}(k)|$ the energy dispersion. The time reversal symmetry then forces $h_y(k) = 0$. This means, that the mapping $\hat{h}(k)$ is restricted to a great circle.\footnote{Had we chosen the phase of $\Delta^{11}_k$ differently, the time reversal symmetry would also be different. This would in turn impose a specific phase between $h_x$ and $h_y$. Again the mapping is restricted to a great circle.} For $\mathcal{H}^{1}_{FF,k}$, $h_z(k) = \varepsilon_k$ is dominant for $k\to \pm \infty$. We are only considering perturbations to this Hamiltonian, so we still inforce this behaviour. This means, that $\hat{h}(k = \pm \infty) = \hat{z}$. Therefore, $\hat{h}(k)$ maps an integer number of times around $\mathbf{h} = 0$. This integer is called the \textit{winding number}, $w$, of the mapping. Within these symmetries it is still allowed to change the sign of $h_x(k)$. This means, that $|w|$ is the topological invariant of the system. We clarify this in the following way. The winding number is an integer, so it cannot change from say $0$ to $1$ without the mapping $\hat{h}$ being ill-defined in-between. Windings $1$ and $-1$ are however equivalent, since we can simply change the sign of $h_x(k)$. The only way for $\hat{h}$ to become ill-defined is if the energy gap closes. It is exactly this, that characterizes a topological phase transition. 
-
-\begin{figure}
-\center
-\begin{tikzpicture}
-\draw[-latex, thick] ( 0.0, -4) -- (0, 4) node[above]{$z$};
-\draw[-latex, thick] (-4,  0) -- (4, 0) node[right]{$x$};
-
-\draw[red, ultra thick] (3.5, 0) arc (0:360:3.5);
-\draw[-latex, red, ultra thick] (2.4648737348, -2.4848737348) -- (2.4748737348, - 2.4748737348);
-\draw[-latex, red, ultra thick] (-2.4748737348, -2.4748737348) -- (-2.4648737348, -2.4848737348);
-
-\draw[domain=33.540844097:146.459155903,smooth,variable=\x,blue, thick] plot ({3.5 * cos(\x)},{3.5 * sin(\x)});
-\draw[-latex, blue, thick] (0.6853426578, 3.4322601227) -- (0.6953426578, 3.4302330223);
-\draw[-latex, blue, thick] (2.4748737348,  2.4748737348) -- (2.4648737348, 2.4848737348);
-\draw[-latex, blue, thick] (-0.6853426578, 3.4322601227) -- (-0.6953426578, 3.4302330223);
-\draw[-latex, blue, thick] (-2.4748737348,  2.4748737348) -- (-2.4648737348, 2.4848737348);
-
-%nodes:
-\node[black] at (0, 3.5) {\textbullet};
-\node[blue] at (-2.9172225397, 1.9338595227) {\textbullet};
-\node[black] at (-2.9172225397 - 0.3, 1.9338595227 + 0.3) {(1)};
-\node[blue] at (2.9172225397, 1.9338595227) {\textbullet};
-\node[black] at (2.9172225397 + 0.3, 1.9338595227 + 0.3) {(2)};
-
-
-\end{tikzpicture}
-\caption{$\hat{h}(k)$ plotted as function of $k$. The angle with respect to the $z$ axis is given by $\tan(\theta_k) = \Delta^{11}_k/\varepsilon_k$.  In blue: $\mu < 0$. The blue curve starts on the north pole, at the black dot. It then goes counterclockwise until it reaches the point (1). It turns around, goes clockwise until it reaches (2). Finally it returns to the north pole. The total winding number is $w = 0$. In red: $\mu > 0$. The red curve starts and ends at the north pole, at the black dot. It goes counterclockwise around 0. The total winding number is $w = -1$. }
-\label{fig.hhatplot}
-\end{figure}
-
-We now return to the system at hand. We have $h_z(k) = \varepsilon_k$ and $h_x(k) = \Delta^{11}_k$. If we let $\theta_k$ denote the angle of $\hat{h}(k)$ with the $z$-axis, the winding number is:
-\begin{equation}
-w = \frac{1}{2\pi}\oint d\theta_k.
-\label{eq.definition.windingnumber}
-\end{equation} 
-The angle $\theta_k$ is given by: $\tan(\theta_k) = \frac{h_x(k)}{h_z(k)} = \frac{\Delta^{11}_k}{\varepsilon_k}$. In turn $\theta_k(c) = \arctan\left(\frac{\Delta^{11}_k}{\varepsilon_k}\right) + c$ for some constant $c$. Calculating $d\theta_k = dk \cdot \partial_k \theta_k$ then gives:
-\begin{equation}
-w = \frac{1}{2\pi}\int dk \frac{\varepsilon_k\partial_k\Delta^{11}_k - \Delta^{11}_k\partial_k\varepsilon_k}{\varepsilon^2_k + (\Delta^{11}_k)^2} = 2\text{CS}_{1,1}(\Delta^{12}_k = 0). \nonumber
-\end{equation} 
-Hence, we see that for the separated wires, the Chern-Simons invariant for wire 1 is simply twice the winding of $\hat{h}$ around $\mathbf{h} = 0$. We can hereby very directly understand, why the Chern-Simons invariant is in fact a topological invariant, at least for the separated wires. We have depicted the winding of $\hat{h}(k)$ in figure \ref{fig.hhatplot}. Here we assume, that $\Delta^{11}_k$ is negative for $k < 0$ and positive for $k > 0$. 
+\section{Edge states and Kramers degeneracy} \label{sec.edgestatesandkramers}
+In this section we will go into more detail with the edge states. We calculate approximate solutions for these in the case of uncoupled wires. We then go beyond mean field theory to address the question of how the interwire interaction influences these edge states. This is connected to Kramers degeneracy of time reversal partners.  
 
 \subsection{Edge states: approximate solutions}
 \label{subsec.2wiresedgestates}
-In this section we come with an approximate analytical solution for the edge states for the separated wires. This is done for a later discussion on their properties. The analysis is largely based on \cite[pp. 196-198]{BernevigTITSC}. 
+We have now seen, that a nonzero topological index leads to the existence of gapless edge states. Here we will explicitly show, how these edge states emerge for the uncoupled wires. The analysis is largely based on \cite[pp. 196-198]{BernevigTITSC}. 
 
 \begin{figure}
 \center
@@ -393,19 +399,23 @@ In this section we come with an approximate analytical solution for the edge sta
 \draw[-, ultra thick ] (0.975,2.85) -- (5.875,2.85);
 \draw[-|, thick ] (5.7,2.85) -- (5.875,2.85);
 
-\coordinate (a) at (7.8, 5.682);
-\coordinate (anode) at (7.5, 5.682);
-\coordinate (b) at (8.3, 5.682);
-\coordinate (c) at (7.8, 5.182);
-\coordinate (d) at (8.3, 5.182);
-\coordinate (cnode) at (6.7, 5.182);
+\coordinate (a) at (0.3, 5.682);
+\coordinate (anode) at (-1.6, 5.682);
+\coordinate (b) at (0.8, 5.682);
+\coordinate (c) at (0.3, 5.182);
+\coordinate (d) at (0.8, 5.182);
+\coordinate (cnode) at (-0.8, 5.182);
+\coordinate (wavefunctionnode11) at (0.5, 4.0);
+\coordinate (wavefunctionnode12) at (6.4, 4.0);
 
 \draw[-, thick, blue] (a) -- (b);
 \node at (anode) {$\mu$}; 
 \draw[-, thick, red] (c) -- (d);
 \node at (cnode) {Edge states}; 
+\node[red] at (wavefunctionnode11) {$\psi^{1}_{1}$};
+\node[red] at (wavefunctionnode12) {$\psi^{1}_{2}$};
 \end{tikzpicture}
-\caption{Red: Edge states. Blue: chemical potential $\mu = \mu(x)$. Due to the spatial variation of the chemical potential the fermions are confined to the interval between $x = 0$ and $x = \mathcal{L}$. The separated wires are topological for $\mu > 0$. For $\mu < 0$ they are trivial. Hence, edge states form around $\mu = 0$ at $x = 0$ and $x = \mathcal{L}$. }
+\caption{Red: Edge states. Blue: chemical potential $\mu = \mu(x)$. Due to the spatial variation of the chemical potential the fermions are confined to the interval between $x = 0$ and $x = \mathcal{L}$. The uncoupled wires are topological for $\mu > 0$. For $\mu < 0$ they are trivial. Hence, edge states form around $\mu = 0$ at $x = 0$ and $x = \mathcal{L}$. Since the wires are uncoupled we only show one of them.}
 \label{fig.edgestatesmux}
 \end{figure}
 
@@ -434,36 +444,36 @@ For the sake of clarity let us see how e.g. the term $\Delta^{11}_kc_{1,-k}c_{1,
 \int dx \; \psi_{1,F}(x) \Delta^{11}(p) \psi_{1,F}(x) &= \frac{1}{\mathcal{L}}\sum_{k,q}c_{1,k} c_{1,q}\int dx \; \text{e}^{ikx}\Delta^{11}(p)\text{e}^{iqx} = \frac{1}{\mathcal{L}}\sum_{k,q}\Delta^{11}_qc_{1,k}c_{1,q}\int dx \; \text{e}^{i(k + q)x} \nonumber \\
 &= \sum_{k}\Delta^{11}_kc_{1,-k}c_{1,k}, \nonumber 
 \end{align}
-since $\int dx\; \text{e}^{i(k + q)x} =\mathcal{L} \delta_{k,-q} $. Here we use the Fourier decomposition $\psi_{1,F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_{1,k}$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. In the numerical analysis we will see, that $\Delta^{11}_k$ is linear in $k$ for $k/k_F \ll 1$. This means, that $\Delta^{11}(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Hence, we ignore $p^2/2m_F$ and let $\Delta^{11}(p) = \Delta^{11} \cdot \tilde{p}$, with $\Delta^{11} = k_F\left.\frac{\partial \Delta^{11}_k}{\partial k}\right|_{k=0}$ and $\tilde{p} = p/k_F$. We assume $\Delta^{11} > 0$. We take the ansatz:
+since $\int dx\; \text{e}^{i(k + q)x} =\mathcal{L} \delta_{k,-q} $. Here we use the Fourier decomposition $\psi_{1,F}(x) = \frac{1}{\sqrt{L}}\sum_k\text{e}^{ikx}c_{1,k}$. Now we form junctions of topogically distinct phases by changing the sign of $\mu$ at $x = 0$ and $x = \mathcal{L}$. Hence, we let $\mu = \mu(x)$ as shown in figure \ref{fig.edgestatesmux}. Due to the spatial variation of the chemical potential the fermions are confined to the wire between $x = 0$ and $x = \mathcal{L}$. In first quantization we find solutions by solving $\mathcal{H}(x)\psi(x) = E\psi(x)$. The edge states are zero energy modes, so we solve for $E = 0$. We assume, that $\mu(x)$ varies slowly over the interparticle length scale $1/k_F$. When this is fulfilled the solution $\psi(x)$ will also vary slowly and hence the curvature of $\psi(x)$ proportional to $p^2\psi(x)$ is negligible. This means, that to a good approximation we only keep the operator $p$ up to first order. Since the intrawire pairing, $\Delta^{11}_k$, is $p$-wave type, it is linear in $k$ for $k/k_F \ll 1$. We will also verify this in the numerical analysis in chapter \ref{Chapter6}. This means, that $\Delta^{11}(p)$ is linear in $p$, when $p/k_F$ used on a state is small. Hence, we ignore $p^2/2m_F$ and let $\Delta^{11}(p) = \Delta^{11} \cdot \tilde{p}$, with $\Delta^{11} = k_F\left.\frac{\partial \Delta^{11}_k}{\partial k}\right|_{k=0}$ and $\tilde{p} = p/k_F$. We assume $\Delta^{11} > 0$. We take the ansatz:
 \begin{equation}
 \psi^{i}_1(x) = \exp\left(-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx'\; \mu(x') \right)\mathbf{u}^{i}_{1}, \hspace{0.5cm} \psi^{i}_2(x) = \exp\left(+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx'\; \mu(x') \right)\mathbf{u}^{i}_{2}, \nonumber
 \end{equation}  
-The superscript ${}^i$ refers to the wire, the subscript ${}_j$ to which end the wave function is located. Since $\Delta^{11}$ is in units of energy the exponents are unitless. Since $\Delta^{11} > 0$, we see that these states are exponentially localized at the edges. From this we get eigenvalue equations for $\mathbf{u}^{i}_{j}$. Defining $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant we hereby get the approximate solutions:
+The superscript ${}^i$ refers to the wire, the subscript ${}_{1,2}$ to which end the wave function is located. Since $\Delta^{11}$ is in units of energy the exponents are unitless. Since $\Delta^{11} > 0$, we see that these states are exponentially localized at the edges. From this we get eigenvalue equations for $\mathbf{u}^{i}_{j}$. Defining $g_1(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_{0}^{x} dx' \mu(x')}$, $g_2(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^{x} dx' \mu(x')}$ and $N^2 = \int dx |g_j(x)|^2$ a normalization constant we hereby get the approximate solutions:
 \begin{align}
 \psi^1_1(x) &= g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & -i & 0 & 0 \end{bmatrix}^t , \hspace{0.5cm} \psi^1_2(x) = g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 1 & +i & 0 & 0 \end{bmatrix}^t, \nonumber \\
 \psi^2_1(x) &= g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & +i \end{bmatrix}^t , \hspace{0.5cm} \psi^2_2(x) = g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}\begin{bmatrix} 0 & 0 & 1 & -i \end{bmatrix}^t.
 \end{align}
-From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. Hence, $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x)$ and $\mathcal{T}_-\psi^1_2(x) = -\psi^2_2(x)$. The edge states at the same end in each wire are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states. The eigenstates define the diagonalisation matrix $U(x) = \begin{bmatrix} \psi^{1}_{1}(x) & \psi^{1}_{2}(x) & \psi^{2}_{1}(x) & \psi^{2}_{2}(x) \end{bmatrix}$. This has the unitarity property, that $\int dx \; U^\dagger(x) U(x) = \mathbb{I}$. We then let the operators $\gamma^{j}_{0,1}, \gamma^{j}_{0,2}$ for wire $j$ be given by:
+These states solve $\mathcal{H}_{FF}\psi(x) = 0$. I.e. they have zero energy. They are the explicit forms of the gapless edge states. From equation \eqref{eq.2wiresTminuswireexchangefirstquantization} we have, that the time reversal operator that squares to minus the identity is given by: $\mathcal{T}_- = i\sigma_2\otimes\tau_0 \cdot K$. Hence, $\mathcal{T}_-\psi^1_1(x) = -\psi^2_1(x)$ and $\mathcal{T}_-\psi^1_2(x) = -\psi^2_2(x)$. The edge states at the same end in each wire are therefore Kramers partners. This is crucial for the following analysis. For sake of completeness let us write up the second quantized version of the four states. The eigenstates define the diagonalisation matrix $U(x) = \begin{bmatrix} \psi^{1}_{1}(x) & \psi^{1}_{2}(x) & \psi^{2}_{1}(x) & \psi^{2}_{2}(x) \end{bmatrix}$. This has the unitarity property, that $\int dx \; U^\dagger(x) U(x) = \mathbb{I}$. We then let the operators $\gamma^{j}_{1}, \gamma^{j}_{2}$ for wire $j$ be given by:
 \begin{equation}
-\begin{bmatrix} \psi_{1,F}(x) \\ \psi_{1,F}^\dagger(x) \\ \psi_{2,F}(x) \\ \psi_{2,F}^\dagger(x) \end{bmatrix} = U(x) \begin{bmatrix} \gamma^{1}_{0,1} \\ \gamma^{1}_{0,2} \\ \gamma^{2}_{0,1} \\ \gamma^{2}_{0,2} \end{bmatrix} \Rightarrow \begin{bmatrix} \gamma^{1}_{0,1} \\ \gamma^{1}_{0,2} \\ \gamma^{2}_{0,1} \\ \gamma^{2}_{0,2} \end{bmatrix} = \int dx \; U^\dagger(x) \begin{bmatrix} \psi_{1,F}(x) \\ \psi_{1,F}^\dagger(x) \\ \psi_{2,F}(x) \\ \psi_{2,F}^\dagger(x) \end{bmatrix}.
+\begin{bmatrix} \psi_{1,F}(x) \\ \psi_{1,F}^\dagger(x) \\ \psi_{2,F}(x) \\ \psi_{2,F}^\dagger(x) \end{bmatrix} = U(x) \begin{bmatrix} \gamma^{1}_{1} \\ \gamma^{1}_{2} \\ \gamma^{2}_{1} \\ \gamma^{2}_{2} \end{bmatrix} \Rightarrow \begin{bmatrix} \gamma^{1}_{1} \\ \gamma^{1}_{2} \\ \gamma^{2}_{1} \\ \gamma^{2}_{2} \end{bmatrix} = \int dx \; U^\dagger(x) \begin{bmatrix} \psi_{1,F}(x) \\ \psi_{1,F}^\dagger(x) \\ \psi_{2,F}(x) \\ \psi_{2,F}^\dagger(x) \end{bmatrix}.
 \label{eq.Majoranaedgemodedef} 
 \end{equation} 
 Written out these operators are: 
 \begin{align}
-\gamma^1_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) + i\psi^\dagger_{1,F}(x)), \hspace{0.5cm} \gamma^1_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) - i\psi^\dagger_{1,F}(x)), \nonumber \\
-\gamma^2_{0,1} &= \int dx \; g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) - i\psi^\dagger_{2,F}(x)), \hspace{0.5cm} \gamma^2_{0,2} = \int dx \; g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) + i \psi^\dagger_{2,F}(x)). \nonumber 
+\gamma^1_{1} &= \int dx \; g_1(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) + i\psi^\dagger_{1,F}(x)), \hspace{0.5cm} \gamma^1_{2} = \int dx \; g_2(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{1,F}(x) - i\psi^\dagger_{1,F}(x)), \nonumber \\
+\gamma^2_{1} &= \int dx \; g_1(x)\frac{\text{e}^{+i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) - i\psi^\dagger_{2,F}(x)), \hspace{0.5cm} \gamma^2_{2} = \int dx \; g_2(x)\frac{\text{e}^{-i\pi/4}}{\sqrt{2}}(\psi_{2,F}(x) + i \psi^\dagger_{2,F}(x)). \nonumber 
 \end{align}
-In this manner $\psi^{i}_{j}(x)$ and $\gamma^{i}_{0,j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\left(\gamma^{i}_{0,j}\right)^\dagger = \gamma^{i}_{0,j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factors $\text{e}^{\pm i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\left(\gamma^{i}_{0,j}\right)^\dagger$ and $\gamma^{i}_{0,j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being their own antiparticle, they have to obey the modified anticommutator relation:
+In this manner $\psi^{i}_{j}(x)$ and $\gamma^{i}_{j}\ket{\text{S}}_0$ are equivalent. These operators are special in the sense, that they are their own antiparticle: $\left(\gamma^{i}_{j}\right)^\dagger = \gamma^{i}_{j}$.\footnote{This also illuminates why we chose the rather arbitrary phase factors $\text{e}^{\pm i\pi/4}$. Had we \textit{not} done this, there would be some phase difference between $\left(\gamma^{i}_{j}\right)^\dagger$ and $\gamma^{i}_{j}$.} Such a fermionic particle is called a Majorana mode in condensed matter physics. Besides being their own antiparticle, they have to obey the modified anticommutator relation:
 \begin{equation}
-\{\gamma^{i_1}_{0,j_1}, \gamma^{i_2}_{0,j_2} \} = \delta_{i_1,i_2}\delta_{j_1,j_2}. \nonumber
+\{\gamma^{i_1}_{j_1}, \gamma^{i_2}_{j_2} \} = \delta_{i_1,i_2}\delta_{j_1,j_2}. \nonumber
 \end{equation}
-This is explicitly verified to be the case for the above operators.\footnote{Often one also meets the requirement, that the anticommutator equals $2\delta_{i_1,i_2}\delta_{j_1,j_2}$. This is simply a matter of convention.} From this we can form regular but highly nonlocal fermionic operators: $d_j = \frac{1}{\sqrt{2}}(\gamma^{j}_{0,1} + i\gamma^{j}_{0,2})$. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d_j^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = \frac{1}{2}$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
+This is explicitly verified to be the case for the above operators.\footnote{Often one also meets the requirement, that the anticommutator equals $2\delta_{i_1,i_2}\delta_{j_1,j_2}$. This is simply a matter of convention.} From this we can form regular fermionic operators: $d_j = \frac{1}{\sqrt{2}}(\gamma^{j}_{1} + i\gamma^{j}_{2})$. The fermionic states have equal weights in both end of each wire, which can be separated by a macroscopic distance. They are therefore highly non-local. The key result of this section is thus, that $\ket{\text{S}}_0$ and $d_j^\dagger\ket{\text{S}}_0$ are degenerate ground states of the system. The topologically non-trivial state is therefore characterized by the presence of \textit{one} more particle than the trivial one, which is exponentially located on the edges.\footnote{In the literature one also meets the notion of a Majorana mode at each end, hence two in total. However, since $\gamma^\dagger_0\gamma_0 = \gamma_0^2 = \frac{1}{2}$ for Majorana operators, we cannot count them. Hence, the notion of a specific number of Majorana modes is undefined.}
 
-In second quantization the above notion of Kramers partners is described by the fact, that: $T_-\gamma^1_{0,j}T_-^{-1} = \gamma^2_{0,j}$, simply because $\psi_{1,F}(x) \overset{T_-}{\to} \psi_{2,F}(x)$ and $T_-$ is antiunitary.
+In second quantization the above notion of Kramers partners is described by the fact, that: $T_-\gamma^1_{j}T_-^{-1} = \gamma^2_{j}$, simply because $\psi_{1,F}(x) \overset{T_-}{\to} \psi_{2,F}(x)$ and $T_-$ is antiunitary.
 
-\section{Kramers degeneracy: protection of edge states}
+\subsection{Kramers degeneracy: protection of edge states}
 \label{sec.2wireskramersdegeneracy}
-In this section we show, that the interwire interaction protects the edge states as long as no interwire mean field has formed. We show, that this is because Kramers partners do not couple.
+Our analysis so far has been based on the mean-field BCS Hamiltonian. Here we want to go a little further and show that Kramers theorem protects the edge states in the two wires from becoming gapped by the interwire coupling, as long as it obeys the time reversal symmetry $T^2 = -\mathbb{I}$. 
 
 Consider a general system described by the Hamiltonian $H$. Assume, that this Hamiltonian is time reversal invariant, $[T, H] = 0$, and that $T^2 = -\mathbb{I}$. Let $\ket{\psi_1}$ and $\ket{\psi_2}$ be eigenstates to the Hamiltonian, with energy $E_1$ and $E_2$, and Kramers partners: $\ket{\psi_2} = T\ket{\psi_1}$. Since $[T, H] = 0$ the two states have the same energy: 
 \begin{equation}
@@ -479,7 +489,7 @@ In the first equality we use, that we can flip the inner product by going to the
 \end{equation}
 The first equality holds, since $H'$ is hermitian \cite[p. 274]{Sakurai}. 
 
-Now what has this to do with the system at hand? We let $\ket{\psi_{i}^{j}} = \gamma_{i,0}^{j}\ket{\text{S}}_0$ for $i, j = 1, 2$. In this way, $\ket{\psi_{1}^1}$ is the edge state in wire 1 at end 1, $\ket{\psi_{2}^1}$ in wire 1 at end 2, and so forth. From above we know, that the edge states at end $i$, $\ket{\psi_{i}^1}$ and $\ket{\psi_{i}^2}$, are Kramers partners. If we can show, that the interwire interaction $H' = H^\text{int}_{FF,12}$ is time reversal invariant under $T_-$, then the above analysis shows that the edge states at the same end of the wire cannot couple. From equation \eqref{eq.Hint12realspace} we have:
+Now what has this to do with the system at hand? We let $\ket{\psi_{i}^{j}} = \gamma_{i}^{j}\ket{\text{S}}_0$ for $i, j = 1, 2$. In this way, $\ket{\psi_{1}^1}$ is the edge state in wire 1 at end 1, $\ket{\psi_{2}^1}$ in wire 1 at end 2, and so forth. From above we know, that the edge states at end $i$, $\ket{\psi_{i}^1}$ and $\ket{\psi_{i}^2}$, are Kramers partners. If we can show, that the interwire interaction $H' = H^\text{int}_{FF,12}$ is time reversal invariant under $T_-$, then the above analysis shows that the edge states at the same end of the wire cannot couple. From equation \eqref{eq.Hint12realspace} we have:
 \begin{equation}
 H^\text{int}_{FF,12} = \int dx_1 dx_2 \psi^\dagger_{1,F}(x_1)\psi^\dagger_{2,F}(x_2) \tilde{V}_{\text{ind}}^{12}(x_1-x_2,0) \psi_{2,F}(x_2)\psi_{1,F}(x_1),
 \end{equation}
@@ -488,6 +498,8 @@ with $\tilde{V}_{\text{ind}}^{12}(x_1-x_2,0)$ the zero frequency induced interac
 \section{Qualitative understanding of cross over}
 \label{sec.2wirestransitionqualitative}
 In this section we come with a qualitative analysis of how the cross over from $p$- to $s$-wave can occur using the previous two sections. 
+
+$\mathbf{\Delta^{12}_k = 0}$: For the uncoupled wires the previous section shows, that there is a single edge state in each wire. As the wires are brought closer together, the interwire interaction, $H^\text{int}_{FF,12}$, kicks in. Before any mean field of the interwire pairing has been chosen, the previous section further shows, that the edge states stay uncoupled. This is the top of figure \ref{fig.2wiresedgestates}. 
 
 \textbf{Imaginary interwire pairing}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{imaginary}. Then the system \textit{breaks} the time reversal symmetry $T_-$. In this case there is no longer a Kramers degeneracy. As a consequence the edge states can couple and gap away. We can actually calculate by how much the edge states gap. In this connection we define the operator $\Delta^{12}(p)$ as: $\Delta^{12}(p)\text{e}^{ikx} = \Delta^{12}_k\text{e}^{ikx}$. Since $\Delta^{12}_k$ is even in $k$, there is no first order term in $k$. Hence for states with small curvatures like the edge states we can approximate $\Delta^{12}(p) = \Delta^{12}_{k=0}$. This means, that the perturbation in real space relevant for the edge states is:
 \begin{equation}
@@ -512,9 +524,9 @@ E &= +\Delta^{12}_{k=0}, \hspace{0.5cm} \frac{1}{\sqrt{2}}\left( \psi^1_j(x) + i
 E &= -\Delta^{12}_{k=0}, \hspace{0.5cm} \frac{1}{\sqrt{2}}\left(\psi^1_j(x) - i\psi^2_j(x) \right),
 \label{eq.perturbededgestates}
 \end{align}
-for the edge at $x = 0$ and $x = \mathcal{L}$ indicated by $j = 1$ and $j = 2$ respectively. Hence, the interwire pairing couples the two edge states in each wire around $x = 0$ and the two edge states around $x = \mathcal{L}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. 
+for the edge at $x = 0$ and $x = \mathcal{L}$ indicated by $j = 1$ and $j = 2$ respectively. Hence, the interwire pairing couples the two edge states in each wire around $x = 0$ and the two edge states around $x = \mathcal{L}$. This makes it explicit, how the states are gapped! This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle left. Note that it is only the states with positive energy, which are physical. They are \textit{real} fermions as they consist of superpositions of two Majoranas.  
 
-\textbf{Real interwire pairing}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{real}. In this situation the system still respects the time reversal symmetry $T_-$. Kramers degeneracy is still present and therefore any energy state must be twofold degenerate. Further, since the system has a particle-hole symmetry the energy spectrum is symmetric around $E = 0$ (relative to the ground state). Therefore the zero energy edge states are locked as long as the bulk energy gap remains open. A direct calculation of the first order energy shift performed in the same way as in the above verifies this explicitly. The bulk energy dispersions in this situation are given by: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. The bulk gap will therefore eventually close as we bring the wires closer together. This happens exactly when $|\Delta^{12}_{k_0}| = |\Delta^{11}_{k_0}|$, where $\pm k_0$ are the Fermi points given by: $\varepsilon_{\pm k_0} = 0$. It is therefore intuitively simple to see, that in this case a topological phase transition takes place with a topologically non-trivial system for $|\Delta^{12}_{k_0}| < |\Delta^{11}_{k_0}|$ and a topologically trivial system for $|\Delta^{12}_{k_0}| > |\Delta^{11}_{k_0}|$. This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle and bottom right. 
+\textbf{Real interwire pairing}: Assume that as the wires are brought closer together, the system chooses the interwire pairing to be \textit{real}. In this situation the system still respects the time reversal symmetry, $T_-$. Kramers degeneracy is still present and therefore any energy state must be twofold degenerate. Further, since the system has a particle-hole symmetry the energy spectrum is symmetric around $E = 0$ (relative to the ground state). Therefore the zero energy edge states are locked as long as the bulk energy gap remains open. A direct calculation of the energy shift due to the coupling between the edge states by $\Delta^{12}$ performed in the same way as in the above verifies this explicitly. The bulk energy dispersions in this situation are given by: $E^{\pm}_{F,k} = \sqrt{\varepsilon^2_k + (\Delta^{11}_k \pm \Delta^{12}_k)^2}$. The bulk gap will therefore eventually close as we bring the wires closer together. This happens exactly when $|\Delta^{12}_{k_0}| = |\Delta^{11}_{k_0}|$, where $\pm k_0$ are the Fermi points given by: $\varepsilon_{\pm k_0} = 0$. It is therefore intuitively simple to see, that in this case a topological phase transition takes place with a topologically non-trivial system for $|\Delta^{12}_{k_0}| < |\Delta^{11}_{k_0}|$ and a topologically trivial system for $|\Delta^{12}_{k_0}| > |\Delta^{11}_{k_0}|$. This is the content of figure \ref{fig.2wiresedgestates} going from the top center to the middle and bottom right. 
 
 \begin{figure}
 \center
@@ -712,11 +724,11 @@ for the edge at $x = 0$ and $x = \mathcal{L}$ indicated by $j = 1$ and $j = 2$ r
 \label{fig.2wiresedgestates}
 \end{figure}
 
-It turns out that we can find approximate eigenstates for $\Delta^{12}_{k=0} \ll \Delta^{11}$. We take the ansatz $\psi_j^{\pm}(x) = g_j^{\pm}(x)\cdot \mathbf{u}^{\pm}_j$ for four component vectors $\mathbf{u}^{\pm}_j$. Further $g_1^{\pm}(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_0^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$ and $g_2^{\pm}(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$. We then seach for solutions to $(\mathcal{H}_{FF}(x) + \mathcal{H}'_{FF}(x))\psi_j^{\pm}(x) = 0$, only keeping $p$ up to first order. The first and second derivative ($l = 1$ and $l = 2$) has a term proportional to $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^l\psi_j^{\pm}(x)$. Since we only keep $p$ up to first order, the second derivative must be small with respect to the first one. It is then clear, that $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^2 \ll \frac{\Delta^{12}_{k=0}}{\Delta^{11}}$ is required. In turn $\Delta^{12}_{k=0} \ll \Delta^{11}$. As $\Delta^{12}_{k=0}$ comes closer to $\Delta^{11}$ we must add higher order terms in $p$ to get accurate results. With the above ansatz we get the following solutions in the $\Delta^{12}_{k=0} \ll \Delta^{11}$ regime:
+It turns out that we can find the gapless eigenstates for $\Delta^{12}_{k=0} \ll \Delta^{11}$. We take the ansatz $\psi_j^{\pm}(x) = g_j^{\pm}(x)\cdot \mathbf{u}^{\pm}_j$ for four component vectors $\mathbf{u}^{\pm}_j$. Further $g_1^{\pm}(x) = \frac{1}{N}\text{e}^{-\frac{k_F}{\Delta^{11}}\int_0^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$ and $g_2^{\pm}(x) = \frac{1}{N}\text{e}^{+\frac{k_F}{\Delta^{11}}\int_{\mathcal{L}}^x dx' \; \left[\mu(x') \pm i\Delta^{12}_{k=0}\right] }$. We then seach for solutions to $(\mathcal{H}_{FF}(x) + \mathcal{H}'_{FF}(x))\psi_j^{\pm}(x) = 0$, only keeping $p$ up to first order. The first and second derivative ($l = 1$ and $l = 2$) has a term proportional to $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^l\psi_j^{\pm}(x)$. Since we only keep $p$ up to first order, the second derivative must be small with respect to the first one. It is then clear, that $\left(\frac{\Delta^{12}_{k=0}}{\Delta^{11}}\right)^2 \ll \frac{\Delta^{12}_{k=0}}{\Delta^{11}}$ is required. In turn $\Delta^{12}_{k=0} \ll \Delta^{11}$. As $\Delta^{12}_{k=0}$ comes closer to $\Delta^{11}$ we must add higher order terms in $p$ to get accurate results. With the above ansatz we get the following solutions in the $\Delta^{12}_{k=0} \ll \Delta^{11}$ regime:
 \begin{align}
 \psi_1^{+}(x) &= \frac{g_1^{+}(x)}{2}\begin{bmatrix} 1 & -i & 1 & i \end{bmatrix}^t, \hspace{0.5cm} \psi_1^{-}(x) = \frac{g_1^{-}(x)}{2}\begin{bmatrix} i & 1 & -i & 1 \end{bmatrix}^t, \nonumber \\
 \psi_2^{+}(x) &= \frac{g_2^{+}(x)}{2}\begin{bmatrix} 1 & i & -1 & i \end{bmatrix}^t, \hspace{0.5cm} \psi_2^{-}(x) = \frac{g_2^{-}(x)}{2}\begin{bmatrix} -i & 1 & -i & -1 \end{bmatrix}^t.
 \label{eq.zeromodesDelta12real}
 \end{align}
-The two first components of these vectors are the parts of the wave functions in wire 1, the last two components the parts of the wave functions in wire 2. Since the norms of these components are the same, the effect of the interwire pairing is, that the new edge states are localised with even probability in each wire, one around $x = 0$ and one around $x = \mathcal{L}$. This is indicated in the middle right of figure \ref{fig.2wiresedgestates} by the colours of the wave functions. Further, to lowest order in $\Delta^{12}_{k = 0}/\Delta^{11}$ the edge state wave functions simply acquire a space dependent phase proportional to $\Delta^{12}_{k=0}$.  
+This gives the explicit forms for the gapless Majorana modes in the presence of a real interwire pairing. From these solutions, we can form two real fermionic states with zero energy. The two first components of the vectors in the above expressions are the parts of the wave functions in wire 1, the last two components the parts of the wave functions in wire 2. It is hereby evident, that the new edge states are localised with even probability in each wire due to the real interwire pairing. One is localised around $x = 0$, the other around $x = \mathcal{L}$. This is indicated in the middle right of figure \ref{fig.2wiresedgestates} by the colours of the wave functions. Further, to lowest order in $\Delta^{12}_{k = 0}/\Delta^{11}$ the edge state wave functions simply acquire a space dependent phase proportional to $\Delta^{12}_{k=0}$.  
 

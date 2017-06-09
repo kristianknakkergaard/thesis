@@ -210,7 +210,7 @@ Second, in the pure 1D setup we investigate a Kitaev chain including next-neares
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain supporting several edge states. In part IV we come with our conclusions. Finally, the supplementary material is listed in part V, appendices \ref{Appendix.intrawireinteraction.ltnonzero} to \ref{Appendix.groundstatedeltion.1DBosegas}. 
+The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain supporting several edge states. In part IV we come with our conclusions. Finally, the supplementary material is listed in part V, appendices \ref{Appendix.intrawireinteraction.ltnonzero} to \ref{Appendix.groundstatedepletion.1DBosegas}. 
 
 I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. I also thank him for helping with illustrating the double wire system. I thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
@@ -358,14 +358,14 @@ In this second part we analyse the double wire system. The physical setup is the
 \input{Chapters/Chapter6} 
 
 \part{Kitaev chain and winding numbers larger than 1}
-In this third part we study an extended version of the Kitaev chain \cite{KitaevQuantumWires}. The fermions are arranged along a single wire in a lattice. We further assume, that the fermions both have significant nearest and next-nearest hopping. The Bose gas is now one-dimensional, because we expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
+In this third part we study an extended version of the Kitaev chain \cite{KitaevQuantumWires}. The fermions are arranged along a single wire in an optical lattice. We further assume, that the fermions both have significant nearest and next-nearest neighbour hopping. This can be achieved by shaking the lattice \cite{Liberto.ShakingOpticalLattice}. The Bose gas is one-dimensional. We expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
 
 \vspace{2.5cm}
 
 \begin{figure}[H]
 \center
-\includegraphics[width=0.8\columnwidth]{gasandlattice2.pdf}
-\\ Lattice of fermions in 1D Bose gas. In blue: fermions. In red: bosons. In grey: lattice.   
+\includegraphics[width=1\columnwidth]{gasandlattice.eps}
+\\ Lattice of fermions in 1D Bose gas. In blue: fermions. In red: boson gas. In grey: optical lattice. Black wiggly line: induced interaction between the fermions mediated by the bosons.   
 \end{figure}
 
 \newpage
@@ -402,6 +402,7 @@ We emphasize, that the mean field approach is problematic for these one-dimensio
 \input{Appendices/AppendixD}
 \input{Appendices/AppendixE}
 \input{Appendices/AppendixF}
+\input{Appendices/AppendixG}
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 

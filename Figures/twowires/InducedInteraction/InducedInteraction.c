@@ -43,7 +43,7 @@ main (void)
 {
   /*variables */
   
-  double rBF = 0.11;    /*(nB * aBF^3)^(1/3) */
+  double rBF = 0.1;    /*(nB * aBF^3)^(1/3) */
   double rBB = 0.01;
   double d   = 0.7;
   double mB  = 7.0/40.0; /*mB/mF*/

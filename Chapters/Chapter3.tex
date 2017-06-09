@@ -10,8 +10,8 @@
 %----------------------------------------------------------------------------------------
 We wish to calculate an effective Hamiltonian for the fermions. In this chapter we therefore derive the induced interaction between the fermions on the wires. First stop is to look at the effective interaction between the fermions on the wires and the bosons in the condensate.
 
-\section{Effective Bose-Fermi interaction}
-The effective interaction between the fermions ($F$) and the bosons ($B$) is modelled by a delta function potential with strength $g_{BF}$: $V(\mathbf{r})=g_{BF}\delta(\mathbf{r})$. This is physically realistic, because the atom-atom interaction range is short range compared to the interparticle distance. This means, that the interaction Hamiltonian for the effective pair interaction reads:
+\section{Bose-Fermi interaction}
+The interaction between the fermions ($F$) and the bosons ($B$) is modelled by a delta function potential with strength $g_{BF}$: $V(\mathbf{r})=g_{BF}\delta(\mathbf{r})$. This is physically realistic, because the atom-atom interaction range is short range compared to the interparticle distance. This means, that the interaction Hamiltonian for the pair interaction reads:
 \begin{equation}
 H_{BF}^\text{int}  = \int d^3 r d^3 r' \; \psi_F^\dagger(\mathbf{r}) \psi_B^\dagger(\mathbf{r}')V(\mathbf{r}-\mathbf{r}')\psi_B(\mathbf{r}')\psi_F(\mathbf{r}) = g_{BF}\int d^3 r \; \psi_F^\dagger(\mathbf{r}) \psi_B^\dagger(\mathbf{r})\psi_B(\mathbf{r})\psi_F(\mathbf{r}),
 \label{eq.HintBF}
@@ -26,9 +26,11 @@ where $\psi_i(\mathbf{r})$ is the field operator for the $i$-particles, and so $
 \end{center}    
 \end{figure}
 
-The physical setup of the system is depicted in figure \ref{fig.gasandwires}. The fermions ($F$) are confined to two one-dimensional wires. The first one is placed along the $x$-axis, the second at $z = d, y = 0$. The confinement is provided by two harmonic traps, $V_t(\mathbf{r}_{\perp}) = \frac{1}{2}m_F\omega_t^2r_{\perp}^2$, with $\mathbf{r}_{\perp} = (y, z)$. Hence, the two traps have the same trapping frequency, $\omega_t$. In this connection we have two central assumptions. Firstly, we require that the fermions are trapped in the ground state with respect to the perpendicular directions. The energy gap from the ground state to the first excited state is $\omega_t$. Hence, by making $\omega_t$ sufficiently large we trap the fermions in the lowest lying state, $\phi_0$, along the two wires. Specifically, the typical energy of the fermions is the free gas Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. Hence, we require $\frac{\epsilon_{F,0}}{\omega_t} \ll 1$. Using the trapping width $l_t = \frac{1}{\sqrt{m_F\omega_t}}$, we can also express this as $(k_Fl_t)^2 \ll 1$. One might be afraid of violating the Pauli exclusion principle in this context. However, the states in the $x$-direction are allowed to be different, and so we can symmetrize in the $y$- and $z$-directions.
+The physical setup of the system is depicted in figure \ref{fig.gasandwires}. The fermions ($F$) are confined to two one-dimensional wires. The first one is placed along the $x$-axis, the second at $z = d, y = 0$. The confinement is provided by two harmonic optical traps, $V_t(\mathbf{r}_{\perp}) = \frac{1}{2}m_F\omega_t^2r_{\perp}^2$, with $\mathbf{r}_{\perp} = (y, z)$. Hence, the two traps have the same trapping frequency, $\omega_t$. In this connection we have two central assumptions. 
 
-The second assumption is, that the distance between the wires is much larger than the trapping width of the wires, $l_t$. Hence, $l_t/d \ll 1$. This is done, so that we can actually talk about distinguishable wires of fermions. This leads to the following expansion in momentum eigenstates:
+Firstly, we require that the fermions are trapped in the ground state with respect to the perpendicular directions. The energy gap from the ground state to the first excited state is $\omega_t$. Hence, by making $\omega_t$ sufficiently large we trap the fermions in the lowest lying state, $\phi_0$, along the two wires. One might be afraid of violating the Pauli exclusion principle in this context. However, the states in the $x$-direction are allowed to be different, and so we can symmetrize in the $y$- and $z$-directions. The typical energy of the fermions is the free gas Fermi energy $\epsilon_{F,0} = \frac{k_F^2}{2m_F}$. Hence, we can trap the fermions in the ground state by requiring $\frac{\epsilon_{F,0}}{\omega_t} \ll 1$. The trapping frequency corresponds to a wire width, $l_t = \frac{1}{\sqrt{m_F\omega_t}}$, see figure \ref{fig.gasandwires}. Using the wire width, we can express this requirement as $(k_Fl_t)^2 \ll 1$. 
+
+Secondly, we require that the distance between the wires, $d$, is much larger than the wire width, $l_t$. Hence, $l_t/d \ll 1$. This is done, so that we can actually talk about distinguishable wires of fermions. This leads to the following expansion in momentum eigenstates:
 \begin{equation}
 \psi_F(x,\mathbf{r}_\perp) = \frac{1}{\sqrt{\mathcal{L}}}\sum_p \text{e}^{ipx} \left[\phi_0(\mathbf{r}_\perp) c_{1,p} + \phi_0(\mathbf{r}_\perp - \mathbf{d}) c_{2,p}\right], \hspace{0.5cm} \psi_B(\mathbf{r}) = \frac{1}{\sqrt{\mathcal{V}}}\sum_{\mathbf{k}} \text{e}^{i\mathbf{k}\cdot \mathbf{r}} b_\mathbf{k}, 
 \end{equation}  
@@ -43,13 +45,13 @@ H_{BF, 1}^{\text{int}} &= \frac{g_{BF}}{\mathcal{V}}\sum_{p, p', q} \sum_{\mathb
 \end{align}
 The last line is obtained by appropriate renaming. To be very specific: $p_1, p_2$ and $q$ are in the $x$ direction, along wire 1, whilst $\mathbf{k}_\perp'$ and $\mathbf{k}_\perp$ are momenta in the $(y,z)$-plane, hence perpendicular to wire 1. The interactions with fermions in wire 2 yields a very similar result. The only alteration is, that $\phi_0(\mathbf{r}_\perp) \to \phi_0(\mathbf{r}_\perp - \mathbf{d})$. The above Fourier transformation therefore yields an additional phase of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$. In total the interaction Hamiltonian hereby becomes:
 \begin{align}
-H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} & \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}\left[ c^\dagger_{1,p_2-q} b^\dagger_{p_1+q, \mathbf{k}_\perp'} b_{p_1,\mathbf{k}_\perp}c_{1,p_2} \right. \hspace{0.5cm} \feynmandiagram [small, inline, horizontal=a to b] {
+H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_\perp, \mathbf{k}_\perp'} & \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2} \left[ c^\dagger_{1,p_2-q} b^\dagger_{p_1+q, \mathbf{k}_\perp'} b_{p_1,\mathbf{k}_\perp}c_{1,p_2} \right. \hspace{0.5cm} \feynmandiagram [small, inline, horizontal=a to b] {
   a -- [fermion] i2 [particle=\( 1 \)],
   i1 [particle=\( 1 \)] -- [fermion] a, 
   a -- [photon] b,
   f1 [particle=\( b \)] -- [fermion] b -- [fermion] f2 [particle=\( b \)],
 }; \nonumber \\
-& \left. + \text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}c_{2,p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}c_{2,p_2} \right]. \hspace{0.5cm} 
+& \left. + \text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}} c_{2,p_2-q}^\dagger b_{p_1+q, \mathbf{k}_\perp'}^\dagger b_{p_1,\mathbf{k}_\perp}c_{2,p_2} \right]. \hspace{0.5cm} 
 \feynmandiagram [small, inline, horizontal=a to b] {
   a -- [fermion] i2 [particle=\( 2 \)],
   i1 [particle=\( 2 \)] -- [fermion] a, 
@@ -57,10 +59,10 @@ H_{BF}^\text{int} = \frac{g_{BF}}{\mathcal{V}}\sum_{p_1,p_2,q} \sum_{\mathbf{k}_
   f1 [particle=\( b \)] -- [fermion] b -- [fermion] f2 [particle=\( b \)],
 };
 \end{align}
-This interaction Hamiltonian defines the fundamental vertices between fermions and bosons shown to the right. It shows, that a scattering event in wire 1 is associated with the factor $g_{BF} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}$, and that the corresponding scattering in wire 2 has an extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$. Note that the transverse momentum, $\mathbf{k}_{\perp}$, is not conserved in these scattering events. This is due to the mixed dimensionality of the system. An obvious thing to do now would be to take the very narrow wire width limit, $l_t \to 0$. However, as we shall see later, it will be crucial to keep the trapping frequency finite, at least at the present stage.  
+This interaction Hamiltonian defines the fundamental vertices between fermions and bosons shown to the right. It shows, that a scattering event in wire 1 is associated with the factor $g_{BF} \text{e}^{-\frac{l_t^2}{4}(\mathbf{k}_\perp - \mathbf{k}_\perp')^2}$, and that the corresponding scattering in wire 2 has an extra factor of $\text{e}^{i(\mathbf{k}_\perp - \mathbf{k}_\perp')\cdot \mathbf{d}}$. Note that the transverse momentum, $\mathbf{k}_{\perp}$, is not conserved in these scattering events. This is because of the confinement of the fermions. Explicitly, Heisenberg's uncertainty principle, $\Delta r_{\perp} \cdot \Delta k_{\perp} \sim 1$, dictates that the more confined the fermions are, i.e. the lower $\Delta r_{\perp}$, the higher is the uncertainty on the transverse momentum, $\Delta k_{\perp}$. In the very narrow wire width limit, $l_t \to 0$, the transverse momenta are completely random. An obvious thing to do now would be to take this very narrow wire width limit. However, as we shall see later, it will be crucial to keep the wire width nonzero, at least at the present stage.  
 
 \section{Induced interaction between the fermions} \label{sec.1D3Dinducedinteraction}
-We are interested in the properties of the fermion wires. We therefore calculate the induced interaction between the fermions mediated by the bosons in the condensate. This is later inserted into an effective Hamiltonian for the fermions. 
+We are interested in the properties of the fermion wires. We therefore calculate the induced interaction between the fermions mediated by the bosons in the condensate. This is inserted into an effective Hamiltonian for the fermions in chapter \ref{Chapter4}.
 
 \subsection{Feynman diagrams} \label{subsec.Feynmandiagrams}
 The bosons are assumed to be in a weakly interacting Bose-Einstein condensate (BEC), so that Bogoliubov theory applies. We are further only interested in the weak coupling limit.\footnote{There is a small fraction in nonzero momenta states, which is neglected. It would be necessary to include this for stronger interactions.} In turn we assume, that the bosons are essentially unaffected by the presence of the fermions. This is physically reasonable, because the fermions only occupies space along one-dimensional wires in the three-dimensional BEC. Hence, the density of the bosons $n_B$ is uniform and independent of the presence of the fermions. 
@@ -234,16 +236,16 @@ Setting $d = 0$ we obtain the intrawire interaction:
 \tilde{V}^{11}_{\text{ind}}(x, 0) = -\frac{m_Bg_{BF}^2n_B}{\pi}\frac{\text{e}^{ -\sqrt{2}|x|/\xi }}{|x|}.
 \label{eq.V11indx}
 \end{equation}
-The induced interaction in real space is seen to be the Yukawa interaction with a range of interaction given by the BEC coherence length, $\xi$. We can also understand this physically. The coherence length is in general the length scale over which, the condensate adjusts to an influence on the boson density. Hence, it is physically intuitive that this is the range of the interaction. 
+The induced interaction in real space is seen to be the \textit{attractive} Yukawa interaction with a range of interaction given by the BEC coherence length, $\xi$. We can also understand this physically. The coherence length is in general the length scale over which, the condensate adjusts to an influence on the boson density. Hence, it is physically intuitive that this is the range of the interaction.  
 
-We could have calculated the intrawire induced interaction for a general $l_t > 0$ and then taken the $l_t \to 0$ limit. The reader is referred to appendix \ref{Appendix.intrawireinteraction.ltnonzero} to see this explicitly. In the end it gives the same result. 
+We could have calculated the intrawire induced interaction for a general wire width, $l_t > 0$, and then taken the narrow wire width limit: $l_t \to 0$. The reader is referred to appendix \ref{Appendix.intrawireinteraction.ltnonzero} to see this explicitly. In the end it gives the same result. 
 
 We get a unitless form of the real space interaction by dividing with the typical energy of the fermions, the Fermi energy $\epsilon_{F,0}$. In this way the resulting front factor of $\tilde{V}^{ij}_{\text{ind}} / \epsilon_{F,0}$ is a measure of the strength of interaction given by:
 \begin{equation}
 G = - 8\left( \frac{m_F}{m_B} + \frac{m_B}{m_F} + 2 \right) \frac{n_B^{1/3}}{n_F}(n_Ba_{BF}^3)^{2/3}.
 \label{eq.interactionstrength.wires}
 \end{equation}
-The mass ratio $m_B / m_F$, The relative interparticle distance $n_B^{1/3} / n_F$ and the Bose-Fermi gas parameter $(n_Ba_{BF}^3)^{1/3}$ hereby comes naturally about by going to unitless quantities. 
+The mass ratio $m_B / m_F$, The relative interparticle distance $n_B^{1/3} / n_F$ and the Bose-Fermi gas parameter, $(n_Ba_{BF}^3)^{1/3}$, hereby comes naturally about by going to unitless quantities. Remember that $k_F\xi \propto \frac{n_F /  n_B^{1/3} }{ \sqrt{ (n_Ba_B^3)^{1/3} } }$, where $(n_Ba_B^3)^{1/3}$ is the Bose gas parameter. This means, that we can tune both the range and the strength of the interaction by tuning the relative interparticle distance and the gas parameters. The latter are tunable through the scattering lengths $a_B$ and $a_{BF}$, which may by tuned using socalled Feshbach resonances \cite[pp. 143-151]{Pethick}. This emphasizes the high degree of tunability in the system, we are analysing, and makes an experimental realisation more plausible. 
 
 In figure \ref{fig.V11indx} we show the intrawire interaction for several values of the wire width, $l_t$. The black curve is the Yukawa interaction for the very narrow wire width limit, $l_t = 0$, where the intrawire interaction diverges at the origin. For any nonzero wire width the interaction is finite at the origin. For small but nonzero wire widths, the interaction is asymptotically close to the Yukawa interaction for interparticle distances $k_Fx > 0.5$. In figure \ref{fig.V12indx} we show the interwire interaction for several interwire distances, $d$. The black curve is the $d = 0$ limit, where the inter- and intrawire interactions coincide. For any nonzero $d$, the interwire interaction has to reach across this interwire distance. See figure \ref{fig.gasandwires}. Therefore, the interaction is finite at the origin. 
 
@@ -259,7 +261,7 @@ In figure \ref{fig.V11indx} we show the intrawire interaction for several values
 \end{center}    
 \end{figure}
 
-In appendix \ref{Appendix.inducedinteraction.realspace} we calculate the real space induced interaction for general Matsubara frequencies $\omega_m = 2\pi m k_BT$ in the $l_t = 0$ limit. This general interaction is qualitatively the same as the zero frequency component.  
+In appendix \ref{Appendix.inducedinteraction.realspace} we calculate the real space induced interaction for general Matsubara frequencies $\omega_m = 2\pi m k_BT$ for $l_t = 0$, the narrow wire width limit. This general interaction is qualitatively the same as the zero frequency component.  
 
 \subsection{Momentum space}
 \label{subsec.inducedinteraction.momentumspace}
@@ -280,7 +282,7 @@ V_{\text{ind}}^{12}(q,0) = -\frac{2n_Bg^2_{BF}m_B}{\pi}K_0\left[\sqrt{(qd)^2+\fr
 \end{equation}
 We hereby have a closed form expression for the interwire induced interaction in momentum space. 
 
-Next we turn to the \textit{intra}wire interaction. The situation here is more tricky. As already noted, the induced interaction in equation \eqref{eq.V11indXBEC} diverges for $l_t \to 0$. However, in chapter \ref{Chapter4} we will see, that the antisymmetry of the fermionic operators leads to two terms for the interaction. One is the \textit{direct} term, $V^{11}_{\text{ind}}\left( p, 0 \right)$, the other is the \textit{exchange} term, $V^{11}_{\text{ind}}\left( k - q + p, 0 \right)$. Here $p$ is the momentum transfer and $k, q$ are the momenta of the incoming fermions. The resulting relevant interaction vertex is: 
+Next we turn to the \textit{intra}wire interaction. The situation here is more tricky. As already noted, the induced interaction in equation \eqref{eq.V11indXBEC} diverges for $l_t \to 0$, the narrow wire width limit. However, in chapter \ref{Chapter4} we will see, that the antisymmetry of the fermionic operators leads to two terms for the interaction. One is the \textit{direct} term, $V^{11}_{\text{ind}}\left( p, 0 \right)$, the other is the \textit{exchange} term, $V^{11}_{\text{ind}}\left( k - q + p, 0 \right)$. Here $p$ is the momentum transfer and $k, q$ are the momenta of the incoming fermions. The resulting relevant interaction vertex is: 
 \begin{equation}
 W^{11}_{\text{ind}}(k, q, p) = \frac{1}{2} ( \underset{\text{Direct}}{\underbrace{V^{11}_{\text{ind}}\left( p, 0 \right)}} - \underset{\text{Exchange}}{\underbrace{V^{11}_\text{ind}\left( k - q + p, 0 \right) }} ). 
 \label{eq.Wkqp.scattering.amplitude}
@@ -300,7 +302,7 @@ Now we take the $l_t \to 0$ limit. We have $\partial_x E_1(x) = -\int_1^{\infty}
 \lim_{l_t \to 0} \; W^{11}_{\text{ind}}(k, q, p) = -\frac{m_Bg_{BF}^2n_B}{2\pi} \ln\left[\frac{(k - q + p)^2 + 2/\xi^2}{p^2 + 2/\xi^2}\right].
 \label{eq.Wkqp.scattering.amplitude.lt=0} 
 \end{equation}
-Hereby we also have a closed form expression for the intrawire interaction in momentum space. The fact that we have these closed form expressions is crucial for the feasibility of the later numerical analyses.
+Hereby we also have a closed form expression for the intrawire interaction in momentum space in the narrow wire width limit. The fact that we have these closed form expressions is crucial for the feasibility of the later numerical analyses.
 
 
 

@@ -35,7 +35,7 @@ double WFF0( double k, double kprime, double xi, double strength, int N )
 
 double Deltaguess(double k)
 {
-  return 0.0 * sin(k) + 1.0 * sin(2.0 * k);
+  return 1.0 * sin(k) + 0.0 * sin(2.0 * k);
 }
 
 
@@ -44,15 +44,15 @@ main (void)
 {
   /*restricted variables */
   double t1       = 1.0;  
-  double strength = 4.0; /*total strength of interaction*/
+  double strength = 8.0; /*total strength of interaction*/
   double lt       = 0.05;
 
   /*free parameters:*/
-  double xi       = 4.0; /*we will eventually want to control the range rather than the Bose gas parameter*/
-  double t2       = 1.0;
-  int    N        = 100; 
+  double xi       = 6.0; /*we will eventually want to control the range rather than the Bose gas parameter*/
+  double t2       = 0.0;
+  int    N        = 200; 
   double Ndouble  = (double)N;
-  double filling  = 0.45;
+  double filling  = 0.22;
 
   int    iterations    = 300;
   double convergence   = 1e-4;
