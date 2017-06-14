@@ -1,23 +1,30 @@
-\chapter{Ground state depletion in 1D Bose gas} % Main chapter title
+\chapter{Pairings: temperature dependency} % Main chapter title
 
-\label{Appendix.groundstatedepletion.1DBosegas} 
-\chead{F. \emph{Ground state depletion in 1D Bose gas}}
-\lhead{Part V. Appendices} 
+\label{Appendix.pairingtemperaturedependency} 
+\fancyhead[LO, RE]{Part V. \emph{Appendices}}
+\chead{G. \emph{Pairings: temperature dependency}}
+
 
 %----------------------------------------------------------------------------------------
-In this appendix we calculate the ground state depletion of the one-dimensional Bose gas within Bogoliubov theory. 
+In this appendix we calculate the temperature dependency of the inter- and intrawire pairings. The expected behaviour can be inferred from the standard BCS-treatment, see e.g. \cite[p. 369]{PlischkeStatPhys}. From here we expect that the pairings have their maximal value for $T = 0$ and decreases monotonically until a critical temperature, $T_c$, is reached. It is however not entirely clear, what effect the presence of two pairings has on this behaviour. 
 
-We can calculate the number of excited bosons in the same manner as for the three-dimensional condensate. Hence, we have:
+We have done the calculation for an interwire distance just above the critical distance, $d_c$. The result of the analysis is shown in figure \ref{fig.maximalpairingsTdepend_2wires}. Since we are above the critical distance, we expect the \textit{intra}wire pairing to be dominant. This is indeed the case for temperatures $T \approx 0$. However, we notice that the interwire pairing actually has a higher critical temperature, and in particular is dominant for $0.1 < T / T_F < 0.13$. Besides this, the overall expected behaviour is observed. We observe that the interwire pairing has a small downward kink, where the intrawire pairing vanishes. The same behaviour is seen when the intrawire pairing is dominant. This means, that the dominant pairing would be higher at low temperatures if the other pairing was not present: there is a trade off between the size of the individual pairings and the presence of a second pairing.
+
+\begin{figure} 
+\begin{center}  
+\input{Figures/twowires/Deltas4.6/Tdepend.tex}  
+\caption{Blue solid line: $|\Delta^{12}_{k_F}|$ as a function of temperature. Blue dashed line: asymptotic form due to Landau's theory of phase transitions, equation \eqref{eq.DeltaasymptoteTc}. Red solid line: $|\Delta^{11}_{k_F}|$ as a function of temperature. Red dashed line: asymptotic form due to Landau's theory of phase transitions, equation \eqref{eq.DeltaasymptoteTc}. Notice, that there are two critical temperatures, and that the interwire pairing shows a downward kink, where the intrawire pairing goes to zero. \\
+Parameters: $k_Fd = 0.759$, $(n_Ba_B^3)^{1/3} = 0.01$, $(n_Ba_{BF}^3)^{1/3} = 0.1$, $l_t = 0$, $m_B / m_F = 7/40$, $n_F / n_B^{1/3} = 0.215$, $v_F / c_0 = 0.33$.}  
+\label{fig.maximalpairingsTdepend_2wires}  
+\end{center}    
+\end{figure}
+
+The plot shows two phase transitions, one for each pairing. These happen at two different critical temperatures, $T^{11}_{c}$ and $T^{12}_{c}$. Near these phase transitions, it is a general result due to Landau, that the order parameter goes as $\sqrt{1 - T/T^{ij}_c}$, see section \ref{sec.landauphasetransitions} and \cite[86-87]{PlischkeStatPhys}. The pairing potentials are linearly dependent on the mean fields, $\braket{c_{i, -k}c_{j,k}}$, which are the order parameters in the present case. Hence, close to the critical temperatures $T^{ij}_c$ we must have:
 \begin{equation}
-N_{B,\text{exc}} = \sum_{k\neq 0} v_{B,k}^2 = \frac{1}{k_1}\int_{k_1}^{\infty} dk \left[ \frac{k^2 + 1/\xi^2}{k\sqrt{k^2 + 2/\xi^2}} - 1 \right]. \nonumber
+\max_k[\Delta^{ij}_k](T) = \alpha_{ij} \max_k[\Delta^{ij}_k](T = 0) \sqrt{1 - T/T^{ij}_c}. 
+\label{eq.DeltaasymptoteTc}
 \end{equation}
-Here we have used, that $v_{B,k}^2 = \frac{1}{2}\left[\frac{\chi_{B,k}}{E_{B,k}} - 1 \right]$ is even in $k$ and the lowest nonzero momentum state is $k_1 = \Delta k = \frac{2\pi}{\mathcal{L}}$. The integrand has a primitive. Using this we get the ground state depletion:
-\begin{equation}
-\frac{N_{B,\text{exc}}}{N_B} = \frac{1}{N_B}\left[\frac{1}{\sqrt{2}k_1\xi}\ln\left( \frac{ \sqrt{2} }{ k_1\xi } + \sqrt{ 1 + 2/(k_1\xi)^2 }\right) + 1 - \sqrt{ 1 + 2/(k_1\xi)^2 } \right]. \nonumber
-\end{equation}
-Now $k_0\xi = \frac{2\pi \xi}{\mathcal{L}}$. We can make the dependencies more explicit by writing $N_B = n_B \mathcal{L}$:
-\begin{equation}
-\frac{N_{B,\text{exc}}}{N_B} = \frac{1}{2\sqrt{2}\pi}\frac{1}{n_B\xi}\ln\left( \frac{ \sqrt{2} }{ k_1\xi } + \sqrt{ 1 + 2/(k_1\xi)^2 }\right) + \frac{1}{n_B\mathcal{L}}\left[1 - \sqrt{ 1 + 2/(k_1\xi)^2 } \right].
-\label{eq.groundstatedepletion.1Dbosegas}
-\end{equation}
-In the usual thermodynamic limit we would let $\mathcal{L}, N_B \to \infty$ but keep $n_B = \frac{N_B}{\mathcal{L}}$ constant. However, in this limit the above expression diverges logarithmically $\propto \ln\left(\frac{\sqrt{2}\mathcal{L}}{\pi\xi} \right)$. This illuminates the importance of keeping the system finite. For a finite system the above ratio can be controlled to be small by increasing the density $n_B$. 
+We fit these functions to the data close to the critical temperatures by adjusting $\alpha_{ij}$. This results in the dashed lines in figure \ref{fig.maximalpairingsTdepend_2wires}, which fit near the critical temperatures as expected. 
+
+In conclusion, the presence of a second type of pairing changes the functional dependency on temperature and lowers the dominant pairing. However, the calculated temperature dependency of the pairings are \textit{not} reliable. This is due to the increasing phase fluctuations with increasing temperature. Significant steps beyond our current formalism must be taken to come with more reliable calculations of the temperature dependency. 
+

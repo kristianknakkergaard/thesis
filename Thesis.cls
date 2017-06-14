@@ -311,8 +311,6 @@
     \bigskip
     {\huge{\textit{Summary}} \par}
     \bigskip
-    {\normalsize \degreename\par} % Degree name
-    \bigskip
     {\normalsize\bf Topological superfluids in Fermi-Bose mixtures \par} % Thesis title
     \medskip
     {\normalsize by \authornames \par} % Author name

@@ -3,8 +3,9 @@
 \chapter{Long range order of the pairing phase} % Main appendix title
 
 \label{Appendix.longrangeorder.pairingphase} % For referencing this appendix elsewhere, use \ref{AppendixC}
+\fancyhead[LO, RE]{Part V. \emph{Appendices}}
 \chead{C. \emph{Long range order of the pairing phase}}
-\lhead{Part V. Appendices} 
+
 In this appendix we use a classical argument to show, that there is no true long range order of the pairing phase in one dimension. It is largely based on the formulation of Cardy \cite{Cardy.StatPhys}. 
 
 Let $\phi$ denote the phase of the pairing potential in real space $\Delta(x)$. We will investigate the effect of a spatial variation of $\phi = \phi(x)$. We let $\phi = 0$ be the assumed equilibrium value. For a truly ordered phase we expect that $\phi \ll 2\pi$. It therefore makes sense to infer a Hamiltonian in powers of $\phi$. The Hamiltonian is assumed not to depend on the phase itself. Therefore, to lowest order in $\phi$, the Hamiltonian associated with a spatially varying phase is: 
@@ -17,7 +18,7 @@ in $D$ spatial dimensions. There is no linear term $\nabla \phi$ present, becaus
 Z = \int D\phi(x) \; \text{e}^{-\beta H[\phi]}, 
 \label{eq.partitionfunction}
 \end{equation}
-where $\beta = 1 / k_BT$ is the inverse temperature. The symbol $\int D\phi(x)$ denotes a socalled functional integration, which is to be taken over all configurations of $\phi(x)$. We define the kernel $G^{-1}(x,x')$ as: 
+where $\beta = 1 / k_BT$ is the inverse temperature. The symbol $\int D\phi(x)$ denotes a so-called functional integration, which is to be taken over all configurations of $\phi(x)$. We define the kernel $G^{-1}(x,x')$ as: 
 \begin{equation}
 Z = \int D\phi(x)\; \text{e}^{-\frac{1}{2}\int d^{D}x\; d^{D}x' \; \phi(x)G^{-1}(x,x')\phi(x')} \nonumber
 \end{equation}
@@ -26,7 +27,7 @@ We can therefore extract the kernel by a partial integration of equation \eqref{
 \beta H[\phi] &= \frac{\beta K}{2}\int d^{D}x \; \left(\nabla \phi(x)\right)^2 = \frac{\beta K}{2}\left( \left.\phi\nabla\phi\right|_{\partial V} - \int d^{D}x \; \phi \nabla^2\phi \right) \nonumber \\
 &= \frac{\beta K}{2}\int d^{D}x\; d^{D}x'\; \phi(x')\left(-\delta^{(D)}(x - x')\nabla^2\right)\phi(x) \nonumber 
 \end{align}
-The boundary term $\left.\phi\nabla\phi\right|_{\partial V}$ vanishes, since we use periodic boundary conditions. The kernel is hereby: 
+The boundary term $\left.\phi\nabla\phi\right|_{\partial V}$ vanishes, since we use periodic boundary conditions. Thus the kernel is: 
 \begin{equation}
 G^{-1}(x,x') = -\beta K \delta^{(D)}(x - x')\nabla^2 \nonumber
 \end{equation}
@@ -34,7 +35,7 @@ This verifies, that the Hamiltonian of \eqref{eq.Hphi} leads to Gaussian distrib
 \begin{equation}
 \int d^{D}x' \; G^{-1}(x,x')G(x',x'') = \delta^{(D)}(x - x''). \nonumber
 \end{equation}
-Inserting the above we hereby get:
+Inserting the above we get:
 \begin{equation}
 \nabla^2G(x) = -\frac{1}{\beta K} \delta^{(D)}(x). \nonumber
 \end{equation}
@@ -65,11 +66,10 @@ In three dimensions the phase-phase correlation function approaches a constant i
 \begin{equation}
 G(x,x') - G(0) = -\frac{|x - x'|}{2\beta K}  \to -\frac{|x - x'|}{2\beta K \xi_s},  
 \end{equation}
-where we introduce the aforementioned length scale $\xi_s$. The phase-phase correlation function in one dimension is hereby exponentially damped:
+where we introduce the aforementioned length scale $\xi_s$. The phase-phase correlation function in one dimension is therefore exponentially damped:
 \begin{equation}
 \braket{ \text{e}^{i(\phi(x)- \phi(x'))} } = \text{e}^{G(x,x') - G(0)} = \text{e}^{-\frac{|x - x'|}{2\beta K \xi_s}}. 
 \label{eq.phasecorrelationfunction.onedimension} 
 \end{equation}
-
 A true long range order demands, that the above correlation function approached a constant as $|x - x'| \to \infty$, as is the case in three dimensions. However, as we discuss in the main text in chapter \ref{Chapter4}, if the length scale $\xi_s$ is macroscopically large, there are correlations over a macroscopic scale. The absence of true long range order in one and two dimensions is in accordance with the Mermin-Wagner-Hohenberg theorem \cite{Hohenberg.MerminWagnertheorem}. 
 

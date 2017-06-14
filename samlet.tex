@@ -28,9 +28,10 @@
 \documentclass[11pt, twoside]{Thesis} 
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage[backend=biber, sorting=none, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
+\usepackage[backend=biber, sorting=none, bibstyle=numeric, citestyle=numeric-comp, giveninits=true]{biblatex}
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+
   
 \bibliography{Bibliography}
 \usepackage{csquotes}
@@ -43,6 +44,7 @@
 \xpatchcmd{\@endpart}{\newpage}{}{}{}
 \makeatother
 
+\usepackage{dblfloatfix}
 \usepackage{float}
 \usepackage{color}
 
@@ -80,7 +82,8 @@
 
 % Define the page headers using the FancyHdr package and set up for one-sided printing
 \fancyhead{} % Clears all page headers and footers
-\rhead{\thepage} % Sets the right side header to show the page number
+\fancyhead[LE,RO]{\thepage} %alternates page number left even, right odd.
+% \rhead{\thepage} % Sets the right side header to show the page number
 \lhead{} % Clears the left side page header
 
 \pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
@@ -120,16 +123,15 @@
 {\supname} % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[0cm]
-\vspace{1.5cm}
+\vspace{2.5cm}
 \includegraphics[width=0.6\columnwidth]{1D3Dsketchfrontpage.eps} 
  
-\large \textit{Qualifying master's thesis}\\[0.1cm] % University requirement text
-\textit{at}\\[0.2cm]
+\large 
 \deptname \\ \facname \\[1cm] % Research group name and department name
 
 
  
-{\large \today} % Date
+{\large June 16, 2017} % Date
 
  
 \vfill
@@ -197,9 +199,9 @@
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-In this thesis we theoretically investigate the properties of Fermi-Bose mixtures, both in a 1D-3D mixed dimensional setup and in a pure 1D setup. First, we investigate two one-dimensional wires of gas constituted by identical fermions embedded in a three-dimensional Bose-Einstein condensate of identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result the fermions form a superfluid. This double wire system is then studied in a weak coupling limit in a mean field approach. The intra- and interwire interactions then respectively result in $p$- and $s$-wave pairing of the fermions. Hence, a system of interacting Kitaev wires is realised. We can control a $p$- to $s$-wave phase transition by adjusting the interwire distance. The separated wires with $p$-wave pairing are shown to have a topological ground state. In turn a single edge state emerge in each wire. As the interwire distance decreases the $s$-wave pairing becomes dominant and the system becomes topologically trivial. In turn the edge states vanish. We show, that for the energetically favourable transition the edge states couple and gap away. The bulk gap hereby remains open. Hence, the phase transition is nontopological. 
+In this thesis we theoretically investigate the properties of Fermi-Bose mixtures, both in a 1D-3D mixed dimensional setup and in a pure 1D setup. First, we investigate two one-dimensional wires of gas constituted by identical fermions embedded in a three-dimensional Bose-Einstein condensate of identical bosons. The fermions and bosons are assumed to interact through a point interaction. The surrounding condensate hereby induces an attractive interaction between the fermions. As a result, the fermions form a superfluid. This double wire system is then studied in a weak coupling limit in a mean field approach. The intra- and interwire interactions then respectively result in $p$- and $s$-wave pairing of the fermions. Hence, a system of interacting Kitaev wires is realised. We can control a $p$- to $s$-wave phase transition by adjusting the interwire distance. The separated wires with $p$-wave pairing are shown to have a topological ground state. In turn a single edge state emerge in each wire. As the interwire distance decreases the $s$-wave pairing becomes dominant and the system becomes topologically trivial. In turn the edge states vanish. We show that for the energetically favourable transition the edge states couple and in turn gradually gap away. Thus the bulk gap remains open. The phase transition is second order. 
 
-Second, in the pure 1D setup we investigate a Kitaev chain including next-nearest neigbour hopping in a one-dimensional Bose gas. For a high filling fraction and long interaction range we show, that it is possible to find phases with winding number larger than 1. As a result several edge states emerge.  
+Second, in the pure one-dimensional setup we investigate a Kitaev model of fermions in a 1D lattice with both nearest and next-nearest neighbour hopping. This is embedded within a 1D Bose gas. For a high filling fraction and long interaction range we show that it is possible to find phases with winding numbers larger than 1. As a result, several edge states emerge.  
 }
 
 %----------------------------------------------------------------------------------------
@@ -212,7 +214,7 @@ Second, in the pure 1D setup we investigate a Kitaev chain including next-neares
 \preface{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 The thesis is organised in the following way. Part I is introductory. We motivate the present work and come with a short summary of the most important ingredients of condensed matter physics for understanding the system at hand. In part II, chapters \ref{Chapter3} through \ref{Chapter6}, we investigate the double wire system. In part III, chapters \ref{Chapter7} and \ref{Chapter8}, we investigate the extended Kitaev chain supporting several edge states. In part IV we come with our conclusions. Finally, the supplementary material is listed in part V, appendices \ref{Appendix.intrawireinteraction.ltnonzero} to \ref{Appendix.groundstatedepletion.1DBosegas}. 
 
-I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I thank phD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. I also thank him for helping with illustrating the double wire system. I thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
+I would like to thank my supervisor, associate professor Georg Bruun, for his guidance and faith in me as a student. Throughout our collaboration he has been nothing but inspiring, enthusiastic and supportive. Further, I thank PhD student Jonatan Midtgaard for many frustrating but also interesting and illuminating discussions about the systems we both study. I also thank him for helping with illustrating the double wire system. I thank postdoc Zhigang Wu for his comments and thoughts, especially on the one-dimensional Bose gas. Finally, I would like to thank my love, Nana, for being ever so patient and interested.   
 }
 \clearpage
 %----------------------------------------------------------------------------------------
@@ -312,7 +314,8 @@ I would like to thank my supervisor, associate professor Georg Bruun, for his gu
 
 %\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
-\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO,RE]{\emph{Contents}} % Set the left side page header to "Contents"
 \tableofcontents % Write out the Table of Contents
 
 %\lhead{\emph{List of figures}} % Set the left side page header to "List of Figures"
@@ -328,6 +331,7 @@ I would like to thank my supervisor, associate professor Georg Bruun, for his gu
 \mainmatter % Begin numeric (1,2,3...) page numbering
 
 \pagestyle{fancy} % Return the page headers back to the "fancy" style
+\fancyhead[LE,RO]{\thepage}
 
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
@@ -340,7 +344,8 @@ I would like to thank my supervisor, associate professor Georg Bruun, for his gu
 \input{Chapters/Chapter2} 
 
 \part{Kitaev wires}
-In this second part we analyse the double wire system. The physical setup is the following. A uniform three-dimensional Bose-Einstein condensate is formed using a gas of cooled bosonic atoms. Embedded in this three-dimensional BEC, fermionic atoms on two one-dimensional wires is trapped. All the ingredients in this setup have been realised experimentally. Fermi-Bose mixtures and species selective optical traps have been reported \cite{Lamporesi.MixedDimensions, McKay.MixedTrapping, Jotzu.SpeciesSelectiveTrap}. The system is pictorially depicted in the below figure.
+\fancyhead[LE,RO]{\thepage}
+In this second part we analyse the double wire system. The physical setup is the following. A uniform three-dimensional Bose-Einstein condensate is formed using a gas of cooled bosonic atoms. Embedded in this three-dimensional BEC, fermionic atoms on two one-dimensional wires are trapped. All the ingredients in this setup have been realised experimentally. Fermi-Bose mixtures and species-selective optical traps have been reported \cite{Lamporesi.MixedDimensions, McKay.MixedTrapping, Jotzu.SpeciesSelectiveTrap}. The system is pictorially depicted in the below figure.
 
 \vspace{2.5cm}
 
@@ -358,7 +363,8 @@ In this second part we analyse the double wire system. The physical setup is the
 \input{Chapters/Chapter6} 
 
 \part{Kitaev chain and winding numbers larger than 1}
-In this third part we study an extended version of the Kitaev chain \cite{KitaevQuantumWires}. The fermions are arranged along a single wire in an optical lattice. We further assume, that the fermions both have significant nearest and next-nearest neighbour hopping. This can be achieved by shaking the lattice \cite{Liberto.ShakingOpticalLattice}. The Bose gas is one-dimensional. We expect that we can make the induced interaction longer range in this way. The motivation for studying this system is the following. In a recent article Alecce and Dell'Anna show, that in superfluid systems with both hopping and pairing to several neighbours, it is possible to get winding numbers larger than 1 \cite{Alecce.extendKitaev}. In turn several edge states at the ends of the chain emerge. We suspect, that we can achieve longer range hopping by increasing the range of the interaction. Hence, this system is a proposal of how to actually construct such a system. 
+\fancyhead[LE,RO]{\thepage}
+In part II, we analysed the properties of two wires in a 3D BEC. We saw that when the wires were far apart, they could realise the Kitaev model with non-trivial winding numbers $w = \pm 1$. In this third part we will show that by making the boson gas one-dimensional and trapping the fermions in an optical lattice and shaking it, we can realise a Kitaev model with topological winding numbers larger than 1. In turn several edge states at the ends of the lattice emerge. It is rare to find realistic proposals like this for realising such systems. The setup is shown in the figure below. 
 
 \vspace{2.5cm}
 
@@ -373,15 +379,15 @@ In this third part we study an extended version of the Kitaev chain \cite{Kitaev
 \input{Chapters/Chapter8}
 
 \part{Conclusions}
-\lhead{Part IV. \emph{Conclusions}}
+\fancyhead[LO, RE]{Part IV. \emph{Conclusions}}
+\fancyhead[LE,RO]{\thepage}
 \chead{}
-We have studied fermions in one dimension embedded in boson gasses. For the two parallel fermion wires in a three-dimensional Bose-Einstein condensate we have shown, that a point interaction between the fermions and bosons lead to an induced attractive interaction between the fermions of the Yukawa form in the weak-coupling limit. In a mean field approach we have found selfconsistent numerical solutions for the pairing and chemical potentials. The intrawire interaction is shown to lead to a $p$-wave pairing. In turn the uncoupled wires are shown to have a topologically nontrivial ground state. This is verified explicitly by finding an approximate solution for the resulting edge states at the ends of the wires. The interwire interaction is shown to lead to a competing $s$-wave pairing. The resulting Hamiltonian has the structure of a spin-$1/2$ system with $p$-wave pairing between identical spins and $s$-wave pairing between opposite spins. Hence, it describes interacting Kitaev wires. The competition between the pairings is shown to be controllable through the interwire distance or analogously the Bose-Einstein coherence length. 
+We have studied fermions in one dimension embedded in boson gasses. For the two parallel fermion wires in a three-dimensional Bose-Einstein condensate we have shown that a point interaction between the fermions and bosons lead to an induced attractive interaction between the fermions of the Yukawa form in the weak-coupling limit. In a BCS mean field approach we have found selfconsistent numerical solutions for the pairing and chemical potentials. The intrawire interaction is shown to lead to a $p$-wave pairing. In turn the uncoupled wires are shown to have a topologically nontrivial ground state. This is verified explicitly by finding an approximate solution for the resulting edge states at the ends of the wires. The interwire interaction is shown to lead to a competing $s$-wave pairing. The resulting Hamiltonian has the structure of a spin-$1/2$ system with $p$-wave intrawire pairing between identical spins and $s$-wave pairing between opposite spins. Hence, it describes interacting Kitaev wires. The competition between the pairings is shown to be controllable through the interwire distance or analogously the Bose-Einstein coherence length. 
 
-The edge states in each wire in for the uncoupled wires are shown to be Kramers partners in accordance with a time reversal symmetry, that squares to minus the identity. By calculating the topological invariant we show, that there are two possible and physically distinct configurations of the system. These configurations are different only in the phase of the interwire pairing. In one, as the wires are brought closer together, the interwire pairing chooses a phase, that obeys the time reversal symmetry. In turn a topological phase transition, where the bulk energy gap closes, must occur as the wires are brought closer together. In the other, the interwire pairing chooses a phase, that breaks the time reversal symmetry. The Kramers partners of edge states are then shown to couple and gain a nonzero energy. In a numerical analysis we find the selfconsistent solutions for the pairing and chemical potentials. We hereby show, that the configuration that breaks the time reversal symmetry is the energetically favourable. Using mean field theory, we therefore predict, that the two wire system will undergo a nontopological phase transition between a topological $p$-wave pairing and trivial $s$-wave pairing phase. This is the main result of the thesis. 
+The edge states in each wire for the uncoupled wires are shown to be Kramers partners in accordance with a time reversal symmetry that squares to minus the identity. By calculating the topological invariant we show that there are two physically distinct possibilities for how the system changes from being two topologically non-trivial Kitaev wires with $p$-wave pairing, when the wires are far apart, to a topologically trivial system with $s$-wave interwire pairing, when the wires are close. These two possibilities differ in the phase of the interwire pairing. In one, as the wires are brought closer together, the interwire pairing chooses a phase that obeys the time reversal symmetry with $T^2 = -\mathbb{I}$. In turn a topological phase transition, where the bulk energy gap closes, must occur as the wires are brought closer together. In the other, the interwire pairing chooses a phase that breaks the time reversal symmetry with $T^2 = -\mathbb{I}$. The Kramers partners of edge states are then shown to couple and thus become gapped. In a numerical analysis we find the selfconsistent solutions for the pairing and chemical potentials. We have thus shown that the configuration which breaks the time reversal symmetry with $T^2 = -\mathbb{I}$ is energetically favourable. Using mean field theory, we therefore predict that the double wire system will undergo a second order phase transition between a topologically non-trivial and trivial phase, where the edge states gradually become gapped without the bulk gap closing. This is one of the main results of the thesis. 
 
-Finally, we come with a proposal for a system exhibiting several Majorana edge states. This is a Kitaev chain of identical fermions with both nearest and next-nearest neighbour hopping. Further, the boson gas is made one-dimensional to make the interaction longer range. We show, that this leads to the possibility of dominant next-nearest neighbour pairing. In turn a phase with two edge states is realised. We further show, that this solution is not energetically favourable. Rather a pairing with dominant nearest neigbbour hopping is. However, the energy difference is only of a few percent. We therefore speculate, that it is possible to make the next-nearest neighbour pairing favourable by some perturbation to the system. 
+Finally, we come with a proposal for a system exhibiting several Majorana edge states. This is a Kitaev model of identical fermions in a one-dimensional lattice with both nearest and next-nearest neighbour hopping. Further, the boson gas is made one-dimensional to make the interaction longer range. We show that this leads to the possibility of dominant next-nearest neighbour pairing. In turn a phase with two edge states is realised. We show that this solution is unfortunately not energetically favourable. Rather a pairing with dominant nearest neigbbour pairing is. However, the energy difference is only of a few percent thanks to the long range interaction. We therefore speculate that it is possible to make the next-nearest neighbour pairing favourable by some perturbation to the system. 
 
-We emphasize, that the mean field approach is problematic for these one-dimensional systems. However, we speculate that in the long coherence length limit, the results will be qualitatively correct. 
 \newpage 
 
 %----------------------------------------------------------------------------------------
@@ -403,6 +409,7 @@ We emphasize, that the mean field approach is problematic for these one-dimensio
 \input{Appendices/AppendixE}
 \input{Appendices/AppendixF}
 \input{Appendices/AppendixG}
+\input{Appendices/AppendixH}
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 

@@ -17,7 +17,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="sketch.svg"
+   sodipodi:docname="1D3Dsketch.svg"
    inkscape:export-filename="/Users/jonat4n/Documents/PhD_Projekter/Bilayer:(p+ip)x(p-ip)/SystemSketch/sketch.png"
    inkscape:export-xdpi="400"
    inkscape:export-ydpi="400"
@@ -29,18 +29,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6929515"
-     inkscape:cx="315.48342"
-     inkscape:cy="407.46772"
+     inkscape:zoom="0.84647575"
+     inkscape:cx="270.29607"
+     inkscape:cy="312.95822"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="751"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
-     height="296mm" />
+     height="296mm"
+     showguides="false" />
   <defs
      id="defs4">
     <marker
@@ -3693,7 +3694,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4020,7 +4021,7 @@
          x="338.73837"
          y="919.05701">11</tspan></text>
     <ellipse
-       style="opacity:0.95;fill:#0000ff;fill-opacity:1;stroke:url(#radialGradient5209-5);stroke-width:1.58899999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.69047618;marker-end:url(#Arrow2Lend);filter:url(#filter5737)"
+       style="opacity:0.75;fill:#0000ff;fill-opacity:1;stroke:url(#radialGradient5209-5);stroke-width:1.58899999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.69047618;marker-end:url(#Arrow2Lend);filter:url(#filter5737)"
        id="path9965-6-3-2"
        cx="336.05695"
        cy="328.77905"
@@ -4039,7 +4040,7 @@
        inkscape:export-xdpi="400"
        inkscape:export-ydpi="400" />
     <ellipse
-       style="opacity:0.95;fill:#0000ff;fill-opacity:1;stroke:url(#radialGradient5209-5-7);stroke-width:1.58899999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.69047618;filter:url(#filter5737-5)"
+       style="opacity:0.75;fill:#0000ff;fill-opacity:1;stroke:url(#radialGradient5209-5-7);stroke-width:1.58899999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.69047618;filter:url(#filter5737-5)"
        id="path9965-6-3-2-3"
        cx="336.05695"
        cy="328.77905"

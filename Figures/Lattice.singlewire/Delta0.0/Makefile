@@ -17,6 +17,9 @@ xifilldepend.tex: xifilldepend Makefile
 'unset grid;       			   												'\
 'set tics out;       			   											'\
 'set palette defined (0 "white", 1 "red" );									'\
+'set label 1 "$$nu = 0$$" rotate 	center at graph 0.07, 0.7142857143 front; 	'\
+'set label 2 "$$nu = 0$$" rotate 	center at graph 0.93, 0.7142857143 front; 	'\
+'set label 3 "$$nu = 1$$" 	 		center at graph 0.50, 0.7142857143 front; 	'\
 'set ylabel "$$\xi / d$$";													'\
 'set xlabel "$$n$$";														'\
 'unset key;																	'\
@@ -25,8 +28,11 @@ xifilldepend.tex: xifilldepend Makefile
 'plot  [0:1][1:7]															'\
 ' "$<"  index 0 using 1:2:3 with image pixels;								'\
 'unset ylabel;																'\
+'set label 1 "$$nu = 0$$" 		 	center at graph 0.105, 0.7142857143 front; 	'\
+'set label 2 "$$nu = 0$$"  			center at graph 0.895, 0.7142857143 front; 	'\
+'set label 3 "$$nu = 1$$" 	 		center at graph 0.500, 0.7142857143 front; 	'\
 'set ytics format " "; 														'\
-'set title "$$nu = 8$$"; 													'\
+'set title "$$G = 8$$"; 													'\
 'plot  [0:1][1:7]															'\
 ' "$<"  index 1 using 1:2:3 with image pixels;								'\
 | gnuplot
