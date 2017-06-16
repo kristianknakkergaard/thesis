@@ -14,7 +14,7 @@ kdepend.tex: kandsitedepend Makefile
 'if (!exists("MP_TOP"))    MP_TOP = .825; 	'\
 'if (!exists("MP_GAP"))    MP_GAP = .05; 	'\
 'set  multiplot layout 1,2 rowsfirst margins screen MP_LEFT, MP_RIGHT, MP_BOTTOM, MP_TOP spacing screen MP_GAP; '\
-'set grid;       			   		'\
+'set grid lw 2;       			   		'\
 'set tics out;       			    '\
 'set xtics -pi, pi/2, pi; 			'\
 'set xlabel "$$kd$$";				'\
@@ -40,7 +40,7 @@ sitedepend.tex: kandsitedepend Makefile
 	echo \
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
-'set grid;       			   		'\
+'set grid lw 2;       			   		'\
 'set tics out;       			    '\
 'set xlabel "$$k/k_F$$"; 		    '\
 'set ylabel "$$Delta_k/epsilon_{F,0}$$";'\

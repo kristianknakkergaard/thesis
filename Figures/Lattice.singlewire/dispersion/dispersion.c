@@ -21,7 +21,7 @@ main (void)
 {
   double t1 = 1.0; 
   double t2 = 1.0; 
-  double dk = 0.001;
+  double dk = 0.00001;
   double mu1 = -0.5, mu2 = 0.5;
 
   printf("%s \t %s \t %s \t %s \t %s \n", "k", "epsilonk1", "epsilonk2", "Delta1k", "Delta2k" );

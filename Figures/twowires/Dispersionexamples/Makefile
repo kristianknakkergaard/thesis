@@ -14,7 +14,7 @@ kdepend.tex: kdepend Makefile
 'if (!exists("MP_TOP"))    MP_TOP = .9; 	'\
 'if (!exists("MP_GAP"))    MP_GAP = .1; 	'\
 'set  multiplot layout 1,2 rowsfirst margins screen MP_LEFT, MP_RIGHT, MP_BOTTOM, MP_TOP spacing screen MP_GAP; '\
-'set grid;  																'\
+'set grid lw 2;  															'\
 'set tics out;       			    										'\
 'set key top right Left;													'\
 'set key opaque width -10;													'\
@@ -27,22 +27,22 @@ kdepend.tex: kdepend Makefile
 'set ylabel "$$E / \epsilon_{F,0}$$";													'\
 'set title "$$Imaginary interwire pairing $$"; 											'\
 'plot [-1.5:1.5][0:1.5]																		'\
-' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lc rgb "black"	'\
-',"$<" index 0    using 1:3 title "$$E_{F,k}$$" with lines lc rgb "red";    			'\
+' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lw 2 lc rgb "black"	'\
+',"$<" index 0    using 1:3 title "$$E_{F,k}$$" with lines lw 2 lc rgb "red";    			'\
 'set ytics format " "; 														'\
 'unset ylabel; 																'\
 'set title "$$Real interwire pairing $$"; 												'\
 'plot [-1.5:1.5][0:1.5]																		'\
-' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lc rgb "black"	'\
-',"$<" index 0    using 1:4 title "$$E^{+}_{F,k}$$" with lines lc rgb "red"				'\
-',"$<" index 0    using 1:5 title "$$E^{-}_{F,k}$$" with lines lc rgb "blue";			'\
+' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lw 2 lc rgb "black"	'\
+',"$<" index 0    using 1:4 title "$$E^{+}_{F,k}$$" with lines lw 2 lc rgb "red"				'\
+',"$<" index 0    using 1:5 title "$$E^{-}_{F,k}$$" with lines lw 2 lc rgb "blue";			'\
 | gnuplot
 
 kdepend1.tex: kdepend Makefile
 	echo \
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
-'set grid;       			   		'\
+'set grid lw 2;       			   		'\
 'set tics out;       			    '\
 'set xlabel "$$k/k_F$$"; 		    '\
 'set ylabel "$$E_{F,k}/epsilon_{F,0}$$";'\
@@ -53,7 +53,7 @@ kdepend1.tex: kdepend Makefile
 'set title "$$Imaginary interwire pairing $$"; 			'\
 'plot [-2:2][0:3]			'\
 ' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lw 2 lc rgb "black"'\
-',"$<" index 0    using 1:3 title "$$E_{F,k}$$" with lines lc rgb "red"'\
+',"$<" index 0    using 1:3 title "$$E_{F,k}$$" with lines lw 2 lc rgb "red"'\
 | gnuplot
 
 kdepend2.tex: kdepend Makefile
@@ -71,8 +71,8 @@ kdepend2.tex: kdepend Makefile
 'set title "$$Real interwire pairing $$"; 			'\
 'plot [-2:2][0:3]			'\
 ' "$<" index 0    using 1:2 title "$$|\varepsilon_k|$$" with lines lw 2 lc rgb "black"'\
-',"$<" index 0    using 1:4 title "$$E^{+}_{F,k}$$" with lines lc rgb "red"'\
-',"$<" index 0    using 1:5 title "$$E^{-}_{F,k}$$" with lines lc rgb "blue"'\
+',"$<" index 0    using 1:4 title "$$E^{+}_{F,k}$$" with lines lw 2 lc rgb "red"'\
+',"$<" index 0    using 1:5 title "$$E^{-}_{F,k}$$" with lines lw 2 lc rgb "blue"'\
 | gnuplot
 
 

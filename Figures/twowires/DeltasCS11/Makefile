@@ -8,16 +8,16 @@ CS11depend.tex: ddepend Makefile
 	echo \
 'set terminal epslatex; 			'\
 'set output "$@"; 			   		'\
-'set grid;       			   		'\
+'set grid lw 2;       			   		'\
 'set tics out;       			    '\
 'set xlabel "$$k_Fd$$"; 		    '\
 'set ylabel "$$CS_{1,1}$$";         '\
 'set key top right Left;				    '\
 'set key width -6.5;				'\
 'plot  [0.74:0.775][0:1.2]			'\
-' "$<" index 0  using 1:6 title "$$Interwire pairing imaginary$$" with lines lc rgb "red"'\
-',"$<" index 1  using 1:6 notitle with lines lc rgb "red"'\
-',"$<" index 2  using 1:2 title "$$Interwire pairing real$$" with lines lc rgb "blue"'\
+' "$<" index 0  using 1:6 title "$$Interwire pairing imaginary$$" with lines lw 2 lc rgb "red"'\
+',"$<" index 1  using 1:6 notitle with lines lw 2 lc rgb "red"'\
+',"$<" index 2  using 1:2 title "$$Interwire pairing real$$" with lines lw 2 lc rgb "blue"'\
 | gnuplot
 
 clean:

@@ -8,7 +8,7 @@ InducedInteraction.tex: data makefile
 	echo \
 'set terminal epslatex color solid ; 	'\
 'set output "$@"; 			   			'\
-'set grid;       			   			'\
+'set grid lw 2;       			   			'\
 'set tics out;       			   		'\
 'set key top right Left; 				'\
 'set key width -2; 						'\
@@ -17,9 +17,9 @@ InducedInteraction.tex: data makefile
 'set ylabel "$$2m_F/k_F W_{FF}^\text{ind}(k_F,k_F)$$"; 	   '\
 'set arrow from 0.6447,-2.5 to 0.6447,0 nohead dt 2 lw 2 lc rgb "black"; '\
 'plot [0:1.5][-2.5:0] 		   '\
-'0 notitle with lines lc rgb "black" '\
-', "$<" index 0 using 1:2 title "$$Intrawire$$" with lines lc rgb "red" '\
-', "$<" index 0 using 1:3 title "$$Interwire$$" with lines lc rgb "blue" '\
+'0 notitle with lines lw 2 lc rgb "black" '\
+', "$<" index 0 using 1:2 title "$$Intrawire$$" with lines lw 2 lc rgb "red" '\
+', "$<" index 0 using 1:3 title "$$Interwire$$" with lines lw 2 lc rgb "blue" '\
 | gnuplot
 
 data log: InducedInteraction

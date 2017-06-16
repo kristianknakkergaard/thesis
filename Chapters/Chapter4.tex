@@ -178,7 +178,7 @@ There are mainly two reasons, why we would like to be able to use the mean field
 \section{Effective BCS Hamiltonian} \label{sec.HFFfull}
 We will now write down the effective BCS Hamiltonian for the fermions. The free particle Hamiltonian for the fermions is: $H_{0,1} + H_{0,2} = \sum_{j,k}\frac{k^2}{2m_F}c^\dagger_{j,k}c_{j,k}$, giving the kinetic energy of the fermions. When the interaction part is treated within BCS theory, it is not number conserving, since it contains terms like $c^\dagger c^\dagger$. Instead we impose diffusive equilibrium by subtracting $\mu_1N_{1,F}+\mu_2N_{2,F}$. $\mu_j$ is the chemical potential of wire $j$ and $N_{j,F} = \sum_k c^\dagger_{j,k}c_{j,k}$ is the number operator for the $j$ fermions. We consequently get the following Hamiltonian:
 \begin{align}
-H_{FF} = &\sum_j \left[H_{0,j} - \mu_j N_{j,F}\right] + H^\text{int}_{FF,11} + H^\text{int}_{FF,22} + H^\text{int}_{FF,12} \nonumber \\
+H_{FF} = &\sum_j \left[H_{0,j} - \mu_j N_{j,F}\right] + H^{\text{int},11}_{FF} + H^{\text{int},22}_{FF} + H^{\text{int},12}_{FF} \nonumber \\
        = &\frac{1}{2}\sum_k C^\dagger_k \mathcal{H}_{FF,k}C_k + \tilde{\Phi}, 
 \label{eq.BCSHamiltonian}
 \end{align}

@@ -25,26 +25,26 @@ kdepend.tex: kdepend Makefile
 'unset xlabel;																'\
 'set title "$$nu = 1$$" offset -8.0, -2.5;							'\
 'plot  [-pi:pi][-3:3]												'\
-' "$<"  using 1:2 notitle with lines lc rgb "blue"							'\
-',"$<"  using 1:4 notitle with lines lc rgb "red";							'\
+' "$<"  using 1:2 notitle with lines lw 2 lc rgb "blue"							'\
+',"$<"  using 1:4 notitle with lines lw 2 lc rgb "red";							'\
 'unset ylabel;																'\
 'set ytics format " ";														'\
 'set title "$$nu = 1$$"; 											'\
 'plot  [-pi:pi][-3:3]												'\
-' "$<"  using 1:2 notitle with lines lc rgb "blue"							'\
-',"$<"  using 1:5 notitle with lines lc rgb "red";							'\
+' "$<"  using 1:2 notitle with lines lw 2 lc rgb "blue"							'\
+',"$<"  using 1:5 notitle with lines lw 2 lc rgb "red";							'\
 'set ylabel "$$\varepsilon_k, \Delta_k$$";									'\
 'set xlabel "$$kd$$"; 		   								 				'\
 'set title "$$nu = 0$$"; 											'\
 'plot  [-pi:pi][-3:3]												'\
-' "$<"  using 1:3 notitle with lines lc rgb "blue"							'\
-',"$<"  using 1:4 notitle with lines lc rgb "red";							'\
+' "$<"  using 1:3 notitle with lines lw 2 lc rgb "blue"							'\
+',"$<"  using 1:4 notitle with lines lw 2 lc rgb "red";							'\
 'unset ylabel;																'\
 'set ytics format " ";														'\
 'set title "$$nu = 2$$"; 											'\
 'plot  [-pi:pi][-3:3]												'\
-' "$<"  using 1:3 notitle with lines lc rgb "blue"							'\
-',"$<"  using 1:5 notitle with lines lc rgb "red";     						'\
+' "$<"  using 1:3 notitle with lines lw 2 lc rgb "blue"							'\
+',"$<"  using 1:5 notitle with lines lw 2 lc rgb "red";     						'\
 'unset multiplot; 															'\
 | gnuplot
 

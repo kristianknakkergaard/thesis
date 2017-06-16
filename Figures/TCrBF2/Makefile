@@ -8,13 +8,13 @@ TCrBF.tex: TCrBF.txt Makefile
 	echo \
 'set terminal epslatex solid; '\
 'set output "$@"; 			   '\
-'set grid;       			   '\
+'set grid lw 2;       			   '\
 'set tics out;       			   '\
 'set xlabel "$$T/T_F$$"; 		   '\
 'set ylabel "$$(n_Ba_{BF}^3)^{1/3}$$";   	   '\
 'plot [0:0.1][0:0.13] 		   '\
-'0 notitle with lines lc rgb "black" '\
-',"$<" index 1  using 1:2 notitle with lines lc rgb "black"'\
+'0 notitle with lines lw 2 lc rgb "black" '\
+',"$<" index 1  using 1:2 notitle with lines lw 2 lc rgb "black"'\
 | gnuplot
 
 clean:
